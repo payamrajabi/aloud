@@ -1,0 +1,118 @@
+import Foundation
+import NaturalLanguage
+
+/// One piece of text that is synthesized and played as a unit.
+struct Chunk {
+    let range: NSRange      // location in the displayed text (UTF-16)
+    let speech: String      // what is actually sent to the voice model
+    let pauseAfter: Double  // seconds of silence after this chunk
+}
+
+enum TextPrep {
+    static let maxChunkLength = 280
+
+    /// Normalizes copied text: line endings, hard-wrapped lines, extra spaces.
+    static func clean(_ raw: String) -> String {
+        var s = raw
+            .replacingOccurrences(of: "\r\n", with: "\n")
+            .replacingOccurrences(of: "\r", with: "\n")
+            .replacingOccurrences(of: "\u{00A0}", with: " ")
+            .replacingOccurrences(of: "\u{00AD}", with: "")
+        func sub(_ pattern: String, _ template: String) {
+            s = s.replacingOccurrences(of: pattern, with: template, options: .regularExpression)
+        }
+        sub("[ \\t]+", " ")
+        sub(" *\\n *", "\n")
+        // A single line break followed by a lowercase letter is a hard wrap (PDFs, emails).
+        sub("([^\\n])\\n(?=[a-z])", "$1 ")
+        sub("\\n{3,}", "\n\n")
+        return s.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    static func chunks(for text: String) -> [Chunk] {
+        let ns = text as NSString
+        var result: [Chunk] = []
+        let tokenizer = NLTokenizer(unit: .sentence)
+
+        ns.enumerateSubstrings(in: NSRange(location: 0, length: ns.length), options: .byParagraphs) { para, paraRange, _, _ in
+            guard let para, hasWords(para) else { return }
+            tokenizer.string = para
+            var sentences: [NSRange] = []
+            tokenizer.enumerateTokens(in: para.startIndex..<para.endIndex) { r, _ in
+                let local = NSRange(r, in: para)
+                sentences.append(NSRange(location: paraRange.location + local.location, length: local.length))
+                return true
+            }
+            if sentences.isEmpty { sentences = [paraRange] }
+
+            var pieces: [(NSRange, Bool)] = []  // (range, ends a sentence)
+            for sentence in sentences {
+                let parts = split(sentence, in: ns)
+                for (k, part) in parts.enumerated() {
+                    pieces.append((part, k == parts.count - 1))
+                }
+            }
+            let speakable = pieces.compactMap { range, endsSentence -> (NSRange, String, Bool)? in
+                let trimmed = trim(range, in: ns)
+                guard trimmed.length > 0 else { return nil }
+                let speech = speechText(ns.substring(with: trimmed))
+                guard hasWords(speech) else { return nil }
+                return (trimmed, speech, endsSentence)
+            }
+            for (k, item) in speakable.enumerated() {
+                let pause: Double = k == speakable.count - 1 ? 0.5 : (item.2 ? 0.22 : 0.08)
+                result.append(Chunk(range: item.0, speech: item.1, pauseAfter: pause))
+            }
+        }
+        return result
+    }
+
+    /// Splits overly long sentences at commas, semicolons, dashes or spaces.
+    private static func split(_ range: NSRange, in ns: NSString) -> [NSRange] {
+        var out: [NSRange] = []
+        var start = range.location
+        let end = NSMaxRange(range)
+        while end - start > maxChunkLength {
+            let window = NSRange(location: start + maxChunkLength / 2, length: maxChunkLength / 2)
+            var cut = -1
+            for mark in ["; ", ": ", " — ", " – ", ", "] {
+                let r = ns.range(of: mark, options: .backwards, range: window)
+                if r.location != NSNotFound { cut = NSMaxRange(r); break }
+            }
+            if cut < 0 {
+                let r = ns.range(of: " ", options: .backwards, range: window)
+                cut = r.location != NSNotFound ? NSMaxRange(r) : start + maxChunkLength
+            }
+            out.append(NSRange(location: start, length: cut - start))
+            start = cut
+        }
+        if end > start { out.append(NSRange(location: start, length: end - start)) }
+        return out
+    }
+
+    private static func trim(_ range: NSRange, in ns: NSString) -> NSRange {
+        var start = range.location
+        var end = NSMaxRange(range)
+        let ws = CharacterSet.whitespacesAndNewlines
+        while start < end, let u = Unicode.Scalar(ns.character(at: start)), ws.contains(u) { start += 1 }
+        while end > start, let u = Unicode.Scalar(ns.character(at: end - 1)), ws.contains(u) { end -= 1 }
+        return NSRange(location: start, length: end - start)
+    }
+
+    /// Light cleanup of what gets spoken (the display text is untouched).
+    static func speechText(_ s: String) -> String {
+        var t = s
+        func sub(_ pattern: String, _ template: String) {
+            t = t.replacingOccurrences(of: pattern, with: template, options: .regularExpression)
+        }
+        sub("https?://\\S+", "link")
+        sub("\\[\\d+(,\\s*\\d+)*\\]", "")      // citation markers like [12]
+        sub("[*#`~|>•▪●◦]+", " ")             // markdown and bullet symbols
+        sub("\\s+", " ")
+        return t.trimmingCharacters(in: .whitespaces)
+    }
+
+    private static func hasWords(_ s: String) -> Bool {
+        s.unicodeScalars.contains { CharacterSet.alphanumerics.contains($0) }
+    }
+}
