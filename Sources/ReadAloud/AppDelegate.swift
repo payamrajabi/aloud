@@ -1,12 +1,15 @@
 import AppKit
+import Combine
 import ServiceManagement
 
 final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private let model = PlayerModel()
-    private lazy var player = PlayerWindowController(model: model)
+    private(set) lazy var player = PlayerPopover(model: model) { [weak self] in self?.showSettingsMenu() }
     private var statusItem: NSStatusItem!
+    private let iconView = StatusIconView()
+    private let settingsMenu = NSMenu()
     private var hotKey: HotKey?
-    private var accessibilityTimer: Timer?
+    private var observers: Set<AnyCancellable> = []
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         setUpStatusItem()
@@ -16,7 +19,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         if !SelectionReader.isTrusted && !DebugScript.isActive {
             SelectionReader.requestAccess()
         }
-        DebugScript.run(model: model, player: player)
+        DebugScript.run(model: model, app: self)
     }
 
     // MARK: - Reading
@@ -24,31 +27,51 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     @objc func readSelection() {
         guard SelectionReader.isTrusted else {
             model.message = "Read Aloud needs Accessibility access to read your selection. Turn it on in System Settings → Privacy & Security → Accessibility, then try again."
-            player.show()
+            showPlayer()
             SelectionReader.requestAccess()
             return
         }
+        // Reads in the background; the player only opens from the menu bar icon.
         SelectionReader.read { [weak self] text in
             guard let self else { return }
             let selection = text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-            if !selection.isEmpty {
-                let same = selection == self.model.sourceText.trimmingCharacters(in: .whitespacesAndNewlines)
-                if same && self.model.hasSession && self.player.isVisible {
-                    self.model.togglePlay()
-                } else {
-                    self.model.load(selection)
-                }
-                self.player.show()
+            let current = self.model.sourceText.trimmingCharacters(in: .whitespacesAndNewlines)
+            if !selection.isEmpty && !(selection == current && self.model.hasSession) {
+                self.model.load(selection)
+                if self.model.message != nil && !self.model.hasSession { self.showPlayer() }
             } else if self.model.hasSession {
                 self.model.togglePlay()
-                self.player.show()
             } else {
                 NSSound.beep()
             }
         }
     }
 
-    @objc private func showPlayer() { player.show() }
+    var statusButton: NSStatusBarButton? { statusItem.button }
+
+    @objc func showPlayer() {
+        guard let button = statusItem.button else { return }
+        player.show(from: button)
+    }
+
+    @objc private func statusItemClicked(_ sender: NSStatusBarButton) {
+        let event = NSApp.currentEvent
+        if event?.type == .rightMouseUp || event?.modifierFlags.contains(.control) == true {
+            showSettingsMenu()
+        } else if player.isShown {
+            player.close()
+        } else {
+            showPlayer()
+        }
+    }
+
+    private func showSettingsMenu() {
+        player.close()
+        guard let button = statusItem.button else { return }
+        statusItem.menu = settingsMenu      // attach briefly so the menu drops from the icon
+        button.performClick(nil)
+        statusItem.menu = nil
+    }
 
     // MARK: - Shortcut
 
@@ -70,11 +93,26 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     // MARK: - Menu bar
 
     private func setUpStatusItem() {
-        statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-        statusItem.button?.image = NSImage(systemSymbolName: "waveform", accessibilityDescription: "Read Aloud")
-        let menu = NSMenu()
-        menu.delegate = self
-        statusItem.menu = menu
+        statusItem = NSStatusBar.system.statusItem(withLength: 26)
+        guard let button = statusItem.button else { return }
+        button.setAccessibilityLabel("Read Aloud")
+        button.toolTip = "Read Aloud — click for the player, right-click for settings"
+        button.target = self
+        button.action = #selector(statusItemClicked(_:))
+        button.sendAction(on: [.leftMouseUp, .rightMouseUp])
+        iconView.frame = button.bounds
+        iconView.autoresizingMask = [.width, .height]
+        button.addSubview(iconView)
+        settingsMenu.delegate = self
+
+        // Reflect playback state in the icon.
+        Publishers.CombineLatest3(model.$isPlaying, model.$isBuffering, model.$chunkRanges)
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in
+                guard let self else { return }
+                self.iconView.status = self.model.status
+            }
+            .store(in: &observers)
     }
 
     func menuNeedsUpdate(_ menu: NSMenu) {
@@ -85,6 +123,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         read.target = self
         menu.addItem(read)
         let show = NSMenuItem(title: "Show Player", action: #selector(showPlayer), keyEquivalent: "")
+        show.isEnabled = true
         show.target = self
         menu.addItem(show)
         menu.addItem(.separator())
@@ -162,7 +201,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             if service.status == .enabled { try service.unregister() } else { try service.register() }
         } catch {
             model.message = "Couldn't change the login setting: \(error.localizedDescription)"
-            player.show()
+            showPlayer()
         }
     }
 

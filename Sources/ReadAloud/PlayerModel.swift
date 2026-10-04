@@ -58,6 +58,14 @@ final class PlayerModel: ObservableObject {
         audio.onConfigurationChange = { [weak self] in self?.audioRouteChanged() }
     }
 
+    enum Status { case idle, loading, playing, paused }
+
+    var status: Status {
+        guard hasSession else { return .idle }
+        if !isPlaying { return .paused }
+        return isBuffering ? .loading : .playing
+    }
+
     var isMuted: Bool {
         get { audio.volume == 0 }
         set { audio.volume = newValue ? 0 : 1 }
@@ -134,6 +142,7 @@ final class PlayerModel: ObservableObject {
         isBuffering = false
         token += 1
         audio.node.stop()
+        audio.engine.pause()  // release the output device while paused
     }
 
     func seek(to seconds: Double) {
@@ -148,7 +157,7 @@ final class PlayerModel: ObservableObject {
             resumePoint = (i, fraction)
             currentIndex = i
             position = t
-            synth.prioritize(i)
+            updateWindow()
         }
     }
 
@@ -179,6 +188,7 @@ final class PlayerModel: ObservableObject {
         rate = r
         audio.rate = r
         UserDefaults.standard.set(r, forKey: "rate")
+        if hasSession { updateWindow() }
     }
 
     func setVoice(_ v: Voice) {
@@ -212,7 +222,7 @@ final class PlayerModel: ObservableObject {
         lastPoint = resumePoint
         currentIndex = index
         position = starts[index] + fraction * chunkDuration(index)
-        synth.prioritize(index)
+        updateWindow()
 
         guard let buffer = buffers[index] else {
             isBuffering = true
@@ -270,10 +280,26 @@ final class PlayerModel: ObservableObject {
         log("finished()")
         token += 1
         audio.node.stop()
+        audio.engine.pause()
         isPlaying = false
         isBuffering = false
         position = duration
         resumePoint = (0, 0)
+    }
+
+    /// Keeps generation just ahead of the listener: the current sentence plus
+    /// enough following sentences to cover `lookahead` seconds (at least two).
+    private func updateWindow() {
+        guard hasSession else { return }
+        let from = currentIndex
+        let lookahead = max(25, 12 * Double(rate))
+        var end = from
+        var ahead = 0.0
+        while end < chunks.count - 1 && (ahead < lookahead || end < from + 2) {
+            ahead += chunkDuration(end)
+            end += 1
+        }
+        synth.setWindow(from...end)
     }
 
     private func chunkReady(session s: Int, index: Int, samples: [Float]) {
@@ -304,7 +330,10 @@ final class PlayerModel: ObservableObject {
     private func tick() {
         guard isPlaying, !isBuffering, let point = nodePoint() else { return }
         lastPoint = point
-        if point.index != currentIndex { currentIndex = point.index }
+        if point.index != currentIndex {
+            currentIndex = point.index
+            updateWindow()
+        }
         position = starts[point.index] + point.fraction * chunkDuration(point.index)
     }
 

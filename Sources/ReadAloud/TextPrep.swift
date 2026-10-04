@@ -64,7 +64,34 @@ enum TextPrep {
                 result.append(Chunk(range: item.0, speech: item.1, pauseAfter: pause))
             }
         }
+        splitOpening(&result, in: ns)
         return result
+    }
+
+    /// Each chunk costs ~0.4 s to start generating plus time proportional to its
+    /// length, so a long first sentence delays the start. Split its opening
+    /// words off at a natural break so the first audio arrives in about half a second.
+    private static func splitOpening(_ chunks: inout [Chunk], in ns: NSString) {
+        guard let first = chunks.first, first.range.length > 90 else { return }
+        let r = first.range
+        let search = NSRange(location: r.location + 25, length: min(60, r.length - 45))
+        var cut = Int.max
+        for mark in [", ", "; ", ": ", " — ", " – ", " ("] {
+            let m = ns.range(of: mark, options: [], range: search)
+            if m.location != NSNotFound { cut = min(cut, mark == " (" ? m.location + 1 : NSMaxRange(m)) }
+        }
+        if cut == Int.max {
+            let m = ns.range(of: " ", options: .backwards, range: NSRange(location: r.location + 25, length: 30))
+            guard m.location != NSNotFound else { return }
+            cut = NSMaxRange(m)
+        }
+        let a = trim(NSRange(location: r.location, length: cut - r.location), in: ns)
+        let b = trim(NSRange(location: cut, length: NSMaxRange(r) - cut), in: ns)
+        let speechA = speechText(ns.substring(with: a))
+        let speechB = speechText(ns.substring(with: b))
+        guard hasWords(speechA), hasWords(speechB) else { return }
+        chunks[0] = Chunk(range: a, speech: speechA, pauseAfter: 0.02)
+        chunks.insert(Chunk(range: b, speech: speechB, pauseAfter: first.pauseAfter), at: 1)
     }
 
     /// Splits overly long sentences at commas, semicolons, dashes or spaces.

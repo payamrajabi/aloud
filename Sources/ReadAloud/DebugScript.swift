@@ -6,7 +6,7 @@ import CSherpaOnnx
 ///   --read "text" | --read-file path                    open the player and read
 ///   --mute                                              silence output
 ///   --trace                                             print player state twice a second
-///   --script "2:seek=30;4:pause;5:play;9:snapshot=/tmp/p.png;10:quit"
+///   --script "2:seek=30;4:pause;5:play;8:open;9:snapshot=/tmp/p.png;10:quit"
 enum DebugScript {
     static let args = CommandLine.arguments
 
@@ -47,14 +47,11 @@ enum DebugScript {
         }
     }
 
-    static func run(model: PlayerModel, player: PlayerWindowController) {
+    static func run(model: PlayerModel, app: AppDelegate) {
         if args.contains("--mute") { model.isMuted = true }
         var text = value("--read")
         if let path = value("--read-file") { text = try? String(contentsOfFile: path, encoding: .utf8) }
-        if let text {
-            model.load(text)
-            player.show()
-        }
+        if let text { model.load(text) }
         if args.contains("--trace") {
             Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
                 print(String(format: "[%5.1f] ", Date().timeIntervalSince(start)) + model.debugDescription)
@@ -68,7 +65,7 @@ enum DebugScript {
             let action = parts[1]
             DispatchQueue.main.asyncAfter(deadline: .now() + at) {
                 print(String(format: "[%5.1f] >> %@", Date().timeIntervalSince(start), action))
-                perform(action, model: model, player: player)
+                perform(action, model: model, app: app)
                 fflush(stdout)
             }
         }
@@ -76,7 +73,7 @@ enum DebugScript {
 
     private static let start = Date()
 
-    private static func perform(_ action: String, model: PlayerModel, player: PlayerWindowController) {
+    private static func perform(_ action: String, model: PlayerModel, app: AppDelegate) {
         let kv = action.split(separator: "=", maxSplits: 1).map(String.init)
         let arg = kv.count > 1 ? kv[1] : ""
         switch kv[0] {
@@ -89,15 +86,18 @@ enum DebugScript {
         case "jump": model.jump(to: Int(arg) ?? 0)
         case "rate": model.setRate(Float(arg) ?? 1)
         case "voice": model.setVoice(Voice.with(key: arg))
-        case "snapshot": snapshot(player.panel, to: arg)
+        case "open": app.showPlayer()
+        case "close": app.player.close()
+        case "snapshot":
+            if let view = app.player.popover.contentViewController?.view { snapshot(view, to: arg) }
+        case "iconshot": if let b = app.statusButton { snapshot(b, to: arg) }
         case "quit": NSApp.terminate(nil)
         default: print("unknown action \(action)")
         }
     }
 
-    private static func snapshot(_ window: NSWindow, to path: String) {
-        guard let view = window.contentView?.superview ?? window.contentView,
-              let rep = view.bitmapImageRepForCachingDisplay(in: view.bounds) else { return }
+    private static func snapshot(_ view: NSView, to path: String) {
+        guard let rep = view.bitmapImageRepForCachingDisplay(in: view.bounds) else { return }
         view.cacheDisplay(in: view.bounds, to: rep)
         try? rep.representation(using: .png, properties: [:])?.write(to: URL(fileURLWithPath: path))
         print("snapshot saved to \(path)")

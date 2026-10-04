@@ -1,9 +1,9 @@
 import Foundation
 
-/// Generates audio for a list of text chunks on a background queue.
-/// Starts at a priority index and works forward, then fills in anything
-/// earlier. Every `begin` starts a new session; results from older sessions
-/// are tagged so the player can ignore them.
+/// Generates audio for a list of text chunks on a background queue, just in
+/// time: only chunks inside the current window (the playhead plus a short
+/// lookahead) are generated, in order. Every `begin` starts a new session;
+/// results from older sessions are tagged so the player can ignore them.
 final class Synthesizer {
     static let trace = CommandLine.arguments.contains("--trace")
     /// Called on the main queue: (session, chunk index, samples).
@@ -11,12 +11,12 @@ final class Synthesizer {
     /// Called on the main queue when the voice model can't be loaded.
     var onError: ((String) -> Void)?
 
-    private let queue = DispatchQueue(label: "readaloud.synth", qos: .userInitiated)
+    private let queue = DispatchQueue(label: "readaloud.synth", qos: .userInteractive)
     private let lock = NSLock()
     private var session = 0
     private var texts: [String] = []
     private var claimed = Set<Int>()
-    private var priority = 0
+    private var window = 0...0
     private var voice = Voice.default
     private var running = false
     private var engine: KokoroEngine?  // only touched on `queue`
@@ -33,18 +33,21 @@ final class Synthesizer {
         self.texts = texts
         self.voice = voice
         claimed = []
-        priority = index
+        window = index...index
         let s = session
         lock.unlock()
         kick()
         return s
     }
 
-    func prioritize(_ index: Int) {
+    /// Sets which chunks should exist: generation runs from the start of the
+    /// window to its end, then idles until the window moves.
+    func setWindow(_ range: ClosedRange<Int>) {
         lock.lock()
-        priority = index
+        let changed = range != window
+        window = range
         lock.unlock()
-        kick()
+        if changed { kick() }
     }
 
     func cancel() {
@@ -93,10 +96,9 @@ final class Synthesizer {
     }
 
     private func nextIndex() -> Int? {
-        guard !texts.isEmpty else { return nil }
-        let start = min(priority, texts.count)
-        for i in start..<texts.count where !claimed.contains(i) { return i }
-        for i in 0..<start where !claimed.contains(i) { return i }
+        guard !texts.isEmpty, window.lowerBound < texts.count else { return nil }
+        let end = min(window.upperBound, texts.count - 1)
+        for i in window.lowerBound...end where !claimed.contains(i) { return i }
         return nil
     }
 

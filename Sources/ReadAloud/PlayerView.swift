@@ -2,25 +2,45 @@ import SwiftUI
 
 struct PlayerView: View {
     @ObservedObject var model: PlayerModel
-    var onClose: () -> Void
+    var onMore: () -> Void
 
     var body: some View {
         VStack(spacing: 12) {
-            HStack {
-                Spacer()
+            HStack(spacing: 10) {
                 Text(model.hasSession ? "Sentence \(model.currentIndex + 1) of \(model.chunkRanges.count)" : "Read Aloud")
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .monospacedDigit()
+                Spacer()
+                if model.hasSession {
+                    Button { model.stop() } label: {
+                        Image(systemName: "stop.fill").font(.system(size: 11))
+                    }
+                    .buttonStyle(.plain)
+                    .foregroundStyle(.secondary)
+                    .help("Stop reading")
+                }
+                Button(action: onMore) {
+                    Image(systemName: "ellipsis.circle").font(.system(size: 13))
+                }
+                .buttonStyle(.plain)
+                .foregroundStyle(.secondary)
+                .help("Settings")
             }
-            .frame(height: 14)
+            .frame(height: 16)
             if model.hasSession {
                 SentenceTextView(text: model.text, ranges: model.chunkRanges, current: model.currentIndex) {
                     model.jump(to: $0)
                 }
                 .frame(minHeight: 90)
-                .background(RoundedRectangle(cornerRadius: 10).fill(.background.opacity(0.5)))
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .mask(
+                    LinearGradient(stops: [
+                        .init(color: .clear, location: 0),
+                        .init(color: .black, location: 0.06),
+                        .init(color: .black, location: 0.86),
+                        .init(color: .clear, location: 1),
+                    ], startPoint: .top, endPoint: .bottom)
+                )
             } else {
                 Spacer(minLength: 0)
                 Text("Select text in any app and press \(Shortcut.current.display).")
@@ -41,11 +61,9 @@ struct PlayerView: View {
             controls
         }
         .padding(.horizontal, 16)
-        .padding(.top, 9)
+        .padding(.top, 12)
         .padding(.bottom, 14)
-        .frame(minWidth: 380, minHeight: 230)
-        .background(.regularMaterial)
-        .ignoresSafeArea()
+        .frame(width: 420, height: 340)
     }
 
     private var controls: some View {

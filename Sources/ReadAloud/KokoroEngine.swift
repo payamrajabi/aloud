@@ -90,7 +90,7 @@ final class KokoroEngine {
         config.model.kokoro.lang = c(accent == .british ? "en" : "en-us")
         config.model.kokoro.length_scale = 1.0
         config.model.num_threads = Int32(threads)
-        config.model.provider = c("cpu")
+        config.model.provider = c(ProcessInfo.processInfo.environment["KOKORO_PROVIDER"] ?? "cpu")
         config.model.debug = ProcessInfo.processInfo.environment["SHERPA_DEBUG"] == nil ? 0 : 1
         config.max_num_sentences = 1
         config.silence_scale = 0.2
