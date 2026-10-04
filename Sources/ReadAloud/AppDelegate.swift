@@ -16,8 +16,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         registerHotKey()
         model.preload()
         enableLoginItemOnFirstLaunch()
-        if !SelectionReader.isTrusted && !DebugScript.isActive {
-            SelectionReader.requestAccess()
+        if !DebugScript.isActive {
+            if !UserDefaults.standard.bool(forKey: "didWelcome") {
+                // First launch: open the player so people see where it lives and how to start.
+                UserDefaults.standard.set(true, forKey: "didWelcome")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) { self.showPlayer() }
+            } else if !SelectionReader.isTrusted {
+                SelectionReader.requestAccess()
+            }
         }
         DebugScript.run(model: model, app: self)
     }

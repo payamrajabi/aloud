@@ -6,7 +6,9 @@ for the player, with the text and a scrubbable timeline. Speech is generated
 locally by [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) through
 [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx), so it's free and works offline.
 
-## Install
+**Website and download:** https://payamrajabi.github.io/readaloud/
+
+## Build it yourself
 
 ```bash
 ./scripts/setup.sh       # one time: downloads the speech library (19 MB) and voice model (333 MB)
@@ -43,7 +45,27 @@ Accessibility → Read Aloud).
 - `PlayerModel` schedules generated sentences on an `AVAudioEngine`; speed
   changes use a time-stretch unit, so the pitch stays natural.
 
-The model lives in `~/Library/Application Support/ReadAloud/models`.
+Developer builds read the model from `~/Library/Application Support/ReadAloud/models`;
+downloadable builds carry it inside the app.
+
+## Publishing a release
+
+```bash
+./scripts/release.sh 1.0.1
+```
+
+This builds the app with the model inside, wraps it in `ReadAloud.dmg`, and
+uploads it as a GitHub release. The website's download button always points
+at the latest release. Notarization with Apple runs automatically once a
+Developer ID Application certificate and saved notary credentials
+(`xcrun notarytool store-credentials readaloud ...`) exist on the Mac.
+
+The landing page lives in `docs/` and is served by GitHub Pages.
+
+## License
+
+MIT for this app's code. The download also bundles Kokoro, sherpa-onnx, ONNX
+Runtime and eSpeak NG under their own licenses; see THIRD-PARTY-NOTICES.md.
 
 ## Developer test modes
 

@@ -24,6 +24,7 @@ enum DebugScript {
         guard let text = value("--say") else { return }
         let voice = Voice.with(key: value("--voice"))
         do {
+            print("model: \(KokoroEngine.modelDirectory.path)")
             var t0 = Date()
             let engine = try KokoroEngine(accent: voice.accent)
             print(String(format: "model load: %.2fs", Date().timeIntervalSince(t0)))
@@ -49,6 +50,7 @@ enum DebugScript {
 
     static func run(model: PlayerModel, app: AppDelegate) {
         if args.contains("--mute") { model.isMuted = true }
+        if args.contains("--dark") { NSApp.appearance = NSAppearance(named: .darkAqua) }
         var text = value("--read")
         if let path = value("--read-file") { text = try? String(contentsOfFile: path, encoding: .utf8) }
         if let text { model.load(text) }

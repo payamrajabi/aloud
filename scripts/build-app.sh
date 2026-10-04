@@ -1,5 +1,9 @@
 #!/bin/zsh
 # Builds Read Aloud.app, signs it, installs it to /Applications and launches it.
+# Options (environment variables):
+#   VERSION=1.2.0    version number shown in Finder
+#   BUNDLE_MODEL=1   put the voice model inside the app (for builds other people download)
+#   INSTALL=0        build only; don't install or launch
 set -euo pipefail
 
 ROOT="${0:A:h:h}"
@@ -8,7 +12,7 @@ cd "$ROOT"
 
 APP_NAME="Read Aloud"
 BUNDLE_ID="co.payamrajabi.readaloud"
-VERSION="1.0"
+VERSION="${VERSION:-1.0.0}"
 APP="build/$APP_NAME.app"
 DEST="/Applications/$APP_NAME.app"
 
@@ -35,6 +39,15 @@ if [[ ! -f build/AppIcon.icns ]]; then
   iconutil -c icns "$ICONSET" -o build/AppIcon.icns
 fi
 cp build/AppIcon.icns "$APP/Contents/Resources/AppIcon.icns"
+cp LICENSE THIRD-PARTY-NOTICES.md "$APP/Contents/Resources/"
+
+if [[ "${BUNDLE_MODEL:-0}" == 1 ]]; then
+  MODEL="$HOME/Library/Application Support/ReadAloud/models/kokoro-multi-lang-v1_0"
+  [[ -f "$MODEL/model.onnx" ]] || ./scripts/setup.sh
+  echo "Bundling voice model..."
+  # dict/ and the .fst files are only used for Chinese text normalization, which we don't configure.
+  rsync -a --exclude dict --exclude '*.fst' "$MODEL" "$APP/Contents/Resources/"
+fi
 
 cat > "$APP/Contents/Info.plist" <<PLIST
 <?xml version="1.0" encoding="UTF-8"?>
@@ -56,13 +69,26 @@ cat > "$APP/Contents/Info.plist" <<PLIST
 </plist>
 PLIST
 
-# Sign with the Apple Development certificate if present so macOS remembers the
-# Accessibility permission across rebuilds; otherwise fall back to ad-hoc signing.
-IDENTITY=$(security find-identity -v -p codesigning | grep -m1 "Apple Development" | sed -E 's/.*"(.*)"/\1/' || true)
+# Prefer a Developer ID certificate (required for Apple notarization), then the
+# Apple Development certificate (so macOS remembers the Accessibility permission
+# across rebuilds), then ad-hoc signing.
+IDENTITIES=$(security find-identity -v -p codesigning)
+IDENTITY=$(echo "$IDENTITIES" | grep -m1 "Developer ID Application" | sed -E 's/.*"(.*)"/\1/' || true)
+TIMESTAMP="--timestamp"
+if [[ -z "$IDENTITY" ]]; then
+  IDENTITY=$(echo "$IDENTITIES" | grep -m1 "Apple Development" | sed -E 's/.*"(.*)"/\1/' || true)
+  TIMESTAMP="--timestamp=none"
+fi
 IDENTITY=${IDENTITY:--}
 echo "Signing with: $IDENTITY"
-codesign --force --timestamp=none --options runtime -s "$IDENTITY" "$APP/Contents/Frameworks/"*.dylib
-codesign --force --timestamp=none --options runtime -s "$IDENTITY" "$APP"
+echo "$IDENTITY" > build/signing-identity
+codesign --force $TIMESTAMP --options runtime -s "$IDENTITY" "$APP/Contents/Frameworks/"*.dylib
+codesign --force $TIMESTAMP --options runtime -s "$IDENTITY" "$APP"
+
+if [[ "${INSTALL:-1}" == 0 ]]; then
+  echo "Built $APP"
+  exit 0
+fi
 
 echo "Installing to $DEST..."
 pkill -x ReadAloud 2>/dev/null && sleep 0.5 || true

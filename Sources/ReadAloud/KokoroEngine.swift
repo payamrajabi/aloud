@@ -54,9 +54,17 @@ enum EngineError: LocalizedError {
 final class KokoroEngine {
     static let sampleRate = 24_000
 
+    static let modelName = "kokoro-multi-lang-v1_0"
+
+    /// The model ships inside the app for downloaded builds; developer builds
+    /// use the copy that scripts/setup.sh puts in Application Support.
     static var modelDirectory: URL {
-        FileManager.default.homeDirectoryForCurrentUser
-            .appendingPathComponent("Library/Application Support/ReadAloud/models/kokoro-multi-lang-v1_0")
+        if let bundled = Bundle.main.resourceURL?.appendingPathComponent(modelName),
+           FileManager.default.fileExists(atPath: bundled.appendingPathComponent("model.onnx").path) {
+            return bundled
+        }
+        return FileManager.default.homeDirectoryForCurrentUser
+            .appendingPathComponent("Library/Application Support/ReadAloud/models/\(modelName)")
     }
 
     static var isModelInstalled: Bool {

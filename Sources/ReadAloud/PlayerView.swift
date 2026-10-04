@@ -42,11 +42,7 @@ struct PlayerView: View {
                     ], startPoint: .top, endPoint: .bottom)
                 )
             } else {
-                Spacer(minLength: 0)
-                Text("Select text in any app and press \(Shortcut.current.display).")
-                    .foregroundStyle(.secondary)
-                    .frame(maxWidth: .infinity)
-                Spacer(minLength: 0)
+                WelcomeView()
             }
 
             if let message = model.message {
@@ -212,5 +208,49 @@ struct TimelineScrubber: View {
         return s >= 3600
             ? String(format: "%d:%02d:%02d", s / 3600, (s % 3600) / 60, s % 60)
             : String(format: "%d:%02d", s / 60, s % 60)
+    }
+}
+
+/// Shown when nothing is being read: how to use the app, and the one permission it needs.
+struct WelcomeView: View {
+    @State private var trusted = SelectionReader.isTrusted
+    private let poll = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Spacer(minLength: 0)
+            Label {
+                Text("Select text in any app, then press **\(Shortcut.current.display)**. Press it again to pause.")
+            } icon: {
+                Image(systemName: "text.cursor")
+            }
+            Label {
+                Text("Reading happens in the background. Click the bars in the menu bar to see this player.")
+            } icon: {
+                Image(systemName: "menubar.arrow.up.rectangle")
+            }
+            if trusted {
+                Label("Accessibility access is on.", systemImage: "checkmark.circle.fill")
+                    .foregroundStyle(.green)
+            } else {
+                VStack(alignment: .leading, spacing: 8) {
+                    Label {
+                        Text("Read Aloud needs **Accessibility** access to see the text you select.")
+                    } icon: {
+                        Image(systemName: "hand.raised.fill").foregroundStyle(.orange)
+                    }
+                    Button("Open Accessibility Settings") {
+                        SelectionReader.requestAccess()
+                        SelectionReader.openAccessibilitySettings()
+                    }
+                    .controlSize(.large)
+                    .padding(.leading, 28)
+                }
+            }
+            Spacer(minLength: 0)
+        }
+        .font(.callout)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .onReceive(poll) { _ in trusted = SelectionReader.isTrusted }
     }
 }
