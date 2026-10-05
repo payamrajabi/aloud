@@ -26,6 +26,8 @@ final class DictationController: ObservableObject {
     private var pushToTalk = false
     private var resumeReadingAfter = false
     private var messageTimer: Timer?
+    private var downloadProgress: Double = 0
+    private var showDownload = false   // only show progress once someone has tried to dictate
 
     init(player: PlayerModel) {
         self.player = player
@@ -44,7 +46,13 @@ final class DictationController: ObservableObject {
 
     func start() {
         trigger.start()
-        if ParakeetEngine.isInstalled { queue.async { _ = self.loadEngine() } }
+        if ParakeetEngine.isInstalled {
+            queue.async { _ = self.loadEngine() }
+        } else {
+            // Fetch the dictation model quietly soon after first launch so it's
+            // ready by the time someone tries it.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 8) { self.downloadModel(visible: false) }
+        }
     }
 
     func shortcutChanged() { trigger.start() }
@@ -74,7 +82,7 @@ final class DictationController: ObservableObject {
 
     private func begin(pushToTalk: Bool) {
         guard ParakeetEngine.isInstalled else {
-            downloadModel()
+            downloadModel(visible: true)
             return
         }
         guard SelectionReader.isTrusted else {
@@ -217,17 +225,29 @@ final class DictationController: ObservableObject {
         return engine
     }
 
-    private func downloadModel() {
-        guard !downloader.isRunning else { return }
-        state = .downloading(0)
+    private func downloadModel(visible: Bool) {
+        if visible {
+            showDownload = true
+            state = .downloading(downloadProgress)
+        }
+        guard !downloader.isRunning, !ParakeetEngine.isInstalled else { return }
+        downloadProgress = 0
         downloader.download(ParakeetEngine.downloadURL, into: ParakeetEngine.modelsRoot) { [weak self] p in
-            self?.state = .downloading(p)
+            guard let self else { return }
+            self.downloadProgress = p
+            if self.showDownload { self.state = .downloading(p) }
         } completion: { [weak self] error in
             guard let self else { return }
+            let wasShown = self.showDownload
+            self.showDownload = false
+            if DebugScript.args.contains("--trace") {
+                print("   dictation: model download finished, error: \(error?.localizedDescription ?? "none"), installed: \(ParakeetEngine.isInstalled)")
+                fflush(stdout)
+            }
             if let error {
-                self.show("Download failed: \(error.localizedDescription)")
+                if wasShown { self.show("Download failed: \(error.localizedDescription)") }
             } else {
-                self.show("Dictation is ready. Press \(DictationShortcut.current.short) to start.")
+                if wasShown { self.show("Dictation is ready. Press \(DictationShortcut.current.short) to start.") }
                 self.queue.async { _ = self.loadEngine() }
             }
         }

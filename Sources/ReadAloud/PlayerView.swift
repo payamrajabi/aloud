@@ -225,7 +225,12 @@ struct WelcomeView: View {
                 Image(systemName: "text.cursor")
             }
             Label {
-                Text("Reading happens in the background. Click the bars in the menu bar to see this player.")
+                Text("To dictate, tap **\(DictationShortcut.current.short)**, speak, and tap again (or hold it while you talk). Your words are typed wherever your cursor is.")
+            } icon: {
+                Image(systemName: "mic")
+            }
+            Label {
+                Text("Everything runs in the background. Click the bars in the menu bar to see this player.")
             } icon: {
                 Image(systemName: "menubar.arrow.up.rectangle")
             }
@@ -235,7 +240,7 @@ struct WelcomeView: View {
             } else {
                 VStack(alignment: .leading, spacing: 8) {
                     Label {
-                        Text("Read Aloud needs **Accessibility** access to see the text you select.")
+                        Text("Read Aloud needs **Accessibility** access to see the text you select and type what you dictate.")
                     } icon: {
                         Image(systemName: "hand.raised.fill").foregroundStyle(.orange)
                     }

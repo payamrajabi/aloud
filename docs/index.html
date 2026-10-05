@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Read Aloud — hear any text on your Mac</title>
-<meta name="description" content="A free Mac menu bar app that reads selected text aloud with a natural voice. Runs entirely on your Mac: no account, no subscription, nothing sent online.">
+<title>Read Aloud — listen to and dictate text on your Mac</title>
+<meta name="description" content="A free Mac menu bar app that reads selected text aloud with a natural voice and types what you say. Runs entirely on your Mac: no account, no subscription, nothing sent online.">
 <meta property="og:title" content="Read Aloud for Mac">
-<meta property="og:description" content="Select any text, press a shortcut, and hear it read aloud with a natural voice. Free, private, and offline.">
+<meta property="og:description" content="Hear any text read aloud, and dictate into any app. Free, private, and offline on your Mac.">
 <meta property="og:image" content="https://payamrajabi.github.io/readaloud/assets/player.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.png">
@@ -144,6 +144,10 @@
   kbd { font: 600 14px/1 -apple-system, BlinkMacSystemFont, sans-serif; padding: 4px 7px; border-radius: 6px; background: var(--soft);
     box-shadow: inset 0 -1px 0 var(--line), 0 0 0 0.5px var(--line); color: var(--text); white-space: nowrap; }
 
+  .steps-title { font-size: 15px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 34px 0 14px; text-align: center; }
+  .steps-title:first-of-type { margin-top: 0; }
+  .pill-shot { margin: 30px auto 0; display: flex; justify-content: center; }
+  .pill-shot img { width: 320px; height: auto; filter: drop-shadow(0 10px 24px rgba(0,0,0,.25)); }
   .note { margin-top: 18px; padding: 16px 20px; border-radius: 14px; background: var(--note-bg); border: 1px solid var(--note-line); font-size: 15.5px; }
   .note strong { display: block; margin-bottom: 4px; }
 
@@ -182,12 +186,12 @@
   <div class="wrap hero">
     <img class="icon" src="assets/icon.png" alt="Read Aloud app icon">
     <h1>Select any text.<br><span class="grad">Hear it read aloud.</span></h1>
-    <p class="lede">Read Aloud is a free Mac app that reads whatever you select, in any app, with a natural-sounding voice. It runs entirely on your Mac. There's no account, no subscription, and nothing is sent online.</p>
+    <p class="lede">Read Aloud is a free Mac app that reads whatever you select, in any app, with a natural-sounding voice. When you'd rather talk than type, it takes dictation too. Everything runs on your Mac: no account, no subscription, and nothing is sent online.</p>
     <a class="cta" href="https://github.com/payamrajabi/readaloud/releases/latest/download/ReadAloud.dmg">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0 4.5-4.5M12 15l-4.5-4.5M5 19h14"/></svg>
       Download for Mac
     </a>
-    <p class="meta">Free · Apple Silicon Macs · macOS 14 or later · about 350 MB</p>
+    <p class="meta">Free · Apple Silicon Macs · macOS 14 or later · 355 MB download</p>
 
     <div class="stage" aria-label="Read Aloud's player opening from the menu bar">
       <div class="menubar">
@@ -207,8 +211,8 @@
   </div>
 
   <section class="wrap">
-    <h2>Built for listening, not fiddling</h2>
-    <p class="sub">One shortcut, and it starts talking within about a second.</p>
+    <h2>Listen to anything. Dictate anywhere.</h2>
+    <p class="sub">One shortcut to hear it, one key to say it.</p>
     <div class="grid">
       <div class="card">
         <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 10v4M8 6v12M12 3v18M16 7v10M20 10v4"/></svg></div>
@@ -218,24 +222,47 @@
       <div class="card">
         <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
         <h3>Private and free</h3>
-        <p>The voice runs on your Mac. Your text never leaves it, it works offline, and you can listen for hours without paying per word.</p>
+        <p>The voices and the transcription run on your Mac. Your text and your voice never leave it, it works offline, and there's nothing to pay per word.</p>
       </div>
       <div class="card">
         <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18"/><circle cx="9" cy="12" r="3" fill="currentColor"/></svg></div>
         <h3>Scrub like a podcast</h3>
         <p>Drag the timeline, skip 15 seconds, jump to any sentence by clicking it, and listen at up to 2.5× speed without the chipmunk effect.</p>
       </div>
+      <div class="card">
+        <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+        <h3>Dictate anywhere</h3>
+        <p>Tap the right ⌘ key, speak, tap again, and your words are typed wherever your cursor is. Transcribed on your Mac by NVIDIA's Parakeet model.</p>
+      </div>
+      <div class="card">
+        <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="5" height="7" rx="2"/><rect x="16" y="14" width="5" height="7" rx="2"/></svg></div>
+        <h3>Works with your AirPods</h3>
+        <p>Press once to pause or resume, twice to skip ahead a sentence. The play key and Control Center work too, and it pauses if your headphones disconnect.</p>
+      </div>
+      <div class="card">
+        <div class="glyph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div>
+        <h3>Starts in about a second</h3>
+        <p>Speech is generated sentence by sentence just ahead of where you're listening, and dictation transcribes a two-minute ramble in about five seconds.</p>
+      </div>
     </div>
   </section>
 
   <section class="wrap narrow">
     <h2>How it works</h2>
-    <p class="sub">It works in Safari, Chrome, Mail, Slack, Notes, PDFs, and nearly anywhere else you can select text.</p>
+    <p class="sub">It works in Safari, Chrome, Mail, Slack, Notes, PDFs, and nearly anywhere else you can select or type text.</p>
+    <h3 class="steps-title">To listen</h3>
     <ol class="steps">
       <li><strong>Select some text</strong><span>An article, an email thread, a long Slack message, a research paper.</span></li>
       <li><strong>Press <kbd>⌃</kbd> <kbd>⌥</kbd> <kbd>R</kbd></strong><span>That's Control, Option and R. It starts reading right away. Press it again to pause or resume.</span></li>
       <li><strong>Click the bars in the menu bar when you want more</strong><span>See the text with the current sentence highlighted, scrub, change the voice or speed, or stop.</span></li>
     </ol>
+    <h3 class="steps-title">To dictate</h3>
+    <ol class="steps">
+      <li><strong>Click where you want the words to go</strong><span>An email, a message, a document, a search box.</span></li>
+      <li><strong>Tap the right <kbd>⌘</kbd> key and speak</strong><span>A small pill at the bottom of the screen shows it's listening. Or hold the key while you talk instead.</span></li>
+      <li><strong>Tap it again</strong><span>A moment later your words appear, punctuated. Press <kbd>Esc</kbd> while recording to throw it away.</span></li>
+    </ol>
+    <figure class="pill-shot"><img src="assets/dictation-pill.png" width="320" height="56" alt="The dictation pill: a red recording dot, a live sound level and a timer"></figure>
   </section>
 
   <section class="wrap narrow" id="install">
@@ -244,7 +271,8 @@
     <ol class="steps">
       <li><strong>Download and open ReadAloud.dmg</strong><span><a href="https://github.com/payamrajabi/readaloud/releases/latest/download/ReadAloud.dmg">Download it here</a>, then drag Read Aloud into your Applications folder.</span></li>
       <li><strong>Open Read Aloud from Applications</strong><span>The bars appear in your menu bar and a short welcome opens beneath them.</span></li>
-      <li><strong>Allow Accessibility access</strong><span>Click <em>Open Accessibility Settings</em> and switch on Read Aloud. This is what lets it see the text you select. It doesn't record your screen or keystrokes.</span></li>
+      <li><strong>Allow Accessibility access</strong><span>Click <em>Open Accessibility Settings</em> and switch on Read Aloud. This lets it see the text you select and type what you dictate. It doesn't record your screen or keystrokes.</span></li>
+      <li><strong>Allow the microphone the first time you dictate</strong><span>The dictation model (460 MB) downloads in the background after the first launch, so it's usually ready by then.</span></li>
     </ol>
     <div class="note">
       <strong>If macOS says it can't verify the app</strong>
@@ -254,30 +282,35 @@
 
   <section class="wrap narrow">
     <h2>Controls</h2>
-    <p class="sub">The player responds to these while it's open.</p>
+    <p class="sub">Arrow keys and Space work while the player is open.</p>
     <table>
       <tr><td>Read the selected text</td><td><kbd>⌃</kbd> <kbd>⌥</kbd> <kbd>R</kbd></td></tr>
       <tr><td>Pause or resume</td><td>The shortcut again, or <kbd>Space</kbd></td></tr>
       <tr><td>Back or forward 15 seconds</td><td><kbd>←</kbd> <kbd>→</kbd></td></tr>
       <tr><td>Previous or next sentence</td><td><kbd>⇧</kbd> <kbd>←</kbd> <kbd>⇧</kbd> <kbd>→</kbd>, or click a sentence</td></tr>
-      <tr><td>Voice, speed, shortcut, quit</td><td>Right-click the menu bar icon</td></tr>
+      <tr><td>Dictate</td><td>Tap right <kbd>⌘</kbd> to start and stop, or hold it while you talk</td></tr>
+      <tr><td>Cancel a dictation</td><td><kbd>Esc</kbd></td></tr>
+      <tr><td>AirPods</td><td>Press once to pause or resume, twice for the next sentence, three times for the previous one</td></tr>
+      <tr><td>Voice, speed, shortcuts, quit</td><td>Right-click the menu bar icon</td></tr>
     </table>
   </section>
 
   <section class="wrap narrow" id="faq">
     <h2>Questions</h2>
     <p class="sub">The short answers.</p>
-    <details><summary>Is it really free?</summary><p>Yes. The voice model runs on your own Mac, so there's no server to pay for and no usage limit. Read Aloud is open source.</p></details>
-    <details><summary>Is anything I select sent to the internet?</summary><p>No. Text is turned into speech on your Mac and is never uploaded. The app works with Wi-Fi switched off.</p></details>
+    <details><summary>Is it really free?</summary><p>Yes. The voice and transcription models run on your own Mac, so there's no server to pay for and no usage limit. Read Aloud is open source.</p></details>
+    <details><summary>Is anything I select or say sent to the internet?</summary><p>No. Text is turned into speech, and speech into text, on your Mac. Nothing is uploaded, and both work with Wi-Fi switched off once the dictation model has downloaded.</p></details>
+    <details><summary>Why does it download something after I install it?</summary><p>Dictation uses NVIDIA's Parakeet speech recognition model, a one-time 460 MB download that starts in the background shortly after the first launch. Reading aloud works straight away.</p></details>
+    <details><summary>Can I keep using another dictation app?</summary><p>Yes. Dictation uses the right ⌘ key by default, so it won't collide with apps that use ⌥. You can switch it to right ⌥, fn, or ⌃⌥D under right-click → Dictation Shortcut.</p></details>
     <details><summary>Which Macs does it run on?</summary><p>Macs with Apple Silicon (M1 or newer) running macOS 14 Sonoma or later. Older Intel Macs aren't supported because the voice would be too slow.</p></details>
-    <details><summary>Why does it need Accessibility access?</summary><p>macOS only lets apps read another app's selected text through Accessibility. Read Aloud uses it to grab your selection when you press the shortcut, and for nothing else.</p></details>
-    <details><summary>Can I change the shortcut?</summary><p>Yes. Right-click the menu bar icon and choose Shortcut. You can pick from ⌃⌥R, ⌥Esc, ⌃⌥Space and ⇧⌘1.</p></details>
+    <details><summary>Why does it need Accessibility and microphone access?</summary><p>macOS only lets apps read another app's selected text, notice the dictation key, and type into other apps through Accessibility. The microphone is used only while you're dictating.</p></details>
+    <details><summary>Can I change the shortcuts?</summary><p>Yes. Right-click the menu bar icon. Under Shortcut, reading can use ⌃⌥R, ⌥Esc, ⌃⌥Space or ⇧⌘1. Under Dictation Shortcut, dictation can use right ⌘, right ⌥, fn or ⌃⌥D.</p></details>
     <details><summary>Does it start when I log in?</summary><p>Yes, so the shortcut is always ready. You can turn that off by right-clicking the menu bar icon and unchecking Open at Login.</p></details>
-    <details><summary>How do I uninstall it?</summary><p>Right-click the menu bar icon, choose Quit, then drag Read Aloud from Applications to the Trash.</p></details>
+    <details><summary>How do I uninstall it?</summary><p>Right-click the menu bar icon, choose Quit, then drag Read Aloud from Applications to the Trash. To remove the dictation model too, delete the ReadAloud folder in ~/Library/Application Support.</p></details>
   </section>
 
   <div class="wrap final">
-    <h2>Give your eyes a break.</h2>
+    <h2>Give your eyes and hands a break.</h2>
     <p class="sub">Free for Apple Silicon Macs.</p>
     <a class="cta" href="https://github.com/payamrajabi/readaloud/releases/latest/download/ReadAloud.dmg">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0 4.5-4.5M12 15l-4.5-4.5M5 19h14"/></svg>
@@ -289,7 +322,7 @@
 <footer>
   <div class="wrap">
     <span>Made by <a href="https://payamrajabi.co">Payam Rajabi</a>. <a href="https://github.com/payamrajabi/readaloud">Source on GitHub</a>.</span>
-    <span>Voices by <a href="https://huggingface.co/hexgrad/Kokoro-82M">Kokoro</a>, running on <a href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a> and <a href="https://github.com/espeak-ng/espeak-ng">eSpeak NG</a>.</span>
+    <span>Voices by <a href="https://huggingface.co/hexgrad/Kokoro-82M">Kokoro</a>, dictation by <a href="https://huggingface.co/nvidia/parakeet-tdt-0.6b-v2">NVIDIA Parakeet</a>, running on <a href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a> and <a href="https://github.com/espeak-ng/espeak-ng">eSpeak NG</a>.</span>
   </div>
 </footer>
 

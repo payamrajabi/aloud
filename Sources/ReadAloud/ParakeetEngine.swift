@@ -9,7 +9,10 @@ final class ParakeetEngine {
     static let downloadURL = URL(string: "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/\(modelName).tar.bz2")!
 
     static var modelsRoot: URL {
-        FileManager.default.homeDirectoryForCurrentUser
+        if let override = ProcessInfo.processInfo.environment["READALOUD_MODELS_DIR"] {  // for testing fresh installs
+            return URL(fileURLWithPath: override)
+        }
+        return FileManager.default.homeDirectoryForCurrentUser
             .appendingPathComponent("Library/Application Support/ReadAloud/models")
     }
 

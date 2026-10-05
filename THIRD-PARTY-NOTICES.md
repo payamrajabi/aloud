@@ -11,6 +11,7 @@ own license:
 | ONNX Runtime | Neural network runtime | MIT | https://github.com/microsoft/onnxruntime |
 | eSpeak NG and its data | Pronunciation of unknown words | GPL-3.0-or-later | https://github.com/espeak-ng/espeak-ng |
 | piper-phonemize | Phonemizer wrapper | MIT | https://github.com/rhasspy/piper-phonemize |
+| NVIDIA Parakeet TDT 0.6B v2 (downloaded on first launch, not bundled) | Dictation model | CC-BY-4.0 | https://huggingface.co/nvidia/parakeet-tdt-0.6b-v2 |
 
 eSpeak NG is licensed under the GNU General Public License v3. Its complete
 source code is available at the link above; the build of sherpa-onnx used here
