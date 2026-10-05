@@ -20,6 +20,22 @@ final class PlayerModel: ObservableObject {
     private(set) var sourceText = ""
     var hasSession: Bool { !chunks.isEmpty }
 
+    /// Called after play, pause, seek, speed and stop, so the system's
+    /// Now Playing info (AirPods, media keys, Control Center) stays in sync.
+    var onTransportChange: (() -> Void)?
+    private var notifiedDuration: Double = 0
+
+    /// A short title for Control Center: the opening words of the text.
+    var title: String {
+        guard let first = chunks.first?.speech else { return "Read Aloud" }
+        return first.count > 70 ? String(first.prefix(70)).trimmingCharacters(in: .whitespaces) + "…" : first
+    }
+
+    private func notify() {
+        notifiedDuration = duration
+        onTransportChange?()
+    }
+
     private var chunks: [Chunk] = []
     private var buffers: [Int: AVAudioPCMBuffer] = [:]
     private var starts: [Double] = [0]           // start time of each chunk, plus total at the end
@@ -41,6 +57,7 @@ final class PlayerModel: ObservableObject {
     private var nextToSchedule = 0
     private var resumePoint: (index: Int, fraction: Double) = (0, 0)
     private var lastPoint: (index: Int, fraction: Double) = (0, 0)
+    private var outputWasBuiltIn = AudioOut.defaultOutputIsBuiltIn()
 
     private var sampleRate: Double { audio.format.sampleRate }
 
@@ -118,6 +135,7 @@ final class PlayerModel: ObservableObject {
         currentIndex = 0
         generatedSpans = []
         resumePoint = (0, 0)
+        notify()
     }
 
     // MARK: - Transport
@@ -143,6 +161,7 @@ final class PlayerModel: ObservableObject {
         token += 1
         audio.node.stop()
         audio.engine.pause()  // release the output device while paused
+        notify()
     }
 
     func seek(to seconds: Double) {
@@ -158,6 +177,7 @@ final class PlayerModel: ObservableObject {
             currentIndex = i
             position = t
             updateWindow()
+            notify()
         }
     }
 
@@ -188,7 +208,10 @@ final class PlayerModel: ObservableObject {
         rate = r
         audio.rate = r
         UserDefaults.standard.set(r, forKey: "rate")
-        if hasSession { updateWindow() }
+        if hasSession {
+            updateWindow()
+            notify()
+        }
     }
 
     func setVoice(_ v: Voice) {
@@ -214,6 +237,8 @@ final class PlayerModel: ObservableObject {
     // MARK: - Playback internals
 
     private func startPlayback(at index: Int, fraction: Double) {
+        defer { notify() }
+        outputWasBuiltIn = AudioOut.defaultOutputIsBuiltIn()
         token += 1
         audio.node.stop()
         segments = []
@@ -285,6 +310,7 @@ final class PlayerModel: ObservableObject {
         isBuffering = false
         position = duration
         resumePoint = (0, 0)
+        notify()
     }
 
     /// Keeps generation just ahead of the listener: the current sentence plus
@@ -307,6 +333,7 @@ final class PlayerModel: ObservableObject {
         buffers[index] = audio.makeBuffer(samples, pauseAfter: chunks[index].pauseAfter)
         refineEstimate()
         recomputeTimeline()
+        if abs(duration - notifiedDuration) > 2 { notify() }
         if !isPlaying || isBuffering {
             position = starts[resumePoint.index] + resumePoint.fraction * chunkDuration(resumePoint.index)
         }
@@ -355,8 +382,16 @@ final class PlayerModel: ObservableObject {
 
     private func audioRouteChanged() {
         log("audio configuration changed")
-        // Headphones plugged/unplugged: the engine stops, so restart where we were.
+        let nowBuiltIn = AudioOut.defaultOutputIsBuiltIn()
+        defer { outputWasBuiltIn = nowBuiltIn }
         guard hasSession, isPlaying else { return }
+        // Like a music player: if headphones disconnect and sound would move to
+        // the Mac's speakers, pause instead of carrying on out loud.
+        if !outputWasBuiltIn && nowBuiltIn {
+            pause()
+            return
+        }
+        // Otherwise (e.g. AirPods just connected) the engine stopped; restart where we were.
         let p = lastPoint
         startPlayback(at: p.index, fraction: p.fraction)
     }

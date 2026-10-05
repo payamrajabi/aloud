@@ -1,4 +1,5 @@
 import AVFoundation
+import CoreAudio
 
 /// Audio output: player node -> time-stretch (speed without pitch change) -> speakers.
 final class AudioOut {
@@ -57,6 +58,24 @@ final class AudioOut {
               let playerTime = node.playerTime(forNodeTime: nodeTime)
         else { return nil }
         return max(0, playerTime.sampleTime)
+    }
+
+    /// True when sound is going to the Mac's own speakers or headphone jack
+    /// (as opposed to AirPods, Bluetooth, USB or AirPlay).
+    static func defaultOutputIsBuiltIn() -> Bool {
+        var device = AudioDeviceID(0)
+        var size = UInt32(MemoryLayout<AudioDeviceID>.size)
+        var address = AudioObjectPropertyAddress(
+            mSelector: kAudioHardwarePropertyDefaultOutputDevice,
+            mScope: kAudioObjectPropertyScopeGlobal,
+            mElement: kAudioObjectPropertyElementMain)
+        guard AudioObjectGetPropertyData(AudioObjectID(kAudioObjectSystemObject), &address, 0, nil, &size, &device) == noErr
+        else { return false }
+        var transport: UInt32 = 0
+        size = UInt32(MemoryLayout<UInt32>.size)
+        address.mSelector = kAudioDevicePropertyTransportType
+        guard AudioObjectGetPropertyData(device, &address, 0, nil, &size, &transport) == noErr else { return false }
+        return transport == kAudioDeviceTransportTypeBuiltIn
     }
 
     func makeBuffer(_ samples: [Float], pauseAfter: Double) -> AVAudioPCMBuffer {

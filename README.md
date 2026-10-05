@@ -31,6 +31,8 @@ Accessibility → Read Aloud).
 | Jump to a sentence | Click it in the text |
 | Back / forward 15 s | ← / → (with ⇧: previous / next sentence) |
 | Stop | ■ in the player |
+| AirPods / headphones | Press once to pause or resume, twice for the next sentence, three times for the previous one |
+| Keyboard media keys, Control Center | Play/pause, next/previous sentence, and scrubbing all work |
 | Voice, speed | Menus in the player or the right-click menu |
 
 ## How it works

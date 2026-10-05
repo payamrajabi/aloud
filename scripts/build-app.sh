@@ -11,7 +11,7 @@ cd "$ROOT"
 [[ -f Vendor/sherpa-onnx/lib/libsherpa-onnx-c-api.dylib ]] || ./scripts/setup.sh
 
 APP_NAME="Read Aloud"
-BUNDLE_ID="co.payamrajabi.readaloud"
+BUNDLE_ID="${BUNDLE_ID:-co.payamrajabi.readaloud}"
 VERSION="${VERSION:-1.0.0}"
 APP="build/$APP_NAME.app"
 DEST="/Applications/$APP_NAME.app"

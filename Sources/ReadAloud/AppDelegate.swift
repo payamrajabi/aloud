@@ -9,11 +9,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private let iconView = StatusIconView()
     private let settingsMenu = NSMenu()
     private var hotKey: HotKey?
+    private var nowPlaying: NowPlaying?
     private var observers: Set<AnyCancellable> = []
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         setUpStatusItem()
         registerHotKey()
+        nowPlaying = NowPlaying(model: model)
         model.preload()
         enableLoginItemOnFirstLaunch()
         if !DebugScript.isActive {
