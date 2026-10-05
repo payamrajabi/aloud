@@ -65,6 +65,7 @@ cat > "$APP/Contents/Info.plist" <<PLIST
   <key>LSMinimumSystemVersion</key><string>14.0</string>
   <key>LSUIElement</key><true/>
   <key>NSHighResolutionCapable</key><true/>
+  <key>NSMicrophoneUsageDescription</key><string>Read Aloud listens only while you dictate, and transcribes on your Mac.</string>
 </dict>
 </plist>
 PLIST
@@ -83,7 +84,16 @@ IDENTITY=${IDENTITY:--}
 echo "Signing with: $IDENTITY"
 echo "$IDENTITY" > build/signing-identity
 codesign --force $TIMESTAMP --options runtime -s "$IDENTITY" "$APP/Contents/Frameworks/"*.dylib
-codesign --force $TIMESTAMP --options runtime -s "$IDENTITY" "$APP"
+cat > build/entitlements.plist <<ENT
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>com.apple.security.device.audio-input</key><true/>
+</dict>
+</plist>
+ENT
+codesign --force $TIMESTAMP --options runtime --entitlements build/entitlements.plist -s "$IDENTITY" "$APP"
 
 if [[ "${INSTALL:-1}" == 0 ]]; then
   echo "Built $APP"

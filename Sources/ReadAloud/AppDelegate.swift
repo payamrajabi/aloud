@@ -10,12 +10,16 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private let settingsMenu = NSMenu()
     private var hotKey: HotKey?
     private var nowPlaying: NowPlaying?
+    private lazy var dictation = DictationController(player: model)
+    private(set) var dictationHUD: DictationHUD?
     private var observers: Set<AnyCancellable> = []
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         setUpStatusItem()
         registerHotKey()
         nowPlaying = NowPlaying(model: model)
+        dictationHUD = DictationHUD(controller: dictation)
+        dictation.start()
         model.preload()
         enableLoginItemOnFirstLaunch()
         if !DebugScript.isActive {
@@ -167,6 +171,23 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         menu.addItem(submenu("Shortcut", shortcuts))
         menu.addItem(.separator())
 
+        let dictate = NSMenuItem(title: "Dictate  (\(DictationShortcut.current.short))", action: #selector(toggleDictation), keyEquivalent: "")
+        dictate.target = self
+        menu.addItem(dictate)
+        let dictationShortcuts = NSMenu()
+        for option in DictationShortcut.allCases {
+            let item = NSMenuItem(title: option.title, action: #selector(chooseDictationShortcut(_:)), keyEquivalent: "")
+            item.target = self
+            item.representedObject = option.rawValue
+            item.state = option == DictationShortcut.current ? .on : .off
+            dictationShortcuts.addItem(item)
+        }
+        menu.addItem(submenu("Dictation Shortcut", dictationShortcuts))
+        let copyLast = NSMenuItem(title: "Copy Last Dictation", action: dictation.lastTranscript == nil ? nil : #selector(copyLastDictation), keyEquivalent: "")
+        copyLast.target = self
+        menu.addItem(copyLast)
+        menu.addItem(.separator())
+
         let trusted = SelectionReader.isTrusted
         let access = NSMenuItem(title: trusted ? "Accessibility Access: On" : "Grant Accessibility Access…",
                                 action: trusted ? nil : #selector(grantAccess), keyEquivalent: "")
@@ -187,6 +208,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         item.submenu = menu
         return item
     }
+
+    @objc private func toggleDictation() { dictation.toggle() }
+
+    @objc private func copyLastDictation() { dictation.copyLastTranscript() }
+
+    @objc private func chooseDictationShortcut(_ sender: NSMenuItem) {
+        guard let id = sender.representedObject as? String else { return }
+        UserDefaults.standard.set(id, forKey: "dictationShortcut")
+        dictation.shortcutChanged()
+    }
+
+    var dictationController: DictationController { dictation }
 
     @objc private func chooseVoice(_ sender: NSMenuItem) {
         guard let key = sender.representedObject as? String else { return }

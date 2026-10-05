@@ -5,6 +5,7 @@ set -euo pipefail
 
 SHERPA_VERSION="1.13.8"
 MODEL_NAME="kokoro-multi-lang-v1_0"
+ASR_MODEL="sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8"
 
 ROOT="${0:A:h:h}"
 VENDOR="$ROOT/Vendor/sherpa-onnx"
@@ -32,3 +33,13 @@ if [[ ! -f "$MODELS/$MODEL_NAME/model.onnx" ]]; then
   rm -f "$MODELS/$MODEL_NAME.tar.bz2"
 fi
 echo "Kokoro model: ready at $MODELS/$MODEL_NAME"
+
+# Dictation model (Parakeet). The app can also download this itself on first use.
+if [[ ! -f "$MODELS/$ASR_MODEL/tokens.txt" ]]; then
+  echo "Downloading Parakeet dictation model (about 460 MB)..."
+  curl -fL --progress-bar -o "$MODELS/$ASR_MODEL.tar.bz2" \
+    "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/${ASR_MODEL}.tar.bz2"
+  tar -xjf "$MODELS/$ASR_MODEL.tar.bz2" -C "$MODELS"
+  rm -f "$MODELS/$ASR_MODEL.tar.bz2"
+fi
+echo "Parakeet model: ready at $MODELS/$ASR_MODEL"

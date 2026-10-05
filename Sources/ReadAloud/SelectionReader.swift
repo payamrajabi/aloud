@@ -63,7 +63,7 @@ enum SelectionReader {
     }
 
     /// The shortcut's modifier keys are usually still held; wait so ⌘C isn't ⌃⌥⌘C.
-    private static func waitForModifiersReleased() {
+    static func waitForModifiersReleased() {
         let mask: CGEventFlags = [.maskCommand, .maskControl, .maskAlternate, .maskShift]
         for _ in 0..<40 {
             if CGEventSource.flagsState(.combinedSessionState).intersection(mask).isEmpty { return }
@@ -71,24 +71,26 @@ enum SelectionReader {
         }
     }
 
-    private static func postCommandC() {
+    private static func postCommandC() { postCommand(key: 8) }
+
+    /// Posts ⌘ + key (8 = C, 9 = V) to the frontmost app.
+    static func postCommand(key: CGKeyCode) {
         let source = CGEventSource(stateID: .privateState)
-        let keyC: CGKeyCode = 8
-        let down = CGEvent(keyboardEventSource: source, virtualKey: keyC, keyDown: true)
-        let up = CGEvent(keyboardEventSource: source, virtualKey: keyC, keyDown: false)
+        let down = CGEvent(keyboardEventSource: source, virtualKey: key, keyDown: true)
+        let up = CGEvent(keyboardEventSource: source, virtualKey: key, keyDown: false)
         down?.flags = .maskCommand
         up?.flags = .maskCommand
         down?.post(tap: .cgSessionEventTap)
         up?.post(tap: .cgSessionEventTap)
     }
 
-    private static func snapshot(_ pb: NSPasteboard) -> [[(NSPasteboard.PasteboardType, Data)]] {
+    static func snapshot(_ pb: NSPasteboard) -> [[(NSPasteboard.PasteboardType, Data)]] {
         (pb.pasteboardItems ?? []).map { item in
             item.types.compactMap { type in item.data(forType: type).map { (type, $0) } }
         }
     }
 
-    private static func restore(_ pb: NSPasteboard, _ items: [[(NSPasteboard.PasteboardType, Data)]]) {
+    static func restore(_ pb: NSPasteboard, _ items: [[(NSPasteboard.PasteboardType, Data)]]) {
         pb.clearContents()
         guard !items.isEmpty else { return }
         let restored = items.map { entries -> NSPasteboardItem in
