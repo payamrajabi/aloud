@@ -6,7 +6,9 @@ A small Mac menu-bar app that reads and writes for you, entirely on your Mac.
   aloud in the background.
 - **Dictation:** tap **right ⌥**, speak, tap again (or hold right ⌥ while you
   talk), and the words are typed into whatever app you're in. Transcription
-  uses NVIDIA's Parakeet TDT 0.6B v2 model locally, about 20–30× faster than real time. The menu bar icon animates while it reads; click it
+  uses NVIDIA's Parakeet TDT 0.6B v2 model locally, about 20–30× faster than real time.
+  While you talk, every 20–30 s of speech (cut at a pause) is transcribed in the
+  background, so the text is ready about a second after you stop, however long you spoke. The menu bar icon animates while it reads; click it
 for the player, with the text and a scrubbable timeline. Speech is generated
 locally by [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) through
 [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx), so it's free and works offline.

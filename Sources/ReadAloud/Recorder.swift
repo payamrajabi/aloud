@@ -63,6 +63,20 @@ final class Recorder {
         return samples
     }
 
+    /// Samples captured so far (safe to call while recording).
+    var sampleCount: Int {
+        lock.lock(); defer { lock.unlock() }
+        return samples.count
+    }
+
+    /// A copy of part of the recording so far (safe to call while recording).
+    func read(_ range: Range<Int>) -> [Float] {
+        lock.lock(); defer { lock.unlock() }
+        let upper = min(range.upperBound, samples.count)
+        guard range.lowerBound < upper else { return [] }
+        return Array(samples[range.lowerBound..<upper])
+    }
+
     /// Stops recording and returns everything captured.
     func stop() -> [Float] {
         if let engine {

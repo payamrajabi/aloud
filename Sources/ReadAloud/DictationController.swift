@@ -26,6 +26,8 @@ final class DictationController: ObservableObject {
     private var pushToTalk = false
     private var resumeReadingAfter = false
     private var messageTimer: Timer?
+    private lazy var streamer = StreamingTranscriber(queue: queue) { [weak self] in self?.loadEngine() }
+    private var pollTimer: Timer?
     private var downloadProgress: Double = 0
     private var showDownload = false   // only show progress once someone has tried to dictate
 
@@ -121,6 +123,7 @@ final class DictationController: ObservableObject {
         // Don't talk over yourself: pause Read Aloud while dictating.
         resumeReadingAfter = player.isPlaying
         if resumeReadingAfter { player.pause() }
+        streamer.reset()
         do {
             try recorder.start()
         } catch {
@@ -134,12 +137,19 @@ final class DictationController: ObservableObject {
         messageTimer?.invalidate()
         state = .recording
         NSSound(named: "Tink")?.play()
+        // Transcribe finished stretches while you're still talking.
+        pollTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { [weak self] _ in
+            guard let self else { return }
+            self.streamer.poll(available: self.recorder.sampleCount, read: self.recorder.read)
+        }
     }
 
     func cancel(quietly: Bool = false) {
         guard state == .recording else { return }
         if Self.dryRun { print("   dictation: cancel"); fflush(stdout); state = .idle; return }
+        pollTimer?.invalidate()
         _ = recorder.stop()
+        streamer.reset()
         state = .idle
         if !quietly { NSSound(named: "Funk")?.play() }
         resumeReading()
@@ -147,25 +157,26 @@ final class DictationController: ObservableObject {
 
     private func finish() {
         if Self.dryRun { print("   dictation: stop and transcribe"); fflush(stdout); state = .idle; return }
+        pollTimer?.invalidate()
         let samples = recorder.stop()
         NSSound(named: "Pop")?.play()
         guard samples.count > ParakeetEngine.sampleRate / 3 else {  // under ~0.3 s: nothing said
+            streamer.reset()
             state = .idle
             resumeReading()
             return
         }
         state = .transcribing
         let started = Date()
-        queue.async {
-            let text = self.loadEngine()?.transcribe(samples) ?? ""
-            let seconds = Date().timeIntervalSince(started)
-            DispatchQueue.main.async { self.deliver(text, audioSeconds: Double(samples.count) / 16_000, took: seconds) }
+        // Most of the recording is already transcribed; only the tail is left.
+        streamer.finish(all: samples) { text, _ in
+            self.deliver(text, audioSeconds: Double(samples.count) / 16_000, took: Date().timeIntervalSince(started))
         }
     }
 
     private func deliver(_ raw: String, audioSeconds: Double, took: Double) {
         if DebugScript.args.contains("--trace") {
-            print(String(format: "   dictation: %.1fs audio transcribed in %.2fs: %@", audioSeconds, took, raw))
+            print(String(format: "   dictation: %.1fs recording, text ready %.2fs after stopping: %@", audioSeconds, took, raw))
         }
         let text = raw.trimmingCharacters(in: .whitespacesAndNewlines)
         state = .idle

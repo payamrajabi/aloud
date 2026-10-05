@@ -59,6 +59,45 @@ enum DebugScript {
                 exit(1)
             }
         }
+        if let path = value("--stream-sim") {
+            // Simulates a long recording arriving in real time (sped up), with background
+            // transcription, then measures the wait after "stop".
+            let once = try! load16k(path)
+            let repeats = Int(value("--repeat") ?? "1") ?? 1
+            let all = Array((0..<repeats).map { _ in once }.joined())
+            let speed = Double(value("--speed") ?? "4") ?? 4
+            let queue = DispatchQueue(label: "sim.asr", qos: .userInitiated)
+            var engine: ParakeetEngine?
+            queue.sync { engine = try? ParakeetEngine() }
+            let streamer = StreamingTranscriber(queue: queue) { engine }
+            streamer.reset()
+            var recorded = 0
+            let step = Int(0.25 * speed * 16_000)
+            var ticks = 0
+            print(String(format: "simulating a %.0fs recording at %.0fx speed...", Double(all.count) / 16_000, speed)); fflush(stdout)
+            Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { timer in
+                recorded = min(all.count, recorded + step)
+                ticks += 1
+                if ticks % max(1, Int(2 / speed / 0.25)) == 0 || ticks % 8 == 0 {
+                    streamer.poll(available: recorded) { r in Array(all[r.lowerBound..<min(r.upperBound, recorded)]) }
+                }
+                if recorded == all.count {
+                    timer.invalidate()
+                    let stop = Date()
+                    streamer.finish(all: all) { text, tail in
+                        print(String(format: "STOP → text ready in %.2fs (tail %.1fs).", Date().timeIntervalSince(stop), tail))
+                        let t0 = Date()
+                        let oneShot = engine?.transcribe(all) ?? ""
+                        print(String(format: "Old way (transcribe everything after stop): %.2fs.", Date().timeIntervalSince(t0)))
+                        let a = text.split(separator: " "), b = oneShot.split(separator: " ")
+                        print("words: streaming \(a.count), one-shot \(b.count)")
+                        print("first 300 chars: " + String(text.prefix(300)))
+                        exit(0)
+                    }
+                }
+            }
+            RunLoop.main.run()
+        }
         if let path = value("--mic-sim") {
             // Turn a file into 48 kHz stereo 1,024-frame buffers, like a typical microphone delivers.
             let mono16 = try! load16k(path)
