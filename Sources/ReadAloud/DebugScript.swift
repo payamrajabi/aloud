@@ -162,7 +162,7 @@ enum DebugScript {
         case "hud":
             let states: [String: DictationController.State] = [
                 "recording": .recording, "transcribing": .transcribing, "downloading": .downloading(0.42),
-                "message": .message("Dictation is ready. Press right ⌘ to start."),
+                "message": .message("Dictation is ready. Press right ⌥ to start."),
             ]
             app.dictationController.debugSet(states[arg] ?? .idle)
         case "hudshot":

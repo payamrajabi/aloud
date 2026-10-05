@@ -4,10 +4,10 @@ import Carbon
 /// How dictation is started. Modifier-only keys behave like Superwhisper:
 /// tap to start/stop, or hold to talk and release to finish.
 enum DictationShortcut: String, CaseIterable {
-    case rightCommand, rightOption, fn, controlOptionD
+    case rightOption, rightCommand, fn, controlOptionD
 
     static var current: DictationShortcut {
-        DictationShortcut(rawValue: UserDefaults.standard.string(forKey: "dictationShortcut") ?? "") ?? .rightCommand
+        DictationShortcut(rawValue: UserDefaults.standard.string(forKey: "dictationShortcut") ?? "") ?? .rightOption
     }
 
     var title: String {

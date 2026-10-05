@@ -4,7 +4,7 @@ A small Mac menu-bar app that reads and writes for you, entirely on your Mac.
 
 - **Read aloud:** select text in any app, press **⌃⌥R**, and it's read
   aloud in the background.
-- **Dictation:** tap **right ⌘**, speak, tap again (or hold right ⌘ while you
+- **Dictation:** tap **right ⌥**, speak, tap again (or hold right ⌥ while you
   talk), and the words are typed into whatever app you're in. Transcription
   uses NVIDIA's Parakeet TDT 0.6B v2 model locally, about 20–30× faster than real time. The menu bar icon animates while it reads; click it
 for the player, with the text and a scrubbable timeline. Speech is generated
@@ -38,7 +38,7 @@ Accessibility → Read Aloud).
 | Stop | ■ in the player |
 | AirPods / headphones | Press once to pause or resume, twice for the next sentence, three times for the previous one |
 | Keyboard media keys, Control Center | Play/pause, next/previous sentence, and scrubbing all work |
-| Dictate | Tap right ⌘ to start and again to finish, or hold it while you speak. Esc cancels. Change the key under right-click → Dictation Shortcut |
+| Dictate | Tap right ⌥ to start and again to finish, or hold it while you speak. Esc cancels. Change the key under right-click → Dictation Shortcut |
 | Copy last dictation | Right-click the menu bar icon → Copy Last Dictation |
 | Voice, speed | Menus in the player or the right-click menu |
 
