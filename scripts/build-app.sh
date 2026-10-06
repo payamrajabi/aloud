@@ -5,6 +5,8 @@
 #   BUNDLE_MODEL=1   put the voice model inside the app (otherwise the app downloads it on first launch)
 #   INSTALL=0        build only; don't install or launch
 #   BUILD_NUMBER=n   override CFBundleVersion (defaults to the commit count; Sparkle compares it)
+#   FEED_URL=url     where the app looks for updates (Sparkle appcast). Every copy keeps
+#                    checking this address forever, so it must stay reachable.
 set -euo pipefail
 
 ROOT="${0:A:h:h}"
@@ -12,6 +14,7 @@ cd "$ROOT"
 [[ -f Vendor/sherpa-onnx/lib/libsherpa-onnx-c-api.dylib ]] || ./scripts/setup.sh
 
 APP_NAME="Aloud"
+FEED_URL="${FEED_URL:-https://aloudformac.com/appcast.xml}"
 BUNDLE_ID="${BUNDLE_ID:-co.payamrajabi.readaloud}"
 VERSION="${VERSION:-1.0.0}"
 APP="build/$APP_NAME.app"
@@ -71,7 +74,7 @@ cat > "$APP/Contents/Info.plist" <<PLIST
   <key>LSUIElement</key><true/>
   <key>NSHighResolutionCapable</key><true/>
   <key>NSMicrophoneUsageDescription</key><string>Aloud listens only while you dictate, and transcribes on your Mac.</string>
-  <key>SUFeedURL</key><string>https://payamrajabi.github.io/aloud/appcast.xml</string>
+  <key>SUFeedURL</key><string>$FEED_URL</string>
   <key>SUPublicEDKey</key><string>5vUlD146c8QQ89zPzk3BgpG7ivGEHbrUiH1SBSRSL6M=</string>
   <key>SUEnableAutomaticChecks</key><true/>
   <key>SUScheduledCheckInterval</key><integer>86400</integer>

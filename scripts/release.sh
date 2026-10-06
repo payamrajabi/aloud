@@ -7,6 +7,12 @@
 #
 # Optional: RELEASE_NOTES="One or two sentences" shows in the update window.
 #           SPARKLE_ED_KEY_FILE=path signs the update with an exported key instead of the Keychain.
+#           DOWNLOAD_BASE_URL=url  where update downloads live; the appcast points at
+#                                  <url>/v<version>/Aloud.dmg (default: aloudformac.com/releases,
+#                                  which redirects to RELEASES_REPO's GitHub releases).
+#           RELEASES_REPO=owner/name  public GitHub repo the DMG is published to.
+#           APPCAST=path           the feed file to update (default docs/appcast.xml, served at aloudformac.com by Vercel).
+#           FEED_URL=url           passed through to build-app.sh (see there).
 #
 # Notarization runs automatically once both of these exist on this Mac:
 #   - a "Developer ID Application" certificate (Xcode → Settings → Accounts → Manage Certificates)
@@ -19,9 +25,12 @@ VERSION="${1:?Usage: scripts/release.sh <version>, e.g. 1.0.0}"
 ROOT="${0:A:h:h}"
 cd "$ROOT"
 APP="build/Aloud.app"
+DOWNLOAD_BASE_URL="${DOWNLOAD_BASE_URL:-https://aloudformac.com/releases}"   # redirects to RELEASES_REPO (docs/vercel.json)
+RELEASES_REPO="${RELEASES_REPO:-payamrajabi/aloud-releases}"                 # public repo that only holds the DMGs
+APPCAST="${APPCAST:-docs/appcast.xml}"
 DMG="build/Aloud.dmg"
 
-# The release tag points at this commit, so it must already be on GitHub.
+# The release notes name this commit, so it must already be on GitHub.
 COMMIT=$(git rev-parse HEAD)
 git fetch -q origin
 if [[ -z "$(git branch -r --contains "$COMMIT")" ]]; then
@@ -77,15 +86,16 @@ This build isn't notarized by Apple yet. The first time you open it, macOS will 
 fi
 
 TAG="v$VERSION"
-if gh release view "$TAG" >/dev/null 2>&1; then
-  gh release upload "$TAG" "$DMG" --clobber
-  gh release edit "$TAG" --notes "$NOTES"
+if gh release view "$TAG" -R "$RELEASES_REPO" >/dev/null 2>&1; then
+  gh release upload "$TAG" "$DMG" -R "$RELEASES_REPO" --clobber
+  gh release edit "$TAG" -R "$RELEASES_REPO" --notes "$NOTES"
 else
-  gh release create "$TAG" "$DMG" --target "$COMMIT" --title "Aloud $VERSION" --notes "$NOTES" --latest
+  gh release create "$TAG" "$DMG" -R "$RELEASES_REPO" --title "Aloud $VERSION" --notes "$NOTES (Built from $COMMIT.)" --latest
 fi
 
-python3 scripts/update-appcast.py docs/appcast.xml "$VERSION" "$BUILD" "$ED_SIGNATURE" "$LENGTH" "${RELEASE_NOTES:-}"
+python3 scripts/update-appcast.py "$APPCAST" "$VERSION" "$BUILD" "$ED_SIGNATURE" "$LENGTH" \
+  "$DOWNLOAD_BASE_URL/v$VERSION/Aloud.dmg" "${RELEASE_NOTES:-}"
 
 echo "Released $TAG ($SIZE MB, build $BUILD, notarized: $NOTARIZED)"
 echo
-echo "Next: commit docs/appcast.xml and push it to main. Installed copies only see the update once GitHub Pages serves it."
+echo "Next: commit $APPCAST and push it to main. Installed copies only see the update once it's served at the feed URL."
