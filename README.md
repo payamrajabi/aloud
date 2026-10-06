@@ -85,6 +85,12 @@ always points at the latest release. Notarization with Apple runs automatically
 once a Developer ID Application certificate and saved notary credentials
 (`xcrun notarytool store-credentials readaloud ...`) exist on the Mac.
 
+The feed address baked into every copy is `FEED_URL` in `scripts/build-app.sh`, and
+the download address the feed points at is `DOWNLOAD_BASE_URL` in `scripts/release.sh`
+(both default to this repo's GitHub Pages and releases, and can be overridden as
+environment variables). Installed copies check `FEED_URL` forever, so pick one that
+will stay public.
+
 Updates are signed with an EdDSA key whose private half lives in the login
 Keychain ("Private key for signing Sparkle updates"); its public half is
 `SUPublicEDKey` in `scripts/build-app.sh`. Back it up somewhere safe

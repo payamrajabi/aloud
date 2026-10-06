@@ -7,6 +7,10 @@
 #
 # Optional: RELEASE_NOTES="One or two sentences" shows in the update window.
 #           SPARKLE_ED_KEY_FILE=path signs the update with an exported key instead of the Keychain.
+#           DOWNLOAD_BASE_URL=url  where update downloads live; the appcast points at
+#                                  <url>/v<version>/Aloud.dmg (default: this repo's GitHub releases).
+#           APPCAST=path           the feed file to update (default docs/appcast.xml, served by GitHub Pages).
+#           FEED_URL=url           passed through to build-app.sh (see there).
 #
 # Notarization runs automatically once both of these exist on this Mac:
 #   - a "Developer ID Application" certificate (Xcode → Settings → Accounts → Manage Certificates)
@@ -19,6 +23,8 @@ VERSION="${1:?Usage: scripts/release.sh <version>, e.g. 1.0.0}"
 ROOT="${0:A:h:h}"
 cd "$ROOT"
 APP="build/Aloud.app"
+DOWNLOAD_BASE_URL="${DOWNLOAD_BASE_URL:-https://github.com/payamrajabi/readaloud/releases/download}"
+APPCAST="${APPCAST:-docs/appcast.xml}"
 DMG="build/Aloud.dmg"
 
 # The release tag points at this commit, so it must already be on GitHub.
@@ -84,8 +90,9 @@ else
   gh release create "$TAG" "$DMG" --target "$COMMIT" --title "Aloud $VERSION" --notes "$NOTES" --latest
 fi
 
-python3 scripts/update-appcast.py docs/appcast.xml "$VERSION" "$BUILD" "$ED_SIGNATURE" "$LENGTH" "${RELEASE_NOTES:-}"
+python3 scripts/update-appcast.py "$APPCAST" "$VERSION" "$BUILD" "$ED_SIGNATURE" "$LENGTH" \
+  "$DOWNLOAD_BASE_URL/v$VERSION/Aloud.dmg" "${RELEASE_NOTES:-}"
 
 echo "Released $TAG ($SIZE MB, build $BUILD, notarized: $NOTARIZED)"
 echo
-echo "Next: commit docs/appcast.xml and push it to main. Installed copies only see the update once GitHub Pages serves it."
+echo "Next: commit $APPCAST and push it to main. Installed copies only see the update once it's served at the feed URL."

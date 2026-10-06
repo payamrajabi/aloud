@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Adds a release to docs/appcast.xml, the Sparkle update feed. Newest first; older releases stay.
 
-Usage: update-appcast.py <appcast> <version> <build number> <ed signature> <length> [notes]
+Usage: update-appcast.py <appcast> <version> <build number> <ed signature> <length> <download url> [notes]
 Re-running for the same version replaces its entry.
 """
 import os
@@ -10,9 +10,8 @@ import sys
 from email.utils import formatdate
 from xml.sax.saxutils import escape
 
-path, version, build, signature, length = sys.argv[1:6]
-notes = sys.argv[6] if len(sys.argv) > 6 else ""
-url = f"https://github.com/payamrajabi/readaloud/releases/download/v{version}/Aloud.dmg"
+path, version, build, signature, length, url = sys.argv[1:7]
+notes = sys.argv[7] if len(sys.argv) > 7 else ""
 
 description = f"\n      <description><![CDATA[<p>{escape(notes)}</p>]]></description>" if notes else ""
 item = f"""<item>
