@@ -142,6 +142,15 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                 self.statusItem.button?.setAccessibilityValue(state.label)
             }
             .store(in: &observers)
+
+        // Bars follow the mic while listening, the spoken audio otherwise.
+        Publishers.CombineLatest(dictation.$level, model.$outputLevel)
+            .receive(on: RunLoop.main)
+            .sink { [weak self] mic, output in
+                guard let self else { return }
+                self.iconView.level = self.iconView.state == .listening ? mic : output
+            }
+            .store(in: &observers)
     }
 
     func menuNeedsUpdate(_ menu: NSMenu) {

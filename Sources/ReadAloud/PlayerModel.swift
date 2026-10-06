@@ -12,6 +12,7 @@ final class PlayerModel: ObservableObject {
     @Published private(set) var duration: Double = 0
     @Published private(set) var isPlaying = false
     @Published private(set) var isBuffering = false
+    @Published private(set) var outputLevel: Float = 0   // loudness of the speech being played, 0…1
     @Published private(set) var generatedSpans: [ClosedRange<Double>] = []
     @Published private(set) var rate: Float
     @Published private(set) var voice: Voice
@@ -73,6 +74,11 @@ final class PlayerModel: ObservableObject {
             self?.isBuffering = false
         }
         audio.onConfigurationChange = { [weak self] in self?.audioRouteChanged() }
+        audio.onLevel = { [weak self] level in
+            guard let self else { return }
+            let l = self.isPlaying && !self.isBuffering ? level : 0  // ignore stragglers after a pause
+            if l != self.outputLevel { self.outputLevel = l }
+        }
     }
 
     enum Status { case idle, loading, playing, paused }
@@ -130,6 +136,7 @@ final class PlayerModel: ObservableObject {
         sourceText = ""
         isPlaying = false
         isBuffering = false
+        outputLevel = 0
         position = 0
         duration = 0
         currentIndex = 0
@@ -158,6 +165,7 @@ final class PlayerModel: ObservableObject {
         resumePoint = currentPoint()
         isPlaying = false
         isBuffering = false
+        outputLevel = 0
         token += 1
         audio.node.stop()
         audio.engine.pause()  // release the output device while paused
@@ -308,6 +316,7 @@ final class PlayerModel: ObservableObject {
         audio.engine.pause()
         isPlaying = false
         isBuffering = false
+        outputLevel = 0
         position = duration
         resumePoint = (0, 0)
         notify()

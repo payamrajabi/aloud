@@ -8,6 +8,8 @@ final class AudioOut {
     private let timePitch = AVAudioUnitTimePitch()
     let format: AVAudioFormat
     var onConfigurationChange: (() -> Void)?
+    /// Loudness of what's being played, 0…1, ~20+ times a second on the main queue.
+    var onLevel: ((Float) -> Void)?
 
     init(sampleRate: Double = Double(KokoroEngine.sampleRate)) {
         format = AVAudioFormat(standardFormatWithSampleRate: sampleRate, channels: 1)!
@@ -34,6 +36,7 @@ final class AudioOut {
 
     func start() throws {
         guard !engine.isRunning else { return }
+        installLevelTap()
         engine.prepare()
         do {
             try engine.start()
@@ -43,6 +46,27 @@ final class AudioOut {
             usleep(150_000)
             engine.prepare()
             try engine.start()
+        }
+    }
+
+    /// Taps the time-stretched speech before the mixer, so the level ignores mute.
+    /// Reinstalled on every start in case a configuration change dropped it.
+    private func installLevelTap() {
+        timePitch.removeTap(onBus: 0)
+        timePitch.installTap(onBus: 0, bufferSize: 1_024, format: nil) { [weak self] buffer, _ in
+            guard let data = buffer.floatChannelData?[0], buffer.frameLength > 0 else { return }
+            // Taps often deliver ~100 ms at once; report it in ~1024-frame slices, paced in real time.
+            let total = Int(buffer.frameLength)
+            let slice = 1_024
+            let rate = buffer.format.sampleRate
+            for offset in stride(from: 0, to: total, by: slice) {
+                let chunk = UnsafeBufferPointer(start: data + offset, count: min(slice, total - offset))
+                var sum: Float = 0
+                for x in chunk { sum += x * x }
+                let rms = (sum / Float(chunk.count)).squareRoot()
+                let level = min(1, max(0, (20 * log10(max(rms, 1e-6)) + 55) / 45))  // ~-55 dB … -10 dB → 0…1
+                DispatchQueue.main.asyncAfter(deadline: .now() + Double(offset) / rate) { self?.onLevel?(level) }
+            }
         }
     }
 
