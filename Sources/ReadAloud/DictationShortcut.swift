@@ -39,7 +39,7 @@ enum DictationShortcut: String, CaseIterable {
     }
 }
 
-/// Watches the keyboard for the dictation shortcut and Esc.
+/// Watches the keyboard for the dictation shortcut and ⌃⌥Esc (cancel).
 /// Needs Accessibility access (the same permission Read Aloud already uses).
 final class DictationTrigger {
     var onTap: (() -> Void)?
@@ -47,7 +47,8 @@ final class DictationTrigger {
     var onHoldEnded: (() -> Void)?
     /// Another key was pressed while the modifier was held (e.g. a normal ⌘C).
     var onInterrupted: (() -> Void)?
-    var onEscape: (() -> Void)?
+    /// ⌃⌥Esc. Plain Esc is too easy to hit by accident and would throw away a long dictation.
+    var onCancel: (() -> Void)?
 
     private static let holdDelay: TimeInterval = 0.3
     private var monitors: [Any] = []
@@ -86,7 +87,8 @@ final class DictationTrigger {
 
     private func handle(_ event: NSEvent) {
         if event.type == .keyDown {
-            if event.keyCode == 53 { onEscape?() }
+            let mods = event.modifierFlags.intersection([.command, .option, .control, .shift])
+            if event.keyCode == 53, mods == [.control, .option] { onCancel?() }
             guard downAt != nil else { return }
             clean = false
             holdTimer?.invalidate()
