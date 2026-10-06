@@ -19,6 +19,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         registerHotKey()
         nowPlaying = NowPlaying(model: model)
         dictationHUD = DictationHUD(controller: dictation)
+        dictation.onReadDoubleTap = { [weak self] in self?.readSelection() }
         dictation.start()
         model.preload()
         enableLoginItemOnFirstLaunch()
@@ -158,7 +159,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         menu.removeAllItems()
         let shortcut = Shortcut.current
 
-        let read = NSMenuItem(title: "Read Selection  (\(shortcut.display))", action: #selector(readSelection), keyEquivalent: "")
+        let read = NSMenuItem(title: "Read Selection  (\(DoubleTapKey.readHint))", action: #selector(readSelection), keyEquivalent: "")
         read.target = self
         menu.addItem(read)
         let show = NSMenuItem(title: "Show Player", action: #selector(showPlayer), keyEquivalent: "")
@@ -187,6 +188,19 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         }
         menu.addItem(submenu("Speed", speeds))
 
+        let doubleTaps = NSMenu()
+        doubleTaps.addItem(NSMenuItem(title: "Left key reads · right key dictates", action: nil, keyEquivalent: ""))
+        doubleTaps.addItem(.separator())
+        for key in DoubleTapKey.allCases {
+            if key == .off { doubleTaps.addItem(.separator()) }
+            let item = NSMenuItem(title: key.title, action: #selector(chooseDoubleTap(_:)), keyEquivalent: "")
+            item.target = self
+            item.representedObject = key.rawValue
+            item.state = key == DoubleTapKey.current ? .on : .off
+            doubleTaps.addItem(item)
+        }
+        menu.addItem(submenu("Double-Tap", doubleTaps))
+
         let shortcuts = NSMenu()
         for s in Shortcut.presets {
             let item = NSMenuItem(title: s.display, action: #selector(chooseShortcut(_:)), keyEquivalent: "")
@@ -198,7 +212,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         menu.addItem(submenu("Shortcut", shortcuts))
         menu.addItem(.separator())
 
-        let dictate = NSMenuItem(title: "Dictate  (\(DictationShortcut.current.short))", action: #selector(toggleDictation), keyEquivalent: "")
+        let dictate = NSMenuItem(title: "Dictate  (\(DoubleTapKey.dictateHint))", action: #selector(toggleDictation), keyEquivalent: "")
         dictate.target = self
         menu.addItem(dictate)
         let dictationShortcuts = NSMenu()
@@ -209,7 +223,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             item.state = option == DictationShortcut.current ? .on : .off
             dictationShortcuts.addItem(item)
         }
-        menu.addItem(submenu("Dictation Shortcut", dictationShortcuts))
+        menu.addItem(submenu(DoubleTapKey.isOn ? "Dictation Shortcut (when Double-Tap is Off)" : "Dictation Shortcut", dictationShortcuts))
         let copyLast = NSMenuItem(title: "Copy Last Dictation", action: dictation.lastTranscript == nil ? nil : #selector(copyLastDictation), keyEquivalent: "")
         copyLast.target = self
         menu.addItem(copyLast)
@@ -243,6 +257,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     @objc private func chooseDictationShortcut(_ sender: NSMenuItem) {
         guard let id = sender.representedObject as? String else { return }
         UserDefaults.standard.set(id, forKey: "dictationShortcut")
+        dictation.shortcutChanged()
+    }
+
+    @objc private func chooseDoubleTap(_ sender: NSMenuItem) {
+        guard let id = sender.representedObject as? String else { return }
+        UserDefaults.standard.set(id, forKey: "doubleTapKey")
         dictation.shortcutChanged()
     }
 
