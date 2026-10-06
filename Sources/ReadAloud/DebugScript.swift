@@ -220,6 +220,10 @@ enum DebugScript {
         case "snapshot":
             if let view = app.player.popover.contentViewController?.view { snapshot(view, to: arg) }
         case "iconshot": if let b = app.statusButton { snapshot(b, to: arg) }
+        case "menu":
+            let menu = NSMenu()
+            app.menuNeedsUpdate(menu)
+            print(menu.items.map { $0.isSeparatorItem ? "—" : $0.title }.joined(separator: " | "))
         case "dictate": app.dictationController.toggle()
         case "hud":
             let states: [String: DictationController.State] = [

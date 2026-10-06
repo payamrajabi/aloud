@@ -1,8 +1,9 @@
 import AppKit
 import Combine
 import ServiceManagement
+import Sparkle
 
-final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
+final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUStandardUserDriverDelegate {
     private let model = PlayerModel()
     private(set) lazy var player = PlayerPopover(model: model) { [weak self] in self?.showSettingsMenu() }
     private var statusItem: NSStatusItem!
@@ -13,6 +14,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private lazy var dictation = DictationController(player: model)
     private(set) var dictationHUD: DictationHUD?
     private var observers: Set<AnyCancellable> = []
+    private var updater: SPUStandardUpdaterController?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         setUpStatusItem()
@@ -22,6 +24,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         dictation.onReadDoubleTap = { [weak self] in self?.readSelection(pausing: false) }
         dictation.start()
         model.preload()
+        setUpUpdater()
         if DebugScript.isActive {
             finishLaunching(after: LegacyAppCleanup.Outcome())
         } else {
@@ -59,6 +62,22 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         // Fetch the voice soon after first launch so it's usually ready by the first read.
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in self?.model.downloadVoiceIfNeeded() }
     }
+
+    // MARK: - Updates
+
+    private func setUpUpdater() {
+        // Only real app builds (with a feed in Info.plist) check for updates.
+        guard !DebugScript.isActive, Bundle.main.object(forInfoDictionaryKey: "SUFeedURL") != nil else { return }
+        updater = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: self)
+    }
+
+    @objc private func checkForUpdates() {
+        NSApp.activate(ignoringOtherApps: true)
+        updater?.checkForUpdates(nil)
+    }
+
+    /// A menu bar app has no Dock icon to badge, so let Sparkle remind people gently.
+    var supportsGentleScheduledUpdateReminders: Bool { true }
 
     // MARK: - Reading
 
@@ -268,6 +287,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         login.target = self
         login.state = SMAppService.mainApp.status == .enabled ? .on : .off
         menu.addItem(login)
+        let update = NSMenuItem(title: "Check for Updates…", action: updater == nil ? nil : #selector(checkForUpdates), keyEquivalent: "")
+        update.target = self
+        menu.addItem(update)
         menu.addItem(.separator())
         menu.addItem(NSMenuItem(title: "Quit Aloud", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
     }

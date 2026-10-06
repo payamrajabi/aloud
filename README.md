@@ -60,8 +60,15 @@ The app was called Read Aloud before 1.2. The bundle ID, the `ReadAloud` folder 
 Application Support, this repo and the Swift module keep that name, so settings,
 permissions and downloaded models carry over.
 
-Developer builds read the model from `~/Library/Application Support/ReadAloud/models`;
-downloadable builds carry it inside the app.
+Both models live in `~/Library/Application Support/ReadAloud/models`. The app
+downloads them in the background on first launch (the voice first, then dictation),
+and `scripts/setup.sh` puts them there for developers. `BUNDLE_MODEL=1
+./scripts/build-app.sh` still builds an app with the voice inside, if you want one.
+Set `READALOUD_MODELS_DIR` to use a different folder, e.g. to test a fresh install.
+
+On launch, the installed app also quits and trashes older copies of itself in
+/Applications or ~/Applications (such as "Read Aloud.app"), moving their bundled
+voice over first so it isn't downloaded again.
 
 ## Publishing a release
 
@@ -69,11 +76,20 @@ downloadable builds carry it inside the app.
 ./scripts/release.sh 1.0.1
 ```
 
-This builds the app with the model inside, wraps it in `Aloud.dmg`, and
-uploads it as a GitHub release. The website's download button always points
-at the latest release. Notarization with Apple runs automatically once a
-Developer ID Application certificate and saved notary credentials
+This builds the app (about 11 MB; the voice downloads on first launch), wraps it
+in `Aloud.dmg`, notarizes it, uploads it as a GitHub release, and adds it to
+`docs/appcast.xml`. Commit and push that file to `main` afterwards: it's the feed
+[Sparkle](https://sparkle-project.org) reads, so installed copies (1.4 and later)
+offer the update once GitHub Pages serves it. The website's download button
+always points at the latest release. Notarization with Apple runs automatically
+once a Developer ID Application certificate and saved notary credentials
 (`xcrun notarytool store-credentials readaloud ...`) exist on the Mac.
+
+Updates are signed with an EdDSA key whose private half lives in the login
+Keychain ("Private key for signing Sparkle updates"); its public half is
+`SUPublicEDKey` in `scripts/build-app.sh`. Back it up somewhere safe
+(`.build/artifacts/sparkle/Sparkle/bin/generate_keys -x <file>`): without it, no
+update can ever reach existing installs again.
 
 The landing page lives in `docs/` and is served by GitHub Pages.
 
@@ -88,4 +104,5 @@ Runtime and eSpeak NG under their own licenses; see THIRD-PARTY-NOTICES.md.
 swift build
 .build/debug/ReadAloud --say "Hello there." --voice bm_george --out /tmp/hello.wav
 .build/debug/ReadAloud --read-file article.txt --mute --trace --script "3:seek=60;6:pause;7:quit"
+READALOUD_MODELS_DIR=/tmp/models .build/debug/ReadAloud --download-voice   # test the first-launch download
 ```

@@ -2,8 +2,9 @@
 # Builds Aloud.app, signs it, installs it to /Applications and launches it.
 # Options (environment variables):
 #   VERSION=1.2.0    version number shown in Finder
-#   BUNDLE_MODEL=1   put the voice model inside the app (for builds other people download)
+#   BUNDLE_MODEL=1   put the voice model inside the app (otherwise the app downloads it on first launch)
 #   INSTALL=0        build only; don't install or launch
+#   BUILD_NUMBER=n   override CFBundleVersion (defaults to the commit count; Sparkle compares it)
 set -euo pipefail
 
 ROOT="${0:A:h:h}"
@@ -20,11 +21,15 @@ echo "Compiling..."
 swift build -c release --arch arm64 2>&1 | grep -E "error|warning: |Compiling|Build complete" || true
 BIN=".build/arm64-apple-macosx/release/ReadAloud"
 [[ -x "$BIN" ]] || { echo "Build failed"; exit 1; }
+SPARKLE=".build/arm64-apple-macosx/release/Sparkle.framework"
+[[ -d "$SPARKLE" ]] || { echo "Sparkle.framework missing from the build products"; exit 1; }
 
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Frameworks" "$APP/Contents/Resources"
 cp "$BIN" "$APP/Contents/MacOS/ReadAloud"
 cp -L Vendor/sherpa-onnx/lib/libsherpa-onnx-c-api.dylib Vendor/sherpa-onnx/lib/libonnxruntime.dylib "$APP/Contents/Frameworks/"
+# Sparkle (auto-updates). ditto keeps the framework's internal symlinks.
+ditto "$SPARKLE" "$APP/Contents/Frameworks/Sparkle.framework"
 # Remove the developer-only library path so the app only uses its bundled copies.
 install_name_tool -delete_rpath "$ROOT/Vendor/sherpa-onnx/lib" "$APP/Contents/MacOS/ReadAloud" 2>/dev/null || true
 
@@ -61,11 +66,15 @@ cat > "$APP/Contents/Info.plist" <<PLIST
   <key>CFBundleIconFile</key><string>AppIcon</string>
   <key>CFBundlePackageType</key><string>APPL</string>
   <key>CFBundleShortVersionString</key><string>$VERSION</string>
-  <key>CFBundleVersion</key><string>$(git rev-list --count HEAD 2>/dev/null || echo 1)</string>
+  <key>CFBundleVersion</key><string>${BUILD_NUMBER:-$(git rev-list --count HEAD 2>/dev/null || echo 1)}</string>
   <key>LSMinimumSystemVersion</key><string>14.0</string>
   <key>LSUIElement</key><true/>
   <key>NSHighResolutionCapable</key><true/>
   <key>NSMicrophoneUsageDescription</key><string>Aloud listens only while you dictate, and transcribes on your Mac.</string>
+  <key>SUFeedURL</key><string>https://payamrajabi.github.io/readaloud/appcast.xml</string>
+  <key>SUPublicEDKey</key><string>5vUlD146c8QQ89zPzk3BgpG7ivGEHbrUiH1SBSRSL6M=</string>
+  <key>SUEnableAutomaticChecks</key><true/>
+  <key>SUScheduledCheckInterval</key><integer>86400</integer>
 </dict>
 </plist>
 PLIST
@@ -84,6 +93,13 @@ IDENTITY=${IDENTITY:--}
 echo "Signing with: $IDENTITY"
 echo "$IDENTITY" > build/signing-identity
 codesign --force $TIMESTAMP --options runtime -s "$IDENTITY" "$APP/Contents/Frameworks/"*.dylib
+# Sparkle's helpers are signed inside-out with our identity (Sparkle's guide for builds outside Xcode).
+SPK="$APP/Contents/Frameworks/Sparkle.framework"
+codesign --force $TIMESTAMP --options runtime -s "$IDENTITY" "$SPK/Versions/B/XPCServices/Installer.xpc"
+codesign --force $TIMESTAMP --options runtime --preserve-metadata=entitlements -s "$IDENTITY" "$SPK/Versions/B/XPCServices/Downloader.xpc"
+codesign --force $TIMESTAMP --options runtime -s "$IDENTITY" "$SPK/Versions/B/Autoupdate"
+codesign --force $TIMESTAMP --options runtime -s "$IDENTITY" "$SPK/Versions/B/Updater.app"
+codesign --force $TIMESTAMP --options runtime -s "$IDENTITY" "$SPK"
 cat > build/entitlements.plist <<ENT
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
