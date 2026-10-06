@@ -1,64 +1,74 @@
 import AppKit
 
-/// Menu bar icon: five bars that sit still when idle, dance while reading,
-/// breathe while the first audio is being generated, and dim when paused.
+/// Menu bar icon. Same language as the KitchenOS voice tab: the `waveform`
+/// symbol sits still when idle, pulses while something is getting ready, and
+/// ripples while it's speaking, thinking or listening (red while listening).
 final class StatusIconView: NSView {
-    var status: PlayerModel.Status = .idle {
-        didSet {
-            guard status != oldValue else { return }
-            updateTimer()
-            needsDisplay = true
+    enum State: Equatable {
+        case idle
+        case preparing      // first audio generating, or the dictation model downloading
+        case speaking       // reading aloud
+        case paused
+        case listening      // recording a dictation
+        case transcribing
+
+        var label: String {
+            switch self {
+            case .idle: "Ready"
+            case .preparing: "Getting ready"
+            case .speaking: "Reading aloud"
+            case .paused: "Paused"
+            case .listening: "Listening"
+            case .transcribing: "Transcribing"
+            }
         }
     }
 
-    private var timer: Timer?
-    private let start = Date()
-    private let restingHeights: [CGFloat] = [0.35, 0.7, 1.0, 0.6, 0.3]
-    private let speeds: [Double] = [7.1, 9.3, 6.2, 8.4, 10.1]
-    private let phases: [Double] = [0.0, 1.3, 2.6, 0.7, 2.0]
+    var state: State = .idle {
+        didSet {
+            guard state != oldValue else { return }
+            apply()
+        }
+    }
+
+    private let imageView = NSImageView()
+    private let symbol = NSImage(systemSymbolName: "waveform", accessibilityDescription: nil)!
+        .withSymbolConfiguration(.init(pointSize: 15, weight: .medium))!
+
+    override init(frame: NSRect) {
+        super.init(frame: frame)
+        symbol.isTemplate = true
+        imageView.image = symbol
+        imageView.imageScaling = .scaleNone
+        imageView.frame = bounds
+        imageView.autoresizingMask = [.width, .height]
+        addSubview(imageView)
+        NSWorkspace.shared.notificationCenter.addObserver(
+            self, selector: #selector(reduceMotionChanged),
+            name: NSWorkspace.accessibilityDisplayOptionsDidChangeNotification, object: nil)
+        apply()
+    }
+
+    required init?(coder: NSCoder) { fatalError("init(coder:) is not used") }
 
     override func hitTest(_ point: NSPoint) -> NSView? { nil }  // clicks go to the status button
 
-    private func updateTimer() {
-        let animating = status == .playing || status == .loading
-        if animating, timer == nil {
-            let t = Timer(timeInterval: 1.0 / 24.0, repeats: true) { [weak self] _ in self?.needsDisplay = true }
-            RunLoop.main.add(t, forMode: .common)
-            timer = t
-        } else if !animating {
-            timer?.invalidate()
-            timer = nil
-        }
-    }
+    @objc private func reduceMotionChanged() { apply() }
 
-    override func draw(_ dirtyRect: NSRect) {
-        let barWidth: CGFloat = 2.4
-        let gap: CGFloat = 1.8
-        let maxHeight: CGFloat = 14
-        let count = restingHeights.count
-        let totalWidth = CGFloat(count) * barWidth + CGFloat(count - 1) * gap
-        var x = (bounds.width - totalWidth) / 2
-        let t = Date().timeIntervalSince(start)
-
-        var color = NSColor.labelColor
-        if status == .paused { color = color.withAlphaComponent(0.45) }
-        color.setFill()
-
-        for i in 0..<count {
-            let level: CGFloat
-            switch status {
-            case .idle, .paused:
-                level = restingHeights[i]
-            case .playing:
-                level = 0.25 + 0.75 * CGFloat(abs(sin(t * speeds[i] / 2 + phases[i])))
-            case .loading:
-                let breath = 0.5 + 0.5 * sin(t * 4 - Double(i) * 0.6)
-                level = restingHeights[i] * CGFloat(0.55 + 0.45 * breath)
-            }
-            let h = max(barWidth, maxHeight * level)
-            let rect = NSRect(x: x, y: (bounds.height - h) / 2, width: barWidth, height: h)
-            NSBezierPath(roundedRect: rect, xRadius: barWidth / 2, yRadius: barWidth / 2).fill()
-            x += barWidth + gap
+    private func apply() {
+        imageView.contentTintColor = state == .listening ? .systemRed : nil
+        imageView.alphaValue = state == .paused ? 0.45 : 1
+        imageView.removeAllSymbolEffects(animated: false)
+        guard !NSWorkspace.shared.accessibilityDisplayShouldReduceMotion else { return }
+        switch state {
+        case .idle, .paused:
+            break
+        case .preparing:
+            imageView.addSymbolEffect(.pulse, options: .repeating)
+        case .speaking, .transcribing:
+            imageView.addSymbolEffect(.variableColor.iterative.dimInactiveLayers, options: .repeating)
+        case .listening:
+            imageView.addSymbolEffect(.variableColor.iterative.dimInactiveLayers.reversing, options: .repeating)
         }
     }
 }
