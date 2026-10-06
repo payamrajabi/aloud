@@ -35,6 +35,7 @@ final class DictationController: ObservableObject {
         self.player = player
         recorder.onLevel = { [weak self] in self?.level = $0 }
         trigger.onTap = { [weak self] in self?.toggle() }
+        trigger.isRecording = { [weak self] in self?.state == .recording }
         trigger.onHoldBegan = { [weak self] in self?.holdBegan() }
         trigger.onHoldEnded = { [weak self] in self?.holdEnded() }
         trigger.onInterrupted = { [weak self] in
@@ -59,6 +60,12 @@ final class DictationController: ObservableObject {
 
     func shortcutChanged() { trigger.start() }
 
+    /// Double-tap of the left key: read the selection.
+    var onReadDoubleTap: (() -> Void)? {
+        get { trigger.onReadDoubleTap }
+        set { trigger.onReadDoubleTap = newValue }
+    }
+
     // MARK: - Triggers
 
     func toggle() {
@@ -77,7 +84,8 @@ final class DictationController: ObservableObject {
     }
 
     private func holdEnded() {
-        if state == .recording { finish() }
+        // With double-tap on, a hold never ends a recording that a double-tap started.
+        if state == .recording, pushToTalk || !DoubleTapKey.isOn { finish() }
     }
 
     // MARK: - Recording
@@ -99,7 +107,7 @@ final class DictationController: ObservableObject {
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .audio) { granted in
                 DispatchQueue.main.async {
-                    if granted { self.show("Microphone ready. Press \(DictationShortcut.current.short) to dictate.") }
+                    if granted { self.show("Microphone ready. \(DoubleTapKey.dictateAction) to dictate.") }
                     else { self.show("Aloud needs microphone access to dictate.") }
                 }
             }
@@ -258,7 +266,7 @@ final class DictationController: ObservableObject {
             if let error {
                 if wasShown { self.show("Download failed: \(error.localizedDescription)") }
             } else {
-                if wasShown { self.show("Dictation is ready. Press \(DictationShortcut.current.short) to start.") }
+                if wasShown { self.show("Dictation is ready. \(DoubleTapKey.dictateAction) to start.") }
                 self.queue.async { _ = self.loadEngine() }
             }
         }

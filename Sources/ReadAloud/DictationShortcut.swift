@@ -39,10 +39,14 @@ enum DictationShortcut: String, CaseIterable {
     }
 }
 
-/// Watches the keyboard for the dictation shortcut and ⌃⌥Esc (cancel).
+/// Watches the keyboard for the dictation shortcut (or double-taps) and ⌃⌥Esc (cancel).
 /// Needs Accessibility access (the same permission reading already uses).
 final class DictationTrigger {
     var onTap: (() -> Void)?
+    /// Double-tap of the left key, when double-tap is on.
+    var onReadDoubleTap: (() -> Void)?
+    /// A dictation is in progress (a single tap of the right key then finishes it).
+    var isRecording: (() -> Bool)?
     var onHoldBegan: (() -> Void)?
     var onHoldEnded: (() -> Void)?
     /// Another key was pressed while the modifier was held (e.g. a normal ⌘C).
@@ -58,11 +62,15 @@ final class DictationTrigger {
     private var clean = false
     private var holding = false
     private var holdTimer: Timer?
+    private var doubleTap: DoubleTapDetector?
+    private var inputCount: UInt32 = 0
 
     func start() {
         stop()
         shortcut = .current
-        if shortcut == .controlOptionD {
+        doubleTap = DoubleTapKey.current.detector()
+        inputCount = Self.inputCount()
+        if doubleTap == nil, shortcut == .controlOptionD {
             let combo = Shortcut(id: "dictation", keyCode: UInt32(kVK_ANSI_D), modifiers: UInt32(controlKey | optionKey), display: "⌃⌥D")
             hotKey = HotKey(combo) { [weak self] in self?.onTap?() }
         }
@@ -86,9 +94,12 @@ final class DictationTrigger {
     }
 
     private func handle(_ event: NSEvent) {
+        if event.type == .keyDown, event.keyCode == 53,
+           event.modifierFlags.intersection([.command, .option, .control, .shift]) == [.control, .option] {
+            onCancel?()
+        }
+        if doubleTap != nil { return handleDoubleTap(event) }
         if event.type == .keyDown {
-            let mods = event.modifierFlags.intersection([.command, .option, .control, .shift])
-            if event.keyCode == 53, mods == [.control, .option] { onCancel?() }
             guard downAt != nil else { return }
             clean = false
             holdTimer?.invalidate()
@@ -127,5 +138,39 @@ final class DictationTrigger {
             downAt = nil
             clean = false
         }
+    }
+
+    private func handleDoubleTap(_ event: NSEvent) {
+        let count = Self.inputCount()
+        defer { inputCount = count }
+        doubleTap?.recording = isRecording?() ?? false
+        if event.type == .keyDown { return perform(doubleTap?.handle(.keyDown)) }
+        // Clicks and keys swallowed by system shortcuts (⌘Tab) never reach the monitors; the counters see them.
+        if count != inputCount { _ = doubleTap?.handle(.input) }
+        perform(doubleTap?.handle(.modifier(code: event.keyCode, flags: event.modifierFlags.rawValue, time: event.timestamp)))
+        guard doubleTap?.holdPending == true else { return }
+        holdTimer?.invalidate()
+        holdTimer = Timer.scheduledTimer(withTimeInterval: DoubleTapDetector.holdDelay, repeats: false) { [weak self] _ in
+            guard let self else { return }
+            self.doubleTap?.recording = self.isRecording?() ?? false
+            self.perform(self.doubleTap?.holdTimerFired(at: ProcessInfo.processInfo.systemUptime))
+        }
+    }
+
+    private func perform(_ action: DoubleTapDetector.Action?) {
+        switch action {
+        case .read: onReadDoubleTap?()
+        case .dictate: onTap?()
+        case .holdBegan: onHoldBegan?()
+        case .holdEnded: onHoldEnded?()
+        case .interrupted: onInterrupted?()
+        case nil: break
+        }
+    }
+
+    /// Key presses and clicks seen system-wide so far.
+    private static func inputCount() -> UInt32 {
+        let types: [CGEventType] = [.keyDown, .leftMouseDown, .rightMouseDown, .otherMouseDown]
+        return types.reduce(0) { $0 &+ CGEventSource.counterForEventType(.combinedSessionState, eventType: $1) }
     }
 }
