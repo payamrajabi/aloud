@@ -6,7 +6,7 @@
 <title>Aloud for Mac</title>
 <meta name="description" content="Aloud is a free Mac menu bar app that reads any selected text to you in a natural voice, and types what you say into any app. Both run entirely on your Mac.">
 <meta property="og:title" content="Aloud for Mac: reads to you, listens to you">
-<meta property="og:description" content="Select text and hear it. Tap a key and talk, and it types for you. Free, private, and offline on your Mac.">
+<meta property="og:description" content="Select text and hear it. Double-tap a key and talk, and it types for you. Free, private, and offline on your Mac.">
 <meta property="og:image" content="https://payamrajabi.github.io/readaloud/assets/player.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
@@ -410,7 +410,7 @@
 <main>
   <div class="wrap hero">
     <h1><span>Reads to you<span class="p-read">.</span></span><span>Listens to you<span class="p-listen">.</span></span></h1>
-    <p class="lede">Aloud is a small Mac menu bar app. <b>Select any text</b> and it reads it to you in a natural voice. <b>Tap a key and talk</b>, and it types what you say into any app. Both run on your Mac, so nothing you read or say goes online.</p>
+    <p class="lede">Aloud is a small Mac menu bar app. <b>Select any text</b> and it reads it to you in a natural voice. <b>Double-tap a key and talk</b>, and it types what you say into any app. Both run on your Mac, so nothing you read or say goes online.</p>
     <a class="cta" href="https://github.com/payamrajabi/readaloud/releases/latest/download/Aloud.dmg">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0 4.5-4.5M12 15l-4.5-4.5M5 19h14"/></svg>
       Download for Mac
@@ -487,25 +487,25 @@
 
   <section class="wrap" id="keys">
     <div class="sec-head">
-      <h2>Two keys to remember.</h2>
-      <p>One to hear the text you've selected, one to say the words you want typed. They work in every app.</p>
+      <h2>Two taps. That's it.</h2>
+      <p>Both Option keys do the work. Double-tap the left one to hear what you've selected, the right one to start talking. They work in every app.</p>
     </div>
     <div class="kb-stage">
       <div class="kb-label" aria-live="polite">
         <p class="kb-title"><span class="dot read" id="kbDot"></span><span id="kbTitle">Read the selected text</span></p>
-        <p class="kb-status" id="kbStatus">Select text in any app, then press <span class="nowrap"><kbd>⌃</kbd> <kbd>⌥</kbd> <kbd>R</kbd></span></p>
+        <p class="kb-status" id="kbStatus">Select text in any app, then double-tap <span class="nowrap"><kbd>left ⌥</kbd></span></p>
       </div>
       <div class="kb" id="kb" data-mode="read"><div class="kb-inner" id="kbInner"></div></div>
       <div class="modes">
         <button type="button" class="mode" data-mode="read" aria-pressed="true">
           <span class="eyebrow read"><span class="dot read"></span>Read aloud</span>
-          <span class="combo"><kbd>⌃</kbd><kbd>⌥</kbd><kbd>R</kbd></span>
-          <span class="desc">Select text in any app, then press. Press again to pause.</span>
+          <span class="combo"><kbd>left ⌥</kbd><kbd>left ⌥</kbd></span>
+          <span class="desc">Select text in any app, then double-tap the left Option key. The player takes it from there: pause with Space, the player or your AirPods.</span>
         </button>
         <button type="button" class="mode" data-mode="dictate" aria-pressed="false">
           <span class="eyebrow listen"><span class="dot listen"></span>Dictate</span>
-          <span class="combo"><kbd>right ⌥</kbd></span>
-          <span class="desc">Tap, talk, tap again. Or hold it while you talk. <kbd>⌃</kbd><kbd>⌥</kbd><kbd>esc</kbd> throws a recording away.</span>
+          <span class="combo"><kbd>right ⌥</kbd><kbd>right ⌥</kbd></span>
+          <span class="desc">Double-tap the right Option key, talk, then tap it once to finish. Or hold it while you talk. <kbd>⌃</kbd><kbd>⌥</kbd><kbd>esc</kbd> throws a recording away.</span>
         </button>
       </div>
     </div>
@@ -533,7 +533,7 @@
       <article class="half listen">
         <p class="eyebrow listen"><span class="dot listen"></span>Listens to you</p>
         <h2>Talk instead of typing.</h2>
-        <p>Click into any text field and tap the right Option key. Talk for ten seconds or ten minutes. Tap again and your words appear, punctuated, about a second later.</p>
+        <p>Click into any text field and double-tap the right Option key. Talk for ten seconds or ten minutes. Tap it once more and your words appear, punctuated, about a second later.</p>
         <div class="shot">
           <div class="field">
             <div class="to">To: Sam Okafor</div>
@@ -542,7 +542,7 @@
           <img class="pillimg" src="assets/dictation-pill.png" width="320" height="56" alt="The dictation pill: a red recording dot, a live sound level and a timer">
         </div>
         <ul class="facts">
-          <li><b>Tap or hold</b><span>Tap to start and stop, or hold the key and let go when you're done</span></li>
+          <li><b>Double-tap, then tap</b><span>Double-tap to start, one tap to finish. Or hold the key and let go when you're done</span></li>
           <li><b>About 1 second</b><span>It transcribes while you talk, so even long dictation is ready right after you stop</span></li>
           <li><b>Hard to lose</b><span>Only <kbd>⌃</kbd><kbd>⌥</kbd><kbd>esc</kbd> cancels, so a stray Esc can't throw away ten minutes of talking</span></li>
           <li><b>Any app</b><span>Mail, Slack, Notes, Messages, your browser, your code editor</span></li>
@@ -616,9 +616,9 @@
         <details><summary>Is it really free?</summary><p>Yes. The voice and transcription models run on your own Mac, so there's no server to pay for and no usage limit. Aloud is open source.</p></details>
         <details><summary>Is anything I select or say sent to the internet?</summary><p>No. Text is turned into speech, and speech into text, on your Mac. Nothing is uploaded, and both work with Wi-Fi switched off once the dictation model has downloaded.</p></details>
         <details><summary>Which Macs does it run on?</summary><p>Macs with Apple silicon (M1 or newer) running macOS 14 Sonoma or later. Intel Macs aren't supported because the voice would be too slow.</p></details>
-        <details><summary>Can I keep using another dictation app?</summary><p>Yes, but give them different keys. Dictation uses the right ⌥ (Option) key by default. If your other app uses it too, switch Aloud to right ⌘, fn, or ⌃⌥D under right-click → Dictation Shortcut.</p></details>
+        <details><summary>Can I keep using another dictation app?</summary><p>Yes, but give them different keys. Aloud listens for a double-tap of the right ⌥ (Option) key by default. If your other app uses Option too, switch Aloud to Shift, Command or Control under right-click → Double-Tap.</p></details>
         <details><summary>Why does it need Accessibility and microphone access?</summary><p>macOS only lets apps read another app's selected text, notice the dictation key, and type into other apps through Accessibility. The microphone is used only while you're dictating.</p></details>
-        <details><summary>Can I change the shortcuts?</summary><p>Yes. Right-click the menu bar icon. Reading can use ⌃⌥R, ⌥Esc, ⌃⌥Space or ⇧⌘1. Dictation can use right ⌥, right ⌘, fn or ⌃⌥D.</p></details>
+        <details><summary>Can I change the shortcuts?</summary><p>Yes. Right-click the menu bar icon. Under Double-Tap, pick Option, Shift, Command or Control (the left key reads, the right key dictates), or turn double-taps off. ⌃⌥R also starts reading, and with double-taps off, dictation can use right ⌥, right ⌘, fn or ⌃⌥D.</p></details>
         <details><summary>How do I uninstall it?</summary><p>Right-click the menu bar icon, choose Quit, then drag Aloud from Applications to the Trash. To remove the dictation model too, delete the ReadAloud folder in ~/Library/Application Support.</p></details>
       </div>
     </div>
@@ -707,9 +707,9 @@
     hint("Select some text in any app…");
     await sleep(700); if (!alive(id)) return;
     for (const w of articleWords) { w.classList.add("sel"); await sleep(28); if (!alive(id)) return; }
-    hint("…then press Control, Option and R.");
+    hint("…then double-tap the left Option key.");
     await sleep(300); if (!alive(id)) return;
-    await keys(id, ["⌃", "⌥", "R"]); if (!alive(id)) return;
+    await keys(id, ["<small>left</small>⌥", "<small>left</small>⌥"]); if (!alive(id)) return;
     screen.classList.add("reading");
     pop.classList.remove("hide");
     for (let i = 0; i < 2; i++) {
@@ -732,9 +732,9 @@
     setTab("dictate");
     typed.textContent = "";
     pill.classList.add("hide"); pill.classList.remove("busy");
-    hint("Click where you want the words, then tap the right Option key…");
+    hint("Click where you want the words, then double-tap the right Option key…");
     await sleep(1300); if (!alive(id)) return;
-    await keys(id, ["<small>right</small>⌥"]); if (!alive(id)) return;
+    await keys(id, ["<small>right</small>⌥", "<small>right</small>⌥"]); if (!alive(id)) return;
     pill.classList.remove("hide");
     const ws = say("dictate", SPOKEN);
     const t0 = Date.now();
@@ -805,7 +805,16 @@
   const kb = $("kb"), kbTitle = $("kbTitle"), kbStatus = $("kbStatus"), kbDot = $("kbDot");
   const modeBtns = [...document.querySelectorAll(".mode")];
   const key = id => inner.querySelector(`[data-k="${id}"]`);
-  const COMBOS = { read: ["ctrl", "lopt", "r"], dictate: ["ropt"] };
+  const COMBOS = { read: ["lopt"], dictate: ["ropt"] };
+  async function tap(id, k, times) {
+    const el = key(k);
+    for (let i = 0; i < times; i++) {
+      el.classList.add("down"); await sleep(120); el.classList.remove("down");
+      if (id !== kbRun) return false;
+      await sleep(140); if (id !== kbRun) return false;
+    }
+    return true;
+  }
   let kbRun = 0;
 
   function kbMode(mode) {
@@ -821,30 +830,25 @@
   async function kbRead(id) {
     kbMode("read");
     kbTitle.textContent = "Read the selected text";
-    status(`Select text in any app, then press <span class="nowrap"><kbd>⌃</kbd> <kbd>⌥</kbd> <kbd>R</kbd></span>`);
+    status(`Select text in any app, then double-tap <span class="nowrap"><kbd>left ⌥</kbd></span>`);
     await sleep(1200); if (id !== kbRun) return;
-    for (const k of COMBOS.read) { key(k).classList.add("down"); await sleep(280); if (id !== kbRun) return; }
-    await sleep(380); if (id !== kbRun) return;
-    COMBOS.read.forEach(k => key(k).classList.remove("down"));
-    status(`<span class="chip read">${BARS}Reading aloud</span> It starts in about half a second.`);
+    if (!await tap(id, "lopt", 2)) return;
+    status(`<span class="chip read">${BARS}Reading aloud</span> The player takes it from there.`);
     await sleep(2800);
   }
   async function kbDictate(id) {
     kbMode("dictate");
     kbTitle.textContent = "Dictate into any app";
-    status(`Click where you want the words, then tap the right <kbd>⌥</kbd> key`);
+    status(`Click where you want the words, then double-tap <span class="nowrap"><kbd>right ⌥</kbd></span>`);
     await sleep(1300); if (id !== kbRun) return;
-    const ropt = key("ropt");
-    ropt.classList.add("down"); await sleep(200); ropt.classList.remove("down");
-    if (id !== kbRun) return;
+    if (!await tap(id, "ropt", 2)) return;
     for (let s = 0; s <= 3; s++) {
       status(`<span class="chip listen"><i class="rec"></i>${BARS}0:0${s}</span> Talk as long as you like.`);
       await sleep(900); if (id !== kbRun) return;
     }
-    status(`Tap the right <kbd>⌥</kbd> key again when you're done`);
+    status(`Tap <span class="nowrap"><kbd>right ⌥</kbd></span> once when you're done`);
     await sleep(700); if (id !== kbRun) return;
-    ropt.classList.add("down"); await sleep(200); ropt.classList.remove("down");
-    if (id !== kbRun) return;
+    if (!await tap(id, "ropt", 1)) return;
     status(`Your words appear where your cursor is, about a second later.`);
     await sleep(2600);
   }
@@ -859,8 +863,8 @@
   function kbStill(mode) {
     kbRun++;
     kbMode(mode);
-    if (mode === "read") { kbTitle.textContent = "Read the selected text"; status(`Select text in any app, then press <span class="nowrap"><kbd>⌃</kbd> <kbd>⌥</kbd> <kbd>R</kbd></span>`); }
-    else { kbTitle.textContent = "Dictate into any app"; status(`Tap the right <kbd>⌥</kbd> key, talk, then tap it again`); }
+    if (mode === "read") { kbTitle.textContent = "Read the selected text"; status(`Select text in any app, then double-tap <span class="nowrap"><kbd>left ⌥</kbd></span>`); }
+    else { kbTitle.textContent = "Dictate into any app"; status(`Double-tap <span class="nowrap"><kbd>right ⌥</kbd></span>, talk, then tap it once`); }
   }
 
   kbStill("read");
