@@ -1,7 +1,7 @@
 import AppKit
 
-/// Double-tap a modifier: the left key reads the selection, the right key dictates.
-/// A single tap does nothing, so a stray tap can't stop a long dictation.
+/// Double-tap a modifier's left key to read the selection, its right key to start dictating;
+/// a single tap of the right key finishes. Otherwise a single tap does nothing.
 enum DoubleTapKey: String, CaseIterable {
     case option, shift, command, control, off
 
@@ -47,6 +47,7 @@ enum DoubleTapKey: String, CaseIterable {
 
 /// Tap / double-tap / hold detection for one modifier family, free of timers and
 /// event monitors so it can be tested. Taps on the left and right keys are tracked separately.
+/// `.dictate` means start (double-tap right while idle) or finish (single tap right while recording).
 struct DoubleTapDetector {
     struct Key: Equatable {
         let code: UInt16
@@ -66,10 +67,14 @@ struct DoubleTapDetector {
 
     let left: Key, right: Key, family: UInt
     var interval = NSEvent.doubleClickInterval
+    /// Set by the owner before each event: a dictation is in progress.
+    var recording = false
 
     private var press: (key: Key, at: TimeInterval, clean: Bool, consumed: Bool)?
     private var lastTap: (key: Key, at: TimeInterval)?
     private var holding = false
+    /// Right-key taps that start before this belong to the double-tap that just started or finished a recording.
+    private var quietUntil = -TimeInterval.infinity
 
     init(left: Key, right: Key, family: UInt) {
         (self.left, self.right, self.family) = (left, right, family)
@@ -78,7 +83,7 @@ struct DoubleTapDetector {
     /// The right key is down on its own: start the hold timer.
     var holdPending: Bool {
         guard let press else { return false }
-        return press.key == right && press.clean && !press.consumed && !holding
+        return press.key == right && press.clean && !press.consumed && !holding && !recording
     }
 
     mutating func handle(_ event: Event) -> Action? {
@@ -114,8 +119,9 @@ struct DoubleTapDetector {
     private mutating func down(_ key: Key, flags: UInt, at time: TimeInterval) -> Action? {
         let clean = flags & Self.families & ~family == 0
         defer { lastTap = nil }
-        if clean, let tap = lastTap, tap.key == key, time - tap.at <= interval {
+        if clean, let tap = lastTap, tap.key == key, time - tap.at <= interval, key == left || !recording {
             press = (key, time, false, true)  // fire now; ignore the rest of this press
+            if key == right { quietUntil = time + interval }
             return key == left ? .read : .dictate
         }
         press = (key, time, clean, false)
@@ -128,11 +134,14 @@ struct DoubleTapDetector {
             holding = false
             return .holdEnded
         }
-        if let press, press.clean, !press.consumed, time - press.at < Self.holdDelay {
-            lastTap = (press.key, press.at)
-        } else {
-            lastTap = nil
+        lastTap = nil
+        guard let press, press.clean, !press.consumed, time - press.at < Self.holdDelay else { return nil }
+        if press.key == right, press.at < quietUntil { return nil }
+        if press.key == right, recording {
+            quietUntil = press.at + interval  // a double tap finishes once; its second tap mustn't start again
+            return .dictate
         }
+        lastTap = (press.key, press.at)
         return nil
     }
 }

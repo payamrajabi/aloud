@@ -221,7 +221,7 @@ struct WelcomeView: View {
             Spacer(minLength: 0)
             Label {
                 if DoubleTapKey.isOn {
-                    Text("Select text in any app, then double-tap **left \(DoubleTapKey.current.symbol)**. Double-tap again to pause.")
+                    Text("Select text in any app, then double-tap **left \(DoubleTapKey.current.symbol)**. Use the player, Space or your AirPods to pause.")
                 } else {
                     Text("Select text in any app, then press **\(Shortcut.current.display)**. Press it again to pause.")
                 }
@@ -230,7 +230,7 @@ struct WelcomeView: View {
             }
             Label {
                 if DoubleTapKey.isOn {
-                    Text("To dictate, double-tap **right \(DoubleTapKey.current.symbol)**, speak, and double-tap again (or hold it while you talk). Your words are typed wherever your cursor is.")
+                    Text("To dictate, double-tap **right \(DoubleTapKey.current.symbol)**, speak, and tap it once to finish (or hold it while you talk). Your words are typed wherever your cursor is.")
                 } else {
                     Text("To dictate, tap **\(DictationShortcut.current.short)**, speak, and tap again (or hold it while you talk). Your words are typed wherever your cursor is.")
                 }

@@ -35,6 +35,7 @@ final class DictationController: ObservableObject {
         self.player = player
         recorder.onLevel = { [weak self] in self?.level = $0 }
         trigger.onTap = { [weak self] in self?.toggle() }
+        trigger.isRecording = { [weak self] in self?.state == .recording }
         trigger.onHoldBegan = { [weak self] in self?.holdBegan() }
         trigger.onHoldEnded = { [weak self] in self?.holdEnded() }
         trigger.onInterrupted = { [weak self] in

@@ -45,6 +45,8 @@ final class DictationTrigger {
     var onTap: (() -> Void)?
     /// Double-tap of the left key, when double-tap is on.
     var onReadDoubleTap: (() -> Void)?
+    /// A dictation is in progress (a single tap of the right key then finishes it).
+    var isRecording: (() -> Bool)?
     var onHoldBegan: (() -> Void)?
     var onHoldEnded: (() -> Void)?
     /// Another key was pressed while the modifier was held (e.g. a normal ⌘C).
@@ -141,6 +143,7 @@ final class DictationTrigger {
     private func handleDoubleTap(_ event: NSEvent) {
         let count = Self.inputCount()
         defer { inputCount = count }
+        doubleTap?.recording = isRecording?() ?? false
         if event.type == .keyDown { return perform(doubleTap?.handle(.keyDown)) }
         // Clicks and keys swallowed by system shortcuts (⌘Tab) never reach the monitors; the counters see them.
         if count != inputCount { _ = doubleTap?.handle(.input) }
@@ -148,7 +151,9 @@ final class DictationTrigger {
         guard doubleTap?.holdPending == true else { return }
         holdTimer?.invalidate()
         holdTimer = Timer.scheduledTimer(withTimeInterval: DoubleTapDetector.holdDelay, repeats: false) { [weak self] _ in
-            self?.perform(self?.doubleTap?.holdTimerFired(at: ProcessInfo.processInfo.systemUptime))
+            guard let self else { return }
+            self.doubleTap?.recording = self.isRecording?() ?? false
+            self.perform(self.doubleTap?.holdTimerFired(at: ProcessInfo.processInfo.systemUptime))
         }
     }
 

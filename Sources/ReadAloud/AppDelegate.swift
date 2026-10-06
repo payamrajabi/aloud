@@ -19,7 +19,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         registerHotKey()
         nowPlaying = NowPlaying(model: model)
         dictationHUD = DictationHUD(controller: dictation)
-        dictation.onReadDoubleTap = { [weak self] in self?.readSelection() }
+        dictation.onReadDoubleTap = { [weak self] in self?.readSelection(pausing: false) }
         dictation.start()
         model.preload()
         enableLoginItemOnFirstLaunch()
@@ -38,7 +38,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     // MARK: - Reading
 
-    @objc func readSelection() {
+    /// `pausing`: the same (or no) selection pauses a playing session. The double-tap only ever starts or resumes.
+    func readSelection(pausing: Bool = true) {
         guard SelectionReader.isTrusted else {
             model.message = "Aloud needs Accessibility access to read your selection. Turn it on in System Settings → Privacy & Security → Accessibility, then try again."
             showPlayer()
@@ -54,12 +55,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
                 self.model.load(selection)
                 if self.model.message != nil && !self.model.hasSession { self.showPlayer() }
             } else if self.model.hasSession {
-                self.model.togglePlay()
+                pausing ? self.model.togglePlay() : self.model.play()
             } else {
                 NSSound.beep()
             }
         }
     }
+
+    @objc private func readSelectionFromMenu() { readSelection() }
 
     var statusButton: NSStatusBarButton? { statusItem.button }
 
@@ -159,7 +162,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         menu.removeAllItems()
         let shortcut = Shortcut.current
 
-        let read = NSMenuItem(title: "Read Selection  (\(DoubleTapKey.readHint))", action: #selector(readSelection), keyEquivalent: "")
+        let read = NSMenuItem(title: "Read Selection  (\(DoubleTapKey.readHint))", action: #selector(readSelectionFromMenu), keyEquivalent: "")
         read.target = self
         menu.addItem(read)
         let show = NSMenuItem(title: "Show Player", action: #selector(showPlayer), keyEquivalent: "")
