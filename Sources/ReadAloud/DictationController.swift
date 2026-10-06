@@ -54,7 +54,18 @@ final class DictationController: ObservableObject {
         } else {
             // Fetch the dictation model quietly soon after first launch so it's
             // ready by the time someone tries it.
-            DispatchQueue.main.asyncAfter(deadline: .now() + 8) { self.downloadModel(visible: false) }
+            downloadModelInBackground(after: 8)
+        }
+    }
+
+    /// The voice comes first: wait for its download to finish before starting this one.
+    private func downloadModelInBackground(after delay: Double) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            if self.player.isDownloadingVoice {
+                self.downloadModelInBackground(after: 5)
+            } else {
+                self.downloadModel(visible: false)
+            }
         }
     }
 
@@ -251,7 +262,7 @@ final class DictationController: ObservableObject {
         }
         guard !downloader.isRunning, !ParakeetEngine.isInstalled else { return }
         downloadProgress = 0
-        downloader.download(ParakeetEngine.downloadURL, into: ParakeetEngine.modelsRoot) { [weak self] p in
+        downloader.download(ParakeetEngine.downloadURL, into: ModelStore.root) { [weak self] p in
             guard let self else { return }
             self.downloadProgress = p
             if self.showDownload { self.state = .downloading(p) }

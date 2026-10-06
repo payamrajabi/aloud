@@ -7,6 +7,8 @@ import CSherpaOnnx
 ///   --read "text" | --read-file path                    open the player and read
 ///   --mute                                              silence output
 ///   --trace                                             print player state twice a second
+///   --download-voice                                    download the voice model and exit
+///   READALOUD_MODELS_DIR=/some/folder                   use a different models folder (test fresh installs)
 ///   --script "2:seek=30;4:pause;5:play;8:open;9:snapshot=/tmp/p.png;10:quit"
 enum DebugScript {
     static let args = CommandLine.arguments
@@ -124,6 +126,27 @@ enum DebugScript {
             print(String(format: "mic simulation: %d buffers of 48 kHz stereo → %.2fs at 16 kHz (source %.2fs)", pieces.count, Double(captured.count) / 16_000, Double(mono16.count) / 16_000))
             print("transcript: " + ((try? ParakeetEngine())?.transcribe(captured) ?? "engine failed"))
             exit(0)
+        }
+        if args.contains("--download-voice") {
+            // Downloads the voice the way the app does. Point READALOUD_MODELS_DIR at a scratch folder to test a fresh install.
+            let dir = KokoroEngine.downloadedModelDirectory
+            if FileManager.default.fileExists(atPath: dir.appendingPathComponent("model.onnx").path) {
+                print("voice already at \(dir.path)")
+                exit(0)
+            }
+            print("downloading \(KokoroEngine.downloadURL.absoluteString) into \(ModelStore.root.path)"); fflush(stdout)
+            let downloader = ModelDownloader()
+            let t0 = Date()
+            var shown = -1
+            downloader.download(KokoroEngine.downloadURL, into: ModelStore.root) { p in
+                let step = Int(p * 10)
+                if step != shown { shown = step; print("  \(step * 10)%"); fflush(stdout) }
+            } completion: { error in
+                let ok = FileManager.default.fileExists(atPath: dir.appendingPathComponent("model.onnx").path)
+                print(String(format: "done in %.0fs, error: %@, installed: %@", Date().timeIntervalSince(t0), error?.localizedDescription ?? "none", ok ? "yes" : "no"))
+                exit(error == nil && ok ? 0 : 1)
+            }
+            RunLoop.main.run()
         }
         guard let text = value("--say") else { return }
         let voice = Voice.with(key: value("--voice"))

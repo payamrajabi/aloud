@@ -8,15 +8,7 @@ final class ParakeetEngine {
     static let modelName = "sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8"
     static let downloadURL = URL(string: "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/\(modelName).tar.bz2")!
 
-    static var modelsRoot: URL {
-        if let override = ProcessInfo.processInfo.environment["READALOUD_MODELS_DIR"] {  // for testing fresh installs
-            return URL(fileURLWithPath: override)
-        }
-        return FileManager.default.homeDirectoryForCurrentUser
-            .appendingPathComponent("Library/Application Support/ReadAloud/models")
-    }
-
-    static var modelDirectory: URL { modelsRoot.appendingPathComponent(modelName) }
+    static var modelDirectory: URL { ModelStore.root.appendingPathComponent(modelName) }
 
     static var isInstalled: Bool {
         FileManager.default.fileExists(atPath: modelDirectory.appendingPathComponent("tokens.txt").path)

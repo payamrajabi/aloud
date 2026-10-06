@@ -24,6 +24,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         model.preload()
         enableLoginItemOnFirstLaunch()
         moveLoginItemIfRenamed()
+        // Fetch the voice soon after first launch so it's usually ready by the first read.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in self?.model.downloadVoiceIfNeeded() }
         if !DebugScript.isActive {
             if !UserDefaults.standard.bool(forKey: "didWelcome") {
                 // First launch: open the player so people see where it lives and how to start.
@@ -53,7 +55,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             let current = self.model.sourceText.trimmingCharacters(in: .whitespacesAndNewlines)
             if !selection.isEmpty && !(selection == current && self.model.hasSession) {
                 self.model.load(selection)
-                if self.model.message != nil && !self.model.hasSession { self.showPlayer() }
+                // Show what's happening when reading can't start right away.
+                if (self.model.message != nil && !self.model.hasSession) || self.model.isDownloadingVoice { self.showPlayer() }
             } else if self.model.hasSession {
                 pausing ? self.model.togglePlay() : self.model.play()
             } else {

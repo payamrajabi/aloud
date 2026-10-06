@@ -1,6 +1,19 @@
 import Foundation
 
+/// Where downloaded models live: ~/Library/Application Support/ReadAloud/models.
+enum ModelStore {
+    static var root: URL {
+        if let override = ProcessInfo.processInfo.environment["READALOUD_MODELS_DIR"] {  // for testing fresh installs
+            return URL(fileURLWithPath: override)
+        }
+        return FileManager.default.homeDirectoryForCurrentUser
+            .appendingPathComponent("Library/Application Support/ReadAloud/models")
+    }
+}
+
 /// Downloads and unpacks a model archive into Application Support, reporting progress.
+/// The archive is unpacked into a hidden folder first and moved into place only when
+/// it's complete, so a half-unpacked model never looks installed.
 final class ModelDownloader: NSObject, URLSessionDownloadDelegate {
     private var onProgress: ((Double) -> Void)?
     private var onDone: ((Error?) -> Void)?
@@ -26,9 +39,13 @@ final class ModelDownloader: NSObject, URLSessionDownloadDelegate {
     }
 
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        if let http = downloadTask.response as? HTTPURLResponse, http.statusCode != 200 {
+            finish(Self.error("The download failed (HTTP \(http.statusCode))."))
+            return
+        }
         // The temporary file disappears when this method returns, so move it first.
         let fm = FileManager.default
-        let archive = destination.appendingPathComponent("download-\(UUID().uuidString).tar.bz2")
+        let archive = destination.appendingPathComponent(".download-\(UUID().uuidString).tar.bz2")
         do {
             try fm.createDirectory(at: destination, withIntermediateDirectories: true)
             try fm.moveItem(at: location, to: archive)
@@ -38,17 +55,23 @@ final class ModelDownloader: NSObject, URLSessionDownloadDelegate {
         }
         let dest = destination!
         DispatchQueue.global(qos: .userInitiated).async {
-            let tar = Process()
-            tar.executableURL = URL(fileURLWithPath: "/usr/bin/tar")
-            tar.arguments = ["-xjf", archive.path, "-C", dest.path]
+            let staging = dest.appendingPathComponent(".unpack-\(UUID().uuidString)")
             var failure: Error?
             do {
+                try fm.createDirectory(at: staging, withIntermediateDirectories: true)
+                let tar = Process()
+                tar.executableURL = URL(fileURLWithPath: "/usr/bin/tar")
+                tar.arguments = ["-xjf", archive.path, "-C", staging.path]
                 try tar.run()
                 tar.waitUntilExit()
-                if tar.terminationStatus != 0 {
-                    failure = NSError(domain: "ReadAloud", code: 2, userInfo: [NSLocalizedDescriptionKey: "Couldn't unpack the model."])
+                guard tar.terminationStatus == 0 else { throw Self.error("Couldn't unpack the model.") }
+                for item in try fm.contentsOfDirectory(at: staging, includingPropertiesForKeys: nil) {
+                    let target = dest.appendingPathComponent(item.lastPathComponent)
+                    if fm.fileExists(atPath: target.path) { try fm.removeItem(at: target) }
+                    try fm.moveItem(at: item, to: target)
                 }
             } catch { failure = error }
+            try? fm.removeItem(at: staging)
             try? fm.removeItem(at: archive)
             DispatchQueue.main.async { self.finish(failure) }
         }
@@ -65,5 +88,9 @@ final class ModelDownloader: NSObject, URLSessionDownloadDelegate {
         onDone = nil
         onProgress = nil
         done?(error)
+    }
+
+    private static func error(_ message: String) -> NSError {
+        NSError(domain: "ReadAloud", code: 2, userInfo: [NSLocalizedDescriptionKey: message])
     }
 }

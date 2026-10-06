@@ -17,6 +17,8 @@ final class PlayerModel: ObservableObject {
     @Published private(set) var rate: Float
     @Published private(set) var voice: Voice
     @Published var message: String?
+    /// 0…1 while the voice model is downloading, nil otherwise.
+    @Published private(set) var voiceDownloadProgress: Double?
 
     private(set) var sourceText = ""
     var hasSession: Bool { !chunks.isEmpty }
@@ -43,6 +45,7 @@ final class PlayerModel: ObservableObject {
     private var secondsPerChar = 0.064           // refined as audio is generated
     private let audio = AudioOut()
     private let synth = Synthesizer()
+    private let voiceDownloader = ModelDownloader()
     private var session = 0
     private var token = 0                        // invalidates callbacks from earlier playback runs
     private var timer: Timer?
@@ -95,7 +98,42 @@ final class PlayerModel: ObservableObject {
     }
 
     func preload() {
+        guard KokoroEngine.isModelInstalled else { return }
         synth.preload(accent: voice.accent)
+    }
+
+    // MARK: - Voice model
+
+    var isDownloadingVoice: Bool { voiceDownloadProgress != nil }
+
+    /// Fetches the voice model into Application Support unless it's already there.
+    /// A session waiting for it starts reading as soon as it's unpacked.
+    func downloadVoiceIfNeeded() {
+        guard !KokoroEngine.isModelInstalled, !voiceDownloader.isRunning else { return }
+        voiceDownloadProgress = 0
+        log("downloading the voice")
+        voiceDownloader.download(KokoroEngine.downloadURL, into: ModelStore.root) { [weak self] p in
+            self?.voiceDownloadProgress = p
+        } completion: { [weak self] error in
+            guard let self else { return }
+            self.voiceDownloadProgress = nil
+            self.log("voice download finished, error: \(error?.localizedDescription ?? "none"), installed: \(KokoroEngine.isModelInstalled)")
+            if KokoroEngine.isModelInstalled {
+                self.voiceBecameReady()
+            } else {
+                let retry = self.hasSession ? "press play to try again" : "Aloud will try again when you next read"
+                self.message = "Couldn't download the voice (\(error?.localizedDescription ?? "it was incomplete")). Check your internet connection, then \(retry)."
+                self.pause()
+            }
+        }
+    }
+
+    private func voiceBecameReady() {
+        synth.preload(accent: voice.accent)
+        guard hasSession else { return }
+        // Generate from where the listener is waiting; chunkReady starts playback.
+        session = synth.begin(texts: chunks.map(\.speech), voice: voice, from: currentPoint().index)
+        updateWindow()
     }
 
     // MARK: - Session
@@ -108,14 +146,18 @@ final class PlayerModel: ObservableObject {
             message = "There's nothing readable in that selection."
             return
         }
-        message = KokoroEngine.isModelInstalled ? nil : EngineError.modelMissing(KokoroEngine.modelDirectory.path).localizedDescription
+        message = nil
         sourceText = raw
         text = cleaned
         chunks = newChunks
         chunkRanges = newChunks.map(\.range)
         buffers = [:]
         recomputeTimeline()
-        session = synth.begin(texts: newChunks.map(\.speech), voice: voice, from: 0)
+        if KokoroEngine.isModelInstalled {
+            session = synth.begin(texts: newChunks.map(\.speech), voice: voice, from: 0)
+        } else {
+            downloadVoiceIfNeeded()  // reading starts once it's ready
+        }
         isPlaying = true
         startPlayback(at: 0, fraction: 0)
         startTimer()
@@ -154,6 +196,10 @@ final class PlayerModel: ObservableObject {
     func play() {
         guard hasSession, !isPlaying else { return }
         if position >= duration - 0.05 { resumePoint = (0, 0) }  // finished: start over
+        if !KokoroEngine.isModelInstalled {
+            message = nil
+            downloadVoiceIfNeeded()
+        }
         isPlaying = true
         startPlayback(at: resumePoint.index, fraction: resumePoint.fraction)
         startTimer()
@@ -227,14 +273,16 @@ final class PlayerModel: ObservableObject {
         voice = v
         UserDefaults.standard.set(v.key, forKey: "voice")
         guard hasSession else {
-            synth.preload(accent: v.accent)
+            preload()
             return
         }
         // Regenerate from the current sentence onward in the new voice.
         let p = currentPoint()
         buffers = [:]
         recomputeTimeline()
-        session = synth.begin(texts: chunks.map(\.speech), voice: v, from: p.index)
+        if KokoroEngine.isModelInstalled {
+            session = synth.begin(texts: chunks.map(\.speech), voice: v, from: p.index)
+        }
         if isPlaying {
             startPlayback(at: p.index, fraction: 0)
         } else {

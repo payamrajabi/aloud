@@ -42,7 +42,7 @@ enum EngineError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .modelMissing(let path):
-            return "The Kokoro voice model isn't installed (expected at \(path)). Run scripts/setup.sh."
+            return "A speech model isn't downloaded yet (expected at \(path))."
         case .loadFailed:
             return "The Kokoro voice model failed to load."
         }
@@ -55,17 +55,21 @@ final class KokoroEngine {
     static let sampleRate = 24_000
 
     static let modelName = "kokoro-multi-lang-v1_0"
+    /// The same archive scripts/setup.sh downloads (about 333 MB).
+    static let downloadURL = URL(string: "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/\(modelName).tar.bz2")!
 
-    /// The model ships inside the app for downloaded builds; developer builds
-    /// use the copy that scripts/setup.sh puts in Application Support.
+    /// Builds made with BUNDLE_MODEL=1 carry the model inside the app. Otherwise it
+    /// lives in Application Support: the app downloads it on first launch, and
+    /// scripts/setup.sh puts it there for developers.
     static var modelDirectory: URL {
         if let bundled = Bundle.main.resourceURL?.appendingPathComponent(modelName),
            FileManager.default.fileExists(atPath: bundled.appendingPathComponent("model.onnx").path) {
             return bundled
         }
-        return FileManager.default.homeDirectoryForCurrentUser
-            .appendingPathComponent("Library/Application Support/ReadAloud/models/\(modelName)")
+        return downloadedModelDirectory
     }
+
+    static var downloadedModelDirectory: URL { ModelStore.root.appendingPathComponent(modelName) }
 
     static var isModelInstalled: Bool {
         FileManager.default.fileExists(atPath: modelDirectory.appendingPathComponent("model.onnx").path)

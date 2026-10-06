@@ -45,6 +45,10 @@ struct PlayerView: View {
                 WelcomeView()
             }
 
+            if let progress = model.voiceDownloadProgress, model.hasSession {
+                VoiceDownloadRow(progress: progress, waiting: true)
+            }
+
             if let message = model.message {
                 Text(message)
                     .font(.callout)
@@ -53,7 +57,11 @@ struct PlayerView: View {
                     .fixedSize(horizontal: false, vertical: true)
             }
 
-            TimelineScrubber(model: model)
+            if let progress = model.voiceDownloadProgress, !model.hasSession {
+                VoiceDownloadRow(progress: progress, waiting: false)  // in the empty timeline's place
+            } else {
+                TimelineScrubber(model: model)
+            }
             controls
         }
         .padding(.horizontal, 16)
@@ -192,7 +200,7 @@ struct TimelineScrubber: View {
                 if model.isBuffering {
                     HStack(spacing: 5) {
                         ProgressView().controlSize(.mini)
-                        Text("Generating…")
+                        Text(model.isDownloadingVoice ? "Waiting for the voice…" : "Generating…")
                     }
                 }
                 Spacer()
@@ -208,6 +216,28 @@ struct TimelineScrubber: View {
         return s >= 3600
             ? String(format: "%d:%02d:%02d", s / 3600, (s % 3600) / 60, s % 60)
             : String(format: "%d:%02d", s / 60, s % 60)
+    }
+}
+
+/// First run: the voice model is downloading in the background.
+struct VoiceDownloadRow: View {
+    let progress: Double
+    let waiting: Bool   // someone already asked to read
+
+    var body: some View {
+        let percent = Int((progress * 100).rounded(.down))
+        VStack(alignment: .leading, spacing: 5) {
+            Text(waiting
+                 ? "Downloading the voice… \(percent)%. Reading starts as soon as it's ready."
+                 : "Downloading the voice (about 330 MB, once)… \(percent)%")
+                .font(.callout)
+                .monospacedDigit()
+                .fixedSize(horizontal: false, vertical: true)
+            ProgressView(value: progress)
+                .progressViewStyle(.linear)
+                .controlSize(.small)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 
