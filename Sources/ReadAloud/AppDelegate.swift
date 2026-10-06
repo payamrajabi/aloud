@@ -117,12 +117,38 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         button.addSubview(iconView)
         settingsMenu.delegate = self
 
-        // Reflect playback state in the icon.
-        Publishers.CombineLatest3(model.$isPlaying, model.$isBuffering, model.$chunkRanges)
+        // Reflect playback and dictation in the icon; dictation wins while it's active.
+        Publishers.CombineLatest(
+            Publishers.CombineLatest3(model.$isPlaying, model.$isBuffering, model.$chunkRanges),
+            dictation.$state
+        )
             .receive(on: RunLoop.main)
-            .sink { [weak self] _ in
+            .sink { [weak self] _, dictationState in
                 guard let self else { return }
-                self.iconView.status = self.model.status
+                let state: StatusIconView.State
+                switch dictationState {
+                case .recording: state = .listening
+                case .transcribing: state = .transcribing
+                case .downloading: state = .preparing
+                case .idle, .message:
+                    switch self.model.status {
+                    case .loading: state = .preparing
+                    case .playing: state = .speaking
+                    case .paused: state = .paused
+                    case .idle: state = .idle
+                    }
+                }
+                self.iconView.state = state
+                self.statusItem.button?.setAccessibilityValue(state.label)
+            }
+            .store(in: &observers)
+
+        // Bars follow the mic while listening, the spoken audio otherwise.
+        Publishers.CombineLatest(dictation.$level, model.$outputLevel)
+            .receive(on: RunLoop.main)
+            .sink { [weak self] mic, output in
+                guard let self else { return }
+                self.iconView.level = self.iconView.state == .listening ? mic : output
             }
             .store(in: &observers)
     }

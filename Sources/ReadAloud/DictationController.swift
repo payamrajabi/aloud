@@ -41,7 +41,7 @@ final class DictationController: ObservableObject {
             // Right ⌘ held, then another key: it was a normal shortcut like ⌘C, so back out quietly.
             if self?.pushToTalk == true { self?.cancel(quietly: true) }
         }
-        trigger.onEscape = { [weak self] in
+        trigger.onCancel = { [weak self] in
             if self?.state == .recording { self?.cancel() }
         }
     }

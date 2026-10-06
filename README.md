@@ -40,7 +40,7 @@ Accessibility → Read Aloud).
 | Stop | ■ in the player |
 | AirPods / headphones | Press once to pause or resume, twice for the next sentence, three times for the previous one |
 | Keyboard media keys, Control Center | Play/pause, next/previous sentence, and scrubbing all work |
-| Dictate | Tap right ⌥ to start and again to finish, or hold it while you speak. Esc cancels. Change the key under right-click → Dictation Shortcut |
+| Dictate | Tap right ⌥ to start and again to finish, or hold it while you speak. ⌃⌥Esc cancels. Change the key under right-click → Dictation Shortcut |
 | Copy last dictation | Right-click the menu bar icon → Copy Last Dictation |
 | Voice, speed | Menus in the player or the right-click menu |
 
