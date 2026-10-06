@@ -71,7 +71,7 @@ cat > "$APP/Contents/Info.plist" <<PLIST
   <key>LSUIElement</key><true/>
   <key>NSHighResolutionCapable</key><true/>
   <key>NSMicrophoneUsageDescription</key><string>Aloud listens only while you dictate, and transcribes on your Mac.</string>
-  <key>SUFeedURL</key><string>https://payamrajabi.github.io/readaloud/appcast.xml</string>
+  <key>SUFeedURL</key><string>https://payamrajabi.github.io/aloud/appcast.xml</string>
   <key>SUPublicEDKey</key><string>5vUlD146c8QQ89zPzk3BgpG7ivGEHbrUiH1SBSRSL6M=</string>
   <key>SUEnableAutomaticChecks</key><true/>
   <key>SUScheduledCheckInterval</key><integer>86400</integer>

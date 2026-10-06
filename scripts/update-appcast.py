@@ -12,7 +12,7 @@ from xml.sax.saxutils import escape
 
 path, version, build, signature, length = sys.argv[1:6]
 notes = sys.argv[6] if len(sys.argv) > 6 else ""
-url = f"https://github.com/payamrajabi/readaloud/releases/download/v{version}/Aloud.dmg"
+url = f"https://github.com/payamrajabi/aloud/releases/download/v{version}/Aloud.dmg"
 
 description = f"\n      <description><![CDATA[<p>{escape(notes)}</p>]]></description>" if notes else ""
 item = f"""<item>
@@ -36,7 +36,7 @@ feed = f"""<?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
     <title>Aloud</title>
-    <link>https://payamrajabi.github.io/readaloud/</link>
+    <link>https://payamrajabi.github.io/aloud/</link>
     <description>Updates for Aloud</description>
     <language>en</language>
 {items}  </channel>

@@ -13,7 +13,7 @@ for the player, with the text and a scrubbable timeline. Speech is generated
 locally by [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) through
 [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx), so it's free and works offline.
 
-**Website and download:** https://payamrajabi.github.io/readaloud/
+**Website and download:** https://payamrajabi.github.io/aloud/
 
 ## Build it yourself
 
