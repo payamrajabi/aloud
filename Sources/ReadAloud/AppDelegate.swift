@@ -22,6 +22,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         dictation.start()
         model.preload()
         enableLoginItemOnFirstLaunch()
+        moveLoginItemIfRenamed()
         if !DebugScript.isActive {
             if !UserDefaults.standard.bool(forKey: "didWelcome") {
                 // First launch: open the player so people see where it lives and how to start.
@@ -38,7 +39,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
 
     @objc func readSelection() {
         guard SelectionReader.isTrusted else {
-            model.message = "Read Aloud needs Accessibility access to read your selection. Turn it on in System Settings → Privacy & Security → Accessibility, then try again."
+            model.message = "Aloud needs Accessibility access to read your selection. Turn it on in System Settings → Privacy & Security → Accessibility, then try again."
             showPlayer()
             SelectionReader.requestAccess()
             return
@@ -107,8 +108,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     private func setUpStatusItem() {
         statusItem = NSStatusBar.system.statusItem(withLength: 26)
         guard let button = statusItem.button else { return }
-        button.setAccessibilityLabel("Read Aloud")
-        button.toolTip = "Read Aloud — click for the player, right-click for settings"
+        button.setAccessibilityLabel("Aloud")
+        button.toolTip = "Aloud — click for the player, right-click for settings"
         button.target = self
         button.action = #selector(statusItemClicked(_:))
         button.sendAction(on: [.leftMouseUp, .rightMouseUp])
@@ -226,7 +227,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         login.state = SMAppService.mainApp.status == .enabled ? .on : .off
         menu.addItem(login)
         menu.addItem(.separator())
-        menu.addItem(NSMenuItem(title: "Quit Read Aloud", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
+        menu.addItem(NSMenuItem(title: "Quit Aloud", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
     }
 
     private func submenu(_ title: String, _ menu: NSMenu) -> NSMenuItem {
@@ -278,5 +279,16 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
               !UserDefaults.standard.bool(forKey: key) else { return }
         UserDefaults.standard.set(true, forKey: key)
         try? SMAppService.mainApp.register()
+    }
+
+    /// Read Aloud.app became Aloud.app: point an existing login item at the new app.
+    private func moveLoginItemIfRenamed() {
+        let key = "loginItemPath", path = Bundle.main.bundlePath
+        guard !DebugScript.isActive, UserDefaults.standard.string(forKey: key) != path else { return }
+        UserDefaults.standard.set(path, forKey: key)
+        let service = SMAppService.mainApp
+        guard service.status == .enabled else { return }
+        try? service.unregister()
+        try? service.register()
     }
 }

@@ -40,7 +40,7 @@ enum DictationShortcut: String, CaseIterable {
 }
 
 /// Watches the keyboard for the dictation shortcut and ⌃⌥Esc (cancel).
-/// Needs Accessibility access (the same permission Read Aloud already uses).
+/// Needs Accessibility access (the same permission reading already uses).
 final class DictationTrigger {
     var onTap: (() -> Void)?
     var onHoldBegan: (() -> Void)?

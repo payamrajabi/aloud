@@ -1,7 +1,7 @@
 import AppKit
 import MediaPlayer
 
-/// Makes Read Aloud the Mac's "Now Playing" app while it's reading, so
+/// Makes Aloud the Mac's "Now Playing" app while it's reading, so
 /// AirPods taps, the keyboard's play/pause key and Control Center control it.
 ///
 /// AirPods: press once to pause/resume, twice for the next sentence,
@@ -67,7 +67,7 @@ final class NowPlaying {
         }
         var info: [String: Any] = [
             MPMediaItemPropertyTitle: model.title,
-            MPMediaItemPropertyArtist: "Read Aloud · \(model.voice.name)",
+            MPMediaItemPropertyArtist: "Aloud · \(model.voice.name)",
             MPMediaItemPropertyPlaybackDuration: model.duration,
             MPNowPlayingInfoPropertyElapsedPlaybackTime: model.position,
             // While waiting for audio the clock shouldn't run.

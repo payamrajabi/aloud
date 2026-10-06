@@ -7,7 +7,7 @@ struct PlayerView: View {
     var body: some View {
         VStack(spacing: 12) {
             HStack(spacing: 10) {
-                Text(model.hasSession ? "Sentence \(model.currentIndex + 1) of \(model.chunkRanges.count)" : "Read Aloud")
+                Text(model.hasSession ? "Sentence \(model.currentIndex + 1) of \(model.chunkRanges.count)" : "Aloud")
                     .font(.caption)
                     .foregroundStyle(.secondary)
                     .monospacedDigit()
@@ -240,7 +240,7 @@ struct WelcomeView: View {
             } else {
                 VStack(alignment: .leading, spacing: 8) {
                     Label {
-                        Text("Read Aloud needs **Accessibility** access to see the text you select and type what you dictate.")
+                        Text("Aloud needs **Accessibility** access to see the text you select and type what you dictate.")
                     } icon: {
                         Image(systemName: "hand.raised.fill").foregroundStyle(.orange)
                     }

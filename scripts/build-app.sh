@@ -1,5 +1,5 @@
 #!/bin/zsh
-# Builds Read Aloud.app, signs it, installs it to /Applications and launches it.
+# Builds Aloud.app, signs it, installs it to /Applications and launches it.
 # Options (environment variables):
 #   VERSION=1.2.0    version number shown in Finder
 #   BUNDLE_MODEL=1   put the voice model inside the app (for builds other people download)
@@ -10,7 +10,7 @@ ROOT="${0:A:h:h}"
 cd "$ROOT"
 [[ -f Vendor/sherpa-onnx/lib/libsherpa-onnx-c-api.dylib ]] || ./scripts/setup.sh
 
-APP_NAME="Read Aloud"
+APP_NAME="Aloud"
 BUNDLE_ID="${BUNDLE_ID:-co.payamrajabi.readaloud}"
 VERSION="${VERSION:-1.0.0}"
 APP="build/$APP_NAME.app"
@@ -28,7 +28,7 @@ cp -L Vendor/sherpa-onnx/lib/libsherpa-onnx-c-api.dylib Vendor/sherpa-onnx/lib/l
 # Remove the developer-only library path so the app only uses its bundled copies.
 install_name_tool -delete_rpath "$ROOT/Vendor/sherpa-onnx/lib" "$APP/Contents/MacOS/ReadAloud" 2>/dev/null || true
 
-if [[ ! -f build/AppIcon.icns ]]; then
+if [[ ! build/AppIcon.icns -nt scripts/make-icon.swift ]]; then
   ICONSET=build/AppIcon.iconset
   mkdir -p "$ICONSET"
   swift scripts/make-icon.swift build/icon-1024.png
@@ -65,7 +65,7 @@ cat > "$APP/Contents/Info.plist" <<PLIST
   <key>LSMinimumSystemVersion</key><string>14.0</string>
   <key>LSUIElement</key><true/>
   <key>NSHighResolutionCapable</key><true/>
-  <key>NSMicrophoneUsageDescription</key><string>Read Aloud listens only while you dictate, and transcribes on your Mac.</string>
+  <key>NSMicrophoneUsageDescription</key><string>Aloud listens only while you dictate, and transcribes on your Mac.</string>
 </dict>
 </plist>
 PLIST
@@ -102,7 +102,7 @@ fi
 
 echo "Installing to $DEST..."
 pkill -x ReadAloud 2>/dev/null && sleep 0.5 || true
-rm -rf "$DEST"
+rm -rf "$DEST" "/Applications/Read Aloud.app"   # the app was called Read Aloud before 1.2
 cp -R "$APP" "$DEST"
 open "$DEST"
 echo "Done. Look for the waveform icon in the menu bar."

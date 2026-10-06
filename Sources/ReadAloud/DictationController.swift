@@ -88,7 +88,7 @@ final class DictationController: ObservableObject {
             return
         }
         guard SelectionReader.isTrusted else {
-            show("Turn on Accessibility for Read Aloud so it can type for you.")
+            show("Turn on Accessibility for Aloud so it can type for you.")
             SelectionReader.requestAccess()
             return
         }
@@ -100,7 +100,7 @@ final class DictationController: ObservableObject {
             AVCaptureDevice.requestAccess(for: .audio) { granted in
                 DispatchQueue.main.async {
                     if granted { self.show("Microphone ready. Press \(DictationShortcut.current.short) to dictate.") }
-                    else { self.show("Read Aloud needs microphone access to dictate.") }
+                    else { self.show("Aloud needs microphone access to dictate.") }
                 }
             }
         default:
@@ -120,7 +120,7 @@ final class DictationController: ObservableObject {
             state = .recording
             return
         }
-        // Don't talk over yourself: pause Read Aloud while dictating.
+        // Don't talk over yourself: pause reading while dictating.
         resumeReadingAfter = player.isPlaying
         if resumeReadingAfter { player.pause() }
         streamer.reset()

@@ -28,7 +28,7 @@ final class PlayerModel: ObservableObject {
 
     /// A short title for Control Center: the opening words of the text.
     var title: String {
-        guard let first = chunks.first?.speech else { return "Read Aloud" }
+        guard let first = chunks.first?.speech else { return "Aloud" }
         return first.count > 70 ? String(first.prefix(70)).trimmingCharacters(in: .whitespaces) + "…" : first
     }
 

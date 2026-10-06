@@ -12,8 +12,8 @@ set -euo pipefail
 VERSION="${1:?Usage: scripts/release.sh <version>, e.g. 1.0.0}"
 ROOT="${0:A:h:h}"
 cd "$ROOT"
-APP="build/Read Aloud.app"
-DMG="build/ReadAloud.dmg"
+APP="build/Aloud.app"
+DMG="build/Aloud.dmg"
 
 VERSION="$VERSION" BUNDLE_MODEL=1 INSTALL=0 ./scripts/build-app.sh
 IDENTITY=$(cat build/signing-identity)
@@ -23,7 +23,7 @@ STAGE=$(mktemp -d)
 cp -R "$APP" "$STAGE/"
 ln -s /Applications "$STAGE/Applications"
 rm -f "$DMG"
-hdiutil create -volname "Read Aloud" -srcfolder "$STAGE" -fs HFS+ -format ULFO -ov "$DMG" >/dev/null
+hdiutil create -volname "Aloud" -srcfolder "$STAGE" -fs HFS+ -format ULFO -ov "$DMG" >/dev/null
 rm -rf "$STAGE"
 [[ "$IDENTITY" != "-" ]] && codesign --force --timestamp=none -s "$IDENTITY" "$DMG"
 
@@ -39,7 +39,7 @@ else
 fi
 
 SIZE=$(du -m "$DMG" | cut -f1)
-NOTES="Download **ReadAloud.dmg**, open it, and drag Read Aloud into Applications. Requires an Apple Silicon Mac with macOS 14 or later. (${SIZE} MB)"
+NOTES="Download **Aloud.dmg**, open it, and drag Aloud into Applications. Requires an Apple Silicon Mac with macOS 14 or later. (${SIZE} MB)"
 if [[ $NOTARIZED == 0 ]]; then
   NOTES="$NOTES
 
@@ -51,6 +51,6 @@ if gh release view "$TAG" >/dev/null 2>&1; then
   gh release upload "$TAG" "$DMG" --clobber
   gh release edit "$TAG" --notes "$NOTES"
 else
-  gh release create "$TAG" "$DMG" --title "Read Aloud $VERSION" --notes "$NOTES" --latest
+  gh release create "$TAG" "$DMG" --title "Aloud $VERSION" --notes "$NOTES" --latest
 fi
 echo "Released $TAG ($SIZE MB, notarized: $NOTARIZED)"

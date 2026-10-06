@@ -1,4 +1,4 @@
-# Read Aloud
+# Aloud
 
 A small Mac menu-bar app that reads and writes for you, entirely on your Mac.
 
@@ -24,7 +24,7 @@ locally by [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) through
 
 On first launch macOS asks for **Accessibility** access. It's needed to read
 the selected text from other apps (System Settings → Privacy & Security →
-Accessibility → Read Aloud).
+Accessibility → Aloud).
 
 ## Using it
 
@@ -56,6 +56,10 @@ Accessibility → Read Aloud).
 - `PlayerModel` schedules generated sentences on an `AVAudioEngine`; speed
   changes use a time-stretch unit, so the pitch stays natural.
 
+The app was called Read Aloud before 1.2. The bundle ID, the `ReadAloud` folder in
+Application Support, this repo and the Swift module keep that name, so settings,
+permissions and downloaded models carry over.
+
 Developer builds read the model from `~/Library/Application Support/ReadAloud/models`;
 downloadable builds carry it inside the app.
 
@@ -65,7 +69,7 @@ downloadable builds carry it inside the app.
 ./scripts/release.sh 1.0.1
 ```
 
-This builds the app with the model inside, wraps it in `ReadAloud.dmg`, and
+This builds the app with the model inside, wraps it in `Aloud.dmg`, and
 uploads it as a GitHub release. The website's download button always points
 at the latest release. Notarization with Apple runs automatically once a
 Developer ID Application certificate and saved notary credentials
