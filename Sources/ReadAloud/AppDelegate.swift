@@ -22,10 +22,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         dictation.onReadDoubleTap = { [weak self] in self?.readSelection(pausing: false) }
         dictation.start()
         model.preload()
-        enableLoginItemOnFirstLaunch()
-        moveLoginItemIfRenamed()
-        // Fetch the voice soon after first launch so it's usually ready by the first read.
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in self?.model.downloadVoiceIfNeeded() }
+        if DebugScript.isActive {
+            finishLaunching(after: LegacyAppCleanup.Outcome())
+        } else {
+            // Quit and trash an old Read Aloud first: it may hold the shortcut, the login
+            // item and the voice model we'd otherwise download.
+            LegacyAppCleanup.run { [weak self] in self?.finishLaunching(after: $0) }
+        }
         if !DebugScript.isActive {
             if !UserDefaults.standard.bool(forKey: "didWelcome") {
                 // First launch: open the player so people see where it lives and how to start.
@@ -36,6 +39,25 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             }
         }
         DebugScript.run(model: model, app: self)
+    }
+
+    private func finishLaunching(after cleanup: LegacyAppCleanup.Outcome) {
+        if Synthesizer.trace {
+            print("   cleanup: trashed \(cleanup.trashed.map(\.path)), failed \(cleanup.failed.map(\.path)), quit others: \(cleanup.terminatedOthers), moved voice: \(cleanup.migratedVoice)")
+            fflush(stdout)
+        }
+        if cleanup.terminatedOthers {
+            registerHotKey()  // the old app may have been holding the shortcut
+            if hotKey != nil, model.message?.hasPrefix("The shortcut") == true { model.message = nil }
+        }
+        if !cleanup.failed.isEmpty {
+            model.message = "An older copy of Aloud is still installed. Drag “\(cleanup.failed[0].deletingPathExtension().lastPathComponent)” from Applications to the Trash."
+        }
+        enableLoginItemOnFirstLaunch()
+        moveLoginItemIfRenamed(force: !cleanup.trashed.isEmpty)
+        if cleanup.migratedVoice { model.preload() }
+        // Fetch the voice soon after first launch so it's usually ready by the first read.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in self?.model.downloadVoiceIfNeeded() }
     }
 
     // MARK: - Reading
@@ -308,9 +330,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
 
     /// Read Aloud.app became Aloud.app: point an existing login item at the new app.
-    private func moveLoginItemIfRenamed() {
+    /// `force`: an old copy was just trashed, so the login item may still point at it.
+    private func moveLoginItemIfRenamed(force: Bool = false) {
         let key = "loginItemPath", path = Bundle.main.bundlePath
-        guard !DebugScript.isActive, UserDefaults.standard.string(forKey: key) != path else { return }
+        guard !DebugScript.isActive, force || UserDefaults.standard.string(forKey: key) != path else { return }
         UserDefaults.standard.set(path, forKey: key)
         let service = SMAppService.mainApp
         guard service.status == .enabled else { return }
