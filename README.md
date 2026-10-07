@@ -2,9 +2,9 @@
 
 A small Mac menu-bar app that reads and writes for you, entirely on your Mac.
 
-- **Read aloud:** select text in any app, press **⌃⌥R**, and it's read
+- **Read aloud:** select text in any app, double-tap **left ⌥**, and it's read
   aloud in the background.
-- **Dictation:** tap **right ⌥**, speak, tap again (or hold right ⌥ while you
+- **Dictation:** double-tap **right ⌥**, speak, tap it once more (or hold right ⌥ while you
   talk), and the words are typed into whatever app you're in. Transcription
   uses NVIDIA's Parakeet TDT 0.6B v2 model locally, about 20–30× faster than real time.
   While you talk, every 20–30 s of speech (cut at a pause) is transcribed in the
@@ -30,7 +30,7 @@ Accessibility → Aloud).
 
 | Action | How |
 |---|---|
-| Read selected text | ⌃⌥R (change it: right-click the menu bar icon → Shortcut) |
+| Read selected text | Double-tap left ⌥ (change it in Settings) |
 | Pause / resume | Press the shortcut again, or space in the player |
 | Open the player | Click the menu bar icon |
 | Settings | Right-click the menu bar icon, or ⋯ in the player |
@@ -40,7 +40,10 @@ Accessibility → Aloud).
 | Stop | ■ in the player |
 | AirPods / headphones | Press once to pause or resume, twice for the next sentence, three times for the previous one |
 | Keyboard media keys, Control Center | Play/pause, next/previous sentence, and scrubbing all work |
-| Dictate | Tap right ⌥ to start and again to finish, or hold it while you speak. ⌃⌥Esc cancels. Change the key under right-click → Dictation Shortcut |
+| Dictate | Double-tap right ⌥ to start and tap it once to finish, or hold it while you speak. ⌃⌥Esc cancels. Change either in Settings |
+| Settings | Right-click the menu bar icon → Settings… (⌘,). Shortcuts can be a key combination, or a tap or double-tap of any modifier key (left/right ⌥ ⌘ ⌃ ⇧, or fn) |
+| Speakers and microphones | Settings lists every connected device. Drag them into order and Aloud uses the highest one that's connected, whatever macOS is set to. Until you do, it follows macOS |
+| Voice and dictation models | Both download on first launch. Settings shows their progress and lets you download or remove each one |
 | Copy last dictation | Right-click the menu bar icon → Copy Last Dictation |
 | Voice, speed | Menus in the player or the right-click menu |
 
@@ -113,4 +116,6 @@ swift build
 .build/debug/ReadAloud --say "Hello there." --voice bm_george --out /tmp/hello.wav
 .build/debug/ReadAloud --read-file article.txt --mute --trace --script "3:seek=60;6:pause;7:quit"
 READALOUD_MODELS_DIR=/tmp/models .build/debug/ReadAloud --download-voice   # test the first-launch download
+.build/debug/ReadAloud --test-gestures                                     # tap / double-tap / hold detection
+.build/debug/ReadAloud --script "1:settings;3:settingsshot=/tmp/s.png;4:quit"  # screenshot the Settings window
 ```

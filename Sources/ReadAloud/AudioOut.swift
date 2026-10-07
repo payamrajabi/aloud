@@ -1,7 +1,7 @@
 import AVFoundation
 import CoreAudio
 
-/// Audio output: player node -> time-stretch (speed without pitch change) -> speakers.
+/// Audio output: player node -> time-stretch (speed without pitch change) -> the preferred output device.
 final class AudioOut {
     let engine = AVAudioEngine()
     let node = AVAudioPlayerNode()
@@ -34,8 +34,18 @@ final class AudioOut {
         set { engine.mainMixerNode.outputVolume = newValue }
     }
 
+    /// The output device the engine plays to.
+    var device: AudioDeviceID? { AudioDevices.device(of: engine.outputNode.audioUnit) }
+
+    /// Starts the engine on the preferred output device, moving it there if it's running elsewhere.
     func start() throws {
-        guard !engine.isRunning else { return }
+        let wanted = AudioDevices.preferredDevice(.output)?.id
+        let move = wanted != nil && wanted != device
+        guard !engine.isRunning || move else { return }
+        if move, let wanted {
+            engine.stop()
+            AudioDevices.use(wanted, on: engine.outputNode.audioUnit)
+        }
         installLevelTap()
         engine.prepare()
         do {
@@ -82,24 +92,6 @@ final class AudioOut {
               let playerTime = node.playerTime(forNodeTime: nodeTime)
         else { return nil }
         return max(0, playerTime.sampleTime)
-    }
-
-    /// True when sound is going to the Mac's own speakers or headphone jack
-    /// (as opposed to AirPods, Bluetooth, USB or AirPlay).
-    static func defaultOutputIsBuiltIn() -> Bool {
-        var device = AudioDeviceID(0)
-        var size = UInt32(MemoryLayout<AudioDeviceID>.size)
-        var address = AudioObjectPropertyAddress(
-            mSelector: kAudioHardwarePropertyDefaultOutputDevice,
-            mScope: kAudioObjectPropertyScopeGlobal,
-            mElement: kAudioObjectPropertyElementMain)
-        guard AudioObjectGetPropertyData(AudioObjectID(kAudioObjectSystemObject), &address, 0, nil, &size, &device) == noErr
-        else { return false }
-        var transport: UInt32 = 0
-        size = UInt32(MemoryLayout<UInt32>.size)
-        address.mSelector = kAudioDevicePropertyTransportType
-        guard AudioObjectGetPropertyData(device, &address, 0, nil, &size, &transport) == noErr else { return false }
-        return transport == kAudioDeviceTransportTypeBuiltIn
     }
 
     func makeBuffer(_ samples: [Float], pauseAfter: Double) -> AVAudioPCMBuffer {

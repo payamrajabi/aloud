@@ -1,5 +1,6 @@
 import AVFoundation
 import AppKit
+import CoreAudio
 import CSherpaOnnx
 
 /// Developer-only command-line modes used to test the app without the shortcut.
@@ -8,6 +9,7 @@ import CSherpaOnnx
 ///   --mute                                              silence output
 ///   --trace                                             print player state twice a second
 ///   --download-voice                                    download the voice model and exit
+///   --test-gestures                                     check modifier tap / double-tap / hold detection and exit
 ///   READALOUD_MODELS_DIR=/some/folder                   use a different models folder (test fresh installs)
 ///   --script "2:seek=30;4:pause;5:play;8:open;9:snapshot=/tmp/p.png;10:quit"
 enum DebugScript {
@@ -44,6 +46,7 @@ enum DebugScript {
 
     /// Synthesis benchmark that runs before the app starts.
     static func runCommandLineIfNeeded() {
+        if args.contains("--test-gestures") { exit(testGestures() ? 0 : 1) }
         if let path = value("--transcribe") {
             do {
                 var t0 = Date()
@@ -201,6 +204,7 @@ enum DebugScript {
     }
 
     private static let start = Date()
+    private static var fakeDevice = AudioObjectID(0)
 
     private static func perform(_ action: String, model: PlayerModel, app: AppDelegate) {
         let kv = action.split(separator: "=", maxSplits: 1).map(String.init)
@@ -233,9 +237,107 @@ enum DebugScript {
             app.dictationController.debugSet(states[arg] ?? .idle)
         case "hudshot":
             if let view = app.dictationHUD?.panel.contentView { snapshot(view, to: arg) }
+        case "settings": app.showSettings()
+        case "settingsshot":
+            // Forms don't draw into cached bitmaps, so capture the window from the screen.
+            if let number = app.settings.contentView?.window?.windowNumber {
+                let capture = Process()
+                capture.executableURL = URL(fileURLWithPath: "/usr/sbin/screencapture")
+                capture.arguments = ["-o", "-x", "-l", String(number), arg]
+                try? capture.run()
+                capture.waitUntilExit()
+                print("snapshot saved to \(arg)")
+            }
+        case "record": app.settings.recorder.begin(ShortcutAction(rawValue: arg) ?? .read)
+        case "tapkey", "doubletapkey":  // a simulated tap (or two) of a modifier, e.g. tapkey=fn
+            guard let key = ModifierKey(rawValue: arg) else { break }
+            let presses: [Bool] = kv[0] == "tapkey" ? [true, false] : [true, false, true, false]
+            for (i, isDown) in presses.enumerated() {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.08 * Double(i)) {
+                    postKey(.flagsChanged, code: key.code, flags: isDown ? key.family.rawValue | key.bit : 0)
+                }
+            }
+        case "combokey":  // ⌃⌥ plus a key code, e.g. combokey=2 for ⌃⌥D
+            postKey(.keyDown, code: UInt16(arg) ?? 0, flags: NSEvent.ModifierFlags([.control, .option]).rawValue)
+        case "shortcuts":
+            print("   " + ShortcutAction.allCases.map { "\($0.rawValue): \($0.hint)" }.joined(separator: ", "))
+            if let problem = app.settings.recorder.problem { print("   problem: \(problem.text)") }
+        case "fakeoutput":  // a private copy of the built-in speakers, only visible to this process
+            let desc: [String: Any] = [kAudioAggregateDeviceNameKey: "Test Speakers", kAudioAggregateDeviceUIDKey: "aloud-test-speakers",
+                                       kAudioAggregateDeviceIsPrivateKey: 1,
+                                       kAudioAggregateDeviceSubDeviceListKey: [[kAudioSubDeviceUIDKey: "BuiltInSpeakerDevice"]]]
+            var id = AudioObjectID(0)
+            print("   created test device: \(AudioHardwareCreateAggregateDevice(desc as CFDictionary, &id) == noErr)")
+            fakeDevice = id
+        case "removefake": AudioHardwareDestroyAggregateDevice(fakeDevice)
+        case "rank":  // rank=uid1,uid2 sets the speaker order
+            let entries = arg.split(separator: ",").map { AudioDevices.Entry(uid: String($0), name: String($0), transport: 0) }
+            AudioDevices.shared.setOrder(entries, for: .output)
+        case "route": print("   playing to: \(model.debugOutputDevice), playing: \(model.isPlaying)")
+        case "devices":
+            for d in AudioDevices.scan() { print("   \(d.hasInput ? "in " : "   ")\(d.hasOutput ? "out" : "   ")  \(d.name)  [\(d.uid)]") }
+            print("   preferred output: \(AudioDevices.preferredDevice(.output)?.name ?? "none"), input: \(AudioDevices.preferredDevice(.input)?.name ?? "none")")
         case "quit": NSApp.terminate(nil)
         default: print("unknown action \(action)")
         }
+    }
+
+    /// Feeds key sequences through ModifierGestures and checks what fires.
+    private static func testGestures() -> Bool {
+        typealias G = ModifierGestures
+        let lo = ModifierKey.leftOption, ro = ModifierKey.rightOption
+        func down(_ k: ModifierKey, _ t: Double, extra: UInt = 0) -> G.Event { .modifier(code: k.code, flags: k.family.rawValue | k.bit | extra, time: t) }
+        func up(_ k: ModifierKey, _ t: Double) -> G.Event { .modifier(code: k.code, flags: 0, time: t) }
+        func run(_ read: KeyBinding?, _ dictate: KeyBinding?, recording: Bool = false, _ events: [G.Event]) -> [G.Action] {
+            var g = G(read: read, dictate: dictate)
+            g.interval = 0.4
+            g.recording = recording
+            return events.compactMap { g.handle($0) }
+        }
+        let cases: [(String, [G.Action], [G.Action])] = [
+            ("double-tap left reads", run(.doubleTap(lo), .doubleTap(ro), [down(lo, 0), up(lo, 0.1), down(lo, 0.25), up(lo, 0.3)]), [.read]),
+            ("double-tap right dictates", run(.doubleTap(lo), .doubleTap(ro), [down(ro, 0), up(ro, 0.1), down(ro, 0.25), up(ro, 0.3)]), [.dictate]),
+            ("slow taps do nothing", run(.doubleTap(lo), .doubleTap(ro), [down(lo, 0), up(lo, 0.1), down(lo, 0.7), up(lo, 0.8)]), []),
+            ("single tap does nothing for a double-tap shortcut", run(.doubleTap(lo), nil, [down(lo, 0), up(lo, 0.1)]), []),
+            ("left then right isn't a double-tap", run(.doubleTap(lo), .doubleTap(ro), [down(lo, 0), up(lo, 0.1), down(ro, 0.2), up(ro, 0.3)]), []),
+            ("a key between taps cancels", run(.doubleTap(lo), nil, [down(lo, 0), up(lo, 0.1), .keyDown, down(lo, 0.2), up(lo, 0.3)]), []),
+            ("chord with ⌘ isn't a tap", run(.doubleTap(lo), nil, [down(lo, 0, extra: NSEvent.ModifierFlags.command.rawValue), up(lo, 0.1),
+                                                                    down(lo, 0.2, extra: NSEvent.ModifierFlags.command.rawValue), up(lo, 0.3)]), []),
+            ("tap fn dictates", run(nil, .tap(.fn), [down(.fn, 0), up(.fn, 0.1)]), [.dictate]),
+            ("tap right ⌘ reads", run(.tap(.rightCommand), nil, [down(.rightCommand, 0), up(.rightCommand, 0.1)]), [.read]),
+            ("one press finishes a recording", run(nil, .doubleTap(ro), recording: true, [down(ro, 0), up(ro, 0.1)]), [.dictate]),
+            ("a long press finishes a recording too", run(nil, .doubleTap(ro), recording: true, [down(ro, 0), up(ro, 1.2)]), [.dictate]),
+            ("double-tap ⇧ on any side", run(.doubleTap(.rightShift), .doubleTap(.leftControl),
+                                            [down(.rightShift, 0), up(.rightShift, 0.1), down(.rightShift, 0.2), up(.rightShift, 0.3),
+                                             down(.leftControl, 1), up(.leftControl, 1.1), down(.leftControl, 1.2), up(.leftControl, 1.3)]), [.read, .dictate]),
+            ("combos are ignored here", run(.combo(keyCode: 15, modifiers: 6144), nil, [down(lo, 0), up(lo, 0.1), down(lo, 0.2), up(lo, 0.3)]), []),
+        ]
+        var ok = true
+        for (name, got, want) in cases {
+            let pass = got == want
+            ok = ok && pass
+            print("\(pass ? "✓" : "✗") \(name)\(pass ? "" : ": got \(got), want \(want)")")
+        }
+        // Holding the dictation key is push-to-talk.
+        var g = G(read: nil, dictate: .doubleTap(ro))
+        _ = g.handle(down(ro, 0))
+        let hold = [g.holdTimerFired(at: 0.35), g.handle(up(ro, 2))]
+        let holdOK = hold == [.holdBegan, .holdEnded]
+        ok = ok && holdOK
+        print("\(holdOK ? "✓" : "✗") hold right ⌥ to talk\(holdOK ? "" : ": got \(hold)")")
+        // Stored shortcuts read back the same.
+        let all: [KeyBinding] = [.combo(keyCode: 15, modifiers: 6144), .tap(.fn), .doubleTap(.rightControl)]
+        let roundTrip = all.allSatisfy { KeyBinding(storageValue: $0.storageValue) == $0 }
+        ok = ok && roundTrip
+        print("\(roundTrip ? "✓" : "✗") shortcuts save and load; displays: \(all.map(\.display))")
+        return ok
+    }
+
+    private static func postKey(_ type: NSEvent.EventType, code: UInt16, flags: UInt) {
+        let event = NSEvent.keyEvent(with: type, location: .zero, modifierFlags: NSEvent.ModifierFlags(rawValue: flags),
+                                     timestamp: ProcessInfo.processInfo.systemUptime, windowNumber: NSApp.keyWindow?.windowNumber ?? 0,
+                                     context: nil, characters: "", charactersIgnoringModifiers: "", isARepeat: false, keyCode: code)
+        if let event { NSApp.postEvent(event, atStart: false) }
     }
 
     private static func snapshot(_ view: NSView, to path: String) {

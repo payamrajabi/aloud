@@ -250,20 +250,12 @@ struct WelcomeView: View {
         VStack(alignment: .leading, spacing: 14) {
             Spacer(minLength: 0)
             Label {
-                if DoubleTapKey.isOn {
-                    Text("Select text in any app, then double-tap **left \(DoubleTapKey.current.symbol)**. Use the player, Space or your AirPods to pause.")
-                } else {
-                    Text("Select text in any app, then press **\(Shortcut.current.display)**. Press it again to pause.")
-                }
+                Text(LocalizedStringKey(Self.readText))
             } icon: {
                 Image(systemName: "text.cursor")
             }
             Label {
-                if DoubleTapKey.isOn {
-                    Text("To dictate, double-tap **right \(DoubleTapKey.current.symbol)**, speak, and tap it once to finish (or hold it while you talk). Your words are typed wherever your cursor is.")
-                } else {
-                    Text("To dictate, tap **\(DictationShortcut.current.short)**, speak, and tap again (or hold it while you talk). Your words are typed wherever your cursor is.")
-                }
+                Text(LocalizedStringKey(Self.dictateText))
             } icon: {
                 Image(systemName: "mic")
             }
@@ -295,5 +287,34 @@ struct WelcomeView: View {
         .font(.callout)
         .frame(maxWidth: .infinity, alignment: .leading)
         .onReceive(poll) { _ in trusted = SelectionReader.isTrusted }
+    }
+
+    /// "double-tap **left ⌥**", "press **⌃⌥R**", "tap **right ⌥**".
+    private static func phrase(_ binding: KeyBinding) -> String {
+        switch binding {
+        case .combo: return "press **\(binding.display)**"
+        case .tap(let key): return "tap **\(key.name)**"
+        case .doubleTap(let key): return "double-tap **\(key.name)**"
+        }
+    }
+
+    private static var readText: String {
+        guard let binding = ShortcutAction.read.binding else {
+            return "Select text in any app, then choose Read Selection from the menu bar icon. Set a shortcut in Settings."
+        }
+        let pause = binding.modifierKey == nil ? "Press it again to pause." : "Use the player, Space or your AirPods to pause."
+        return "Select text in any app, then \(phrase(binding)). \(pause)"
+    }
+
+    private static var dictateText: String {
+        let typed = "Your words are typed wherever your cursor is."
+        guard let binding = ShortcutAction.dictate.binding else {
+            return "To dictate, choose Dictate from the menu bar icon. \(typed)"
+        }
+        if let key = binding.modifierKey {
+            let finish = binding == .tap(key) ? "tap it again" : "tap it once"
+            return "To dictate, \(phrase(binding)), speak, and \(finish) to finish (or hold it while you talk). \(typed)"
+        }
+        return "To dictate, \(phrase(binding)), speak, and press it again to finish. \(typed)"
     }
 }
