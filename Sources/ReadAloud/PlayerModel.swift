@@ -116,7 +116,7 @@ final class PlayerModel: ObservableObject {
         guard !KokoroEngine.isModelInstalled, !voiceDownloader.isRunning else { return }
         voiceDownloadProgress = 0
         log("downloading the voice")
-        voiceDownloader.download(KokoroEngine.downloadURL, into: ModelStore.root) { [weak self] p in
+        voiceDownloader.download(files: KokoroEngine.files, into: KokoroEngine.downloadedModelDirectory) { [weak self] p in
             self?.voiceDownloadProgress = p
         } completion: { [weak self] error in
             guard let self else { return }

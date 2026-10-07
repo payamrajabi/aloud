@@ -4,11 +4,14 @@ import CoreAudio
 import CSherpaOnnx
 
 /// Developer-only command-line modes used to test the app without the shortcut.
-///   --say "text" [--voice af_heart] [--out file.wav]   synthesize only, print speed
+///   --say "text" | --say-file path [--voice af_heart] [--out file.wav] [--show-phonemes]   synthesize only, print speed
 ///   --read "text" | --read-file path                    open the player and read
 ///   --mute                                              silence output
 ///   --trace                                             print player state twice a second
 ///   --download-voice                                    download the voice model and exit
+///   --phonemize [--gb] [--raw] < lines.txt               print each line's phonemes
+///   --g2p-test Tests/g2p/regression.json [--verbose]    pronunciation regression suite
+///   --render-phonemes "ðə kwˈɪk" [--voice v] [--out f.wav] [--raw]   synthesize exact phonemes
 ///   --test-gestures                                     check modifier tap / double-tap / hold detection and exit
 ///   READALOUD_MODELS_DIR=/some/folder                   use a different models folder (test fresh installs)
 ///   --script "2:seek=30;4:pause;5:play;8:open;9:snapshot=/tmp/p.png;10:quit"
@@ -21,7 +24,7 @@ enum DebugScript {
     }
 
     static var isActive: Bool {
-        ["--read", "--read-file", "--script", "--say"].contains { args.contains($0) }
+        ["--read", "--read-file", "--script", "--say", "--say-file"].contains { args.contains($0) }
     }
 
     /// Loads any audio file as 16 kHz mono floats.
@@ -133,35 +136,65 @@ enum DebugScript {
         if args.contains("--download-voice") {
             // Downloads the voice the way the app does. Point READALOUD_MODELS_DIR at a scratch folder to test a fresh install.
             let dir = KokoroEngine.downloadedModelDirectory
-            if FileManager.default.fileExists(atPath: dir.appendingPathComponent("model.onnx").path) {
+            if KokoroEngine.isComplete(dir) {
                 print("voice already at \(dir.path)")
                 exit(0)
             }
-            print("downloading \(KokoroEngine.downloadURL.absoluteString) into \(ModelStore.root.path)"); fflush(stdout)
+            print("downloading \(KokoroEngine.files.map(\.name).joined(separator: ", ")) into \(dir.path)"); fflush(stdout)
             let downloader = ModelDownloader()
             let t0 = Date()
             var shown = -1
-            downloader.download(KokoroEngine.downloadURL, into: ModelStore.root) { p in
+            downloader.download(files: KokoroEngine.files, into: dir) { p in
                 let step = Int(p * 10)
                 if step != shown { shown = step; print("  \(step * 10)%"); fflush(stdout) }
             } completion: { error in
-                let ok = FileManager.default.fileExists(atPath: dir.appendingPathComponent("model.onnx").path)
+                let ok = KokoroEngine.isComplete(dir)
                 print(String(format: "done in %.0fs, error: %@, installed: %@", Date().timeIntervalSince(t0), error?.localizedDescription ?? "none", ok ? "yes" : "no"))
                 exit(error == nil && ok ? 0 : 1)
             }
             RunLoop.main.run()
         }
-        guard let text = value("--say") else { return }
+        if args.contains("--tidy-voice") {
+            // What launch does to voices from older versions (use READALOUD_MODELS_DIR to try it safely).
+            KokoroEngine.removeUnusedFiles()
+            exit(0)
+        }
+        if args.contains("--phonemize") {
+            // Reads lines from stdin and prints "line<TAB>phonemes". --gb for British,
+            // --raw to skip text normalization and custom lexicons (the reference pipeline).
+            exit(G2PTest.phonemizeLines(british: args.contains("--gb"), raw: args.contains("--raw")))
+        }
+        if let path = value("--g2p-test") {
+            exit(G2PTest.run(path: path, verbose: args.contains("--verbose")))
+        }
+        if let ps = value("--render-phonemes") {
+            // Synthesizes a phoneme string as is (for comparing audio with another implementation).
+            do {
+                let engine = try KokoroEngine()
+                let voice = Voice.with(key: value("--voice"))
+                let ids = engine.tokenIDs(ps)
+                let samples = engine.generate(phonemes: ps, voice: voice, scaleSilence: !args.contains("--raw"))
+                print("tokens: \(ids.count), samples: \(samples.count), seconds: \(String(format: "%.3f", Double(samples.count) / 24_000))")
+                if let out = value("--out") { SherpaOnnxWriteWave(samples, Int32(samples.count), Int32(KokoroEngine.sampleRate), out) }
+                exit(0)
+            } catch {
+                print("error: \(error.localizedDescription)")
+                exit(1)
+            }
+        }
+        guard let text = value("--say") ?? value("--say-file").flatMap({ try? String(contentsOfFile: $0, encoding: .utf8) }) else { return }
         let voice = Voice.with(key: value("--voice"))
         do {
             print("model: \(KokoroEngine.modelDirectory.path)")
             var t0 = Date()
-            let engine = try KokoroEngine(accent: voice.accent)
+            let engine = try KokoroEngine()
+            engine.prepare(voice.accent)
             print(String(format: "model load: %.2fs", Date().timeIntervalSince(t0)))
             var all: [Float] = []
             for chunk in TextPrep.chunks(for: TextPrep.clean(text)) {
                 t0 = Date()
-                let samples = engine.generate(chunk.speech, speaker: voice.id)
+                if args.contains("--show-phonemes") { print("   /\(engine.phonemes(chunk.speech, accent: voice.accent))/") }
+                let samples = engine.generate(chunk.speech, voice: voice)
                 let elapsed = Date().timeIntervalSince(t0)
                 let secs = Double(samples.count) / Double(KokoroEngine.sampleRate)
                 print(String(format: "%.2fs audio in %.2fs (%.1fx real time): %@", secs, elapsed, secs / elapsed, chunk.speech))

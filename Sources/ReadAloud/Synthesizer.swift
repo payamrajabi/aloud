@@ -21,9 +21,10 @@ final class Synthesizer {
     private var running = false
     private var engine: KokoroEngine?  // only touched on `queue`
 
-    /// Loads the model ahead of time so the first read starts quickly.
+    /// Loads the model (and the accent's pronunciation rules) ahead of time so the
+    /// first read starts quickly.
     func preload(accent: Accent) {
-        queue.async { _ = self.ensureEngine(accent) }
+        queue.async { self.ensureEngine()?.prepare(accent) }
     }
 
     @discardableResult
@@ -80,14 +81,14 @@ final class Synthesizer {
             let v = voice
             lock.unlock()
 
-            guard let engine = ensureEngine(v.accent) else {
+            guard let engine = ensureEngine() else {
                 lock.lock()
                 running = false
                 lock.unlock()
                 return
             }
             let t0 = Date()
-            let samples = engine.generate(text, speaker: v.id)
+            let samples = engine.generate(text, voice: v)
             if Synthesizer.trace {
                 print(String(format: "   synth #%d: %.2fs audio in %.2fs (%d chars) at %.1f", index, Double(samples.count) / 24000, Date().timeIntervalSince(t0), text.count, Date().timeIntervalSince1970.truncatingRemainder(dividingBy: 100))); fflush(stdout)
             }
@@ -102,11 +103,11 @@ final class Synthesizer {
         return nil
     }
 
-    private func ensureEngine(_ accent: Accent) -> KokoroEngine? {
-        if let engine, engine.accent == accent { return engine }
-        engine = nil
+    /// One engine serves every voice: the accent only changes the phonemizer.
+    private func ensureEngine() -> KokoroEngine? {
+        if let engine { return engine }
         do {
-            engine = try KokoroEngine(accent: accent)
+            engine = try KokoroEngine()
         } catch {
             let message = error.localizedDescription
             DispatchQueue.main.async { self.onError?(message) }
