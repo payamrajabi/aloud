@@ -67,6 +67,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
         enableLoginItemOnFirstLaunch()
         moveLoginItemIfRenamed(force: !cleanup.trashed.isEmpty)
         if cleanup.migratedVoice { model.preload() }
+        if !DebugScript.isActive {
+            // Voices downloaded by Aloud 1.4 and earlier came in sherpa-onnx's archive, with
+            // eSpeak NG's data and lexicons that nothing uses now (about 46 MB).
+            DispatchQueue.global(qos: .utility).async { KokoroEngine.removeUnusedFiles() }
+        }
         // Fetch the voice soon after first launch so it's usually ready by the first read
         // (unless it was removed in Settings; then it downloads when someone next reads).
         guard !UserDefaults.standard.bool(forKey: PlayerModel.voiceRemovedKey) else { return }
@@ -155,9 +160,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
             let selection = text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
             let current = self.model.sourceText.trimmingCharacters(in: .whitespacesAndNewlines)
             if !selection.isEmpty && !(selection == current && self.model.hasSession) {
-                // The voice was removed (or never finished downloading): ask before fetching 330 MB.
+                // The voice was removed (or never finished downloading): ask before fetching 355 MB.
                 if !KokoroEngine.isModelInstalled, !self.model.isDownloadingVoice,
-                   !DownloadPrompt.confirm(model: "the voice", size: "330 MB", feature: "Reading aloud") { return }
+                   !DownloadPrompt.confirm(model: "the voice", size: KokoroEngine.downloadSize, feature: "Reading aloud") { return }
                 self.model.load(selection)
                 // Show what's happening when reading can't start right away.
                 if (self.model.message != nil && !self.model.hasSession) || self.model.isDownloadingVoice { self.showPlayer() }

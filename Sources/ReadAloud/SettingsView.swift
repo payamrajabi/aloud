@@ -93,7 +93,7 @@ struct SettingsView: View {
             DeviceSection(direction: .input, devices: devices)
 
             Section {
-                ModelRow(title: "Voice", detail: "Reads text aloud · about 330 MB", symbol: "waveform",
+                ModelRow(title: "Voice", detail: "Reads text aloud · about \(KokoroEngine.downloadSize)", symbol: "waveform",
                          installed: KokoroEngine.isModelInstalled, progress: player.voiceDownloadProgress,
                          canRemove: player.canRemoveVoice, busy: false,
                          download: { player.downloadVoiceIfNeeded() }, remove: { player.removeVoice() })

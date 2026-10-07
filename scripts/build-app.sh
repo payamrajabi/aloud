@@ -11,7 +11,7 @@ set -euo pipefail
 
 ROOT="${0:A:h:h}"
 cd "$ROOT"
-[[ -f Vendor/sherpa-onnx/lib/libsherpa-onnx-c-api.dylib ]] || ./scripts/setup.sh
+[[ -f Vendor/sherpa-onnx-asr/lib/libsherpa-onnx-c-api.dylib && -f Vendor/g2p/manifest.json ]] || ./scripts/setup.sh
 
 APP_NAME="Aloud"
 FEED_URL="${FEED_URL:-https://aloudformac.com/appcast.xml}"
@@ -30,11 +30,11 @@ SPARKLE=".build/arm64-apple-macosx/release/Sparkle.framework"
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Frameworks" "$APP/Contents/Resources"
 cp "$BIN" "$APP/Contents/MacOS/ReadAloud"
-cp -L Vendor/sherpa-onnx/lib/libsherpa-onnx-c-api.dylib Vendor/sherpa-onnx/lib/libonnxruntime.dylib "$APP/Contents/Frameworks/"
+cp -L Vendor/sherpa-onnx-asr/lib/libsherpa-onnx-c-api.dylib Vendor/sherpa-onnx-asr/lib/libonnxruntime.dylib "$APP/Contents/Frameworks/"
 # Sparkle (auto-updates). ditto keeps the framework's internal symlinks.
 ditto "$SPARKLE" "$APP/Contents/Frameworks/Sparkle.framework"
 # Remove the developer-only library path so the app only uses its bundled copies.
-install_name_tool -delete_rpath "$ROOT/Vendor/sherpa-onnx/lib" "$APP/Contents/MacOS/ReadAloud" 2>/dev/null || true
+install_name_tool -delete_rpath "$ROOT/Vendor/sherpa-onnx-asr/lib" "$APP/Contents/MacOS/ReadAloud" 2>/dev/null || true
 
 if [[ ! build/AppIcon.icns -nt scripts/make-icon.swift ]]; then
   ICONSET=build/AppIcon.iconset
@@ -48,13 +48,26 @@ if [[ ! build/AppIcon.icns -nt scripts/make-icon.swift ]]; then
 fi
 cp build/AppIcon.icns "$APP/Contents/Resources/AppIcon.icns"
 cp LICENSE THIRD-PARTY-NOTICES.md "$APP/Contents/Resources/"
+# Pronunciation data (misaki gold lexicons, CMUdict, mini-bart G2P) and hand-written lexicons.
+rsync -a --exclude manifest.json Vendor/g2p/ "$APP/Contents/Resources/g2p/"
+cp Vendor/g2p/manifest.json "$APP/Contents/Resources/g2p/"
+mkdir -p "$APP/Contents/Resources/lexicons" "$APP/Contents/Resources/licenses"
+cp Lexicons/*.json "$APP/Contents/Resources/lexicons/"
+# Licence texts of the bundled components (see THIRD-PARTY-NOTICES.md).
+cp Vendor/sherpa-onnx-asr/sherpa-onnx-LICENSE "$APP/Contents/Resources/licenses/sherpa-onnx-LICENSE.txt"
+cp Vendor/sherpa-onnx-asr/onnxruntime-LICENSE "$APP/Contents/Resources/licenses/onnxruntime-LICENSE.txt"
+cp Vendor/sherpa-onnx-asr/onnxruntime-ThirdPartyNotices.txt "$APP/Contents/Resources/licenses/"
+cp Sources/Phonemizer/LICENSE-MisakiSwift.txt "$APP/Contents/Resources/licenses/"
 
 if [[ "${BUNDLE_MODEL:-0}" == 1 ]]; then
-  MODEL="$HOME/Library/Application Support/ReadAloud/models/kokoro-multi-lang-v1_0"
+  MODEL="${READALOUD_MODELS_DIR:-$HOME/Library/Application Support/ReadAloud/models}/kokoro-multi-lang-v1_0"
   [[ -f "$MODEL/model.onnx" ]] || ./scripts/setup.sh
   echo "Bundling voice model..."
-  # dict/ and the .fst files are only used for Chinese text normalization, which we don't configure.
-  rsync -a --exclude dict --exclude '*.fst' "$MODEL" "$APP/Contents/Resources/"
+  # Only what Kokoro needs; voices from older setups also hold eSpeak NG data, which Aloud doesn't use or ship.
+  mkdir -p "$APP/Contents/Resources/kokoro-multi-lang-v1_0"
+  for f in model.onnx voices.bin tokens.txt LICENSE; do
+    [[ -f "$MODEL/$f" ]] && cp -L "$MODEL/$f" "$APP/Contents/Resources/kokoro-multi-lang-v1_0/"
+  done
 fi
 
 cat > "$APP/Contents/Info.plist" <<PLIST
@@ -113,6 +126,9 @@ cat > build/entitlements.plist <<ENT
 </plist>
 ENT
 codesign --force $TIMESTAMP --options runtime --entitlements build/entitlements.plist -s "$IDENTITY" "$APP"
+
+# Aloud ships no GPL code: fail the build if eSpeak NG (or piper-phonemize) sneaks back in.
+./scripts/check-no-espeak.sh "$APP" >/dev/null || { ./scripts/check-no-espeak.sh "$APP"; echo "eSpeak NG found in $APP"; exit 1; }
 
 if [[ "${INSTALL:-1}" == 0 ]]; then
   echo "Built $APP"

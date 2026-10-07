@@ -1,42 +1,50 @@
 #!/bin/zsh
-# One-time setup: downloads the sherpa-onnx speech library (for building)
-# and the Kokoro voice model (for running). Safe to re-run.
+# One-time setup. Safe to re-run; each step is skipped when it's already done.
+#   1. sherpa-onnx built from source without text-to-speech (no eSpeak NG), plus the
+#      ONNX Runtime it uses, into Vendor/sherpa-onnx-asr (for building)
+#   2. the pronunciation data (misaki gold lexicons, CMUdict, mini-bart G2P) into
+#      Vendor/g2p (bundled into the app)
+#   3. the Kokoro voice and the Parakeet dictation model into Application Support
+#      (for running; the app also downloads both itself on first launch)
 set -euo pipefail
 
-SHERPA_VERSION="1.13.8"
-MODEL_NAME="kokoro-multi-lang-v1_0"
 ASR_MODEL="sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8"
+VOICE_DIR_NAME="kokoro-multi-lang-v1_0"
+VOICE_BASE="https://huggingface.co/csukuangfj/kokoro-multi-lang-v1_0/resolve/f7b96bb6bef5c5da4d3aa4f4e0498fbbf62dc78b"
 
 ROOT="${0:A:h:h}"
-VENDOR="$ROOT/Vendor/sherpa-onnx"
-MODELS="$HOME/Library/Application Support/ReadAloud/models"
+MODELS="${READALOUD_MODELS_DIR:-$HOME/Library/Application Support/ReadAloud/models}"
 
-if [[ ! -f "$VENDOR/lib/libsherpa-onnx-c-api.dylib" ]]; then
-  echo "Downloading sherpa-onnx $SHERPA_VERSION (about 19 MB)..."
-  tmp=$(mktemp -d)
-  name="sherpa-onnx-v${SHERPA_VERSION}-osx-arm64-shared"
-  curl -fL --progress-bar -o "$tmp/sherpa.tar.bz2" \
-    "https://github.com/k2-fsa/sherpa-onnx/releases/download/v${SHERPA_VERSION}/${name}.tar.bz2"
-  tar -xjf "$tmp/sherpa.tar.bz2" -C "$tmp"
-  rm -rf "$VENDOR"; mkdir -p "$VENDOR"
-  cp -R "$tmp/$name/lib" "$tmp/$name/include" "$VENDOR/"
-  rm -rf "$tmp"
-fi
-echo "sherpa-onnx library: ready"
+"$ROOT/scripts/build-sherpa-asr.sh"
 
-if [[ ! -f "$MODELS/$MODEL_NAME/model.onnx" ]]; then
-  echo "Downloading Kokoro voice model (about 333 MB)..."
-  mkdir -p "$MODELS"
-  curl -fL --progress-bar -o "$MODELS/$MODEL_NAME.tar.bz2" \
-    "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/${MODEL_NAME}.tar.bz2"
-  tar -xjf "$MODELS/$MODEL_NAME.tar.bz2" -C "$MODELS"
-  rm -f "$MODELS/$MODEL_NAME.tar.bz2"
+if [[ ! -f "$ROOT/Vendor/g2p/manifest.json" ]]; then
+  echo "Building the pronunciation data (about 14 MB)..."
+  VENV="$ROOT/build/g2p-venv"
+  [[ -x "$VENV/bin/python" ]] || python3 -m venv "$VENV"
+  "$VENV/bin/pip" install -q --disable-pip-version-check onnx onnxruntime
+  "$VENV/bin/python" "$ROOT/scripts/make-g2p-data.py" "$ROOT/Vendor/g2p"
 fi
-echo "Kokoro model: ready at $MODELS/$MODEL_NAME"
+echo "Pronunciation data: ready"
+
+# The voice: the model, the voice styles and the symbol table (about 355 MB), the same
+# files the app fetches. (Not sherpa-onnx's tar archive, which also carries eSpeak NG's data.)
+VOICE="$MODELS/$VOICE_DIR_NAME"
+if [[ ! -f "$VOICE/model.onnx" || ! -f "$VOICE/voices.bin" || ! -f "$VOICE/tokens.txt" ]]; then
+  echo "Downloading the Kokoro voice (about 355 MB)..."
+  mkdir -p "$VOICE"
+  for f in model.onnx voices.bin tokens.txt LICENSE; do
+    curl -fL --progress-bar -o "$VOICE/$f.part" "$VOICE_BASE/$f"
+    mv "$VOICE/$f.part" "$VOICE/$f"
+  done
+  echo "b40f62b166ac8164b0627ef48a0b358eda0985e272fb03ef5252e7206305da11  $VOICE/model.onnx" | shasum -a 256 -c -
+  echo "1c5a5b983d3d50d8586d437a51f3faa2da7919ce76a013c081e65671a3447c29  $VOICE/voices.bin" | shasum -a 256 -c -
+fi
+echo "Kokoro voice: ready at $VOICE"
 
 # Dictation model (Parakeet). The app can also download this itself on first use.
 if [[ ! -f "$MODELS/$ASR_MODEL/tokens.txt" ]]; then
   echo "Downloading Parakeet dictation model (about 460 MB)..."
+  mkdir -p "$MODELS"
   curl -fL --progress-bar -o "$MODELS/$ASR_MODEL.tar.bz2" \
     "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/${ASR_MODEL}.tar.bz2"
   tar -xjf "$MODELS/$ASR_MODEL.tar.bz2" -C "$MODELS"
