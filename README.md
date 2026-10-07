@@ -10,17 +10,24 @@ A small Mac menu-bar app that reads and writes for you, entirely on your Mac.
   While you talk, every 20–30 s of speech (cut at a pause) is transcribed in the
   background, so the text is ready about a second after you stop, however long you spoke. The menu bar icon animates while it reads; click it
 for the player, with the text and a scrubbable timeline. Speech is generated
-locally by [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) through
-[sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx), so it's free and works offline.
+locally by [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) on
+[ONNX Runtime](https://onnxruntime.ai), so it's free and works offline.
 
 **Website and download:** https://aloudformac.com
 
 ## Build it yourself
 
 ```bash
-./scripts/setup.sh       # one time: downloads the speech library (19 MB) and voice model (333 MB)
+./scripts/setup.sh       # one time, ~10 min: builds the dictation library, the pronunciation data, downloads the models
 ./scripts/build-app.sh   # builds, signs, installs to /Applications and launches
 ```
+
+`setup.sh` builds sherpa-onnx 1.13.8 from source without text-to-speech (so without
+eSpeak NG) into `Vendor/sherpa-onnx-asr` (needs Xcode's command-line tools; it fetches
+cmake into a private venv if you don't have it), builds the pronunciation data into
+`Vendor/g2p` (`scripts/make-g2p-data.py`: misaki's gold lexicons, CMUdict and the
+mini-bart G2P model, pinned by checksum), and downloads the voice (355 MB) and the
+dictation model (460 MB). `INSTALL=0 ./scripts/build-app.sh` builds without installing.
 
 On first launch macOS asks for **Accessibility** access. It's needed to read
 the selected text from other apps (System Settings → Privacy & Security →
@@ -53,6 +60,16 @@ Accessibility → Aloud).
 - `SelectionReader` asks the frontmost app for its selected text through the
   Accessibility API, falling back to a simulated ⌘C that restores the clipboard.
 - `TextPrep` cleans the text and splits it into sentences.
+- The `Phonemizer` module turns each sentence into the phonemes Kokoro was trained
+  on (misaki's notation). Each word comes from the first source that knows it: the
+  hand-written lists in `Lexicons/` (tech terms, Irish names), misaki's gold lexicon
+  (US or GB, with its rules for numbers, heteronyms and stress), CMUdict, then the
+  small mini-bart G2P model. Before that, units, times, dates and fractions are
+  rewritten as words. It's a Swift port of [misaki](https://github.com/hexgrad/misaki)
+  by way of [MisakiSwift](https://github.com/mlalma/MisakiSwift), with spaCy-style
+  tokenization and context rules for verb tenses ("I read it yesterday").
+- `KokoroEngine` feeds those phonemes to Kokoro on ONNX Runtime, picking the voice's
+  style vector by length, as sherpa-onnx did. One model serves every voice.
 - `Synthesizer` generates just in time: only the current sentence and about
   25 seconds ahead of it, so nothing is wasted if you stop early. The opening
   sentence is split at a natural break so the first audio arrives in about
@@ -107,14 +124,30 @@ The landing page lives in `docs/` and is served at https://aloudformac.com by Ve
 
 ## License
 
-MIT for this app's code. The download also bundles Kokoro, sherpa-onnx, ONNX
-Runtime and eSpeak NG under their own licenses; see THIRD-PARTY-NOTICES.md.
+MIT for this app's code. The download also bundles or fetches Kokoro, misaki's
+lexicons, CMUdict, mini-bart-g2p, ONNX Runtime, sherpa-onnx and Sparkle under their
+own licenses; see THIRD-PARTY-NOTICES.md. Nothing in it is GPL: eSpeak NG is gone as
+of this version (`scripts/check-no-espeak.sh build/Aloud.app` proves it).
+
+## Pronunciations
+
+Add or fix a word by editing `Lexicons/tech-lexicon.json` (or another `*.json` file
+there): `{ "word": "Kubernetes", "match": "case-insensitive", "us": "kˌubəɹnˈɛTiz", "gb": "kˌuːbənˈɛtiːz" }`.
+Phonemes use misaki's symbols (`--phonemize` shows what Aloud says now). Files in
+`~/Library/Application Support/ReadAloud/lexicons` are read last and win, so a list can
+be updated without a new build. Run the regression suite after changing anything:
+
+```bash
+.build/debug/ReadAloud --g2p-test Tests/g2p/regression.json [--verbose]
+```
 
 ## Developer test modes
 
 ```bash
 swift build
-.build/debug/ReadAloud --say "Hello there." --voice bm_george --out /tmp/hello.wav
+.build/debug/ReadAloud --say "Hello there." --voice bm_george --out /tmp/hello.wav --show-phonemes
+echo "Siobhan's K8s cluster" | .build/debug/ReadAloud --phonemize [--gb]    # what Aloud will say
+.build/debug/ReadAloud --g2p-test Tests/g2p/regression.json               # pronunciation regression suite
 .build/debug/ReadAloud --read-file article.txt --mute --trace --script "3:seek=60;6:pause;7:quit"
 READALOUD_MODELS_DIR=/tmp/models .build/debug/ReadAloud --download-voice   # test the first-launch download
 .build/debug/ReadAloud --test-gestures                                     # tap / double-tap / hold detection
