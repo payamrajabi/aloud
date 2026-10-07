@@ -61,7 +61,8 @@ final class PlayerModel: ObservableObject {
     private var nextToSchedule = 0
     private var resumePoint: (index: Int, fraction: Double) = (0, 0)
     private var lastPoint: (index: Int, fraction: Double) = (0, 0)
-    private var outputWasBuiltIn = AudioOut.defaultOutputIsBuiltIn()
+    private var outputWasBuiltIn = AudioDevices.preferredDevice(.output)?.isBuiltIn ?? false
+    private var deviceObserver: AnyCancellable?
 
     private var sampleRate: Double { audio.format.sampleRate }
 
@@ -77,6 +78,9 @@ final class PlayerModel: ObservableObject {
             self?.isBuffering = false
         }
         audio.onConfigurationChange = { [weak self] in self?.audioRouteChanged() }
+        deviceObserver = AudioDevices.shared.routeChanged.sink { [weak self] deliberate in
+            self?.preferredDeviceChanged(deliberate: deliberate)
+        }
         audio.onLevel = { [weak self] level in
             guard let self else { return }
             let l = self.isPlaying && !self.isBuffering ? level : 0  // ignore stragglers after a pause
@@ -128,7 +132,24 @@ final class PlayerModel: ObservableObject {
         }
     }
 
+    /// Set when someone removes the voice in Settings: it's then fetched only when they next read.
+    static let voiceRemovedKey = "voiceRemoved"
+
+    /// Only a downloaded voice can be removed, not one bundled inside the app.
+    var canRemoveVoice: Bool {
+        KokoroEngine.isModelInstalled && KokoroEngine.modelDirectory == KokoroEngine.downloadedModelDirectory
+    }
+
+    func removeVoice() {
+        guard canRemoveVoice else { return }
+        stop()
+        UserDefaults.standard.set(true, forKey: Self.voiceRemovedKey)
+        try? FileManager.default.removeItem(at: KokoroEngine.downloadedModelDirectory)
+        objectWillChange.send()
+    }
+
     private func voiceBecameReady() {
+        UserDefaults.standard.removeObject(forKey: Self.voiceRemovedKey)
         synth.preload(accent: voice.accent)
         guard hasSession else { return }
         // Generate from where the listener is waiting; chunkReady starts playback.
@@ -294,7 +315,7 @@ final class PlayerModel: ObservableObject {
 
     private func startPlayback(at index: Int, fraction: Double) {
         defer { notify() }
-        outputWasBuiltIn = AudioOut.defaultOutputIsBuiltIn()
+        outputWasBuiltIn = AudioDevices.preferredDevice(.output)?.isBuiltIn ?? false
         token += 1
         audio.node.stop()
         segments = []
@@ -439,7 +460,7 @@ final class PlayerModel: ObservableObject {
 
     private func audioRouteChanged() {
         log("audio configuration changed")
-        let nowBuiltIn = AudioOut.defaultOutputIsBuiltIn()
+        let nowBuiltIn = AudioDevices.preferredDevice(.output)?.isBuiltIn ?? false
         defer { outputWasBuiltIn = nowBuiltIn }
         guard hasSession, isPlaying else { return }
         // Like a music player: if headphones disconnect and sound would move to
@@ -450,6 +471,19 @@ final class PlayerModel: ObservableObject {
         }
         // Otherwise (e.g. AirPods just connected) the engine stopped; restart where we were.
         let p = lastPoint
+        startPlayback(at: p.index, fraction: p.fraction)
+    }
+
+    /// A device came or went, macOS's default changed, or the person reordered their devices:
+    /// move to the device that's now preferred.
+    private func preferredDeviceChanged(deliberate: Bool) {
+        guard hasSession, isPlaying, let wanted = AudioDevices.preferredDevice(.output), wanted.id != audio.device else { return }
+        log("moving to \(wanted.name)")
+        if !deliberate, !outputWasBuiltIn, wanted.isBuiltIn {
+            pause()  // as in audioRouteChanged: headphones went away, don't carry on out loud
+            return
+        }
+        let p = currentPoint()
         startPlayback(at: p.index, fraction: p.fraction)
     }
 
@@ -497,6 +531,11 @@ final class PlayerModel: ObservableObject {
         guard Synthesizer.trace else { return }
         print("   model: " + s)
         fflush(stdout)
+    }
+
+    var debugOutputDevice: String {
+        let id = audio.device
+        return AudioDevices.scan().first { $0.id == id }?.name ?? "none"
     }
 
     var debugDescription: String {

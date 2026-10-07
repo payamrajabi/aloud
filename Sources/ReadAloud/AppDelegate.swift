@@ -9,20 +9,24 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
     private var statusItem: NSStatusItem!
     private let iconView = StatusIconView()
     private let settingsMenu = NSMenu()
-    private var hotKey: HotKey?
     private var nowPlaying: NowPlaying?
     private lazy var dictation = DictationController(player: model)
     private(set) var dictationHUD: DictationHUD?
     private var observers: Set<AnyCancellable> = []
     private var updater: SPUStandardUpdaterController?
+    private(set) lazy var settings = SettingsWindow(player: model, dictation: dictation)
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         setUpStatusItem()
-        registerHotKey()
         nowPlaying = NowPlaying(model: model)
         dictationHUD = DictationHUD(controller: dictation)
-        dictation.onReadDoubleTap = { [weak self] in self?.readSelection(pausing: false) }
+        // A key combination pauses on a second press, like before; a modifier tap only starts or resumes.
+        dictation.onRead = { [weak self] in self?.readSelection(pausing: ShortcutAction.read.binding?.modifierKey == nil) }
         dictation.start()
+        reportUnavailableShortcuts()
+        dictation.shortcuts.$unavailable.dropFirst().receive(on: RunLoop.main)
+            .sink { [weak self] _ in self?.reportUnavailableShortcuts() }
+            .store(in: &observers)
         model.preload()
         setUpUpdater()
         if DebugScript.isActive {
@@ -50,8 +54,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
             fflush(stdout)
         }
         if cleanup.terminatedOthers {
-            registerHotKey()  // the old app may have been holding the shortcut
-            if hotKey != nil, model.message?.hasPrefix("The shortcut") == true { model.message = nil }
+            dictation.shortcuts.start()  // the old app may have been holding a shortcut
         }
         if !cleanup.failed.isEmpty {
             model.message = "An older copy of Aloud is still installed. Drag “\(cleanup.failed[0].deletingPathExtension().lastPathComponent)” from Applications to the Trash."
@@ -59,7 +62,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
         enableLoginItemOnFirstLaunch()
         moveLoginItemIfRenamed(force: !cleanup.trashed.isEmpty)
         if cleanup.migratedVoice { model.preload() }
-        // Fetch the voice soon after first launch so it's usually ready by the first read.
+        // Fetch the voice soon after first launch so it's usually ready by the first read
+        // (unless it was removed in Settings; then it downloads when someone next reads).
+        guard !UserDefaults.standard.bool(forKey: PlayerModel.voiceRemovedKey) else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in self?.model.downloadVoiceIfNeeded() }
     }
 
@@ -81,7 +86,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
 
     // MARK: - Reading
 
-    /// `pausing`: the same (or no) selection pauses a playing session. The double-tap only ever starts or resumes.
+    /// `pausing`: the same (or no) selection pauses a playing session. Modifier taps only ever start or resume.
     func readSelection(pausing: Bool = true) {
         guard SelectionReader.isTrusted else {
             model.message = "Aloud needs Accessibility access to read your selection. Turn it on in System Settings → Privacy & Security → Accessibility, then try again."
@@ -134,21 +139,21 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
         statusItem.menu = nil
     }
 
-    // MARK: - Shortcut
+    // MARK: - Shortcuts and settings
 
-    private func registerHotKey() {
-        hotKey = nil
-        let shortcut = Shortcut.current
-        hotKey = HotKey(shortcut) { [weak self] in self?.readSelection() }
-        if hotKey == nil {
-            model.message = "The shortcut \(shortcut.display) is already used by another app. Pick a different one from the menu bar icon."
+    /// Says so in the player when another app holds one of the shortcuts.
+    private func reportUnavailableShortcuts() {
+        let taken = ShortcutAction.allCases.filter { dictation.shortcuts.unavailable.contains($0) }
+        if let action = taken.first {
+            model.message = "The shortcut \(action.hint) is already used by another app. Pick a different one in Settings."
+        } else if model.message?.hasPrefix("The shortcut") == true {
+            model.message = nil
         }
     }
 
-    @objc private func chooseShortcut(_ sender: NSMenuItem) {
-        guard let id = sender.representedObject as? String else { return }
-        UserDefaults.standard.set(id, forKey: "shortcut")
-        registerHotKey()
+    @objc func showSettings() {
+        player.close()
+        settings.show()
     }
 
     // MARK: - Menu bar
@@ -204,9 +209,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
 
     func menuNeedsUpdate(_ menu: NSMenu) {
         menu.removeAllItems()
-        let shortcut = Shortcut.current
-
-        let read = NSMenuItem(title: "Read Selection  (\(DoubleTapKey.readHint))", action: #selector(readSelectionFromMenu), keyEquivalent: "")
+        let read = NSMenuItem(title: "Read Selection", action: #selector(readSelectionFromMenu), keyEquivalent: "")
+        if let binding = ShortcutAction.read.binding { read.title += "  (\(binding.display))" }
         read.target = self
         menu.addItem(read)
         let show = NSMenuItem(title: "Show Player", action: #selector(showPlayer), keyEquivalent: "")
@@ -234,48 +238,20 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
             speeds.addItem(item)
         }
         menu.addItem(submenu("Speed", speeds))
-
-        let doubleTaps = NSMenu()
-        doubleTaps.addItem(NSMenuItem(title: "Left key reads · right key dictates", action: nil, keyEquivalent: ""))
-        doubleTaps.addItem(.separator())
-        for key in DoubleTapKey.allCases {
-            if key == .off { doubleTaps.addItem(.separator()) }
-            let item = NSMenuItem(title: key.title, action: #selector(chooseDoubleTap(_:)), keyEquivalent: "")
-            item.target = self
-            item.representedObject = key.rawValue
-            item.state = key == DoubleTapKey.current ? .on : .off
-            doubleTaps.addItem(item)
-        }
-        menu.addItem(submenu("Double-Tap", doubleTaps))
-
-        let shortcuts = NSMenu()
-        for s in Shortcut.presets {
-            let item = NSMenuItem(title: s.display, action: #selector(chooseShortcut(_:)), keyEquivalent: "")
-            item.target = self
-            item.representedObject = s.id
-            item.state = s == shortcut ? .on : .off
-            shortcuts.addItem(item)
-        }
-        menu.addItem(submenu("Shortcut", shortcuts))
         menu.addItem(.separator())
 
-        let dictate = NSMenuItem(title: "Dictate  (\(DoubleTapKey.dictateHint))", action: #selector(toggleDictation), keyEquivalent: "")
+        let dictate = NSMenuItem(title: "Dictate", action: #selector(toggleDictation), keyEquivalent: "")
+        if let binding = ShortcutAction.dictate.binding { dictate.title += "  (\(binding.display))" }
         dictate.target = self
         menu.addItem(dictate)
-        let dictationShortcuts = NSMenu()
-        for option in DictationShortcut.allCases {
-            let item = NSMenuItem(title: option.title, action: #selector(chooseDictationShortcut(_:)), keyEquivalent: "")
-            item.target = self
-            item.representedObject = option.rawValue
-            item.state = option == DictationShortcut.current ? .on : .off
-            dictationShortcuts.addItem(item)
-        }
-        menu.addItem(submenu(DoubleTapKey.isOn ? "Dictation Shortcut (when Double-Tap is Off)" : "Dictation Shortcut", dictationShortcuts))
         let copyLast = NSMenuItem(title: "Copy Last Dictation", action: dictation.lastTranscript == nil ? nil : #selector(copyLastDictation), keyEquivalent: "")
         copyLast.target = self
         menu.addItem(copyLast)
         menu.addItem(.separator())
 
+        let settingsItem = NSMenuItem(title: "Settings…", action: #selector(showSettings), keyEquivalent: ",")
+        settingsItem.target = self
+        menu.addItem(settingsItem)
         let trusted = SelectionReader.isTrusted
         let access = NSMenuItem(title: trusted ? "Accessibility Access: On" : "Grant Accessibility Access…",
                                 action: trusted ? nil : #selector(grantAccess), keyEquivalent: "")
@@ -303,18 +279,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
     @objc private func toggleDictation() { dictation.toggle() }
 
     @objc private func copyLastDictation() { dictation.copyLastTranscript() }
-
-    @objc private func chooseDictationShortcut(_ sender: NSMenuItem) {
-        guard let id = sender.representedObject as? String else { return }
-        UserDefaults.standard.set(id, forKey: "dictationShortcut")
-        dictation.shortcutChanged()
-    }
-
-    @objc private func chooseDoubleTap(_ sender: NSMenuItem) {
-        guard let id = sender.representedObject as? String else { return }
-        UserDefaults.standard.set(id, forKey: "doubleTapKey")
-        dictation.shortcutChanged()
-    }
 
     var dictationController: DictationController { dictation }
 

@@ -16,9 +16,11 @@ final class DictationController: ObservableObject {
     @Published private(set) var level: Float = 0
     @Published private(set) var startedAt = Date()
     private(set) var lastTranscript: String?
+    /// 0…1 while the dictation model downloads, nil otherwise.
+    @Published private(set) var modelProgress: Double?
 
     private let player: PlayerModel
-    private let trigger = DictationTrigger()
+    let shortcuts = ShortcutMonitor()
     private let recorder = Recorder()
     private let downloader = ModelDownloader()
     private let queue = DispatchQueue(label: "readaloud.dictation", qos: .userInitiated)
@@ -34,27 +36,27 @@ final class DictationController: ObservableObject {
     init(player: PlayerModel) {
         self.player = player
         recorder.onLevel = { [weak self] in self?.level = $0 }
-        trigger.onTap = { [weak self] in self?.toggle() }
-        trigger.isRecording = { [weak self] in self?.state == .recording }
-        trigger.onHoldBegan = { [weak self] in self?.holdBegan() }
-        trigger.onHoldEnded = { [weak self] in self?.holdEnded() }
-        trigger.onInterrupted = { [weak self] in
+        shortcuts.onDictate = { [weak self] in self?.toggle() }
+        shortcuts.isRecording = { [weak self] in self?.state == .recording }
+        shortcuts.onHoldBegan = { [weak self] in self?.holdBegan() }
+        shortcuts.onHoldEnded = { [weak self] in self?.holdEnded() }
+        shortcuts.onInterrupted = { [weak self] in
             // Right ⌘ held, then another key: it was a normal shortcut like ⌘C, so back out quietly.
             if self?.pushToTalk == true { self?.cancel(quietly: true) }
         }
-        trigger.onCancel = { [weak self] in
+        shortcuts.onCancel = { [weak self] in
             if self?.state == .recording { self?.cancel() }
         }
     }
 
     func start() {
-        trigger.start()
+        shortcuts.start()
         if ParakeetEngine.isInstalled {
             queue.async { _ = self.loadEngine() }
         } else {
             // Fetch the dictation model quietly soon after first launch so it's
-            // ready by the time someone tries it.
-            downloadModelInBackground(after: 8)
+            // ready by the time someone tries it (unless they removed it in Settings).
+            if !UserDefaults.standard.bool(forKey: Self.removedKey) { downloadModelInBackground(after: 8) }
         }
     }
 
@@ -69,12 +71,15 @@ final class DictationController: ObservableObject {
         }
     }
 
-    func shortcutChanged() { trigger.start() }
+    /// The reading shortcut.
+    var onRead: (() -> Void)? {
+        get { shortcuts.onRead }
+        set { shortcuts.onRead = newValue }
+    }
 
-    /// Double-tap of the left key: read the selection.
-    var onReadDoubleTap: (() -> Void)? {
-        get { trigger.onReadDoubleTap }
-        set { trigger.onReadDoubleTap = newValue }
+    /// "Double-tap right ⌥", for messages.
+    private static var dictateInstruction: String {
+        ShortcutAction.dictate.binding?.instruction ?? "Choose Dictate in the menu bar menu"
     }
 
     // MARK: - Triggers
@@ -95,8 +100,8 @@ final class DictationController: ObservableObject {
     }
 
     private func holdEnded() {
-        // With double-tap on, a hold never ends a recording that a double-tap started.
-        if state == .recording, pushToTalk || !DoubleTapKey.isOn { finish() }
+        // A hold never ends a recording that a tap started; the next press of the key does.
+        if state == .recording, pushToTalk { finish() }
     }
 
     // MARK: - Recording
@@ -118,7 +123,7 @@ final class DictationController: ObservableObject {
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .audio) { granted in
                 DispatchQueue.main.async {
-                    if granted { self.show("Microphone ready. \(DoubleTapKey.dictateAction) to dictate.") }
+                    if granted { self.show("Microphone ready. \(Self.dictateInstruction) to dictate.") }
                     else { self.show("Aloud needs microphone access to dictate.") }
                 }
             }
@@ -244,6 +249,24 @@ final class DictationController: ObservableObject {
 
     // MARK: - Model
 
+    /// Set when someone removes the model in Settings: it's then fetched only when they next dictate.
+    private static let removedKey = "dictationModelRemoved"
+
+    var canRemoveModel: Bool { ParakeetEngine.isInstalled && state != .recording && state != .transcribing }
+
+    /// From Settings: download without the HUD; Settings shows the progress.
+    func downloadModelNow() { downloadModel(visible: false) }
+
+    func removeModel() {
+        guard canRemoveModel else { return }
+        UserDefaults.standard.set(true, forKey: Self.removedKey)
+        queue.async {
+            self.engine = nil
+            try? FileManager.default.removeItem(at: ParakeetEngine.modelDirectory)
+            DispatchQueue.main.async { self.objectWillChange.send() }
+        }
+    }
+
     private func loadEngine() -> ParakeetEngine? {
         if let engine { return engine }
         do {
@@ -262,14 +285,17 @@ final class DictationController: ObservableObject {
         }
         guard !downloader.isRunning, !ParakeetEngine.isInstalled else { return }
         downloadProgress = 0
+        modelProgress = 0
         downloader.download(ParakeetEngine.downloadURL, into: ModelStore.root) { [weak self] p in
             guard let self else { return }
             self.downloadProgress = p
+            self.modelProgress = p
             if self.showDownload { self.state = .downloading(p) }
         } completion: { [weak self] error in
             guard let self else { return }
             let wasShown = self.showDownload
             self.showDownload = false
+            self.modelProgress = nil
             if DebugScript.args.contains("--trace") {
                 print("   dictation: model download finished, error: \(error?.localizedDescription ?? "none"), installed: \(ParakeetEngine.isInstalled)")
                 fflush(stdout)
@@ -277,7 +303,8 @@ final class DictationController: ObservableObject {
             if let error {
                 if wasShown { self.show("Download failed: \(error.localizedDescription)") }
             } else {
-                if wasShown { self.show("Dictation is ready. \(DoubleTapKey.dictateAction) to start.") }
+                UserDefaults.standard.removeObject(forKey: Self.removedKey)
+                if wasShown { self.show("Dictation is ready. \(Self.dictateInstruction) to start.") }
                 self.queue.async { _ = self.loadEngine() }
             }
         }
