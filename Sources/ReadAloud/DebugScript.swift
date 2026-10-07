@@ -248,6 +248,19 @@ enum DebugScript {
                 capture.waitUntilExit()
                 print("snapshot saved to \(arg)")
             }
+        case "promptshot":  // the "download again?" question, shown without waiting for an answer
+            let alert = DownloadPrompt.alert(model: "dictation", size: "480 MB", feature: "Dictation")
+            alert.layout()
+            alert.window.center()
+            alert.window.orderFrontRegardless()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                let capture = Process()
+                capture.executableURL = URL(fileURLWithPath: "/usr/sbin/screencapture")
+                capture.arguments = ["-o", "-x", "-l", String(alert.window.windowNumber), arg]
+                try? capture.run()
+                capture.waitUntilExit()
+                alert.window.orderOut(nil)
+            }
         case "record": app.settings.recorder.begin(ShortcutAction(rawValue: arg) ?? .read)
         case "tapkey", "doubletapkey":  // a simulated tap (or two) of a modifier, e.g. tapkey=fn
             guard let key = ModifierKey(rawValue: arg) else { break }

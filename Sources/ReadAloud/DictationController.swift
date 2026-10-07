@@ -108,7 +108,10 @@ final class DictationController: ObservableObject {
 
     private func begin(pushToTalk: Bool) {
         guard ParakeetEngine.isInstalled else {
-            downloadModel(visible: true)
+            // Already on its way (first launch): show progress. Otherwise ask before fetching 480 MB.
+            if downloader.isRunning || DownloadPrompt.confirm(model: "dictation", size: "480 MB", feature: "Dictation") {
+                downloadModel(visible: true)
+            }
             return
         }
         guard SelectionReader.isTrusted else {
@@ -252,13 +255,14 @@ final class DictationController: ObservableObject {
     /// Set when someone removes the model in Settings: it's then fetched only when they next dictate.
     private static let removedKey = "dictationModelRemoved"
 
-    var canRemoveModel: Bool { ParakeetEngine.isInstalled && state != .recording && state != .transcribing }
+    /// Dictating right now: the model can't be removed until it's done.
+    var isBusy: Bool { state == .recording || state == .transcribing }
 
     /// From Settings: download without the HUD; Settings shows the progress.
     func downloadModelNow() { downloadModel(visible: false) }
 
     func removeModel() {
-        guard canRemoveModel else { return }
+        guard ParakeetEngine.isInstalled, !isBusy else { return }
         UserDefaults.standard.set(true, forKey: Self.removedKey)
         queue.async {
             self.engine = nil

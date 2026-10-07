@@ -95,16 +95,16 @@ struct SettingsView: View {
             Section {
                 ModelRow(title: "Voice", detail: "Reads text aloud · about 330 MB", symbol: "waveform",
                          installed: KokoroEngine.isModelInstalled, progress: player.voiceDownloadProgress,
-                         canRemove: player.canRemoveVoice,
+                         canRemove: player.canRemoveVoice, busy: false,
                          download: { player.downloadVoiceIfNeeded() }, remove: { player.removeVoice() })
                 ModelRow(title: "Dictation", detail: "Turns speech into text · about 480 MB", symbol: "mic",
                          installed: ParakeetEngine.isInstalled, progress: dictation.modelProgress,
-                         canRemove: dictation.canRemoveModel,
+                         canRemove: ParakeetEngine.isInstalled, busy: dictation.isBusy,
                          download: { dictation.downloadModelNow() }, remove: { dictation.removeModel() })
             } header: {
                 Text("Downloads")
             } footer: {
-                Text("Both run entirely on your Mac. Aloud downloads them the first time it opens; remove one to free up space and it downloads again the next time you use it.")
+                Text("Both run entirely on your Mac and download automatically the first time Aloud opens. Remove one to free up space; Aloud asks before downloading it again when you next use it.")
                     .foregroundStyle(.secondary)
                     .font(.caption)
                     .fixedSize(horizontal: false, vertical: true)
@@ -365,6 +365,8 @@ private struct ModelRow: View {
     let installed: Bool
     let progress: Double?
     let canRemove: Bool
+    /// In use right now, so it can't be removed yet.
+    let busy: Bool
     let download: () -> Void
     let remove: () -> Void
     @State private var confirmingRemove = false
@@ -400,6 +402,8 @@ private struct ModelRow: View {
                 if canRemove {
                     Button("Remove") { confirmingRemove = true }
                         .controlSize(.small)
+                        .disabled(busy)
+                        .help(busy ? "Finish dictating first" : "Delete the model to free up space")
                 }
             } else {
                 Button("Download", action: download)
@@ -409,7 +413,7 @@ private struct ModelRow: View {
         .confirmationDialog("Remove the \(title.lowercased()) model?", isPresented: $confirmingRemove) {
             Button("Remove", role: .destructive, action: remove)
         } message: {
-            Text("It downloads again the next time you use it.")
+            Text("Aloud will ask before downloading it again the next time you use it.")
         }
     }
 }

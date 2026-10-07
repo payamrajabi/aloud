@@ -1,4 +1,23 @@
+import AppKit
 import Foundation
+
+/// Asks before downloading a model that was removed in Settings (or never finished downloading).
+enum DownloadPrompt {
+    static func confirm(model: String, size: String, feature: String) -> Bool {
+        if DebugScript.isActive { return true }
+        NSApp.activate(ignoringOtherApps: true)
+        return alert(model: model, size: size, feature: feature).runModal() == .alertFirstButtonReturn
+    }
+
+    static func alert(model: String, size: String, feature: String) -> NSAlert {
+        let alert = NSAlert()
+        alert.messageText = "Download \(model)?"
+        alert.informativeText = "\(feature) needs a one-time download of about \(size). After that it runs entirely on your Mac, even offline."
+        alert.addButton(withTitle: "Download")
+        alert.addButton(withTitle: "Not Now")
+        return alert
+    }
+}
 
 /// Where downloaded models live: ~/Library/Application Support/ReadAloud/models.
 enum ModelStore {

@@ -2,8 +2,10 @@ import AppKit
 import Combine
 import ServiceManagement
 import Sparkle
+import UserNotifications
 
-final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUStandardUserDriverDelegate {
+final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUStandardUserDriverDelegate,
+                         UNUserNotificationCenterDelegate {
     private let model = PlayerModel()
     private(set) lazy var player = PlayerPopover(model: model) { [weak self] in self?.showSettingsMenu() }
     private var statusItem: NSStatusItem!
@@ -14,6 +16,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
     private(set) var dictationHUD: DictationHUD?
     private var observers: Set<AnyCancellable> = []
     private var updater: SPUStandardUpdaterController?
+    /// A newer version Sparkle found on its daily check, until the person deals with it.
+    private var availableUpdate: String?
+    private static let updateNotificationID = "aloud-update"
     private(set) lazy var settings = SettingsWindow(player: model, dictation: dictation)
 
     func applicationDidFinishLaunching(_ notification: Notification) {
@@ -74,6 +79,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
         // Only real app builds (with a feed in Info.plist) check for updates.
         guard !DebugScript.isActive, Bundle.main.object(forInfoDictionaryKey: "SUFeedURL") != nil else { return }
         updater = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: self)
+        UNUserNotificationCenter.current().delegate = self
+        if DebugScript.args.contains("--test-update-notice") {
+            // Developer check of the notification: a background check long enough after launch to count as "later".
+            DispatchQueue.main.asyncAfter(deadline: .now() + 20) { self.updater?.updater.checkForUpdatesInBackground() }
+        }
     }
 
     @objc private func checkForUpdates() {
@@ -83,6 +93,51 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
 
     /// A menu bar app has no Dock icon to badge, so let Sparkle remind people gently.
     var supportsGentleScheduledUpdateReminders: Bool { true }
+
+    /// Right after launch Sparkle shows its own window; later in the day a window popping up
+    /// out of nowhere would be rude, so we post a notification instead.
+    func standardUserDriverShouldHandleShowingScheduledUpdate(_ update: SUAppcastItem, andInImmediateFocus immediateFocus: Bool) -> Bool {
+        immediateFocus
+    }
+
+    func standardUserDriverWillHandleShowingUpdate(_ handleShowingUpdate: Bool, forUpdate update: SUAppcastItem, state: SPUUserUpdateState) {
+        guard !state.userInitiated else { return }
+        availableUpdate = update.displayVersionString
+        if !handleShowingUpdate { postUpdateNotification(version: update.displayVersionString) }
+    }
+
+    func standardUserDriverDidReceiveUserAttention(forUpdate update: SUAppcastItem) {
+        UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [Self.updateNotificationID])
+    }
+
+    func standardUserDriverWillFinishUpdateSession() {
+        availableUpdate = nil
+    }
+
+    private func postUpdateNotification(version: String) {
+        let center = UNUserNotificationCenter.current()
+        // Asked the first time there's an update, not at launch, so the request makes sense.
+        center.requestAuthorization(options: [.alert, .sound]) { granted, _ in
+            guard granted else { return }
+            let content = UNMutableNotificationContent()
+            content.title = "Aloud \(version) is available"
+            content.body = "Click to see what's new and install it. It only takes a moment."
+            center.add(UNNotificationRequest(identifier: Self.updateNotificationID, content: content, trigger: nil))
+        }
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        if response.notification.request.identifier == Self.updateNotificationID {
+            DispatchQueue.main.async { self.checkForUpdates() }  // brings the waiting update forward
+        }
+        completionHandler()
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .list, .sound])  // a menu bar app always counts as "in front"
+    }
 
     // MARK: - Reading
 
@@ -100,6 +155,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
             let selection = text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
             let current = self.model.sourceText.trimmingCharacters(in: .whitespacesAndNewlines)
             if !selection.isEmpty && !(selection == current && self.model.hasSession) {
+                // The voice was removed (or never finished downloading): ask before fetching 330 MB.
+                if !KokoroEngine.isModelInstalled, !self.model.isDownloadingVoice,
+                   !DownloadPrompt.confirm(model: "the voice", size: "330 MB", feature: "Reading aloud") { return }
                 self.model.load(selection)
                 // Show what's happening when reading can't start right away.
                 if (self.model.message != nil && !self.model.hasSession) || self.model.isDownloadingVoice { self.showPlayer() }
@@ -263,7 +321,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
         login.target = self
         login.state = SMAppService.mainApp.status == .enabled ? .on : .off
         menu.addItem(login)
-        let update = NSMenuItem(title: "Check for Updates…", action: updater == nil ? nil : #selector(checkForUpdates), keyEquivalent: "")
+        let update = NSMenuItem(title: availableUpdate.map { "Update to Aloud \($0)…" } ?? "Check for Updates…",
+                                action: updater == nil ? nil : #selector(checkForUpdates), keyEquivalent: "")
         update.target = self
         menu.addItem(update)
         menu.addItem(.separator())
