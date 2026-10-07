@@ -35,7 +35,7 @@ feed = f"""<?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
   <channel>
     <title>Aloud</title>
-    <link>https://payamrajabi.github.io/readaloud/</link>
+    <link>https://aloudformac.com/</link>
     <description>Updates for Aloud</description>
     <language>en</language>
 {items}  </channel>

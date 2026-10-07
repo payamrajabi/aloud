@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Aloud</title>
+    <link>https://aloudformac.com/</link>
+    <description>Updates for Aloud</description>
+    <language>en</language>
+    <item>
+      <title>Aloud 1.4.0</title>
+      <pubDate>Wed, 07 Oct 2026 00:07:35 GMT</pubDate>
+      <sparkle:version>33</sparkle:version>
+      <sparkle:shortVersionString>1.4.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>Aloud now updates itself, the download is much smaller, and an old Read Aloud copy is cleaned up automatically.</p>]]></description>
+      <enclosure url="https://aloudformac.com/releases/v1.4.0/Aloud.dmg" length="11277535" type="application/octet-stream" sparkle:edSignature="SbM4Vf+3of7xpY5j+CGBExLtBQI7kjo08hhr/L2cC5tNmCxWnbtry9O+Je16b00GnPM0NSLbd8zBWFbgmZH3BA=="/>
+    </item>
+  </channel>
+</rss>
