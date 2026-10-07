@@ -13,7 +13,7 @@ for the player, with the text and a scrubbable timeline. Speech is generated
 locally by [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) through
 [sherpa-onnx](https://github.com/k2-fsa/sherpa-onnx), so it's free and works offline.
 
-**Website and download:** https://payamrajabi.github.io/aloud/
+**Website and download:** https://aloudformac.com
 
 ## Build it yourself
 
@@ -80,13 +80,21 @@ voice over first so it isn't downloaded again.
 ```
 
 This builds the app (about 11 MB; the voice downloads on first launch), wraps it
-in `Aloud.dmg`, notarizes it, uploads it as a GitHub release, and adds it to
+in `Aloud.dmg`, notarizes it, publishes it as a release of the public
+[aloud-releases](https://github.com/payamrajabi/aloud-releases) repo, and adds it to
 `docs/appcast.xml`. Commit and push that file to `main` afterwards: it's the feed
 [Sparkle](https://sparkle-project.org) reads, so installed copies (1.4 and later)
-offer the update once GitHub Pages serves it. The website's download button
-always points at the latest release. Notarization with Apple runs automatically
+offer the update once aloudformac.com serves it. The website's download button
+(`/download`) always points at the latest release. Notarization with Apple runs automatically
 once a Developer ID Application certificate and saved notary credentials
 (`xcrun notarytool store-credentials readaloud ...`) exist on the Mac.
+
+The feed address baked into every copy is `FEED_URL` in `scripts/build-app.sh`, and
+the download address the feed points at is `DOWNLOAD_BASE_URL` in `scripts/release.sh`
+(both on aloudformac.com, and both can be overridden as environment variables).
+`/download` and `/releases/...` on aloudformac.com redirect to the aloud-releases repo
+(`docs/vercel.json`), so downloads can move hosts without changing the feed. Installed copies check `FEED_URL` forever, so pick one that
+will stay public.
 
 Updates are signed with an EdDSA key whose private half lives in the login
 Keychain ("Private key for signing Sparkle updates"); its public half is
@@ -94,7 +102,7 @@ Keychain ("Private key for signing Sparkle updates"); its public half is
 (`.build/artifacts/sparkle/Sparkle/bin/generate_keys -x <file>`): without it, no
 update can ever reach existing installs again.
 
-The landing page lives in `docs/` and is served by GitHub Pages.
+The landing page lives in `docs/` and is served at https://aloudformac.com by Vercel.
 
 ## License
 

@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/download", "destination": "https://github.com/payamrajabi/aloud-releases/releases/latest/download/Aloud.dmg", "permanent": false },
+    { "source": "/releases/:tag/:file", "destination": "https://github.com/payamrajabi/aloud-releases/releases/download/:tag/:file", "permanent": false }
+  ],
+  "headers": [
+    { "source": "/appcast.xml", "headers": [{ "key": "Cache-Control", "value": "public, max-age=300" }] }
+  ]
+}
