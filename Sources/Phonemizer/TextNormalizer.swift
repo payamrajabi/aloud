@@ -38,9 +38,13 @@ enum TextNormalizer {
     private static let abbreviations: [(String, String)] = [
         ("e.g.", "for example"), ("E.g.", "For example"), ("i.e.", "that is"), ("I.e.", "That is"),
         ("approx.", "approximately"), ("Approx.", "Approximately"), ("incl.", "including"), ("Incl.", "Including"),
-        ("Ave.", "Avenue"), ("Blvd.", "Boulevard"), ("Mt.", "Mount"), ("Prof.", "Professor"), ("Gov.", "Governor"),
-        ("Sen.", "Senator"), ("Dept.", "Department"), ("dept.", "department"),
+        ("Ave.", "Avenue"), ("Blvd.", "Boulevard"), ("Mt.", "Mount"), ("Dept.", "Department"), ("dept.", "department"),
     ]
+
+    /// Titles, spelled out only before a name ("Sen. Warren" → Senator Warren). At the end
+    /// of a sentence or before a lower-case word they're names or words ("Amartya Sen.").
+    private static let titles = ["Sen": "Senator", "Gov": "Governor", "Prof": "Professor", "Gen": "General",
+                                 "Rep": "Representative", "Rev": "Reverend"]
 
     private static func isOne(_ n: String) -> Bool { n == "1" || n == "-1" }
 
@@ -108,6 +112,17 @@ enum TextNormalizer {
         for (abbr, full) in abbreviations {
             rules.append(Rule("(?<![\\p{L}.])" + NSRegularExpression.escapedPattern(for: abbr) + "(?=\\s|$|[,;:)])") { _, _ in full })
         }
+        // Titles and "St." before a name: a capitalised word that isn't a usual sentence opener.
+        let name = #"(?=\s+(?!(?:"# + Tokenizer.sentenceStarters.map(NSRegularExpression.escapedPattern).joined(separator: "|") + #")(?![\p{L}'’]))\p{Lu})"#
+        rules.append(Rule(#"(?<![\p{L}.])("# + titles.keys.sorted().joined(separator: "|") + #")\."# + name) { m, s in
+            titles[s.substring(with: m.range(at: 1))]!
+        })
+        rules.append(Rule(#"(?<![\p{L}.])St\."# + name) { _, _ in "Saint" })
+        // Any other "St." after a word is a street ("Main St."); at the end of a sentence its
+        // period is also the full stop, so that stays.
+        rules.append(Rule(#"(?<=[\p{L}\d]\s)St\.(?=(\s*$|\s+\p{Lu})|\s|[,;:)])"#) { m, _ in
+            m.range(at: 1).location == NSNotFound ? "Street" : "Street."
+        })
         return rules
     }()
 

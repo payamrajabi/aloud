@@ -63,7 +63,10 @@ enum Tokenizer {
         var suffixes: [Substring] = []
         var s = chunk
         while !s.isEmpty {
-            if exceptions.contains(String(s)), !numberSign.contains(String(s)) || numberFollows(s) { break }
+            if exceptions.contains(String(s)) {
+                let t = String(s)
+                if numberSign.contains(t) ? numberFollows(s) : titles.contains(t) ? !endsSentence(s) : true { break }
+            }
             if let n = prefixLength(s) {
                 prefixes.append(s.prefix(n)); s = s.dropFirst(n); continue
             }
@@ -87,6 +90,34 @@ enum Tokenizer {
         while k < text.endIndex, text[k].isWhitespace { k = text.index(after: k) }
         guard k < text.endIndex else { return false }
         return text[k].isNumber || text[k] == "#"
+    }
+
+    /// Titles (TextNormalizer spells them out before a name: "Sen. Warren"). One that ends a
+    /// sentence ("I met Amartya Sen.", "…a Rep. She was nice.") gives its period back as the
+    /// full stop; before anything else it stays whole, with no pause.
+    static let titles: Set<String> = ["Sen.", "Gov.", "Prof.", "Gen.", "Rep.", "Rev.", "St."]
+
+    /// Capitalised words that usually start a sentence rather than name someone, so
+    /// "…Amartya Sen. He was kind." isn't "Senator He".
+    static let sentenceStarters: [String] = [
+        "A", "After", "Also", "An", "And", "As", "At", "Before", "But", "For", "He", "Her", "Here", "His", "How", "However",
+        "I", "If", "In", "It", "Its", "It's", "I'm", "Later", "Meanwhile", "My", "No", "Now", "On", "Our", "Please", "She",
+        "So", "Still", "Thanks", "That", "The", "Their", "Then", "There", "These", "They", "This", "Those", "We", "What",
+        "When", "Where", "Why", "Yes", "You", "Your",
+    ]
+    private static let sentenceStarterSet = Set(sentenceStarters)
+
+    /// Whether `s` ends its sentence: nothing follows, or the next word is a usual sentence
+    /// opener ("He", "The"). A capitalised word that isn't one is taken as a name.
+    private static func endsSentence(_ s: Substring) -> Bool {
+        let text = s.base
+        var k = s.endIndex
+        while k < text.endIndex, text[k].isWhitespace { k = text.index(after: k) }
+        guard k < text.endIndex else { return true }
+        guard k > s.endIndex, text[k].isUppercase else { return false }
+        var e = k
+        while e < text.endIndex, text[e].isLetter || text[e] == "'" || text[e] == "’" { e = text.index(after: e) }
+        return sentenceStarterSet.contains(String(text[k..<e]).replacingOccurrences(of: "’", with: "'"))
     }
 
     private static func prefixLength(_ s: Substring) -> Int? {

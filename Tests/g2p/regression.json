@@ -4219,6 +4219,35 @@
    "text": "See No. 5 on the list.",
    "us": "nˈʌmbəɹ fˈIv",
    "gb": "nˈʌmbə fˈIv"
+  },
+  {
+   "text": "I met Amartya Sen.",
+   "us": "sˈɛn.",
+   "gb": "sˈɛn.",
+   "absent": "sˈɛnə"
+  },
+  {
+   "text": "Sen. Warren spoke.",
+   "us": "sˈɛnəTəɹ wˈɔɹən",
+   "gb": "sˈɛnɪtə wˈɒɹən"
+  },
+  {
+   "text": "I met Amartya Sen. He was kind.",
+   "us": "sˈɛn. hˌi",
+   "absent": "sˈɛnə"
+  },
+  {
+   "text": "Gen. Lee surrendered.",
+   "us": "ʤˈɛnəɹəl lˈi"
+  },
+  {
+   "text": "We went to St. Louis.",
+   "us": "sˈAnt lˈui"
+  },
+  {
+   "text": "She lives on Main St.",
+   "us": "mˈAn stɹˈit.",
+   "gb": "mˈAn stɹˈiːt."
   }
  ]
 }
