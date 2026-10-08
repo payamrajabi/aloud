@@ -33,6 +33,11 @@ final class DictationController: ObservableObject {
     private let queue = DispatchQueue(label: "readaloud.dictation", qos: .userInitiated)
     private var engine: ParakeetEngine?   // only touched on `queue`
     private var pushToTalk = false
+    /// Started by a tap that may yet turn out to be the first of a double-tap (to read).
+    private var provisional = false
+    /// A tap that couldn't record straight away (it has to ask or explain something first), waiting
+    /// to find out whether it's a double-tap.
+    private var startWhenConfirmed = false
     private var resumeReadingAfter = false
     private var messageTimer: Timer?
     private lazy var streamer: StreamingTranscriber = {
@@ -50,12 +55,9 @@ final class DictationController: ObservableObject {
     init(player: PlayerModel) {
         self.player = player
         recorder.onLevel = { [weak self] in self?.level = $0 }
-        shortcuts.onDictate = { [weak self] in
-            switch self?.state {
-            case .idle, .message: self?.begin(pushToTalk: false)
-            default: break
-            }
-        }
+        shortcuts.onDictate = { [weak self] provisional in self?.startFromShortcut(provisional: provisional) }
+        shortcuts.onConfirm = { [weak self] in self?.confirm() }
+        shortcuts.onRetract = { [weak self] in self?.retract() }
         shortcuts.onFinish = { [weak self] in
             if self?.state == .recording { self?.finish() }
         }
@@ -119,6 +121,36 @@ final class DictationController: ObservableObject {
         }
     }
 
+    private func startFromShortcut(provisional: Bool) {
+        switch state {
+        case .idle, .message: break
+        default: return
+        }
+        guard provisional else { return begin(pushToTalk: false) }
+        // Start listening at once, but leave anything that needs a word with the person until it's confirmed.
+        let ready = ParakeetEngine.isInstalled && SelectionReader.isTrusted
+            && (Self.dryRun || AVCaptureDevice.authorizationStatus(for: .audio) == .authorized)
+        if ready { startRecording(pushToTalk: false, provisional: true) } else { startWhenConfirmed = true }
+    }
+
+    /// No second tap came: it was a tap to dictate after all.
+    private func confirm() {
+        if startWhenConfirmed {
+            startWhenConfirmed = false
+            begin(pushToTalk: false)
+        }
+        guard provisional, state == .recording else { return }
+        provisional = false
+        if Self.dryRun { print("   dictation: confirmed"); fflush(stdout) } else { NSSound(named: "Tink")?.play() }
+    }
+
+    /// It was a double-tap: drop the recording without a sound.
+    private func retract() {
+        startWhenConfirmed = false
+        guard provisional else { return }
+        cancel(quietly: true)
+    }
+
     private func holdBegan() {
         switch state {
         case .idle, .message: begin(pushToTalk: true)
@@ -167,9 +199,11 @@ final class DictationController: ObservableObject {
 
     private static let dryRun = DebugScript.args.contains("--dry-dictation")
 
-    private func startRecording(pushToTalk: Bool) {
+    /// `provisional`: the start sound waits until it's confirmed, so a double-tap to read stays silent.
+    private func startRecording(pushToTalk: Bool, provisional: Bool = false) {
+        self.provisional = provisional
         if Self.dryRun {
-            print("   dictation: start (\(pushToTalk ? "hold to talk" : "tap to toggle"))"); fflush(stdout)
+            print("   dictation: start (\(pushToTalk ? "hold to talk" : provisional ? "provisional" : "tap to toggle"))"); fflush(stdout)
             self.pushToTalk = pushToTalk
             state = .recording
             return
@@ -194,7 +228,7 @@ final class DictationController: ObservableObject {
         startedAt = Date()
         messageTimer?.invalidate()
         state = .recording
-        NSSound(named: "Tink")?.play()
+        if !provisional { NSSound(named: "Tink")?.play() }
         // Transcribe finished stretches while you're still talking.
         pollTimer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { [weak self] _ in
             guard let self else { return }
@@ -204,6 +238,7 @@ final class DictationController: ObservableObject {
 
     func cancel(quietly: Bool = false) {
         guard state == .recording else { return }
+        provisional = false
         if Self.dryRun { print("   dictation: cancel"); fflush(stdout); state = .idle; return }
         pollTimer?.invalidate()
         _ = recorder.stop()
@@ -215,6 +250,7 @@ final class DictationController: ObservableObject {
     }
 
     private func finish() {
+        provisional = false
         if Self.dryRun { print("   dictation: stop and transcribe"); fflush(stdout); state = .idle; return }
         pollTimer?.invalidate()
         let samples = recorder.stop()

@@ -397,27 +397,49 @@ enum DebugScript {
         func down(_ k: ModifierKey, _ t: Double, extra: UInt = 0) -> G.Event { .modifier(code: k.code, flags: k.family.rawValue | k.bit | extra, time: t) }
         func up(_ k: ModifierKey, _ t: Double) -> G.Event { .modifier(code: k.code, flags: 0, time: t) }
         func tap(_ k: ModifierKey, _ t: Double) -> [G.Event] { [down(k, t), up(k, t + 0.1)] }
-        /// Feeds the events, then lets any waiting tap's timer run. Finishing follows dictating unless given.
+        /// Feeds the events, firing a waiting tap's timer when its deadline passes, and starts or stops
+        /// recording as the app would. Finishing follows dictating unless given.
         func run(_ read: KeyBinding?, _ dictate: KeyBinding?, finish: KeyBinding?? = nil, recording: Bool = false,
                  _ events: [G.Event]) -> [G.Action] {
             var g = G(read: read, dictate: dictate, finish: finish ?? dictate.map { $0.modifierKey.map { .tap($0) } ?? $0 })
             g.interval = 0.4
             g.recording = recording
-            return events.compactMap { g.handle($0) } + [g.tapTimerFired(at: 100)].compactMap { $0 }
+            var got: [G.Action] = []
+            func record(_ action: G.Action?) {
+                guard let action else { return }
+                got.append(action)
+                switch action {
+                case .dictate, .dictateProvisionally, .holdBegan: g.recording = true
+                case .finish, .holdEnded, .readInstead, .interrupted: g.recording = false
+                default: break
+                }
+            }
+            for event in events + [.modifier(code: 0, flags: 0, time: 100)] {  // the last one only lets time pass
+                if case let .modifier(_, _, time) = event, let deadline = g.tapDeadline, time > deadline {
+                    record(g.tapTimerFired(at: deadline))
+                }
+                record(g.handle(event))
+            }
+            return got
         }
         let read = KeyBinding.doubleTap(ro), dictate = KeyBinding.tap(ro)  // the defaults
         let cases: [(String, [G.Action], [G.Action])] = [
-            ("tap right ⌥ dictates", run(read, dictate, tap(ro, 0)), [.dictate]),
-            ("double-tap right ⌥ reads, and doesn't dictate", run(read, dictate, tap(ro, 0) + tap(ro, 0.25)), [.read]),
-            ("a third quick tap doesn't dictate after reading", run(read, dictate, tap(ro, 0) + tap(ro, 0.25) + tap(ro, 0.5)), [.read]),
-            ("two slow taps dictate", run(read, dictate, tap(ro, 0) + tap(ro, 0.7)), [.dictate, .dictate]),
-            ("typing right after a tap dictates at once", run(read, dictate, tap(ro, 0) + [.keyDown]), [.dictate]),
+            ("tap right ⌥: dictation starts at once, then stands", run(read, dictate, tap(ro, 0)), [.dictateProvisionally, .confirmDictation]),
+            ("double-tap right ⌥ drops that dictation and reads", run(read, dictate, tap(ro, 0) + tap(ro, 0.25)), [.dictateProvisionally, .readInstead]),
+            ("a third quick tap doesn't dictate after reading", run(read, dictate, tap(ro, 0) + tap(ro, 0.25) + tap(ro, 0.5)),
+             [.dictateProvisionally, .readInstead]),
+            ("tap, speak, tap: start, then finish", run(read, dictate, tap(ro, 0) + tap(ro, 3)), [.dictateProvisionally, .confirmDictation, .finish]),
+            ("a quick tap to finish after the wait", run(read, dictate, tap(ro, 0) + tap(ro, 0.45)), [.dictateProvisionally, .confirmDictation, .finish]),
+            ("typing right after a tap confirms dictation", run(read, dictate, tap(ro, 0) + [.keyDown]), [.dictateProvisionally, .confirmDictation]),
+            ("another modifier right after a tap confirms it", run(read, dictate, tap(ro, 0) + tap(.leftCommand, 0.15)),
+             [.dictateProvisionally, .confirmDictation]),
+            ("double-tap with read and dictate swapped waits, then dictates", run(.tap(ro), .doubleTap(ro), tap(ro, 0) + tap(ro, 0.2)), [.dictate]),
             ("one tap finishes at once while recording", run(read, dictate, recording: true, tap(ro, 0)), [.finish]),
             ("a long press finishes too", run(read, dictate, recording: true, [down(ro, 0), up(ro, 1.2)]), [.finish]),
             ("a separate finish key", run(read, dictate, finish: .tap(.rightCommand), recording: true,
                                           tap(ro, 0) + tap(.rightCommand, 1)), [.finish]),
             ("no finish key: taps do nothing while recording", run(read, dictate, finish: .some(nil), recording: true, tap(ro, 0)), []),
-            ("a waiting tap belongs to read when it's the tap", run(.tap(lo), .doubleTap(lo), tap(lo, 0)), [.read]),
+            ("a read tap waits out the double-tap", run(.tap(lo), .doubleTap(lo), tap(lo, 0)), [.read]),
             ("double-tap left reads", run(.doubleTap(lo), .doubleTap(ro), tap(lo, 0) + tap(lo, 0.15)), [.read]),
             ("double-tap right dictates", run(.doubleTap(lo), .doubleTap(ro), tap(ro, 0) + tap(ro, 0.15)), [.dictate]),
             ("slow taps do nothing", run(.doubleTap(lo), .doubleTap(ro), tap(lo, 0) + tap(lo, 0.7)), []),
@@ -440,22 +462,17 @@ enum DebugScript {
         }
         for (name, got, want) in cases { check(name, got == want, "got \(got), want \(want)") }
 
-        // A tap waits out the double-click interval before dictating.
+        // Dictation is confirmed once the double-click interval is up, not before.
         var g = G(read: read, dictate: dictate, finish: dictate)
         g.interval = 0.4
-        _ = tap(ro, 0).map { g.handle($0) }
+        let started = tap(ro, 0).compactMap { g.handle($0) }
         let early = g.tapTimerFired(at: 0.3), deadline = g.tapDeadline, onTime = g.tapTimerFired(at: 0.4)
-        check("dictation waits for a possible second tap", early == nil && deadline == 0.4 && onTime == .dictate,
-              "early \(String(describing: early)), deadline \(String(describing: deadline)), on time \(String(describing: onTime))")
+        check("dictation starts on the tap and is confirmed after the interval",
+              started == [.dictateProvisionally] && early == nil && deadline == 0.4 && onTime == .confirmDictation,
+              "started \(started), early \(String(describing: early)), deadline \(String(describing: deadline)), on time \(String(describing: onTime))")
 
-        // Tapping twice while recording (old habit) finishes, and the second tap doesn't start again.
-        g = G(read: read, dictate: dictate, finish: dictate)
-        g.interval = 0.4
-        g.recording = true
-        var got = tap(ro, 0).compactMap { g.handle($0) }
-        g.recording = false
-        got += tap(ro, 0.2).compactMap { g.handle($0) } + [g.tapTimerFired(at: 100)].compactMap { $0 }
-        check("a double tap while recording finishes once", got == [.finish], "got \(got)")
+        let twice = run(read, dictate, recording: true, tap(ro, 0) + tap(ro, 0.2))
+        check("a double tap while recording finishes once", twice == [.finish], "got \(twice)")
 
         // Holding the dictation key is push-to-talk.
         for dictate in [KeyBinding.tap(ro), .doubleTap(ro)] {
