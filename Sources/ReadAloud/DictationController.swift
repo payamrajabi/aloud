@@ -269,44 +269,56 @@ final class DictationController: ObservableObject {
         // Most of the recording is already transcribed (and tidied); only the tail is left.
         streamer.finish(all: samples) { raw, _ in
             guard self.cleaner.isActive else {
-                self.deliver(raw, audioSeconds: seconds, took: Date().timeIntervalSince(started))
+                self.deliver(heard: raw, tidied: nil, audioSeconds: seconds, took: Date().timeIntervalSince(started))
                 return
             }
             var delivered = false
             self.cleaner.finish { tidied in
                 guard !delivered else { return }
                 delivered = true
-                self.deliver(tidied ?? raw, audioSeconds: seconds, took: Date().timeIntervalSince(started))
+                self.deliver(heard: raw, tidied: tidied, audioSeconds: seconds, took: Date().timeIntervalSince(started))
             }
             // Never keep you waiting long: if tidying stalls, paste what was heard.
             DispatchQueue.main.asyncAfter(deadline: .now() + Self.cleanupTimeout) {
                 guard !delivered else { return }
                 delivered = true
                 self.cleaner.cancel()
-                self.deliver(raw, audioSeconds: seconds, took: Date().timeIntervalSince(started))
+                self.deliver(heard: raw, tidied: nil, audioSeconds: seconds, took: Date().timeIntervalSince(started))
             }
         }
     }
 
     private static let cleanupTimeout: TimeInterval = 6
 
-    private func deliver(_ raw: String, audioSeconds: Double, took: Double) {
+    /// `heard` is Parakeet's transcript; `tidied` the clean-up model's version, when it ran.
+    private func deliver(heard raw: String, tidied: String?, audioSeconds: Double, took: Double) {
         let trace = DebugScript.args.contains("--trace")
         if trace {
-            print(String(format: "   dictation: %.1fs recording, text ready %.2fs after stopping: %@", audioSeconds, took, raw))
+            print(String(format: "   dictation: %.1fs recording, text ready %.2fs after stopping: %@", audioSeconds, took, tidied ?? raw))
         }
-        let heard = raw.trimmingCharacters(in: .whitespacesAndNewlines)
         state = .idle
         resumeReading()
-        guard !heard.isEmpty else {
+        guard let result = Self.result(heard: raw, tidied: tidied, fixTerms: Self.fixesTechTerms) else {
             show("Didn't catch that.")
             return
         }
-        let text = Self.fixesTechTerms ? Self.corrector.correct(heard) : heard
-        if trace, text != heard { print("   dictation: tech terms fixed: \(text)") }
-        lastTranscript = text
-        lastHeard = heard
-        insert(text)
+        if trace, result.typed != (tidied ?? raw).trimmingCharacters(in: .whitespacesAndNewlines) {
+            print("   dictation: tech terms fixed: \(result.typed)")
+        }
+        lastTranscript = result.typed
+        lastHeard = result.heard
+        insert(result.typed)
+    }
+
+    /// What gets typed (the tidied text if the clean-up model ran, then tech terms fixed)
+    /// and what "Copy Last Dictation as Heard" keeps: Parakeet's own words, before either.
+    /// An empty tidied result falls back to what was heard rather than losing the dictation.
+    static func result(heard raw: String, tidied: String?, fixTerms: Bool) -> (typed: String, heard: String)? {
+        let heard = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+        let tidy = tidied?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let base = tidy.isEmpty ? heard : tidy
+        guard !base.isEmpty else { return nil }
+        return (fixTerms ? corrector.correct(base) : base, heard.isEmpty ? base : heard)
     }
 
     // MARK: - Tech terms
@@ -353,7 +365,7 @@ final class DictationController: ObservableObject {
         NSPasteboard.general.setString(lastTranscript, forType: .string)
     }
 
-    /// Whether fixing tech terms changed the last dictation (so "as heard" is different).
+    /// Whether clean-up or fixing tech terms changed the last dictation (so "as heard" is different).
     var lastDictationWasFixed: Bool { lastHeard != nil && lastHeard != lastTranscript }
 
     func copyLastHeard() {

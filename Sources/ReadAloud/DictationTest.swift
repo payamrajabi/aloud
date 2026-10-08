@@ -78,6 +78,28 @@ enum DictationTest {
             }
         }
 
+        // What's typed vs what "Copy Last Dictation as Heard" keeps (the app's lexicons):
+        // heard is always Parakeet's own words, before the clean-up model and the fixer.
+        print("\n== typed and as heard ==")
+        let heardCases: [(heard: String, tidied: String?, fix: Bool, typed: String)] = [
+            ("push the fix to superbase", nil, true, "push the fix to Supabase"),
+            ("um so send the jason payload to the API", "So send the jason payload to the API.", true, "So send the JSON payload to the API."),
+            ("um so send the jason payload to the API", "So send the jason payload to the API.", false, "So send the jason payload to the API."),
+            ("  log in with oh auth ", "", true, "log in with OAuth"),
+            ("Jason went to the store", "Jason went to the store.", true, "Jason went to the store."),
+        ]
+        for c in heardCases {
+            let r = DictationController.result(heard: c.heard, tidied: c.tidied, fixTerms: c.fix)
+            let wantHeard = c.heard.trimmingCharacters(in: .whitespaces)
+            let ok = r?.typed == c.typed && r?.heard == wantHeard
+            failures += ok ? 0 : 1
+            if !ok || verbose {
+                print("  \(ok ? "✓" : "✗") heard \"\(c.heard)\", tidied \(c.tidied.map { "\"\($0)\"" } ?? "none")\(c.fix ? "" : ", fixer off")"
+                      + "\n      typed \"\(r?.typed ?? "nil")\", as heard \"\(r?.heard ?? "nil")\"\(ok ? "" : "  (want typed \"\(c.typed)\", as heard \"\(wantHeard)\")")")
+            }
+        }
+        failures += DictationController.result(heard: "  ", tidied: nil, fixTerms: true) == nil ? 0 : 1
+
         // Speed: a 200-word dictation made of the cases above.
         var words: [String] = []
         for c in doc.must_change + doc.must_not_change.map({ Doc.Case(in: $0, out: $0) }) {
@@ -95,7 +117,7 @@ enum DictationTest {
         print(String(format: "\n200-word dictation, fixture + app lexicons: %.3f ms (worst %.3f ms)",
                      1000 * times.reduce(0, +) / Double(times.count), 1000 * times.max()!))
 
-        let total = doc.must_change.count + 2 * doc.must_not_change.count
+        let total = doc.must_change.count + 2 * doc.must_not_change.count + heardCases.count + 1
         print(failures == 0 ? "\nPASSED (\(total) checks)" : "\nFAILED: \(failures) of \(total) checks")
         return failures == 0 ? 0 : 1
     }

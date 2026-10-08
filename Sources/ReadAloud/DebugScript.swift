@@ -95,6 +95,10 @@ enum DebugScript {
             if let last = pieces.last { cleaner.add(last) }
             cleaner.finish { result in
                 print(String(format: "STOP → clean text in %.2fs\n\n%@", Date().timeIntervalSince(t0), result ?? "(nil: model failed)"))
+                if args.contains("--typed"), let r = DictationController.result(heard: text, tidied: result, fixTerms: true) {
+                    // What dictation would paste, and what "Copy Last Dictation as Heard" would copy.
+                    print("\ntyped: \(r.typed)\nas heard: \(r.heard)")
+                }
                 cleaner.shutDown()
                 exit(0)
             }
