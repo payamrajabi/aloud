@@ -38,6 +38,8 @@ struct Voice: Hashable, Identifiable {
 enum EngineError: LocalizedError {
     case modelMissing(String)
     case loadFailed(String)
+    /// A downloaded voice file is cut short or corrupt, so the voice counts as missing.
+    case damaged(String)
 
     var errorDescription: String? {
         switch self {
@@ -45,6 +47,8 @@ enum EngineError: LocalizedError {
             return "A speech model isn't downloaded yet (expected at \(path))."
         case .loadFailed(let why):
             return why
+        case .damaged(let why):
+            return "The voice on this Mac is damaged (\(why)), so it needs to be downloaded again."
         }
     }
 }
@@ -103,10 +107,44 @@ final class KokoroEngine {
 
     static var isModelInstalled: Bool { isComplete(modelDirectory) }
 
-    static func isComplete(_ dir: URL) -> Bool {
-        ["model.onnx", "voices.bin", "tokens.txt"].allSatisfy {
-            FileManager.default.fileExists(atPath: dir.appendingPathComponent($0).path)
+    static func isComplete(_ dir: URL) -> Bool { problem(in: dir) == nil }
+
+    private static let requiredFiles = ["model.onnx", "voices.bin", "tokens.txt"]
+
+    /// What's wrong with the voice in `dir`, or nil if nothing: every file must be there,
+    /// and the model and voices the size their download was verified at. A file cut short
+    /// (a full disk, a copy made by hand, a damaged backup) makes the voice count as
+    /// missing, so it's downloaded again instead of failing to load or playing silence.
+    static func problem(in dir: URL) -> String? {
+        let fm = FileManager.default
+        if let missing = requiredFiles.first(where: { !fm.fileExists(atPath: dir.appendingPathComponent($0).path) }) {
+            return "\(missing) is missing"
         }
+        for file in files where file.sha256 != nil {
+            let size = (try? fm.attributesOfItem(atPath: dir.appendingPathComponent(file.name).path)[.size] as? NSNumber)?.int64Value ?? -1
+            if size != file.size { return "\(file.name) is \(size) bytes, expected \(file.size)" }
+        }
+        return nil
+    }
+
+    /// A downloaded voice that's there but incomplete or damaged, rather than never
+    /// downloaded or removed in Settings.
+    static var isDownloadedVoiceDamaged: Bool {
+        let dir = downloadedModelDirectory
+        return requiredFiles.contains { FileManager.default.fileExists(atPath: dir.appendingPathComponent($0).path) }
+            && problem(in: dir) != nil
+    }
+
+    /// After a voice file failed to load: if it belongs to a downloaded voice and doesn't
+    /// match the checksum its download was verified against, removes it so the voice
+    /// counts as missing and downloads again. (Hashing the model takes about a second,
+    /// so this only runs on failure.)
+    private static func removeIfDamaged(_ name: String, in dir: URL) -> Bool {
+        guard dir == downloadedModelDirectory, let sha = files.first(where: { $0.name == name })?.sha256 else { return false }
+        let url = dir.appendingPathComponent(name)
+        guard (try? ModelDownloader.sha256(of: url)) != sha else { return false }
+        try? FileManager.default.removeItem(at: url)
+        return true
     }
 
     /// Removes the eSpeak NG data and other leftovers of the old archive from a
@@ -131,10 +169,14 @@ final class KokoroEngine {
 
     init(threads: Int = Int(ProcessInfo.processInfo.environment["KOKORO_THREADS"] ?? "") ?? 4) throws {
         let dir = Self.modelDirectory
-        guard Self.isModelInstalled else { throw EngineError.modelMissing(dir.path) }
+        if let problem = Self.problem(in: dir) {
+            throw Self.isDownloadedVoiceDamaged ? EngineError.damaged(problem) : EngineError.modelMissing(dir.path)
+        }
         do {
             model = try OnnxModel(path: dir.appendingPathComponent("model.onnx").path, threads: threads)
         } catch {
+            // The right size but corrupt inside: if so, it's gone now and the voice downloads again.
+            if Self.removeIfDamaged("model.onnx", in: dir) { throw EngineError.damaged("model.onnx is corrupt") }
             throw EngineError.loadFailed("The voice model failed to load (\(error.localizedDescription)).")
         }
 
@@ -150,6 +192,12 @@ final class KokoroEngine {
         self.vocab = vocab
 
         let voices = try Data(contentsOf: dir.appendingPathComponent("voices.bin"), options: .mappedIfSafe)
+        // 510 style vectors per voice. With rows missing, `run` would find no style for
+        // the voices past the cut and quietly return silence, so refuse to load instead.
+        let bytesPerVoice = 510 * styleDim * MemoryLayout<Float>.size
+        guard voices.count % bytesPerVoice == 0, voices.count / bytesPerVoice > Int(Voice.all.map(\.id).max() ?? 0) else {
+            throw EngineError.loadFailed("The voice model is incomplete (voices.bin has \(voices.count) bytes).")
+        }
         styles = voices.withUnsafeBytes { Array($0.bindMemory(to: Float.self)) }
         styleCount = styles.count / styleDim
 

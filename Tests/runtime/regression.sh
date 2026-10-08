@@ -56,6 +56,23 @@ check "nothing else in the models folder is touched" eval '[[ -e "$TMP/models/.k
 READALOUD_MODELS_DIR="$TMP/models" "$B" --tidy-voice
 check "--tidy-voice still removes them by hand" eval '[[ ! -e "$K/espeak-ng-data" && ! -e "$K/lexicon-us-en.txt" && -f "$K/voices.bin" ]]'
 
+echo "RT-2: a damaged voice is refused, not played as silence"
+voice_copy "$TMP/cut-voices"
+head -c 1048576 "$VOICE/voices.bin" >"$TMP/cut-voices/kokoro-multi-lang-v1_0/voices.bin"
+out=$(say "$TMP/cut-voices" "Hello there."); code=$?
+check "voices.bin cut to 1 MB: an error, not 0.00 s of audio" eval '(( code == 1 )) && [[ "$out" == *"voice on this Mac is damaged (voices.bin is 1048576 bytes"* ]]'
+voice_copy "$TMP/cut-model"
+head -c 10485760 "$VOICE/model.onnx" >"$TMP/cut-model/kokoro-multi-lang-v1_0/model.onnx"
+out=$(say "$TMP/cut-model" "Hello there."); code=$?
+check "model.onnx cut short: counts as damaged" eval '(( code == 1 )) && [[ "$out" == *"damaged (model.onnx is 10485760 bytes"* ]]'
+voice_copy "$TMP/bad-model"
+dd if=/dev/zero of="$TMP/bad-model/kokoro-multi-lang-v1_0/model.onnx" bs=1048576 count=1 conv=notrunc 2>/dev/null
+out=$(say "$TMP/bad-model" "Hello there."); code=$?
+check "model.onnx the right size but corrupt: removed so it downloads again" \
+  eval '(( code == 1 )) && [[ "$out" == *"model.onnx is corrupt"* && ! -e "$TMP/bad-model/kokoro-multi-lang-v1_0/model.onnx" ]]'
+out=$(say "$TMP/models" "Hello there."); code=$?
+check "an intact voice still speaks" eval '(( code == 0 )) && [[ "$out" != *" 0.00s audio"* ]]'
+
 echo
 if (( fail == 0 )); then echo "PASSED"; else echo "FAILED"; fi
 exit $fail

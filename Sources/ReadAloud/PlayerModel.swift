@@ -74,8 +74,15 @@ final class PlayerModel: ObservableObject {
         audio.rate = rate
         synth.onReady = { [weak self] s, index, samples in self?.chunkReady(session: s, index: index, samples: samples) }
         synth.onError = { [weak self] message in
-            self?.message = message
-            self?.isBuffering = false
+            guard let self else { return }
+            // A damaged voice file was found (and removed) while loading: download the
+            // voice again; a waiting session starts reading once it's back.
+            if !KokoroEngine.isModelInstalled, KokoroEngine.isDownloadedVoiceDamaged {
+                self.downloadVoiceIfNeeded()
+                return
+            }
+            self.message = message
+            self.isBuffering = false
         }
         audio.onConfigurationChange = { [weak self] in self?.audioRouteChanged() }
         deviceObserver = AudioDevices.shared.routeChanged.sink { [weak self] deliberate in
@@ -114,6 +121,7 @@ final class PlayerModel: ObservableObject {
     /// A session waiting for it starts reading as soon as it's unpacked.
     func downloadVoiceIfNeeded() {
         guard !KokoroEngine.isModelInstalled, !voiceDownloader.isRunning else { return }
+        if KokoroEngine.isDownloadedVoiceDamaged { message = Self.damagedVoiceMessage }
         voiceDownloadProgress = 0
         log("downloading the voice")
         voiceDownloader.download(files: KokoroEngine.files, into: KokoroEngine.downloadedModelDirectory) { [weak self] p in
@@ -135,6 +143,8 @@ final class PlayerModel: ObservableObject {
     /// Set when someone removes the voice in Settings: it's then fetched only when they next read.
     static let voiceRemovedKey = "voiceRemoved"
 
+    static let damagedVoiceMessage = "The voice on this Mac was damaged, so Aloud is downloading it again."
+
     /// Only a downloaded voice can be removed, not one bundled inside the app.
     var canRemoveVoice: Bool {
         KokoroEngine.isModelInstalled && KokoroEngine.modelDirectory == KokoroEngine.downloadedModelDirectory
@@ -150,6 +160,7 @@ final class PlayerModel: ObservableObject {
 
     private func voiceBecameReady() {
         UserDefaults.standard.removeObject(forKey: Self.voiceRemovedKey)
+        if message == Self.damagedVoiceMessage { message = nil }
         synth.preload(accent: voice.accent)
         guard hasSession else { return }
         // Generate from where the listener is waiting; chunkReady starts playback.
