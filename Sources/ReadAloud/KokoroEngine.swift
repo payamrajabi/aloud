@@ -226,10 +226,29 @@ final class KokoroEngine {
         phonemizer(accent).phonemize(text)
     }
 
-    /// Synthesizes `text` and returns mono float samples at `sampleRate`.
-    /// Long pauses are shortened to a fifth, as sherpa-onnx did with silence_scale 0.2.
+    /// Whether phonemes have anything to say. The phonemizer drops what it can't read, so
+    /// text in another script comes back empty or as bare punctuation, which the model
+    /// would turn into a moment of near-silence.
+    static func isSpeakable(_ phonemes: String) -> Bool {
+        phonemes.contains { $0.isLetter }
+    }
+
+    /// The voices only speak English, so text whose letters are all in another script
+    /// (Chinese, Russian, Arabic…) would come out as silence. True when `text` has a Latin
+    /// letter, or no letters but Greek ones (π, λ and μ turn up in English) or none at all.
+    static func canRead(_ text: String) -> Bool {
+        // Compatibility forms first: 𝐛𝐨𝐥𝐝 and ｗｉｄｅ letters are Latin underneath.
+        let s = text.precomposedStringWithCompatibilityMapping
+        return s.range(of: "\\p{Script=Latin}", options: .regularExpression) != nil
+            || s.range(of: "[\\p{L}--[\\p{Script=Latin}\\p{Script=Greek}]]", options: .regularExpression) == nil
+    }
+
+    /// Synthesizes `text` and returns mono float samples at `sampleRate` (none if it has
+    /// nothing speakable). Long pauses are shortened to a fifth, as sherpa-onnx did with
+    /// silence_scale 0.2.
     func generate(_ text: String, voice: Voice, speed: Float = 1, scaleSilence: Bool = true) -> [Float] {
         let ps = phonemes(text, accent: voice.accent)
+        guard Self.isSpeakable(ps) else { return [] }
         return generate(phonemes: ps, voice: voice, speed: speed, scaleSilence: scaleSilence)
     }
 

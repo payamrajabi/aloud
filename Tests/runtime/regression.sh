@@ -73,6 +73,16 @@ check "model.onnx the right size but corrupt: removed so it downloads again" \
 out=$(say "$TMP/models" "Hello there."); code=$?
 check "an intact voice still speaks" eval '(( code == 0 )) && [[ "$out" != *" 0.00s audio"* ]]'
 
+echo "R3: text in other scripts gets a message, not silence"
+NOT_ENGLISH="Aloud reads English text, and this selection isn't in English."
+out=$(say "$TMP/models" "Привет, как дела?")
+check "Russian makes no near-silent audio from its punctuation" eval '[[ "$out" == *"0.00s audio"* ]]'
+check "Chinese: the player says it reads English" eval 'read_aloud "$TMP/models" "我们今天去公园散步。天气很好。" 2 | grep -qF "$NOT_ENGLISH"'
+check "Greek (no phonemes at all): the same message once nothing could be said" \
+  eval 'read_aloud "$TMP/models" "Καλημέρα κόσμε. Τι κάνεις;" 3 | grep -qF "$NOT_ENGLISH"'
+check "mixed text reads the English and skips the Chinese sentence" \
+  eval 'log=$(read_aloud "$TMP/models" "Tokyo is big. 东京是日本的首都。 It is old." 3); [[ "$log" == *"sentence 1/2"* && "$log" != *"$NOT_ENGLISH"* ]]'
+
 echo
 if (( fail == 0 )); then echo "PASSED"; else echo "FAILED"; fi
 exit $fail
