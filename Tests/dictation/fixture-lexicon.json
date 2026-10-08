@@ -61,5 +61,8 @@
 {"word":"kerning","match":"case-insensitive","us":"kˈɜɹnɪŋ","gb":"kˈɜːnɪŋ","dictation":"never"},
 {"word":"cache","match":"case-insensitive","us":"kˈæʃ","gb":"kˈaʃ","dictation":"never"},
 {"word":"Go","match":"case-insensitive","us":"ɡˈO","gb":"ɡˈQ","dictation":"context","spoken":["go lang"]},
+{"word":"agentic","match":"case-insensitive","us":"Aʤˈɛntɪk","dictation":"context","spoken":["a genetic","a gentic","agentick"],"spoken_context_only":["a genetic"]},
+{"word":"Redis","match":"case-insensitive","us":"ɹˈɛdɪs","dictation":"context","spoken":["red is","reddis","red iss"],"spoken_context_only":["red is"]},
+{"word":"API Gateway","match":"case-insensitive","us":"ˌApˌiˈI ɡˈAtwˌA","dictation":"context","spoken":["a p i gateway"],"spoken_context_only":["a p i gateway"]},
 {"word":"Kafka","match":"case-insensitive","us":"kˈɑfkə","gb":"kˈafkə","dictation":"always","spoken":["calf ka"]}
 ]

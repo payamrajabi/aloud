@@ -57,7 +57,10 @@
     {"in": "Run it with sue dough.", "out": "Run it with sudo."},
     {"in": "Open the notebook in jupiter and push it to GitHub.", "out": "Open the notebook in Jupyter and push it to GitHub."},
     {"in": "Try dino instead of Node.js.", "out": "Try Deno instead of Node.js."},
-    {"in": "Supa-base and super base are both fine.", "out": "Supabase and Supabase are both fine."}
+    {"in": "Supa-base and super base are both fine.", "out": "Supabase and Supabase are both fine."},
+    {"in": "Build an agentick workflow on GitHub.", "out": "Build an agentic workflow on GitHub."},
+    {"in": "Cache it in reddis on AWS.", "out": "Cache it in Redis on AWS."},
+    {"in": "Put it behind the A P I gateway on AWS.", "out": "Put it behind the API Gateway on AWS."}
   ],
   "must_not_change": [
     "Jason went to the store.",
@@ -113,6 +116,9 @@
     "Liam will look at the GitHub issue next week.",
     "Olivia set up the view on GitHub.",
     "Did Sue do the dishes?",
-    "We go live on AWS next week."
+    "We go live on AWS next week.",
+    "He has a genetic condition.",
+    "We use a genetic algorithm on GitHub.",
+    "The red is too bright on the GitHub page."
   ]
 }

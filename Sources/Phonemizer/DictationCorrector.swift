@@ -21,7 +21,8 @@ import Foundation
 ///     unless the same dictation also has an unambiguous tech hit: an `always` variant,
 ///     or a term the lexicon knows written as itself (GitHub, API, Kubernetes);
 ///   - ordinary-word variants written with a capital ("Jason" is a person, "jason"
-///     may be JSON), and very common words ("next", "view") even with tech context;
+///     may be JSON), very common words ("next", "view") and ordinary phrases that
+///     start or end with a little word ("a genetic", "red is"), even with tech context;
 ///   - a variant that several entries claim, and a term that's already spelled as
 ///     another entry (Postgres stays Postgres even if PostgreSQL lists "postgres");
 ///   - anything inside a domain, file name, path or address (github.com, notes.json).
@@ -124,10 +125,22 @@ public final class DictationCorrector {
                     let parts = p.split(separator: Self.separator)
                     if parts.count == 1, Self.commonPatterns.contains(p) { continue }   // "next", "view": never worth the risk
                     let ordinary = contextOnly.contains(p) || parts.allSatisfy { Self.commonPatterns.contains(Array($0)) }
+                    // An ordinary phrase that starts or ends with a little word ("a genetic" for
+                    // agentic, "red is" for Redis) is how ordinary sentences sound, tech talk
+                    // included ("a genetic algorithm"): never rewritten. Spelled-out letters
+                    // ("a p i gateway") are exempt.
+                    if ordinary, parts.count > 1 {
+                        let n = parts.count
+                        let first = Self.functionPatterns.contains(Array(parts[0])) && !(parts[0].count == 1 && parts[1].count == 1)
+                        let last = Self.functionPatterns.contains(Array(parts[n - 1])) && !(parts[n - 1].count == 1 && parts[n - 2].count == 1)
+                        if first || last { continue }
+                    }
                     var flags = Target.rewrite | Target.variant
                     if e.dictation == .context || ordinary { flags |= Target.gated }
                     if e.dictation == .always && !ordinary { flags |= Target.evidence }
-                    if ordinary { flags |= Target.lowercaseOnly }
+                    // A capitalised ordinary word is a name ("Jason"); a capitalised phrase is
+                    // more likely the product ("Mac OS", "Super Base"), so only words are held back.
+                    if ordinary && parts.count == 1 { flags |= Target.lowercaseOnly }
                     let g = group(p)
                     used = true
                     variantCount += 1
@@ -189,6 +202,14 @@ public final class DictationCorrector {
     }
 
     static let commonPatterns: Set<[UInt32]> = Set(commonWords.map(normalize))
+
+    /// Articles, pronouns, auxiliaries and the like: words that belong to the sentence
+    /// around a phrase, not to a product name.
+    static let functionPatterns: Set<[UInt32]> = Set([
+        "a", "an", "the", "my", "your", "our", "his", "her", "their", "its", "this", "that", "these", "those", "some", "any",
+        "no", "is", "are", "was", "were", "be", "been", "am", "do", "does", "did", "and", "or", "but", "of", "to", "in", "on",
+        "at", "by", "for", "with", "as", "if", "it", "i", "you", "we", "they", "he", "she", "me", "us", "them", "so", "not",
+    ].map(normalize))
 
     @inline(__always) static func foldApostrophe(_ v: UInt32) -> UInt32 { v == 0x2019 ? 0x27 : v }
 
