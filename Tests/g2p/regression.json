@@ -4521,5 +4521,46 @@
    "gb": "sˈɪks ˌAˈɛm",
    "absent": "əklˈɑk"
   }
+ ],
+ "chunk_cases": [
+  {
+   "text": "We flew to St. Louis on Friday.",
+   "chunks": [
+    "We flew to St. Louis on Friday."
+   ]
+  },
+  {
+   "text": "Gov. Newsom signed it. Then he left.",
+   "chunks": [
+    "Gov. Newsom signed it.",
+    "Then he left."
+   ]
+  },
+  {
+   "text": "I met Sen. Warren today.",
+   "chunks": [
+    "I met Sen. Warren today."
+   ]
+  },
+  {
+   "text": "She lives on Main St. Then she moved.",
+   "chunks": [
+    "She lives on Main St.",
+    "Then she moved."
+   ]
+  },
+  {
+   "text": "The answer was no. We left.",
+   "chunks": [
+    "The answer was no.",
+    "We left."
+   ]
+  },
+  {
+   "text": "See No. 5 on the list.",
+   "chunks": [
+    "See No. 5 on the list."
+   ]
+  }
  ]
 }

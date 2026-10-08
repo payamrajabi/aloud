@@ -28,6 +28,12 @@ enum G2PTest {
         let sentences: [Sentence]
         let reference_scores: [String: Double]
         let lexicon_cases: [LexiconCase]
+        /// How TextPrep splits text into the pieces the voice says one at a time.
+        let chunk_cases: [ChunkCase]?
+    }
+    private struct ChunkCase: Decodable {
+        let text: String
+        let chunks: [String]
     }
     private struct LexiconCase: Decodable {
         let text: String
@@ -207,6 +213,15 @@ enum G2PTest {
                 let ok = out.contains(want) && !(c.absent.map { out.contains($0) } ?? false)
                 failed = failed || !ok
                 print("  \(ok ? "✓" : "✗") \(british ? "GB" : "US") \(c.text) → /\(out)/\(ok ? "" : "  (want \(want)\(c.absent.map { ", not \($0)" } ?? ""))")")
+            }
+        }
+        if let cases = doc.chunk_cases, !cases.isEmpty {
+            print("\n== chunks (how the player splits text) ==")
+            for c in cases {
+                let got = TextPrep.chunks(for: TextPrep.clean(c.text)).map(\.speech)
+                let ok = got == c.chunks
+                failed = failed || !ok
+                print("  \(ok ? "✓" : "✗") \(c.text) → \(got.map { "[\($0)]" }.joined(separator: " "))\(ok ? "" : "  (want \(c.chunks.map { "[\($0)]" }.joined(separator: " ")))")")
             }
         }
         print(failed ? "\nFAILED" : "\nPASSED")
