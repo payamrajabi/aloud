@@ -165,7 +165,7 @@ private struct PillView: View {
                 ZStack { content(mode) }
                     .font(.system(size: 13, weight: .medium))
                     .foregroundStyle(.white)
-                    .frame(height: 40)
+                    .frame(minHeight: 40)
                     .background(Capsule().fill(Color.black.opacity(0.82)))
                     .overlay(Capsule().strokeBorder(Color.white.opacity(0.12)))
                     .clipShape(Capsule())
@@ -212,9 +212,10 @@ private struct PillView: View {
             Text(text)
                 .lineLimit(2)
                 .multilineTextAlignment(.center)
-                .fixedSize(horizontal: false, vertical: true)
-                .frame(maxWidth: 380)
-                .padding(.horizontal, 16)
+                .frame(maxWidth: 360)
+                .fixedSize()  // as wide as the text, up to 360, then a second line
+                .padding(.horizontal, 18)
+                .padding(.vertical, 8)
         case .reading:
             ReadingControls(model: player, space: space)
         }

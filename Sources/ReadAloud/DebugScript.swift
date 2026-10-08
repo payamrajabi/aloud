@@ -277,10 +277,11 @@ enum DebugScript {
             app.menuNeedsUpdate(menu)
             print(menu.items.map { $0.isSeparatorItem ? "—" : $0.title }.joined(separator: " | "))
         case "dictate": app.dictationController.toggle()
-        case "hud":  // hud=armed, recording, transcribing, downloading, message, finding, reading, hint or idle
+        case "hud":  // hud=armed, recording, transcribing, downloading, message, longmessage, finding, reading, hint or idle
             let states: [String: DictationController.State] = [
                 "armed": .recording, "recording": .recording, "transcribing": .transcribing, "downloading": .downloading(0.42),
                 "message": .message("Dictation is ready. Tap right ⌥ to start."),
+                "longmessage": .message("Microphone access is off. Turn it on in System Settings → Privacy & Security → Microphone."),
             ]
             app.dictationController.debugSet(states[arg] ?? .idle, provisional: arg == "armed")
             let phases: [String: ReaderPill.Phase] = [
