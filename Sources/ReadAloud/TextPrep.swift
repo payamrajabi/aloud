@@ -49,16 +49,32 @@ enum TextPrep {
             }
             if sentences.isEmpty { sentences = [paraRange] }
             // NLTokenizer ends a sentence after "St.", "Gov." or "Sen." even before a name: "We
-            // flew to St." was read as Street, then a pause, then "Louis on Friday."
+            // flew to St." was read as Street, then a pause, then "Louis on Friday." It also
+            // ends one inside Markdown ("![" | "Screenshot…](docs/install.png)"), and the half
+            // without its "![" was read with its file path.
+            let markup = markupSpans(in: ns, range: paraRange)
             var joined: [NSRange] = []
             for sentence in sentences {
-                if let last = joined.last, Tokenizer.titleContinues(ns.substring(with: last), into: ns.substring(with: sentence)) {
+                if let last = joined.last,
+                   markup.contains(where: { $0.location < sentence.location && sentence.location < NSMaxRange($0) })
+                    || Tokenizer.titleContinues(ns.substring(with: last), into: ns.substring(with: sentence)) {
                     joined[joined.count - 1] = NSUnionRange(last, sentence)
                 } else {
                     joined.append(sentence)
                 }
             }
-            sentences = joined
+            // "Did the build pass? No. 2 tests failed.": the answer "No." is read on its own,
+            // as the word; kept with the number it was read "Number two tests failed."
+            sentences = []
+            for sentence in joined {
+                if let previous = sentences.last,
+                   let n = Tokenizer.answerNoLength(ns.substring(with: sentence), after: ns.substring(with: previous)) {
+                    sentences.append(NSRange(location: sentence.location, length: n))
+                    sentences.append(NSRange(location: sentence.location + n, length: sentence.length - n))
+                } else {
+                    sentences.append(sentence)
+                }
+            }
 
             var pieces: [(NSRange, Bool)] = []  // (range, ends a sentence)
             for sentence in sentences {
@@ -100,6 +116,11 @@ enum TextPrep {
             guard m.location != NSNotFound else { return }
             cut = NSMaxRange(m)
         }
+        // Never inside a link or image: its halves would be read with the path.
+        if let span = markupSpans(in: ns, range: r).first(where: { $0.location < cut && cut < NSMaxRange($0) }) {
+            guard span.location - r.location >= 25 else { return }
+            cut = span.location
+        }
         let a = trim(NSRange(location: r.location, length: cut - r.location), in: ns)
         let b = trim(NSRange(location: cut, length: NSMaxRange(r) - cut), in: ns)
         let speechA = speechText(ns.substring(with: a))
@@ -114,6 +135,7 @@ enum TextPrep {
         var out: [NSRange] = []
         var start = range.location
         let end = NSMaxRange(range)
+        let markup = end - start > maxChunkLength ? markupSpans(in: ns, range: range) : []
         while end - start > maxChunkLength {
             let window = NSRange(location: start + maxChunkLength / 2, length: maxChunkLength / 2)
             var cut = -1
@@ -124,6 +146,10 @@ enum TextPrep {
             if cut < 0 {
                 let r = ns.range(of: " ", options: .backwards, range: window)
                 cut = r.location != NSNotFound ? NSMaxRange(r) : start + maxChunkLength
+            }
+            // Not inside a link or image: before it, or after it if it starts the piece.
+            if let span = markup.first(where: { $0.location < cut && cut < NSMaxRange($0) }) {
+                cut = span.location > start ? span.location : min(end, NSMaxRange(span))
             }
             out.append(NSRange(location: start, length: cut - start))
             start = cut
@@ -139,6 +165,14 @@ enum TextPrep {
         while start < end, let u = Unicode.Scalar(ns.character(at: start)), ws.contains(u) { start += 1 }
         while end > start, let u = Unicode.Scalar(ns.character(at: end - 1)), ws.contains(u) { end -= 1 }
         return NSRange(location: start, length: end - start)
+    }
+
+    private static let markupPattern = try! NSRegularExpression(pattern: #"!?\[[^\]\n]*\]\([^)\n]*\)"#)
+
+    /// Markdown links and images in `range`: "[the FAQ](docs/faq.md)", "![A cat](cat.png)".
+    /// `speechText` reads each as its label; split apart, the path was read too.
+    private static func markupSpans(in ns: NSString, range: NSRange) -> [NSRange] {
+        markupPattern.matches(in: ns as String, range: range).map(\.range)
     }
 
     /// Light cleanup of what gets spoken (the display text is untouched).
