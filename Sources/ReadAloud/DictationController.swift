@@ -34,7 +34,7 @@ final class DictationController: ObservableObject {
     private var engine: ParakeetEngine?   // only touched on `queue`
     private var pushToTalk = false
     /// Started by a tap that may yet turn out to be the first of a double-tap (to read).
-    private var provisional = false
+    @Published private(set) var isProvisional = false
     /// A tap that couldn't record straight away (it has to ask or explain something first), waiting
     /// to find out whether it's a double-tap.
     private var startWhenConfirmed = false
@@ -139,15 +139,15 @@ final class DictationController: ObservableObject {
             startWhenConfirmed = false
             begin(pushToTalk: false)
         }
-        guard provisional, state == .recording else { return }
-        provisional = false
+        guard isProvisional, state == .recording else { return }
+        isProvisional = false
         if Self.dryRun { print("   dictation: confirmed"); fflush(stdout) } else { NSSound(named: "Tink")?.play() }
     }
 
     /// It was a double-tap: drop the recording without a sound.
     private func retract() {
         startWhenConfirmed = false
-        guard provisional else { return }
+        guard isProvisional else { return }
         cancel(quietly: true)
     }
 
@@ -201,7 +201,7 @@ final class DictationController: ObservableObject {
 
     /// `provisional`: the start sound waits until it's confirmed, so a double-tap to read stays silent.
     private func startRecording(pushToTalk: Bool, provisional: Bool = false) {
-        self.provisional = provisional
+        isProvisional = provisional
         if Self.dryRun {
             print("   dictation: start (\(pushToTalk ? "hold to talk" : provisional ? "provisional" : "tap to toggle"))"); fflush(stdout)
             self.pushToTalk = pushToTalk
@@ -238,7 +238,7 @@ final class DictationController: ObservableObject {
 
     func cancel(quietly: Bool = false) {
         guard state == .recording else { return }
-        provisional = false
+        isProvisional = false
         if Self.dryRun { print("   dictation: cancel"); fflush(stdout); state = .idle; return }
         pollTimer?.invalidate()
         _ = recorder.stop()
@@ -250,7 +250,7 @@ final class DictationController: ObservableObject {
     }
 
     private func finish() {
-        provisional = false
+        isProvisional = false
         if Self.dryRun { print("   dictation: stop and transcribe"); fflush(stdout); state = .idle; return }
         pollTimer?.invalidate()
         let samples = recorder.stop()
@@ -480,8 +480,9 @@ final class DictationController: ObservableObject {
 
     // MARK: - Debug
 
-    func debugSet(_ s: State) {
+    func debugSet(_ s: State, provisional: Bool = false) {
         state = s
+        isProvisional = provisional
         level = 0.75
         startedAt = Date().addingTimeInterval(-7)
     }

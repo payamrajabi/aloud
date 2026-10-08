@@ -52,8 +52,8 @@ Accessibility → Aloud).
 
 | Action | How |
 |---|---|
-| Read selected text | Double-tap right ⌥ (change it in Settings) |
-| Pause / resume | Space in the player, the play/pause key, or AirPods |
+| Read selected text | Double-tap right ⌥ (change it in Settings). Play/pause, a playhead and stop appear in a pill at the bottom of the screen; with nothing selected, the pill says so |
+| Pause / resume | The on-screen pill, space in the player, the play/pause key, or AirPods |
 | Open the player | Click the menu bar icon |
 | Settings | Right-click the menu bar icon, or ⋯ in the player |
 | Scrub | Drag the timeline. The darker bar shows audio that's already generated |
@@ -62,7 +62,7 @@ Accessibility → Aloud).
 | Stop | ■ in the player |
 | AirPods / headphones | Press once to pause or resume, twice for the next sentence, three times for the previous one |
 | Keyboard media keys, Control Center | Play/pause, next/previous sentence, and scrubbing all work |
-| Dictate | Tap right ⌥ to start and tap it again to finish, or hold it while you speak. ⌘Esc cancels. Start, finish and cancel each have their own shortcut in Settings. The microphone starts on the first tap; if a second tap follows (a double-tap to read), that recording is dropped silently, and the start sound plays once the double-click interval has passed |
+| Dictate | Tap right ⌥ to start and tap it again to finish, or hold it while you speak. ⌘Esc cancels. Start, finish and cancel each have their own shortcut in Settings. The microphone starts on the first tap, shown as a record dot that widens into the dictation pill; if a second tap follows (a double-tap to read), that recording is dropped silently and the dot becomes the reading controls. The start sound plays once the double-click interval has passed |
 | Settings | Right-click the menu bar icon → Settings… (⌘,). Shortcuts can be a key combination, or a tap or double-tap of any modifier key (left/right ⌥ ⌘ ⌃ ⇧, or fn) |
 | Speakers and microphones | Settings lists every connected device. Drag them into order and Aloud uses the highest one that's connected, whatever macOS is set to. Until you do, it follows macOS |
 | Voice and dictation models | Both download on first launch. Settings shows their progress and lets you remove either one; Aloud then asks before downloading it again the next time you use it |

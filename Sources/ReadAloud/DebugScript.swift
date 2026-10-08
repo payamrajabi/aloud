@@ -17,6 +17,7 @@ import CSherpaOnnx
 ///   --render-phonemes "ðə kwˈɪk" [--voice v] [--out f.wav] [--raw]   synthesize exact phonemes
 ///   --clean "text" | --clean-file path [--piece-words 30]  tidy dictation text as if it arrived in pieces, print timing
 ///   --test-gestures                                     check modifier tap / double-tap / hold detection and exit
+///   --slow-pill                                         play the on-screen pill's changes ten times slower
 ///   READALOUD_MODELS_DIR=/some/folder                   use a different models folder (test fresh installs)
 ///   --script "2:seek=30;4:pause;5:play;8:open;9:snapshot=/tmp/p.png;10:quit"
 enum DebugScript {
@@ -327,14 +328,25 @@ enum DebugScript {
             app.menuNeedsUpdate(menu)
             print(menu.items.map { $0.isSeparatorItem ? "—" : $0.title }.joined(separator: " | "))
         case "dictate": app.dictationController.toggle()
-        case "hud":
+        case "hud":  // hud=armed, recording, transcribing, downloading, message, finding, reading, hint or idle
             let states: [String: DictationController.State] = [
-                "recording": .recording, "transcribing": .transcribing, "downloading": .downloading(0.42),
-                "message": .message("Dictation is ready. Press right ⌥ to start."),
+                "armed": .recording, "recording": .recording, "transcribing": .transcribing, "downloading": .downloading(0.42),
+                "message": .message("Dictation is ready. Tap right ⌥ to start."),
             ]
-            app.dictationController.debugSet(states[arg] ?? .idle)
+            app.dictationController.debugSet(states[arg] ?? .idle, provisional: arg == "armed")
+            let phases: [String: ReaderPill.Phase] = [
+                "finding": .finding, "reading": .controls, "hint": .hint("Select some text to read aloud."),
+            ]
+            app.pill?.reader.show(phases[arg] ?? .hidden)
         case "hudshot":
-            if let view = app.dictationHUD?.panel.contentView { snapshot(view, to: arg) }
+            if let view = app.pill?.panel.contentView { snapshot(view, to: arg) }
+        case "hudscreen":  // the pill as it is on screen, mid-animation included (without blocking it)
+            if let number = app.pill?.panel.windowNumber {
+                let capture = Process()
+                capture.executableURL = URL(fileURLWithPath: "/usr/sbin/screencapture")
+                capture.arguments = ["-o", "-x", "-l", String(number), arg]
+                try? capture.run()
+            }
         case "settings": app.showSettings()
         case "cleanupdownload": app.dictationController.downloadCleanupModel()  // with --trace, prints when it's done
         case "settingsshot":
