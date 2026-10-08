@@ -58,6 +58,16 @@ cp Vendor/sherpa-onnx-asr/sherpa-onnx-LICENSE "$APP/Contents/Resources/licenses/
 cp Vendor/sherpa-onnx-asr/onnxruntime-LICENSE "$APP/Contents/Resources/licenses/onnxruntime-LICENSE.txt"
 cp Vendor/sherpa-onnx-asr/onnxruntime-ThirdPartyNotices.txt "$APP/Contents/Resources/licenses/"
 cp Sources/Phonemizer/LICENSE-MisakiSwift.txt "$APP/Contents/Resources/licenses/"
+# Sparkle's comes with its release (SwiftPM unpacks it under .build/artifacts).
+SPARKLE_LICENSE=(.build/artifacts/*/Sparkle/LICENSE(N))
+[[ -f "${SPARKLE_LICENSE[1]:-}" ]] || { echo "Sparkle's LICENSE is missing from .build/artifacts"; exit 1; }
+cp "${SPARKLE_LICENSE[1]}" "$APP/Contents/Resources/licenses/Sparkle-LICENSE.txt"
+# The libraries compiled into libsherpa-onnx-c-api.dylib (OpenFst, Kaldi's, KISS FFT, Eigen...).
+cp licenses/*.txt "$APP/Contents/Resources/licenses/"
+# Every licence file THIRD-PARTY-NOTICES.md points to must be in the app.
+for f in $(grep -oE '(g2p/)?licenses/[A-Za-z0-9._-]+\.txt' THIRD-PARTY-NOTICES.md | sort -u); do
+  [[ -f "$APP/Contents/Resources/$f" ]] || { echo "THIRD-PARTY-NOTICES.md lists $f, but it isn't in the app"; exit 1; }
+done
 
 if [[ "${BUNDLE_MODEL:-0}" == 1 ]]; then
   MODEL="${READALOUD_MODELS_DIR:-$HOME/Library/Application Support/ReadAloud/models}/kokoro-multi-lang-v1_0"
