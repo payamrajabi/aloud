@@ -88,10 +88,22 @@ NOT_ENGLISH="Aloud reads English text, and this selection isn't in English."
 out=$(say "$TMP/models" "Привет, как дела?")
 check "Russian makes no near-silent audio from its punctuation" eval '[[ "$out" == *"0.00s audio"* ]]'
 check "Chinese: the player says it reads English" eval 'read_aloud "$TMP/models" "我们今天去公园散步。天气很好。" 2 | grep -qF "$NOT_ENGLISH"'
-check "Greek (no phonemes at all): the same message once nothing could be said" \
-  eval 'read_aloud "$TMP/models" "Καλημέρα κόσμε. Τι κάνεις;" 3 | grep -qF "$NOT_ENGLISH"'
+# Greek used to start a session that played nothing, and only then show the message, so a
+# shortcut read (which opens the player only for a message it has at once) stayed silent.
+check "Greek (no phonemes at all): the same message, before any session starts" \
+  eval 'log=$(read_aloud "$TMP/models" "Καλημέρα κόσμε. Τι κάνεις;" 2); [[ "$log" == *"$NOT_ENGLISH"* && "$log" != *"sentence 1/2"* ]]'
 check "mixed text reads the English and skips the Chinese sentence" \
   eval 'log=$(read_aloud "$TMP/models" "Tokyo is big. 东京是日本的首都。 It is old." 3); [[ "$log" == *"sentence 1/2"* && "$log" != *"$NOT_ENGLISH"* ]]'
+# A sentence counts as English when at least half its letters are Latin. Fewer, and the
+# phonemizer runs the English into the rest as one made-up word ("用AI" came out /tˈI/).
+check "Chinese with a few English terms is skipped like Chinese, so the whole selection gets the message" \
+  eval 'log=$(read_aloud "$TMP/models" "我们用AI和GPU训练模型。今天天气很好。我们去公园散步。" 2); [[ "$log" == *"$NOT_ENGLISH"* && "$log" != *"sentence 1/1"* ]]'
+check "the same for Japanese with an English name" \
+  eval 'read_aloud "$TMP/models" "今日はiPhoneを買いました。" 2 | grep -qF "$NOT_ENGLISH"'
+check "Greek symbols in English sentences (π, μs) still read" \
+  eval 'log=$(read_aloud "$TMP/models" "The value of π is about 3.14. Latency is 5 μs." 2); [[ "$log" == *"sentence 1/2"* && "$log" != *"$NOT_ENGLISH"* ]]'
+check "an English sentence after mostly Chinese text is still read, with no message" \
+  eval 'log=$(read_aloud "$TMP/models" "我们今天去公园散步。天气很好。 It is a nice day." 2); [[ "$log" == *"sentence 1/1"* && "$log" != *"$NOT_ENGLISH"* ]]'
 
 echo "PKG-4: no build-machine paths in the binary; lexicons still found from a checkout"
 check "no path into Sources/ReadAloud is compiled in" eval '! strings -a "$B" | grep -q "/Sources/ReadAloud/"'

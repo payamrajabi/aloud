@@ -180,9 +180,10 @@ final class PlayerModel: ObservableObject {
             message = "There's nothing readable in that selection."
             return
         }
-        // The voices only speak English. Say so rather than play silence, and in mixed
-        // text skip the sentences in other scripts.
-        let newChunks = KokoroEngine.canRead(cleaned) ? allChunks.filter { KokoroEngine.canRead($0.speech) } : []
+        // The voices only speak English: skip the sentences mostly in other scripts, and if
+        // that's all of them, say so rather than play silence. Deciding it here, before a
+        // session starts, lets a shortcut read open the player to show the message.
+        let newChunks = allChunks.filter { KokoroEngine.canRead($0.speech) }
         guard !newChunks.isEmpty else {
             message = Self.notEnglishMessage
             return
@@ -431,7 +432,7 @@ final class PlayerModel: ObservableObject {
         guard s == session, index < chunks.count else { return }
         if samples == nil { unspeakable.insert(index) }
         if unspeakable.count == chunks.count {
-            // Not a word could be said (letters the phonemizer can't read, such as Greek):
+            // Not a word could be said (only symbols the phonemizer can't read, say):
             // say so rather than play silence. Otherwise those sentences pass as a pause.
             stop()
             message = Self.notEnglishMessage
