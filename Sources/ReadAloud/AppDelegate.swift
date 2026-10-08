@@ -310,6 +310,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
         let copyLast = NSMenuItem(title: "Copy Last Dictation", action: dictation.lastTranscript == nil ? nil : #selector(copyLastDictation), keyEquivalent: "")
         copyLast.target = self
         menu.addItem(copyLast)
+        // The words before tech terms were fixed, for when a fix was wrong ("phishing" for fishing).
+        let copyHeard = NSMenuItem(title: "Copy Last Dictation as Heard",
+                                   action: dictation.lastDictationWasFixed ? #selector(copyLastDictationAsHeard) : nil, keyEquivalent: "")
+        copyHeard.target = self
+        menu.addItem(copyHeard)
         menu.addItem(.separator())
 
         let settingsItem = NSMenuItem(title: "Settings…", action: #selector(showSettings), keyEquivalent: ",")
@@ -343,6 +348,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
     @objc private func toggleDictation() { dictation.toggle() }
 
     @objc private func copyLastDictation() { dictation.copyLastTranscript() }
+
+    @objc private func copyLastDictationAsHeard() { dictation.copyLastHeard() }
 
     var dictationController: DictationController { dictation }
 

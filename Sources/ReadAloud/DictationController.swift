@@ -17,6 +17,9 @@ final class DictationController: ObservableObject {
     @Published private(set) var level: Float = 0
     @Published private(set) var startedAt = Date()
     private(set) var lastTranscript: String?
+    /// The last dictation as the engine heard it, before tech terms were fixed: the way
+    /// back when the fixer got a word wrong.
+    private(set) var lastHeard: String?
     /// 0…1 while the dictation model downloads, nil otherwise.
     @Published private(set) var modelProgress: Double?
 
@@ -218,6 +221,7 @@ final class DictationController: ObservableObject {
         let text = Self.fixesTechTerms ? Self.corrector.correct(heard) : heard
         if trace, text != heard { print("   dictation: tech terms fixed: \(text)") }
         lastTranscript = text
+        lastHeard = heard
         insert(text)
     }
 
@@ -263,6 +267,15 @@ final class DictationController: ObservableObject {
         guard let lastTranscript else { return }
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(lastTranscript, forType: .string)
+    }
+
+    /// Whether fixing tech terms changed the last dictation (so "as heard" is different).
+    var lastDictationWasFixed: Bool { lastHeard != nil && lastHeard != lastTranscript }
+
+    func copyLastHeard() {
+        guard let lastHeard else { return }
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(lastHeard, forType: .string)
     }
 
     // MARK: - Model
