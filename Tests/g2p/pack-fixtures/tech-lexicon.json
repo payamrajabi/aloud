@@ -1,0 +1,5 @@
+[
+{"word":"bps","match":"case-sensitive","us":"bˈi pˈi ˈɛs","gb":"bˈiː pˈiː ˈɛs","dictation":"context","evidence":false,"spoken":["b p s"]},
+{"word":"Kubernetes","match":"case-insensitive","us":"kˌubəɹnˈɛTiz","gb":"kˌuːbənˈɛtiːz","dictation":"always","spoken":["cooper netties"]},
+{"word":"JSON","match":"case-insensitive","us":"ʤˈAsᵊn","dictation":"context","spoken":["jason"],"spoken_context_only":["jason"]}
+]

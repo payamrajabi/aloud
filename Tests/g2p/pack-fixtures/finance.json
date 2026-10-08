@@ -1,0 +1,6 @@
+[
+{"word":"bps","match":"case-sensitive","us":"bˈAsɪs pˈYnts","gb":"bˈAsɪs pˈYnts","pack_only":true,"dictation":"context","evidence":false,"spoken":["b p s"]},
+{"word":"SOFR","match":"case-sensitive","us":"sˈOfəɹ","gb":"sˈQfə","pack_only":true,"dictation":"always","spoken":["s o f r"]},
+{"word":"EBITDA","match":"case-insensitive","us":"ˈɛb bˈɪt dˈɑ","gb":"ˈɛb bˈɪt dˈɑː","pack_only":false,"dictation":"always","spoken":["e bit da"]},
+{"word":"contango","match":"case-insensitive","us":"kˈɑn tˈæŋɡO","gb":"kˈɒn tˈaŋɡQ","dictation":"context","spoken":["con tango"],"spoken_context_only":["con tango"]}
+]

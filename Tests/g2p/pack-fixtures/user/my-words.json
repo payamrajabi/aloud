@@ -1,0 +1,6 @@
+[
+{"word":"prn","match":"case-insensitive","us":"æz nˈidᵻd","gb":"az nˈiːdɪd"},
+{"word":"OD","match":"case-sensitive","us":"ɹˈIt ˈI","gb":"ɹˈIt ˈI"},
+{"word":"AcmeDB","match":"case-insensitive","us":"ˈækmi dˌibˈi","gb":"ˈakmi dˌiːbˈiː","dictation":"always","spoken":["acme d b"]},
+{"word":"Zorkle","match":"case-insensitive","us":"zˈɔɹkᵊl","gb":"zˈɔːkᵊl","dictation":"context","spoken":["zork all"],"spoken_context_only":["zork all"]}
+]
