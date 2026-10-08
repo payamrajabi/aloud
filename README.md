@@ -155,6 +155,11 @@ Entries without these fields are pronunciation only. Check changes with:
 .build/debug/ReadAloud --bench-lexicon [Lexicons/tech-lexicon.json]   # load and matching times
 ```
 
+`Lexicons/tech-lexicon.json` (about 10,000 terms) is generated from `lexicon-src/`: the
+research behind every term (sources, confidence, alternatives, what the dictation model
+heard), the decisions on disputed terms and everyday-word clashes, and the pipeline
+scripts. Only `Lexicons/` ships in the app.
+
 ## Developer test modes
 
 ```bash

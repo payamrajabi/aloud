@@ -1,0 +1,546 @@
+[
+{
+"term": "ACH",
+"clash": "aches"
+},
+{
+"term": "ARIA",
+"clash": "aria / arias / Aria (first name)"
+},
+{
+"term": "AJAX",
+"clash": "Ajax (cleaning brand, football club, Greek hero)"
+},
+{
+"term": "ASIC",
+"clash": "asics (Asics shoe brand)"
+},
+{
+"term": "ABI",
+"clash": "Abi (first name)"
+},
+{
+"term": "Apercu",
+"clash": "apercu (ordinary word, aperçu)"
+},
+{
+"term": "AFFiNE",
+"clash": "affine (ordinary math word)"
+},
+{
+"term": "AirDrop",
+"clash": "airdrop (ordinary word: supply drop, crypto airdrop)"
+},
+{
+"term": "AirPlay",
+"clash": "airplay (radio airplay)"
+},
+{
+"term": "Babel",
+"clash": "babel (ordinary word)"
+},
+{
+"term": "Basecamp",
+"clash": "basecamp (base camp)"
+},
+{
+"term": "After Effects",
+"clash": "after effects (ordinary phrase)"
+},
+{
+"term": "Beautiful Soup",
+"clash": "beautiful soup (ordinary phrase)"
+},
+{
+"term": "Better Stack",
+"clash": "better stack (ordinary phrase)"
+},
+{
+"term": "Better Auth",
+"clash": "better auth (ordinary phrase)"
+},
+{
+"term": "Applied Materials",
+"clash": "applied materials (ordinary phrase)"
+},
+{
+"term": "Amazon Pay",
+"clash": "amazon pays (ordinary phrase)"
+},
+{
+"term": "Apple Pay",
+"clash": "apple pays (ordinary phrase)"
+},
+{
+"term": "Apple One",
+"clash": "apple one / apple ones (ordinary phrase)"
+},
+{
+"term": "BIOS",
+"clash": "bios"
+},
+{
+"term": "BlackBerry",
+"clash": "blackberry"
+},
+{
+"term": "Bokeh",
+"clash": "bokeh"
+},
+{
+"term": "Bonobos",
+"clash": "bonobos"
+},
+{
+"term": "Bitstream",
+"clash": "bitstream"
+},
+{
+"term": "Canva",
+"clash": "canvas"
+},
+{
+"term": "Capture One",
+"clash": "capture one"
+},
+{
+"term": "Chainlink",
+"clash": "chainlink"
+},
+{
+"term": "Cilium",
+"clash": "cilium"
+},
+{
+"term": "CRAN",
+"clash": "cranes"
+},
+{
+"term": "Cloud Storage",
+"clash": "cloud storage"
+},
+{
+"term": "Cloud Functions",
+"clash": "cloud functions"
+},
+{
+"term": "Cloud Logging",
+"clash": "cloud logging"
+},
+{
+"term": "Cloud Monitoring",
+"clash": "cloud monitoring"
+},
+{
+"term": "Business Insider",
+"clash": "business insider"
+},
+{
+"term": "Create ML",
+"clash": "create ml"
+},
+{
+"term": "Dataflow",
+"clash": "dataflow"
+},
+{
+"term": "Datastore",
+"clash": "datastore"
+},
+{
+"term": "Day 1",
+"clash": "day 1"
+},
+{
+"term": "Decagon",
+"clash": "decagon"
+},
+{
+"term": "Dev Mode",
+"clash": "dev mode"
+},
+{
+"term": "Dev Containers",
+"clash": "dev containers"
+},
+{
+"term": "DRI",
+"clash": "dries"
+},
+{
+"term": "EAS",
+"clash": "eases"
+},
+{
+"term": "EXE",
+"clash": "exes"
+},
+{
+"term": "Flos",
+"clash": "floss"
+},
+{
+"term": "DRAM",
+"clash": "dram (measure of whisky)"
+},
+{
+"term": "Gentoo",
+"clash": "gentoo (penguin)"
+},
+{
+"term": "Glossier",
+"clash": "glossier (comparative of glossy)"
+},
+{
+"term": "GCS",
+"clash": "GCSEs (gcses would become GCSes)"
+},
+{
+"term": "EEVEE",
+"clash": "Eevee (the Pokemon)"
+},
+{
+"term": "Eleventy",
+"clash": "eleventy (informal number word)"
+},
+{
+"term": "Essential AI",
+"clash": "essential AI (ordinary phrase)"
+},
+{
+"term": "GUID",
+"clash": "guides"
+},
+{
+"term": "GRR",
+"clash": "grr (growl interjection)"
+},
+{
+"term": "GRU",
+"clash": "Gru (Despicable Me character)"
+},
+{
+"term": "HP",
+"clash": "hp (horsepower / hit points)"
+},
+{
+"term": "Homebrew",
+"clash": "homebrew (home-brewed)"
+},
+{
+"term": "Hearthstone",
+"clash": "hearthstone (stone of a hearth)"
+},
+{
+"term": "HandBrake",
+"clash": "handbrake (car brake)"
+},
+{
+"term": "Half-Life",
+"clash": "half-life (decay period)"
+},
+{
+"term": "Hanami",
+"clash": "hanami (cherry-blossom viewing)"
+},
+{
+"term": "IDE",
+"clash": "ides (Ides of March)"
+},
+{
+"term": "KMS",
+"clash": "kms (kilometres)"
+},
+{
+"term": "Key Vault",
+"clash": "key vault (ordinary phrase)"
+},
+{
+"term": "Indie Hackers",
+"clash": "indie hackers (generic phrase)"
+},
+{
+"term": "Knoll",
+"clash": "knoll"
+},
+{
+"term": "Koa",
+"clash": "koa (Hawaiian wood/tree)"
+},
+{
+"term": "Kodi",
+"clash": "Kodi (first name)"
+},
+{
+"term": "Koto",
+"clash": "koto (Japanese instrument)"
+},
+{
+"term": "LEED",
+"clash": "Leeds"
+},
+{
+"term": "Lightspeed",
+"clash": "lightspeed"
+},
+{
+"term": "Lemon Squeezy",
+"clash": "lemon squeezy (easy peasy lemon squeezy)"
+},
+{
+"term": "Larry Page",
+"clash": "Larry pages"
+},
+{
+"term": "Markdown",
+"clash": "markdown (price reduction)"
+},
+{
+"term": "MAUI",
+"clash": "Maui"
+},
+{
+"term": "MIDI",
+"clash": "midi (skirt/dress length)"
+},
+{
+"term": "MiniMax",
+"clash": "minimax"
+},
+{
+"term": "Mocha Mousse",
+"clash": "mocha mousse"
+},
+{
+"term": "Momenta",
+"clash": "momenta"
+},
+{
+"term": "Monotype",
+"clash": "monotype"
+},
+{
+"term": "Morning Brew",
+"clash": "morning brew"
+},
+{
+"term": "Motley Fool",
+"clash": "motley fool"
+},
+{
+"term": "Mulish",
+"clash": "mulish"
+},
+{
+"term": "MasterClass",
+"clash": "masterclass"
+},
+{
+"term": "Native Instruments",
+"clash": "native instruments"
+},
+{
+"term": "Mind the Product",
+"clash": "mind the product(s)"
+},
+{
+"term": "Money Forward",
+"clash": "money forward"
+},
+{
+"term": "One Medical",
+"clash": "one medical (e.g. 'one medical device')"
+},
+{
+"term": "Overwatch",
+"clash": "overwatch (ordinary noun/verb)"
+},
+{
+"term": "Passkeys",
+"clash": "passkeys (ordinary plural noun)"
+},
+{
+"term": "Podia",
+"clash": "podia (plural of podium)"
+},
+{
+"term": "Polestar",
+"clash": "polestar (the pole star)"
+},
+{
+"term": "Polkadot",
+"clash": "polkadot (polka dot pattern)"
+},
+{
+"term": "Pro Tools",
+"clash": "pro tools (ordinary phrase)"
+},
+{
+"term": "Raycast",
+"clash": "raycast (generic graphics term)"
+},
+{
+"term": "Recraft",
+"clash": "recraft (ordinary verb)"
+},
+{
+"term": "Red Hat",
+"clash": "red hat / red hats"
+},
+{
+"term": "Redfin",
+"clash": "redfin (fish)"
+},
+{
+"term": "Redpoint",
+"clash": "redpoint (climbing term)"
+},
+{
+"term": "Redux",
+"clash": "redux (ordinary word, 'revisited')"
+},
+{
+"term": "PitchBook",
+"clash": "pitchbook (generic banking pitch book)"
+},
+{
+"term": "Point Nine",
+"clash": "point nine / point nines (number 0.9)"
+},
+{
+"term": "PostScript",
+"clash": "postscript (ordinary word)"
+},
+{
+"term": "Preferred Networks",
+"clash": "preferred networks (ordinary phrase)"
+},
+{
+"term": "Roslyn",
+"clash": "Roslyn (first name)"
+},
+{
+"term": "Route 53",
+"clash": "route 53 (an ordinary road/route number)"
+},
+{
+"term": "Rubin",
+"clash": "Rubin (surname)"
+},
+{
+"term": "Steinberg",
+"clash": "Steinberg (surname)"
+},
+{
+"term": "Screen Studio",
+"clash": "screen studio / screen studios (ordinary phrase)"
+},
+{
+"term": "Seeking Alpha",
+"clash": "seeking alpha (ordinary investing phrase)"
+},
+{
+"term": "Safe Superintelligence",
+"clash": "safe superintelligence (ordinary phrase)"
+},
+{
+"term": "Shop Pay",
+"clash": "shop pays (e.g. 'the shop pays')"
+},
+{
+"term": "Snowpack",
+"clash": "snowpack (ordinary word)"
+},
+{
+"term": "Spatial Audio",
+"clash": "spatial audio (generic phrase)"
+},
+{
+"term": "Spring Boot",
+"clash": "spring boots (ordinary words)"
+},
+{
+"term": "SRI",
+"clash": "Sri (Sri Lanka, honorific)"
+},
+{
+"term": "Stage Manager",
+"clash": "stage manager (ordinary job title)"
+},
+{
+"term": "Switch 2",
+"clash": "switch 2 (ordinary words, e.g. 'flip switch 2')"
+},
+{
+"term": "Tableau",
+"clash": "tableau (ordinary word)"
+},
+{
+"term": "Terraform",
+"clash": "terraform (ordinary verb)"
+},
+{
+"term": "TIFF",
+"clash": "tiff"
+},
+{
+"term": "URI",
+"clash": "Uri"
+},
+{
+"term": "VoiceOver",
+"clash": "voiceover"
+},
+{
+"term": "VoLTE",
+"clash": "volte"
+},
+{
+"term": "WAV",
+"clash": "waves"
+},
+{
+"term": "Well-Architected",
+"clash": "well-architected"
+},
+{
+"term": "ZooKeeper",
+"clash": "zookeeper"
+},
+{
+"term": "Together AI",
+"clash": "together AI"
+},
+{
+"term": "True Anomaly",
+"clash": "true anomaly"
+},
+{
+"term": "Turtle Beach",
+"clash": "turtle beach"
+},
+{
+"term": "Two Sigma",
+"clash": "two sigma"
+},
+{
+"term": "Tom's Guide",
+"clash": "Tom's guide"
+},
+{
+"term": "The Lean Startup",
+"clash": "the lean startup"
+},
+{
+"term": "Wildberries",
+"clash": "wildberries"
+},
+{
+"term": "Webtoon",
+"clash": "webtoon"
+},
+{
+"term": "Wise Account",
+"clash": "wise account"
+}
+]
