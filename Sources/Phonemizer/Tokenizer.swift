@@ -71,7 +71,7 @@ public enum Tokenizer {
             }
             if exceptions.contains(String(s)) {
                 let t = String(s)
-                if numberSign.contains(t) ? numberFollows(s) : titles.contains(t) ? !endsSentence(s) : true { break }
+                if numberSign.contains(t) ? numberFollows(s) && !answersQuestion(s) : titles.contains(t) ? !endsSentence(s) : true { break }
             }
             if let n = prefixLength(s) {
                 prefixes.append(s.prefix(n)); s = s.dropFirst(n); continue
@@ -98,18 +98,77 @@ public enum Tokenizer {
         return text[k].isNumber || text[k] == "#"
     }
 
+    /// Whether "No." at `s` answers a question just asked ("Did the build pass? No. 2 tests
+    /// failed."): it's the word, not "number two".
+    private static func answersQuestion(_ s: Substring) -> Bool {
+        s == "No." && endsQuestion(s.base[..<s.startIndex]) && answerFollows(s.base[s.endIndex...])
+    }
+
+    /// Whether `text` ends in a question mark (closing quotes and brackets aside).
+    static func endsQuestion<S: StringProtocol>(_ text: S) -> Bool {
+        text.reversed().first { !$0.isWhitespace && !"\"'”’»)]".contains($0) } == "?"
+    }
+
+    /// Whether what follows an answer "No." is a new sentence starting with a number ("2 tests
+    /// failed."), not "No. 1", which is "number one" ("Who won? No. 1 seed Duke.").
+    private static func answerFollows(_ text: Substring) -> Bool {
+        guard text.first?.isWhitespace == true else { return false }
+        let digits = text.drop(while: \.isWhitespace).prefix { $0.isNumber }
+        return !digits.isEmpty && digits != "1"
+    }
+
+    /// Where `sentence` ends an answer "No." to the question `previous` before a number, as in
+    /// "Did the build pass?" + "No. 2 tests failed.": the offset (UTF-16) just after "No.", so
+    /// the answer can be read on its own. nil for "No. 5 is next." after anything else.
+    public static func answerNoLength(_ sentence: String, after previous: String) -> Int? {
+        guard endsQuestion(previous) else { return nil }
+        let lead = sentence.prefix { $0.isWhitespace }
+        let rest = sentence.dropFirst(lead.count)
+        guard rest.hasPrefix("No."), answerFollows(rest.dropFirst(3)) else { return nil }
+        return (String(lead) + "No.").utf16.count
+    }
+
     /// Titles (TextNormalizer spells them out before a name: "Sen. Warren"). One that ends a
     /// sentence ("I met Amartya Sen.", "…a Rep. She was nice.") gives its period back as the
     /// full stop; before anything else it stays whole, with no pause.
     static let titles: Set<String> = ["Sen.", "Gov.", "Prof.", "Gen.", "Rep.", "Rev.", "St."]
 
     /// Capitalised words that usually start a sentence rather than name someone, so
-    /// "…Amartya Sen. He was kind." isn't "Senator He".
+    /// "…Amartya Sen. He was kind." isn't "Senator He" and "…the Gov. Yesterday he resigned."
+    /// isn't "Governor Yesterday": pronouns, determiners, conjunctions, prepositions, common
+    /// adverbs, auxiliaries and imperatives. Words that are also common surnames or first
+    /// names ("May", "Will", "Mark", "Grant", "Young", "Long", "King", "Love", "Early") aren't
+    /// here: "Gov. Young", "Sen. King" and "Gen. Grant" are names.
     static let sentenceStarters: [String] = [
-        "A", "After", "Also", "An", "And", "As", "At", "Before", "But", "For", "He", "Her", "Here", "His", "How", "However",
-        "I", "If", "In", "It", "Its", "It's", "I'm", "Later", "Meanwhile", "My", "No", "Now", "On", "Our", "Please", "She",
-        "So", "Still", "Thanks", "That", "The", "Their", "Then", "There", "These", "They", "This", "Those", "We", "What",
-        "When", "Where", "Why", "Yes", "You", "Your",
+        "A", "About", "Above", "Accordingly", "Actually", "Additionally", "After", "Afterward", "Afterwards", "Again",
+        "Against", "All", "Almost", "Along", "Already", "Also", "Although", "Always", "Am", "Among", "An", "And", "Another",
+        "Any", "Anybody", "Anyone", "Anything", "Anyway", "Apparently", "Are", "Aren't", "Around", "As", "Ask", "At",
+        "Basically", "Be", "Because", "Before", "Behind", "Below", "Besides", "Between", "Beyond", "Both", "But", "By",
+        "Can", "Can't", "Certainly", "Check", "Click", "Clearly", "Consequently", "Consider", "Could", "Couldn't",
+        "Currently", "Customers", "Despite", "Did", "Didn't", "Do", "Does", "Doesn't", "Don't", "During", "Each", "Earlier",
+        "Eight", "Either", "Else", "Elsewhere", "Even", "Eventually", "Ever", "Every", "Everybody", "Everyone", "Everything",
+        "Everywhere", "Experts", "Few", "Finally", "First", "Five", "For", "Fortunately", "Four", "From", "Furthermore",
+        "Generally", "Get", "Give", "Go", "Had", "Hadn't", "Has", "Hasn't", "Have", "Haven't", "He", "He'd", "He'll",
+        "He's", "Hello", "Hence", "Her", "Here", "Here's", "Hers", "Hey", "Hi", "Him", "His", "Honestly", "Hopefully",
+        "How", "How's", "However", "I", "I'd", "I'll", "I'm", "I've", "If", "Imagine", "Immediately", "Importantly", "In",
+        "Indeed", "Initially", "Instead", "Interestingly", "Into", "Is", "Isn't", "It", "It's", "Its", "Just", "Last",
+        "Lastly", "Later", "Let", "Let's", "Like", "Likewise", "Look", "Luckily", "Many", "Maybe", "Me", "Meanwhile",
+        "Might", "Mine", "More", "Moreover", "Most", "Much", "Must", "My", "Naturally", "Neither", "Never", "Nevertheless",
+        "Next", "Nine", "No", "Nobody", "None", "Nonetheless", "Nor", "Normally", "Not", "Note", "Nothing", "Now",
+        "Nowadays", "Nowhere", "Obviously", "Of", "Oh", "Often", "Okay", "On", "Once", "One", "Only", "Or", "Originally",
+        "Other", "Others", "Otherwise", "Our", "Ours", "Over", "Overall", "People", "Perhaps", "Please", "Press",
+        "Previously", "Probably", "Rarely", "Recently", "Regardless", "Remember", "Researchers", "Sadly",
+        "Second", "See", "Seven", "Several", "She", "She'd", "She'll", "She's", "Should", "Shouldn't", "Similarly",
+        "Since", "Six", "So", "Some", "Somebody", "Someone", "Something", "Sometimes", "Somewhere", "Soon", "Sorry",
+        "Specifically", "Still", "Students", "Such", "Suddenly", "Sure", "Ten", "Thank", "Thanks", "That", "That's", "The",
+        "Their", "Theirs", "Them", "Then", "There", "There's", "Therefore", "These", "They", "They'd", "They'll",
+        "They're", "They've", "Third", "This", "Those", "Though", "Three", "Through", "Throughout", "Thus", "To", "Today",
+        "Together", "Tomorrow", "Tonight", "Too", "Toward", "Towards", "Try", "Twice", "Two", "Typically", "Ultimately",
+        "Under", "Unfortunately", "Unless", "Unlike", "Until", "Upon", "Us", "Use", "Users", "Usually", "Very", "Was",
+        "Wasn't", "We", "We'd", "We'll", "We're", "We've", "Well", "Were", "Weren't", "What", "What's", "Whatever",
+        "When", "Whenever", "Where", "Where's", "Whereas", "Wherever", "Whether", "Which", "While", "Who", "Who's", "Whom",
+        "Whose", "Why", "With", "Within", "Without", "Won't", "Would", "Wouldn't", "Wow", "Yes", "Yesterday", "Yet",
+        "You", "You'd", "You'll", "You're", "You've", "Your", "Yours",
     ]
     private static let sentenceStarterSet = Set(sentenceStarters)
 
@@ -126,20 +185,20 @@ public enum Tokenizer {
         return sentenceStarterSet.contains(String(text[k..<e]).replacingOccurrences(of: "’", with: "'"))
     }
 
-    /// Whether "St." right after `before` (the text up to it) is a street rather than Saint:
-    /// the word before it holds a digit ("5th St.") or is capitalised mid-sentence and isn't
-    /// a usual opener ("Main St."). "to St. Louis", "The St. Louis Cardinals" and a "St."
-    /// that starts its sentence ("Visit St. Paul") are Saint.
+    /// Whether "St." right after `before` (the text up to it), and before a name, is a street
+    /// rather than Saint: only in a numbered address, where the word before it holds a digit
+    /// ("5th St.") or follows a house number ("221B Baker St."). Before a name, "St." is
+    /// otherwise Saint: "Mount St. Helens", "Port St. Lucie", "Yves St. Laurent", "to St.
+    /// Louis". (Before a lower-case word, punctuation, the end or a usual opener it's a
+    /// street: "Main St. Then…"; TextNormalizer reads that.)
     static func isStreet(before text: String) -> Bool {
         let head = text.replacingOccurrences(of: #"\s+$"#, with: "", options: .regularExpression)
         guard head.count < text.count, let r = head.range(of: #"[\p{L}\p{N}'’]+$"#, options: .regularExpression) else { return false }
-        let word = String(head[r])
-        if word.contains(where: \.isNumber) { return true }
-        guard word.first?.isUppercase == true, !sentenceStarterSet.contains(word.replacingOccurrences(of: "’", with: "'")) else { return false }
-        // A capital that only starts the sentence says nothing.
-        let rest = head[..<r.lowerBound].trimmingCharacters(in: .whitespacesAndNewlines)
-        guard let last = rest.last else { return false }
-        return !".!?:;\"“(—–".contains(last)
+        if head[r].contains(where: \.isNumber) { return true }
+        let rest = head[..<r.lowerBound]
+        guard let space = rest.last, space.isWhitespace, let n = rest.dropLast().range(of: #"[\p{L}\p{N}]+$"#, options: .regularExpression)
+        else { return false }
+        return rest[n].first?.isNumber == true
     }
 
     /// Titles a sentence splitter can take for a full stop.
@@ -149,15 +208,20 @@ public enum Tokenizer {
     /// sentence: "We flew to St." + "Louis on Friday.", "Gov." + "Newsom signed it.", "See
     /// No." + "5 on the list.". Apple's sentence splitter breaks after "St.", "Gov." and
     /// "Sen." even before a name, and the halves were read apart ("…to Street", a pause,
-    /// "Louis…"). A title before a usual sentence opener ("…Amartya Sen. He was kind."), a
-    /// street ("Main St. Then…") or "No." before anything but a number does end the sentence.
+    /// "Louis…"). A title before a usual sentence opener ("…Amartya Sen. Nobody read it.",
+    /// "…the Gov. Yesterday he resigned."), a street ("Main St. Then…") or "No." before
+    /// anything but a number, or answering a question ("Pass? No." + "2 failed."), does end
+    /// the sentence.
     public static func titleContinues(_ sentence: String, into next: String) -> Bool {
         let head = sentence.trimmingCharacters(in: .whitespacesAndNewlines)
         guard let r = head.range(of: #"(?<![\p{L}.])\p{L}+\.$"#, options: .regularExpression) else { return false }
         let title = String(head[r])
         let following = next.drop { $0.isWhitespace }
         guard let first = following.first else { return false }
-        if numberSign.contains(title) { return first.isNumber || first == "#" }
+        if numberSign.contains(title) {
+            return (first.isNumber || first == "#")
+                && !(title == "No." && endsQuestion(head[..<r.lowerBound]) && answerFollows(" " + following))
+        }
         guard runOnTitles.contains(title) else { return false }
         if title == "St.", isStreet(before: String(head[..<r.lowerBound])) { return false }
         if first.isNumber { return true }

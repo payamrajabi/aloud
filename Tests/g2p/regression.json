@@ -4251,8 +4251,9 @@
   },
   {
    "text": "I AM SO HAPPY.",
-   "us": "æm sˈO",
-   "absent": "ˌAˈɛm"
+   "us": "ˌI ɐm sˌO hˈæpi",
+   "absent": "ˌAˈɛm",
+   "gb": "ˌI ɐm sˌQ hˈapi"
   },
   {
    "text": "THE ART SHOW IS TONIGHT.",
@@ -4278,9 +4279,9 @@
    "us": "θɹˈi mˈɪləmˌiTəɹz"
   },
   {
-   "text": "The px value is wrong.",
-   "us": "vˈælju",
-   "absent": "pˈɪksᵊlz"
+   "text": "Resolution in px.",
+   "us": "ɪn pˈɪksᵊlz.",
+   "gb": "ɪn pˈɪksᵊlz."
   },
   {
    "text": "Set it to 16px.",
@@ -4358,9 +4359,9 @@
    "gb": "mˈAn stɹˈiːt. ðˈɛn"
   },
   {
-   "text": "I live on Main St. Louis is far away.",
-   "us": "mˈAn stɹˈit. lˈui",
-   "gb": "mˈAn stɹˈiːt. lˈuːi",
+   "text": "I live on 5th St. Louis is far away.",
+   "us": "fˈɪfθ stɹˈit. lˈui",
+   "gb": "fˈɪfθ stɹˈiːt. lˈuːi",
    "absent": "sˈAnt"
   },
   {
@@ -4520,6 +4521,301 @@
    "us": "sˈɪks ˌAˈɛm",
    "gb": "sˈɪks ˌAˈɛm",
    "absent": "əklˈɑk"
+  },
+  {
+   "text": "Clock speed is measured in GHz.",
+   "us": "ɪn ɡˈɪɡəhˌɜɹts.",
+   "gb": "ɪn ɡˈɪɡəhˌɜːts."
+  },
+  {
+   "text": "Sizes in GiB.",
+   "us": "ɪn ɡˈɪbibˌIt.",
+   "gb": "ɪn ɡˈɪbibˌIt."
+  },
+  {
+   "text": "A 100Mbps link.",
+   "us": "wˈʌn hˈʌndɹəd mˈɛɡəbˌɪts",
+   "gb": "wˈʌn hˈʌndɹəd mˈɛɡəbɪts"
+  },
+  {
+   "text": "Call me at 555-1234 tomorrow.",
+   "us": "kˈɔl mˌi æt fˈIv hˈʌndɹəd",
+   "gb": "kˈɔːl mˌiː at fˈIv hˈʌndɹəd",
+   "absent": "tə tw"
+  },
+  {
+   "text": "My number is 867-5309.",
+   "us": "ˈAt hˈʌndɹəd sˈɪksti",
+   "gb": "ˈAt hˈʌndɹəd sˈɪksti",
+   "absent": " tə "
+  },
+  {
+   "text": "Part number 1234-5678 here.",
+   "us": "twˌɛlv θˌɜɹTi",
+   "gb": "twˌɛlv θˌɜːti",
+   "absent": " tə "
+  },
+  {
+   "text": "It is a 50-50 chance.",
+   "us": "fˌɪftifˈɪfti",
+   "gb": "fˌɪftifˈɪfti",
+   "absent": " tə "
+  },
+  {
+   "text": "We are open 24-7.",
+   "us": "twˈɛnti fˈɔɹ",
+   "gb": "twˈɛnti fˈɔː",
+   "absent": " tə "
+  },
+  {
+   "text": "Check that 10-5=5.",
+   "us": "tˈɛn mˈInəs fˈIv ˈikwᵊlz fˈIv",
+   "gb": "tˈɛn mˈInəs fˈIv ˈiːkwᵊlz fˈIv"
+  },
+  {
+   "text": "If 7-3 = 4 then.",
+   "us": "sˈɛvən mˈInəs θɹˈi ˈikwᵊlz fˈɔɹ",
+   "gb": "sˈɛvᵊn mˈInəs θɹˈiː ˈiːkwᵊlz fˈɔː"
+  },
+  {
+   "text": "I work 9-5 every day.",
+   "us": "nˈIn tə fˈIv",
+   "gb": "nˈIn tə fˈIv"
+  },
+  {
+   "text": "Pages 100-200 cover it.",
+   "us": "wˈʌn hˈʌndɹəd tə tˈu hˈʌndɹəd",
+   "gb": "wˈʌn hˈʌndɹəd tə tˈuː hˈʌndɹəd"
+  },
+  {
+   "text": "In 1990-95 it grew.",
+   "us": "nˈIndi tə nˈIndi fˈIv",
+   "gb": "nˈInti tə nˈInti fˈIv"
+  },
+  {
+   "text": "We hiked Mount St. Helens last year.",
+   "us": "mˈWnt sˈAnt hˈɛlənz",
+   "gb": "mˈWnt sˈAnt hˈɛlɪnz",
+   "absent": "stɹˈi"
+  },
+  {
+   "text": "They retired to Port St. Lucie.",
+   "us": "pˈɔɹt sˈAnt lˈusi",
+   "gb": "pˈɔːt sˈAnt lˈuːsi",
+   "absent": "stɹˈi"
+  },
+  {
+   "text": "I love Yves St. Laurent bags.",
+   "us": "sˈAnt lˈɔɹənt",
+   "gb": "sˈAnt lˈɔːɹənt",
+   "absent": "stɹˈi"
+  },
+  {
+   "text": "We drove to Fort St. John.",
+   "us": "fˈɔɹt sˈAnt ʤˈɑn",
+   "gb": "fˈɔːt sˈAnt ʤˈɒn",
+   "absent": "stɹˈi"
+  },
+  {
+   "text": "The meeting is at 9 AM. Then lunch.",
+   "us": "nˈIn ˌAˈɛm. ðˈɛn",
+   "gb": "nˈIn ˌAˈɛm. ðˈɛn"
+  },
+  {
+   "text": "We finish at 5 PM. Dinner follows.",
+   "us": "fˈIv pˌiˈɛm. dˈɪnəɹ",
+   "gb": "fˈIv pˌiːˈɛm. dˈɪnə"
+  },
+  {
+   "text": "It ends at 10:30 PM. Then we go.",
+   "us": "pˌiˈɛm. ðˈɛn",
+   "gb": "pˌiːˈɛm. ðˈɛn"
+  },
+  {
+   "text": "We start at 9 a.m. Then lunch.",
+   "us": "ˌAˈɛm. ðˈɛn",
+   "gb": "ˌAˈɛm. ðˈɛn"
+  },
+  {
+   "text": "We start at 9 a.m. Monday.",
+   "us": "ˌAˈɛm mˈʌndˌA",
+   "gb": "ˌAˈɛm mˈʌndA"
+  },
+  {
+   "text": "The meeting starts at 9 AM.",
+   "us": "nˈIn ˌAˈɛm.",
+   "gb": "nˈIn ˌAˈɛm."
+  },
+  {
+   "text": "== History ==",
+   "us": "hˈɪstəɹi",
+   "gb": "hˈɪstəɹi",
+   "absent": "ˈikwᵊlz"
+  },
+  {
+   "text": "===== Results =====",
+   "us": "ɹəzˈʌlts",
+   "gb": "ɹɪzˈʌlts",
+   "absent": "kwᵊlz"
+  },
+  {
+   "text": "Results ======================================== end",
+   "us": "ɹəzˈʌlts ˈɛnd",
+   "gb": "ɹɪzˈʌlts ˈɛnd"
+  },
+  {
+   "text": "Notes -------- end",
+   "us": "nˈOts ˈɛnd",
+   "gb": "nˈQts ˈɛnd"
+  },
+  {
+   "text": "if (a === b) return",
+   "us": "ˈikwᵊlz bˈi",
+   "gb": "ˈiːkwᵊlz bˈiː",
+   "absent": "lzˈi"
+  },
+  {
+   "text": "Press → to go forward.",
+   "us": "pɹˈɛs ɹˈIt ˈɛɹO tə ɡˌO",
+   "gb": "pɹˈɛs ɹˈIt ˈaɹQ tə ɡˌQ"
+  },
+  {
+   "text": "Use → and ← keys.",
+   "us": "ɹˈIt ˈɛɹO ænd lˈɛft ˈɛɹO kˈiz",
+   "gb": "ɹˈIt ˈaɹQ and lˈɛft ˈaɹQ kˈiːz"
+  },
+  {
+   "text": "Tap ↑ twice, then ↓.",
+   "us": "ˌʌp ˈɛɹO twˈIs, ðˈɛn dˌWn ˈɛɹO.",
+   "gb": "ˌʌp ˈaɹQ twˈIs, ðˈɛn dˌWn ˈaɹQ."
+  },
+  {
+   "text": "Right-click the menu bar icon → Settings…",
+   "us": "ˈIkˌɑn tə sˈɛTɪŋz",
+   "gb": "tə sˈɛtɪŋz"
+  },
+  {
+   "text": "The low was −12 degrees.",
+   "us": "mˈInəs twˈɛlv dəɡɹˈiz",
+   "gb": "mˈInəs twˈɛlv dɪɡɹˈiːz"
+  },
+  {
+   "text": "The value is −0.5 here.",
+   "us": "mˈInəs zˈɪɹO pYnt fˈIv",
+   "gb": "mˈInəs zˈɪəɹQ pYnt fˈIv"
+  },
+  {
+   "text": "Compute 5 − 3 = 2.",
+   "us": "fˈIv mˈInəs θɹˈi ˈikwᵊlz tˈu",
+   "gb": "fˈIv mˈInəs θɹˈiː ˈiːkwᵊlz tˈuː"
+  },
+  {
+   "text": "Growth was −5% last year.",
+   "us": "mˈInəs fˈIv pəɹsˈɛnt",
+   "gb": "mˈInəs fˈIv pəsˈɛnt"
+  },
+  {
+   "text": "It fell −$50 today.",
+   "us": "mˈInəs fˈɪfti dˈɑləɹz",
+   "gb": "mˈInəs fˈɪfti dˈɒləz"
+  },
+  {
+   "text": "It fell to –5 overnight.",
+   "us": "tə mˈInəs fˈIv",
+   "gb": "tə mˈInəs fˈIv"
+  },
+  {
+   "text": "TOP TEN TIPS FOR CODERS",
+   "us": "tˈɑp tˈɛn tˈɪps fɔɹ kˈOdəɹz",
+   "gb": "tˈɒp tˈɛn tˈɪps fɔː kˈQdəz"
+  },
+  {
+   "text": "WHO AM I?",
+   "us": "hˌu ɐm ˌI?",
+   "gb": "hˌuː ɐm ˌI?"
+  },
+  {
+   "text": "PLEASE GO NOW.",
+   "us": "plˈiz ɡˌO nˈW.",
+   "gb": "plˈiːz ɡˌQ nˈW."
+  },
+  {
+   "text": "GPU PRICES DROP",
+   "us": "ʤˌipˌijˈu pɹˈIsᵻz dɹˈɑp",
+   "gb": "ʤˌiːpˌiːjˈuː pɹˈIsɪz dɹˈɒp"
+  },
+  {
+   "text": "IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY.",
+   "us": "ði ˈɔθəɹz ɔɹ kˈɑpiɹˌIt hˈOldəɹz bi lˈIəbᵊl fɔɹ ˈɛni klˈAm, dˈæmɪʤᵻz",
+   "gb": "ði ˈɔːθəz ɔː kˈɒpɪɹIt hˈQldəz biː lˈIəbᵊl"
+  },
+  {
+   "text": "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.",
+   "us": "fˈɪtnəs fɔɹ ɐ pəɹtˈɪkjələɹ pˈɜɹpəs",
+   "gb": "fˈɪtnɪs fɔː ɐ pətˈɪkjʊlə pˈɜːpəs"
+  },
+  {
+   "text": "NASA AND THE FBI MET.",
+   "us": "nˈæsə ænd ði ˌɛfbˌiˈI",
+   "gb": "nˈasə and ði ˌɛfbˌiːˈI"
+  },
+  {
+   "text": "THE HTML AND CSS ARE FINE.",
+   "us": "ˌAʧtˌiˌɛmˈɛl ænd sˌiˌɛsˈɛs ɑɹ fˈIn",
+   "gb": "ˌAʧtˌiˌɛmˈɛl and sˌiˌɛsˈɛs ɑː fˈIn"
+  },
+  {
+   "text": "The API is down.",
+   "us": "ði ˌApˌiˈI ɪz",
+   "gb": "ði ˌApˌiːˈI ɪz"
+  },
+  {
+   "text": "Did the build pass? No. 2 tests failed.",
+   "us": "pˈæs? nˈO. tˈu tˈɛsts",
+   "gb": "pˈɑːs? nˈQ. tˈuː tˈɛsts",
+   "absent": "nˈʌmb"
+  },
+  {
+   "text": "The report was written by Amartya Sen. Nobody read it.",
+   "us": "sˈɛn. nˈObˌɑdi",
+   "gb": "sˈɛn. nˈQbədi",
+   "absent": "sˈɛnə"
+  },
+  {
+   "text": "I met the Gov. Yesterday he resigned.",
+   "us": "ɡˈʌv. jˈɛstəɹdˌA",
+   "gb": "ɡˈʌv. jˈɛstədA",
+   "absent": "ɡˈʌvᵊn"
+  },
+  {
+   "text": "Gov. Young spoke.",
+   "us": "ɡˈʌvᵊnəɹ jˈʌŋ",
+   "gb": "ɡˈʌvᵊnə jˈʌŋ"
+  },
+  {
+   "text": "Who won? No. 1 seed Duke.",
+   "us": "nˈʌmbəɹ wˈʌn sˈid",
+   "gb": "nˈʌmbə wˈʌn sˈiːd"
+  },
+  {
+   "text": "Duration = 5-10 minutes.",
+   "us": "fˈIv tə tˈɛn mˈɪnəts",
+   "gb": "fˈIv tə tˈɛn mˈɪnɪts"
+  },
+  {
+   "text": "It has 8GiB.",
+   "us": "ˈAt ɡˈɪbəbˌIts",
+   "gb": "ˈAt ɡˈɪbəbˌIts"
+  },
+  {
+   "text": "ENTER YOUR ID NUMBER.",
+   "us": "ˌIdˈi nˈʌmbəɹ",
+   "gb": "ˌIdˈiː nˈʌmbə"
+  },
+  {
+   "text": "HE LED THE TEAM.",
+   "us": "hi lˈɛd ðə tˈim",
+   "gb": "hiː lˈɛd ðə tˈiːm"
   }
  ],
  "chunk_cases": [
@@ -4560,6 +4856,72 @@
    "text": "See No. 5 on the list.",
    "chunks": [
     "See No. 5 on the list."
+   ]
+  },
+  {
+   "text": "We hiked Mount St. Helens last year.",
+   "chunks": [
+    "We hiked Mount St. Helens last year."
+   ]
+  },
+  {
+   "text": "I love Yves St. Laurent bags.",
+   "chunks": [
+    "I love Yves St. Laurent bags."
+   ]
+  },
+  {
+   "text": "The report was written by Amartya Sen. Nobody read it.",
+   "chunks": [
+    "The report was written by Amartya Sen.",
+    "Nobody read it."
+   ]
+  },
+  {
+   "text": "I met the Gov. Yesterday he resigned.",
+   "chunks": [
+    "I met the Gov.",
+    "Yesterday he resigned."
+   ]
+  },
+  {
+   "text": "![Screenshot of the installer](docs/images/install.png)\n\nSee [the FAQ](docs/faq.md) for help.",
+   "chunks": [
+    "Screenshot of the installer",
+    "See the FAQ for help."
+   ]
+  },
+  {
+   "text": "Here is a picture: ![A cat. Very cute!](cat.png) Nice.",
+   "chunks": [
+    "Here is a picture: A cat. Very cute! Nice."
+   ]
+  },
+  {
+   "text": "See [Why? A FAQ](faq.md) too.",
+   "chunks": [
+    "See Why? A FAQ too."
+   ]
+  },
+  {
+   "text": "Did the build pass? No. 2 tests failed.",
+   "chunks": [
+    "Did the build pass?",
+    "No.",
+    "2 tests failed."
+   ]
+  },
+  {
+   "text": "![Screenshot showing the installer window, with the Continue button highlighted in blue](docs/images/install-step-two.png)",
+   "chunks": [
+    "Screenshot showing the installer window, with the Continue button highlighted in blue"
+   ]
+  },
+  {
+   "text": "Who won? No. 1 seed Duke.",
+   "chunks": [
+    "Who won?",
+    "No. 1 seed Duke."
    ]
   }
  ]

@@ -19,9 +19,12 @@ final class Lexicon {
     static let addSymbols = [".": "dot", "/": "slash"]
     // Beyond misaki's four: maths symbols, read as eSpeak (Aloud 1.5) did instead of dropped.
     // "<" and ">" are read only between spaces (TextNormalizer), never in "<b>" or "->".
+    // TextNormalizer decides between "to" and "right arrow" for "→" and reads a minus sign
+    // before a number; these are what's left ("5−3").
     static let symbols = ["%": "percent", "&": "and", "+": "plus", "@": "at", "=": "equals", "×": "times",
                           "÷": "divided by", "±": "plus or minus", "≠": "not equal to", "≈": "approximately",
-                          "≤": "less than or equal to", "≥": "greater than or equal to", "→": "to"]
+                          "≤": "less than or equal to", "≥": "greater than or equal to", "→": "to",
+                          "←": "left arrow", "↑": "up arrow", "↓": "down arrow", "−": "minus"]
 
     let british: Bool
     private let golds: [String: GoldEntry]
@@ -122,6 +125,31 @@ final class Lexicon {
         if word == word.pyUpper && golds[word.pyLower] != nil { return true }
         return word.tail == word.tail.pyUpper
     }
+
+    /// Whether an all-caps `token` in a sentence written all in capitals ("TOP TEN TIPS FOR
+    /// CODERS", "WHO AM I?") is a shouted word, to be read in lower case, rather than an
+    /// acronym to spell out. Acronyms: no vowel ("HTML"); one the gold lexicon has only in
+    /// capitals ("NASA", "ASCII") or says unlike the word ("DOS"); or a short word that isn't
+    /// one ("URL"). Of the words it has both ways (an acronym as a noun), the longer ones
+    /// ("WHO", "ADD", "LED") and the everyday pairs ("IT", "AS", "US") are words; other pairs
+    /// ("ID", "OS", "ER", "LA") and a few known abbreviations ("EST", "ETA") stay acronyms.
+    func isShoutedWord(_ token: String) -> Bool {
+        guard token.count > 1, token.contains(where: { "AEIOUY".contains($0) }) else { return false }
+        let lower = token.pyLower.replacingOccurrences(of: "’", with: "'")
+        if let upper = golds[token] {
+            guard golds[lower] != nil, !Self.shoutedAcronyms.contains(token) else { return false }
+            if token.count == 2 { return Self.shoutedPairs.contains(token) }
+            if case .plain(let ps) = upper, ps != goldString(lower) { return false }
+        }
+        if golds[lower] != nil { return true }
+        if stemS(lower, tag: nil, stress: nil, ctx: nil).0 != nil || stemEd(lower, tag: nil, stress: nil, ctx: nil).0 != nil
+            || stemIng(lower, tag: nil, stress: nil, ctx: nil).0 != nil {
+            return true
+        }
+        return token.filter(\.isLetter).count >= 5
+    }
+    private static let shoutedPairs: Set<String> = ["AH", "AM", "AS", "BE", "HE", "HI", "IN", "IS", "IT", "ME", "OH", "OK", "OR", "US"]
+    private static let shoutedAcronyms: Set<String> = ["CIS", "COD", "EST", "ETA", "ISO", "LEA", "MOR", "MOT", "SEC"]
 
     func lookup(_ input: String, tag: String?, stress: Double?, ctx: TokenContext?) -> (String?, Int?) {
         var word = input
