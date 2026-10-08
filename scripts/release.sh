@@ -99,3 +99,6 @@ python3 scripts/update-appcast.py "$APPCAST" "$VERSION" "$BUILD" "$ED_SIGNATURE"
 echo "Released $TAG ($SIZE MB, build $BUILD, notarized: $NOTARIZED)"
 echo
 echo "Next: commit $APPCAST and push it to main. Installed copies only see the update once it's served at the feed URL."
+# The website and README quote the download size too (20 MB since llama.cpp came in with 1.6).
+grep -qF "· $SIZE MB<" docs/index.html && grep -qF "about $SIZE MB" README.md ||
+  echo "Also: docs/index.html and README.md give a different download size; change both to $SIZE MB."

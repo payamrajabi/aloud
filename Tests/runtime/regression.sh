@@ -119,6 +119,14 @@ check "build-app.sh strips before it signs, and its leak checks read raw bytes" 
   eval '(( $(grep -n "^strip -S" scripts/build-app.sh | cut -d: -f1) < $(grep -n "^codesign" scripts/build-app.sh | head -1 | cut -d: -f1) )) && ! grep -qE "^[^#]*strings -a" scripts/build-app.sh'
 check "dictation still uses the checkout's Lexicons/" eval '"$B" --correct-dictation "push it to git hub" | grep -q "GitHub"'
 
+echo "Download size: the website and README quote the one release.sh measures"
+# release.sh puts the disk image's size in the release notes and says when these two differ
+# from it; here they only have to agree with each other (20 MB since llama.cpp came in).
+site=$(grep -oE '· [0-9]+ MB</p>' docs/index.html | grep -oE '[0-9]+')
+readme=$(grep -oE 'This builds the app \(about [0-9]+ MB' README.md | grep -oE '[0-9]+')
+check "docs/index.html ($site MB) and README.md ($readme MB) agree" eval '[[ -n "$site" && "$site" == "$readme" ]]'
+check "release.sh reminds you when they differ from the disk image" eval 'grep -qF "change both to \$SIZE MB" scripts/release.sh'
+
 echo "Test harness"
 check "every scripted run quit on cue, not at the 30 s watchdog" eval '[[ ! -s "$TMP/killed" ]]'
 
