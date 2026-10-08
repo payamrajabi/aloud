@@ -38,6 +38,8 @@ struct Voice: Hashable, Identifiable {
 enum EngineError: LocalizedError {
     case modelMissing(String)
     case loadFailed(String)
+    /// A downloaded voice file is cut short or corrupt, so the voice counts as missing.
+    case damaged(String)
 
     var errorDescription: String? {
         switch self {
@@ -45,6 +47,8 @@ enum EngineError: LocalizedError {
             return "A speech model isn't downloaded yet (expected at \(path))."
         case .loadFailed(let why):
             return why
+        case .damaged(let why):
+            return "The voice on this Mac is damaged (\(why)), so it needs to be downloaded again."
         }
     }
 }
@@ -83,8 +87,9 @@ final class KokoroEngine {
         ]
     }()
 
-    /// Files left over from the sherpa-onnx archive that nothing reads any more
-    /// (eSpeak NG's data, its lexicons, and Chinese text normalization).
+    /// Files left over from the sherpa-onnx archive that this version doesn't read
+    /// (eSpeak NG's data, its lexicons, and Chinese text normalization). Aloud 1.5 and
+    /// earlier need them, so they stay unless someone tidies up by hand (--tidy-voice).
     static let unusedFiles = ["espeak-ng-data", "dict", "lexicon-us-en.txt", "lexicon-gb-en.txt", "lexicon-zh.txt",
                               "date-zh.fst", "number-zh.fst", "phone-zh.fst"]
 
@@ -102,14 +107,49 @@ final class KokoroEngine {
 
     static var isModelInstalled: Bool { isComplete(modelDirectory) }
 
-    static func isComplete(_ dir: URL) -> Bool {
-        ["model.onnx", "voices.bin", "tokens.txt"].allSatisfy {
-            FileManager.default.fileExists(atPath: dir.appendingPathComponent($0).path)
+    static func isComplete(_ dir: URL) -> Bool { problem(in: dir) == nil }
+
+    private static let requiredFiles = ["model.onnx", "voices.bin", "tokens.txt"]
+
+    /// What's wrong with the voice in `dir`, or nil if nothing: every file must be there,
+    /// and the model and voices the size their download was verified at. A file cut short
+    /// (a full disk, a copy made by hand, a damaged backup) makes the voice count as
+    /// missing, so it's downloaded again instead of failing to load or playing silence.
+    static func problem(in dir: URL) -> String? {
+        let fm = FileManager.default
+        if let missing = requiredFiles.first(where: { !fm.fileExists(atPath: dir.appendingPathComponent($0).path) }) {
+            return "\(missing) is missing"
         }
+        for file in files where file.sha256 != nil {
+            let size = (try? fm.attributesOfItem(atPath: dir.appendingPathComponent(file.name).path)[.size] as? NSNumber)?.int64Value ?? -1
+            if size != file.size { return "\(file.name) is \(size) bytes, expected \(file.size)" }
+        }
+        return nil
+    }
+
+    /// A downloaded voice that's there but incomplete or damaged, rather than never
+    /// downloaded or removed in Settings.
+    static var isDownloadedVoiceDamaged: Bool {
+        let dir = downloadedModelDirectory
+        return requiredFiles.contains { FileManager.default.fileExists(atPath: dir.appendingPathComponent($0).path) }
+            && problem(in: dir) != nil
+    }
+
+    /// After a voice file failed to load: if it belongs to a downloaded voice and doesn't
+    /// match the checksum its download was verified against, removes it so the voice
+    /// counts as missing and downloads again. (Hashing the model takes about a second,
+    /// so this only runs on failure.)
+    private static func removeIfDamaged(_ name: String, in dir: URL) -> Bool {
+        guard dir == downloadedModelDirectory, let sha = files.first(where: { $0.name == name })?.sha256 else { return false }
+        let url = dir.appendingPathComponent(name)
+        guard (try? ModelDownloader.sha256(of: url)) != sha else { return false }
+        try? FileManager.default.removeItem(at: url)
+        return true
     }
 
     /// Removes the eSpeak NG data and other leftovers of the old archive from a
-    /// downloaded voice. Never touches a voice bundled inside an app.
+    /// downloaded voice. Never touches a voice bundled inside an app. Only run by hand
+    /// (--tidy-voice): at launch they stay, so going back to Aloud 1.5 keeps working.
     static func removeUnusedFiles() {
         let dir = downloadedModelDirectory
         guard isComplete(dir) else { return }
@@ -129,10 +169,14 @@ final class KokoroEngine {
 
     init(threads: Int = Int(ProcessInfo.processInfo.environment["KOKORO_THREADS"] ?? "") ?? 4) throws {
         let dir = Self.modelDirectory
-        guard Self.isModelInstalled else { throw EngineError.modelMissing(dir.path) }
+        if let problem = Self.problem(in: dir) {
+            throw Self.isDownloadedVoiceDamaged ? EngineError.damaged(problem) : EngineError.modelMissing(dir.path)
+        }
         do {
             model = try OnnxModel(path: dir.appendingPathComponent("model.onnx").path, threads: threads)
         } catch {
+            // The right size but corrupt inside: if so, it's gone now and the voice downloads again.
+            if Self.removeIfDamaged("model.onnx", in: dir) { throw EngineError.damaged("model.onnx is corrupt") }
             throw EngineError.loadFailed("The voice model failed to load (\(error.localizedDescription)).")
         }
 
@@ -148,6 +192,12 @@ final class KokoroEngine {
         self.vocab = vocab
 
         let voices = try Data(contentsOf: dir.appendingPathComponent("voices.bin"), options: .mappedIfSafe)
+        // 510 style vectors per voice. With rows missing, `run` would find no style for
+        // the voices past the cut and quietly return silence, so refuse to load instead.
+        let bytesPerVoice = 510 * styleDim * MemoryLayout<Float>.size
+        guard voices.count % bytesPerVoice == 0, voices.count / bytesPerVoice > Int(Voice.all.map(\.id).max() ?? 0) else {
+            throw EngineError.loadFailed("The voice model is incomplete (voices.bin has \(voices.count) bytes).")
+        }
         styles = voices.withUnsafeBytes { Array($0.bindMemory(to: Float.self)) }
         styleCount = styles.count / styleDim
 
@@ -176,10 +226,29 @@ final class KokoroEngine {
         phonemizer(accent).phonemize(text)
     }
 
-    /// Synthesizes `text` and returns mono float samples at `sampleRate`.
-    /// Long pauses are shortened to a fifth, as sherpa-onnx did with silence_scale 0.2.
+    /// Whether phonemes have anything to say. The phonemizer drops what it can't read, so
+    /// text in another script comes back empty or as bare punctuation, which the model
+    /// would turn into a moment of near-silence.
+    static func isSpeakable(_ phonemes: String) -> Bool {
+        phonemes.contains { $0.isLetter }
+    }
+
+    /// The voices only speak English, so text whose letters are all in another script
+    /// (Chinese, Russian, Arabic…) would come out as silence. True when `text` has a Latin
+    /// letter, or no letters but Greek ones (π, λ and μ turn up in English) or none at all.
+    static func canRead(_ text: String) -> Bool {
+        // Compatibility forms first: 𝐛𝐨𝐥𝐝 and ｗｉｄｅ letters are Latin underneath.
+        let s = text.precomposedStringWithCompatibilityMapping
+        return s.range(of: "\\p{Script=Latin}", options: .regularExpression) != nil
+            || s.range(of: "[\\p{L}--[\\p{Script=Latin}\\p{Script=Greek}]]", options: .regularExpression) == nil
+    }
+
+    /// Synthesizes `text` and returns mono float samples at `sampleRate` (none if it has
+    /// nothing speakable). Long pauses are shortened to a fifth, as sherpa-onnx did with
+    /// silence_scale 0.2.
     func generate(_ text: String, voice: Voice, speed: Float = 1, scaleSilence: Bool = true) -> [Float] {
         let ps = phonemes(text, accent: voice.accent)
+        guard Self.isSpeakable(ps) else { return [] }
         return generate(phonemes: ps, voice: voice, speed: speed, scaleSilence: scaleSilence)
     }
 
@@ -276,12 +345,27 @@ enum LexiconFiles {
         if let bundled = Bundle.main.resourceURL?.appendingPathComponent("lexicons"),
            FileManager.default.fileExists(atPath: bundled.path) {
             dirs.append(bundled)
-        } else {
-            // Running from a source checkout (swift build).
-            dirs.append(URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent()
-                .deletingLastPathComponent().appendingPathComponent("Lexicons"))
+        } else if let source = sourceCheckoutLexicons {
+            dirs.append(source)
         }
         dirs.append(userDirectory)
         return dirs
+    }
+
+    /// Lexicons/ in the source checkout a `swift build` binary was built in (the binary
+    /// lives in .build/<platform>/<configuration>/). Found from where the binary is, not
+    /// from #filePath, so release builds don't carry the build machine's folder names.
+    private static var sourceCheckoutLexicons: URL? {
+        let fm = FileManager.default
+        var dir = Bundle.main.executableURL?.resolvingSymlinksInPath().deletingLastPathComponent()
+        for _ in 0..<4 {
+            guard let d = dir else { return nil }
+            let lexicons = d.appendingPathComponent("Lexicons")
+            if fm.fileExists(atPath: d.appendingPathComponent("Package.swift").path), fm.fileExists(atPath: lexicons.path) {
+                return lexicons
+            }
+            dir = d.deletingLastPathComponent()
+        }
+        return nil
     }
 }

@@ -6,8 +6,9 @@ import Foundation
 /// results from older sessions are tagged so the player can ignore them.
 final class Synthesizer {
     static let trace = CommandLine.arguments.contains("--trace")
-    /// Called on the main queue: (session, chunk index, samples).
-    var onReady: ((Int, Int, [Float]) -> Void)?
+    /// Called on the main queue: (session, chunk index, samples), with nil samples when the
+    /// chunk has nothing the voice can say (letters in another script, say).
+    var onReady: ((Int, Int, [Float]?) -> Void)?
     /// Called on the main queue when the voice model can't be loaded.
     var onError: ((String) -> Void)?
 
@@ -88,9 +89,10 @@ final class Synthesizer {
                 return
             }
             let t0 = Date()
-            let samples = engine.generate(text, voice: v)
+            let phonemes = engine.phonemes(text, accent: v.accent)
+            let samples = KokoroEngine.isSpeakable(phonemes) ? engine.generate(phonemes: phonemes, voice: v) : nil
             if Synthesizer.trace {
-                print(String(format: "   synth #%d: %.2fs audio in %.2fs (%d chars) at %.1f", index, Double(samples.count) / 24000, Date().timeIntervalSince(t0), text.count, Date().timeIntervalSince1970.truncatingRemainder(dividingBy: 100))); fflush(stdout)
+                print(String(format: "   synth #%d: %.2fs audio in %.2fs (%d chars) at %.1f", index, Double(samples?.count ?? 0) / 24000, Date().timeIntervalSince(t0), text.count, Date().timeIntervalSince1970.truncatingRemainder(dividingBy: 100))); fflush(stdout)
             }
             DispatchQueue.main.async { self.onReady?(s, index, samples) }
         }
