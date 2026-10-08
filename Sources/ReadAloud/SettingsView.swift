@@ -113,14 +113,18 @@ struct SettingsView: View {
                          installed: ParakeetEngine.isInstalled, progress: dictation.modelProgress,
                          canRemove: ParakeetEngine.isInstalled, busy: dictation.isBusy,
                          download: { dictation.downloadModelNow() }, remove: { dictation.removeModel() })
-                ModelRow(title: "Clean-up", detail: "Tidies dictation as you speak · about \(TranscriptCleaner.downloadSize)", symbol: "text.badge.checkmark",
-                         installed: TranscriptCleaner.isInstalled, progress: dictation.cleanupProgress,
-                         canRemove: TranscriptCleaner.isInstalled, busy: dictation.isCleanupBusy,
-                         download: { dictation.downloadCleanupModel() }, remove: { dictation.removeCleanupModel() })
+                if TranscriptCleaner.isOffered || dictation.cleanupProgress != nil {
+                    ModelRow(title: "Clean-up", detail: "Tidies dictation as you speak · about \(TranscriptCleaner.downloadSize)", symbol: "text.badge.checkmark",
+                             installed: TranscriptCleaner.isInstalled, progress: dictation.cleanupProgress,
+                             canRemove: TranscriptCleaner.isInstalled, busy: dictation.isCleanupBusy,
+                             download: { dictation.downloadCleanupModel() }, remove: { dictation.removeCleanupModel() })
+                }
             } header: {
                 Text("Downloads")
             } footer: {
-                Text("All three run entirely on your Mac. Voice and dictation download automatically the first time Aloud opens; clean-up is optional. Remove one to free up space, and Aloud asks before downloading it again when you next use it.")
+                Text(TranscriptCleaner.isOffered
+                     ? "All three run entirely on your Mac. Voice and dictation download automatically the first time Aloud opens; clean-up is optional. Remove one to free up space, and Aloud asks before downloading it again when you next use it."
+                     : "Both run entirely on your Mac and download automatically the first time Aloud opens. Remove one to free up space; Aloud asks before downloading it again when you next use it.")
                     .foregroundStyle(.secondary)
                     .font(.caption)
                     .fixedSize(horizontal: false, vertical: true)
