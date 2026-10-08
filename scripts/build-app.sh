@@ -48,6 +48,11 @@ ditto "$SPARKLE" "$APP/Contents/Frameworks/Sparkle.framework"
 ditto --arch arm64 "$LLAMA" "$APP/Contents/Frameworks/llama.framework"
 # Remove the developer-only library path so the app only uses its bundled copies.
 install_name_tool -delete_rpath "$ROOT/Vendor/sherpa-onnx-asr/lib" "$APP/Contents/MacOS/ReadAloud" 2>/dev/null || true
+# Drop the linker's debug map from what we compile ourselves: its entries name every
+# object file by full path, so this Mac's account and folders. Crash symbolication uses
+# the .dSYM SwiftPM writes next to $BIN, which stays out of the app. Before signing,
+# because stripping changes the binary.
+strip -S "$APP/Contents/MacOS/ReadAloud" "$APP/Contents/Frameworks/libsherpa-onnx-c-api.dylib"
 
 if [[ ! build/AppIcon.icns -nt scripts/make-icon.swift ]]; then
   ICONSET=build/AppIcon.iconset
@@ -155,16 +160,19 @@ codesign --force $TIMESTAMP --options runtime --entitlements build/entitlements.
 
 # Aloud ships no GPL code: fail the build if eSpeak NG (or piper-phonemize) sneaks back in.
 ./scripts/check-no-espeak.sh "$APP" >/dev/null || { ./scripts/check-no-espeak.sh "$APP"; echo "eSpeak NG found in $APP"; exit 1; }
-# Nor this Mac's folders: a #filePath left in release code would show every user the
-# developer's account name (source-checkout fallbacks find the checkout at run time instead).
-LEAKS=$(strings -a "$APP/Contents/MacOS/ReadAloud" | grep -F -e "$ROOT/" -e "$HOME/" || true)
+# Nor this Mac's folders: a #filePath left in release code, a debug map or a library path
+# would show every user the developer's account name (source-checkout fallbacks find the
+# checkout at run time instead). Scan every byte: strings -a only reads the sections, so
+# it misses the symbol table and load commands where those paths live.
+local_paths() { LC_ALL=C grep -a -o '[[:print:]]\{4,\}' "$1" | grep -F -e "$ROOT/" -e "$HOME/" | sort -u; }
+LEAKS=$(local_paths "$APP/Contents/MacOS/ReadAloud" || true)
 [[ -z "$LEAKS" ]] || { echo "$LEAKS"; echo "The app's binary contains paths from this Mac (above)"; exit 1; }
 # The same for the bundled libraries (sherpa-onnx logs with __FILE__; build-sherpa-asr.sh maps
 # its paths away, so a hit here means Vendor/sherpa-onnx-asr predates that and needs rebuilding).
 # ONNX Runtime and llama.cpp are prebuilt by their projects: they carry their CI's
 # /Users/runner/... paths, which is fine; only this Mac's paths fail the build.
 for lib in "$APP/Contents/Frameworks/"*.dylib "$APP/Contents/Frameworks/llama.framework/llama"; do
-  if strings -a "$lib" | grep -qF -e "$ROOT/" -e "$HOME/"; then
+  if LC_ALL=C grep -aqF -e "$ROOT/" -e "$HOME/" "$lib"; then
     echo "${lib:t} contains paths from this Mac: rm -rf Vendor/sherpa-onnx-asr && ./scripts/build-sherpa-asr.sh"; exit 1
   fi
 done

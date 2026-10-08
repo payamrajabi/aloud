@@ -106,7 +106,17 @@ check "an English sentence after mostly Chinese text is still read, with no mess
   eval 'log=$(read_aloud "$TMP/models" "我们今天去公园散步。天气很好。 It is a nice day." 2); [[ "$log" == *"sentence 1/1"* && "$log" != *"$NOT_ENGLISH"* ]]'
 
 echo "PKG-4: no build-machine paths in the binary; lexicons still found from a checkout"
-check "no path into Sources/ReadAloud is compiled in" eval '! strings -a "$B" | grep -q "/Sources/ReadAloud/"'
+# build-app.sh strips the linker's debug map and drops the checkout's library path before
+# signing. Do the same to a copy, then read every byte: strings -a only scans sections, so
+# it can't see the debug map's object-file paths (/Users/<name>/…/KokoroEngine.swift.o).
+cp "$B" "$TMP/ReadAloud"
+strip -S "$TMP/ReadAloud"
+install_name_tool -delete_rpath "$PWD/Vendor/sherpa-onnx-asr/lib" "$TMP/ReadAloud" 2>/dev/null
+check "no path into Sources/ReadAloud is compiled in" eval '! LC_ALL=C grep -aqF "/Sources/ReadAloud/" "$TMP/ReadAloud"'
+check "nor any other path from this Mac, once stripped as build-app.sh does" \
+  eval '! LC_ALL=C grep -aqF -e "$PWD/" -e "$HOME/" "$TMP/ReadAloud"'
+check "build-app.sh strips before it signs, and its leak checks read raw bytes" \
+  eval '(( $(grep -n "^strip -S" scripts/build-app.sh | cut -d: -f1) < $(grep -n "^codesign" scripts/build-app.sh | head -1 | cut -d: -f1) )) && ! grep -qE "^[^#]*strings -a" scripts/build-app.sh'
 check "dictation still uses the checkout's Lexicons/" eval '"$B" --correct-dictation "push it to git hub" | grep -q "GitHub"'
 
 echo "Test harness"
