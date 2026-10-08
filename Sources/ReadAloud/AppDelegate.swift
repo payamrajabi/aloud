@@ -13,7 +13,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
     private let settingsMenu = NSMenu()
     private var nowPlaying: NowPlaying?
     private lazy var dictation = DictationController(player: model)
-    private(set) var dictationHUD: DictationHUD?
+    private(set) var pill: OnScreenPill?
     private var observers: Set<AnyCancellable> = []
     private var updater: SPUStandardUpdaterController?
     /// A newer version Sparkle found on its daily check, until the person deals with it.
@@ -24,7 +24,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
     func applicationDidFinishLaunching(_ notification: Notification) {
         setUpStatusItem()
         nowPlaying = NowPlaying(model: model)
-        dictationHUD = DictationHUD(controller: dictation)
+        pill = OnScreenPill(dictation: dictation, player: model)
         // A key combination pauses on a second press, like before; a modifier tap only starts or resumes.
         dictation.onRead = { [weak self] in self?.readSelection(pausing: ShortcutAction.read.binding?.modifierKey == nil) }
         dictation.start()
@@ -154,7 +154,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
             SelectionReader.requestAccess()
             return
         }
-        // Reads in the background; the player only opens from the menu bar icon.
+        let pill = self.pill?.reader
+        pill?.show(.finding)
+        // Reads in the background, with controls in the on-screen pill; the player only opens from the menu bar icon.
         SelectionReader.read { [weak self] text in
             guard let self else { return }
             let selection = text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
@@ -162,14 +164,19 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
             if !selection.isEmpty && !(selection == current && self.model.hasSession) {
                 // The voice was removed (or never finished downloading): ask before fetching 330 MB.
                 if !KokoroEngine.isModelInstalled, !self.model.isDownloadingVoice,
-                   !DownloadPrompt.confirm(model: "the voice", size: "330 MB", feature: "Reading aloud") { return }
+                   !DownloadPrompt.confirm(model: "the voice", size: "330 MB", feature: "Reading aloud") {
+                    pill?.show(.hidden)
+                    return
+                }
                 self.model.load(selection)
-                // Show what's happening when reading can't start right away.
-                if (self.model.message != nil && !self.model.hasSession) || self.model.isDownloadingVoice { self.showPlayer() }
-            } else if self.model.hasSession {
+                pill?.show(self.model.hasSession ? .controls : .hint(self.model.message ?? "There's nothing to read in that selection."))
+                // Show the voice's download progress when reading has to wait for it.
+                if self.model.isDownloadingVoice { self.showPlayer() }
+            } else if self.model.hasSession, !selection.isEmpty || !self.model.isAtEnd {
                 pausing ? self.model.togglePlay() : self.model.play()
+                pill?.show(.controls)
             } else {
-                NSSound.beep()
+                pill?.show(.hint("Select some text to read aloud."))
             }
         }
     }

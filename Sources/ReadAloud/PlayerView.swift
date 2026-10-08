@@ -146,53 +146,11 @@ extension Voice {
 struct TimelineScrubber: View {
     @ObservedObject var model: PlayerModel
     @State private var dragTime: Double?
-    @State private var hovering = false
 
     var body: some View {
         VStack(spacing: 4) {
-            GeometryReader { geo in
-                let width = geo.size.width
-                let total = max(model.duration, 0.001)
-                let shown = dragTime ?? model.position
-                let x = CGFloat(shown / total) * width
-                let barHeight: CGFloat = hovering || dragTime != nil ? 7 : 5
-                ZStack(alignment: .leading) {
-                    Capsule().fill(Color.primary.opacity(0.10))
-                    ForEach(Array(model.generatedSpans.enumerated()), id: \.offset) { _, span in
-                        Rectangle()
-                            .fill(Color.primary.opacity(0.18))
-                            .frame(width: max(0, CGFloat((span.upperBound - span.lowerBound) / total) * width))
-                            .offset(x: CGFloat(span.lowerBound / total) * width)
-                    }
-                    Rectangle().fill(Color.accentColor).frame(width: max(0, x))
-                }
-                .frame(height: barHeight)
-                .clipShape(Capsule())
-                .overlay(alignment: .leading) {
-                    Circle()
-                        .fill(Color.white)
-                        .shadow(radius: 1.5)
-                        .frame(width: 13, height: 13)
-                        .offset(x: max(0, min(x, width)) - 6.5)
-                        .opacity(model.hasSession ? 1 : 0)
-                }
-                .frame(maxHeight: .infinity)
-                .contentShape(Rectangle())
-                .gesture(
-                    DragGesture(minimumDistance: 0)
-                        .onChanged { g in
-                            guard model.hasSession else { return }
-                            dragTime = Double(max(0, min(g.location.x, width)) / width) * total
-                        }
-                        .onEnded { _ in
-                            if let t = dragTime { model.seek(to: t) }
-                            dragTime = nil
-                        }
-                )
-                .onHover { hovering = $0 }
-                .animation(.easeOut(duration: 0.12), value: barHeight)
-            }
-            .frame(height: 16)
+            SeekBar(model: model, dragTime: $dragTime)
+                .frame(height: 16)
 
             HStack {
                 Text(Self.format(dragTime ?? model.position))
@@ -216,6 +174,64 @@ struct TimelineScrubber: View {
         return s >= 3600
             ? String(format: "%d:%02d:%02d", s / 3600, (s % 3600) / 60, s % 60)
             : String(format: "%d:%02d", s / 60, s % 60)
+    }
+}
+
+/// The bar itself: played, generated and remaining portions, and a knob to drag. `dragTime` is
+/// where the knob is while it's dragged.
+struct SeekBar: View {
+    @ObservedObject var model: PlayerModel
+    @Binding var dragTime: Double?
+    var played = Color.accentColor
+    var generated = Color.primary.opacity(0.18)
+    var track = Color.primary.opacity(0.10)
+    var height: CGFloat = 5  // 2 more while hovered or dragged
+    var knob: CGFloat = 13
+    @State private var hovering = false
+
+    var body: some View {
+        GeometryReader { geo in
+            let width = geo.size.width
+            let total = max(model.duration, 0.001)
+            let shown = dragTime ?? model.position
+            let x = CGFloat(shown / total) * width
+            let barHeight = hovering || dragTime != nil ? height + 2 : height
+            ZStack(alignment: .leading) {
+                Capsule().fill(track)
+                ForEach(Array(model.generatedSpans.enumerated()), id: \.offset) { _, span in
+                    Rectangle()
+                        .fill(generated)
+                        .frame(width: max(0, CGFloat((span.upperBound - span.lowerBound) / total) * width))
+                        .offset(x: CGFloat(span.lowerBound / total) * width)
+                }
+                Rectangle().fill(played).frame(width: max(0, x))
+            }
+            .frame(height: barHeight)
+            .clipShape(Capsule())
+            .overlay(alignment: .leading) {
+                Circle()
+                    .fill(Color.white)
+                    .shadow(radius: 1.5)
+                    .frame(width: knob, height: knob)
+                    .offset(x: max(0, min(x, width)) - knob / 2)
+                    .opacity(model.hasSession ? 1 : 0)
+            }
+            .frame(maxHeight: .infinity)
+            .contentShape(Rectangle())
+            .gesture(
+                DragGesture(minimumDistance: 0)
+                    .onChanged { g in
+                        guard model.hasSession else { return }
+                        dragTime = Double(max(0, min(g.location.x, width)) / width) * total
+                    }
+                    .onEnded { _ in
+                        if let t = dragTime { model.seek(to: t) }
+                        dragTime = nil
+                    }
+            )
+            .onHover { hovering = $0 }
+            .animation(.easeOut(duration: 0.12), value: barHeight)
+        }
     }
 }
 
@@ -302,7 +318,7 @@ struct WelcomeView: View {
         guard let binding = ShortcutAction.read.binding else {
             return "Select text in any app, then choose Read Selection from the menu bar icon. Set a shortcut in Settings."
         }
-        let pause = binding.modifierKey == nil ? "Press it again to pause." : "Use the player, Space or your AirPods to pause."
+        let pause = binding.modifierKey == nil ? "Press it again to pause." : "Pause with the controls that appear, or your AirPods."
         return "Select text in any app, then \(phrase(binding)). \(pause)"
     }
 

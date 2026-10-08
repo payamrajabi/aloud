@@ -22,6 +22,8 @@ final class PlayerModel: ObservableObject {
 
     private(set) var sourceText = ""
     var hasSession: Bool { !chunks.isEmpty }
+    /// At the end: finished, or never started.
+    var isAtEnd: Bool { position >= duration - 0.05 }
 
     /// Called after play, pause, seek, speed and stop, so the system's
     /// Now Playing info (AirPods, media keys, Control Center) stays in sync.
@@ -216,7 +218,7 @@ final class PlayerModel: ObservableObject {
 
     func play() {
         guard hasSession, !isPlaying else { return }
-        if position >= duration - 0.05 { resumePoint = (0, 0) }  // finished: start over
+        if isAtEnd { resumePoint = (0, 0) }  // finished: start over
         if !KokoroEngine.isModelInstalled {
             message = nil
             downloadVoiceIfNeeded()
