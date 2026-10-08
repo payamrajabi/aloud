@@ -1,19 +1,19 @@
 {
-"total": 9989,
+"total": 9988,
 "verdicts": {
-"right": 6542,
+"right": 6541,
 "partial": 1734,
 "wrong": 1713
 },
 "confidence": {
 "medium": 1374,
-"high": 8456,
+"high": 8455,
 "low": 159
 },
 "categories": {
 "engineering": 2016,
 "general": 173,
-"security": 292,
+"security": 291,
 "cloud": 690,
 "finance": 461,
 "media": 269,
@@ -29,12 +29,12 @@
 "person": 803
 },
 "dictation": {
-"always": 5770,
-"context": 1918,
-"never": 2301
+"always": 5769,
+"context": 1903,
+"never": 2316
 },
-"asr_exact": 7557,
-"asr_tested": 9989,
+"asr_exact": 7556,
+"asr_tested": 9988,
 "conflicts": [
 {
 "word": "Synthesia",
@@ -50,6 +50,15 @@
 }
 ],
 "context_only_variants": [
+{
+"word": "Agentforce",
+"risky": [
+[
+"agent force",
+4.67
+]
+]
+},
 {
 "word": "agentic",
 "risky": [
@@ -82,15 +91,6 @@
 [
 "chain of thought",
 4.6
-]
-]
-},
-{
-"word": "DALL-E",
-"risky": [
-[
-"dolly",
-3.54
 ]
 ]
 },
@@ -404,6 +404,15 @@
 ]
 },
 {
+"word": "10x",
+"risky": [
+[
+"ten x",
+4.82
+]
+]
+},
+{
 "word": "@mention",
 "risky": [
 [
@@ -417,6 +426,23 @@
 ]
 },
 {
+"word": "A/A test",
+"risky": [
+[
+"a a test",
+5.18
+],
+[
+"a-a test",
+5.18
+],
+[
+"aa test",
+3.98
+]
+]
+},
+{
 "word": "a16z",
 "risky": [
 [
@@ -426,6 +452,15 @@
 [
 "a sixteen zed",
 2.97
+]
+]
+},
+{
+"word": "acqui-hire",
+"risky": [
+[
+"acquire hire",
+3.94
 ]
 ]
 },
@@ -807,6 +842,24 @@
 ]
 },
 {
+"word": "S-1",
+"risky": [
+[
+"s one",
+5.76
+]
+]
+},
+{
+"word": "S-3",
+"risky": [
+[
+"s three",
+5.52
+]
+]
+},
+{
 "word": "sales-led",
 "risky": [
 [
@@ -900,6 +953,15 @@
 [
 "save viral coefficient",
 3.3
+]
+]
+},
+{
+"word": "10x engineer",
+"risky": [
+[
+"ten ex engineer",
+4.25
 ]
 ]
 },
@@ -1117,6 +1179,15 @@
 ]
 },
 {
+"word": "runbook",
+"risky": [
+[
+"run book",
+5.16
+]
+]
+},
+{
 "word": "S corp",
 "risky": [
 [
@@ -1179,11 +1250,20 @@
 ]
 },
 {
-"word": "CIDR",
+"word": "CloudFront",
 "risky": [
 [
-"cider",
-3.5
+"cloud front",
+4.4
+]
+]
+},
+{
+"word": "CloudWatch",
+"risky": [
+[
+"cloud watch",
+4.41
 ]
 ]
 },
@@ -1247,6 +1327,15 @@
 [
 "log stash",
 3.48
+]
+]
+},
+{
+"word": "namespace",
+"risky": [
+[
+"name space",
+5.08
 ]
 ]
 },
@@ -1350,6 +1439,15 @@
 ]
 },
 {
+"word": "AAAA record",
+"risky": [
+[
+"four a record",
+5.04
+]
+]
+},
+{
 "word": "ALB",
 "risky": [
 [
@@ -1364,6 +1462,24 @@
 [
 "alert manager",
 4.24
+]
+]
+},
+{
+"word": "Amazon Lightsail",
+"risky": [
+[
+"amazon light sale",
+4.37
+]
+]
+},
+{
+"word": "Amazon Rekognition",
+"risky": [
+[
+"amazon recognition",
+4.21
 ]
 ]
 },
@@ -1391,6 +1507,15 @@
 [
 "aws back up",
 3.17
+]
+]
+},
+{
+"word": "Azure Advisor",
+"risky": [
+[
+"asher advisor",
+3.12
 ]
 ]
 },
@@ -1445,6 +1570,15 @@
 [
 "bottle rocket",
 4.12
+]
+]
+},
+{
+"word": "Cache-Control",
+"risky": [
+[
+"cache control",
+3.62
 ]
 ]
 },
@@ -1695,6 +1829,15 @@
 ]
 },
 {
+"word": "AngelList",
+"risky": [
+[
+"angel list",
+4.39
+]
+]
+},
+{
 "word": "AT&T",
 "risky": [
 [
@@ -1767,6 +1910,24 @@
 [
 "character ai",
 4.18
+]
+]
+},
+{
+"word": "Colab",
+"risky": [
+[
+"co lab",
+4.35
+]
+]
+},
+{
+"word": "DeepMind",
+"risky": [
+[
+"deep mind",
+4.89
 ]
 ]
 },
@@ -1954,6 +2115,15 @@
 ]
 },
 {
+"word": "Typeform",
+"risky": [
+[
+"type form",
+4.99
+]
+]
+},
+{
 "word": "Udemy",
 "risky": [
 [
@@ -1972,11 +2142,29 @@
 ]
 },
 {
+"word": "8VC",
+"risky": [
+[
+"eight v c",
+4.64
+]
+]
+},
+{
 "word": "a16z crypto",
 "risky": [
 [
 "a sixteen z crypto",
 3.4
+]
+]
+},
+{
+"word": "Aircall",
+"risky": [
+[
+"air call",
+5.13
 ]
 ]
 },
@@ -2357,6 +2545,15 @@
 [
 "high silicon",
 3.99
+]
+]
+},
+{
+"word": "Hotmail",
+"risky": [
+[
+"hot mail",
+4.59
 ]
 ]
 },
@@ -2966,6 +3163,24 @@
 ]
 },
 {
+"word": "A/B test",
+"risky": [
+[
+"ab test",
+4.03
+]
+]
+},
+{
+"word": "A/B testing",
+"risky": [
+[
+"ab testing",
+3.96
+]
+]
+},
+{
 "word": "BI",
 "risky": [
 [
@@ -3046,6 +3261,19 @@
 ]
 },
 {
+"word": "Aerospike",
+"risky": [
+[
+"aero spike",
+3.24
+],
+[
+"arrow spike",
+3.74
+]
+]
+},
+{
 "word": "Alation",
 "risky": [
 [
@@ -3096,6 +3324,15 @@
 [
 "b+tree",
 4.73
+]
+]
+},
+{
+"word": "B-tree",
+"risky": [
+[
+"bee tree",
+4.02
 ]
 ]
 },
@@ -3211,6 +3448,15 @@
 ]
 },
 {
+"word": "JSONB",
+"risky": [
+[
+"jason bee",
+3.94
+]
+]
+},
+{
 "word": "Liquibase",
 "risky": [
 [
@@ -3269,6 +3515,15 @@
 ]
 },
 {
+"word": "SwiftData",
+"risky": [
+[
+"swift data",
+4.12
+]
+]
+},
+{
 "word": "Turso",
 "risky": [
 [
@@ -3318,6 +3573,24 @@
 [
 "triple a",
 4.31
+]
+]
+},
+{
+"word": "AutoCAD",
+"risky": [
+[
+"auto cat",
+4.3
+]
+]
+},
+{
+"word": "Autodesk",
+"risky": [
+[
+"auto desk",
+4.15
 ]
 ]
 },
@@ -3376,15 +3649,6 @@
 ]
 },
 {
-"word": "Dribbble",
-"risky": [
-[
-"dribble",
-3.06
-]
-]
-},
-{
 "word": "FigJam",
 "risky": [
 [
@@ -3426,6 +3690,15 @@
 [
 "material you i",
 4.94
+]
+]
+},
+{
+"word": "Photoshop",
+"risky": [
+[
+"photo shop",
+4.62
 ]
 ]
 },
@@ -3632,6 +3905,24 @@
 ]
 },
 {
+"word": "$PATH",
+"risky": [
+[
+"dollar path",
+4.34
+]
+]
+},
+{
+"word": ".gitignore",
+"risky": [
+[
+"git ignore",
+3.33
+]
+]
+},
+{
 "word": ".NET",
 "risky": [
 [
@@ -3650,6 +3941,15 @@
 [
 "four zero four",
 4.53
+]
+]
+},
+{
+"word": "AAC",
+"risky": [
+[
+"double a c",
+4.84
 ]
 ]
 },
@@ -3734,11 +4034,11 @@
 ]
 },
 {
-"word": "daemon",
+"word": "Ctrl-C",
 "risky": [
 [
-"demon",
-4.06
+"control c",
+5.06
 ]
 ]
 },
@@ -3788,11 +4088,29 @@
 ]
 },
 {
+"word": "git clone",
+"risky": [
+[
+"get clone",
+3.68
+]
+]
+},
+{
 "word": "git init",
 "risky": [
 [
 "git in it",
 3.36
+]
+]
+},
+{
+"word": "git rebase",
+"risky": [
+[
+"get rebase",
+1.81
 ]
 ]
 },
@@ -3806,11 +4124,29 @@
 ]
 },
 {
+"word": "GitHub",
+"risky": [
+[
+"get hub",
+4.08
+]
+]
+},
+{
 "word": "GrowthBook",
 "risky": [
 [
 "growth book",
 4.88
+]
+]
+},
+{
+"word": "GUI",
+"risky": [
+[
+"gooey",
+2.86
 ]
 ]
 },
@@ -3864,6 +4200,15 @@
 ]
 },
 {
+"word": "ImageMagick",
+"risky": [
+[
+"image magic",
+4.54
+]
+]
+},
+{
 "word": "innerHTML",
 "risky": [
 [
@@ -3913,29 +4258,20 @@
 ]
 },
 {
-"word": "JSON",
-"risky": [
-[
-"jason",
-4.46
-]
-]
-},
-{
-"word": "Jupyter",
-"risky": [
-[
-"jupiter",
-3.68
-]
-]
-},
-{
 "word": "Linux Mint",
 "risky": [
 [
 "linux min",
 3.85
+]
+]
+},
+{
+"word": "localhost",
+"risky": [
+[
+"local host",
+4.68
 ]
 ]
 },
@@ -4025,11 +4361,11 @@
 ]
 },
 {
-"word": "OAuth",
+"word": "Objective-C",
 "risky": [
 [
-"oath",
-3.96
+"objective c",
+4.32
 ]
 ]
 },
@@ -4084,15 +4420,6 @@
 [
 "si pai",
 3.06
-]
-]
-},
-{
-"word": "SQL",
-"risky": [
-[
-"sequel",
-3.98
 ]
 ]
 },
@@ -4178,6 +4505,15 @@
 ]
 },
 {
+"word": "useEffect",
+"risky": [
+[
+"use effect",
+4.95
+]
+]
+},
+{
 "word": "vertex",
 "risky": [
 [
@@ -4201,6 +4537,33 @@
 [
 "ex or",
 4.8
+]
+]
+},
+{
+"word": ".DS_Store",
+"risky": [
+[
+"d s store",
+4.84
+]
+]
+},
+{
+"word": "/etc",
+"risky": [
+[
+"slash etc",
+3.63
+]
+]
+},
+{
+"word": "/tmp",
+"risky": [
+[
+"slash temp",
+3.4
 ]
 ]
 },
@@ -4296,6 +4659,28 @@
 ]
 },
 {
+"word": "6G",
+"risky": [
+[
+"six g",
+4.82
+]
+]
+},
+{
+"word": "7z",
+"risky": [
+[
+"seven zed",
+3.02
+],
+[
+"seven zee",
+3.16
+]
+]
+},
+{
 "word": "@babel/core",
 "risky": [
 [
@@ -4339,6 +4724,10 @@
 [
 "at emotion slash react",
 3.45
+],
+[
+"emotion react",
+3.87
 ]
 ]
 },
@@ -4417,6 +4806,15 @@
 ]
 },
 {
+"word": "ActivityPub",
+"risky": [
+[
+"activity pub",
+4.14
+]
+]
+},
+{
 "word": "AIFF",
 "risky": [
 [
@@ -4431,6 +4829,19 @@
 [
 "a lack",
 4.92
+]
+]
+},
+{
+"word": "antd",
+"risky": [
+[
+"ant d",
+3.85
+],
+[
+"ant dee",
+3.55
 ]
 ]
 },
@@ -4670,6 +5081,33 @@
 ]
 },
 {
+"word": "Ctrl-D",
+"risky": [
+[
+"control d",
+5.13
+]
+]
+},
+{
+"word": "Ctrl-R",
+"risky": [
+[
+"control r",
+5.07
+]
+]
+},
+{
+"word": "Ctrl-Z",
+"risky": [
+[
+"control z",
+4.42
+]
+]
+},
+{
 "word": "De Morgan's laws",
 "risky": [
 [
@@ -4791,6 +5229,28 @@
 [
 "save frame generation",
 4.31
+]
+]
+},
+{
+"word": "frontend",
+"risky": [
+[
+"front end",
+5.13
+],
+[
+"front-end",
+5.13
+]
+]
+},
+{
+"word": "GameObject",
+"risky": [
+[
+"game object",
+4.53
 ]
 ]
 },
@@ -5138,6 +5598,15 @@
 ]
 },
 {
+"word": "NativeScript",
+"risky": [
+[
+"native script",
+4.19
+]
+]
+},
+{
 "word": "node-gyp",
 "risky": [
 [
@@ -5200,15 +5669,6 @@
 [
 "pack man",
 4.63
-]
-]
-},
-{
-"word": "Perl",
-"risky": [
-[
-"pearl",
-4.14
 ]
 ]
 },
@@ -5394,6 +5854,15 @@
 ]
 },
 {
+"word": "10-Q",
+"risky": [
+[
+"ten q",
+4.44
+]
+]
+},
+{
 "word": "409A",
 "risky": [
 [
@@ -5417,15 +5886,6 @@
 [
 "burn raid",
 4.03
-]
-]
-},
-{
-"word": "FAANG",
-"risky": [
-[
-"fang",
-3.34
 ]
 ]
 },
@@ -5671,6 +6131,15 @@
 ]
 },
 {
+"word": "GameStop",
+"risky": [
+[
+"game stop",
+5.31
+]
+]
+},
+{
 "word": "ICONIQ Growth",
 "risky": [
 [
@@ -5760,6 +6229,19 @@
 ]
 },
 {
+"word": ".py",
+"risky": [
+[
+"dot pi",
+3.68
+],
+[
+"dot pie",
+3.81
+]
+]
+},
+{
 "word": "ICANN",
 "risky": [
 [
@@ -5774,6 +6256,15 @@
 [
 "plus one",
 4.94
+]
+]
+},
+{
+"word": ".app",
+"risky": [
+[
+"dot app",
+3.99
 ]
 ]
 },
@@ -5890,6 +6381,24 @@
 ]
 },
 {
+"word": "4G",
+"risky": [
+[
+"four g",
+4.89
+]
+]
+},
+{
+"word": "5G",
+"risky": [
+[
+"five g",
+4.87
+]
+]
+},
+{
 "word": "A100",
 "risky": [
 [
@@ -5926,6 +6435,15 @@
 [
 "a soos",
 2.05
+]
+]
+},
+{
+"word": "Blackwell",
+"risky": [
+[
+"black well",
+5.36
 ]
 ]
 },
@@ -5970,6 +6488,15 @@
 ]
 },
 {
+"word": "RISC-V",
+"risky": [
+[
+"risk five",
+4.9
+]
+]
+},
+{
 "word": "Wi-Fi",
 "risky": [
 [
@@ -6010,6 +6537,15 @@
 [
 "ail you",
 2.26
+]
+]
+},
+{
+"word": "AM5",
+"risky": [
+[
+"a m five",
+5.11
 ]
 ]
 },
@@ -6134,6 +6670,19 @@
 ]
 },
 {
+"word": "mmWave",
+"risky": [
+[
+"millimeter wave",
+3.12
+],
+[
+"millimetre wave",
+2.6
+]
+]
+},
+{
 "word": "Netgear",
 "risky": [
 [
@@ -6210,6 +6759,15 @@
 ]
 },
 {
+"word": "9to5Mac",
+"risky": [
+[
+"nine to five mac",
+4.28
+]
+]
+},
+{
 "word": "CNET",
 "risky": [
 [
@@ -6246,6 +6804,15 @@
 [
 "go dot",
 4.05
+]
+]
+},
+{
+"word": "PlayStation",
+"risky": [
+[
+"play station",
+4.91
 ]
 ]
 },
@@ -6762,6 +7329,15 @@
 ]
 },
 {
+"word": "Laplace",
+"risky": [
+[
+"la place",
+4.96
+]
+]
+},
+{
 "word": "Lee Robinson",
 "risky": [
 [
@@ -6930,6 +7506,15 @@
 ]
 },
 {
+"word": "AlphaGo",
+"risky": [
+[
+"alpha go",
+4.24
+]
+]
+},
+{
 "word": "Amazon Q",
 "risky": [
 [
@@ -6953,6 +7538,24 @@
 [
 "cloud code",
 4.37
+]
+]
+},
+{
+"word": "Claude Haiku",
+"risky": [
+[
+"cloud haiku",
+3.06
+]
+]
+},
+{
+"word": "Claude Sonnet",
+"risky": [
+[
+"cloud sonnet",
+2.95
 ]
 ]
 },
@@ -7212,15 +7815,6 @@
 ]
 },
 {
-"word": "Llama",
-"risky": [
-[
-"lama",
-3.48
-]
-]
-},
-{
 "word": "Llama 2",
 "risky": [
 [
@@ -7235,6 +7829,15 @@
 [
 "llama for",
 2.95
+]
+]
+},
+{
+"word": "Material 3",
+"risky": [
+[
+"material three",
+4.89
 ]
 ]
 },
@@ -7311,11 +7914,29 @@
 ]
 },
 {
+"word": "PowerPoint",
+"risky": [
+[
+"power point",
+5.23
+]
+]
+},
+{
 "word": "Prisma",
 "risky": [
 [
 "prism a",
 3.44
+]
+]
+},
+{
+"word": "SharePoint",
+"risky": [
+[
+"share point",
+5.04
 ]
 ]
 },
@@ -7423,11 +8044,29 @@
 ]
 },
 {
+"word": "AdMob",
+"risky": [
+[
+"ad mob",
+3.96
+]
+]
+},
+{
 "word": "Adreno",
 "risky": [
 [
 "a dreno",
 0.0
+]
+]
+},
+{
+"word": "Airfocus",
+"risky": [
+[
+"air focus",
+4.85
 ]
 ]
 },
@@ -7441,6 +8080,28 @@
 [
 "sail packer",
 3.19
+]
+]
+},
+{
+"word": "AndroidX",
+"risky": [
+[
+"android ex",
+4.27
+],
+[
+"android x",
+4.35
+]
+]
+},
+{
+"word": "App Intents",
+"risky": [
+[
+"app intent",
+4.18
 ]
 ]
 },
@@ -7463,6 +8124,15 @@
 [
 "are na",
 4.42
+]
+]
+},
+{
+"word": "Authy",
+"risky": [
+[
+"auth e",
+2.95
 ]
 ]
 },
@@ -7535,6 +8205,15 @@
 [
 "fluent you i",
 3.52
+]
+]
+},
+{
+"word": "GameKit",
+"risky": [
+[
+"game kit",
+4.4
 ]
 ]
 },
@@ -7915,6 +8594,15 @@
 ]
 },
 {
+"word": "qubit",
+"risky": [
+[
+"cubit",
+2.07
+]
+]
+},
+{
 "word": "UC Berkeley",
 "risky": [
 [
@@ -7960,6 +8648,15 @@
 [
 "a rima",
 2.31
+]
+]
+},
+{
+"word": "athenahealth",
+"risky": [
+[
+"athena health",
+3.25
 ]
 ]
 },
@@ -8159,11 +8856,11 @@
 ]
 },
 {
-"word": "phishing",
+"word": "passkey",
 "risky": [
 [
-"fishing",
-4.47
+"pass key",
+4.78
 ]
 ]
 },
@@ -8191,6 +8888,15 @@
 [
 "you be key",
 5.1
+]
+]
+},
+{
+"word": "/etc/passwd",
+"risky": [
+[
+"etc password",
+4.02
 ]
 ]
 },
@@ -8240,6 +8946,15 @@
 [
 "back door",
 5.03
+]
+]
+},
+{
+"word": "BigID",
+"risky": [
+[
+"big id",
+4.57
 ]
 ]
 },
@@ -8425,6 +9140,15 @@
 [
 "no toe sans",
 3.46
+]
+]
+},
+{
+"word": "OpenType",
+"risky": [
+[
+"open type",
+5.06
 ]
 ]
 },
@@ -8788,6 +9512,15 @@
 ]
 },
 {
+"word": "Passkeys",
+"risky": [
+[
+"pass keys",
+4.3
+]
+]
+},
+{
 "word": "Raycast",
 "risky": [
 [
@@ -8893,6 +9626,26 @@
 ],
 "dropped_variants": [
 {
+"word": "autoregressive",
+"variant": "auto aggressive"
+},
+{
+"word": "autoregressive",
+"variant": "auto-aggressive"
+},
+{
+"word": "DALL-E",
+"variant": "dally"
+},
+{
+"word": "DALL-E",
+"variant": "dolly"
+},
+{
+"word": "latent",
+"variant": "layton"
+},
+{
 "word": "LoRA",
 "variant": "laura"
 },
@@ -8905,12 +9658,20 @@
 "variant": "soda"
 },
 {
+"word": "AdamW",
+"variant": "adam w"
+},
+{
 "word": "ANN",
 "variant": "a'en and"
 },
 {
 "word": "Arize",
 "variant": "arise"
+},
+{
+"word": "ASL-3",
+"variant": "a s l three"
 },
 {
 "word": "BLEU",
@@ -8921,8 +9682,16 @@
 "variant": "brain trust"
 },
 {
+"word": "CIFAR-10",
+"variant": "see far ten"
+},
+{
 "word": "Covariant",
 "variant": "co variant"
+},
+{
+"word": "cv2",
+"variant": "c v two"
 },
 {
 "word": "deepset",
@@ -8946,7 +9715,27 @@
 },
 {
 "word": "GELU",
+"variant": "jello"
+},
+{
+"word": "GELU",
 "variant": "jelly"
+},
+{
+"word": "Golden Gate Claude",
+"variant": "golden gate cloud"
+},
+{
+"word": "HumanEval",
+"variant": "human evil"
+},
+{
+"word": "Humanloop",
+"variant": "human loop"
+},
+{
+"word": "ICLR",
+"variant": "eye clear"
 },
 {
 "word": "INT4",
@@ -8957,12 +9746,20 @@
 "variant": "in eight"
 },
 {
+"word": "Jacobian",
+"variant": "jacobean"
+},
+{
 "word": "LeNet",
 "variant": "lean at"
 },
 {
 "word": "MLE",
 "variant": "emily"
+},
+{
+"word": "n-gram",
+"variant": "engram"
 },
 {
 "word": "NER",
@@ -8973,12 +9770,24 @@
 "variant": "rock"
 },
 {
+"word": "scikit-image",
+"variant": "psychic image"
+},
+{
 "word": "UMAP",
 "variant": "you map"
 },
 {
 "word": "Upstage",
 "variant": "up stage"
+},
+{
+"word": "Vellum",
+"variant": "velum"
+},
+{
+"word": "10x",
+"variant": "ten ex"
 },
 {
 "word": "1:1s",
@@ -8989,6 +9798,14 @@
 "variant": "one-on-ones"
 },
 {
+"word": "acqui-hire",
+"variant": "acquihire"
+},
+{
+"word": "Asana",
+"variant": "uh sauna"
+},
+{
 "word": "B2C",
 "variant": "be to see"
 },
@@ -8997,8 +9814,20 @@
 "variant": "burn down"
 },
 {
+"word": "C-suite",
+"variant": "see suite"
+},
+{
+"word": "C-suite",
+"variant": "see sweet"
+},
+{
 "word": "cache",
 "variant": "cash"
+},
+{
+"word": "CSAT",
+"variant": "see sat"
 },
 {
 "word": "DAO",
@@ -9021,6 +9850,14 @@
 "variant": "max diff"
 },
 {
+"word": "MMM",
+"variant": "triple m"
+},
+{
+"word": "moat",
+"variant": "mote"
+},
+{
 "word": "MoM",
 "variant": "month over month"
 },
@@ -9039,6 +9876,14 @@
 {
 "word": "PaaS",
 "variant": "pass"
+},
+{
+"word": "Q3",
+"variant": "queue three"
+},
+{
+"word": "Q4",
+"variant": "queue four"
 },
 {
 "word": "QoQ",
@@ -9061,6 +9906,10 @@
 "variant": "sock"
 },
 {
+"word": "SOC 2",
+"variant": "sock too"
+},
+{
 "word": "SOM",
 "variant": "psalm"
 },
@@ -9075,6 +9924,10 @@
 {
 "word": "sync",
 "variant": "sink"
+},
+{
+"word": "trade-off",
+"variant": "tradeoff"
 },
 {
 "word": "WAU",
@@ -9105,6 +9958,14 @@
 "variant": "year over year"
 },
 {
+"word": "Zapier",
+"variant": "zapper"
+},
+{
+"word": "Zapier",
+"variant": "zappier"
+},
+{
 "word": "4DX",
 "variant": "for dx"
 },
@@ -9133,6 +9994,14 @@
 "variant": "company limited"
 },
 {
+"word": "Computex",
+"variant": "compute x"
+},
+{
+"word": "ELI5",
+"variant": "eli five"
+},
+{
 "word": "FaaS",
 "variant": "fast"
 },
@@ -9153,16 +10022,64 @@
 "variant": "always see"
 },
 {
+"word": "PI planning",
+"variant": "pie planning"
+},
+{
+"word": "Radical Candor",
+"variant": "radical candour"
+},
+{
 "word": "RIF",
 "variant": "riff"
+},
+{
+"word": "RTE",
+"variant": "our t"
+},
+{
+"word": "Section 230",
+"variant": "section two thirty"
 },
 {
 "word": "SOX",
 "variant": "socks"
 },
 {
+"word": "SXSW",
+"variant": "south by south west"
+},
+{
+"word": "SXSW",
+"variant": "south by southwest"
+},
+{
+"word": "Apigee",
+"variant": "apogee"
+},
+{
 "word": "ARN",
 "variant": "aren't"
+},
+{
+"word": "Azure Monitor",
+"variant": "asher monitor"
+},
+{
+"word": "BigQuery",
+"variant": "big query"
+},
+{
+"word": "Ceph",
+"variant": "sef"
+},
+{
+"word": "CIDR",
+"variant": "cider"
+},
+{
+"word": "CloudFormation",
+"variant": "cloud formation"
 },
 {
 "word": "Consul",
@@ -9171,6 +10088,10 @@
 {
 "word": "DaemonSet",
 "variant": "demon said"
+},
+{
+"word": "DNS",
+"variant": "d and s"
 },
 {
 "word": "EC2",
@@ -9183,6 +10104,14 @@
 {
 "word": "Karpenter",
 "variant": "carpenter"
+},
+{
+"word": "NAT",
+"variant": "gnat"
+},
+{
+"word": "OpenAPI",
+"variant": "open a p i"
 },
 {
 "word": "OTel",
@@ -9205,6 +10134,10 @@
 "variant": "recapture"
 },
 {
+"word": "SNS",
+"variant": "s and s"
+},
+{
 "word": "Traefik",
 "variant": "traffic"
 },
@@ -9214,7 +10147,19 @@
 },
 {
 "word": "2PC",
+"variant": "to p c"
+},
+{
+"word": "2PC",
 "variant": "to pc"
+},
+{
+"word": "2PC",
+"variant": "two p c"
+},
+{
+"word": "anycast",
+"variant": "any cast"
 },
 {
 "word": "Appwrite",
@@ -9222,19 +10167,119 @@
 },
 {
 "word": "Appwrite",
+"variant": "app write"
+},
+{
+"word": "Appwrite",
 "variant": "upright"
+},
+{
+"word": "Azure Backup",
+"variant": "asher backup"
+},
+{
+"word": "Azure Policy",
+"variant": "asher policy"
+},
+{
+"word": "Azure Stack",
+"variant": "asher stack"
 },
 {
 "word": "Buildah",
 "variant": "builder"
 },
 {
+"word": "BuildKit",
+"variant": "build kit"
+},
+{
+"word": "Buildx",
+"variant": "build x"
+},
+{
+"word": "cache hit",
+"variant": "cash hit"
+},
+{
+"word": "cache miss",
+"variant": "cash miss"
+},
+{
+"word": "Cache-Control",
+"variant": "cash control"
+},
+{
+"word": "Caddy",
+"variant": "caddie"
+},
+{
+"word": "Caddy",
+"variant": "catty"
+},
+{
+"word": "CoreOS",
+"variant": "core os"
+},
+{
+"word": "Dapr",
+"variant": "dapper"
+},
+{
+"word": "DBaaS",
+"variant": "d b as"
+},
+{
+"word": "Dialogflow",
+"variant": "dialog flow"
+},
+{
+"word": "Document AI",
+"variant": "document a i"
+},
+{
+"word": "DocumentDB",
+"variant": "document d b"
+},
+{
+"word": "DocumentDB",
+"variant": "document db"
+},
+{
 "word": "DoH",
 "variant": "dough"
 },
 {
+"word": "ExpressRoute",
+"variant": "express route"
+},
+{
+"word": "Firebase Auth",
+"variant": "firebase off"
+},
+{
+"word": "Flatcar",
+"variant": "flat car"
+},
+{
+"word": "flyctl",
+"variant": "fly control"
+},
+{
+"word": "flyctl",
+"variant": "save fly control"
+},
+{
+"word": "Gateway API",
+"variant": "gateway a p i"
+},
+{
 "word": "Inngest",
 "variant": "in just"
+},
+{
+"word": "k6",
+"variant": "k six"
 },
 {
 "word": "KEDA",
@@ -9257,8 +10302,16 @@
 "variant": "and i'll be"
 },
 {
+"word": "OneLake",
+"variant": "one lake"
+},
+{
 "word": "OpenFaaS",
 "variant": "open fast"
+},
+{
+"word": "PartyRock",
+"variant": "party rock"
 },
 {
 "word": "QuickSight",
@@ -9269,8 +10322,20 @@
 "variant": "our two"
 },
 {
+"word": "runc",
+"variant": "run see"
+},
+{
 "word": "Skaffold",
 "variant": "scaffold"
+},
+{
+"word": "Thanos",
+"variant": "than os"
+},
+{
+"word": "VirusTotal",
+"variant": "virus total"
 },
 {
 "word": "WSGI",
@@ -9285,6 +10350,14 @@
 "variant": "axel"
 },
 {
+"word": "Airtable",
+"variant": "air table"
+},
+{
+"word": "Amex",
+"variant": "am ex"
+},
+{
 "word": "arXiv",
 "variant": "archive"
 },
@@ -9297,6 +10370,14 @@
 "variant": "bye to"
 },
 {
+"word": "Bitbucket",
+"variant": "bit bucket"
+},
+{
+"word": "Bosch",
+"variant": "bosh"
+},
+{
 "word": "Braun",
 "variant": "brown"
 },
@@ -9305,16 +10386,32 @@
 "variant": "carter"
 },
 {
+"word": "Character.AI",
+"variant": "character a i"
+},
+{
 "word": "ClickUp",
 "variant": "click up"
+},
+{
+"word": "Coda",
+"variant": "coder"
 },
 {
 "word": "Coda",
 "variant": "colder"
 },
 {
+"word": "Colab",
+"variant": "collab"
+},
+{
 "word": "Deel",
 "variant": "deal"
+},
+{
+"word": "Dropbox",
+"variant": "drop box"
 },
 {
 "word": "Ericsson",
@@ -9329,8 +10426,16 @@
 "variant": "why"
 },
 {
+"word": "Fiverr",
+"variant": "fiver"
+},
+{
 "word": "Flipkart",
 "variant": "flip card"
+},
+{
+"word": "Flipkart",
+"variant": "save flip card"
 },
 {
 "word": "Fuchsia",
@@ -9339,6 +10444,22 @@
 {
 "word": "FullStory",
 "variant": "full story"
+},
+{
+"word": "GoDaddy",
+"variant": "go daddy"
+},
+{
+"word": "Google Colab",
+"variant": "google collab"
+},
+{
+"word": "Hermès",
+"variant": "air mess"
+},
+{
+"word": "Hotjar",
+"variant": "hot jar"
 },
 {
 "word": "Intuit",
@@ -9355,6 +10476,30 @@
 {
 "word": "Jio",
 "variant": "said you"
+},
+{
+"word": "Kakao",
+"variant": "cacao"
+},
+{
+"word": "Kia",
+"variant": "kea"
+},
+{
+"word": "Kia",
+"variant": "kir"
+},
+{
+"word": "LeetCode",
+"variant": "lead code"
+},
+{
+"word": "LeetCode",
+"variant": "leak code"
+},
+{
+"word": "LeetCode",
+"variant": "lit code"
 },
 {
 "word": "Leica",
@@ -9377,6 +10522,10 @@
 "variant": "mega pack"
 },
 {
+"word": "Mobileye",
+"variant": "mobile eye"
+},
+{
 "word": "Model 3",
 "variant": "model three"
 },
@@ -9391,6 +10540,14 @@
 {
 "word": "Naver",
 "variant": "neighbour"
+},
+{
+"word": "NEC",
+"variant": "any c"
+},
+{
+"word": "Nestlé",
+"variant": "nestle"
 },
 {
 "word": "New Shepard",
@@ -9413,8 +10570,28 @@
 "variant": "phillips"
 },
 {
+"word": "Plaid",
+"variant": "plat"
+},
+{
+"word": "PlanetScale",
+"variant": "planet scale"
+},
+{
+"word": "Revolut",
+"variant": "revolute"
+},
+{
 "word": "Salesforce",
 "variant": "sales force"
+},
+{
+"word": "Semrush",
+"variant": "sam rush"
+},
+{
+"word": "Semrush",
+"variant": "semi rush"
 },
 {
 "word": "Shein",
@@ -9429,6 +10606,18 @@
 "variant": "sheen"
 },
 {
+"word": "SoftBank",
+"variant": "soft bank"
+},
+{
+"word": "Squarespace",
+"variant": "square space"
+},
+{
+"word": "Strapi",
+"variant": "strappy"
+},
+{
 "word": "Turing",
 "variant": "touring"
 },
@@ -9441,8 +10630,20 @@
 "variant": "up work"
 },
 {
+"word": "v0",
+"variant": "v zero"
+},
+{
+"word": "v0",
+"variant": "vee zero"
+},
+{
 "word": "Waze",
 "variant": "ways"
+},
+{
+"word": "Wear OS",
+"variant": "where os"
 },
 {
 "word": "Weights & Biases",
@@ -9453,12 +10654,40 @@
 "variant": "work day"
 },
 {
+"word": "xAI",
+"variant": "ex ai"
+},
+{
+"word": "Xiaomi",
+"variant": "shammy"
+},
+{
 "word": "Xiaomi",
 "variant": "show me"
 },
 {
+"word": "Zscaler",
+"variant": "z scalar"
+},
+{
 "word": "1X",
 "variant": "one ex"
+},
+{
+"word": "1X",
+"variant": "one x"
+},
+{
+"word": "2K",
+"variant": "two k"
+},
+{
+"word": "2K",
+"variant": "two kay"
+},
+{
+"word": "500 Global",
+"variant": "five hundred global"
 },
 {
 "word": "500 Startups",
@@ -9470,7 +10699,23 @@
 },
 {
 "word": "6sense",
+"variant": "six sense"
+},
+{
+"word": "6sense",
 "variant": "sixth sense"
+},
+{
+"word": "Ai2",
+"variant": "a i too"
+},
+{
+"word": "Ai2",
+"variant": "a i two"
+},
+{
+"word": "Ai2",
+"variant": "ai two"
 },
 {
 "word": "Aiven",
@@ -9479,6 +10724,10 @@
 {
 "word": "Allbirds",
 "variant": "all birds"
+},
+{
+"word": "Anaplan",
+"variant": "an a plan"
 },
 {
 "word": "Anaplan",
@@ -9497,8 +10746,32 @@
 "variant": "any scale"
 },
 {
+"word": "Anysphere",
+"variant": "any sphere"
+},
+{
+"word": "AOMedia",
+"variant": "o media"
+},
+{
 "word": "AppCode",
 "variant": "app code"
+},
+{
+"word": "AppLovin",
+"variant": "app loving"
+},
+{
+"word": "ARRI",
+"variant": "aerie"
+},
+{
+"word": "ARRI",
+"variant": "airy"
+},
+{
+"word": "ARRI",
+"variant": "are e"
 },
 {
 "word": "ARRI",
@@ -9509,8 +10782,20 @@
 "variant": "harry"
 },
 {
+"word": "ASOS",
+"variant": "ace os"
+},
+{
 "word": "Attio",
 "variant": "add you"
+},
+{
+"word": "Attio",
+"variant": "at e o"
+},
+{
+"word": "Baidu Apollo",
+"variant": "bye to apollo"
 },
 {
 "word": "Bandcamp",
@@ -9537,20 +10822,60 @@
 "variant": "bee hive"
 },
 {
+"word": "Beehiiv",
+"variant": "beehive"
+},
+{
 "word": "BeReal",
 "variant": "be real"
+},
+{
+"word": "BigCommerce",
+"variant": "big commerce"
+},
+{
+"word": "BlaBlaCar",
+"variant": "blah blah car"
+},
+{
+"word": "Braze",
+"variant": "braise"
 },
 {
 "word": "Brooklinen",
 "variant": "brooklyn and"
 },
 {
+"word": "Brooklinen",
+"variant": "brooklyn linen"
+},
+{
+"word": "BrowserStack",
+"variant": "browser stack"
+},
+{
+"word": "BrowserStack",
+"variant": "save browser stack"
+},
+{
 "word": "Bybit",
 "variant": "by bit"
 },
 {
+"word": "CapitalG",
+"variant": "capital g"
+},
+{
 "word": "Careem",
 "variant": "kareem"
+},
+{
+"word": "Carlyle Group",
+"variant": "carlisle group"
+},
+{
+"word": "Cazoo",
+"variant": "kazoo"
 },
 {
 "word": "Chang'e",
@@ -9559,6 +10884,10 @@
 {
 "word": "Chang'e",
 "variant": "change"
+},
+{
+"word": "ChargePoint",
+"variant": "charge point"
 },
 {
 "word": "ChargePoint",
@@ -9573,6 +10902,14 @@
 "variant": "city"
 },
 {
+"word": "Citroën",
+"variant": "citron"
+},
+{
+"word": "Clari",
+"variant": "clary"
+},
+{
 "word": "Clearbit",
 "variant": "clear bit"
 },
@@ -9585,8 +10922,28 @@
 "variant": "cloud error"
 },
 {
+"word": "CNSA",
+"variant": "sienna say"
+},
+{
+"word": "Codecademy",
+"variant": "code academy"
+},
+{
+"word": "Cooley",
+"variant": "coolly"
+},
+{
+"word": "Copy.ai",
+"variant": "copy ai"
+},
+{
 "word": "Coupa",
 "variant": "cooper"
+},
+{
+"word": "Crunchyroll",
+"variant": "crunchy roll"
 },
 {
 "word": "Ctrip",
@@ -9601,8 +10958,24 @@
 "variant": "see then"
 },
 {
+"word": "Cvent",
+"variant": "see vent"
+},
+{
+"word": "CyberAgent",
+"variant": "cyber agent"
+},
+{
+"word": "d-Matrix",
+"variant": "d matrix"
+},
+{
 "word": "d-Matrix",
 "variant": "the matrix"
+},
+{
+"word": "D. E. Shaw",
+"variant": "sadi shah"
 },
 {
 "word": "DataStax",
@@ -9615,6 +10988,10 @@
 {
 "word": "Daum",
 "variant": "dome"
+},
+{
+"word": "DEF CON",
+"variant": "defcon"
 },
 {
 "word": "DeNA",
@@ -9633,12 +11010,20 @@
 "variant": "dial pad"
 },
 {
+"word": "DiDi",
+"variant": "dee dee"
+},
+{
 "word": "Dreame",
 "variant": "dream"
 },
 {
 "word": "Dreame",
 "variant": "dreamy"
+},
+{
+"word": "EasyPost",
+"variant": "easy post"
 },
 {
 "word": "Emigre",
@@ -9649,20 +11034,80 @@
 "variant": "emmy gray"
 },
 {
+"word": "Enphase",
+"variant": "n phase"
+},
+{
+"word": "Enphase",
+"variant": "n-phase"
+},
+{
 "word": "Epson",
 "variant": "epsom"
+},
+{
+"word": "FabFilter",
+"variant": "save fab filter"
 },
 {
 "word": "FactSet",
 "variant": "fact said"
 },
 {
+"word": "FactSet",
+"variant": "fact set"
+},
+{
 "word": "fal.ai",
 "variant": "pal ai"
 },
 {
+"word": "Farfetch",
+"variant": "far fetch"
+},
+{
+"word": "Feedbin",
+"variant": "feed bin"
+},
+{
+"word": "Figure AI",
+"variant": "figure a i"
+},
+{
+"word": "Firefly Aerospace",
+"variant": "save firefly aerospace"
+},
+{
 "word": "Focusrite",
 "variant": "focus right"
+},
+{
+"word": "Focusrite",
+"variant": "save focus right"
+},
+{
+"word": "Forrester",
+"variant": "forester"
+},
+{
+"word": "Freshdesk",
+"variant": "fresh desk"
+},
+{
+"word": "Freshdesk",
+"variant": "fresh disk"
+},
+{
+"word": "Freshdesk",
+"variant": "save fresh desk"
+},
+{
+"word": "Freshdesk",
+"variant": "save fresh disk"
+},
+{
+"word": "FromSoftware",
+"variant": "from soft"
 },
 {
 "word": "FromSoftware",
@@ -9671,6 +11116,14 @@
 {
 "word": "FromSoftware",
 "variant": "save from software"
+},
+{
+"word": "Gainsight",
+"variant": "gain sight"
+},
+{
+"word": "Gojek",
+"variant": "go jack"
 },
 {
 "word": "GoodNotes",
@@ -9687,6 +11140,14 @@
 {
 "word": "GoTo",
 "variant": "go to"
+},
+{
+"word": "Greylock",
+"variant": "gray lock"
+},
+{
+"word": "Greylock",
+"variant": "grey lock"
 },
 {
 "word": "Grindr",
@@ -9709,6 +11170,10 @@
 "variant": "hey jen"
 },
 {
+"word": "Highspot",
+"variant": "hi spot"
+},
+{
 "word": "Hisense",
 "variant": "high sense"
 },
@@ -9721,8 +11186,20 @@
 "variant": "hydro"
 },
 {
+"word": "HyperX",
+"variant": "hyper ex"
+},
+{
+"word": "imgix",
+"variant": "image x"
+},
+{
 "word": "Inditex",
 "variant": "into text"
+},
+{
+"word": "Infinix",
+"variant": "infinite x"
 },
 {
 "word": "Justworks",
@@ -9797,6 +11274,10 @@
 "variant": "light tricks"
 },
 {
+"word": "LinearB",
+"variant": "linear b"
+},
+{
 "word": "Lineto",
 "variant": "line to"
 },
@@ -9853,6 +11334,18 @@
 "variant": "miracle"
 },
 {
+"word": "MITRE",
+"variant": "miter"
+},
+{
+"word": "MIUI",
+"variant": "me why"
+},
+{
+"word": "Moleskine",
+"variant": "moleskin"
+},
+{
 "word": "Morningstar",
 "variant": "morning star"
 },
@@ -9863,6 +11356,10 @@
 {
 "word": "Moz",
 "variant": "mas"
+},
+{
+"word": "NetApp",
+"variant": "net app"
 },
 {
 "word": "Nextdoor",
@@ -9893,8 +11390,20 @@
 "variant": "ok low"
 },
 {
+"word": "OKX",
+"variant": "okay x"
+},
+{
+"word": "OneTrust",
+"variant": "one trust"
+},
+{
 "word": "Opendoor",
 "variant": "open door"
+},
+{
+"word": "Ozon",
+"variant": "o zone"
 },
 {
 "word": "PARC",
@@ -9903,6 +11412,10 @@
 {
 "word": "Paychex",
 "variant": "pay checks"
+},
+{
+"word": "Peak XV",
+"variant": "peak fifteen"
 },
 {
 "word": "Pika",
@@ -9915,6 +11428,14 @@
 {
 "word": "Point72",
 "variant": "point seventy-two"
+},
+{
+"word": "project44",
+"variant": "project forty four"
+},
+{
+"word": "project44",
+"variant": "project forty-four"
 },
 {
 "word": "Prosus",
@@ -9937,6 +11458,10 @@
 "variant": "reader"
 },
 {
+"word": "Reka",
+"variant": "raker"
+},
+{
 "word": "Renault",
 "variant": "reno"
 },
@@ -9947,6 +11472,10 @@
 {
 "word": "Rightmove",
 "variant": "right move"
+},
+{
+"word": "Riskified",
+"variant": "risk a fight"
 },
 {
 "word": "Røde",
@@ -9965,12 +11494,32 @@
 "variant": "safety culture"
 },
 {
+"word": "Samsara",
+"variant": "sam sarah"
+},
+{
+"word": "SanDisk",
+"variant": "sand disk"
+},
+{
+"word": "Sansan",
+"variant": "saison"
+},
+{
 "word": "Scaleway",
 "variant": "scale way"
 },
 {
+"word": "Schwab",
+"variant": "swab"
+},
+{
 "word": "Sea Limited",
 "variant": "see limited"
+},
+{
+"word": "SenseTime",
+"variant": "sense time"
 },
 {
 "word": "SenseTime",
@@ -9979,6 +11528,10 @@
 {
 "word": "Shottr",
 "variant": "shot her"
+},
+{
+"word": "Skild AI",
+"variant": "skilled a i"
 },
 {
 "word": "Skild AI",
@@ -9993,6 +11546,10 @@
 "variant": "softer"
 },
 {
+"word": "Soyuz",
+"variant": "soy use"
+},
+{
 "word": "Startpage",
 "variant": "start page"
 },
@@ -10002,15 +11559,39 @@
 },
 {
 "word": "StockX",
+"variant": "stock x"
+},
+{
+"word": "StockX",
 "variant": "stocks"
+},
+{
+"word": "Storyblok",
+"variant": "story block"
+},
+{
+"word": "Sunrun",
+"variant": "sun run"
+},
+{
+"word": "Surfshark",
+"variant": "surf shark"
 },
 {
 "word": "Symantec",
 "variant": "semantic"
 },
 {
+"word": "Tabnine",
+"variant": "tab nine"
+},
+{
 "word": "Talabat",
 "variant": "taliban"
+},
+{
+"word": "Talon Voice",
+"variant": "talent voice"
 },
 {
 "word": "Tecno",
@@ -10021,8 +11602,20 @@
 "variant": "tell us"
 },
 {
+"word": "Theranos",
+"variant": "there a nose"
+},
+{
 "word": "Thinking Machines Lab",
 "variant": "thinking machines"
+},
+{
+"word": "Thunderbird",
+"variant": "thunder bird"
+},
+{
+"word": "Tibber",
+"variant": "tiber"
 },
 {
 "word": "Tidal",
@@ -10049,8 +11642,24 @@
 "variant": "to tango"
 },
 {
+"word": "Trellix",
+"variant": "trellis"
+},
+{
 "word": "TypeTogether",
 "variant": "type together"
+},
+{
+"word": "UBS",
+"variant": "you b s"
+},
+{
+"word": "UnionPay",
+"variant": "union pay"
+},
+{
+"word": "Vespa",
+"variant": "vesper"
 },
 {
 "word": "Vidu",
@@ -10059,6 +11668,10 @@
 {
 "word": "Vinted",
 "variant": "vintage"
+},
+{
+"word": "VTEX",
+"variant": "vitex"
 },
 {
 "word": "Vultr",
@@ -10073,6 +11686,10 @@
 "variant": "waitin"
 },
 {
+"word": "Wellfound",
+"variant": "well found"
+},
+{
 "word": "WeRide",
 "variant": "we ride"
 },
@@ -10085,20 +11702,60 @@
 "variant": "we work"
 },
 {
+"word": "Wispr Flow",
+"variant": "whisper flow"
+},
+{
+"word": "Work & Co",
+"variant": "work and co"
+},
+{
+"word": "Xpeng",
+"variant": "x bang"
+},
+{
+"word": "Xpeng",
+"variant": "x-bang"
+},
+{
 "word": "Zipline",
 "variant": "zip line"
+},
+{
+"word": "ZoomInfo",
+"variant": "zoom info"
 },
 {
 "word": "Infisical",
 "variant": "in physical"
 },
 {
+"word": "D3",
+"variant": "d three"
+},
+{
 "word": "Flink",
 "variant": "safe link"
 },
 {
+"word": "Mongo",
+"variant": "mungo"
+},
+{
+"word": "seaborn",
+"variant": "sea born"
+},
+{
+"word": "seaborn",
+"variant": "seaborne"
+},
+{
 "word": "Trino",
 "variant": "tree no"
+},
+{
+"word": "Alation",
+"variant": "elation"
 },
 {
 "word": "Automerge",
@@ -10109,12 +11766,40 @@
 "variant": "bison"
 },
 {
+"word": "Citus",
+"variant": "situs"
+},
+{
 "word": "CUPED",
 "variant": "cupid"
 },
 {
+"word": "DataFusion",
+"variant": "data fusion"
+},
+{
 "word": "DBeaver",
 "variant": "the beaver"
+},
+{
+"word": "dtype",
+"variant": "d type"
+},
+{
+"word": "dtype",
+"variant": "d-type"
+},
+{
+"word": "Firebolt",
+"variant": "fire bolt"
+},
+{
+"word": "Flyway",
+"variant": "fly way"
+},
+{
+"word": "Greenplum",
+"variant": "green plum"
 },
 {
 "word": "HANA",
@@ -10125,6 +11810,10 @@
 "variant": "hannah"
 },
 {
+"word": "HBase",
+"variant": "age base"
+},
+{
 "word": "Hightouch",
 "variant": "high touch"
 },
@@ -10133,8 +11822,20 @@
 "variant": "hoodie"
 },
 {
+"word": "JSONB",
+"variant": "jason b"
+},
+{
+"word": "JSONL",
+"variant": "jason l"
+},
+{
 "word": "Knex",
 "variant": "connects"
+},
+{
+"word": "Lucene",
+"variant": "lucine"
 },
 {
 "word": "NDJSON",
@@ -10153,12 +11854,24 @@
 "variant": "pipe dream"
 },
 {
+"word": "PostgREST",
+"variant": "post rest"
+},
+{
 "word": "Prophet",
 "variant": "profit"
 },
 {
+"word": "PyArrow",
+"variant": "pyro"
+},
+{
 "word": "RStudio",
 "variant": "our studio"
+},
+{
+"word": "Scrapy",
+"variant": "scrapie"
 },
 {
 "word": "Scrapy",
@@ -10175,6 +11888,26 @@
 {
 "word": "Spyder",
 "variant": "spider"
+},
+{
+"word": "Stata",
+"variant": "stater"
+},
+{
+"word": "TablePlus",
+"variant": "table plus"
+},
+{
+"word": "vCard",
+"variant": "v card"
+},
+{
+"word": "vCard",
+"variant": "vee card"
+},
+{
+"word": "Vitess",
+"variant": "save a test"
 },
 {
 "word": "WAL",
@@ -10202,11 +11935,39 @@
 },
 {
 "word": "CIELAB",
+"variant": "c lab"
+},
+{
+"word": "CIELAB",
+"variant": "c-lab"
+},
+{
+"word": "CIELAB",
 "variant": "see lab"
+},
+{
+"word": "coachmark",
+"variant": "coach mark"
+},
+{
+"word": "cyan",
+"variant": "scion"
+},
+{
+"word": "Didot",
+"variant": "dido"
+},
+{
+"word": "Dribbble",
+"variant": "dribble"
 },
 {
 "word": "dvh",
 "variant": "deviate"
+},
+{
+"word": "favicon",
+"variant": "fave icon"
 },
 {
 "word": "GIF",
@@ -10230,6 +11991,10 @@
 },
 {
 "word": "moiré",
+"variant": "moire"
+},
+{
+"word": "moiré",
 "variant": "more"
 },
 {
@@ -10237,12 +12002,40 @@
 "variant": "nor"
 },
 {
+"word": "OKLab",
+"variant": "ok lab"
+},
+{
+"word": "OKLab",
+"variant": "okay lab"
+},
+{
+"word": "ombré",
+"variant": "hombre"
+},
+{
+"word": "ombré",
+"variant": "ombre"
+},
+{
 "word": "px",
 "variant": "pixels"
 },
 {
+"word": "Serif",
+"variant": "seraph"
+},
+{
 "word": "UserTesting",
 "variant": "user testing"
+},
+{
+"word": "UX",
+"variant": "you x"
+},
+{
+"word": "Webflow",
+"variant": "web flow"
 },
 {
 "word": "Zeplin",
@@ -10261,12 +12054,32 @@
 "variant": "carmen"
 },
 {
+"word": "Catppuccin",
+"variant": "capuchin"
+},
+{
+"word": "CNC",
+"variant": "c and c"
+},
+{
 "word": "De Stijl",
 "variant": "the style"
 },
 {
 "word": "De Stijl",
 "variant": "to style"
+},
+{
+"word": "dp",
+"variant": "dee pee"
+},
+{
+"word": "Dreamweaver",
+"variant": "dream weaver"
+},
+{
+"word": "découpage",
+"variant": "decoupage"
 },
 {
 "word": "ease-in",
@@ -10285,6 +12098,10 @@
 "variant": "facade"
 },
 {
+"word": "Jonathan Ive",
+"variant": "jonathan i've"
+},
+{
 "word": "LUT",
 "variant": "let"
 },
@@ -10293,8 +12110,24 @@
 "variant": "monica"
 },
 {
+"word": "Nord",
+"variant": "nought"
+},
+{
+"word": "ProMotion",
+"variant": "pro motion"
+},
+{
 "word": "Revit",
 "variant": "rev it"
+},
+{
+"word": "Revit",
+"variant": "revet"
+},
+{
+"word": ".gitignore",
+"variant": "get ignore"
 },
 {
 "word": "/dev/null",
@@ -10305,8 +12138,24 @@
 "variant": "at types"
 },
 {
+"word": "ASCII",
+"variant": "ask e"
+},
+{
+"word": "ASCII",
+"variant": "ask ye"
+},
+{
+"word": "ASCII",
+"variant": "ass key"
+},
+{
 "word": "AST",
 "variant": "asd"
+},
+{
+"word": "awk",
+"variant": "auk"
 },
 {
 "word": "Bazel",
@@ -10317,6 +12166,30 @@
 "variant": "basil"
 },
 {
+"word": "Big O",
+"variant": "big oh"
+},
+{
+"word": "C#",
+"variant": "c sharp"
+},
+{
+"word": "C#",
+"variant": "c-sharp"
+},
+{
+"word": "C#",
+"variant": "s he sharp"
+},
+{
+"word": "C#",
+"variant": "sacey sharp"
+},
+{
+"word": "C#",
+"variant": "see sharp"
+},
+{
 "word": "callback",
 "variant": "call back"
 },
@@ -10325,8 +12198,36 @@
 "variant": "see groups"
 },
 {
+"word": "CMake",
+"variant": "see make"
+},
+{
+"word": "CodeSandbox",
+"variant": "code sandbox"
+},
+{
 "word": "conda",
 "variant": "condo"
+},
+{
+"word": "console.log",
+"variant": "console log"
+},
+{
+"word": "cron job",
+"variant": "crown job"
+},
+{
+"word": "Ctrl-C",
+"variant": "control see"
+},
+{
+"word": "daemon",
+"variant": "demon"
+},
+{
+"word": "DirectX",
+"variant": "direct ex"
 },
 {
 "word": "dotfiles",
@@ -10337,8 +12238,32 @@
 "variant": "envy"
 },
 {
+"word": "esbuild",
+"variant": "ease build"
+},
+{
+"word": "FLAC",
+"variant": "flack"
+},
+{
 "word": "FLAC",
 "variant": "flak"
+},
+{
+"word": "GeForce",
+"variant": "g force"
+},
+{
+"word": "GeForce",
+"variant": "g-force"
+},
+{
+"word": "getElementById",
+"variant": "sake it element by id"
+},
+{
+"word": "git add",
+"variant": "get add"
 },
 {
 "word": "git add",
@@ -10349,8 +12274,40 @@
 "variant": "get out"
 },
 {
+"word": "git branch",
+"variant": "get branch"
+},
+{
+"word": "git checkout",
+"variant": "get check out"
+},
+{
+"word": "git commit",
+"variant": "get commit"
+},
+{
+"word": "git diff",
+"variant": "get diff"
+},
+{
+"word": "git init",
+"variant": "get a knit"
+},
+{
 "word": "git init",
 "variant": "get in it"
+},
+{
+"word": "git init",
+"variant": "git innit"
+},
+{
+"word": "git log",
+"variant": "get log"
+},
+{
+"word": "git merge",
+"variant": "get merge"
 },
 {
 "word": "git pull",
@@ -10365,8 +12322,24 @@
 "variant": "get reset"
 },
 {
+"word": "git stash",
+"variant": "get stash"
+},
+{
 "word": "git status",
 "variant": "get status"
+},
+{
+"word": "GitLab",
+"variant": "get lab"
+},
+{
+"word": "Gradle",
+"variant": "gray dull"
+},
+{
+"word": "Gradle",
+"variant": "grey dull"
 },
 {
 "word": "grep",
@@ -10375,6 +12348,14 @@
 {
 "word": "gzip",
 "variant": "jesus"
+},
+{
+"word": "I-frame",
+"variant": "eye frame"
+},
+{
+"word": "Inquirer.js",
+"variant": "inquirer"
 },
 {
 "word": "Intune",
@@ -10389,6 +12370,22 @@
 "variant": "joy"
 },
 {
+"word": "JSON",
+"variant": "jason"
+},
+{
+"word": "Jupyter",
+"variant": "jupiter"
+},
+{
+"word": "JWT",
+"variant": "jot"
+},
+{
+"word": "LaTeX",
+"variant": "la tech"
+},
+{
 "word": "Lean",
 "variant": "saline"
 },
@@ -10401,12 +12398,48 @@
 "variant": "my pie"
 },
 {
+"word": "NaN",
+"variant": "not a number"
+},
+{
+"word": "NextAuth.js",
+"variant": "next auth"
+},
+{
 "word": "Node.js",
 "variant": "no js"
 },
 {
 "word": "Nuxt",
 "variant": "next"
+},
+{
+"word": "OAuth",
+"variant": "oath"
+},
+{
+"word": "OAuth",
+"variant": "oh auth"
+},
+{
+"word": "Objective-C",
+"variant": "objective see"
+},
+{
+"word": "octothorpe",
+"variant": "octothorp"
+},
+{
+"word": "ONNX",
+"variant": "on x"
+},
+{
+"word": "ONNX",
+"variant": "onyx"
+},
+{
+"word": "PM2",
+"variant": "pm two"
 },
 {
 "word": "PostgreSQL",
@@ -10441,6 +12474,10 @@
 "variant": "said"
 },
 {
+"word": "setTimeout",
+"variant": "set time out"
+},
+{
 "word": "SHA",
 "variant": "shah"
 },
@@ -10449,12 +12486,32 @@
 "variant": "shaw"
 },
 {
+"word": "shebang",
+"variant": "she bang"
+},
+{
+"word": "spaCy",
+"variant": "spacey"
+},
+{
+"word": "SQL",
+"variant": "sequel"
+},
+{
 "word": "stderr",
 "variant": "standard error"
 },
 {
 "word": "stdin",
 "variant": "standard in"
+},
+{
+"word": "Streamlit",
+"variant": "stream lit"
+},
+{
+"word": "Streamlit",
+"variant": "streamlet"
 },
 {
 "word": "struct",
@@ -10473,12 +12530,28 @@
 "variant": "tory"
 },
 {
+"word": "tmux",
+"variant": "t max"
+},
+{
 "word": "TOML",
 "variant": "tamil"
 },
 {
+"word": "TOML",
+"variant": "tom l"
+},
+{
 "word": "trait",
 "variant": "trade"
+},
+{
+"word": "User-Agent",
+"variant": "user agent"
+},
+{
+"word": "useState",
+"variant": "use state"
 },
 {
 "word": "useState",
@@ -10503,6 +12576,26 @@
 {
 "word": "Vulkan",
 "variant": "vulcan"
+},
+{
+"word": "Xcode",
+"variant": "ex gold"
+},
+{
+"word": "XOR",
+"variant": "x or"
+},
+{
+"word": "XState",
+"variant": "ex state"
+},
+{
+"word": "XState",
+"variant": "x state"
+},
+{
+"word": "$HOME",
+"variant": "dollar home"
 },
 {
 "word": "&&",
@@ -10530,6 +12623,10 @@
 },
 {
 "word": "/usr",
+"variant": "slash user"
+},
+{
+"word": "/usr",
 "variant": "user"
 },
 {
@@ -10539,6 +12636,10 @@
 {
 "word": "/var",
 "variant": "var"
+},
+{
+"word": "7z",
+"variant": "seven z"
 },
 {
 "word": "@Binding",
@@ -10569,16 +12670,36 @@
 "variant": "awkward"
 },
 {
+"word": "Alacritty",
+"variant": "alacrity"
+},
+{
 "word": "ANSI",
 "variant": "an see"
+},
+{
+"word": "antd",
+"variant": "aunt d"
+},
+{
+"word": "ANTLR",
+"variant": "antler"
 },
 {
 "word": "AppImage",
 "variant": "app image"
 },
 {
+"word": "AppsFlyer",
+"variant": "app flyer"
+},
+{
 "word": "ArkType",
 "variant": "arc type"
+},
+{
+"word": "ArkType",
+"variant": "archetype"
 },
 {
 "word": "ASIO",
@@ -10597,8 +12718,16 @@
 "variant": "abc"
 },
 {
+"word": "AVKit",
+"variant": "a v kit"
+},
+{
 "word": "B-spline",
 "variant": "beast blind"
+},
+{
+"word": "backend",
+"variant": "backhand"
 },
 {
 "word": "BackgroundTasks",
@@ -10637,6 +12766,18 @@
 "variant": "blazers"
 },
 {
+"word": "BrowserSync",
+"variant": "browser sync"
+},
+{
+"word": "Buildroot",
+"variant": "build root"
+},
+{
+"word": "cel shading",
+"variant": "cell shading"
+},
+{
 "word": "cel shading",
 "variant": "self-shading"
 },
@@ -10665,6 +12806,10 @@
 "variant": "change root"
 },
 {
+"word": "chroot",
+"variant": "cheroot"
+},
+{
 "word": "clang-format",
 "variant": "claim format"
 },
@@ -10675,6 +12820,10 @@
 {
 "word": "CLion",
 "variant": "sea lion"
+},
+{
+"word": "CLion",
+"variant": "see lion"
 },
 {
 "word": "Closure Compiler",
@@ -10689,20 +12838,48 @@
 "variant": "comp time"
 },
 {
+"word": "Content-Type",
+"variant": "content type"
+},
+{
 "word": "coreutils",
 "variant": "core utilities"
+},
+{
+"word": "CPython",
+"variant": "see python"
+},
+{
+"word": "createElement",
+"variant": "create element"
 },
 {
 "word": "cross-env",
 "variant": "cross and begin"
 },
 {
+"word": "cruft",
+"variant": "croft"
+},
+{
 "word": "ctor",
 "variant": "sea tor"
 },
 {
+"word": "ctor",
+"variant": "see tor"
+},
+{
+"word": "daemonize",
+"variant": "demonize"
+},
+{
 "word": "dataclasses",
 "variant": "data classes"
+},
+{
+"word": "DDD",
+"variant": "triple d"
 },
 {
 "word": "DefinitelyTyped",
@@ -10717,8 +12894,28 @@
 "variant": "durham"
 },
 {
+"word": "dnd kit",
+"variant": "d and d kit"
+},
+{
+"word": "dnd kit",
+"variant": "d n d kit"
+},
+{
+"word": "DOCTYPE",
+"variant": "doc type"
+},
+{
+"word": "DOCTYPE",
+"variant": "dock type"
+},
+{
 "word": "dotfile",
 "variant": "file"
+},
+{
+"word": "DriverKit",
+"variant": "driver kit"
 },
 {
 "word": "dtor",
@@ -10735,6 +12932,26 @@
 {
 "word": "eval",
 "variant": "evil"
+},
+{
+"word": "EventKit",
+"variant": "event kit"
+},
+{
+"word": "EXIF",
+"variant": "x if"
+},
+{
+"word": "eza",
+"variant": "easer"
+},
+{
+"word": "F#",
+"variant": "f sharp"
+},
+{
+"word": "F#",
+"variant": "f-sharp"
 },
 {
 "word": "FairPlay",
@@ -10757,12 +12974,36 @@
 "variant": "fix-up"
 },
 {
+"word": "FlashAttention",
+"variant": "save flash attention"
+},
+{
+"word": "Flatpak",
+"variant": "flatpack"
+},
+{
 "word": "foo",
 "variant": "fu"
 },
 {
+"word": "foobar",
+"variant": "fubar"
+},
+{
+"word": "FormData",
+"variant": "form data"
+},
+{
+"word": "FormData",
+"variant": "save form data"
+},
+{
 "word": "FoundationModels",
 "variant": "foundation models"
+},
+{
+"word": "framebuffer",
+"variant": "save frame buffer"
 },
 {
 "word": "fsck",
@@ -10793,6 +13034,10 @@
 "variant": "get tea"
 },
 {
+"word": "GlassFish",
+"variant": "glass fish"
+},
+{
 "word": "got",
 "variant": "god"
 },
@@ -10805,6 +13050,10 @@
 "variant": "graph is"
 },
 {
+"word": "Gson",
+"variant": "gee son"
+},
+{
 "word": "Hapi",
 "variant": "happy"
 },
@@ -10813,12 +13062,28 @@
 "variant": "heath"
 },
 {
+"word": "HomeKit",
+"variant": "home kid"
+},
+{
+"word": "IIFE",
+"variant": "iffy"
+},
+{
 "word": "INI",
 "variant": "any"
 },
 {
+"word": "INI",
+"variant": "in e"
+},
+{
 "word": "init",
 "variant": "in it"
+},
+{
+"word": "init",
+"variant": "innit"
 },
 {
 "word": "Jinja",
@@ -10827,6 +13092,10 @@
 {
 "word": "JUCE",
 "variant": "juice"
+},
+{
+"word": "Jujutsu",
+"variant": "jujitsu"
 },
 {
 "word": "LaunchAgent",
@@ -10881,6 +13150,10 @@
 "variant": "lure"
 },
 {
+"word": "Markdoc",
+"variant": "mark doc"
+},
+{
 "word": "MATE",
 "variant": "matte"
 },
@@ -10893,12 +13166,20 @@
 "variant": "mini test"
 },
 {
+"word": "Modernizr",
+"variant": "modernizer"
+},
+{
 "word": "multer",
 "variant": "malta"
 },
 {
 "word": "musl",
 "variant": "muscle"
+},
+{
+"word": "musl",
+"variant": "mussel"
 },
 {
 "word": "NCCL",
@@ -10913,8 +13194,20 @@
 "variant": "network manager"
 },
 {
+"word": "Nix",
+"variant": "nyx"
+},
+{
 "word": "NOC",
 "variant": "knock"
+},
+{
+"word": "NOC",
+"variant": "nock"
+},
+{
+"word": "Notepad++",
+"variant": "notepad plus"
 },
 {
 "word": "NuGet",
@@ -10933,6 +13226,10 @@
 "variant": "oak cliff"
 },
 {
+"word": "oclif",
+"variant": "oh cliff"
+},
+{
 "word": "Ogg",
 "variant": "og"
 },
@@ -10949,8 +13246,52 @@
 "variant": "or jason"
 },
 {
+"word": "Oxc",
+"variant": "oxy"
+},
+{
+"word": "pacman",
+"variant": "packman"
+},
+{
+"word": "PartyKit",
+"variant": "party kit"
+},
+{
+"word": "PEFT",
+"variant": "puffed"
+},
+{
+"word": "Perforce",
+"variant": "per force"
+},
+{
+"word": "Perl",
+"variant": "pearl"
+},
+{
+"word": "PipeWire",
+"variant": "pipe wire"
+},
+{
 "word": "PIX",
 "variant": "pics"
+},
+{
+"word": "POP3",
+"variant": "pop three"
+},
+{
+"word": "Pyright",
+"variant": "pi right"
+},
+{
+"word": "Pyright",
+"variant": "pie right"
+},
+{
+"word": "Pyright",
+"variant": "pyrite"
 },
 {
 "word": "Reqwest",
@@ -10961,8 +13302,20 @@
 "variant": "rescue"
 },
 {
+"word": "ROCm",
+"variant": "rock em"
+},
+{
 "word": "Rolldown",
 "variant": "roll down"
+},
+{
+"word": "rustc",
+"variant": "rust see"
+},
+{
+"word": "Samba",
+"variant": "sambo"
 },
 {
 "word": "SameSite",
@@ -11001,6 +13354,18 @@
 "variant": "source tree"
 },
 {
+"word": "SpiderMonkey",
+"variant": "spider-monkey"
+},
+{
+"word": "Starlette",
+"variant": "starlet"
+},
+{
+"word": "State of JS",
+"variant": "state of javascript"
+},
+{
 "word": "Stylelint",
 "variant": "style in"
 },
@@ -11009,12 +13374,24 @@
 "variant": "styling"
 },
 {
+"word": "Supertest",
+"variant": "super test"
+},
+{
+"word": "SUSE",
+"variant": "susa"
+},
+{
 "word": "SUSE",
 "variant": "susie"
 },
 {
 "word": "Symfony",
 "variant": "symphony"
+},
+{
+"word": "Syncthing",
+"variant": "sink thing"
 },
 {
 "word": "Syncthing",
@@ -11041,6 +13418,10 @@
 "variant": "tech"
 },
 {
+"word": "TextMate",
+"variant": "text mate"
+},
+{
 "word": "thenable",
 "variant": "then able"
 },
@@ -11051,6 +13432,18 @@
 {
 "word": "thiserror",
 "variant": "this error"
+},
+{
+"word": "Timsort",
+"variant": "tim sort"
+},
+{
+"word": "Tiptap",
+"variant": "tip tap"
+},
+{
+"word": "Tiptap",
+"variant": "tip-tap"
 },
 {
 "word": "Tiptap",
@@ -11069,6 +13462,14 @@
 "variant": "tee us up"
 },
 {
+"word": "two's complement",
+"variant": "two complement"
+},
+{
+"word": "TypeBox",
+"variant": "type box"
+},
+{
 "word": "UB",
 "variant": "you be"
 },
@@ -11077,8 +13478,28 @@
 "variant": "you'd ever gain"
 },
 {
+"word": "visx",
+"variant": "save this x"
+},
+{
+"word": "VRR",
+"variant": "save err"
+},
+{
 "word": "Vue 3",
 "variant": "save you three"
+},
+{
+"word": "Vue Router",
+"variant": "view router"
+},
+{
+"word": "VuePress",
+"variant": "view press"
+},
+{
+"word": "Vuex",
+"variant": "view x"
 },
 {
 "word": "WAI-ARIA",
@@ -11093,12 +13514,36 @@
 "variant": "web dev"
 },
 {
+"word": "WebLogic",
+"variant": "web logic"
+},
+{
 "word": "WET",
 "variant": "what"
 },
 {
 "word": "whois",
 "variant": "who is"
+},
+{
+"word": "WiMAX",
+"variant": "why max"
+},
+{
+"word": "Win32",
+"variant": "win thirty two"
+},
+{
+"word": "Win32",
+"variant": "win thirty-two"
+},
+{
+"word": "winget",
+"variant": "win get"
+},
+{
+"word": "XNU",
+"variant": "x and u"
 },
 {
 "word": "yay",
@@ -11125,8 +13570,24 @@
 "variant": "buck two"
 },
 {
+"word": "JSON5",
+"variant": "jason five"
+},
+{
+"word": "10-K",
+"variant": "ten k"
+},
+{
 "word": "Afterpay Day",
 "variant": "after pay day"
+},
+{
+"word": "CapEx",
+"variant": "cap x"
+},
+{
+"word": "Chapter 11",
+"variant": "chapter eleven"
 },
 {
 "word": "CISO",
@@ -11137,8 +13598,20 @@
 "variant": "defy"
 },
 {
+"word": "FAANG",
+"variant": "fang"
+},
+{
 "word": "GAAP",
 "variant": "gap"
+},
+{
+"word": "H2",
+"variant": "h to"
+},
+{
+"word": "HIPAA",
+"variant": "hipper"
 },
 {
 "word": "LIFO",
@@ -11153,8 +13626,32 @@
 "variant": "p"
 },
 {
+"word": "pre-seed",
+"variant": "precede"
+},
+{
+"word": "Q1",
+"variant": "queue one"
+},
+{
+"word": "Q2",
+"variant": "queue two"
+},
+{
+"word": "RACI",
+"variant": "racy"
+},
+{
+"word": "RACI",
+"variant": "ray see"
+},
+{
 "word": "ROAS",
 "variant": "row as"
+},
+{
+"word": "ROAS",
+"variant": "row us"
 },
 {
 "word": "1099",
@@ -11167,6 +13664,18 @@
 {
 "word": "2 and 20",
 "variant": "two and twenty"
+},
+{
+"word": "8-K",
+"variant": "eight k"
+},
+{
+"word": "83(b)",
+"variant": "eighty three b"
+},
+{
+"word": "83(b)",
+"variant": "eighty-three b"
 },
 {
 "word": "Aave",
@@ -11189,8 +13698,16 @@
 "variant": "a.m"
 },
 {
+"word": "Ant Group",
+"variant": "aunt group"
+},
+{
 "word": "ARKK",
 "variant": "ark"
+},
+{
+"word": "Atomico",
+"variant": "atomic o"
 },
 {
 "word": "BaaS",
@@ -11205,8 +13722,16 @@
 "variant": "carrie"
 },
 {
+"word": "DACI",
+"variant": "day see"
+},
+{
 "word": "DAI",
 "variant": "dye"
+},
+{
+"word": "degen",
+"variant": "dijon"
 },
 {
 "word": "DEX",
@@ -11221,12 +13746,32 @@
 "variant": "asthma"
 },
 {
+"word": "ESOP",
+"variant": "aesop"
+},
+{
 "word": "EUR",
 "variant": "euro"
 },
 {
+"word": "Euronext",
+"variant": "euro next"
+},
+{
+"word": "EV/Revenue",
+"variant": "e v revenue"
+},
+{
+"word": "FedNow",
+"variant": "fed now"
+},
+{
 "word": "freee",
 "variant": "free"
+},
+{
+"word": "FTSE",
+"variant": "footsie"
 },
 {
 "word": "halving",
@@ -11249,6 +13794,10 @@
 "variant": "layer two"
 },
 {
+"word": "LBO",
+"variant": "i'll be o"
+},
+{
 "word": "Lido",
 "variant": "leto"
 },
@@ -11261,6 +13810,14 @@
 "variant": "same wake"
 },
 {
+"word": "Nifty 50",
+"variant": "nifty-fifty"
+},
+{
+"word": "Northzone",
+"variant": "north zone"
+},
+{
 "word": "P/B",
 "variant": "price to book"
 },
@@ -11269,8 +13826,16 @@
 "variant": "p.s"
 },
 {
+"word": "PayPay",
+"variant": "pay pay"
+},
+{
 "word": "PIIA",
 "variant": "pia"
+},
+{
+"word": "Qonto",
+"variant": "canto"
 },
 {
 "word": "REIT",
@@ -11293,12 +13858,32 @@
 "variant": "sum up"
 },
 {
+"word": "Ualá",
+"variant": "wallah"
+},
+{
+"word": "WACC",
+"variant": "wack"
+},
+{
 "word": "WACC",
 "variant": "whack"
 },
 {
 "word": "ROCE",
 "variant": "rosie"
+},
+{
+"word": "ROCE",
+"variant": "row see"
+},
+{
+"word": "DOCX",
+"variant": "doc x"
+},
+{
+"word": "ICANN",
+"variant": "eye can"
 },
 {
 "word": "indie",
@@ -11309,12 +13894,24 @@
 "variant": "compare"
 },
 {
+"word": "doppelgänger",
+"variant": "doppelganger"
+},
+{
 "word": "et al.",
 "variant": "it all"
 },
 {
+"word": "Hangzhou",
+"variant": "hang joe"
+},
+{
 "word": "IANA",
 "variant": "anna"
+},
+{
+"word": "kWh",
+"variant": "kilowatt hour"
 },
 {
 "word": "Kyiv",
@@ -11325,6 +13922,14 @@
 "variant": "montreal"
 },
 {
+"word": "Pune",
+"variant": "poona"
+},
+{
+"word": "Reykjavík",
+"variant": "reykjavik"
+},
+{
 "word": "ROFL",
 "variant": "raffle"
 },
@@ -11333,16 +13938,48 @@
 "variant": "shortage"
 },
 {
+"word": "Tallinn",
+"variant": "talon"
+},
+{
+"word": "THz",
+"variant": "terahertz"
+},
+{
+"word": "WHATWG",
+"variant": "what wig"
+},
+{
 "word": "Zürich",
 "variant": "zurich"
+},
+{
+"word": "4G",
+"variant": "for g"
 },
 {
 "word": "CMOS",
 "variant": "sea moss"
 },
 {
+"word": "CMOS",
+"variant": "see moss"
+},
+{
 "word": "fabless",
 "variant": "fabulous"
+},
+{
+"word": "Gaudi",
+"variant": "gaudy"
+},
+{
+"word": "Inferentia",
+"variant": "inferential"
+},
+{
+"word": "InfiniBand",
+"variant": "infinity band"
 },
 {
 "word": "Kirin",
@@ -11361,12 +13998,28 @@
 "variant": "risk"
 },
 {
+"word": "RISC-V",
+"variant": "risk v"
+},
+{
 "word": "Ryzen",
 "variant": "rise in"
 },
 {
 "word": "Ryzen",
 "variant": "risen"
+},
+{
+"word": "Samsung",
+"variant": "sam sung"
+},
+{
+"word": "SATA",
+"variant": "say ta"
+},
+{
+"word": "SATA",
+"variant": "seder"
 },
 {
 "word": "Xeon",
@@ -11377,12 +14030,24 @@
 "variant": "advantage test"
 },
 {
+"word": "AMOLED",
+"variant": "amulet"
+},
+{
 "word": "Ansys",
 "variant": "answers"
 },
 {
+"word": "BlueField",
+"variant": "blue field"
+},
+{
 "word": "chipset",
 "variant": "chip said"
+},
+{
+"word": "chipset",
+"variant": "chip set"
 },
 {
 "word": "CUDA cores",
@@ -11391,6 +14056,10 @@
 {
 "word": "DAC",
 "variant": "dak"
+},
+{
+"word": "Das Keyboard",
+"variant": "dos keyboard"
 },
 {
 "word": "DIMM",
@@ -11405,6 +14074,26 @@
 "variant": "expressive"
 },
 {
+"word": "GW",
+"variant": "gigawatt"
+},
+{
+"word": "Hesai",
+"variant": "her sigh"
+},
+{
+"word": "Hesai",
+"variant": "hey sigh"
+},
+{
+"word": "Hon Hai",
+"variant": "hon hi"
+},
+{
+"word": "Hon Hai",
+"variant": "hon high"
+},
+{
 "word": "Lasertec",
 "variant": "laser tech"
 },
@@ -11415,6 +14104,10 @@
 {
 "word": "Marvell",
 "variant": "marvel"
+},
+{
+"word": "MI300",
+"variant": "am i three hundred"
 },
 {
 "word": "Moore Threads",
@@ -11453,6 +14146,22 @@
 "variant": "rome"
 },
 {
+"word": "SCSI",
+"variant": "scuzzy"
+},
+{
+"word": "Seagate",
+"variant": "sea gate"
+},
+{
+"word": "SparkFun",
+"variant": "spark fun"
+},
+{
+"word": "Synology",
+"variant": "sinology"
+},
+{
 "word": "Synopsys",
 "variant": "synopsis"
 },
@@ -11461,8 +14170,20 @@
 "variant": "tie"
 },
 {
+"word": "Ubiquiti",
+"variant": "ubiquity"
+},
+{
 "word": "Wii U",
 "variant": "we you"
+},
+{
+"word": "4K",
+"variant": "four k"
+},
+{
+"word": "9to5Google",
+"variant": "nine to five google"
 },
 {
 "word": "AppleInsider",
@@ -11485,6 +14206,10 @@
 "variant": "read it"
 },
 {
+"word": "The Wall Street Journal",
+"variant": "wall street journal"
+},
+{
 "word": "WeChat",
 "variant": "we chat"
 },
@@ -11502,11 +14227,31 @@
 },
 {
 "word": "CD Projekt",
+"variant": "c d project"
+},
+{
+"word": "CD Projekt",
 "variant": "cd project"
+},
+{
+"word": "Counter-Strike",
+"variant": "counterstrike"
+},
+{
+"word": "DNG",
+"variant": "d and g"
+},
+{
+"word": "Dota",
+"variant": "doter"
 },
 {
 "word": "Douyin",
 "variant": "doin"
+},
+{
+"word": "Fast Company",
+"variant": "save fast company"
 },
 {
 "word": "gacha",
@@ -11537,16 +14282,52 @@
 "variant": "sure"
 },
 {
+"word": "Similarweb",
+"variant": "similar web"
+},
+{
 "word": "Slashdot",
 "variant": "slash dot"
+},
+{
+"word": "Techmeme",
+"variant": "tech meme"
+},
+{
+"word": "Tumblr",
+"variant": "tumbler"
+},
+{
+"word": "Zynga",
+"variant": "zinger"
+},
+{
+"word": "Alex Karp",
+"variant": "alex carp"
+},
+{
+"word": "Arthur Mensch",
+"variant": "arthur minch"
 },
 {
 "word": "Cathie Wood",
 "variant": "cathy would"
 },
 {
+"word": "Daphne Koller",
+"variant": "daphne call her"
+},
+{
 "word": "DHH",
 "variant": "dh"
+},
+{
+"word": "Euler",
+"variant": "oiler"
+},
+{
+"word": "John Maeda",
+"variant": "john made her"
 },
 {
 "word": "Larry Fink",
@@ -11557,12 +14338,44 @@
 "variant": "late june"
 },
 {
+"word": "Lisa Su",
+"variant": "lisa sue"
+},
+{
 "word": "Noam Brown",
 "variant": "no i'm brown"
 },
 {
+"word": "Paula Scher",
+"variant": "polisher"
+},
+{
+"word": "Vitalik",
+"variant": "save italic"
+},
+{
+"word": "Aaron Levie",
+"variant": "aaron levi"
+},
+{
 "word": "Aaron Levie",
 "variant": "erin levy"
+},
+{
+"word": "Alan Dye",
+"variant": "alan die"
+},
+{
+"word": "Alan Kay",
+"variant": "alan k"
+},
+{
+"word": "Beatrice Warde",
+"variant": "beatrice ward"
+},
+{
+"word": "Bob Kahn",
+"variant": "bob khan"
 },
 {
 "word": "Boz",
@@ -11571,6 +14384,10 @@
 {
 "word": "Cauchy",
 "variant": "co she"
+},
+{
+"word": "Cauchy",
+"variant": "kochi"
 },
 {
 "word": "Codd",
@@ -11585,6 +14402,14 @@
 "variant": "daniel steinberg"
 },
 {
+"word": "Fireship",
+"variant": "save fire ship"
+},
+{
+"word": "Gödel",
+"variant": "girdle"
+},
+{
 "word": "Hoare",
 "variant": "whore"
 },
@@ -11593,12 +14418,40 @@
 "variant": "jan like"
 },
 {
+"word": "Jason Fried",
+"variant": "jason freed"
+},
+{
+"word": "John Doerr",
+"variant": "john door"
+},
+{
 "word": "Kevin Weil",
 "variant": "kevin while"
 },
 {
+"word": "Lagrange",
+"variant": "la grange"
+},
+{
 "word": "Lars Bak",
 "variant": "lars back"
+},
+{
+"word": "Mark Gurman",
+"variant": "mark german"
+},
+{
+"word": "Max Miedinger",
+"variant": "max meeting her"
+},
+{
+"word": "Michael Burry",
+"variant": "michael berry"
+},
+{
+"word": "Michael Saylor",
+"variant": "michael sailor"
 },
 {
 "word": "Mike Moritz",
@@ -11611,6 +14464,30 @@
 {
 "word": "Planck",
 "variant": "plank"
+},
+{
+"word": "Planck",
+"variant": "plonk"
+},
+{
+"word": "Sarah Friar",
+"variant": "sarah fryer"
+},
+{
+"word": "Scott Wu",
+"variant": "scott woo"
+},
+{
+"word": "Stewart Brand",
+"variant": "stuart brand"
+},
+{
+"word": "Stonebraker",
+"variant": "stone breaker"
+},
+{
+"word": "Susan Kare",
+"variant": "susan care"
 },
 {
 "word": "Terry Gou",
@@ -11641,12 +14518,36 @@
 "variant": "add words"
 },
 {
+"word": "Alipay",
+"variant": "ally pay"
+},
+{
+"word": "Apple Cash",
+"variant": "apple cache"
+},
+{
 "word": "BERT",
 "variant": "bird"
 },
 {
 "word": "BERT",
 "variant": "burt"
+},
+{
+"word": "Cash App",
+"variant": "cache app"
+},
+{
+"word": "Claude",
+"variant": "clawed"
+},
+{
+"word": "Claude",
+"variant": "clod"
+},
+{
+"word": "Codex",
+"variant": "code x"
 },
 {
 "word": "Cypress",
@@ -11657,12 +14558,24 @@
 "variant": "devon"
 },
 {
+"word": "FaceTime",
+"variant": "face time"
+},
+{
 "word": "Finder",
 "variant": "find her"
 },
 {
 "word": "Fortnite",
+"variant": "fort night"
+},
+{
+"word": "Fortnite",
 "variant": "fortnight"
+},
+{
+"word": "Framer Motion",
+"variant": "save frame or motion"
 },
 {
 "word": "Goodreads",
@@ -11677,12 +14590,28 @@
 "variant": "google do"
 },
 {
+"word": "HeroUI",
+"variant": "hero u i"
+},
+{
 "word": "Imagen",
 "variant": "imagine"
 },
 {
+"word": "Llama",
+"variant": "lama"
+},
+{
+"word": "Llama 2",
+"variant": "llama too"
+},
+{
 "word": "Lucide",
 "variant": "lucid"
+},
+{
+"word": "Macintosh",
+"variant": "mackintosh"
 },
 {
 "word": "Macintosh",
@@ -11701,6 +14630,10 @@
 "variant": "okay"
 },
 {
+"word": "One UI",
+"variant": "one u i"
+},
+{
 "word": "OneNote",
 "variant": "one note"
 },
@@ -11709,16 +14642,48 @@
 "variant": "fi"
 },
 {
+"word": "Phi",
+"variant": "fie"
+},
+{
 "word": "Picasa",
 "variant": "picasso"
+},
+{
+"word": "Productboard",
+"variant": "product board"
+},
+{
+"word": "React Aria",
+"variant": "react area"
+},
+{
+"word": "Reforge",
+"variant": "re forge"
+},
+{
+"word": "Reforge",
+"variant": "re-forge"
+},
+{
+"word": "Smartlook",
+"variant": "smart look"
 },
 {
 "word": "SuccessFactors",
 "variant": "success factors"
 },
 {
+"word": "ThinkPad",
+"variant": "think pat"
+},
+{
 "word": "UIKit",
 "variant": "you like it"
+},
+{
+"word": "Vuetify",
+"variant": "beautify"
 },
 {
 "word": "Wan",
@@ -11729,6 +14694,10 @@
 "variant": "one"
 },
 {
+"word": "Windows 10",
+"variant": "windows ten"
+},
+{
 "word": "Zed",
 "variant": "z"
 },
@@ -11737,16 +14706,48 @@
 "variant": "active campaign"
 },
 {
+"word": "ActivityKit",
+"variant": "activity kit"
+},
+{
+"word": "Adreno",
+"variant": "adrenal"
+},
+{
+"word": "AlphaCode",
+"variant": "alpha code"
+},
+{
+"word": "AlphaZero",
+"variant": "alpha zero"
+},
+{
 "word": "Anki",
 "variant": "on key"
+},
+{
+"word": "AnyDesk",
+"variant": "any desk"
+},
+{
+"word": "Appcues",
+"variant": "app queues"
 },
 {
 "word": "Appcues",
 "variant": "app use"
 },
 {
+"word": "Appcues",
+"variant": "apt cues"
+},
+{
 "word": "Are.na",
 "variant": "arena"
+},
+{
+"word": "Ash Maurya",
+"variant": "ash maria"
 },
 {
 "word": "AskNicely",
@@ -11765,8 +14766,24 @@
 "variant": "awards"
 },
 {
+"word": "Balsamiq",
+"variant": "balsamic"
+},
+{
+"word": "BitTorrent",
+"variant": "bit torn"
+},
+{
+"word": "Claude 3.7 Sonnet",
+"variant": "see claude three point seven sonnet"
+},
+{
 "word": "Claude Desktop",
 "variant": "cloud desktop"
+},
+{
+"word": "CleanMyMac",
+"variant": "clean my mac"
 },
 {
 "word": "Cline",
@@ -11775,6 +14792,14 @@
 {
 "word": "Cocoa",
 "variant": "coco"
+},
+{
+"word": "Condens",
+"variant": "condense"
+},
+{
+"word": "ConnectX",
+"variant": "connect x"
 },
 {
 "word": "Coolors",
@@ -11787,6 +14812,14 @@
 {
 "word": "Creately",
 "variant": "creatively"
+},
+{
+"word": "DALL-E 2",
+"variant": "dolly two"
+},
+{
+"word": "DALL-E 3",
+"variant": "dolly three"
 },
 {
 "word": "Dan Olsen",
@@ -11813,6 +14846,10 @@
 "variant": "fine my"
 },
 {
+"word": "Flaticon",
+"variant": "flat icon"
+},
+{
 "word": "Flickr",
 "variant": "flicker"
 },
@@ -11821,12 +14858,56 @@
 "variant": "flipped"
 },
 {
+"word": "FLUX.1",
+"variant": "flux one"
+},
+{
+"word": "Fogg Behavior Model",
+"variant": "save fog behavior model"
+},
+{
 "word": "Fotor",
 "variant": "save folder"
 },
 {
+"word": "FreeSync",
+"variant": "save free sync"
+},
+{
+"word": "G Suite",
+"variant": "gee sweet"
+},
+{
+"word": "GeForce NOW",
+"variant": "sage force now"
+},
+{
+"word": "Gemma 2",
+"variant": "gemma two"
+},
+{
+"word": "Gemma 3",
+"variant": "gemma three"
+},
+{
+"word": "Genie 3",
+"variant": "genie three"
+},
+{
 "word": "Glassbox",
 "variant": "glass box"
+},
+{
+"word": "GreenSock",
+"variant": "green sock"
+},
+{
+"word": "Grok 2",
+"variant": "grok too"
+},
+{
+"word": "Halide",
+"variant": "halite"
 },
 {
 "word": "Havok",
@@ -11834,7 +14915,23 @@
 },
 {
 "word": "Heroicons",
+"variant": "hero icon"
+},
+{
+"word": "Heroicons",
 "variant": "heroic"
+},
+{
+"word": "High Sierra",
+"variant": "hi sierra"
+},
+{
+"word": "HoloLens",
+"variant": "hollow lens"
+},
+{
+"word": "Hoppscotch",
+"variant": "hopscotch"
 },
 {
 "word": "iA Writer",
@@ -11849,12 +14946,24 @@
 "variant": "imagine four"
 },
 {
+"word": "Indi Young",
+"variant": "indie young"
+},
+{
 "word": "ITIL",
 "variant": "idle"
 },
 {
+"word": "iWork",
+"variant": "eye work"
+},
+{
 "word": "Jules",
 "variant": "jewels"
+},
+{
+"word": "KeePass",
+"variant": "keep ask"
 },
 {
 "word": "Kling",
@@ -11863,6 +14972,14 @@
 {
 "word": "Kontakt",
 "variant": "contact"
+},
+{
+"word": "Kuiper",
+"variant": "project kuiper"
+},
+{
+"word": "Lenis",
+"variant": "salinas"
 },
 {
 "word": "LiveData",
@@ -11885,12 +15002,32 @@
 "variant": "listener"
 },
 {
+"word": "MapKit",
+"variant": "map kit"
+},
+{
 "word": "Maxon",
 "variant": "max on"
 },
 {
+"word": "Melissa Perri",
+"variant": "melissa perry"
+},
+{
+"word": "MetalKit",
+"variant": "metal kit"
+},
+{
+"word": "MI400",
+"variant": "am i four hundred"
+},
+{
 "word": "Mike Cohn",
 "variant": "mike cohen"
+},
+{
+"word": "Mobbin",
+"variant": "mobbing"
 },
 {
 "word": "MOVEit",
@@ -11917,6 +15054,14 @@
 "variant": "next train"
 },
 {
+"word": "NN/g",
+"variant": "n and g"
+},
+{
+"word": "o4-mini",
+"variant": "o for many"
+},
+{
 "word": "OpenHands",
 "variant": "open hands"
 },
@@ -11937,12 +15082,24 @@
 "variant": "part"
 },
 {
+"word": "Penpot",
+"variant": "pen pot"
+},
+{
 "word": "PhysX",
 "variant": "physics"
 },
 {
+"word": "PhysX",
+"variant": "safe as x"
+},
+{
 "word": "Pirsch",
 "variant": "pierce"
+},
+{
+"word": "Planhat",
+"variant": "plan had"
 },
 {
 "word": "ProductPlan",
@@ -11961,16 +15118,36 @@
 "variant": "crew"
 },
 {
+"word": "RealPlayer",
+"variant": "real player"
+},
+{
 "word": "Richard Thaler",
 "variant": "richard taylor"
+},
+{
+"word": "Roam Research",
+"variant": "rome research"
 },
 {
 "word": "ROG",
 "variant": "rogue"
 },
 {
+"word": "Roomba",
+"variant": "rumba"
+},
+{
 "word": "SafetyNet",
 "variant": "safety net"
+},
+{
+"word": "ScrollTrigger",
+"variant": "scroll trigger"
+},
+{
+"word": "Seedance",
+"variant": "see dance"
 },
 {
 "word": "Shodan",
@@ -11981,8 +15158,16 @@
 "variant": "specter"
 },
 {
+"word": "StoreKit",
+"variant": "store kit"
+},
+{
 "word": "StumbleUpon",
 "variant": "stumble upon"
+},
+{
+"word": "Toggl Track",
+"variant": "toggle track"
 },
 {
 "word": "U-Net",
@@ -11997,12 +15182,28 @@
 "variant": "unify"
 },
 {
+"word": "Userpilot",
+"variant": "user pilot"
+},
+{
 "word": "UserVoice",
 "variant": "user voice"
 },
 {
+"word": "UserZoom",
+"variant": "user zoom"
+},
+{
+"word": "ViewModel",
+"variant": "view model"
+},
+{
 "word": "ViT",
 "variant": "save it"
+},
+{
+"word": "ViT",
+"variant": "save vid"
 },
 {
 "word": "Vitally",
@@ -12011,6 +15212,10 @@
 {
 "word": "WalkMe",
 "variant": "walk me"
+},
+{
+"word": "WebPageTest",
+"variant": "web page test"
 },
 {
 "word": "Whatfix",
@@ -12023,6 +15228,18 @@
 {
 "word": "Wii",
 "variant": "wee"
+},
+{
+"word": "Windows 7",
+"variant": "windows seven"
+},
+{
+"word": "Windows 8",
+"variant": "windows eight"
+},
+{
+"word": "WorkManager",
+"variant": "work manager"
 },
 {
 "word": "Wrike",
@@ -12053,12 +15270,20 @@
 "variant": "dear"
 },
 {
+"word": "oneAPI",
+"variant": "one a p i"
+},
+{
 "word": "U2",
 "variant": "you too"
 },
 {
 "word": "U2",
 "variant": "you two"
+},
+{
+"word": "kHz",
+"variant": "kilohertz"
 },
 {
 "word": "Markov",
@@ -12085,12 +15310,28 @@
 "variant": "in' over"
 },
 {
+"word": "ANOVA",
+"variant": "uh nova"
+},
+{
+"word": "Argonne",
+"variant": "argon"
+},
+{
 "word": "Bayes",
 "variant": "bays"
 },
 {
 "word": "BioNTech",
 "variant": "bio and tech"
+},
+{
+"word": "Bézout",
+"variant": "bay zoo"
+},
+{
+"word": "Cirq",
+"variant": "cirque"
 },
 {
 "word": "CoRL",
@@ -12137,6 +15378,14 @@
 "variant": "simply"
 },
 {
+"word": "Weibull",
+"variant": "wibble"
+},
+{
+"word": "Auth0",
+"variant": "off zero"
+},
+{
 "word": "CORS",
 "variant": "cords"
 },
@@ -12153,12 +15402,44 @@
 "variant": "sea surf"
 },
 {
+"word": "CSRF",
+"variant": "see surf"
+},
+{
+"word": "E2EE",
+"variant": "e to e"
+},
+{
+"word": "FileVault",
+"variant": "save file vault"
+},
+{
+"word": "Fortinet",
+"variant": "forty net"
+},
+{
 "word": "LastPass",
 "variant": "last pass"
 },
 {
 "word": "OPA",
+"variant": "oh pa"
+},
+{
+"word": "OPA",
+"variant": "opah"
+},
+{
+"word": "OPA",
 "variant": "oprah"
+},
+{
+"word": "OWASP",
+"variant": "oh wasp"
+},
+{
+"word": "phishing",
+"variant": "fishing"
 },
 {
 "word": "phishing",
@@ -12181,12 +15462,40 @@
 "variant": "sneaky"
 },
 {
+"word": "Snyk",
+"variant": "snick"
+},
+{
+"word": "spear phishing",
+"variant": "spearfishing"
+},
+{
+"word": "WebAuthn",
+"variant": "web auth"
+},
+{
+"word": "WireGuard",
+"variant": "wire guard"
+},
+{
+"word": "Wiz",
+"variant": "whiz"
+},
+{
 "word": "0-day",
 "variant": "oh day"
 },
 {
+"word": "ABAC",
+"variant": "aback"
+},
+{
 "word": "AuthN",
 "variant": "often"
+},
+{
+"word": "BEC",
+"variant": "b see"
 },
 {
 "word": "BEC",
@@ -12197,20 +15506,48 @@
 "variant": "see two"
 },
 {
+"word": "Chainguard",
+"variant": "chain guard"
+},
+{
 "word": "Checkmarx",
 "variant": "check marks"
+},
+{
+"word": "cosign",
+"variant": "cosine"
 },
 {
 "word": "Descope",
 "variant": "de scope"
 },
 {
+"word": "DFIR",
+"variant": "d for"
+},
+{
+"word": "DMARC",
+"variant": "d mark"
+},
+{
 "word": "DoS",
 "variant": "das"
 },
 {
+"word": "DoS",
+"variant": "doss"
+},
+{
+"word": "fail2ban",
+"variant": "fail to ban"
+},
+{
 "word": "JOSE",
 "variant": "josé"
+},
+{
+"word": "Kerberos",
+"variant": "cerberus"
 },
 {
 "word": "KnowBe4",
@@ -12233,12 +15570,24 @@
 "variant": "proof point"
 },
 {
+"word": "Rapid7",
+"variant": "rapid seven"
+},
+{
+"word": "Rego",
+"variant": "ray go"
+},
+{
 "word": "SASE",
 "variant": "sassy"
 },
 {
 "word": "SCIM",
 "variant": "skim"
+},
+{
+"word": "Sigstore",
+"variant": "six store"
 },
 {
 "word": "SLSA",
@@ -12249,8 +15598,16 @@
 "variant": "sore"
 },
 {
+"word": "SPIFFE",
+"variant": "spiffy"
+},
+{
 "word": "Stytch",
 "variant": "stitch"
+},
+{
+"word": "TruffleHog",
+"variant": "truffle hog"
 },
 {
 "word": "WannaCry",
@@ -12277,6 +15634,10 @@
 "variant": "calibre"
 },
 {
+"word": "Cascadia Code",
+"variant": "cascade code"
+},
+{
 "word": "Consolas",
 "variant": "console as"
 },
@@ -12294,7 +15655,15 @@
 },
 {
 "word": "Eurostile",
+"variant": "euro steel"
+},
+{
+"word": "Eurostile",
 "variant": "euro style"
+},
+{
+"word": "font",
+"variant": "fawn"
 },
 {
 "word": "Fraunces",
@@ -12329,6 +15698,10 @@
 "variant": "rail way"
 },
 {
+"word": "Source Serif",
+"variant": "source sarah"
+},
+{
 "word": "Tahoma",
 "variant": "to homer"
 },
@@ -12345,6 +15718,18 @@
 "variant": "font face"
 },
 {
+"word": "Acumin",
+"variant": "acumen"
+},
+{
+"word": "Bembo",
+"variant": "bimbo"
+},
+{
+"word": "ClearType",
+"variant": "clear type"
+},
+{
 "word": "Clearview",
 "variant": "clear view"
 },
@@ -12357,12 +15742,40 @@
 "variant": "save void"
 },
 {
+"word": "FontShop",
+"variant": "font shop"
+},
+{
+"word": "FOUT",
+"variant": "f out"
+},
+{
 "word": "FOUT",
 "variant": "safe out"
 },
 {
+"word": "fraktur",
+"variant": "safe rock tour"
+},
+{
+"word": "FreeType",
+"variant": "save free type"
+},
+{
+"word": "geometric sans",
+"variant": "geometric sans serif"
+},
+{
 "word": "greeking",
 "variant": "greeting"
+},
+{
+"word": "guillemet",
+"variant": "ghee may"
+},
+{
+"word": "Mrs Eaves",
+"variant": "mrs. eaves"
 },
 {
 "word": "Nexa",
@@ -12371,6 +15784,10 @@
 {
 "word": "Sabon",
 "variant": "saban"
+},
+{
+"word": "Sabon",
+"variant": "say bon"
 },
 {
 "word": "Styrene",
@@ -12385,8 +15802,16 @@
 "variant": "wolf"
 },
 {
+"word": "Essential AI",
+"variant": "essential a i"
+},
+{
 "word": "Dataflow",
 "variant": "data flow"
+},
+{
+"word": "Route 53",
+"variant": "route fifty three"
 },
 {
 "word": "Datastore",
@@ -12403,6 +15828,14 @@
 {
 "word": "Flos",
 "variant": "safe loss"
+},
+{
+"word": "Glossier",
+"variant": "glossy eh"
+},
+{
+"word": "Glossier",
+"variant": "glossy yay"
 },
 {
 "word": "Knoll",
@@ -12429,8 +15862,28 @@
 "variant": "momentum"
 },
 {
+"word": "Redfin",
+"variant": "red fin"
+},
+{
+"word": "Redpoint",
+"variant": "red point"
+},
+{
+"word": "Safe Superintelligence",
+"variant": "safe super intelligence"
+},
+{
+"word": "Together AI",
+"variant": "together a i"
+},
+{
 "word": "Wildberries",
 "variant": "wild berries"
+},
+{
+"word": "Tableau",
+"variant": "tab low"
 },
 {
 "word": "Bokeh",
@@ -12457,12 +15910,20 @@
 "variant": "lead"
 },
 {
+"word": "MIDI",
+"variant": "middy"
+},
+{
 "word": "WAV",
 "variant": "wave file"
 },
 {
 "word": "Better Auth",
 "variant": "better off"
+},
+{
+"word": "Gentoo",
+"variant": "gen too"
 },
 {
 "word": "Gentoo",
@@ -12485,6 +15946,10 @@
 "variant": "by us"
 },
 {
+"word": "DRAM",
+"variant": "dear am"
+},
+{
 "word": "Rubin",
 "variant": "reuben"
 },
@@ -12497,12 +15962,32 @@
 "variant": "half life"
 },
 {
+"word": "Hearthstone",
+"variant": "heart stone"
+},
+{
+"word": "Hearthstone",
+"variant": "hearth stone"
+},
+{
+"word": "Overwatch",
+"variant": "over watch"
+},
+{
+"word": "AirPlay",
+"variant": "air play"
+},
+{
 "word": "Kodi",
 "variant": "cody"
 },
 {
 "word": "MasterClass",
 "variant": "master class"
+},
+{
+"word": "Recraft",
+"variant": "re craft"
 },
 {
 "word": "Switch 2",
@@ -12515,7 +16000,7 @@
 ],
 "resolved_collisions": [
 {
-"variant": "dolly",
+"variant": "dali",
 "words": [
 "DALL·E",
 "dall-e"
@@ -12523,7 +16008,7 @@
 "kept": "DALL-E"
 },
 {
-"variant": "dali",
+"variant": "dolly",
 "words": [
 "DALL·E",
 "dall-e"
@@ -12645,7 +16130,7 @@
 "kept": null
 },
 {
-"variant": "r",
+"variant": "arr",
 "words": [
 "AARRR"
 ],
@@ -12653,7 +16138,7 @@
 "why": "is another term"
 },
 {
-"variant": "arr",
+"variant": "r",
 "words": [
 "AARRR"
 ],
@@ -12839,20 +16324,20 @@
 "why": "is another term"
 },
 {
-"variant": "aura",
-"words": [
-"ora",
-"oura"
-],
-"kept": null
-},
-{
 "variant": "oura ring",
 "words": [
 "oura"
 ],
 "kept": null,
 "why": "is another term"
+},
+{
+"variant": "aura",
+"words": [
+"ora",
+"oura"
+],
+"kept": null
 },
 {
 "variant": "ora",
@@ -12879,20 +16364,20 @@
 "why": "is another term"
 },
 {
-"variant": "w and b",
-"words": [
-"W&B",
-"Weights & Biases"
-],
-"kept": "W&B"
-},
-{
 "variant": "w&b",
 "words": [
 "Weights & Biases"
 ],
 "kept": null,
 "why": "is another term"
+},
+{
+"variant": "w and b",
+"words": [
+"W&B",
+"Weights & Biases"
+],
+"kept": "W&B"
 },
 {
 "variant": "wix dot com",
@@ -12967,14 +16452,6 @@
 "kept": "Eufy"
 },
 {
-"variant": "grok",
-"words": [
-"groq"
-],
-"kept": null,
-"why": "is another term"
-},
-{
 "variant": "grock",
 "words": [
 "Grok",
@@ -12983,12 +16460,20 @@
 "kept": null
 },
 {
-"variant": "i owe",
+"variant": "grok",
+"words": [
+"groq"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "i o",
 "words": [
 "I/O",
 "io"
 ],
-"kept": null
+"kept": "I/O"
 },
 {
 "variant": "eye oh",
@@ -12999,12 +16484,12 @@
 "kept": "I/O"
 },
 {
-"variant": "i o",
+"variant": "i owe",
 "words": [
 "I/O",
 "io"
 ],
-"kept": "I/O"
+"kept": null
 },
 {
 "variant": "carrot",
@@ -13128,20 +16613,20 @@
 "kept": "MessagePack"
 },
 {
-"variant": "antd",
-"words": [
-"ant design"
-],
-"kept": null,
-"why": "is another term"
-},
-{
 "variant": "ant d",
 "words": [
 "ant design",
 "antd"
 ],
 "kept": "antd"
+},
+{
+"variant": "antd",
+"words": [
+"ant design"
+],
+"kept": null,
+"why": "is another term"
 },
 {
 "variant": "coach marks",
@@ -13176,7 +16661,7 @@
 "why": "is another term"
 },
 {
-"variant": "shad c n",
+"variant": "shad cn",
 "words": [
 "shadcn",
 "shadcn/ui"
@@ -13200,7 +16685,7 @@
 "kept": "shadcn/ui"
 },
 {
-"variant": "shad cn",
+"variant": "shad c n",
 "words": [
 "shadcn",
 "shadcn/ui"
@@ -13208,7 +16693,7 @@
 "kept": "shadcn"
 },
 {
-"variant": "mire",
+"variant": "meyer",
 "words": [
 "Maia",
 "maya"
@@ -13216,7 +16701,7 @@
 "kept": null
 },
 {
-"variant": "meyer",
+"variant": "mire",
 "words": [
 "Maia",
 "maya"
@@ -13344,7 +16829,7 @@
 "why": "is another term"
 },
 {
-"variant": "zed shell",
+"variant": "zee shell",
 "words": [
 "z shell",
 "zsh"
@@ -13360,7 +16845,7 @@
 "why": "is another term"
 },
 {
-"variant": "zee shell",
+"variant": "zed shell",
 "words": [
 "z shell",
 "zsh"
@@ -13384,7 +16869,7 @@
 "why": "is another term"
 },
 {
-"variant": "cmd k",
+"variant": "command-k",
 "words": [
 "Cmd+K",
 "cmdk",
@@ -13402,7 +16887,7 @@
 "kept": "Cmd+K"
 },
 {
-"variant": "command-k",
+"variant": "cmd k",
 "words": [
 "Cmd+K",
 "cmdk",
@@ -13515,14 +17000,6 @@
 "why": "is another term"
 },
 {
-"variant": "tl dr",
-"words": [
-"tldr"
-],
-"kept": null,
-"why": "is another term"
-},
-{
 "variant": "t l d r",
 "words": [
 "TL;DR",
@@ -13531,7 +17008,15 @@
 "kept": "TL;DR"
 },
 {
-"variant": "zell",
+"variant": "tl dr",
+"words": [
+"tldr"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "zel",
 "words": [
 "z shell",
 "zelle"
@@ -13539,7 +17024,7 @@
 "kept": "Zelle"
 },
 {
-"variant": "zel",
+"variant": "zell",
 "words": [
 "z shell",
 "zelle"
@@ -13579,20 +17064,20 @@
 "why": "is another term"
 },
 {
-"variant": "p e",
-"words": [
-"P/E",
-"PE"
-],
-"kept": null
-},
-{
 "variant": "pe",
 "words": [
 "P/E"
 ],
 "kept": null,
 "why": "is another term"
+},
+{
+"variant": "p e",
+"words": [
+"P/E",
+"PE"
+],
+"kept": null
 },
 {
 "variant": "sba",
@@ -14231,5 +17716,5 @@
 "Mulish"
 ],
 "variant_collisions": [],
-"runtime_bytes": 1474947
+"runtime_bytes": 1545884
 }

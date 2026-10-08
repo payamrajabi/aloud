@@ -44,6 +44,29 @@ for e in entries.values():
     if "-" in e["word"] and e["word"] == e["word"].lower() and e["dictation"] != "never" and \
        all(zipf_frequency(x, "en") >= 3.0 for x in re.split(r"[-\s]+", e["word"]) if x):
         e["dictation"] = "never"; e["dictation_note"] = "everyday phrase when spoken"
+# Pre-release review fixes (2026-10-08). The misaki gold dictionary the app ships tells ordinary English words apart.
+GOLD = json.load(open(os.environ.get("ALOUD_GOLD", os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "Vendor", "g2p", "us_gold.json")), encoding="utf-8"))
+GOLD_LOWER = {g.lower() for g in GOLD}
+# Words whose everyday pronunciation depends on part of speech (exploit: verb vs noun) read better without an entry.
+for kk in [kk for kk, e in entries.items() if e["match"] == "case-insensitive" and isinstance(GOLD.get(e["word"].lower()), dict)]:
+    del entries[kk]
+# Units and clock abbreviations only mean the unit right after a number ("16 GB", "9 AM"), never "mm, nice" or "I AM".
+UNITS = {"bps", "fps", "GB", "Gbps", "GHz", "GiB", "Hz", "KB", "kbps", "kHz", "KiB", "MB", "Mbps", "MiB", "mm", "ms", "nm",
+         "ns", "PB", "px", "TB", "Tbps", "THz", "μm", "μs", "rem", "AM", "PM"}
+for e in entries.values():
+    e["unit"] = e["word"] in UNITS
+    if e["unit"]: e["dictation"] = "never"
+    # All-caps acronyms spelled like ordinary words (ART, BIG, KISS): skipped in all-caps text ("BIG NEWS").
+    e["caps_word"] = e["word"].isupper() and len(e["word"]) >= 2 and e["word"].lower() in GOLD_LOWER
+# Tech context for dictation comes only from developer tech: engineering/cloud/data/AI/security terms, plus the
+# company/product/hardware/design terms an LLM pass judged to be developer tools (evidence/*.result.json), and never
+# from a term that is itself an ordinary word. Consumer brands (Netflix, iPhone, Tesla) no longer unlock rewrites.
+DEV = {"engineering", "cloud", "data", "ai", "security"}
+DEV_EXTRA = set()
+for f in glob.glob(f"{L}/evidence/*.result.json"):
+    DEV_EXTRA |= set(json.load(open(f, encoding="utf-8")).get("developer", []))
+for e in entries.values():
+    e["evidence"] = (e["category"] in DEV or e["word"] in DEV_EXTRA) and e["word"].lower() not in GOLD_LOWER and not e["unit"]
 # dictation: gather variants (agent + observed ASR), enforce safety
 by_variant = defaultdict(set)
 for e in entries.values():
@@ -105,8 +128,22 @@ for f in glob.glob(f"{L}/ordinary/*.result.json"):
     for bucket in ("drop", "context_only"):
         for it in json.load(open(f, encoding="utf-8")).get(bucket, []):
             JUDGED[(clean(it["variant"]), it["term"])] = bucket
-FORCE_CONTEXT = {("p and g", "PNG"), ("log stash", "Logstash")}
-FORCE_DROP = {("sales force", "Salesforce")}   # "our sales force is two people"   # "Export it as P and G" vs "P and G reported earnings"
+# Strict second pass (strict/sN.{a,b}.result.json): two independent judges per chunk over every variant made only of
+# dictionary words; the more careful verdict wins (drop > context_only > keep). Unlisted items in a judged chunk: keep.
+RANKV = {"keep": 0, "context_only": 1, "drop": 2}
+STRICT = {}
+for f in glob.glob(f"{L}/strict/s[0-9].json"):
+    res = [f.replace(".json", f".{x}.result.json") for x in ("a", "b")]
+    if not all(os.path.exists(r) for r in res): continue
+    for it in json.load(open(f, encoding="utf-8")): STRICT[(clean(it["variant"]), it["term"])] = "keep"
+    for r in res:
+        got = json.load(open(r, encoding="utf-8"))
+        for bucket in ("drop", "context_only"):
+            for it in got.get(bucket, []):
+                key = (clean(it["variant"]), it["term"])
+                if key in STRICT and RANKV[bucket] > RANKV[STRICT[key]]: STRICT[key] = bucket
+FORCE_CONTEXT = {("p and g", "PNG"), ("log stash", "Logstash"), ("hot mail", "Hotmail")}
+FORCE_DROP = {("sales force", "Salesforce"), ("sacey sharp", "C#")}   # "our sales force is two people"   # "Export it as P and G" vs "P and G reported earnings"
 def real_words(w): return all(len(x) > 1 and not x.isdigit() and zipf_frequency(x, "en") >= 3.0 for x in w)
 downgrades, collisions, dropped = [], [], []
 for e in entries.values():
@@ -116,6 +153,9 @@ for e in entries.values():
         j = JUDGED.get((v, e["word"]))
         if j is None and len(w) == 1 and zipf_frequency(v, "en") >= 3.3: j = "drop"
         if j is None and len(w) > 1 and real_words(w): j = "context_only"
+        sj = STRICT.get((v, e["word"]))
+        if sj is None and len(w) == 1 and v in GOLD_LOWER: sj = "drop"            # an unjudged dictionary word
+        if sj is not None and RANKV[sj] > RANKV.get(j or "keep", 0): j = sj
         if (v, e["word"]) in FORCE_CONTEXT: j = "context_only"
         if (v, e["word"]) in FORCE_DROP: j = "drop"
         if j == "drop":
@@ -133,6 +173,9 @@ for e in final:
     r = {"word": e["word"], "match": e["match"], "us": e["us"]}
     if e.get("gb"): r["gb"] = e["gb"]
     r["dictation"] = e["dictation"]
+    if e["unit"]: r["unit"] = True
+    if e["caps_word"]: r["caps_word"] = True
+    if e["dictation"] != "never" and not e["evidence"]: r["evidence"] = False
     if e["dictation"] != "never" and e["_variants"]:
         r["spoken"] = e["_variants"]
         if e["dictation_risky"]: r["spoken_context_only"] = e["dictation_risky"]
