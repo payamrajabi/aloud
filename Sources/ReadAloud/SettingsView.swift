@@ -98,7 +98,7 @@ struct SettingsView: View {
             } header: {
                 Text("Dictation")
             } footer: {
-                Text("Types names like GitHub, Supabase and kubectl the way they're spelled, even when they sound like ordinary words. Words such as “jason” or “sequel” are only changed when you're clearly talking tech.")
+                Text("Types names like GitHub, Supabase and kubectl the way they're spelled, even when they sound like ordinary words. Words such as “gooey” or “back end” are only changed when you're clearly talking tech.")
                     .foregroundStyle(.secondary)
                     .font(.caption)
                     .fixedSize(horizontal: false, vertical: true)

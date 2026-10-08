@@ -16,16 +16,22 @@ import Foundation
 /// ("super bases" stays as it is).
 ///
 /// What it leaves alone:
-///   - entries with `dictation: never` and entries without dictation fields;
-///   - variants of `context` entries, and variants listed in `spoken_context_only`,
-///     unless the same dictation also has an unambiguous tech hit: an `always` variant,
-///     or a term the lexicon knows written as itself (GitHub, API, Kubernetes);
+///   - entries with `dictation: never`, entries without dictation fields, and units
+///     (`unit: true`: "ms" and "GB" are for reading numbers, never written back);
+///   - variants of `context` entries, variants listed in `spoken_context_only`, and the
+///     spelling of a `context` term itself ("asap" → ASAP), unless the same dictation
+///     also has an unambiguous tech hit: an `always` variant, an `always` term written as
+///     itself (GitHub, API, Kubernetes), or a `context` term spelled as no word or
+///     abbreviation is (Next.js, K8s). A hit that itself needed context never supplies it,
+///     and neither does an entry marked `evidence: false` (Netflix, iPhone, LOL);
+///   - entries marked `caps_word` in a sentence written all in capitals ("I AM SO HAPPY");
 ///   - ordinary-word variants written with a capital ("Jason" is a person, "jason"
 ///     may be JSON), very common words ("next", "view") and ordinary phrases that
 ///     start or end with a little word ("a genetic", "red is"), even with tech context;
 ///   - a variant that several entries claim, and a term that's already spelled as
 ///     another entry (Postgres stays Postgres even if PostgreSQL lists "postgres");
-///   - anything inside a domain, file name, path or address (github.com, notes.json).
+///   - anything inside a domain, file name, path or address (github.com, notes.json),
+///     and the whole of a URL with a scheme (https://…, postgres://user@db).
 ///
 /// Built once from a `LexiconSet`; thread-safe after that.
 public final class DictationCorrector {
@@ -51,6 +57,7 @@ public final class DictationCorrector {
         static let lowercaseOnly: UInt8 = 8  // an ordinary word or name: only when written in lowercase
         static let plural: UInt8 = 16        // takes a plural ending
         static let variant: UInt8 = 32       // a spoken variant (not the term's own spelling)
+        static let capsWord: UInt8 = 64      // skipped in a sentence written all in capitals
 
         let entry: Int32
         var flags: UInt8
@@ -97,21 +104,31 @@ public final class DictationCorrector {
             groups.append(Group(pattern: p))
             return groups.count - 1
         }
-        for (index, e) in entries.enumerated() {
+        for (index, e) in entries.enumerated() where !e.isUnit {
             let id = Int32(index)
             let active = e.dictation == .always || e.dictation == .context
             let canonical = Self.normalize(e.word)
             let common = Self.commonPatterns.contains(canonical)
+            // Only developer terms say a dictation is about tech: never everyday brands and
+            // words (Netflix, iPhone, LOL), whatever else the entry does.
+            let evidence = e.isEvidence
+            // A `context` term's own spelling needs context like its variants do, so "asap" or
+            // "ASAP" can't vouch for itself; spelled as no word or abbreviation is (Next.js,
+            // K8s), it still can.
+            let spellingIsEvidence = evidence && active && !common
+                && (e.dictation == .always || Self.isUnmistakable(e.word.unicodeScalars))
+            let caps = e.isCapsWord ? Target.capsWord : 0
             var used = false
             if Self.usable(canonical) {
                 let g = group(canonical)
                 used = true
                 if e.isCaseSensitive {
-                    let evidence = active && !common && Self.isDistinctive(e.word)
-                    groups[g].exact.append(Target(entry: id, flags: evidence ? Target.evidence : 0))
+                    let flags = (spellingIsEvidence && Self.isDistinctive(e.word) ? Target.evidence : 0) | caps
+                    groups[g].exact.append(Target(entry: id, flags: flags))
                 } else if groups[g].canonical == nil || (active && groups[g].canonical?.has(Target.rewrite) == false) {
-                    var flags: UInt8 = 0
-                    if active && !common { flags |= Target.rewrite | Target.evidence }
+                    var flags: UInt8 = caps
+                    if active && !common { flags |= Target.rewrite }
+                    if spellingIsEvidence { flags |= Target.evidence }
                     if e.dictation == .context || common { flags |= Target.gated }
                     if !e.isExact, canonical.last.flatMap(Unicode.Scalar.init).map(Scalars.isLetter) == true { flags |= Target.plural }
                     groups[g].canonical = Target(entry: id, flags: flags)
@@ -135,9 +152,9 @@ public final class DictationCorrector {
                         let last = Self.functionPatterns.contains(Array(parts[n - 1])) && !(parts[n - 1].count == 1 && parts[n - 2].count == 1)
                         if first || last { continue }
                     }
-                    var flags = Target.rewrite | Target.variant
+                    var flags = Target.rewrite | Target.variant | caps
                     if e.dictation == .context || ordinary { flags |= Target.gated }
-                    if e.dictation == .always && !ordinary { flags |= Target.evidence }
+                    if evidence && e.dictation == .always && !ordinary { flags |= Target.evidence }
                     // A capitalised ordinary word is a name ("Jason"); a capitalised phrase is
                     // more likely the product ("Mac OS", "Super Base"), so only words are held back.
                     if ordinary && parts.count == 1 { flags |= Target.lowercaseOnly }
@@ -147,7 +164,7 @@ public final class DictationCorrector {
                     if let old = groups[g].variant {
                         if entries[Int(old.entry)].word == e.word {
                             // The same term twice: keep the more careful reading.
-                            let careful = (old.flags | flags) & (Target.gated | Target.lowercaseOnly)
+                            let careful = (old.flags | flags) & (Target.gated | Target.lowercaseOnly | Target.capsWord)
                             groups[g].variant?.flags = (old.flags & flags) | careful
                         } else {
                             groups[g].ambiguous = true
@@ -216,7 +233,18 @@ public final class DictationCorrector {
     /// Written in a way no ordinary word is: a digit or symbol, or a capital after the
     /// first letter (GitHub, JSON, iOS, Next.js). "Notion" and "Linear" aren't.
     static func isDistinctive(_ word: String) -> Bool {
-        for (i, c) in word.unicodeScalars.enumerated() {
+        isDistinctive(word.unicodeScalars)
+    }
+
+    /// Distinctive, and not just by being in capitals: a digit or symbol, or a capital
+    /// inside a word that also has lowercase letters (Next.js, K8s, GraphQL, iOS). An
+    /// all-capitals term may be an everyday abbreviation ("ASAP", "FYI").
+    static func isUnmistakable<C: Collection>(_ word: C) -> Bool where C.Element == Unicode.Scalar {
+        isDistinctive(word) && word.contains { Scalars.isLowercase($0) || (!Scalars.isLetter($0) && !isSeparator($0)) }
+    }
+
+    static func isDistinctive<C: Collection>(_ word: C) -> Bool where C.Element == Unicode.Scalar {
+        for (i, c) in word.enumerated() {
             if Scalars.isDigit(c) { return true }
             if !Scalars.isLetter(c), !isSeparator(c) { return true }
             if i > 0, Scalars.isUppercase(c) { return true }
@@ -237,13 +265,15 @@ public final class DictationCorrector {
         let evidence: Bool
         let target: Target?
 
-        init(start: Int, end: Int, replacement: [Unicode.Scalar]? = nil, target: Target? = nil, evidence: Bool = false) {
+        /// Unless told otherwise, only a hit that needs no context can be context: an
+        /// ungated target of an evidence entry.
+        init(start: Int, end: Int, replacement: [Unicode.Scalar]? = nil, target: Target? = nil, evidence: Bool? = nil) {
             self.start = start
             self.end = end
             self.replacement = replacement
             self.target = target
             self.gated = target?.has(Target.gated) ?? false
-            self.evidence = evidence || (target?.has(Target.evidence) ?? false)
+            self.evidence = evidence ?? target.map { $0.has(Target.evidence) && !$0.has(Target.gated) } ?? false
         }
     }
 
@@ -261,8 +291,14 @@ public final class DictationCorrector {
         let f = s.map { Self.foldApostrophe(Scalars.fold($0)) }
         var hits: [Hit] = []
         var found: [(end: Int, group: Int32)] = []
+        var shouted = ShoutedSentences()
+        let urls = Self.urls(in: s)
+        var nextURL = 0
         var i = 0
         while i < n - 1 {
+            // A URL with a scheme is left whole, scheme included ("https://", "postgres://").
+            while nextURL < urls.count, urls[nextURL].upperBound <= i { nextURL += 1 }
+            if nextURL < urls.count, urls[nextURL].contains(i) { i = urls[nextURL].upperBound; continue }
             if i > 0, !Self.canStart(after: s[i - 1]) { i += 1; continue }
             let second = Self.isSeparator(s[i + 1]) ? Self.separator : f[i + 1]
             guard let list = buckets[Self.bucket(f[i], second)] else { i += 1; continue }
@@ -274,7 +310,7 @@ public final class DictationCorrector {
             if !found.isEmpty {
                 found.sort { $0.end > $1.end }
                 for (end, g) in found {
-                    if let h = decide(groups[Int(g)], start: i, end: end, s) { hit = h; break }
+                    if let h = decide(groups[Int(g)], start: i, end: end, s, &shouted) { hit = h; break }
                 }
             }
             if let hit {
@@ -320,13 +356,15 @@ public final class DictationCorrector {
         return j
     }
 
-    private func decide(_ g: Group, start: Int, end: Int, _ s: [Unicode.Scalar]) -> Hit? {
+    private func decide(_ g: Group, start: Int, end: Int, _ s: [Unicode.Scalar], _ shouted: inout ShoutedSentences) -> Hit? {
         let written = s[start..<end]
+        // In a sentence written all in capitals an all-caps word is just a word ("I AM SO HAPPY").
+        func skipped(_ t: Target) -> Bool { t.has(Target.capsWord) && shouted.contains(start, in: s) }
         // Already spelled exactly as a case-sensitive term: keep it.
-        for e in g.exact where written.elementsEqual(words[Int(e.entry)]) && Self.endsCleanly(s, at: end) {
+        for e in g.exact where written.elementsEqual(words[Int(e.entry)]) && Self.endsCleanly(s, at: end) && !skipped(e) {
             return Hit(start: start, end: end, evidence: e.has(Target.evidence))
         }
-        if let c = g.canonical {
+        if let c = g.canonical, !skipped(c) {
             var stop = end
             let word0 = words[Int(c.entry)]
             if c.has(Target.plural) {
@@ -339,6 +377,9 @@ public final class DictationCorrector {
             }
             if Self.endsCleanly(s, at: stop) {
                 guard c.has(Target.rewrite) else { return Hit(start: start, end: stop) }
+                // A gated term is context only when written as no ordinary word is ("Next.js",
+                // not "asap").
+                let evidence = c.has(Target.evidence) && (!c.has(Target.gated) || Self.isUnmistakable(written))
                 // A Titlecase word for an all-caps term is a name or a place ("Maui" isn't MAUI,
                 // "Aria" isn't ARIA). Mixed-case terms still get fixed ("Github" → GitHub).
                 if Self.isTitlecase(written), Self.isAllCaps(word0) { return Hit(start: start, end: stop) }
@@ -346,17 +387,17 @@ public final class DictationCorrector {
                 if !word.contains(where: Scalars.isUppercase) {
                     // An all-lowercase term ("kubectl", "grep"): keep a capital the sentence gave it.
                     if written.map(Scalars.fold).elementsEqual(word.map(Scalars.fold)) {
-                        return Hit(start: start, end: stop, evidence: c.has(Target.evidence))
+                        return Hit(start: start, end: stop, evidence: evidence)
                     }
                     if let first = written.first, Scalars.isUppercase(first),
                        let up = word.first.map({ String($0).uppercased().unicodeScalars }), up.count == 1 {
                         word[0] = up.first!
                     }
                 }
-                return Hit(start: start, end: stop, replacement: word + s[end..<stop], target: c)
+                return Hit(start: start, end: stop, replacement: word + s[end..<stop], target: c, evidence: evidence)
             }
         }
-        if let v = g.variant, !g.ambiguous {
+        if let v = g.variant, !g.ambiguous, !skipped(v) {
             if v.has(Target.lowercaseOnly), written.contains(where: Scalars.isUppercase) { return nil }
             guard Self.endsCleanly(s, at: end) else { return nil }
             return Hit(start: start, end: end, replacement: words[Int(v.entry)], target: v)
@@ -400,6 +441,26 @@ public final class DictationCorrector {
             j += 1
         }
         return true
+    }
+
+    /// Every URL with a scheme ("https://supabase.com/docs", "redis://localhost"), from the
+    /// start of the scheme to the next space, in order.
+    static func urls(in s: [Unicode.Scalar]) -> [Range<Int>] {
+        var out: [Range<Int>] = []
+        var i = 1
+        while i + 2 < s.count {
+            guard s[i] == ":", s[i + 1] == "/", s[i + 2] == "/", Scalars.isLetterOrNumber(s[i - 1]) else { i += 1; continue }
+            var start = i - 1
+            // RFC 3986 schemes: letters, digits, "+", "-" and "." ("git+ssh", "coap+tcp").
+            while start > 0, Scalars.isLetterOrNumber(s[start - 1]) || s[start - 1] == "+" || s[start - 1] == "-" || s[start - 1] == "." {
+                start -= 1
+            }
+            var end = i + 3
+            while end < s.count, !Scalars.isSpace(s[end]) { end += 1 }
+            out.append(start..<end)
+            i = end
+        }
+        return out
     }
 
     /// Not in the middle of a word, a domain, a path, an address or a hashtag.
