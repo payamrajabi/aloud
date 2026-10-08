@@ -15,7 +15,7 @@ final class Synthesizer {
     private let queue = DispatchQueue(label: "readaloud.synth", qos: .userInteractive)
     private let lock = NSLock()
     private var session = 0
-    private var texts: [String] = []
+    private var chunks: [Chunk] = []
     private var claimed = Set<Int>()
     private var window = 0...0
     private var voice = Voice.default
@@ -28,11 +28,12 @@ final class Synthesizer {
         queue.async { self.ensureEngine()?.prepare(accent) }
     }
 
+    /// Each chunk is said at its own speed (slower for headings and quotes).
     @discardableResult
-    func begin(texts: [String], voice: Voice, from index: Int) -> Int {
+    func begin(_ chunks: [Chunk], voice: Voice, from index: Int) -> Int {
         lock.lock()
         session += 1
-        self.texts = texts
+        self.chunks = chunks
         self.voice = voice
         claimed = []
         window = index...index
@@ -55,7 +56,7 @@ final class Synthesizer {
     func cancel() {
         lock.lock()
         session += 1
-        texts = []
+        chunks = []
         claimed = []
         lock.unlock()
     }
@@ -78,7 +79,7 @@ final class Synthesizer {
             }
             claimed.insert(index)
             let s = session
-            let text = texts[index]
+            let chunk = chunks[index]
             let v = voice
             lock.unlock()
 
@@ -89,18 +90,18 @@ final class Synthesizer {
                 return
             }
             let t0 = Date()
-            let phonemes = engine.phonemes(text, accent: v.accent)
-            let samples = KokoroEngine.isSpeakable(phonemes) ? engine.generate(phonemes: phonemes, voice: v) : nil
+            let phonemes = engine.phonemes(chunk.speech, accent: v.accent)
+            let samples = KokoroEngine.isSpeakable(phonemes) ? engine.generate(phonemes: phonemes, voice: v, speed: chunk.speed) : nil
             if Synthesizer.trace {
-                print(String(format: "   synth #%d: %.2fs audio in %.2fs (%d chars) at %.1f", index, Double(samples?.count ?? 0) / 24000, Date().timeIntervalSince(t0), text.count, Date().timeIntervalSince1970.truncatingRemainder(dividingBy: 100))); fflush(stdout)
+                print(String(format: "   synth #%d: %.2fs audio in %.2fs (%d chars, speed %.2f) at %.1f", index, Double(samples?.count ?? 0) / 24000, Date().timeIntervalSince(t0), chunk.speech.count, chunk.speed, Date().timeIntervalSince1970.truncatingRemainder(dividingBy: 100))); fflush(stdout)
             }
             DispatchQueue.main.async { self.onReady?(s, index, samples) }
         }
     }
 
     private func nextIndex() -> Int? {
-        guard !texts.isEmpty, window.lowerBound < texts.count else { return nil }
-        let end = min(window.upperBound, texts.count - 1)
+        guard !chunks.isEmpty, window.lowerBound < chunks.count else { return nil }
+        let end = min(window.upperBound, chunks.count - 1)
         for i in window.lowerBound...end where !claimed.contains(i) { return i }
         return nil
     }

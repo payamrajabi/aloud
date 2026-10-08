@@ -1,0 +1,2041 @@
+{
+  "about": "Narration test suite for FIN-886 (structure-aware narration). Run with `.build/debug/ReadAloud --test-narration Tests/narration/cases.json [--verbose]`. Each case parses `input` as `format` (markdown | html | plain | auto, where auto is the detection PlayerModel uses without html), plans it, and compares the spoken chunks: `speech` exactly, `speed` within 0.001 (omitted = 1), `pause` within 0.005 or `pauseMin`/`pauseMax` (omitted = not checked), and the chunk count. `display` (optional) is the exact display text; `detect` (optional) is the expected auto-detected format. Written from the spec alone: pauses follow its table with max() between blocks (paragraph after 0.75, so a paragraph before a list is 0.75; the 0.6 list and quote entries show after an h3/h4), 0.25 between sentences, 0.5 after the last chunk. A pause after the last row of a table that is followed by something else is left unchecked (the spec doesn't define it); the gap after a splitOpening piece may be anything from 0.02 (today) to 0.08 (pieces of one sentence). Plain-text guards must stay paragraphs: no headings or lists in emails, chat, poems, addresses, URLs or numbered sentences.",
+  "cases": [
+    {
+      "name": "md: h1 then body",
+      "format": "markdown",
+      "input": "# Pour-Over Coffee\n\nGood coffee starts with fresh beans.",
+      "chunks": [
+        {
+          "speech": "Pour-Over Coffee.",
+          "speed": 0.88,
+          "pause": 0.8
+        },
+        {
+          "speech": "Good coffee starts with fresh beans.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Pour-Over Coffee\nGood coffee starts with fresh beans."
+    },
+    {
+      "name": "md: h2, h3, h4 each followed by body",
+      "format": "markdown",
+      "input": "## What You Need\n\nA kettle and a scale.\n\n### Rinse the Filter\n\nHot water takes away the papery taste.\n\n#### Grind Size\n\nAim for coarse sand.",
+      "chunks": [
+        {
+          "speech": "What You Need.",
+          "speed": 0.92,
+          "pause": 0.7
+        },
+        {
+          "speech": "A kettle and a scale.",
+          "pause": 1.0
+        },
+        {
+          "speech": "Rinse the Filter.",
+          "speed": 0.95,
+          "pause": 0.6
+        },
+        {
+          "speech": "Hot water takes away the papery taste.",
+          "pause": 0.9
+        },
+        {
+          "speech": "Grind Size.",
+          "speed": 0.97,
+          "pause": 0.5
+        },
+        {
+          "speech": "Aim for coarse sand.",
+          "pause": 0.5
+        }
+      ],
+      "display": "What You Need\nA kettle and a scale.\nRinse the Filter\nHot water takes away the papery taste.\nGrind Size\nAim for coarse sand."
+    },
+    {
+      "name": "md: h5 and h6 each followed by body",
+      "format": "markdown",
+      "input": "##### Water\n\nUse filtered water.\n\n###### Footnote\n\nThis guide is a starting point.",
+      "chunks": [
+        {
+          "speech": "Water.",
+          "speed": 0.97,
+          "pause": 0.5
+        },
+        {
+          "speech": "Use filtered water.",
+          "pause": 0.9
+        },
+        {
+          "speech": "Footnote.",
+          "speed": 0.97,
+          "pause": 0.5
+        },
+        {
+          "speech": "This guide is a starting point.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: paragraph before h1 and h2 takes the heading's longer pause",
+      "format": "markdown",
+      "input": "Read this first.\n\n# Part Two\n\nBoil the water.\n\n## Pour\n\nPour slowly.",
+      "chunks": [
+        {
+          "speech": "Read this first.",
+          "pause": 1.4
+        },
+        {
+          "speech": "Part Two.",
+          "speed": 0.88,
+          "pause": 0.8
+        },
+        {
+          "speech": "Boil the water.",
+          "pause": 1.2
+        },
+        {
+          "speech": "Pour.",
+          "speed": 0.92,
+          "pause": 0.7
+        },
+        {
+          "speech": "Pour slowly.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: heading straight into a subheading uses 0.6",
+      "format": "markdown",
+      "input": "# Brewing Guide\n\n## The Bloom\n\nWet the grounds.\n\n#### Before You Pour\n\n##### Gear\n\nYou need a kettle.",
+      "chunks": [
+        {
+          "speech": "Brewing Guide.",
+          "speed": 0.88,
+          "pause": 0.6
+        },
+        {
+          "speech": "The Bloom.",
+          "speed": 0.92,
+          "pause": 0.7
+        },
+        {
+          "speech": "Wet the grounds.",
+          "pause": 0.9
+        },
+        {
+          "speech": "Before You Pour.",
+          "speed": 0.97,
+          "pause": 0.6
+        },
+        {
+          "speech": "Gear.",
+          "speed": 0.97,
+          "pause": 0.5
+        },
+        {
+          "speech": "You need a kettle.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: sentences 0.25 apart, paragraphs 0.75 apart",
+      "format": "markdown",
+      "input": "Heat the water. Rinse the filter.\n\nAdd the grounds. Start the timer.",
+      "chunks": [
+        {
+          "speech": "Heat the water.",
+          "pause": 0.25
+        },
+        {
+          "speech": "Rinse the filter.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Add the grounds.",
+          "pause": 0.25
+        },
+        {
+          "speech": "Start the timer.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Heat the water. Rinse the filter.\nAdd the grounds. Start the timer."
+    },
+    {
+      "name": "md: a soft break and <br> are spaces inside one paragraph",
+      "format": "markdown",
+      "input": "Grind the beans.\nHeat the water.<br>Pour slowly.",
+      "chunks": [
+        {
+          "speech": "Grind the beans.",
+          "pause": 0.25
+        },
+        {
+          "speech": "Heat the water.",
+          "pause": 0.25
+        },
+        {
+          "speech": "Pour slowly.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Grind the beans. Heat the water. Pour slowly."
+    },
+    {
+      "name": "md: unordered list between paragraphs",
+      "format": "markdown",
+      "input": "Bring your gear.\n\n- A kettle\n- A scale\n- Paper filters\n\nThen start brewing.",
+      "chunks": [
+        {
+          "speech": "Bring your gear.",
+          "pause": 0.75
+        },
+        {
+          "speech": "A kettle.",
+          "pause": 0.4
+        },
+        {
+          "speech": "A scale.",
+          "pause": 0.4
+        },
+        {
+          "speech": "Paper filters.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Then start brewing.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Bring your gear.\n• A kettle\n• A scale\n• Paper filters\nThen start brewing."
+    },
+    {
+      "name": "md: h3 into a loose list enters at 0.6; list into h2 leaves at 1.2",
+      "format": "markdown",
+      "input": "### Gear\n\n+ A kettle\n\n+ A scale\n\n## Method\n\nPour slowly.",
+      "chunks": [
+        {
+          "speech": "Gear.",
+          "speed": 0.95,
+          "pause": 0.6
+        },
+        {
+          "speech": "A kettle.",
+          "pause": 0.4
+        },
+        {
+          "speech": "A scale.",
+          "pause": 1.2
+        },
+        {
+          "speech": "Method.",
+          "speed": 0.92,
+          "pause": 0.7
+        },
+        {
+          "speech": "Pour slowly.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: ordered list speaks its numbers",
+      "format": "markdown",
+      "input": "1. Open the app.\n2. Pick a voice\n3. Press play",
+      "chunks": [
+        {
+          "speech": "1. Open the app.",
+          "pause": 0.4
+        },
+        {
+          "speech": "2. Pick a voice.",
+          "pause": 0.4
+        },
+        {
+          "speech": "3. Press play.",
+          "pause": 0.5
+        }
+      ],
+      "display": "1. Open the app.\n2. Pick a voice\n3. Press play"
+    },
+    {
+      "name": "md: ordered list starting at 3, number only on the item's first sentence",
+      "format": "markdown",
+      "input": "3. Heat the water. Let it rest.\n4. Pour",
+      "chunks": [
+        {
+          "speech": "3. Heat the water.",
+          "pause": 0.25
+        },
+        {
+          "speech": "Let it rest.",
+          "pause": 0.4
+        },
+        {
+          "speech": "4. Pour.",
+          "pause": 0.5
+        }
+      ],
+      "display": "3. Heat the water. Let it rest.\n4. Pour"
+    },
+    {
+      "name": "md: nested unordered list",
+      "format": "markdown",
+      "input": "* Gear\n  * Kettle\n  * Scale\n* Beans",
+      "chunks": [
+        {
+          "speech": "Gear.",
+          "pause": 0.4
+        },
+        {
+          "speech": "Kettle.",
+          "pause": 0.4
+        },
+        {
+          "speech": "Scale.",
+          "pause": 0.4
+        },
+        {
+          "speech": "Beans.",
+          "pause": 0.5
+        }
+      ],
+      "display": "• Gear\n    • Kettle\n    • Scale\n• Beans"
+    },
+    {
+      "name": "md: ordered list with nested bullets",
+      "format": "markdown",
+      "input": "1. Prepare\n   - Rinse the filter\n   - Weigh the beans\n2. Brew",
+      "chunks": [
+        {
+          "speech": "1. Prepare.",
+          "pause": 0.4
+        },
+        {
+          "speech": "Rinse the filter.",
+          "pause": 0.4
+        },
+        {
+          "speech": "Weigh the beans.",
+          "pause": 0.4
+        },
+        {
+          "speech": "2. Brew.",
+          "pause": 0.5
+        }
+      ],
+      "display": "1. Prepare\n    • Rinse the filter\n    • Weigh the beans\n2. Brew"
+    },
+    {
+      "name": "md: lead-in colon before a list is 0.45, before a paragraph is 0.75",
+      "format": "markdown",
+      "input": "Remember this:\n\nGood beans matter most.\n\nDo this:\n\n- Rinse the filter\n- Add the grounds",
+      "chunks": [
+        {
+          "speech": "Remember this:",
+          "pause": 0.75
+        },
+        {
+          "speech": "Good beans matter most.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Do this:",
+          "pause": 0.45
+        },
+        {
+          "speech": "Rinse the filter.",
+          "pause": 0.4
+        },
+        {
+          "speech": "Add the grounds.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Remember this:\nGood beans matter most.\nDo this:\n• Rinse the filter\n• Add the grounds"
+    },
+    {
+      "name": "md: lead-in sentence at the end of a paragraph, then an ordered list",
+      "format": "markdown",
+      "input": "Here is the plan. Follow these steps:\n\n1. Heat the water\n2. Pour slowly",
+      "chunks": [
+        {
+          "speech": "Here is the plan.",
+          "pause": 0.25
+        },
+        {
+          "speech": "Follow these steps:",
+          "pause": 0.45
+        },
+        {
+          "speech": "1. Heat the water.",
+          "pause": 0.4
+        },
+        {
+          "speech": "2. Pour slowly.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: quote between paragraphs is slower",
+      "format": "markdown",
+      "input": "My barista once said this.\n\n> Slow down. Enjoy it.\n\nShe was right.",
+      "chunks": [
+        {
+          "speech": "My barista once said this.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Slow down.",
+          "speed": 0.95,
+          "pause": 0.25
+        },
+        {
+          "speech": "Enjoy it.",
+          "speed": 0.95,
+          "pause": 0.75
+        },
+        {
+          "speech": "She was right.",
+          "pause": 0.5
+        }
+      ],
+      "display": "My barista once said this.\nSlow down. Enjoy it.\nShe was right."
+    },
+    {
+      "name": "md: nested quote",
+      "format": "markdown",
+      "input": "> Outer thought.\n>\n> > Inner thought.\n>\n> Outer again.",
+      "chunks": [
+        {
+          "speech": "Outer thought.",
+          "speed": 0.95,
+          "pause": 0.75
+        },
+        {
+          "speech": "Inner thought.",
+          "speed": 0.95,
+          "pause": 0.75
+        },
+        {
+          "speech": "Outer again.",
+          "speed": 0.95,
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: h4 into a quote uses the 0.6 quote boundary; quote into h4 uses 0.9",
+      "format": "markdown",
+      "input": "#### A Saying\n\n> Patience makes the cup.\n\n#### Next\n\nWeigh the beans.",
+      "chunks": [
+        {
+          "speech": "A Saying.",
+          "speed": 0.97,
+          "pause": 0.6
+        },
+        {
+          "speech": "Patience makes the cup.",
+          "speed": 0.95,
+          "pause": 0.9
+        },
+        {
+          "speech": "Next.",
+          "speed": 0.97,
+          "pause": 0.5
+        },
+        {
+          "speech": "Weigh the beans.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: bold italic word in a quote is stressed once",
+      "format": "markdown",
+      "input": "> Pour ***very*** slowly.",
+      "chunks": [
+        {
+          "speech": "Pour [very](+1) slowly.",
+          "speed": 0.95,
+          "pause": 0.5
+        }
+      ],
+      "display": "Pour very slowly."
+    },
+    {
+      "name": "md: short bold, italic and <u> spans are stressed",
+      "format": "markdown",
+      "input": "Use **fresh** beans, *filtered* water and <u>one</u> scoop.",
+      "chunks": [
+        {
+          "speech": "Use [fresh](+1) beans, [filtered](+1) water and [one](+1) scoop.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Use fresh beans, filtered water and one scoop."
+    },
+    {
+      "name": "md: four-word emphasis is stressed, five-word is not",
+      "format": "markdown",
+      "input": "Let it **rest for thirty seconds** first.\n\nThen **pour in slow even circles** again.",
+      "chunks": [
+        {
+          "speech": "Let it [rest for thirty seconds](+1) first.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Then pour in slow even circles again.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: emphasis covering the whole block is not stressed",
+      "format": "markdown",
+      "input": "**Never use boiling water.**",
+      "chunks": [
+        {
+          "speech": "Never use boiling water.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Never use boiling water."
+    },
+    {
+      "name": "md: emphasis in list items; a fully bold item is not stressed",
+      "format": "markdown",
+      "input": "- Use **fresh** beans\n- **Kettle**",
+      "chunks": [
+        {
+          "speech": "Use [fresh](+1) beans.",
+          "pause": 0.4
+        },
+        {
+          "speech": "Kettle.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: no stress markup in headings",
+      "format": "markdown",
+      "input": "## A **Bold** Idea\n\nTry it *once* today.",
+      "chunks": [
+        {
+          "speech": "A Bold Idea.",
+          "speed": 0.92,
+          "pause": 0.7
+        },
+        {
+          "speech": "Try it [once](+1) today.",
+          "pause": 0.5
+        }
+      ],
+      "display": "A Bold Idea\nTry it once today."
+    },
+    {
+      "name": "md: struck words are shown but not spoken (~~, <del>, <s>)",
+      "format": "markdown",
+      "input": "Use ~~cheap~~ fresh beans. Pour <del>fast</del> slowly and <s>never</s> stir.",
+      "chunks": [
+        {
+          "speech": "Use fresh beans.",
+          "pause": 0.25
+        },
+        {
+          "speech": "Pour slowly and stir.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Use cheap fresh beans. Pour fast slowly and never stir."
+    },
+    {
+      "name": "md: a struck sentence inside a paragraph drops out",
+      "format": "markdown",
+      "input": "Grind the beans. ~~Skip the scale.~~ Heat the water.",
+      "chunks": [
+        {
+          "speech": "Grind the beans.",
+          "pause": 0.25
+        },
+        {
+          "speech": "Heat the water.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: fully struck paragraphs make no chunk but still separate their neighbours",
+      "format": "markdown",
+      "input": "First paragraph here.\n\n~~This whole paragraph is gone.~~\n\nSecond paragraph here.\n\n#### Notes\n\n~~Old plan.~~\n\nNew plan.",
+      "chunks": [
+        {
+          "speech": "First paragraph here.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Second paragraph here.",
+          "pause": 0.9
+        },
+        {
+          "speech": "Notes.",
+          "speed": 0.97,
+          "pause": 0.75
+        },
+        {
+          "speech": "New plan.",
+          "pause": 0.5
+        }
+      ],
+      "display": "First paragraph here.\nThis whole paragraph is gone.\nSecond paragraph here.\nNotes\nOld plan.\nNew plan."
+    },
+    {
+      "name": "md: a struck list item is skipped",
+      "format": "markdown",
+      "input": "- Kettle\n- ~~Grinder~~\n- Scale",
+      "chunks": [
+        {
+          "speech": "Kettle.",
+          "pause": 0.4
+        },
+        {
+          "speech": "Scale.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: inline code is read as words",
+      "format": "markdown",
+      "input": "Run `brew install aloud` first.",
+      "chunks": [
+        {
+          "speech": "Run brew install aloud first.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Run brew install aloud first."
+    },
+    {
+      "name": "md: fenced code block is skipped silently",
+      "format": "markdown",
+      "input": "Install it first.\n\n```sh\nbrew install aloud\n```\n\nThen open it.",
+      "chunks": [
+        {
+          "speech": "Install it first.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Then open it.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: skipped code after a heading still gives the code block's 0.75",
+      "format": "markdown",
+      "input": "## Setup\n\n```\nnpm install\n```\n\nNow run it.\n\n#### Example\n\n~~~\nlet x = 1\n~~~\n\nThat sets x.",
+      "chunks": [
+        {
+          "speech": "Setup.",
+          "speed": 0.92,
+          "pause": 0.75
+        },
+        {
+          "speech": "Now run it.",
+          "pause": 0.9
+        },
+        {
+          "speech": "Example.",
+          "speed": 0.97,
+          "pause": 0.75
+        },
+        {
+          "speech": "That sets x.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: 4-space indented text without a fence is read as a paragraph",
+      "format": "markdown",
+      "input": "Intro line here.\n\n    Indented text is read.\n\nLast line here.",
+      "chunks": [
+        {
+          "speech": "Intro line here.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Indented text is read.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Last line here.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: __init__ and snake_case survive as text",
+      "format": "markdown",
+      "input": "The __init__ method sets user_id first.",
+      "chunks": [
+        {
+          "speech": "The __init__ method sets user_id first.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: rules (--- and ***) pause 1.6",
+      "format": "markdown",
+      "input": "Grind the beans.\n\n---\n\n- A kettle\n\n***\n\nNow brew.",
+      "chunks": [
+        {
+          "speech": "Grind the beans.",
+          "pause": 1.6
+        },
+        {
+          "speech": "A kettle.",
+          "pause": 1.6
+        },
+        {
+          "speech": "Now brew.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: table rows are read with commas",
+      "format": "markdown",
+      "input": "| Ratio | Grams |\n| --- | --- |\n| Coffee | 20 |\n| Water | 320 |",
+      "chunks": [
+        {
+          "speech": "Ratio, Grams.",
+          "pause": 0.35
+        },
+        {
+          "speech": "Coffee, 20.",
+          "pause": 0.35
+        },
+        {
+          "speech": "Water, 320.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Ratio   Grams\nCoffee   20\nWater   320"
+    },
+    {
+      "name": "md: paragraph into a table; a row ending in a period gets no second one",
+      "format": "markdown",
+      "input": "Use this ratio.\n\n| Brew | Note |\n| --- | --- |\n| Pour-over | Wait. |",
+      "chunks": [
+        {
+          "speech": "Use this ratio.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Brew, Note.",
+          "pause": 0.35
+        },
+        {
+          "speech": "Pour-over, Wait.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: image alt is read; an image without alt says nothing",
+      "format": "markdown",
+      "input": "![A glass carafe on a scale](carafe.png)\n\n![](spacer.png)\n\nPour slowly.",
+      "chunks": [
+        {
+          "speech": "Image: A glass carafe on a scale.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Pour slowly.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: link reads its label; a bare URL reads as link",
+      "format": "markdown",
+      "input": "Read [the brewing guide](https://example.com/guide) or visit https://example.com/brew today.",
+      "chunks": [
+        {
+          "speech": "Read the brewing guide or visit link today.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Read the brewing guide or visit https://example.com/brew today."
+    },
+    {
+      "name": "md: YAML front matter is skipped",
+      "format": "markdown",
+      "input": "---\ntitle: Brewing\ntags: coffee\n---\n\nGrind the beans.",
+      "chunks": [
+        {
+          "speech": "Grind the beans.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Grind the beans."
+    },
+    {
+      "name": "md: HTML comments and footnote refs are skipped",
+      "format": "markdown",
+      "input": "<!-- draft -->\n\nKokoro runs on your Mac.[^1] It is <!-- very -->fast.",
+      "chunks": [
+        {
+          "speech": "Kokoro runs on your Mac.",
+          "pause": 0.25
+        },
+        {
+          "speech": "It is fast.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: heading colon becomes a full stop; a question mark is kept",
+      "format": "markdown",
+      "input": "## Before you start:\n\nWeigh the beans.\n\n### Why weigh?\n\nA scale keeps every cup the same.",
+      "chunks": [
+        {
+          "speech": "Before you start.",
+          "speed": 0.92,
+          "pause": 0.7
+        },
+        {
+          "speech": "Weigh the beans.",
+          "pause": 1.0
+        },
+        {
+          "speech": "Why weigh?",
+          "speed": 0.95,
+          "pause": 0.6
+        },
+        {
+          "speech": "A scale keeps every cup the same.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: setext h1 straight into an h4 with inline code",
+      "format": "markdown",
+      "input": "Brewing\n=======\n\n#### Install `aloud`\n\nIt takes a minute.",
+      "chunks": [
+        {
+          "speech": "Brewing.",
+          "speed": 0.88,
+          "pause": 0.6
+        },
+        {
+          "speech": "Install aloud.",
+          "speed": 0.97,
+          "pause": 0.5
+        },
+        {
+          "speech": "It takes a minute.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Brewing\nInstall aloud\nIt takes a minute."
+    },
+    {
+      "name": "md: a long first sentence is split at its comma (splitOpening)",
+      "format": "markdown",
+      "input": "When the water is just off the boil, pour a little over the grounds and let them bloom for half a minute. Then pour the rest.",
+      "chunks": [
+        {
+          "speech": "When the water is just off the boil,",
+          "pauseMin": 0.02,
+          "pauseMax": 0.08
+        },
+        {
+          "speech": "pour a little over the grounds and let them bloom for half a minute.",
+          "pause": 0.25
+        },
+        {
+          "speech": "Then pour the rest.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: splitOpening only touches the first spoken chunk (a heading here)",
+      "format": "markdown",
+      "input": "# Bloom\n\nWhen the water is just off the boil, pour a little over the grounds and let them bloom for half a minute.",
+      "chunks": [
+        {
+          "speech": "Bloom.",
+          "speed": 0.88,
+          "pause": 0.8
+        },
+        {
+          "speech": "When the water is just off the boil, pour a little over the grounds and let them bloom for half a minute.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "html: h1 and paragraph",
+      "format": "html",
+      "input": "<h1>Pour-Over Coffee</h1><p>Good coffee starts with fresh beans.</p>",
+      "chunks": [
+        {
+          "speech": "Pour-Over Coffee.",
+          "speed": 0.88,
+          "pause": 0.8
+        },
+        {
+          "speech": "Good coffee starts with fresh beans.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Pour-Over Coffee\nGood coffee starts with fresh beans."
+    },
+    {
+      "name": "html: Claude-style answer (h2, lead-in, ul with strong, em)",
+      "format": "html",
+      "input": "<meta charset=\"utf-8\"><h2>What you need</h2>\n<p>You will need:</p>\n<ul>\n<li>A kettle</li>\n<li>A <strong>scale</strong> that reads grams</li>\n</ul>\n<p>Then <em>weigh</em> the beans.</p>",
+      "chunks": [
+        {
+          "speech": "What you need.",
+          "speed": 0.92,
+          "pause": 0.7
+        },
+        {
+          "speech": "You will need:",
+          "pause": 0.45
+        },
+        {
+          "speech": "A kettle.",
+          "pause": 0.4
+        },
+        {
+          "speech": "A [scale](+1) that reads grams.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Then [weigh](+1) the beans.",
+          "pause": 0.5
+        }
+      ],
+      "display": "What you need\nYou will need:\n• A kettle\n• A scale that reads grams\nThen weigh the beans."
+    },
+    {
+      "name": "html: ol start=3",
+      "format": "html",
+      "input": "<ol start=\"3\"><li>Bloom the grounds.</li><li>Pour the rest.</li></ol>",
+      "chunks": [
+        {
+          "speech": "3. Bloom the grounds.",
+          "pause": 0.4
+        },
+        {
+          "speech": "4. Pour the rest.",
+          "pause": 0.5
+        }
+      ],
+      "display": "3. Bloom the grounds.\n4. Pour the rest."
+    },
+    {
+      "name": "html: ol numbers from 1 and items get a period",
+      "format": "html",
+      "input": "<ol><li>Heat the water</li><li>Rinse the filter</li><li>Pour slowly</li></ol>",
+      "chunks": [
+        {
+          "speech": "1. Heat the water.",
+          "pause": 0.4
+        },
+        {
+          "speech": "2. Rinse the filter.",
+          "pause": 0.4
+        },
+        {
+          "speech": "3. Pour slowly.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "html: blockquote and nested blockquote",
+      "format": "html",
+      "input": "<p>My barista said this.</p><blockquote><p>Slow down.</p><blockquote><p>Enjoy it.</p></blockquote></blockquote><p>She was right.</p>",
+      "chunks": [
+        {
+          "speech": "My barista said this.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Slow down.",
+          "speed": 0.95,
+          "pause": 0.75
+        },
+        {
+          "speech": "Enjoy it.",
+          "speed": 0.95,
+          "pause": 0.75
+        },
+        {
+          "speech": "She was right.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "html: code and kbd read as words; links read their label, a URL label reads as link",
+      "format": "html",
+      "input": "<p>Run <code>brew install aloud</code>, then press <kbd>Space</kbd>.</p><p>Read <a href=\"https://example.com/guide\">the full guide</a> or visit <a href=\"https://example.com/brew\">https://example.com/brew</a> today.</p>",
+      "chunks": [
+        {
+          "speech": "Run brew install aloud, then press Space.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Read the full guide or visit link today.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "html: pre is skipped; hr pauses 1.6",
+      "format": "html",
+      "input": "<p>Install it first.</p><pre><code class=\"language-sh\">brew install aloud\n</code></pre><p>Then open it.</p><hr><p>That is all.</p>",
+      "chunks": [
+        {
+          "speech": "Install it first.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Then open it.",
+          "pause": 1.6
+        },
+        {
+          "speech": "That is all.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "html: s, del and strike are not spoken",
+      "format": "html",
+      "input": "<p>Use <s>cheap</s> fresh beans.</p><p>Pour <del>fast</del> slowly.</p><p><strike>Skip this line.</strike></p><p>Done.</p>",
+      "chunks": [
+        {
+          "speech": "Use fresh beans.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Pour slowly.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Done.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "html: table with header row",
+      "format": "html",
+      "input": "<table><thead><tr><th>Brew</th><th>Ratio</th></tr></thead><tbody><tr><td>Pour-over</td><td>1 to 16</td></tr><tr><td>French press</td><td>1 to 12</td></tr></tbody></table>",
+      "chunks": [
+        {
+          "speech": "Brew, Ratio.",
+          "pause": 0.35
+        },
+        {
+          "speech": "Pour-over, 1 to 16.",
+          "pause": 0.35
+        },
+        {
+          "speech": "French press, 1 to 12.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Brew   Ratio\nPour-over   1 to 16\nFrench press   1 to 12"
+    },
+    {
+      "name": "html: img alt is read; empty alt is not",
+      "format": "html",
+      "input": "<p><img src=\"carafe.png\" alt=\"A glass carafe\"></p><p><img src=\"spacer.gif\" alt=\"\"></p><p>Pour slowly.</p>",
+      "chunks": [
+        {
+          "speech": "Image: A glass carafe.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Pour slowly.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "html: Google Docs copy (normal-weight <b> wrapper, styled spans)",
+      "format": "html",
+      "input": "<meta charset=\"utf-8\"><b style=\"font-weight:normal;\" id=\"docs-internal-guid-5f3e2a10-7fff-4c1d-9b2e-0123456789ab\"><h2 dir=\"ltr\" style=\"line-height:1.38;margin-top:18pt;margin-bottom:6pt;\"><span style=\"font-size:16pt;font-family:Arial,sans-serif;color:#000000;background-color:transparent;font-variant:normal;vertical-align:baseline;white-space:pre;white-space:pre-wrap;font-weight:400;font-style:normal;text-decoration:none;\">The Bloom</span></h2><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial,sans-serif;color:#000000;background-color:transparent;font-variant:normal;vertical-align:baseline;white-space:pre;white-space:pre-wrap;font-weight:400;font-style:normal;text-decoration:none;\">Pour just enough water to wet the grounds. Then </span><span style=\"font-size:11pt;font-family:Arial,sans-serif;color:#000000;background-color:transparent;font-variant:normal;vertical-align:baseline;white-space:pre;white-space:pre-wrap;font-weight:700;font-style:normal;text-decoration:none;\">wait</span><span style=\"font-size:11pt;font-family:Arial,sans-serif;color:#000000;background-color:transparent;font-variant:normal;vertical-align:baseline;white-space:pre;white-space:pre-wrap;font-weight:400;font-style:normal;text-decoration:none;\"> thirty seconds.</span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial,sans-serif;color:#000000;background-color:transparent;font-variant:normal;vertical-align:baseline;white-space:pre;white-space:pre-wrap;font-weight:400;font-style:normal;text-decoration:none;\">Use </span><span style=\"font-size:11pt;font-family:Arial,sans-serif;color:#000000;background-color:transparent;font-variant:normal;vertical-align:baseline;white-space:pre;white-space:pre-wrap;font-weight:400;font-style:normal;text-decoration:underline;\">filtered</span><span style=\"font-size:11pt;font-family:Arial,sans-serif;color:#000000;background-color:transparent;font-variant:normal;vertical-align:baseline;white-space:pre;white-space:pre-wrap;font-weight:400;font-style:normal;text-decoration:none;\"> water. </span><span style=\"font-size:11pt;font-family:Arial,sans-serif;color:#000000;background-color:transparent;font-variant:normal;vertical-align:baseline;white-space:pre;white-space:pre-wrap;font-weight:400;font-style:normal;text-decoration:line-through;\">Tap water is fine.</span><span style=\"font-size:11pt;font-family:Arial,sans-serif;color:#000000;background-color:transparent;font-variant:normal;vertical-align:baseline;white-space:pre;white-space:pre-wrap;font-weight:400;font-style:normal;text-decoration:none;\"> Keep it just off the boil.</span></p><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11pt;font-family:Arial,sans-serif;color:#000000;background-color:transparent;font-variant:normal;vertical-align:baseline;white-space:pre;white-space:pre-wrap;font-weight:400;font-style:normal;text-decoration:none;\">Pour </span><span style=\"font-size:11pt;font-family:Arial,sans-serif;color:#000000;background-color:transparent;font-variant:normal;vertical-align:baseline;white-space:pre;white-space:pre-wrap;font-weight:400;font-style:italic;text-decoration:none;\">gently</span><span style=\"font-size:11pt;font-family:Arial,sans-serif;color:#000000;background-color:transparent;font-variant:normal;vertical-align:baseline;white-space:pre;white-space:pre-wrap;font-weight:400;font-style:normal;text-decoration:none;\"> in circles.</span></p></b><br class=\"Apple-interchange-newline\">",
+      "chunks": [
+        {
+          "speech": "The Bloom.",
+          "speed": 0.92,
+          "pause": 0.7
+        },
+        {
+          "speech": "Pour just enough water to wet the grounds.",
+          "pause": 0.25
+        },
+        {
+          "speech": "Then [wait](+1) thirty seconds.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Use [filtered](+1) water.",
+          "pause": 0.25
+        },
+        {
+          "speech": "Keep it just off the boil.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Pour [gently](+1) in circles.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "html: Slack message with line breaks (2+ br) reads each line as a paragraph",
+      "format": "html",
+      "input": "<div class=\"p-rich_text_section\">Morning team<br>Coffee is ready<br>Grab a cup before standup</div>",
+      "chunks": [
+        {
+          "speech": "Morning team",
+          "pause": 0.75
+        },
+        {
+          "speech": "Coffee is ready",
+          "pause": 0.75
+        },
+        {
+          "speech": "Grab a cup before standup",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "html: div soup paragraphs; a single br is a soft space",
+      "format": "html",
+      "input": "<div><div><span>Hey team.</span></div><div>Coffee is ready.<br>Come and get it.</div></div>",
+      "chunks": [
+        {
+          "speech": "Hey team.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Coffee is ready.",
+          "pause": 0.25
+        },
+        {
+          "speech": "Come and get it.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "html: nested inline styles; long em is not stressed",
+      "format": "html",
+      "input": "<p>Use <b><i>very</i></b> hot water.</p><p><span style=\"font-weight:bold\">Fresh</span> beans matter.</p><p>Remember <em>to always weigh your beans first</em> today.</p>",
+      "chunks": [
+        {
+          "speech": "Use [very](+1) hot water.",
+          "pause": 0.75
+        },
+        {
+          "speech": "[Fresh](+1) beans matter.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Remember to always weigh your beans first today.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "html: script, style, head and title are ignored",
+      "format": "html",
+      "input": "<html><head><title>Ignore me</title><style>p { color: red; }</style></head><body><p>Coffee time.</p><script>alert('hi');</script></body></html>",
+      "chunks": [
+        {
+          "speech": "Coffee time.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Coffee time."
+    },
+    {
+      "name": "html: heading with strong, then a nested list",
+      "format": "html",
+      "input": "<h3><strong>Packing</strong></h3><ul><li>Gear<ul><li>Kettle</li><li>Scale</li></ul></li><li>Beans</li></ul>",
+      "chunks": [
+        {
+          "speech": "Packing.",
+          "speed": 0.95,
+          "pause": 0.6
+        },
+        {
+          "speech": "Gear.",
+          "pause": 0.4
+        },
+        {
+          "speech": "Kettle.",
+          "pause": 0.4
+        },
+        {
+          "speech": "Scale.",
+          "pause": 0.4
+        },
+        {
+          "speech": "Beans.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Packing\n• Gear\n    • Kettle\n    • Scale\n• Beans"
+    },
+    {
+      "name": "html: whitespace collapses; u and ins are stressed",
+      "format": "html",
+      "input": "<p>\n  Pour   slowly\n  in circles.\n</p><p>Use <u>filtered</u> water and <ins>one</ins> scoop.</p>",
+      "chunks": [
+        {
+          "speech": "Pour slowly in circles.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Use [filtered](+1) water and [one](+1) scoop.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Pour slowly in circles.\nUse filtered water and one scoop."
+    },
+    {
+      "name": "html: Chrome copy of a whole answer (h1, h2, ol, blockquote, hr, h3?)",
+      "format": "html",
+      "input": "<meta charset='utf-8'><h1>Morning Brew</h1><p>A quick guide.</p><h2>Steps</h2><ol><li>Heat the water</li><li>Pour <strong>slowly</strong></li></ol><blockquote><p>Patience pays.</p></blockquote><hr><h3>Why it works?</h3><p>Slow pours extract evenly.</p>",
+      "chunks": [
+        {
+          "speech": "Morning Brew.",
+          "speed": 0.88,
+          "pause": 0.8
+        },
+        {
+          "speech": "A quick guide.",
+          "pause": 1.2
+        },
+        {
+          "speech": "Steps.",
+          "speed": 0.92,
+          "pause": 0.7
+        },
+        {
+          "speech": "1. Heat the water.",
+          "pause": 0.4
+        },
+        {
+          "speech": "2. Pour [slowly](+1).",
+          "pause": 0.75
+        },
+        {
+          "speech": "Patience pays.",
+          "speed": 0.95,
+          "pause": 1.6
+        },
+        {
+          "speech": "Why it works?",
+          "speed": 0.95,
+          "pause": 0.6
+        },
+        {
+          "speech": "Slow pours extract evenly.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain: a single heuristic heading is level 2",
+      "format": "plain",
+      "input": "Brewing Basics\nGood coffee starts with fresh beans. Grind them just before brewing.",
+      "chunks": [
+        {
+          "speech": "Brewing Basics.",
+          "speed": 0.92,
+          "pause": 0.7
+        },
+        {
+          "speech": "Good coffee starts with fresh beans.",
+          "pause": 0.25
+        },
+        {
+          "speech": "Grind them just before brewing.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain: several headings, the first is level 1",
+      "format": "plain",
+      "input": "Pour-Over Coffee\nA short guide to a better morning cup.\nWhat You Need\nYou need a kettle, a scale and a filter.\nThe Method\nPour slowly in small circles.",
+      "chunks": [
+        {
+          "speech": "Pour-Over Coffee.",
+          "speed": 0.88,
+          "pause": 0.8
+        },
+        {
+          "speech": "A short guide to a better morning cup.",
+          "pause": 1.2
+        },
+        {
+          "speech": "What You Need.",
+          "speed": 0.92,
+          "pause": 0.7
+        },
+        {
+          "speech": "You need a kettle, a scale and a filter.",
+          "pause": 1.2
+        },
+        {
+          "speech": "The Method.",
+          "speed": 0.92,
+          "pause": 0.7
+        },
+        {
+          "speech": "Pour slowly in small circles.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Pour-Over Coffee\nA short guide to a better morning cup.\nWhat You Need\nYou need a kettle, a scale and a filter.\nThe Method\nPour slowly in small circles."
+    },
+    {
+      "name": "plain: the first heuristic heading is level 1 even after an intro line",
+      "format": "plain",
+      "input": "Coffee notes for the team.\nPart One\nBody one is here.\nPart Two\nBody two is here.",
+      "chunks": [
+        {
+          "speech": "Coffee notes for the team.",
+          "pause": 1.4
+        },
+        {
+          "speech": "Part One.",
+          "speed": 0.88,
+          "pause": 0.8
+        },
+        {
+          "speech": "Body one is here.",
+          "pause": 1.2
+        },
+        {
+          "speech": "Part Two.",
+          "speed": 0.92,
+          "pause": 0.7
+        },
+        {
+          "speech": "Body two is here.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain: heading, lead-in and • bullets",
+      "format": "plain",
+      "input": "Gear\nYou will need three things:\n• A kettle\n• A scale\n• Filters",
+      "chunks": [
+        {
+          "speech": "Gear.",
+          "speed": 0.92,
+          "pause": 0.7
+        },
+        {
+          "speech": "You will need three things:",
+          "pause": 0.45
+        },
+        {
+          "speech": "A kettle.",
+          "pause": 0.4
+        },
+        {
+          "speech": "A scale.",
+          "pause": 0.4
+        },
+        {
+          "speech": "Filters.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Gear\nYou will need three things:\n• A kettle\n• A scale\n• Filters"
+    },
+    {
+      "name": "plain: - bullets after a lead-in, then a paragraph",
+      "format": "plain",
+      "input": "Packing list:\n- Kettle\n- Scale\nThat is all you need.",
+      "chunks": [
+        {
+          "speech": "Packing list:",
+          "pause": 0.45
+        },
+        {
+          "speech": "Kettle.",
+          "pause": 0.4
+        },
+        {
+          "speech": "Scale.",
+          "pause": 0.75
+        },
+        {
+          "speech": "That is all you need.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Packing list:\n• Kettle\n• Scale\nThat is all you need."
+    },
+    {
+      "name": "plain: numbered list after a lead-in",
+      "format": "plain",
+      "input": "Steps:\n1. Heat the water.\n2. Rinse the filter.\n3. Pour slowly.",
+      "chunks": [
+        {
+          "speech": "Steps:",
+          "pause": 0.45
+        },
+        {
+          "speech": "1. Heat the water.",
+          "pause": 0.4
+        },
+        {
+          "speech": "2. Rinse the filter.",
+          "pause": 0.4
+        },
+        {
+          "speech": "3. Pour slowly.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Steps:\n1. Heat the water.\n2. Rinse the filter.\n3. Pour slowly."
+    },
+    {
+      "name": "plain: 1) numbering without punctuation",
+      "format": "plain",
+      "input": "Brew it like this:\n1) Grind\n2) Bloom\n3) Pour",
+      "chunks": [
+        {
+          "speech": "Brew it like this:",
+          "pause": 0.45
+        },
+        {
+          "speech": "1. Grind.",
+          "pause": 0.4
+        },
+        {
+          "speech": "2. Bloom.",
+          "pause": 0.4
+        },
+        {
+          "speech": "3. Pour.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain: lettered items are a list with no spoken number",
+      "format": "plain",
+      "input": "Pick one:\nA) Light roast\nB) Dark roast",
+      "chunks": [
+        {
+          "speech": "Pick one:",
+          "pause": 0.45
+        },
+        {
+          "speech": "Light roast.",
+          "pause": 0.4
+        },
+        {
+          "speech": "Dark roast.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain: heading in the middle of prose",
+      "format": "plain",
+      "input": "Coffee is simple. It just takes care.\nThe Ratio\nUse one gram of coffee for every sixteen grams of water.",
+      "chunks": [
+        {
+          "speech": "Coffee is simple.",
+          "pause": 0.25
+        },
+        {
+          "speech": "It just takes care.",
+          "pause": 1.2
+        },
+        {
+          "speech": "The Ratio.",
+          "speed": 0.92,
+          "pause": 0.7
+        },
+        {
+          "speech": "Use one gram of coffee for every sixteen grams of water.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain guard: email with greeting and sign-off",
+      "format": "plain",
+      "input": "Hi Sam,\n\nThanks for sending the draft. I read it last night.\n\nCould we meet on Friday to go over it?\n\nThanks,\nPayam",
+      "chunks": [
+        {
+          "speech": "Hi Sam,",
+          "pause": 0.75
+        },
+        {
+          "speech": "Thanks for sending the draft.",
+          "pause": 0.25
+        },
+        {
+          "speech": "I read it last night.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Could we meet on Friday to go over it?",
+          "pause": 0.75
+        },
+        {
+          "speech": "Thanks,",
+          "pause": 0.75
+        },
+        {
+          "speech": "Payam",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain guard: lowercase chat lines join as a hard wrap",
+      "format": "plain",
+      "input": "sounds good\nsee you at 5",
+      "chunks": [
+        {
+          "speech": "sounds good see you at 5",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain guard: short capitalised chat lines",
+      "format": "plain",
+      "input": "See you at 5\nSounds good\nOk",
+      "chunks": [
+        {
+          "speech": "See you at 5",
+          "pause": 0.75
+        },
+        {
+          "speech": "Sounds good",
+          "pause": 0.75
+        },
+        {
+          "speech": "Ok",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain guard: chat lines with names",
+      "format": "plain",
+      "input": "Sam: are you around?\nPayam: yes, what's up?\nSam: lunch at noon?",
+      "chunks": [
+        {
+          "speech": "Sam: are you around?",
+          "pause": 0.75
+        },
+        {
+          "speech": "Payam: yes, what's up?",
+          "pause": 0.75
+        },
+        {
+          "speech": "Sam: lunch at noon?",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain guard: poem with short unpunctuated lines",
+      "format": "plain",
+      "input": "Steam rising slowly\nWater over grounds\nBitter and sweet\nMorning again",
+      "chunks": [
+        {
+          "speech": "Steam rising slowly",
+          "pause": 0.75
+        },
+        {
+          "speech": "Water over grounds",
+          "pause": 0.75
+        },
+        {
+          "speech": "Bitter and sweet",
+          "pause": 0.75
+        },
+        {
+          "speech": "Morning again",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain guard: address block",
+      "format": "plain",
+      "input": "Aloud Coffee Co\n12 Harbour Street\nPortland, OR 97201",
+      "chunks": [
+        {
+          "speech": "Aloud Coffee Co",
+          "pause": 0.75
+        },
+        {
+          "speech": "12 Harbour Street",
+          "pause": 0.75
+        },
+        {
+          "speech": "Portland, OR 97201",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain guard: a single title-like line is not a heading",
+      "format": "plain",
+      "input": "Brewing Basics",
+      "chunks": [
+        {
+          "speech": "Brewing Basics",
+          "pause": 0.5
+        }
+      ],
+      "display": "Brewing Basics"
+    },
+    {
+      "name": "plain guard: one-paragraph selection",
+      "format": "plain",
+      "input": "Good coffee takes a little patience. Weigh the beans, heat the water and pour slowly. The rest is practice.",
+      "chunks": [
+        {
+          "speech": "Good coffee takes a little patience.",
+          "pause": 0.25
+        },
+        {
+          "speech": "Weigh the beans, heat the water and pour slowly.",
+          "pause": 0.25
+        },
+        {
+          "speech": "The rest is practice.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain guard: a lone hashtag line",
+      "format": "plain",
+      "input": "Big news today.\n#launch\nThe new version is out.",
+      "chunks": [
+        {
+          "speech": "Big news today.",
+          "pause": 0.75
+        },
+        {
+          "speech": "launch",
+          "pause": 0.75
+        },
+        {
+          "speech": "The new version is out.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain guard: snake_case and __init__",
+      "format": "plain",
+      "input": "Set user_id before calling __init__ again.\nThen run the tests.",
+      "chunks": [
+        {
+          "speech": "Set user_id before calling __init__ again.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Then run the tests.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain guard: a line that is a URL",
+      "format": "plain",
+      "input": "Here is the guide.\n\nhttps://example.com/guide\n\nLet me know what you think.",
+      "chunks": [
+        {
+          "speech": "Here is the guide.",
+          "pause": 0.75
+        },
+        {
+          "speech": "link",
+          "pause": 0.75
+        },
+        {
+          "speech": "Let me know what you think.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain guard: a sentence and a line starting with a year",
+      "format": "plain",
+      "input": "2026 was a good year.\n2026\nWe shipped three releases and a new website.",
+      "chunks": [
+        {
+          "speech": "2026 was a good year.",
+          "pause": 0.75
+        },
+        {
+          "speech": "2026",
+          "pause": 0.75
+        },
+        {
+          "speech": "We shipped three releases and a new website.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain guard: an eleven-word line is too long for a heading",
+      "format": "plain",
+      "input": "This line has eleven words in it and no full stop\nThen a sentence follows here.",
+      "chunks": [
+        {
+          "speech": "This line has eleven words in it and no full stop",
+          "pause": 0.75
+        },
+        {
+          "speech": "Then a sentence follows here.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain guard: a lowercase line is not a heading",
+      "format": "plain",
+      "input": "launch notes\nWe shipped it today.",
+      "chunks": [
+        {
+          "speech": "launch notes",
+          "pause": 0.75
+        },
+        {
+          "speech": "We shipped it today.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain guard: a question line is not a heading",
+      "format": "plain",
+      "input": "Why weigh your beans?\nA scale makes every cup the same.",
+      "chunks": [
+        {
+          "speech": "Why weigh your beans?",
+          "pause": 0.75
+        },
+        {
+          "speech": "A scale makes every cup the same.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain guard: a line ending in an ellipsis is not a heading",
+      "format": "plain",
+      "input": "Well…\nI think we should wait.",
+      "chunks": [
+        {
+          "speech": "Well…",
+          "pause": 0.75
+        },
+        {
+          "speech": "I think we should wait.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain guard: a colon line before a non-list line is not a lead-in",
+      "format": "plain",
+      "input": "Here is what happened:\nThe grinder jammed at noon.",
+      "chunks": [
+        {
+          "speech": "Here is what happened:",
+          "pause": 0.75
+        },
+        {
+          "speech": "The grinder jammed at noon.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain guard: multi-paragraph prose",
+      "format": "plain",
+      "input": "We moved to a new office last spring. It has big windows.\n\nThe coffee machine is the best part. Everyone loves it.",
+      "chunks": [
+        {
+          "speech": "We moved to a new office last spring.",
+          "pause": 0.25
+        },
+        {
+          "speech": "It has big windows.",
+          "pause": 0.75
+        },
+        {
+          "speech": "The coffee machine is the best part.",
+          "pause": 0.25
+        },
+        {
+          "speech": "Everyone loves it.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "plain: a long first sentence with no comma splits at a space (splitOpening)",
+      "format": "plain",
+      "input": "Pour the water in slow and steady circles from the center of the bed out toward the edge and back again.",
+      "chunks": [
+        {
+          "speech": "Pour the water in slow and steady circles from the",
+          "pauseMin": 0.02,
+          "pauseMax": 0.08
+        },
+        {
+          "speech": "center of the bed out toward the edge and back again.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "auto: a # heading is markdown",
+      "format": "auto",
+      "input": "# Pour-Over\n\nStart with fresh beans.",
+      "detect": "markdown",
+      "chunks": [
+        {
+          "speech": "Pour-Over.",
+          "speed": 0.88,
+          "pause": 0.8
+        },
+        {
+          "speech": "Start with fresh beans.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "auto: an email is plain",
+      "format": "auto",
+      "input": "Hi Sam,\n\nThe beans arrived today.\n\nThanks,\nPayam",
+      "detect": "plain",
+      "chunks": [
+        {
+          "speech": "Hi Sam,",
+          "pause": 0.75
+        },
+        {
+          "speech": "The beans arrived today.",
+          "pause": 0.75
+        },
+        {
+          "speech": "Thanks,",
+          "pause": 0.75
+        },
+        {
+          "speech": "Payam",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "auto: a heading-like first line in prose is plain (heuristic heading)",
+      "format": "auto",
+      "input": "Brewing Basics\nGood coffee starts with fresh beans.",
+      "detect": "plain",
+      "chunks": [
+        {
+          "speech": "Brewing Basics.",
+          "speed": 0.92,
+          "pause": 0.7
+        },
+        {
+          "speech": "Good coffee starts with fresh beans.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "auto: a lone * is plain",
+      "format": "auto",
+      "input": "I rate this roast 5 * out of 5. Worth every penny.",
+      "detect": "plain"
+    },
+    {
+      "name": "auto: a #hashtag is plain",
+      "format": "auto",
+      "input": "Launch day is here #launch",
+      "detect": "plain",
+      "chunks": [
+        {
+          "speech": "Launch day is here launch",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "auto: snake_case is plain",
+      "format": "auto",
+      "input": "Check the user_id and snake_case_names fields.",
+      "detect": "plain"
+    },
+    {
+      "name": "auto: a single dash line is plain",
+      "format": "auto",
+      "input": "- just one dash line",
+      "detect": "plain"
+    },
+    {
+      "name": "auto: a single numbered line is plain",
+      "format": "auto",
+      "input": "1. Only one numbered line",
+      "detect": "plain"
+    },
+    {
+      "name": "auto: inline **bold** is markdown",
+      "format": "auto",
+      "input": "Some **bold** text.",
+      "detect": "markdown",
+      "chunks": [
+        {
+          "speech": "Some [bold](+1) text.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "auto: two bullet lines are markdown",
+      "format": "auto",
+      "input": "- Kettle\n- Scale",
+      "detect": "markdown",
+      "chunks": [
+        {
+          "speech": "Kettle.",
+          "pause": 0.4
+        },
+        {
+          "speech": "Scale.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "auto: a > quote is markdown",
+      "format": "auto",
+      "input": "> Coffee is a ritual.",
+      "detect": "markdown",
+      "chunks": [
+        {
+          "speech": "Coffee is a ritual.",
+          "speed": 0.95,
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "auto: a fenced code block alone is markdown and says nothing",
+      "format": "auto",
+      "input": "```\nnpm install\n```",
+      "detect": "markdown",
+      "chunks": []
+    },
+    {
+      "name": "auto: a pipe table is markdown",
+      "format": "auto",
+      "input": "| A | B |\n| --- | --- |\n| 1 | 2 |",
+      "detect": "markdown"
+    },
+    {
+      "name": "auto: a --- rule is markdown",
+      "format": "auto",
+      "input": "Part one.\n\n---\n\nPart two.",
+      "detect": "markdown",
+      "chunks": [
+        {
+          "speech": "Part one.",
+          "pause": 1.6
+        },
+        {
+          "speech": "Part two.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "auto: a [link](url) is markdown",
+      "format": "auto",
+      "input": "Read [the guide](https://example.com/guide) today.",
+      "detect": "markdown",
+      "chunks": [
+        {
+          "speech": "Read the guide today.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "auto: ~~strike~~ is markdown",
+      "format": "auto",
+      "input": "Meet at noon ~~maybe~~ tomorrow.",
+      "detect": "markdown",
+      "chunks": [
+        {
+          "speech": "Meet at noon tomorrow.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "auto: `code` is markdown",
+      "format": "auto",
+      "input": "Call `brew` now.",
+      "detect": "markdown",
+      "chunks": [
+        {
+          "speech": "Call brew now.",
+          "pause": 0.5
+        }
+      ]
+    }
+  ]
+}

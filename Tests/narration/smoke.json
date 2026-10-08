@@ -1,0 +1,609 @@
+{
+ "about": "Smoke cases for the narration pipeline (NarrationMarkdown / NarrationHTML / NarrationPlain → NarrationPlanner). Run: .build/debug/ReadAloud --test-narration Tests/narration/smoke.json [--verbose]. The fuller suite is Tests/narration/cases.json.",
+ "cases": [
+  {
+   "name": "md: heading, emphasis, lead-in list, quote, code, rule, table",
+   "format": "auto",
+   "input": "# Aloud\n\nIt reads **any** text. It is *very* fast.\n\nYou need:\n\n- macOS 14\n  - or later\n\n> Quotes are slower.\n\n```\nlet x = 1\n```\n\nThat ~~was~~ is it.\n\n---\n\n| Key | Action |\n|---|---|\n| Esc | Stop |",
+   "detect": "markdown",
+   "chunks": [
+    {
+     "speech": "Aloud.",
+     "speed": 0.88,
+     "pause": 0.8
+    },
+    {
+     "speech": "It reads [any](+1) text.",
+     "pause": 0.25
+    },
+    {
+     "speech": "It is [very](+1) fast.",
+     "pause": 0.75
+    },
+    {
+     "speech": "You need:",
+     "pause": 0.45
+    },
+    {
+     "speech": "macOS 14.",
+     "pause": 0.4
+    },
+    {
+     "speech": "or later.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Quotes are slower.",
+     "speed": 0.95,
+     "pause": 0.75
+    },
+    {
+     "speech": "That is it.",
+     "pause": 1.6
+    },
+    {
+     "speech": "Key, Action.",
+     "pause": 0.35
+    },
+    {
+     "speech": "Esc, Stop.",
+     "pause": 0.5
+    }
+   ],
+   "display": "Aloud\nIt reads any text. It is very fast.\nYou need:\n• macOS 14\n    • or later\nQuotes are slower.\nlet x = 1\nThat was is it.\n⸻\nKey   Action\nEsc   Stop"
+  },
+  {
+   "name": "md: stress links keep punctuation outside; long emphasis is left alone",
+   "format": "markdown",
+   "input": "Use **(this)** one, *don't* stop, and read **a long bold span of many words** too.",
+   "chunks": [
+    {
+     "speech": "Use ([this](+1)) one, [don't](+1) stop, and read a long bold span of many words too.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "md: a bold label is its own chunk; a lone bold label is not stressed",
+   "format": "markdown",
+   "input": "**Note:** this is a label.\n\n**Steps:**\n\n1. One\n2. Two",
+   "chunks": [
+    {
+     "speech": "Note:",
+     "pause": 0.3
+    },
+    {
+     "speech": "this is a label.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Steps:",
+     "pause": 0.45
+    },
+    {
+     "speech": "1. One.",
+     "pause": 0.4
+    },
+    {
+     "speech": "2. Two.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "md: __init__ survives in and out of code; footnotes and comments go",
+   "format": "auto",
+   "input": "Call `__init__` or __init__ now.[^1] <!-- hidden -->\n\n[^1]: The note.",
+   "chunks": [
+    {
+     "speech": "Call __init__ or __init__ now.",
+     "pause": 0.75
+    },
+    {
+     "speech": "The note.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "md: images read as Image: with a sentence end, inline HTML maps to styles",
+   "format": "markdown",
+   "input": "Here: ![A cat](cat.png) Nice.\n\nThis is <u>underlined</u> and <s>gone</s>.",
+   "chunks": [
+    {
+     "speech": "Here: Image: A cat.",
+     "pause": 0.25
+    },
+    {
+     "speech": "Nice.",
+     "pause": 0.75
+    },
+    {
+     "speech": "This is [underlined](+1) and.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "html: Google Docs bold wrapper, li > p, aria-level depth, single and double br",
+   "format": "html",
+   "input": "<meta charset='utf-8'><b style=\"font-weight:normal;\"><h1><span>Doc Title</span></h1><p><span style=\"font-weight:700\">Bold</span><span> and plain.</span></p><ul><li aria-level=\"1\"><p><span>Item</span></p></li><li aria-level=\"2\"><p><span>Nested</span></p></li></ul><p>wrapped<br>line</p><div>one<br>two<br>three</div></b>",
+   "chunks": [
+    {
+     "speech": "Doc Title.",
+     "speed": 0.88,
+     "pause": 0.8
+    },
+    {
+     "speech": "[Bold](+1) and plain.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Item.",
+     "pause": 0.4
+    },
+    {
+     "speech": "Nested.",
+     "pause": 0.75
+    },
+    {
+     "speech": "wrapped line",
+     "pause": 0.75
+    },
+    {
+     "speech": "one",
+     "pause": 0.75
+    },
+    {
+     "speech": "two",
+     "pause": 0.75
+    },
+    {
+     "speech": "three",
+     "pause": 0.5
+    }
+   ],
+   "display": "Doc Title\nBold and plain.\n• Item\n    • Nested\nwrapped line\none\ntwo\nthree"
+  },
+  {
+   "name": "html: layout tables read as blocks, data tables with commas, pre and hr skipped",
+   "format": "html",
+   "input": "<table><tr><td><table><tr><th>A</th><th>B</th></tr><tr><td>1</td><td>2</td></tr></table></td></tr><tr><td><p>Para.</p></td></tr></table><pre>code</pre><hr><p>End.</p>",
+   "chunks": [
+    {
+     "speech": "A, B.",
+     "pause": 0.35
+    },
+    {
+     "speech": "1, 2.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Para.",
+     "pause": 1.6
+    },
+    {
+     "speech": "End.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: rendered page text (headings, subheading, bullets, numbered list, tab table) keeps one block a line",
+   "format": "auto",
+   "input": "Pour-Over Coffee\nIt takes about four minutes, and most of that is waiting.\nThe Method\nRinse and Weigh\nRinse the filter with hot water first.\nBrew\n1. Heat the water.\n2. Pour slowly.\nThe pour takes three minutes.\nStrength\tCoffee\nLight\t18 grams\nFor the Curious\nKeep notes after each cup you make.",
+   "detect": "markdown",
+   "chunks": [
+    {
+     "speech": "Pour-Over Coffee.",
+     "speed": 0.88,
+     "pause": 0.8
+    },
+    {
+     "speech": "It takes about four minutes, and most of that is waiting.",
+     "pause": 1.2
+    },
+    {
+     "speech": "The Method.",
+     "speed": 0.92,
+     "pause": 0.6
+    },
+    {
+     "speech": "Rinse and Weigh.",
+     "speed": 0.92,
+     "pause": 0.7
+    },
+    {
+     "speech": "Rinse the filter with hot water first.",
+     "pause": 1.2
+    },
+    {
+     "speech": "Brew.",
+     "speed": 0.92,
+     "pause": 0.7
+    },
+    {
+     "speech": "1. Heat the water.",
+     "pause": 0.4
+    },
+    {
+     "speech": "2. Pour slowly.",
+     "pause": 0.75
+    },
+    {
+     "speech": "The pour takes three minutes.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Strength, Coffee.",
+     "pause": 0.35
+    },
+    {
+     "speech": "Light, 18 grams.",
+     "pause": 1.2
+    },
+    {
+     "speech": "For the Curious.",
+     "speed": 0.92,
+     "pause": 0.7
+    },
+    {
+     "speech": "Keep notes after each cup you make.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: indented bullets nest; lettered items need a neighbour",
+   "format": "plain",
+   "input": "Gear:\n• Kettle\n    ◦ Gooseneck\n• Scale\nA. Lincoln wrote it.",
+   "chunks": [
+    {
+     "speech": "Gear:",
+     "pause": 0.45
+    },
+    {
+     "speech": "Kettle.",
+     "pause": 0.4
+    },
+    {
+     "speech": "Gooseneck.",
+     "pause": 0.4
+    },
+    {
+     "speech": "Scale.",
+     "pause": 0.75
+    },
+    {
+     "speech": "A. Lincoln wrote it.",
+     "pause": 0.5
+    }
+   ],
+   "display": "Gear:\n• Kettle\n    • Gooseneck\n• Scale\nA. Lincoln wrote it."
+  },
+  {
+   "name": "plain guard: email keeps its commas, chat and verse get no headings",
+   "format": "auto",
+   "input": "Hi Sam,\n\nThanks for the draft.\n\nCheers,\nAlex\n\nHey\nAre you coming tonight?\nRoses are red\nViolets are blue\nSugar is sweet\nAnd so are you.",
+   "detect": "plain",
+   "chunks": [
+    {
+     "speech": "Hi Sam,",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "Thanks for the draft.",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "Cheers,",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "Alex",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "Hey",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "Are you coming tonight?",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "Roses are red",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "Violets are blue",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "Sugar is sweet",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "And so are you.",
+     "speed": 1,
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: the opening split keeps its comma; ./paths keep their space",
+   "format": "plain",
+   "input": "This is a fairly long opening sentence that keeps going, with a comma in the middle so that it can be split.\nRun INSTALL=0 ./scripts/build.sh now.",
+   "chunks": [
+    {
+     "speech": "This is a fairly long opening sentence that keeps going,",
+     "pause": 0.02
+    },
+    {
+     "speech": "with a comma in the middle so that it can be split.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Run INSTALL=0 ./scripts/build.sh now.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "auto: legacy sentence rules still apply (St., answer No.)",
+   "format": "auto",
+   "input": "We flew to St. Louis on Friday. Did the build pass? No. 2 tests failed.",
+   "detect": "plain",
+   "chunks": [
+    {
+     "speech": "We flew to St. Louis on Friday.",
+     "pause": 0.25
+    },
+    {
+     "speech": "Did the build pass?",
+     "pause": 0.25
+    },
+    {
+     "speech": "No.",
+     "pause": 0.25
+    },
+    {
+     "speech": "2 tests failed.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "nothing speakable: empty, code only, rule only, image without alt",
+   "format": "markdown",
+   "input": "```\nnpm i\n```\n\n---\n\n![](x.png)",
+   "chunks": [],
+   "display": "npm i\n⸻"
+  },
+  {
+   "name": "plain guard: sentence-case chat lines are not headings",
+   "format": "plain",
+   "input": "Quick question\nDo you know where the spare keys are?",
+   "chunks": [
+    {
+     "speech": "Quick question",
+     "pause": 0.75
+    },
+    {
+     "speech": "Do you know where the spare keys are?",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain guard: a name answered by a question makes the text a chat (no headings anywhere)",
+   "format": "plain",
+   "input": "Sam Lee\nCan you take a look at the PR when you get a chance?\nPayam Rajabi\nSure, on it now.",
+   "chunks": [
+    {
+     "speech": "Sam Lee",
+     "pause": 0.75
+    },
+    {
+     "speech": "Can you take a look at the PR when you get a chance?",
+     "pause": 0.75
+    },
+    {
+     "speech": "Payam Rajabi",
+     "pause": 0.75
+    },
+    {
+     "speech": "Sure, on it now.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain guard: a short line after a question is an answer",
+   "format": "plain",
+   "input": "Where are you?\nHome\nOk see you soon.",
+   "chunks": [
+    {
+     "speech": "Where are you?",
+     "pause": 0.75
+    },
+    {
+     "speech": "Home",
+     "pause": 0.75
+    },
+    {
+     "speech": "Ok see you soon.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain guard: two lines of verse",
+   "format": "plain",
+   "input": "Sugar is sweet\nAnd so are you.",
+   "chunks": [
+    {
+     "speech": "Sugar is sweet",
+     "pause": 0.75
+    },
+    {
+     "speech": "And so are you.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain guard: a wrapped PDF line after a sentence end",
+   "format": "plain",
+   "input": "The experiment ended after six weeks.\nResults from the second trial with\nGPT models were mixed and inconclusive overall.",
+   "chunks": [
+    {
+     "speech": "The experiment ended after six weeks.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Results from the second trial with",
+     "pause": 0.75
+    },
+    {
+     "speech": "GPT models were mixed and inconclusive overall.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain guard: a chat interjection",
+   "format": "plain",
+   "input": "Omg\nThat is the funniest thing I've seen all week.",
+   "chunks": [
+    {
+     "speech": "Omg",
+     "pause": 0.75
+    },
+    {
+     "speech": "That is the funniest thing I've seen all week.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: title-case headings are still found (iPhone, Chapter 1)",
+   "format": "plain",
+   "input": "Setting Up Your iPhone\nTurn the phone on and follow the steps on the screen.\nChapter 1\nIt was a bright cold day in April.",
+   "chunks": [
+    {
+     "speech": "Setting Up Your iPhone.",
+     "speed": 0.88,
+     "pause": 0.8
+    },
+    {
+     "speech": "Turn the phone on and follow the steps on the screen.",
+     "pause": 1.2
+    },
+    {
+     "speech": "Chapter 1.",
+     "speed": 0.92,
+     "pause": 0.7
+    },
+    {
+     "speech": "It was a bright cold day in April.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "html: HTML5 sections and figure captions are blocks; svg and template aren't read",
+   "format": "html",
+   "input": "<header>Aloud Blog</header><article><h1>Hello</h1><p>Body.</p><figure><img src='a.png' alt='A cup'><figcaption>Our morning cup.</figcaption></figure></article><svg width='9'><text>Q1</text><title>Chart</title></svg><template><p>Hidden.</p></template><footer>Posted by Sam</footer>",
+   "chunks": [
+    {
+     "speech": "Aloud Blog",
+     "pause": 1.4
+    },
+    {
+     "speech": "Hello.",
+     "speed": 0.88,
+     "pause": 0.8
+    },
+    {
+     "speech": "Body.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Image: A cup.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Our morning cup.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Posted by Sam",
+     "pause": 0.5
+    }
+   ],
+   "display": "Aloud Blog\nHello\nBody.\nA cup\nOur morning cup.\nPosted by Sam"
+  },
+  {
+   "name": "md: task-list boxes are shown, not read; a cell after a colon gets no comma",
+   "format": "markdown",
+   "input": "- [ ] Buy beans\n- [x] Grind them\n\n| Item | Note |\n|---|---|\n| Total: | 12 |",
+   "chunks": [
+    {
+     "speech": "Buy beans.",
+     "pause": 0.4
+    },
+    {
+     "speech": "Grind them.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Item, Note.",
+     "pause": 0.35
+    },
+    {
+     "speech": "Total: 12.",
+     "pause": 0.5
+    }
+   ],
+   "display": "• [ ] Buy beans\n• [x] Grind them\nItem   Note\nTotal:   12"
+  },
+  {
+   "name": "md: a trailing comma becomes the full stop (heading, list item)",
+   "format": "markdown",
+   "input": "# Hello,\n\nWe need:\n\n- apples,\n- pears,\n- and plums.",
+   "chunks": [
+    {
+     "speech": "Hello.",
+     "speed": 0.88,
+     "pause": 0.8
+    },
+    {
+     "speech": "We need:",
+     "pause": 0.45
+    },
+    {
+     "speech": "apples.",
+     "pause": 0.4
+    },
+    {
+     "speech": "pears.",
+     "pause": 0.4
+    },
+    {
+     "speech": "and plums.",
+     "pause": 0.5
+    }
+   ]
+  }
+ ]
+}
