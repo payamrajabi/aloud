@@ -9,6 +9,7 @@ import CSherpaOnnx
 ///   --mute                                              silence output
 ///   --trace                                             print player state twice a second
 ///   --download-voice                                    download the voice model and exit
+///   --clean "text" | --clean-file path [--piece-words 30]  tidy dictation text as if it arrived in pieces, print timing
 ///   --test-gestures                                     check modifier tap / double-tap / hold detection and exit
 ///   READALOUD_MODELS_DIR=/some/folder                   use a different models folder (test fresh installs)
 ///   --script "2:seek=30;4:pause;5:play;8:open;9:snapshot=/tmp/p.png;10:quit"
@@ -64,6 +65,35 @@ enum DebugScript {
                 exit(1)
             }
         }
+        if var text = value("--clean") ?? value("--clean-file").flatMap({ try? String(contentsOfFile: $0, encoding: .utf8) }) {
+            // Feeds raw text to the clean-up model in Parakeet-sized pieces, then times the
+            // wait after "stop" (only the last piece and the open sentence are left).
+            text = text.trimmingCharacters(in: .whitespacesAndNewlines)
+            let size = Int(value("--piece-words") ?? "30") ?? 30
+            let words = text.split(whereSeparator: \.isWhitespace)
+            let pieces = stride(from: 0, to: words.count, by: size).map { words[$0..<min(words.count, $0 + size)].joined(separator: " ") }
+            let cleaner = TranscriptCleaner()
+            var t0 = Date()
+            guard cleaner.reset() else { print("clean-up model not installed at \(TranscriptCleaner.modelPath.path)"); exit(1) }
+            cleaner.waitUntilIdle()
+            print(String(format: "model load: %.2fs; %d words in %d pieces", Date().timeIntervalSince(t0), words.count, pieces.count))
+            t0 = Date()
+            // In real use each piece is cleaned before the next one arrives (8–15 s later).
+            for piece in pieces.dropLast() {
+                cleaner.add(piece)
+                cleaner.waitUntilIdle()
+            }
+            print(String(format: "while talking: %.2fs in total", Date().timeIntervalSince(t0)))
+            t0 = Date()
+            cleaner.willFinish()
+            if let last = pieces.last { cleaner.add(last) }
+            cleaner.finish { result in
+                print(String(format: "STOP → clean text in %.2fs\n\n%@", Date().timeIntervalSince(t0), result ?? "(nil: model failed)"))
+                cleaner.shutDown()
+                exit(0)
+            }
+            RunLoop.main.run()
+        }
         if let path = value("--stream-sim") {
             // Simulates a long recording arriving in real time (sped up), with background
             // transcription, then measures the wait after "stop".
@@ -76,6 +106,14 @@ enum DebugScript {
             queue.sync { engine = try? ParakeetEngine() }
             let streamer = StreamingTranscriber(queue: queue) { engine }
             streamer.reset()
+            // --tidy: clean up with the language model, the way dictation does when it's downloaded.
+            let cleaner = TranscriptCleaner()
+            if args.contains("--tidy") {
+                guard cleaner.reset() else { print("clean-up model not installed"); exit(1) }
+                streamer.onPiece = { cleaner.add($0) }
+                streamer.minChunk = 8 * ParakeetEngine.sampleRate
+                streamer.maxChunk = 15 * ParakeetEngine.sampleRate
+            }
             var recorded = 0
             let step = Int(0.25 * speed * 16_000)
             var ticks = 0
@@ -89,8 +127,17 @@ enum DebugScript {
                 if recorded == all.count {
                     timer.invalidate()
                     let stop = Date()
+                    cleaner.willFinish()
                     streamer.finish(all: all) { text, tail in
                         print(String(format: "STOP → text ready in %.2fs (tail %.1fs).", Date().timeIntervalSince(stop), tail))
+                        if cleaner.isActive {
+                            cleaner.finish { tidied in
+                                print(String(format: "STOP → tidied text ready in %.2fs:\n\n%@\n\nraw: %@", Date().timeIntervalSince(stop), tidied ?? "(nil)", text))
+                                cleaner.shutDown()
+                                exit(0)
+                            }
+                            return
+                        }
                         let t0 = Date()
                         let oneShot = engine?.transcribe(all) ?? ""
                         print(String(format: "Old way (transcribe everything after stop): %.2fs.", Date().timeIntervalSince(t0)))
@@ -238,6 +285,7 @@ enum DebugScript {
         case "hudshot":
             if let view = app.dictationHUD?.panel.contentView { snapshot(view, to: arg) }
         case "settings": app.showSettings()
+        case "cleanupdownload": app.dictationController.downloadCleanupModel()  // with --trace, prints when it's done
         case "settingsshot":
             // Forms don't draw into cached bitmaps, so capture the window from the screen.
             if let number = app.settings.contentView?.window?.windowNumber {

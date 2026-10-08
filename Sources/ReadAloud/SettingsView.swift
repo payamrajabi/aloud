@@ -23,7 +23,7 @@ final class SettingsWindow: NSObject, NSWindowDelegate {
     func show() {
         if window == nil {
             let view = SettingsView(player: player, dictation: dictation, monitor: dictation.shortcuts, recorder: recorder)
-            let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 500, height: 790),
+            let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 500, height: 850),
                                   styleMask: [.titled, .closable, .resizable, .fullSizeContentView], backing: .buffered, defer: false)
             window.title = "Aloud Settings"
             window.contentView = NSHostingView(rootView: view)
@@ -101,10 +101,14 @@ struct SettingsView: View {
                          installed: ParakeetEngine.isInstalled, progress: dictation.modelProgress,
                          canRemove: ParakeetEngine.isInstalled, busy: dictation.isBusy,
                          download: { dictation.downloadModelNow() }, remove: { dictation.removeModel() })
+                ModelRow(title: "Clean-up", detail: "Tidies dictation as you speak · about \(TranscriptCleaner.downloadSize)", symbol: "text.badge.checkmark",
+                         installed: TranscriptCleaner.isInstalled, progress: dictation.cleanupProgress,
+                         canRemove: TranscriptCleaner.isInstalled, busy: dictation.isCleanupBusy,
+                         download: { dictation.downloadCleanupModel() }, remove: { dictation.removeCleanupModel() })
             } header: {
                 Text("Downloads")
             } footer: {
-                Text("Both run entirely on your Mac and download automatically the first time Aloud opens. Remove one to free up space; Aloud asks before downloading it again when you next use it.")
+                Text("All three run entirely on your Mac. Voice and dictation download automatically the first time Aloud opens; clean-up is optional. Remove one to free up space, and Aloud asks before downloading it again when you next use it.")
                     .foregroundStyle(.secondary)
                     .font(.caption)
                     .fixedSize(horizontal: false, vertical: true)

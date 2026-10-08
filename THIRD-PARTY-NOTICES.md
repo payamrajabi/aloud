@@ -13,6 +13,8 @@ own license:
 | piper-phonemize | Phonemizer wrapper | MIT | https://github.com/rhasspy/piper-phonemize |
 | Sparkle | Automatic updates | MIT | https://github.com/sparkle-project/Sparkle |
 | NVIDIA Parakeet TDT 0.6B v2 (downloaded on first launch, not bundled) | Dictation model | CC-BY-4.0 | https://huggingface.co/nvidia/parakeet-tdt-0.6b-v2 |
+| llama.cpp (ggml) | Language model runtime | MIT | https://github.com/ggml-org/llama.cpp |
+| Qwen3.5-4B, 4-bit GGUF by Unsloth (optional download, not bundled) | Dictation clean-up model | Apache-2.0 | https://huggingface.co/Qwen/Qwen3.5-4B |
 
 eSpeak NG is licensed under the GNU General Public License v3. Its complete
 source code is available at the link above; the build of sherpa-onnx used here
