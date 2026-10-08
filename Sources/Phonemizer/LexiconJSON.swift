@@ -22,12 +22,13 @@ enum LexiconJSON {
         var evidence: Bool?
         var unit: Bool?
         var capsWord: Bool?
+        var packOnly: Bool?
         /// A known field holding an unexpected kind of value: read the file the slow way.
         var malformed = false
     }
 
     private enum Field {
-        case word, match, us, gb, dictation, spoken, spokenVariants, spokenContextOnly, evidence, unit, capsWord, other
+        case word, match, us, gb, dictation, spoken, spokenVariants, spokenContextOnly, evidence, unit, capsWord, packOnly, other
 
         init(_ key: UnsafeBufferPointer<UInt8>) {
             switch key.count {
@@ -36,7 +37,9 @@ enum LexiconJSON {
             case 5: self = Self.equal(key, "match") ? .match : .other
             case 6: self = Self.equal(key, "spoken") ? .spoken : .other
             case 8: self = Self.equal(key, "evidence") ? .evidence : .other
-            case 9: self = Self.equal(key, "dictation") ? .dictation : Self.equal(key, "caps_word") ? .capsWord : .other
+            case 9:
+                self = Self.equal(key, "dictation") ? .dictation : Self.equal(key, "caps_word") ? .capsWord
+                    : Self.equal(key, "pack_only") ? .packOnly : .other
             case 15: self = Self.equal(key, "spoken_variants") ? .spokenVariants : .other
             case 19: self = Self.equal(key, "spoken_context_only") ? .spokenContextOnly : .other
             default: self = .other
@@ -162,7 +165,7 @@ enum LexiconJSON {
                     case .spokenVariants: o.spokenVariants = list
                     default: o.spokenContextOnly = list
                     }
-                case .evidence, .unit, .capsWord:
+                case .evidence, .unit, .capsWord, .packOnly:
                     guard let value = boolean() else {
                         let start = i
                         guard skipValue() else { return nil }
@@ -173,7 +176,8 @@ enum LexiconJSON {
                     switch field {
                     case .evidence: o.evidence = value
                     case .unit: o.unit = value
-                    default: o.capsWord = value
+                    case .capsWord: o.capsWord = value
+                    default: o.packOnly = value
                     }
                 default:
                     guard p[i] == UInt8(ascii: "\"") else {

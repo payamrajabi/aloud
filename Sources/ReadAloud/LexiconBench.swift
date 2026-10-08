@@ -23,10 +23,14 @@ enum LexiconBench {
             try! data.write(to: file)
             print("synthetic lexicon: \(entries.count) entries, \(data.count / 1024) KB")
         }
-        // The Irish names ship alongside, as in the app.
-        if let irish = LexiconFiles.directories.first?.appendingPathComponent("irish-names.json"), fm.fileExists(atPath: irish.path) {
-            try? fm.copyItem(at: irish, to: dir.appendingPathComponent("irish-names.json"))
+        // The other lists (Irish names, field packs) ship alongside, as in the app; `--packs`
+        // switches packs on as it does elsewhere.
+        if let app = LexiconFiles.appDirectories.first, let names = try? fm.contentsOfDirectory(atPath: app.path) {
+            for name in names where name.hasSuffix(".json") && name != file.lastPathComponent {
+                try? fm.copyItem(at: app.appendingPathComponent(name), to: dir.appendingPathComponent(name))
+            }
         }
+        let packs = LexiconFiles.packs
 
         let article = articlePath.flatMap { try? String(contentsOfFile: $0, encoding: .utf8) } ?? sampleArticle
         let sentences = TextPrep.chunks(for: TextPrep.clean(article)).map(\.speech)
@@ -42,13 +46,14 @@ enum LexiconBench {
             set = LexiconSet(directories: [dir])
             parse.append(now() - t0)
             t0 = now()
-            lexicon = CustomLexicon(set)
+            lexicon = CustomLexicon(set, packs: packs)
             lexicon.prepare()
             index.append(now() - t0)
         }
         print(String(format: "load: %d entries; reading the files %.1f ms, indexing them %.1f ms: %.1f ms in all (best of 5; worst %.1f ms)",
                      lexicon.count, 1000 * parse.min()!, 1000 * index.min()!, 1000 * (parse.min()! + index.min()!),
                      1000 * zip(parse, index).map(+).max()!))
+        if !packs.enabled.isEmpty { print("packs on: \(packs.enabled.sorted().joined(separator: ", "))") }
         for p in lexicon.problems.prefix(5) { print("  problem: \(p)") }
 
         // Marking: the custom tier on its own, sentence by sentence.
@@ -73,7 +78,7 @@ enum LexiconBench {
         var corrector = DictationCorrector(LexiconSet())
         for _ in 0..<5 {
             let t0 = now()
-            corrector = DictationCorrector(set)
+            corrector = DictationCorrector(set, packs: packs)
             builds.append(now() - t0)
         }
         var rng = SplitMix(state: 3)

@@ -11,9 +11,11 @@ import CSherpaOnnx
 ///   --download-voice                                    download the voice model and exit
 ///   --phonemize [--gb] [--raw] < lines.txt               print each line's phonemes
 ///   --g2p-test Tests/g2p/regression.json [--verbose]    pronunciation regression suite
+///   --speech-test Tests/g2p/core-readings.json [--verbose] [--freeze]   reading tests written as plain words
 ///   --bench-lexicon [lexicon.json] [--article f.txt]    custom lexicon load and matching times (made-up 10,000 entries by default)
 ///   --correct-dictation "text" [--lexicon f.json]       what dictation would type, and why (reads lines from stdin without text)
 ///   --test-dictation Tests/dictation/regression.json    dictation corrector regression suite
+///   --packs finance,medicine                            switch field packs on for any of the above (and --say, --read)
 ///   --render-phonemes "ðə kwˈɪk" [--voice v] [--out f.wav] [--raw]   synthesize exact phonemes
 ///   --clean "text" | --clean-file path [--piece-words 30]  tidy dictation text as if it arrived in pieces, print timing
 ///   --test-gestures                                     check modifier tap / double-tap / hold detection and exit

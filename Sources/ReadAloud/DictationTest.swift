@@ -2,26 +2,50 @@ import Foundation
 import Phonemizer
 
 /// Checks for the dictation corrector (the lexicon in reverse).
-///   --correct-dictation "text" [--lexicon file.json]    print the corrected text and why each change was (not) made
-///   --test-dictation Tests/dictation/regression.json [--lexicon file.json] [--verbose]
+///   --correct-dictation "text" [--lexicon file.json] [--packs finance]   print the corrected text and why each change was (not) made
+///   --test-dictation Tests/dictation/regression.json [--lexicon file.json] [--packs finance] [--verbose]
 /// The regression file names its own fixture lexicon; `--lexicon` swaps in another.
 /// Ordinary speech in `must_not_change` is also checked against the app's own lists.
+///
+/// A file can instead name several fixture files or folders (`lexicons`, read in order,
+/// each file its own pack) and a folder standing in for your own (`user_lexicon_dir`).
+/// The packs that are on come from the case's `packs`, then the file's, then `--packs`.
 enum DictationTest {
     private struct Doc: Decodable {
         struct Case: Decodable {
             let `in`: String
             let out: String
+            let packs: [String]?
+        }
+        /// Text that must come out as it went in: a string, or {"in": text, "packs": [...]}.
+        struct Unchanged: Decodable {
+            let text: String
+            let packs: [String]?
+
+            private enum Keys: String, CodingKey { case `in`, packs }
+
+            init(from decoder: Decoder) throws {
+                if let text = try? decoder.singleValueContainer().decode(String.self) {
+                    self.text = text
+                    packs = nil
+                    return
+                }
+                let c = try decoder.container(keyedBy: Keys.self)
+                text = try c.decode(String.self, forKey: .in)
+                packs = try c.decodeIfPresent([String].self, forKey: .packs)
+            }
         }
         let lexicon: String?
+        let lexicons: [String]?
+        let user_lexicon_dir: String?
+        let packs: [String]?
         let must_change: [Case]
-        let must_not_change: [String]
+        let must_not_change: [Unchanged]
     }
 
     static func corrector(lexicon: String?) -> DictationCorrector {
-        guard let lexicon else { return DictationCorrector(LexiconFiles.shared) }
-        let set = LexiconSet(files: [URL(fileURLWithPath: lexicon)])
-        for p in set.problems { print("lexicon problem: \(p)") }
-        return DictationCorrector(set)
+        let set = lexicon.map { lexiconSet([URL(fileURLWithPath: $0)]) } ?? LexiconFiles.shared
+        return DictationCorrector(set, packs: LexiconFiles.packs)
     }
 
     static func correct(_ text: String?, lexicon: String?) -> Int32 {
@@ -33,9 +57,26 @@ enum DictationTest {
             for change in r.changes {
                 print("  \(change.applied ? "✓" : "·") \(change.original) → \(change.replacement)  (\(change.reason))")
             }
-            if !r.changes.isEmpty { print("  tech context: \(r.hasTechContext ? "yes" : "no")") }
+            if !r.changes.isEmpty { print("  context: \(r.contextPacks.isEmpty ? "none" : r.contextPacks.joined(separator: ", "))") }
         }
         return 0
+    }
+
+    /// Lexicon files and folders, read in order (a folder's files sorted by name), then
+    /// `user` as your own folder.
+    static func lexiconSet(_ urls: [URL], user: URL? = nil) -> LexiconSet {
+        var set = LexiconSet()
+        for url in urls {
+            var isFolder: ObjCBool = false
+            if FileManager.default.fileExists(atPath: url.path, isDirectory: &isFolder), isFolder.boolValue {
+                set.load(directory: url)
+            } else {
+                set.load(url)
+            }
+        }
+        if let user { set.load(directory: user, pack: LexiconPacks.user) }
+        for p in set.problems { print("lexicon problem: \(p)") }
+        return set
     }
 
     static func run(path: String, lexicon override: String?, verbose: Bool) -> Int32 {
@@ -44,35 +85,56 @@ enum DictationTest {
         do {
             doc = try JSONDecoder().decode(Doc.self, from: Data(contentsOf: url))
         } catch {
-            print("error: \(error.localizedDescription)")
+            print("error: \(error)")
             return 1
         }
-        let fixturePath = override ?? doc.lexicon.map { url.deletingLastPathComponent().appendingPathComponent($0).path }
-        let fixture = corrector(lexicon: fixturePath)
-        let shipped = corrector(lexicon: nil)
-        print("fixture: \(fixturePath ?? "app lexicons"), \(fixture.formCount) forms; app lexicons: \(shipped.formCount) forms")
+        let base = url.deletingLastPathComponent()
+        let fixturePaths = override.map { [URL(fileURLWithPath: $0)] }
+            ?? (doc.lexicons ?? doc.lexicon.map { [$0] })?.map { base.appendingPathComponent($0) }
+        let fixtureSet = fixturePaths.map {
+            lexiconSet($0, user: override == nil ? doc.user_lexicon_dir.map { base.appendingPathComponent($0) } : nil)
+        }
+        let defaultPacks = doc.packs.map { LexiconPacks($0) } ?? LexiconFiles.packs
+        // One corrector per list and set of packs.
+        var built: [String: DictationCorrector] = [:]
+        func corrector(app: Bool, packs names: [String]?) -> DictationCorrector {
+            let packs = names.map { LexiconPacks($0) } ?? defaultPacks
+            let key = "\(app ? "app" : "fixture"):\(packs.enabled.sorted().joined(separator: ","))"
+            if let c = built[key] { return c }
+            let c = DictationCorrector(app ? LexiconFiles.shared : (fixtureSet ?? LexiconFiles.shared), packs: packs)
+            built[key] = c
+            return c
+        }
+        let fixture = corrector(app: false, packs: nil)
+        let shipped = corrector(app: true, packs: nil)
+        print("fixture: \(fixturePaths?.map(\.path).joined(separator: ", ") ?? "app lexicons"), \(fixture.formCount) forms; app lexicons: \(shipped.formCount) forms"
+              + (defaultPacks.enabled.isEmpty ? "" : "; packs on: \(defaultPacks.enabled.sorted().joined(separator: ", "))"))
         var failures = 0
+        func packsNote(_ packs: [String]?) -> String {
+            packs.map { $0.isEmpty ? "  [no packs]" : "  [packs: \($0.joined(separator: ", "))]" } ?? ""
+        }
 
         print("\n== must change (\(doc.must_change.count)) ==")
         for c in doc.must_change {
+            let fixture = corrector(app: false, packs: c.packs)
             let r = fixture.analyze(c.in)
             let again = fixture.correct(r.text)
             let ok = r.text == c.out && again == r.text
             failures += ok ? 0 : 1
             if !ok || verbose {
-                print("  \(ok ? "✓" : "✗") \(c.in)\n      → \(r.text)\(r.text == c.out ? "" : "\n      want \(c.out)")\(again == r.text ? "" : "\n      second pass changed it again: \(again)")")
+                print("  \(ok ? "✓" : "✗") \(c.in)\(packsNote(c.packs))\n      → \(r.text)\(r.text == c.out ? "" : "\n      want \(c.out)")\(again == r.text ? "" : "\n      second pass changed it again: \(again)")")
                 if !ok { for ch in r.changes { print("      \(ch.applied ? "✓" : "·") \(ch.original) → \(ch.replacement) (\(ch.reason))") } }
             }
         }
 
         print("\n== must not change (\(doc.must_not_change.count), with the fixture and with the app's lexicons) ==")
-        for text in doc.must_not_change {
-            for (name, c) in [("fixture", fixture), ("app", shipped)] {
-                let r = c.analyze(text)
-                let ok = r.text == text
+        for u in doc.must_not_change {
+            for (name, app) in [("fixture", false), ("app", true)] {
+                let r = corrector(app: app, packs: u.packs).analyze(u.text)
+                let ok = r.text == u.text
                 failures += ok ? 0 : 1
                 if !ok || (verbose && name == "fixture") {
-                    print("  \(ok ? "✓" : "✗") [\(name)] \(text)\(ok ? "" : "\n      → \(r.text)")")
+                    print("  \(ok ? "✓" : "✗") [\(name)] \(u.text)\(packsNote(u.packs))\(ok ? "" : "\n      → \(r.text)")")
                     if !ok { for ch in r.changes where ch.applied { print("      \(ch.original) → \(ch.replacement) (\(ch.reason))") } }
                 }
             }
@@ -102,8 +164,8 @@ enum DictationTest {
 
         // Speed: a 200-word dictation made of the cases above.
         var words: [String] = []
-        for c in doc.must_change + doc.must_not_change.map({ Doc.Case(in: $0, out: $0) }) {
-            words += c.in.split(separator: " ").map(String.init)
+        for text in doc.must_change.map(\.in) + doc.must_not_change.map(\.text) {
+            words += text.split(separator: " ").map(String.init)
             if words.count >= 200 { break }
         }
         let text = words.prefix(200).joined(separator: " ")

@@ -1,8 +1,8 @@
 import Foundation
 
-/// The lexicon in reverse: fixes how the dictation engine writes tech terms
-/// ("super base" → Supabase, "cube control" → kubectl, "github" → GitHub) before the
-/// text is typed.
+/// The lexicon in reverse: fixes how the dictation engine writes tech terms and the
+/// terms of field packs ("super base" → Supabase, "cube control" → kubectl, "github" →
+/// GitHub, "a tor va statin" → atorvastatin) before the text is typed.
 ///
 /// What it rewrites, from each entry's dictation fields (see `LexiconEntry`):
 ///   - a `spoken` variant, matched case-insensitively at word boundaries, longest
@@ -19,13 +19,22 @@ import Foundation
 ///   - entries with `dictation: never`, entries without dictation fields, and units
 ///     (`unit: true`: "ms" and "GB" are for reading numbers, never written back);
 ///   - variants of `context` entries, variants listed in `spoken_context_only`, and the
-///     spelling of a `context` term itself ("asap" → ASAP), unless an unambiguous tech hit
-///     comes within 12 words of it, before or after, in the same dictation: an `always`
-///     variant, an `always` term written as itself (GitHub, API, Kubernetes), or a
-///     `context` term spelled as no word or abbreviation is (Next.js, K8s). One tech word
-///     at the start of a long message doesn't make "the sequel" thirty words on SQL. A hit
-///     that itself needed context never supplies it, and neither does an entry marked
-///     `evidence: false` (Netflix, iPhone, LOL);
+///     spelling of a `context` term itself ("asap" → ASAP), unless an unambiguous hit from
+///     the same field comes within 12 words of it, before or after, in the same dictation:
+///     an `always` variant, an `always` term written as itself (GitHub, API, Kubernetes),
+///     or a `context` term spelled as no word or abbreviation is (Next.js, K8s). One tech
+///     word at the start of a long message doesn't make "the sequel" thirty words on SQL. A
+///     hit that itself needed context never supplies it, and neither does an entry marked
+///     `evidence: false` (Netflix, iPhone, LOL). The field is the entry's pack
+///     (`LexiconEntry.pack`): tech terms vouch for tech terms ("sequel" → SQL next to
+///     Kubernetes), finance terms for finance terms ("con tango" → contango next to
+///     EBITDA), never one for the other ("con tango" next to Kubernetes stays). Entries in
+///     your own folder belong to every field: they vouch for, and are vouched for by, any
+///     pack, as they did when the tech list was the only one;
+///   - pack-only entries of packs that are off: no rewrites, and no context. A pack that's
+///     on takes part like any other, its pack-only entries in place of the general entry
+///     with the same spelling (`LexiconSet.entries(for:)`): with finance on, "b p s" is
+///     finance's bps and needs finance context, not tech context;
 ///   - entries marked `caps_word` in a sentence written all in capitals ("I AM SO HAPPY");
 ///   - ordinary-word variants written with a capital ("Jason" is a person, "jason"
 ///     may be JSON), very common words ("next", "view") and ordinary phrases that
@@ -35,12 +44,12 @@ import Foundation
 ///   - anything inside a domain, file name, path or address (github.com, notes.json),
 ///     and the whole of a URL with a scheme (https://…, postgres://user@db).
 ///
-/// Built once from a `LexiconSet`; thread-safe after that.
+/// Built once from a `LexiconSet` and the packs that are on; thread-safe after that.
 public final class DictationCorrector {
     public struct Change {
         public let original: String
         public let replacement: String
-        /// False when the change needed tech context the dictation didn't have.
+        /// False when the change needed context from its field the dictation didn't have.
         public let applied: Bool
         public let reason: String
     }
@@ -48,20 +57,24 @@ public final class DictationCorrector {
     public struct Result {
         public let text: String
         public let changes: [Change]
-        /// An unambiguous tech hit somewhere in the dictation. A gated change also needs one
-        /// within `contextReach` words of it.
-        public let hasTechContext: Bool
+        /// The fields with an unambiguous hit somewhere in the dictation, in order of first
+        /// appearance ("tech", "finance"; "user" for your own entries). A gated change also
+        /// needs one from its own field within `contextReach` words of it.
+        public let contextPacks: [String]
     }
 
-    /// How far tech context reaches, in words either way: a gated rewrite needs an
-    /// unambiguous tech hit no more than this many words before or after it.
+    /// How far context reaches, in words either way: a gated rewrite needs an unambiguous
+    /// hit from its field no more than this many words before or after it.
     public static let contextReach = 12
+
+    /// The field of entries from your own folder: every field at once.
+    static let everyField: Int16 = -1
 
     /// How one written form relates to one entry.
     struct Target {
         static let rewrite: UInt8 = 1        // may change the text (otherwise it only protects it)
-        static let gated: UInt8 = 2          // needs tech context
-        static let evidence: UInt8 = 4       // is tech context
+        static let gated: UInt8 = 2          // needs context from its field
+        static let evidence: UInt8 = 4       // is context for its field
         static let lowercaseOnly: UInt8 = 8  // an ordinary word or name: only when written in lowercase
         static let plural: UInt8 = 16        // takes a plural ending
         static let variant: UInt8 = 32       // a spoken variant (not the term's own spelling)
@@ -86,13 +99,18 @@ public final class DictationCorrector {
     private var buckets: [UInt64: [Int32]] = [:]
     /// Each entry's spelling, by entry index (empty for entries that play no part).
     private var words: [[Unicode.Scalar]] = []
+    /// Each entry's field (an index into `fieldNames`, or `everyField`), by entry index.
+    private var fields: [Int16] = []
+    private var fieldNames: [String] = []
     public private(set) var variantCount = 0
     public var formCount: Int { groups.count }
 
     static let separator: UInt32 = 0x20
 
-    public init(_ set: LexiconSet) {
-        build(set.entries)
+    /// - Parameter packs: the field packs that are on; pack-only entries of the others
+    ///   take no part.
+    public init(_ set: LexiconSet, packs: LexiconPacks = LexiconPacks()) {
+        build(set.entries(for: packs))
     }
 
     public convenience init(directories: [URL]) {
@@ -106,6 +124,19 @@ public final class DictationCorrector {
         positions.reserveCapacity(entries.count * 3)
         groups.reserveCapacity(entries.count * 3)
         words = Array(repeating: [], count: entries.count)
+        var fieldIDs: [String: Int16] = [:]
+        var last: (pack: String, id: Int16)?
+        fields = entries.map { e in
+            if e.isUser { return Self.everyField }
+            if let last, last.pack == e.pack { return last.id }   // files come one after another
+            let id = fieldIDs[e.pack] ?? Int16(fieldNames.count)
+            if id == fieldNames.count {
+                fieldIDs[e.pack] = id
+                fieldNames.append(e.pack)
+            }
+            last = (e.pack, id)
+            return id
+        }
         func group(_ p: [UInt32]) -> Int {
             if let g = positions[p] { return g }
             positions[p] = groups.count
@@ -117,8 +148,9 @@ public final class DictationCorrector {
             let active = e.dictation == .always || e.dictation == .context
             let canonical = Self.normalize(e.word)
             let common = Self.commonPatterns.contains(canonical)
-            // Only developer terms say a dictation is about tech: never everyday brands and
-            // words (Netflix, iPhone, LOL), whatever else the entry does.
+            // Only a field's own jargon says a dictation is about it (developer terms for
+            // tech): never everyday brands and words (Netflix, iPhone, LOL), whatever else
+            // the entry does.
             let evidence = e.isEvidence
             // A `context` term's own spelling needs context like its variants do, so "asap" or
             // "ASAP" can't vouch for itself; spelled as no word or abbreviation is (Next.js,
@@ -272,16 +304,20 @@ public final class DictationCorrector {
         let gated: Bool
         let evidence: Bool
         let target: Target?
+        /// The field of the entry it came from: the context it gives, or needs.
+        let field: Int16
 
         /// Unless told otherwise, only a hit that needs no context can be context: an
         /// ungated target of an evidence entry.
-        init(start: Int, end: Int, replacement: [Unicode.Scalar]? = nil, target: Target? = nil, evidence: Bool? = nil) {
+        init(start: Int, end: Int, replacement: [Unicode.Scalar]? = nil, target: Target? = nil, evidence: Bool? = nil,
+             field: Int16 = DictationCorrector.everyField) {
             self.start = start
             self.end = end
             self.replacement = replacement
             self.target = target
             self.gated = target?.has(Target.gated) ?? false
             self.evidence = evidence ?? target.map { $0.has(Target.evidence) && !$0.has(Target.gated) } ?? false
+            self.field = field
         }
     }
 
@@ -292,10 +328,16 @@ public final class DictationCorrector {
         return t.has(Target.lowercaseOnly) ? "ordinary-word variant of \(word)" : "variant of \(word)"
     }
 
+    /// How a field is named in a reason: its pack ("tech context"); your own entries take
+    /// any field's.
+    private func fieldName(_ f: Int16) -> String {
+        f == Self.everyField ? "" : fieldNames[Int(f)] + " "
+    }
+
     public func analyze(_ text: String) -> Result {
         let s = Array(text.unicodeScalars)
         let n = s.count
-        guard n > 1, !groups.isEmpty else { return Result(text: text, changes: [], hasTechContext: false) }
+        guard n > 1, !groups.isEmpty else { return Result(text: text, changes: [], contextPacks: []) }
         let f = s.map { Self.foldApostrophe(Scalars.fold($0)) }
         var hits: [Hit] = []
         var found: [(end: Int, group: Int32)] = []
@@ -328,16 +370,23 @@ public final class DictationCorrector {
                 i += 1
             }
         }
-        guard !hits.isEmpty else { return Result(text: text, changes: [], hasTechContext: false) }
-        let context = hits.contains { $0.evidence }
-        let near = context ? Self.nearEvidence(hits, s) : []
+        guard !hits.isEmpty else { return Result(text: text, changes: [], contextPacks: []) }
+        var contextFields: [Int16] = []
+        for h in hits where h.evidence && !contextFields.contains(h.field) { contextFields.append(h.field) }
+        let contextPacks = contextFields.map { $0 == Self.everyField ? LexiconPacks.user : fieldNames[Int($0)] }
+        let near = contextFields.isEmpty ? [] : Self.nearEvidence(hits, s, fieldCount: fieldNames.count)
         var out = String.UnicodeScalarView()
         var changes: [Change] = []
         var last = 0
         for (k, h) in hits.enumerated() {
             guard let r = h.replacement, !s[h.start..<h.end].elementsEqual(r) else { continue }
-            let applied = !h.gated || (context && near[k])
-            let missing = applied ? "" : context ? ", but no tech context within \(Self.contextReach) words" : ", but no tech context"
+            let applied = !h.gated || (!near.isEmpty && near[k])
+            var missing = ""
+            if !applied {
+                // Context of its own field somewhere, just too far away?
+                let somewhere = contextFields.contains { $0 == h.field || $0 == Self.everyField || h.field == Self.everyField }
+                missing = ", but no \(fieldName(h.field))context" + (somewhere ? " within \(Self.contextReach) words" : "")
+            }
             changes.append(Change(original: String(String.UnicodeScalarView(s[h.start..<h.end])), replacement: String(String.UnicodeScalarView(r)),
                                   applied: applied, reason: reason(h.target) + missing))
             guard applied else { continue }
@@ -345,15 +394,17 @@ public final class DictationCorrector {
             out.append(contentsOf: r)
             last = h.end
         }
-        guard last > 0 else { return Result(text: text, changes: changes, hasTechContext: context) }
+        guard last > 0 else { return Result(text: text, changes: changes, contextPacks: contextPacks) }
         out.append(contentsOf: s[last...])
-        return Result(text: String(out), changes: changes, hasTechContext: context)
+        return Result(text: String(out), changes: changes, contextPacks: contextPacks)
     }
 
-    /// For each hit, whether an evidence hit lies within `contextReach` words of it, before
-    /// or after (an evidence hit is near itself). Words are counted the way patterns match
-    /// them: any run of spaces, hyphens or dashes is a break ("16-year-old" is three).
-    private static func nearEvidence(_ hits: [Hit], _ s: [Unicode.Scalar]) -> [Bool] {
+    /// For each hit, whether an evidence hit of its field lies within `contextReach` words
+    /// of it, before or after (an evidence hit is near itself). Evidence from your own
+    /// entries counts for every field, and your own gated entries take any field's. Words
+    /// are counted the way patterns match them: any run of spaces, hyphens or dashes is a
+    /// break ("16-year-old" is three).
+    private static func nearEvidence(_ hits: [Hit], _ s: [Unicode.Scalar], fieldCount: Int) -> [Bool] {
         // The word each hit starts and ends in. Hits are in order and don't overlap, so
         // one pass over the text numbers them all.
         var firstWord = [Int](repeating: 0, count: hits.count), lastWord = firstWord
@@ -370,13 +421,23 @@ public final class DictationCorrector {
             lastWord[k] = word(at: h.end - 1)
         }
         var near = hits.map(\.evidence)
-        var previous: Int?   // last word of the closest evidence hit before
-        for k in hits.indices {
-            if hits[k].evidence { previous = lastWord[k] } else if let w = previous, firstWord[k] - w <= contextReach { near[k] = true }
-        }
-        var following: Int?  // first word of the closest evidence hit after
-        for k in hits.indices.reversed() {
-            if hits[k].evidence { following = firstWord[k] } else if let w = following, w - lastWord[k] <= contextReach { near[k] = true }
+        // Before, then after: the nearest edge of the closest evidence hit of each field,
+        // of your own entries, and of any field.
+        for forward in [true, false] {
+            var closest = [Int?](repeating: nil, count: fieldCount)
+            var mine: Int?, any: Int?
+            for k in forward ? Array(hits.indices) : hits.indices.reversed() {
+                let h = hits[k]
+                if h.evidence {
+                    let edge = forward ? lastWord[k] : firstWord[k]
+                    if h.field == everyField { mine = edge } else { closest[Int(h.field)] = edge }
+                    any = edge
+                    continue
+                }
+                let from = forward ? firstWord[k] : lastWord[k]
+                func reaches(_ w: Int?) -> Bool { w.map { abs(from - $0) <= contextReach } ?? false }
+                if h.field == everyField ? reaches(any) : reaches(closest[Int(h.field)]) || reaches(mine) { near[k] = true }
+            }
         }
         return near
     }
@@ -403,11 +464,12 @@ public final class DictationCorrector {
         func skipped(_ t: Target) -> Bool { t.has(Target.capsWord) && shouted.contains(start, in: s) }
         // Already spelled exactly as a case-sensitive term: keep it.
         for e in g.exact where written.elementsEqual(words[Int(e.entry)]) && Self.endsCleanly(s, at: end) && !skipped(e) {
-            return Hit(start: start, end: end, evidence: e.has(Target.evidence))
+            return Hit(start: start, end: end, evidence: e.has(Target.evidence), field: fields[Int(e.entry)])
         }
         if let c = g.canonical, !skipped(c) {
             var stop = end
             let word0 = words[Int(c.entry)]
+            let field = fields[Int(c.entry)]
             if c.has(Target.plural) {
                 // "-es" only after s, x, z, ch or sh ("regexes"); otherwise "cranes" would be CRAN + es.
                 let suffixes = Self.takesEs(word0) ? ["es", "s"] : ["s"]
@@ -428,20 +490,20 @@ public final class DictationCorrector {
                 if !word.contains(where: Scalars.isUppercase) {
                     // An all-lowercase term ("kubectl", "grep"): keep a capital the sentence gave it.
                     if written.map(Scalars.fold).elementsEqual(word.map(Scalars.fold)) {
-                        return Hit(start: start, end: stop, evidence: evidence)
+                        return Hit(start: start, end: stop, evidence: evidence, field: field)
                     }
                     if let first = written.first, Scalars.isUppercase(first),
                        let up = word.first.map({ String($0).uppercased().unicodeScalars }), up.count == 1 {
                         word[0] = up.first!
                     }
                 }
-                return Hit(start: start, end: stop, replacement: word + s[end..<stop], target: c, evidence: evidence)
+                return Hit(start: start, end: stop, replacement: word + s[end..<stop], target: c, evidence: evidence, field: field)
             }
         }
         if let v = g.variant, !g.ambiguous, !skipped(v) {
             if v.has(Target.lowercaseOnly), written.contains(where: Scalars.isUppercase) { return nil }
             guard Self.endsCleanly(s, at: end) else { return nil }
-            return Hit(start: start, end: end, replacement: words[Int(v.entry)], target: v)
+            return Hit(start: start, end: end, replacement: words[Int(v.entry)], target: v, field: fields[Int(v.entry)])
         }
         return nil
     }

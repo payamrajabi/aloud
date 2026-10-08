@@ -206,7 +206,7 @@ final class KokoroEngine {
         } catch {
             throw EngineError.loadFailed("The voice model failed to load (\(error.localizedDescription)).")
         }
-        lexicon = CustomLexicon(LexiconFiles.shared)
+        lexicon = CustomLexicon(LexiconFiles.shared, packs: LexiconFiles.packs)
         lexicon.prepare()
     }
 
@@ -337,24 +337,37 @@ final class KokoroEngine {
 
 /// Where custom pronunciations come from: the lists shipped in the app, then the
 /// user's own folder (~/Library/Application Support/ReadAloud/lexicons), which wins.
+/// Each shipped file is a pack (tech-lexicon.json is "tech", finance.json "finance"):
+/// its general entries always apply, its `pack_only` entries only while it's on (`packs`).
 enum LexiconFiles {
     static var userDirectory: URL {
         ModelStore.root.deletingLastPathComponent().appendingPathComponent("lexicons")
     }
 
     /// Every list, read once per launch and shared by reading and dictation.
-    static let shared = LexiconSet(directories: directories)
+    static let shared = LexiconSet(directories: appDirectories, userDirectory: userDirectory)
 
-    static var directories: [URL] {
-        var dirs: [URL] = []
+    /// The saved field packs that are on: pack ids ("finance", "medicine"), none by default.
+    static let enabledPacksKey = "enabledPacks"
+
+    /// The field packs that are on: `--packs finance,medicine` on the command line (the
+    /// developer test modes), otherwise the saved setting. Reading and dictation take it when
+    /// they're set up; there's no Settings control for it yet.
+    static var packs: LexiconPacks {
+        if let list = DebugScript.value("--packs") {
+            return LexiconPacks(list.hasPrefix("--") ? [] : list.split(separator: ",").map(String.init))
+        }
+        return LexiconPacks(UserDefaults.standard.stringArray(forKey: enabledPacksKey) ?? [])
+    }
+
+    /// The app's own lists: the bundled folder, or Lexicons/ in a source checkout. Every
+    /// *.json file there is read, so a new pack ships by adding its file.
+    static var appDirectories: [URL] {
         if let bundled = Bundle.main.resourceURL?.appendingPathComponent("lexicons"),
            FileManager.default.fileExists(atPath: bundled.path) {
-            dirs.append(bundled)
-        } else if let source = sourceCheckoutLexicons {
-            dirs.append(source)
+            return [bundled]
         }
-        dirs.append(userDirectory)
-        return dirs
+        return sourceCheckoutLexicons.map { [$0] } ?? []
     }
 
     /// Lexicons/ in the source checkout a `swift build` binary was built in (the binary

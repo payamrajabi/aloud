@@ -328,8 +328,9 @@ final class DictationController: ObservableObject {
     static var fixesTechTerms: Bool { UserDefaults.standard.object(forKey: fixTechTermsKey) as? Bool ?? true }
 
     /// The lexicons in reverse ("super base" → Supabase). Built once, on the dictation
-    /// queue at launch (a few tens of milliseconds for the full list).
-    static let corrector = DictationCorrector(LexiconFiles.shared)
+    /// queue at launch (a few tens of milliseconds for the full list), with the field packs
+    /// that are on then; a Settings control for packs will need to build it again.
+    static let corrector = DictationCorrector(LexiconFiles.shared, packs: LexiconFiles.packs)
 
     private func resumeReading() {
         if resumeReadingAfter { player.play() }

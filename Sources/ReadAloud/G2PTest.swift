@@ -42,9 +42,11 @@ enum G2PTest {
         let absent: String?
     }
 
+    /// The reference pipeline and the shipped one, with the app's lists and the packs that
+    /// are on (`--packs`).
     static func phonemizers() throws -> (raw: [Bool: Phonemizer], shipped: [Bool: Phonemizer]) {
         let data = try G2PData.load(from: G2PData.defaultDirectory())
-        let custom = CustomLexicon(LexiconFiles.shared)
+        let custom = CustomLexicon(LexiconFiles.shared, packs: LexiconFiles.packs)
         for p in custom.problems { print("lexicon problem: \(p)") }
         var raw: [Bool: Phonemizer] = [:], shipped: [Bool: Phonemizer] = [:]
         for b in [false, true] {
