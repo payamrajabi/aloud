@@ -328,15 +328,21 @@ public final class DictationCorrector {
         }
         if let c = g.canonical {
             var stop = end
+            let word0 = words[Int(c.entry)]
             if c.has(Target.plural) {
-                for suffix in ["es", "s"] where Self.has(suffix, in: s, at: end) && Self.endsCleanly(s, at: end + suffix.count) {
+                // "-es" only after s, x, z, ch or sh ("regexes"); otherwise "cranes" would be CRAN + es.
+                let suffixes = Self.takesEs(word0) ? ["es", "s"] : ["s"]
+                for suffix in suffixes where Self.has(suffix, in: s, at: end) && Self.endsCleanly(s, at: end + suffix.count) {
                     stop = end + suffix.count
                     break
                 }
             }
             if Self.endsCleanly(s, at: stop) {
                 guard c.has(Target.rewrite) else { return Hit(start: start, end: stop) }
-                var word = words[Int(c.entry)]
+                // A Titlecase word for an all-caps term is a name or a place ("Maui" isn't MAUI,
+                // "Aria" isn't ARIA). Mixed-case terms still get fixed ("Github" → GitHub).
+                if Self.isTitlecase(written), Self.isAllCaps(word0) { return Hit(start: start, end: stop) }
+                var word = word0
                 if !word.contains(where: Scalars.isUppercase) {
                     // An all-lowercase term ("kubectl", "grep"): keep a capital the sentence gave it.
                     if written.map(Scalars.fold).elementsEqual(word.map(Scalars.fold)) {
@@ -356,6 +362,35 @@ public final class DictationCorrector {
             return Hit(start: start, end: end, replacement: words[Int(v.entry)], target: v)
         }
         return nil
+    }
+
+    /// Ends in s, x, z, ch or sh, so a plural adds "es".
+    static func takesEs(_ word: [Unicode.Scalar]) -> Bool {
+        let f = word.map(Scalars.fold)
+        guard let last = f.last else { return false }
+        if last == 0x73 || last == 0x78 || last == 0x7A { return true }   // s x z
+        return f.count >= 2 && last == 0x68 && (f[f.count - 2] == 0x63 || f[f.count - 2] == 0x73)   // ch sh
+    }
+
+    /// "Maui": a capital, then lowercase letters only (at least two letters in all).
+    static func isTitlecase<C: Collection>(_ written: C) -> Bool where C.Element == Unicode.Scalar {
+        guard let first = written.first, Scalars.isUppercase(first) else { return false }
+        var letters = 0
+        for c in written where Scalars.isLetter(c) {
+            letters += 1
+            if letters > 1, Scalars.isUppercase(c) { return false }
+        }
+        return letters >= 2
+    }
+
+    /// "MAUI", "LEED", "EC2": every letter a capital (at least two letters).
+    static func isAllCaps(_ word: [Unicode.Scalar]) -> Bool {
+        var letters = 0
+        for c in word where Scalars.isLetter(c) {
+            guard Scalars.isUppercase(c) else { return false }
+            letters += 1
+        }
+        return letters >= 2
     }
 
     @inline(__always) private static func has(_ suffix: String, in s: [Unicode.Scalar], at p: Int) -> Bool {
