@@ -63,7 +63,7 @@ enum Tokenizer {
         var suffixes: [Substring] = []
         var s = chunk
         while !s.isEmpty {
-            if exceptions.contains(String(s)) { break }
+            if exceptions.contains(String(s)), !numberSign.contains(String(s)) || numberFollows(s) { break }
             if let n = prefixLength(s) {
                 prefixes.append(s.prefix(n)); s = s.dropFirst(n); continue
             }
@@ -73,6 +73,20 @@ enum Tokenizer {
             break
         }
         return prefixes + (s.isEmpty ? [] : infixSplit(s)) + suffixes
+    }
+
+    /// "No." is "number" only before one ("No. 5", "no. 12", "Nos. 3–4", "No. #7"). At the
+    /// end of a sentence ("The answer was no.") it's the word no and a full stop; kept whole,
+    /// the gold lexicon would read it "number".
+    static let numberSign: Set<String> = ["No.", "no.", "Nos."]
+
+    /// Whether the next non-space character after `s` in the text is a digit or "#".
+    private static func numberFollows(_ s: Substring) -> Bool {
+        let text = s.base
+        var k = s.endIndex
+        while k < text.endIndex, text[k].isWhitespace { k = text.index(after: k) }
+        guard k < text.endIndex else { return false }
+        return text[k].isNumber || text[k] == "#"
     }
 
     private static func prefixLength(_ s: Substring) -> Int? {

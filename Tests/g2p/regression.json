@@ -4202,6 +4202,23 @@
    "text": "Niamh's book.",
    "us": "nˈivz",
    "gb": "nˈiːvz"
+  },
+  {
+   "text": "The answer was no.",
+   "us": "wʌz nˈO.",
+   "gb": "wɒz nˈQ.",
+   "absent": "nˈʌmb"
+  },
+  {
+   "text": "No, thanks.",
+   "us": "nˈO, θˈæŋks.",
+   "gb": "nˈQ, θˈaŋks.",
+   "absent": "nˈʌmb"
+  },
+  {
+   "text": "See No. 5 on the list.",
+   "us": "nˈʌmbəɹ fˈIv",
+   "gb": "nˈʌmbə fˈIv"
   }
  ]
 }
