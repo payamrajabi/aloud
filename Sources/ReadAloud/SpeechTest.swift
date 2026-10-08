@@ -47,6 +47,11 @@ enum SpeechTest {
     }
 
     /// Phonemes without stress, punctuation or extra spaces.
+    /// Hyphens between letters as spaces ("ninety-nine" → "ninety nine").
+    static func spaced(_ s: String) -> String {
+        s.replacingOccurrences(of: #"(?<=\p{L})-(?=\p{L})"#, with: " ", options: .regularExpression)
+    }
+
     static func loose(_ ps: String) -> String {
         let dropped = Set("ˈˌ.,;:!?—–…\"“”‘’()[]{}«»¡¿")
         let kept = ps.filter { !dropped.contains($0) }
@@ -99,7 +104,9 @@ enum SpeechTest {
                     continue
                 }
                 let got = p.phonemize(c.text, unknown: "❓")
-                let want = p.phonemize(says, unknown: "❓")
+                // "ninety-nine" written with a hyphen is one compound word to the stack, with other stress
+                // than the number reader's "ninety nine"; expected readings are compared as separate words.
+                let want = p.phonemize(spaced(says), unknown: "❓")
                 total += 1
                 let ok = (loose(got) == loose(want)) != (c.not_says != nil)
                 if !ok {
