@@ -8,10 +8,10 @@
 //   ALOUD_PRICE_LOOKUP_KEY   which Stripe price /buy sells: aloud_launch ($9.99) or aloud_regular ($19)
 //   RESEND_API_KEY           sends the license email (optional; without it, only the thank-you page has it)
 //   LICENSE_EMAIL_FROM       e.g. "Aloud <hello@aloudformac.com>" (a domain verified in Resend)
-//   SUPPORT_EMAIL            reply-to address on license emails
+//   SUPPORT_EMAIL            where customers write (reply-to on license emails); payam.rajabi@gmail.com for now
 import { createHmac, createPrivateKey, sign, timingSafeEqual } from 'node:crypto';
 
-export const SUPPORT_EMAIL = process.env.SUPPORT_EMAIL || 'hello@aloudformac.com';
+export const SUPPORT_EMAIL = process.env.SUPPORT_EMAIL || 'payam.rajabi@gmail.com';
 
 export class HttpError extends Error {
   constructor(status, message) {
