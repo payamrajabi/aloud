@@ -4248,6 +4248,229 @@
    "text": "She lives on Main St.",
    "us": "mˈAn stɹˈit.",
    "gb": "mˈAn stɹˈiːt."
+  },
+  {
+   "text": "He said \"hello\" and left.",
+   "us": "sˈɛd “həlˈO” ænd",
+   "gb": "sˈɛd “həlˈQ” and",
+   "absent": "ʧ"
+  },
+  {
+   "text": "Click \"Save\" then \"Open\".",
+   "us": "klˈɪk “sˈAv” ðˈɛn “ˈOpᵊn”.",
+   "gb": "klˈɪk “sˈAv” ðˈɛn “ˈQpᵊn”."
+  },
+  {
+   "text": "\"Why?\" he asked.",
+   "us": "“wˌI?”",
+   "gb": "“wˌI?”"
+  },
+  {
+   "text": "Common words (\"next\", \"view\") never are.",
+   "us": "(“nˈɛkst”, “vjˈu”)",
+   "gb": "(“nˈɛkst”, “vjˈuː”)"
+  },
+  {
+   "text": "„Hallo“, sagte er.",
+   "us": "hˈælO",
+   "gb": "hˈalQ",
+   "absent": "ʧ"
+  },
+  {
+   "text": "﻿Hello there.",
+   "us": "həlˈO ðˈɛɹ.",
+   "gb": "həlˈQ ðˈɛː.",
+   "absent": "ʧ"
+  },
+  {
+   "text": "Plan B.",
+   "us": "plˈæn bˈi.",
+   "gb": "plˈan bˈiː."
+  },
+  {
+   "text": "Plain English word(s) here.",
+   "us": "wˈɜɹdz hˈɪɹ",
+   "gb": "wˈɜːdz hˈɪə",
+   "absent": "ˈɛs"
+  },
+  {
+   "text": "We flew to St. Louis on Friday.",
+   "us": "tə sˈAnt lˈui ˌɔn",
+   "gb": "tə sˈAnt lˈuːi ˌɒn"
+  },
+  {
+   "text": "Gov. Newsom signed it.",
+   "us": "ɡˈʌvᵊnəɹ nˈuzəm",
+   "gb": "ɡˈʌvᵊnə nˈuːzəm"
+  },
+  {
+   "text": "She lives on Main St. Then we left.",
+   "us": "mˈAn stɹˈit. ðˈɛn",
+   "gb": "mˈAn stɹˈiːt. ðˈɛn"
+  },
+  {
+   "text": "I live on Main St. Louis is far away.",
+   "us": "mˈAn stɹˈit. lˈui",
+   "gb": "mˈAn stɹˈiːt. lˈuːi",
+   "absent": "sˈAnt"
+  },
+  {
+   "text": "It takes 5-10 minutes.",
+   "us": "fˈIv tə tˈɛn mˈɪnəts",
+   "gb": "fˈIv tə tˈɛn mˈɪnɪts"
+  },
+  {
+   "text": "From 1990-2000 it grew.",
+   "us": "nˌIntˈin nˈIndi tə tˈu θˈWzᵊnd",
+   "gb": "nˌIntˈiːn nˈInti tə tˈuː θˈWzᵊnd"
+  },
+  {
+   "text": "Ages 18-25 apply.",
+   "us": "ˌAtˈin tə twˈɛnti fˈIv",
+   "gb": "ˌAtˈiːn tə twˈɛnti fˈIv"
+  },
+  {
+   "text": "The score was 3-2.",
+   "us": "θɹˈi tə tˈu",
+   "gb": "θɹˈiː tə tˈuː"
+  },
+  {
+   "text": "On 2024-03-15 we met.",
+   "us": "mˈɑɹʧ fˌɪftˈinθ, twˈɛnti twˈɛnti fˈɔɹ",
+   "gb": "mˈɑːʧ fˌɪftˈiːnθ, twˈɛnti twˈɛnti fˈɔː"
+  },
+  {
+   "text": "Call 1-800-555-1234 now.",
+   "us": "kˈɔl wˌʌnˌAt",
+   "gb": "kˈɔːl wˌʌnˌAt",
+   "absent": "tə"
+  },
+  {
+   "text": "FIPS 140-2 applies.",
+   "us": "wˈʌn hˈʌndɹəd",
+   "gb": "wˈʌn hˈʌndɹəd",
+   "absent": "tə"
+  },
+  {
+   "text": "x = y",
+   "us": "ˈɛks ˈikwᵊlz wˈI",
+   "gb": "ˈɛks ˈiːkwᵊlz wˈI"
+  },
+  {
+   "text": "2 × 3 = 6 and 5 ± 2",
+   "us": "tˈu tˈImz θɹˈi ˈikwᵊlz sˈɪks ænd fˈIv plˈʌs ɔɹ mˈInəs tˈu",
+   "gb": "tˈuː tˈImz θɹˈiː ˈiːkwᵊlz sˈɪks and fˈIv plˈʌs ɔː mˈInəs tˈuː"
+  },
+  {
+   "text": "10 ÷ 2",
+   "us": "tˈɛn dəvˈIdᵻd bI tˈu",
+   "gb": "tˈɛn dɪvˈIdɪd bI tˈuː"
+  },
+  {
+   "text": "a ≠ b and c ≈ d",
+   "us": "nˌɑt ˈikwᵊl tə bˈi ænd sˈi əpɹˈɑksəmətli dˈi",
+   "gb": "nˌɒt ˈiːkwᵊl tə bˈiː and sˈiː əpɹˈɒksɪmətli dˈiː"
+  },
+  {
+   "text": "x ≤ 5 and y ≥ 3",
+   "us": "lˈɛs ðən ɔɹ ˈikwᵊl tə fˈIv ænd wˈI ɡɹˈATəɹ ðən ɔɹ ˈikwᵊl tə θɹˈi",
+   "gb": "lˈɛs ðən ɔː ˈiːkwᵊl tə fˈIv and wˈI ɡɹˈAtə ðən ɔː ˈiːkwᵊl tə θɹˈiː"
+  },
+  {
+   "text": "a < b and x > y",
+   "us": "ɐ lˈɛs ðən bˈi ænd ˈɛks ɡɹˈATəɹ ðən wˈI",
+   "gb": "ɐ lˈɛs ðən bˈiː and ˈɛks ɡɹˈAtə ðən wˈI"
+  },
+  {
+   "text": "Wrap it in <b> tags.",
+   "us": "ɪn bˈi tˈæɡz",
+   "gb": "ɪn bˈiː tˈaɡz",
+   "absent": "ðən"
+  },
+  {
+   "text": "Open Settings > Privacy.",
+   "us": "sˈɛTɪŋz",
+   "gb": "sˈɛtɪŋz",
+   "absent": "ðən"
+  },
+  {
+   "text": "It costs ¥100 or ₹200.",
+   "us": "wˈʌn hˈʌndɹəd jˈɛn ɔɹ tˈu hˈʌndɹəd ɹupˈiz",
+   "gb": "wˈʌn hˈʌndɹəd jˈɛn ɔː tˈuː hˈʌndɹəd ɹˌuːpˈiːz"
+  },
+  {
+   "text": "Add ½ cup and 1½ cups.",
+   "us": "wˈʌn hˈæf kˈʌp ænd wˈʌn ænd ɐ hˈæf kˈʌps",
+   "gb": "wˈʌn hˈɑːf kˈʌp and wˈʌn and ɐ hˈɑːf kˈʌps"
+  },
+  {
+   "text": "Go → next.",
+   "us": "ɡˈO tə nˈɛkst",
+   "gb": "ɡˈQ tə nˈɛkst"
+  },
+  {
+   "text": "50¢ each.",
+   "us": "fˈɪfti sˈɛnts",
+   "gb": "fˈɪfti sˈɛnts"
+  },
+  {
+   "text": "That is $12345678901234567890.",
+   "us": "wˈʌn tˈu θɹˈi fˈɔɹ fˈIv sˈɪks sˈɛvən ˈAt nˈIn zˈɪɹO wˈʌn tˈu θɹˈi fˈɔɹ fˈIv sˈɪks sˈɛvən ˈAt nˈIn zˈɪɹO dˈɑləɹz",
+   "gb": "wˈʌn tˈuː θɹˈiː fˈɔː fˈIv sˈɪks sˈɛvᵊn ˈAt nˈIn zˈɪəɹQ wˈʌn tˈuː θɹˈiː fˈɔː fˈIv sˈɪks sˈɛvᵊn ˈAt nˈIn zˈɪəɹQ dˈɒləz"
+  },
+  {
+   "text": "12345678901234567890 stars",
+   "us": "wˈʌn tˈu θɹˈi fˈɔɹ fˈIv sˈɪks sˈɛvən ˈAt nˈIn zˈɪɹO wˈʌn tˈu θɹˈi fˈɔɹ fˈIv sˈɪks sˈɛvən ˈAt nˈIn zˈɪɹO stˈɑɹz",
+   "gb": "wˈʌn tˈuː θɹˈiː fˈɔː fˈIv sˈɪks sˈɛvᵊn ˈAt nˈIn zˈɪəɹQ wˈʌn tˈuː θɹˈiː fˈɔː fˈIv sˈɪks sˈɛvᵊn ˈAt nˈIn zˈɪəɹQ stˈɑːz"
+  },
+  {
+   "text": "It was 123456789012345678901.5 wide.",
+   "us": "nˈIn zˈɪɹO wˈʌn pYnt fˈIv",
+   "gb": "nˈIn zˈɪəɹQ wˈʌn pYnt fˈIv",
+   "absent": "zˈɪɹO pYnt"
+  },
+  {
+   "text": "See [Getting started](/guide/start/) for more.",
+   "us": "sˈi ɡˌɛTɪŋ stˈɑɹTᵻd fɔɹ",
+   "gb": "sˈiː ɡˌɛtɪŋ stˈɑːtɪd fɔː",
+   "absent": "guide"
+  },
+  {
+   "text": "Read [docs](/docs/) now.",
+   "us": "ɹˈid dˈɑks nˈW",
+   "gb": "ɹˈiːd dˈɒks nˈW",
+   "absent": "docs"
+  },
+  {
+   "text": "Set [x](-1) and [y](2).",
+   "us": "sˈɛt ˈɛks ænd wˈI.",
+   "gb": "sˈɛt ˈɛks and wˈI."
+  },
+  {
+   "text": "Visit [our site](https://example.com) today.",
+   "us": "vˈɪzət ˌWəɹ sˈIt tədˈA.",
+   "gb": "vˈɪzɪt ˌWə sˈIt tədˈA."
+  },
+  {
+   "text": "I have 16 GB of RAM.",
+   "us": "sˌɪkstˈin ɡˈɪɡəbˌIts ʌv ɹˈæm",
+   "gb": "sˌɪkstˈiːn ɡˈɪɡəbIts ɒv ɹˈam"
+  },
+  {
+   "text": "It needs 500 MB free.",
+   "us": "fˈIv hˈʌndɹəd mˈɛɡəbˌIts",
+   "gb": "fˈIv hˈʌndɹəd mˈɛɡəbIts"
+  },
+  {
+   "text": "Wake me at 9 AM please.",
+   "us": "nˈIn ˌAˈɛm",
+   "gb": "nˈIn ˌAˈɛm"
+  },
+  {
+   "text": "Meet at 6:00 AM tomorrow.",
+   "us": "sˈɪks ˌAˈɛm",
+   "gb": "sˈɪks ˌAˈɛm",
+   "absent": "əklˈɑk"
   }
  ]
 }

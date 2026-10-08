@@ -34,6 +34,31 @@ enum TextNormalizer {
     private static let months = ["jan": "January", "feb": "February", "mar": "March", "apr": "April", "may": "May",
                                  "jun": "June", "jul": "July", "aug": "August", "sep": "September", "sept": "September",
                                  "oct": "October", "nov": "November", "dec": "December"]
+    private static let monthsInOrder = ["January", "February", "March", "April", "May", "June", "July", "August",
+                                        "September", "October", "November", "December"]
+
+    private static func ordinalSuffix(_ day: Int) -> String {
+        (11...13).contains(day % 100) ? "th" : [1: "st", 2: "nd", 3: "rd"][day % 10] ?? "th"
+    }
+
+    /// Vulgar fractions, on their own ("½ cup": one half) and after a whole number ("1½ cups":
+    /// 1 and a half).
+    private static let vulgarFractions: [Character: (String, String)] = [
+        "½": ("one half", "a half"), "⅓": ("one third", "a third"), "⅔": ("two thirds", "two thirds"),
+        "¼": ("one quarter", "a quarter"), "¾": ("three quarters", "three quarters"),
+    ]
+
+    /// Operators read only between two spaced operands ("a < b", "x -> y"): "<b>", "->" in
+    /// code or a "> quote" stay silent. A comparison also needs a number or a single letter
+    /// beside it, so a menu path ("Settings > Privacy") isn't "greater than".
+    private static let spacedOperators = ["<=": "less than or equal to", ">=": "greater than or equal to",
+                                          "!=": "not equal to", "==": "equals", "<": "less than", ">": "greater than",
+                                          "->": "to"]
+    private static let comparisons: Set<String> = ["<", ">", "<=", ">="]
+    private static func isOperand(_ s: String) -> Bool {
+        let core = s.trimmingCharacters(in: .punctuationCharacters)
+        return core.contains(where: \.isNumber) || (core.count == 1 && core.first!.isLetter)
+    }
 
     private static let abbreviations: [(String, String)] = [
         ("e.g.", "for example"), ("E.g.", "For example"), ("i.e.", "that is"), ("I.e.", "That is"),
@@ -67,6 +92,27 @@ enum TextNormalizer {
             let words = table[s.substring(with: m.range(at: 2))]!
             return "\(n) \(isOne(n) ? words.0 : words.1)"
         })
+        // ISO dates: "2024-03-15" → "March 15th, 2024".
+        rules.append(Rule(#"(?<![\p{L}\d\-–−./:])(\d{4})-(\d{2})-(\d{2})(?![\p{L}\d\-–]|[.,:/]\d)"#) { m, s in
+            let year = s.substring(with: m.range(at: 1))
+            guard let month = Int(s.substring(with: m.range(at: 2))), let day = Int(s.substring(with: m.range(at: 3))),
+                  (1...12).contains(month), (1...31).contains(day) else { return s.substring(with: m.range) }
+            return "\(monthsInOrder[month - 1]) \(day)\(ordinalSuffix(day)), \(year)"
+        })
+        // Ranges: "5-10 minutes", "1990-2000", "18–25", "9:00-17:00" → "5 to 10". Not a third
+        // group (phone numbers, "1-800-555-1234"), a leading zero ("007-123") or after a letter
+        // ("COVID-19", "x86-64"); a spaced hyphen may be a minus ("10 - 5"), a spaced en dash isn't.
+        // Going down, only a score ("3-2") or a short year ("1990-95") is one: "FIPS 140-2" isn't.
+        let number = #"(\d{1,2}:\d{2}|\d+(?:[.,]\d+)*)"#
+        rules.append(Rule(#"(?<![\p{L}\d\-–−+./:#)])(?<!\)\s)"# + number + #"(?:-|\s?–\s?)"# + number + #"(?![\d\-–]|[.,:/]\d)"#) { m, s in
+            let a = s.substring(with: m.range(at: 1)), b = s.substring(with: m.range(at: 2))
+            let leadingZero = [a, b].contains { $0.count > 1 && $0.hasPrefix("0") && !$0.hasPrefix("0.") && !$0.contains(":") }
+            func value(_ n: String) -> Double? { Double(n.replacingOccurrences(of: ",", with: "")) }
+            if let x = value(a), let y = value(b), y < x, !(a.count == 4 && b.count == 2), !(a.count <= 2 && b.count <= 2) {
+                return s.substring(with: m.range)
+            }
+            return leadingZero ? s.substring(with: m.range) : "\(a) to \(b)"
+        })
         // Clock times: "3:45 pm", "6:00", "10:05 a.m.".
         rules.append(Rule(#"(?<![\d:])(\d{1,2}):(\d{2})(?![\d:])(?:\s?([AaPp])\.?\s?[Mm]\.?(?![\p{L}]))?"#) { m, s in
             let h = s.substring(with: m.range(at: 1)), mm = s.substring(with: m.range(at: 2))
@@ -96,8 +142,7 @@ enum TextNormalizer {
             let name = s.substring(with: m.range(at: 1))
             let month = months[name.lowercased()] ?? name
             let day = Int(s.substring(with: m.range(at: 2))) ?? 0
-            let suffix = (11...13).contains(day % 100) ? "th" : [1: "st", 2: "nd", 3: "rd"][day % 10] ?? "th"
-            return "\(month) \(day)\(suffix)"
+            return "\(month) \(day)\(ordinalSuffix(day))"
         })
         // "Feb." on its own → "February".
         rules.append(Rule(#"\b(Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sept|Sep|Oct|Nov|Dec)\.(?=\s|$)"#) { m, s in
@@ -108,6 +153,30 @@ enum TextNormalizer {
         rules.append(Rule(#"(?<![\d/])([123])/([234])(?![\d/])"#) { m, s in
             fractions[s.substring(with: m.range)] ?? s.substring(with: m.range)
         })
+        // "½ cup", "1½ cups".
+        rules.append(Rule(#"(?<![\d.,/])(?:(\d+)\s?)?([½⅓⅔¼¾])"#) { m, s in
+            let words = vulgarFractions[Character(s.substring(with: m.range(at: 2)))]!
+            guard m.range(at: 1).location != NSNotFound else { return words.0 }
+            return s.substring(with: m.range(at: 1)) + " and " + words.1
+        })
+        // "50¢" → "50 cents".
+        rules.append(Rule(#"(?<![\p{L}\d.,])(\d+)\s?¢"#) { m, s in
+            let n = s.substring(with: m.range(at: 1))
+            return n + (isOne(n) ? " cent" : " cents")
+        })
+        // "a < b", "x -> y" (an operand can be a lexicon term, outside this span: "JOSE != José").
+        let operators = spacedOperators.keys.sorted { $0.count > $1.count }.map(NSRegularExpression.escapedPattern).joined(separator: "|")
+        rules.append(Rule(#"(?<=\S\s|^\s)("# + operators + #")(?=\s\S|\s$)"#) { m, s in
+            let op = s.substring(with: m.range(at: 1))
+            if comparisons.contains(op) {
+                let before = s.substring(to: m.range.location).split(separator: " ").last.map(String.init) ?? ""
+                let after = s.substring(from: NSMaxRange(m.range)).split(separator: " ").first.map(String.init) ?? ""
+                guard isOperand(before) || isOperand(after) else { return op }
+            }
+            return spacedOperators[op]!
+        })
+        // A plural in brackets: "word(s)", "box(es)" → "words", "boxes" (not "word S").
+        rules.append(Rule(#"(?<=\p{L})\((e?s)\)(?![\p{L}\d])"#) { m, s in s.substring(with: m.range(at: 1)) })
         // Abbreviations.
         for (abbr, full) in abbreviations {
             rules.append(Rule("(?<![\\p{L}.])" + NSRegularExpression.escapedPattern(for: abbr) + "(?=\\s|$|[,;:)])") { _, _ in full })
@@ -117,7 +186,10 @@ enum TextNormalizer {
         rules.append(Rule(#"(?<![\p{L}.])("# + titles.keys.sorted().joined(separator: "|") + #")\."# + name) { m, s in
             titles[s.substring(with: m.range(at: 1))]!
         })
-        rules.append(Rule(#"(?<![\p{L}.])St\."# + name) { _, _ in "Saint" })
+        rules.append(Rule(#"(?<![\p{L}.])St\."# + name) { m, s in
+            // Unless the word before it names the street ("Main St. Louis…"): the next rule.
+            Tokenizer.isStreet(before: s.substring(to: m.range.location)) ? "St." : "Saint"
+        })
         // Any other "St." after a word is a street ("Main St."); at the end of a sentence its
         // period is also the full stop, so that stays.
         rules.append(Rule(#"(?<=[\p{L}\d]\s)St\.(?=(\s*$|\s+\p{Lu})|\s|[,;:)])"#) { m, _ in
@@ -126,21 +198,42 @@ enum TextNormalizer {
         return rules
     }()
 
-    private static let marked = try! NSRegularExpression(pattern: #"\[[^\]]+\]\(/[^)]*/\)"#)
+    private static let marked = try! NSRegularExpression(pattern: #"\[([^\]]+)\]\(/[^)]*/\)"#)
+
+    /// Lexicon terms that are also units or clock words. After a number ("16 GB of RAM",
+    /// "500 MB", "6:00 AM") the rules above read them ("16 gigabytes"), as they do "16GB",
+    /// rather than the lexicon's letters ("G B").
+    private static let unitTerms = Set(units.map(\.0)).union(["AM", "PM", "am", "pm", "A.M.", "P.M.", "a.m.", "p.m."])
 
     /// - Parameter skippingMarkedSpans: leave [text](/phonemes/) spans (pronunciations
-    ///   already fixed by the custom lexicon) untouched.
+    ///   already fixed by the custom lexicon) untouched, except a unit right after a number.
     static func normalize(_ text: String, skippingMarkedSpans: Bool) -> String {
         guard skippingMarkedSpans else { return normalize(text) }
         let ns = text as NSString
         var out = ""
+        var plain = ""
         var last = 0
         for m in marked.matches(in: text, range: NSRange(location: 0, length: ns.length)) {
-            out += normalize(ns.substring(with: NSRange(location: last, length: m.range.location - last)))
-            out += ns.substring(with: m.range)
+            plain += ns.substring(with: NSRange(location: last, length: m.range.location - last))
             last = NSMaxRange(m.range)
+            let term = ns.substring(with: m.range(at: 1))
+            if unitTerms.contains(term), plain.range(of: #"\d\s?$"#, options: .regularExpression) != nil {
+                plain += term
+                continue
+            }
+            out += normalize(plain) + ns.substring(with: m.range)
+            plain = ""
         }
-        return out + normalize(ns.substring(from: last))
+        return out + normalize(plain + ns.substring(from: last))
+    }
+
+    private static let link = try! NSRegularExpression(pattern: #"!?\[([^\]]*)\]\([^)]*\)"#)
+
+    /// Markdown links in the text itself ("[Getting started](/guide/start/)") → their label.
+    /// Runs before the custom lexicon marks its terms in the same syntax, so only those marks
+    /// set a pronunciation: a link's path never reaches the voice as letters.
+    static func linkLabels(_ text: String) -> String {
+        link.stringByReplacingMatches(in: text, range: NSRange(location: 0, length: (text as NSString).length), withTemplate: "$1")
     }
 
     static func normalize(_ text: String) -> String {

@@ -24,16 +24,19 @@ final class Fallback {
                 .trimmingCharacters(in: .whitespacesAndNewlines)
             return (ps.isEmpty ? nil : ps, 1)
         }
+        // The guessers only know letters, apostrophes, hyphens and dots: a quote, symbol or
+        // invisible character left in the group ("＂hello＂") made mini-bart garble the word.
+        let word = String(text.replacingOccurrences(of: "’", with: "'").filter { $0.isLetter || $0.isNumber || "'-.".contains($0) })
         lock.lock()
-        if let hit = cache[text] { lock.unlock(); return (hit, hit == nil ? nil : 1) }
+        if let hit = cache[word] { lock.unlock(); return (hit, hit == nil ? nil : 1) }
         lock.unlock()
         // CMUdict and mini-bart only know unaccented spellings ("Zoe", "fiancee").
-        let plain = text.folding(options: .diacriticInsensitive, locale: nil)
-        var ps = Self.cmuWord(text, data: data) ?? Self.cmuWord(plain, data: data) ?? miniBartWord(plain)
+        let plain = word.folding(options: .diacriticInsensitive, locale: nil)
+        var ps = Self.cmuWord(word, data: data) ?? Self.cmuWord(plain, data: data) ?? miniBartWord(plain)
         if let p = ps, british { ps = Self.usToGB(p) }
         ps = ps?.trimmingCharacters(in: .whitespaces)
         if ps?.isEmpty == true { ps = nil }
-        lock.lock(); cache[text] = ps; lock.unlock()
+        lock.lock(); cache[word] = ps; lock.unlock()
         return (ps, ps == nil ? nil : 1)
     }
 

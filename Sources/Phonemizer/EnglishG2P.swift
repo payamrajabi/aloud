@@ -106,6 +106,14 @@ final class EnglishG2P {
                             if tk.text.allSatisfy({ Ph.subtokenJunks.contains($0) }) {
                                 tk.phonemes = ""
                                 tk.rating = 3
+                            } else if !tk.text.contains(where: { $0.isLetter || $0.isNumber }),
+                                      w.contains(where: { $0.text.contains { $0.isASCII && $0.isLetter } }) {
+                                // A quote or symbol stuck to a word ("„Hallo", a byte-order mark):
+                                // keep any pause it makes, but never hand the word to the guessers
+                                // for it, which garbled it ("\"hello\"" → "chellon"). (Groups
+                                // without letters, like "3:45", are re-read by the lexicon.)
+                                tk.phonemes = tk.text.filter { Ph.puncts.contains($0) }
+                                tk.rating = 3
                             } else if fallback != nil {
                                 shouldFallback = true
                                 break
@@ -173,7 +181,7 @@ final class EnglishG2P {
                 marks.append((start, end, nil, 0.5))
             } else if f == "-0.5" {
                 marks.append((start, end, nil, -0.5))
-            } else if f.count > 1, f.hasPrefix("/"), f.hasSuffix("/") {
+            } else if f.count > 1, f.hasPrefix("/"), f.hasSuffix("/"), isPronunciation(f.dropFirst().dropLast()) {
                 marks.append((start, end, f.trimmingCharacters(in: CharacterSet(charactersIn: "/")), nil))
             }
             last = NSMaxRange(m.range)
@@ -184,6 +192,13 @@ final class EnglishG2P {
             return Feature(range: r, phonemes: ps, stress: st)
         }
         return (result, features)
+    }
+
+    /// Whether a "/…/" link target is a pronunciation: one always holds a stress mark or an
+    /// IPA symbol, and no slash. A path ("[Getting started](/guide/start/)", "[docs](/docs/)")
+    /// is read as its label; its letters used to go to the voice as phonemes.
+    private static func isPronunciation(_ s: Substring) -> Bool {
+        !s.contains("/") && s.contains { !$0.isASCII }
     }
 
     static func tokenize(_ text: String, features: [Feature]) -> [MToken] {
