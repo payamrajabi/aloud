@@ -186,10 +186,12 @@ public enum Tokenizer {
     }
 
     /// Whether "St." right after `before` (the text up to it), and before a name, is a street
-    /// rather than Saint: only in a numbered address, where the word before it holds a digit
-    /// ("5th St.") or follows a house number ("221B Baker St."). Before a name, "St." is
-    /// otherwise Saint: "Mount St. Helens", "Port St. Lucie", "Yves St. Laurent", "to St.
-    /// Louis". (Before a lower-case word, punctuation, the end or a usual opener it's a
+    /// rather than Saint: in a numbered address, where the word before it holds a digit ("5th
+    /// St.") or follows a house number ("221B Baker St."), and after a street preposition and a
+    /// name ("Park on Elm St.", "Walk down High St.", "We met on Baker St."), where the next
+    /// capital starts a new sentence ("Bring cash."). Before a name, "St." is otherwise Saint:
+    /// "Mount St. Helens", "Port St. Lucie", "Yves St. Laurent", "to St. Louis", "near Mount
+    /// St. Helens". (Before a lower-case word, punctuation, the end or a usual opener it's a
     /// street: "Main St. Then…"; TextNormalizer reads that.)
     static func isStreet(before text: String) -> Bool {
         let head = text.replacingOccurrences(of: #"\s+$"#, with: "", options: .regularExpression)
@@ -198,8 +200,17 @@ public enum Tokenizer {
         let rest = head[..<r.lowerBound]
         guard let space = rest.last, space.isWhitespace, let n = rest.dropLast().range(of: #"[\p{L}\p{N}]+$"#, options: .regularExpression)
         else { return false }
-        return rest[n].first?.isNumber == true
+        if rest[n].first?.isNumber == true { return true }
+        let name = String(head[r])
+        return streetPrepositions.contains(rest[n].lowercased()) && name.first?.isUppercase == true
+            && !placePrefixes.contains(name)
     }
+    private static let streetPrepositions: Set<String> = ["on", "down", "along", "onto", "off", "up", "at", "near",
+                                                          "via", "across", "past", "into"]
+    /// Names that "St." (Saint) follows in a place: "near Mount St. Helens", "at Port St. Lucie".
+    private static let placePrefixes: Set<String> = ["Mount", "Mt", "Port", "Fort", "Ft", "Lake", "Cape", "Point", "Pointe",
+                                                     "Isle", "Bay", "Grand", "Sault", "Little", "Great", "East", "West",
+                                                     "North", "South", "New", "Old", "Upper", "Lower", "Rue", "Ste"]
 
     /// Titles a sentence splitter can take for a full stop.
     private static let runOnTitles = titles.union(["Dr.", "Mr.", "Mrs.", "Ms.", "Mt."])
@@ -249,7 +260,9 @@ public enum Tokenizer {
         if last == "." {
             // spaCy: split a final period after a lower-case letter, digit, punctuation or
             // quote, or after two capitals ("FBI."), but not in "U.S." or "A.".
-            if prev.isLowercase || prev.isNumber || prev.isPunctuation && prev != "." || "\"'”’".contains(prev) { return 1 }
+            // After a sign read as a word ("is ∞.", "Acme™."), it's the full stop too.
+            if prev.isLowercase || prev.isNumber || prev.isPunctuation && prev != "." || "\"'”’".contains(prev)
+                || Lexicon.symbols[String(prev)] != nil { return 1 }
             if chars.count >= 3, prev.isUppercase, chars[chars.count - 3].isUppercase { return 1 }
         }
         return nil

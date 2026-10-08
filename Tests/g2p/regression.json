@@ -4816,6 +4816,299 @@
    "text": "HE LED THE TEAM.",
    "us": "hi lˈɛd ðə tˈim",
    "gb": "hiː lˈɛd ðə tˈiːm"
+  },
+  {
+   "text": "The deal is worth £2.3bn.",
+   "us": "tˈu pYnt θɹˈi bˈɪljən pˈWndz",
+   "gb": "tˈuː pYnt θɹˈiː bˈɪljən pˈWndz"
+  },
+  {
+   "text": "It made 8.1bn last year.",
+   "us": "ˈAt pYnt wˈʌn bˈɪljən",
+   "gb": "ˈAt pYnt wˈʌn bˈɪljən"
+  },
+  {
+   "text": "I bought a laptop with 16gb of RAM.",
+   "us": "sˌɪkstˈin ɡˈɪɡəbˌIts",
+   "gb": "sˌɪkstˈiːn ɡˈɪɡəbIts"
+  },
+  {
+   "text": "It runs at 2ghz.",
+   "us": "tˈu ɡˈɪɡəhəɹts",
+   "gb": "tˈuː ɡˈɪɡəhəːts"
+  },
+  {
+   "text": "Press Ctrl+C to copy.",
+   "us": "kəntɹˈOl plˈʌs sˈi",
+   "gb": "kəntɹˈQl plˈʌs sˈiː"
+  },
+  {
+   "text": "Press Cmd+Q to quit.",
+   "us": "kəmˈænd plˈʌs kjˈu",
+   "gb": "kəmˈɑːnd plˈʌs kjˈuː"
+  },
+  {
+   "text": "Visit www.google.com now.",
+   "us": "dˈʌbᵊlju dˈʌbᵊlju dˈʌbᵊlju dˈɑt ɡˈuɡᵊl dˈɑt kˈɑm",
+   "gb": "dˈʌbᵊljuː dˈʌbᵊljuː dˈʌbᵊljuː dˈɒt ɡˈuːɡᵊl dˈɒt kˈɒm"
+  },
+  {
+   "text": "Try www.bbc.co.uk today.",
+   "us": "dˈɑt bˌibˌisˈi dˈɑt kˈO dˈɑt jˌukˈA",
+   "gb": "dˈɒt bˌiːbˌiːsˈiː dˈɒt kˈQ dˈɒt jˌuːkˈA"
+  },
+  {
+   "text": "Open localhost:3000 in a browser.",
+   "us": "lˈOkəl hˈOst kˈOlən θɹˈi θˈWzᵊnd",
+   "gb": "lˈQkᵊl hˈQst kˈQlən θɹˈiː θˈWzᵊnd"
+  },
+  {
+   "text": "See src/components/App.tsx for details.",
+   "us": "ˌɛsˌɑɹsˈi slˈæʃ kəmpˈOnənts slˈæʃ ˈæp dˈɑt tˌiˌɛsˈɛks",
+   "gb": "ˌɛsˌɑːsˈiː slˈaʃ kəmpˈQnənts slˈaʃ ˈap dˈɒt tˌiːˌɛsˈɛks"
+  },
+  {
+   "text": "Llama-3 is open.",
+   "us": "lˈɑmə θɹˈi",
+   "gb": "lˈɑːmə θɹˈiː",
+   "absent": "mˈInəs"
+  },
+  {
+   "text": "Your verification code is 012345.",
+   "us": "zˈɪɹO wˈʌn tˈu θɹˈi fˈɔɹ fˈIv",
+   "gb": "zˈɪəɹQ wˈʌn tˈuː θɹˈiː fˈɔː fˈIv",
+   "absent": "θˈWzᵊnd"
+  },
+  {
+   "text": "Call me on 07700 900123.",
+   "us": "zˈɪɹO sˈɛvən sˈɛvən zˈɪɹO zˈɪɹO, nˈIn zˈɪɹO zˈɪɹO wˈʌn tˈu θɹˈi",
+   "gb": "zˈɪəɹQ sˈɛvᵊn sˈɛvᵊn zˈɪəɹQ zˈɪəɹQ, nˈIn zˈɪəɹQ zˈɪəɹQ wˈʌn tˈuː θɹˈiː"
+  },
+  {
+   "text": "Agent 007 is back.",
+   "us": "zˈɪɹO zˈɪɹO sˈɛvən ɪz",
+   "gb": "zˈɪəɹQ zˈɪəɹQ sˈɛvᵊn ɪz"
+  },
+  {
+   "text": "Cambridge, MA 02139",
+   "us": "zˈɪɹO tˈu wˈʌn θɹˈi nˈIn",
+   "gb": "zˈɪəɹQ tˈuː wˈʌn θɹˈiː nˈIn"
+  },
+  {
+   "text": "Meet at 05:30 tomorrow.",
+   "us": "æt fˈIv θˈɜɹTi",
+   "gb": "at fˈIv θˈɜːti",
+   "absent": "zˈɪ"
+  },
+  {
+   "text": "The firm raised $40m in funding.",
+   "us": "fˈɔɹTi mˈɪljᵊn dˈɑləɹz",
+   "gb": "fˈɔːti mˈɪljən dˈɒləz"
+  },
+  {
+   "text": "It costs $9.99/month.",
+   "us": "nˈIn dˈɑləɹz ænd nˈIndi nˈIn sˈɛnts pɜɹ mˈʌnθ",
+   "gb": "nˈIn dˈɒləz and nˈInti nˈIn sˈɛnts pɜː mˈʌnθ"
+  },
+  {
+   "text": "I earn $15/hour.",
+   "us": "fˌɪftˈin dˈɑləɹz pɜɹ ˈWəɹ",
+   "gb": "fˌɪftˈiːn dˈɒləz pɜː ˈWə"
+  },
+  {
+   "text": "It costs $10-$20.",
+   "us": "tˈɛn dˈɑləɹz tə twˈɛnti dˈɑləɹz",
+   "gb": "tˈɛn dˈɒləz tə twˈɛnti dˈɒləz"
+  },
+  {
+   "text": "It costs $1.5-$2.5 million.",
+   "us": "wˈʌn pYnt fˈIv tə tˈu pYnt fˈIv mˈɪljᵊn dˈɑləɹz",
+   "gb": "wˈʌn pYnt fˈIv tə tˈuː pYnt fˈIv mˈɪljən dˈɒləz"
+  },
+  {
+   "text": "Rates are 5.25%-5.5% now.",
+   "us": "pəɹsˈɛnt tə fˈIv pYnt fˈIv pəɹsˈɛnt",
+   "gb": "pəsˈɛnt tə fˈIv pYnt fˈIv pəsˈɛnt"
+  },
+  {
+   "text": "A 0.5mm-1.5mm gap.",
+   "us": "mˈɪləmˌiTəɹz tə wˈʌn pYnt fˈIv mˈɪləmˌiTəɹz",
+   "gb": "mˈɪlɪmˌiːtəz tə wˈʌn pYnt fˈIv mˈɪlɪmˌiːtəz"
+  },
+  {
+   "text": "World War II ended in 1945.",
+   "us": "wˈɜɹld wˈɔɹ tˈu ˈɛndᵻd",
+   "gb": "wˈɜːld wˈɔː tˈuː ˈɛndɪd"
+  },
+  {
+   "text": "Queen Elizabeth II died in 2022.",
+   "us": "əlˈɪzəbəθ ðə sˈɛkənd dˈId",
+   "gb": "ɪlˈɪzəbəθ ðə sˈɛkᵊnd dˈId"
+  },
+  {
+   "text": "King Henry VIII had six wives.",
+   "us": "hˈɛnɹi ði ˈAθ hæd",
+   "gb": "hˈɛnɹi ði ˈAtθ had"
+  },
+  {
+   "text": "Rocky III was a hit.",
+   "us": "ɹˈɑki θɹˈi wʌz",
+   "gb": "ɹˈɒki θɹˈiː wɒz"
+  },
+  {
+   "text": "Phase III trials begin.",
+   "us": "fˈAz θɹˈi tɹˈIᵊlz",
+   "gb": "fˈAz θɹˈiː tɹˈIəlz"
+  },
+  {
+   "text": "Read Chapter IV first.",
+   "us": "ʧˈæptəɹ fˈɔɹ fˈɜɹst",
+   "gb": "ʧˈaptə fˈɔː fˈɜːst"
+  },
+  {
+   "text": "I MIX THE CIVIC DID I.",
+   "us": "ˌI mˈɪks ðə sˈɪvɪk dˈɪd ˌI",
+   "gb": "ˌI mˈɪks ðə sˈɪvɪk dˈɪd ˌI"
+  },
+  {
+   "text": "This is the level I want.",
+   "us": "lˈɛvᵊl ˌI wˈɑnt",
+   "gb": "lˈɛvᵊl ˌI wˈɒnt"
+  },
+  {
+   "text": "Use Python 3.10 now.",
+   "us": "θɹˈi pYnt wˈʌn zˈɪɹO",
+   "gb": "θɹˈiː pYnt wˈʌn zˈɪəɹQ"
+  },
+  {
+   "text": "At 10.30am we leave.",
+   "us": "tˈɛn θˈɜɹTi ˌAˈɛm",
+   "gb": "tˈɛn θˈɜːti ˌAˈɛm",
+   "absent": "pYnt"
+  },
+  {
+   "text": "Latency is 5 µs.",
+   "us": "fˈIv mˈIkɹOsˌɛkəndz",
+   "gb": "fˈIv mˈIkɹəsˌɛkəndz"
+  },
+  {
+   "text": "Take 500 µg daily.",
+   "us": "mˈIkɹOɡɹˌæmz",
+   "gb": "mˈIkɹQɡɹamz"
+  },
+  {
+   "text": "See § 4.2 of the contract.",
+   "us": "sˈi sˈɛkʃən fˈɔɹ pYnt tˈu",
+   "gb": "sˈiː sˈɛkʃᵊn fˈɔː pYnt tˈuː"
+  },
+  {
+   "text": "© 2024 Acme Inc.",
+   "us": "kˈɑpiɹˌIt twˈɛnti twˈɛnti fˈɔɹ",
+   "gb": "kˈɒpɪɹIt twˈɛnti twˈɛnti fˈɔː"
+  },
+  {
+   "text": "Acme® is a brand.",
+   "us": "ˈækmi ɹˈɛʤəstəɹd ɪz",
+   "gb": "ˈakmi ɹˈɛʤɪstəd ɪz"
+  },
+  {
+   "text": "Aloud™ is great.",
+   "us": "əlˈWd tɹˈAdmˌɑɹk ɪz",
+   "gb": "əlˈWd tɹˈAdmɑːk ɪz",
+   "absent": "tˌiˈɛm"
+  },
+  {
+   "text": "The value of π is about 3.14.",
+   "us": "ʌv pˈI ɪz",
+   "gb": "ɒv pˈI ɪz"
+  },
+  {
+   "text": "The resistance is 10 Ω.",
+   "us": "tˈɛn ˈOmz",
+   "gb": "tˈɛn ˈQmz"
+  },
+  {
+   "text": "The value is ∞.",
+   "us": "ɪz ɪnfˈɪnəTi.",
+   "gb": "ɪz ɪnfˈɪnɪti."
+  },
+  {
+   "text": "Δ is change.",
+   "us": "dˈɛltə ɪz",
+   "gb": "dˈɛltə ɪz"
+  },
+  {
+   "text": "Add 2 tbsp olive oil.",
+   "us": "tˈu tˈAbəlspˌunz",
+   "gb": "tˈuː tˈAblspuːnz"
+  },
+  {
+   "text": "Add 1/8 cup of water.",
+   "us": "wˈʌn ˈAθ kˈʌp",
+   "gb": "wˈʌn ˈAtθ kˈʌp"
+  },
+  {
+   "text": "Mix 1 1/2 cups flour.",
+   "us": "wˈʌn ænd ɐ hˈæf kˈʌps",
+   "gb": "wˈʌn and ɐ hˈɑːf kˈʌps"
+  },
+  {
+   "text": "He rated it 8/10.",
+   "us": "ˈAt tˈɛn",
+   "gb": "ˈAt tˈɛn",
+   "absent": "tˈɛnθ"
+  },
+  {
+   "text": "See pages 123-145 for details.",
+   "us": "twˈɛnti θɹˈi tə wˈʌn hˈʌndɹəd fˈɔɹTi fˈIv",
+   "gb": "twˈɛnti θɹˈiː tə wˈʌn hˈʌndɹəd fˈɔːti fˈIv"
+  },
+  {
+   "text": "He is 5'11\" tall.",
+   "us": "fˈIv fˈʊt əlˈɛvᵊn tˈɔl",
+   "gb": "fˈIv fˈʊt ɪlˈɛvᵊn tˈɔːl",
+   "absent": "hˈʌndɹəd"
+  },
+  {
+   "text": "The area is 50 km².",
+   "us": "fˈɪfti skwˈɛɹ kəlˈɑməTəɹz",
+   "gb": "fˈɪfti skwˈɛː kˈɪləmˌiːtəz"
+  },
+  {
+   "text": "The software is provided on an \"AS IS\" basis.",
+   "us": "“æz ɪz”",
+   "gb": "“az ɪz”"
+  },
+  {
+   "text": "US ECONOMY ADDS 200,000 JOBS",
+   "us": "jˌuˈɛs ikˈɑnəmi",
+   "gb": "jˌuːˈɛs ɪkˈɒnəmi"
+  },
+  {
+   "text": "TELL US WHAT YOU THINK",
+   "us": "tˈɛl ˌʌs wˌʌt",
+   "gb": "tˈɛl ˌʌs wˌɒt"
+  },
+  {
+   "text": "Park on Elm St. Bring cash.",
+   "us": "ˈɛlm stɹˈit. bɹˈɪŋ",
+   "gb": "ˈɛlm stɹˈiːt. bɹˈɪŋ",
+   "absent": "sˈAnt"
+  },
+  {
+   "text": "We hiked near Mount St. Helens.",
+   "us": "mˈWnt sˈAnt hˈɛlənz",
+   "gb": "mˈWnt sˈAnt hˈɛlɪnz"
+  },
+  {
+   "text": "The bill passed the House 218-212.",
+   "us": "ˌAtˈin tə tˈu hˈʌndɹəd twˈɛlv",
+   "gb": "ˌAtˈiːn tə tˈuː hˈʌndɹəd twˈɛlv"
+  },
+  {
+   "text": "Elizabeth II's reign was long.",
+   "us": "ðə sˈɛkəndz ɹˈAn",
+   "gb": "ðə sˈɛkᵊndz ɹˈAn"
   }
  ],
  "chunk_cases": [
@@ -4922,6 +5215,53 @@
    "chunks": [
     "Who won?",
     "No. 1 seed Duke."
+   ]
+  },
+  {
+   "text": "Park on Elm St. Bring cash.",
+   "chunks": [
+    "Park on Elm St.",
+    "Bring cash."
+   ]
+  },
+  {
+   "text": "Walk down High St. Turn left at the bank.",
+   "chunks": [
+    "Walk down High St.",
+    "Turn left at the bank."
+   ]
+  },
+  {
+   "text": "We met on Baker St. Sherlock lived there.",
+   "chunks": [
+    "We met on Baker St.",
+    "Sherlock lived there."
+   ]
+  },
+  {
+   "text": "We hiked near Mount St. Helens yesterday.",
+   "chunks": [
+    "We hiked near Mount St. Helens yesterday."
+   ]
+  },
+  {
+   "text": "He lives at Port St. Lucie now.",
+   "chunks": [
+    "He lives at Port St. Lucie now."
+   ]
+  },
+  {
+   "text": "The deal is worth £2.3bn. Visit www.google.com now.",
+   "chunks": [
+    "The deal is worth £2.3bn.",
+    "Visit www.google.com now."
+   ]
+  },
+  {
+   "text": "Use Python 3.10 now. Phase III trials begin.",
+   "chunks": [
+    "Use Python 3.10 now.",
+    "Phase III trials begin."
    ]
   }
  ]

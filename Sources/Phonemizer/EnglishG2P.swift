@@ -39,6 +39,9 @@ final class EnglishG2P {
     let british: Bool
     let lexicon: Lexicon
     var fallback: Fallback?
+    /// Aloud's fixes beyond the reference pipeline (on with text normalization): numbers and
+    /// signs in a group the guessers get keep their readings.
+    var extended = false
 
     init(lexicon: Lexicon, fallback: Fallback?) {
         self.british = lexicon.british
@@ -84,52 +87,7 @@ final class EnglishG2P {
                 }
                 ctx = Self.tokenContext(ctx, ps: w.phonemes, token: w)
             case .many(let w):
-                var left = 0, right = w.count
-                var shouldFallback = false
-                while left < right {
-                    let fixed = w[left..<right].contains { $0.alias != nil || $0.phonemes != nil }
-                    let tk: MToken? = fixed ? nil : Self.merge(Array(w[left..<right]))
-                    let (ps, rating) = tk.map { lexicon($0, ctx: ctx) } ?? (nil, nil)
-                    if let ps, let tk {
-                        w[left].phonemes = ps
-                        w[left].rating = rating
-                        for x in w[(left + 1)..<right] { x.phonemes = ""; x.rating = rating }
-                        ctx = Self.tokenContext(ctx, ps: ps, token: tk)
-                        right = left
-                        left = 0
-                    } else if left + 1 < right {
-                        left += 1
-                    } else {
-                        right -= 1
-                        let tk = w[right]
-                        if tk.phonemes == nil {
-                            if tk.text.allSatisfy({ Ph.subtokenJunks.contains($0) }) {
-                                tk.phonemes = ""
-                                tk.rating = 3
-                            } else if !tk.text.contains(where: { $0.isLetter || $0.isNumber }),
-                                      w.contains(where: { $0.text.contains { $0.isASCII && $0.isLetter } }) {
-                                // A quote or symbol stuck to a word ("„Hallo", a byte-order mark):
-                                // keep any pause it makes, but never hand the word to the guessers
-                                // for it, which garbled it ("\"hello\"" → "chellon"). (Groups
-                                // without letters, like "3:45", are re-read by the lexicon.)
-                                tk.phonemes = tk.text.filter { Ph.puncts.contains($0) }
-                                tk.rating = 3
-                            } else if fallback != nil {
-                                shouldFallback = true
-                                break
-                            }
-                        }
-                        left = 0
-                    }
-                }
-                if shouldFallback, let fallback {
-                    let tk = Self.merge(w)
-                    let r = fallback(tk)
-                    w[0].phonemes = r.0; w[0].rating = r.1
-                    for x in w.dropFirst() { x.phonemes = ""; x.rating = r.1 }
-                } else {
-                    Self.resolveTokens(w)
-                }
+                resolveGroup(w, ctx: &ctx)
                 words[i] = .many(w)
             }
         }
@@ -146,6 +104,92 @@ final class EnglishG2P {
             out += ps + tk.whitespace
         }
         return out
+    }
+
+    /// A group of tokens written without spaces ("16gb", "Ctrl+C", "McDonald"): the longest
+    /// stretches the lexicon knows, right to left, and the guessers for the rest.
+    private func resolveGroup(_ w: [MToken], ctx: inout TokenContext) {
+        var left = 0, right = w.count
+        var shouldFallback = false
+        while left < right {
+            let fixed = w[left..<right].contains { $0.alias != nil || $0.phonemes != nil }
+            let tk: MToken? = fixed ? nil : Self.merge(Array(w[left..<right]))
+            let (ps, rating) = tk.map { lexicon($0, ctx: ctx) } ?? (nil, nil)
+            if let ps, let tk {
+                w[left].phonemes = ps
+                w[left].rating = rating
+                for x in w[(left + 1)..<right] { x.phonemes = ""; x.rating = rating }
+                ctx = Self.tokenContext(ctx, ps: ps, token: tk)
+                right = left
+                left = 0
+            } else if left + 1 < right {
+                left += 1
+            } else {
+                right -= 1
+                let tk = w[right]
+                if tk.phonemes == nil {
+                    if tk.text.allSatisfy({ Ph.subtokenJunks.contains($0) }) {
+                        tk.phonemes = ""
+                        tk.rating = 3
+                    } else if !tk.text.contains(where: { $0.isLetter || $0.isNumber }),
+                              w.contains(where: { $0.text.contains { $0.isASCII && $0.isLetter } }) {
+                        // A quote or symbol stuck to a word ("„Hallo", a byte-order mark):
+                        // keep any pause it makes, but never hand the word to the guessers
+                        // for it, which garbled it ("\"hello\"" → "chellon"). (Groups
+                        // without letters, like "3:45", are re-read by the lexicon.)
+                        tk.phonemes = tk.text.filter { Ph.puncts.contains($0) }
+                        tk.rating = 3
+                    } else if fallback != nil {
+                        shouldFallback = true
+                        break
+                    }
+                }
+                left = 0
+            }
+        }
+        guard shouldFallback, let fallback else {
+            Self.resolveTokens(w)
+            return
+        }
+        // Only a stretch of letters goes to the guessers: numbers and signs in the group keep
+        // their readings. Merged whole, "16gb" lost its number and "Ctrl+C" its "plus".
+        let pieces = extended ? Self.fallbackPieces(w) : [w[...]]
+        guard pieces.count > 1 else {
+            let tk = Self.merge(w)
+            let r = fallback(tk)
+            w[0].phonemes = r.0; w[0].rating = r.1
+            for x in w.dropFirst() { x.phonemes = ""; x.rating = r.1 }
+            return
+        }
+        for piece in pieces.reversed() {
+            if piece.count == 1, let tk = piece.first, tk.phonemes == nil, !tk.text.contains(where: { $0.isLetter || $0.isNumber }) {
+                // A sign the lexicon can't read ("`", "|") keeps only the pause it makes.
+                let (ps, rating) = lexicon(tk, ctx: ctx)
+                tk.phonemes = ps ?? tk.text.filter { Ph.puncts.contains($0) }
+                tk.rating = ps == nil ? 3 : rating
+                ctx = Self.tokenContext(ctx, ps: tk.phonemes, token: tk)
+                continue
+            }
+            resolveGroup(Array(piece), ctx: &ctx)
+        }
+        // Each piece is a word of its own.
+        for piece in pieces.dropFirst() { piece.first?.prespace = true }
+    }
+
+    /// `w` split before and after each number or sign that isn't part of a word (hyphens,
+    /// apostrophes, dots and slashes stay with the letters around them).
+    private static func fallbackPieces(_ w: [MToken]) -> [ArraySlice<MToken>] {
+        var pieces: [ArraySlice<MToken>] = []
+        var start = 0
+        for (i, tk) in w.enumerated() {
+            let stands = !tk.text.contains(where: \.isLetter) && !tk.text.allSatisfy { Ph.subtokenJunks.contains($0) }
+            guard stands else { continue }
+            if start < i { pieces.append(w[start..<i]) }
+            pieces.append(w[i..<(i + 1)])
+            start = i + 1
+        }
+        if start < w.count { pieces.append(w[start...]) }
+        return pieces
     }
 
     // MARK: - Steps
@@ -262,6 +306,15 @@ final class EnglishG2P {
                     return x
                 }
                 if tks.isEmpty { tks = [MToken(text: token.text, tag: token.tag, whitespace: "")] }
+                // A number against a term the custom lexicon fixed ("Llama-3", "Windows-11"): the
+                // hyphen joins them. Taken for a sign, it read "Llama minus three".
+                if i > 0, tokens[i - 1].phonemes != nil, tokens[i - 1].whitespace.isEmpty, let first = tks.first,
+                   first.text.count > 1, first.text.hasPrefix("-"), first.text.dropFirst().first?.isNumber == true {
+                    first.text = String(first.text.dropFirst())
+                    let hyphen = MToken(text: "-", tag: "HYPH", whitespace: " ", phonemes: "")
+                    hyphen.rating = 3
+                    tks.insert(hyphen, at: 0)
+                }
             } else {
                 tks = [token]
             }

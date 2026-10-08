@@ -30,13 +30,15 @@ public final class Phonemizer {
         self.lexicon = lexicon
         let inner = EnglishG2P(lexicon: lexicon, fallback: nil)
         g2p = EnglishG2P(lexicon: lexicon, fallback: Fallback(data: data, british: british, inner: { inner }))
+        inner.extended = normalize
+        g2p.extended = normalize
     }
 
     /// Phonemes for `text`. Words that can't be pronounced at all are left out
     /// (or replaced by `unknown`).
     public func phonemize(_ text: String, unknown: String = "") -> String {
         var t = text
-        if normalizes { t = TextNormalizer.linkLabels(t) }
+        if normalizes { t = Self.foldMicroSign(TextNormalizer.linkLabels(t)) }
         // Hand-written terms first, on the raw text; then normalize everything else.
         if let custom { t = custom.mark(t.precomposedStringWithCanonicalMapping, british: british) }
         if normalizes {
@@ -44,6 +46,17 @@ public final class Phonemizer {
             t = TextNormalizer.normalize(t, skippingMarkedSpans: custom != nil)
         }
         return g2p.phonemize(t, unk: unknown).trimmingCharacters(in: .whitespaces)
+    }
+
+    private static let bareMicro = try! NSRegularExpression(pattern: #"\x{00B5}(?![\p{L}])"#)
+
+    /// The micro sign Option-M types (U+00B5) as the Greek μ (U+03BC) the lexicons and unit rules
+    /// know: "5 µs" was "five S S" and "10 µm" "ten D M". On its own it's "micro".
+    static func foldMicroSign(_ text: String) -> String {
+        guard text.contains("\u{00B5}") else { return text }
+        let ns = text as NSString
+        let words = bareMicro.stringByReplacingMatches(in: text, range: NSRange(location: 0, length: ns.length), withTemplate: "micro")
+        return words.replacingOccurrences(of: "\u{00B5}", with: "\u{03BC}")
     }
 
     private static let marked = try! NSRegularExpression(pattern: #"\[([^\]]+)\]\(/[^)]*/\)"#)
@@ -79,6 +92,7 @@ public final class Phonemizer {
         plain(upTo: ns.length)
 
         var shouted = ShoutedSentences()
+        let quotes = Self.shoutedQuotes(read)
         var out = ""
         for piece in pieces {
             let s = ns.substring(with: piece.range)
@@ -90,12 +104,62 @@ public final class Phonemizer {
                 out += gap
                 offset += gap.unicodeScalars.count
                 let word = ps.substring(with: m.range)
-                out += shouted.contains(offset, in: read) && lexicon.isShoutedWord(word) ? word.lowercased() : word
-                offset += word.unicodeScalars.count
+                let length = word.unicodeScalars.count
+                // Shouted: a sentence in capitals, a phrase in capitals in quotes ("provided on an
+                // \"AS IS\" basis"), or a heading of one long word on its own line ("ACKNOWLEDGEMENTS").
+                let context = shouted.contains(offset, in: read) || quotes.contains { $0.contains(offset) }
+                    || (length >= 5 && Self.isOwnLine(offset, length, in: read))
+                var lower = context && lexicon.isShoutedWord(word)
+                // "US" in a headline is the country after "THE" or opening it ("US ECONOMY ADDS
+                // JOBS", "THE US AND UK"), and the word after a verb ("TELL US WHAT YOU THINK").
+                if lower, word == "US", Self.isCountry(offset, in: read) { lower = false }
+                out += lower ? word.lowercased() : word
+                offset += length
                 cursor = NSMaxRange(m.range)
             }
             out += ps.substring(from: cursor)
         }
         return out
+    }
+
+    /// The scalar ranges of quoted phrases with two or more words in capitals and no lower-case
+    /// letter ("AS IS", "DO NOT USE").
+    private static func shoutedQuotes(_ s: [Unicode.Scalar]) -> [Range<Int>] {
+        var spans: [Range<Int>] = []
+        var open: Int?
+        for (i, c) in s.enumerated() {
+            if c == "\n" { open = nil; continue }
+            guard c == "\"" || c == "\u{201C}" || c == "\u{201D}" else { continue }
+            guard let o = open, c != "\u{201C}" else { open = i; continue }
+            var words = 0, run = 0, lower = false
+            for x in s[(o + 1)..<i] {
+                if Scalars.isLowercase(x) { lower = true; break }
+                if Scalars.isUppercase(x) { run += 1; if run == 2 { words += 1 } } else { run = 0 }
+            }
+            if !lower && words >= 2 { spans.append((o + 1)..<i) }
+            open = nil
+        }
+        return spans
+    }
+
+    /// Whether the word at `offset` is all there is on its line, apart from punctuation.
+    private static func isOwnLine(_ offset: Int, _ length: Int, in s: [Unicode.Scalar]) -> Bool {
+        var a = offset, b = offset + length
+        while a > 0, s[a - 1] != "\n" { a -= 1 }
+        while b < s.count, s[b] != "\n" { b += 1 }
+        let rest = s[a..<offset] + s[(offset + length)..<b]
+        return rest.allSatisfy { Scalars.isSpace($0) || ".:!?".unicodeScalars.contains($0) }
+    }
+
+    /// Whether a shouted "US" at `offset` is the country: it opens its sentence or quote, follows
+    /// "THE", or joins another name ("US-CHINA", "US/UK").
+    private static func isCountry(_ offset: Int, in s: [Unicode.Scalar]) -> Bool {
+        if offset + 2 < s.count, s[offset + 2] == "-" || s[offset + 2] == "/" { return true }
+        var j = offset - 1
+        while j >= 0, s[j] == " " || s[j] == "\t" { j -= 1 }
+        if j < 0 || ".!?:;\n\"“(—–".unicodeScalars.contains(s[j]) { return true }
+        var k = j
+        while k >= 0, Scalars.isLetter(s[k]) { k -= 1 }
+        return String(String.UnicodeScalarView(s[(k + 1)...j])) == "THE"
     }
 }
