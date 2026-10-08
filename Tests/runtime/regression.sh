@@ -27,10 +27,13 @@ voice_copy() {
 }
 say() { READALOUD_MODELS_DIR="$1" "$B" --say "$2" 2>&1; }
 # Opens the player on some text in a models folder, prints its trace, quits after $3 seconds.
+# (Braces matter: zsh reads "$3:q…" as $3 with its :q modifier, which made "2uit".) A run
+# the watchdog has to kill is noted in $TMP/killed, and fails the check at the end. The
+# watchdog's output goes nowhere, or its sleep would hold $(read_aloud …) open for 30 s.
 read_aloud() {
-  READALOUD_MODELS_DIR="$1" "$B" --read "$2" --mute --trace --script "$3:quit" >"$TMP/read.log" 2>&1 &
+  READALOUD_MODELS_DIR="$1" "$B" --read "$2" --mute --trace --script "${3}:quit" >"$TMP/read.log" 2>&1 &
   local pid=$!
-  ( sleep 30; kill $pid 2>/dev/null ) &
+  ( sleep 30; kill $pid 2>/dev/null && echo "$2" >>"$TMP/killed" ) >/dev/null 2>&1 &
   local watchdog=$!
   wait $pid
   kill $watchdog 2>/dev/null
@@ -86,6 +89,9 @@ check "mixed text reads the English and skips the Chinese sentence" \
 echo "PKG-4: no build-machine paths in the binary; lexicons still found from a checkout"
 check "no path into Sources/ReadAloud is compiled in" eval '! strings -a "$B" | grep -q "/Sources/ReadAloud/"'
 check "dictation still uses the checkout's Lexicons/" eval '"$B" --correct-dictation "push it to git hub" | grep -q "GitHub"'
+
+echo "Test harness"
+check "every scripted run quit on cue, not at the 30 s watchdog" eval '[[ ! -s "$TMP/killed" ]]'
 
 echo
 if (( fail == 0 )); then echo "PASSED"; else echo "FAILED"; fi
