@@ -129,6 +129,7 @@ final class DictationController: ObservableObject {
     // MARK: - Recording
 
     private func begin(pushToTalk: Bool) {
+        guard Licensing.shared.allowUse() else { return }
         guard ParakeetEngine.isInstalled else {
             // Already on its way (first launch): show progress. Otherwise ask before fetching 480 MB.
             if downloader.isRunning || DownloadPrompt.confirm(model: "dictation", size: "480 MB", feature: "Dictation") {
