@@ -1,9 +1,10 @@
 #!/bin/zsh
-# One-time setup: downloads the sherpa-onnx speech library (for building)
+# One-time setup: downloads the sherpa-onnx speech library and llama.cpp (for building)
 # and the Kokoro voice model (for running). Safe to re-run.
 set -euo pipefail
 
 SHERPA_VERSION="1.13.8"
+LLAMA_VERSION="b11138"
 MODEL_NAME="kokoro-multi-lang-v1_0"
 ASR_MODEL="sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8"
 
@@ -23,6 +24,21 @@ if [[ ! -f "$VENDOR/lib/libsherpa-onnx-c-api.dylib" ]]; then
   rm -rf "$tmp"
 fi
 echo "sherpa-onnx library: ready"
+
+# llama.cpp runs the small language model that tidies dictation (Metal, built in).
+LLAMA="$ROOT/Vendor/llama.xcframework"
+if [[ ! -f "$LLAMA/.version-$LLAMA_VERSION" ]]; then
+  echo "Downloading llama.cpp $LLAMA_VERSION (about 58 MB)..."
+  tmp=$(mktemp -d)
+  curl -fL --progress-bar -o "$tmp/llama.zip" \
+    "https://github.com/ggml-org/llama.cpp/releases/download/${LLAMA_VERSION}/llama-${LLAMA_VERSION}-xcframework.zip"
+  ditto -x -k "$tmp/llama.zip" "$tmp"
+  rm -rf "$LLAMA"
+  ditto "$tmp/build-apple/llama.xcframework" "$LLAMA"
+  touch "$LLAMA/.version-$LLAMA_VERSION"
+  rm -rf "$tmp"
+fi
+echo "llama.cpp library: ready"
 
 if [[ ! -f "$MODELS/$MODEL_NAME/model.onnx" ]]; then
   echo "Downloading Kokoro voice model (about 333 MB)..."

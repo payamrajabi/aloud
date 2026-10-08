@@ -32,20 +32,24 @@ enum ModelStore {
 
 /// Downloads and unpacks a model archive into Application Support, reporting progress.
 /// The archive is unpacked into a hidden folder first and moved into place only when
-/// it's complete, so a half-unpacked model never looks installed.
+/// it's complete, so a half-unpacked model never looks installed. A single-file model
+/// (`saveAs`) is moved into place as is.
 final class ModelDownloader: NSObject, URLSessionDownloadDelegate {
     private var onProgress: ((Double) -> Void)?
     private var onDone: ((Error?) -> Void)?
     private var session: URLSession?
     private var destination: URL!
+    private var saveAs: String?
 
     var isRunning: Bool { session != nil }
 
-    func download(_ url: URL, into directory: URL, progress: @escaping (Double) -> Void, completion: @escaping (Error?) -> Void) {
+    func download(_ url: URL, into directory: URL, saveAs fileName: String? = nil,
+                  progress: @escaping (Double) -> Void, completion: @escaping (Error?) -> Void) {
         guard session == nil else { return }
         onProgress = progress
         onDone = completion
         destination = directory
+        saveAs = fileName
         let session = URLSession(configuration: .default, delegate: self, delegateQueue: .main)
         self.session = session
         session.downloadTask(with: url).resume()
@@ -70,6 +74,18 @@ final class ModelDownloader: NSObject, URLSessionDownloadDelegate {
             try fm.moveItem(at: location, to: archive)
         } catch {
             finish(error)
+            return
+        }
+        if let saveAs {
+            do {
+                let target = destination.appendingPathComponent(saveAs)
+                if fm.fileExists(atPath: target.path) { try fm.removeItem(at: target) }
+                try fm.moveItem(at: archive, to: target)
+                finish(nil)
+            } catch {
+                try? fm.removeItem(at: archive)
+                finish(error)
+            }
             return
         }
         let dest = destination!

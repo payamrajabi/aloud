@@ -2,7 +2,8 @@
 import PackageDescription
 import Foundation
 
-// The sherpa-onnx speech library is downloaded into Vendor/ by scripts/setup.sh.
+// The sherpa-onnx speech library and llama.cpp (the local language model that tidies
+// dictation) are downloaded into Vendor/ by scripts/setup.sh.
 let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent().path
 let sherpaLib = "\(root)/Vendor/sherpa-onnx/lib"
 
@@ -14,9 +15,10 @@ let package = Package(
     ],
     targets: [
         .systemLibrary(name: "CSherpaOnnx", path: "Sources/CSherpaOnnx"),
+        .binaryTarget(name: "llama", path: "Vendor/llama.xcframework"),
         .executableTarget(
             name: "ReadAloud",
-            dependencies: ["CSherpaOnnx", .product(name: "Sparkle", package: "Sparkle")],
+            dependencies: ["CSherpaOnnx", "llama", .product(name: "Sparkle", package: "Sparkle")],
             path: "Sources/ReadAloud",
             linkerSettings: [
                 .unsafeFlags([
