@@ -141,6 +141,20 @@ be updated without a new build. Run the regression suite after changing anything
 .build/debug/ReadAloud --g2p-test Tests/g2p/regression.json [--verbose]
 ```
 
+The same lists fix dictation (Settings → Fix tech terms in dictation). An entry can say
+what the dictation model writes when someone says the term, and how safe it is to rewrite:
+`"dictation": "always" | "context" | "never", "spoken": ["super base", "superbase"],
+"spoken_context_only": ["jason"]`. "context" entries, and variants that are ordinary words
+(`spoken_context_only`), are only rewritten when the same dictation is clearly about tech;
+very common words ("next", "view") never are, and capitalised ones are taken as names.
+Entries without these fields are pronunciation only. Check changes with:
+
+```bash
+.build/debug/ReadAloud --test-dictation Tests/dictation/regression.json [--verbose]
+.build/debug/ReadAloud --correct-dictation "push it to git hub and run cube control"
+.build/debug/ReadAloud --bench-lexicon [Lexicons/tech-lexicon.json]   # load and matching times
+```
+
 ## Developer test modes
 
 ```bash

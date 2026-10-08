@@ -12,6 +12,8 @@ import CSherpaOnnx
 ///   --phonemize [--gb] [--raw] < lines.txt               print each line's phonemes
 ///   --g2p-test Tests/g2p/regression.json [--verbose]    pronunciation regression suite
 ///   --bench-lexicon [lexicon.json] [--article f.txt]    custom lexicon load and matching times (made-up 10,000 entries by default)
+///   --correct-dictation "text" [--lexicon f.json]       what dictation would type, and why (reads lines from stdin without text)
+///   --test-dictation Tests/dictation/regression.json    dictation corrector regression suite
 ///   --render-phonemes "ðə kwˈɪk" [--voice v] [--out f.wav] [--raw]   synthesize exact phonemes
 ///   --test-gestures                                     check modifier tap / double-tap / hold detection and exit
 ///   READALOUD_MODELS_DIR=/some/folder                   use a different models folder (test fresh installs)
@@ -167,6 +169,13 @@ enum DebugScript {
         }
         if let path = value("--g2p-test") {
             exit(G2PTest.run(path: path, verbose: args.contains("--verbose")))
+        }
+        if args.contains("--correct-dictation") {
+            let text = value("--correct-dictation").flatMap { $0.hasPrefix("--") ? nil : $0 }
+            exit(DictationTest.correct(text, lexicon: value("--lexicon")))
+        }
+        if let path = value("--test-dictation") {
+            exit(DictationTest.run(path: path, lexicon: value("--lexicon"), verbose: args.contains("--verbose")))
         }
         if args.contains("--bench-lexicon") {
             let path = value("--bench-lexicon").flatMap { $0.hasPrefix("--") ? nil : $0 }

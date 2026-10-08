@@ -1,5 +1,6 @@
 import AppKit
 import AVFoundation
+import Phonemizer
 
 /// Dictation: record the microphone, transcribe with Parakeet on this Mac,
 /// and type the text into whatever app has focus.
@@ -51,6 +52,7 @@ final class DictationController: ObservableObject {
 
     func start() {
         shortcuts.start()
+        queue.async { _ = Self.corrector }
         if ParakeetEngine.isInstalled {
             queue.async { _ = self.loadEngine() }
         } else {
@@ -202,19 +204,32 @@ final class DictationController: ObservableObject {
     }
 
     private func deliver(_ raw: String, audioSeconds: Double, took: Double) {
-        if DebugScript.args.contains("--trace") {
+        let trace = DebugScript.args.contains("--trace")
+        if trace {
             print(String(format: "   dictation: %.1fs recording, text ready %.2fs after stopping: %@", audioSeconds, took, raw))
         }
-        let text = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+        let heard = raw.trimmingCharacters(in: .whitespacesAndNewlines)
         state = .idle
         resumeReading()
-        guard !text.isEmpty else {
+        guard !heard.isEmpty else {
             show("Didn't catch that.")
             return
         }
+        let text = Self.fixesTechTerms ? Self.corrector.correct(heard) : heard
+        if trace, text != heard { print("   dictation: tech terms fixed: \(text)") }
         lastTranscript = text
         insert(text)
     }
+
+    // MARK: - Tech terms
+
+    /// The Settings switch "Fix tech terms in dictation" (on unless it's been turned off).
+    static let fixTechTermsKey = "fixTechTermsInDictation"
+    static var fixesTechTerms: Bool { UserDefaults.standard.object(forKey: fixTechTermsKey) as? Bool ?? true }
+
+    /// The lexicons in reverse ("super base" → Supabase). Built once, on the dictation
+    /// queue at launch (a few tens of milliseconds for the full list).
+    static let corrector = DictationCorrector(LexiconFiles.shared)
 
     private func resumeReading() {
         if resumeReadingAfter { player.play() }

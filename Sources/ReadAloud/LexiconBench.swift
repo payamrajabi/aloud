@@ -2,7 +2,7 @@ import Foundation
 import Phonemizer
 
 /// `--bench-lexicon [lexicon.json] [--article file.txt]`: how long the custom lexicon
-/// takes to load and to mark text at full size. Without a file it makes up a
+/// takes to load, to mark text for reading and to fix dictation at full size. Without a file it makes up a
 /// 10,000-entry lexicon in the new schema (spoken variants and all), so the numbers
 /// can be checked before the real list exists. Times are this thread's CPU time, so a
 /// busy Mac doesn't inflate them.
@@ -66,6 +66,33 @@ enum LexiconBench {
         print(String(format: "custom tier: %d sentences (%d words), mean %.3f ms, worst %.3f ms per sentence (%d timed)",
                      sentences.count, words, 1000 * markMean, 1000 * markTimes.max()!, markTimes.count))
         if Date().timeIntervalSince(started) > 30 { return 0 }
+
+        // Dictation: build the reverse index, then fix about 200 words of the article
+        // with some spoken variants mixed in.
+        var builds: [Double] = []
+        var corrector = DictationCorrector(LexiconSet())
+        for _ in 0..<5 {
+            let t0 = now()
+            corrector = DictationCorrector(set)
+            builds.append(now() - t0)
+        }
+        var rng = SplitMix(state: 3)
+        let spoken = set.entries.filter { !$0.spoken.isEmpty }
+        var dictation = article.split { $0.isWhitespace }.prefix(190).map(String.init)
+        for _ in 0..<10 where !spoken.isEmpty {
+            dictation.insert(rng.pick(rng.pick(spoken).spoken), at: rng.int(dictation.count))
+        }
+        let text = dictation.joined(separator: " ")
+        var fixTimes: [Double] = []
+        var result = corrector.analyze(text)
+        for _ in 0..<50 {
+            let t0 = now()
+            result = corrector.analyze(text)
+            fixTimes.append(now() - t0)
+        }
+        print(String(format: "dictation: index of %d forms (%d spoken variants) built in %.1f ms; a %d-word dictation fixed in %.3f ms (worst %.3f ms), %d changes",
+                     corrector.formCount, corrector.variantCount, 1000 * builds.min()!, text.split(separator: " ").count,
+                     1000 * fixTimes.reduce(0, +) / Double(fixTimes.count), 1000 * fixTimes.max()!, result.changes.filter(\.applied).count))
 
         // The whole phonemizer, with and without the custom tier.
         guard let data = try? G2PData.load(from: G2PData.defaultDirectory()) else {
