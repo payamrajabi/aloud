@@ -191,6 +191,20 @@ research behind every term (sources, confidence, alternatives, what the dictatio
 heard), the decisions on disputed terms and everyday-word clashes, and the pipeline
 scripts. Only `Lexicons/` ships in the app.
 
+Every file in `Lexicons/` is a field pack named after the file (`finance.json` is
+"finance", `tech-lexicon.json` is "tech"), and all of them ship. Entries marked
+`"pack_only": true` read a spelling the field's way (medicine "BID" as B-I-D) and apply
+only while their pack is on: the `enabledPacks` setting (a list of pack names, none by
+default; there's no Settings control yet), or `--packs finance,medicine` in the test
+modes below. Your own folder still wins over every pack. In dictation a term that needs
+context needs it from its own pack. Before adding a pack, check the lists agree:
+
+```bash
+python3 lexicon-src/tools/check_packs.py
+.build/debug/ReadAloud --speech-test Tests/g2p/pack-readings.json        # packs on and off, with fixture packs
+.build/debug/ReadAloud --test-dictation Tests/dictation/packs.json       # per-pack dictation context
+```
+
 ## Developer test modes
 
 ```bash
