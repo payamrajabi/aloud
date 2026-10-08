@@ -79,6 +79,14 @@ enum NumberWords {
     /// num2words(float(s)) for a decimal string such as "3.14" or "0.5": "three point one four".
     static func decimal(_ s: String) -> String? {
         guard let d = Double(s), d.isFinite else { return nil }
+        // Written out plainly ("3.10", "9.50", "2.0"), every digit after the point is read: Python
+        // reads the float, so "Python 3.10" became 3.1, a different release, and "1.00" just "one".
+        if let m = s.range(of: #"^-?\d+\.\d+$"#, options: .regularExpression), m == s.startIndex..<s.endIndex {
+            let negative = s.hasPrefix("-")
+            let parts = s.dropFirst(negative ? 1 : 0).split(separator: ".")
+            let whole = Int(parts[0]).map(cardinal) ?? digits(String(parts[0]))
+            return (negative ? "minus " : "") + whole + " point " + digits(String(parts[1]))
+        }
         if d == d.rounded(), abs(d) < 1e15 { return cardinal(Int(d)) }  // num2words(3.0) is "three"
         // Python reads the float's shortest repr, so "4.50" becomes 4.5. One in exponent form
         // ("1e-22", "1.2345678901234568e+29") is read from the digits as written instead:
