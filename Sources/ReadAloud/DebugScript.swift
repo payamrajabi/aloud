@@ -222,6 +222,9 @@ enum DebugScript {
         if let path = value("--g2p-test") {
             exit(G2PTest.run(path: path, verbose: args.contains("--verbose")))
         }
+        if let path = value("--speech-test") {
+            exit(SpeechTest.run(path: path, verbose: args.contains("--verbose"), freeze: args.contains("--freeze")))
+        }
         if args.contains("--correct-dictation") {
             let text = value("--correct-dictation").flatMap { $0.hasPrefix("--") ? nil : $0 }
             exit(DictationTest.correct(text, lexicon: value("--lexicon")))

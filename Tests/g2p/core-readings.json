@@ -1,0 +1,138 @@
+{
+  "about" : "Core readings (FIN-889). speech_cases: text and how a person reads it, in words no rule touches. frozen_cases: ordinary text whose reading must not change; --freeze stores today's phonemes.",
+  "frozen_cases" : [
+    {
+      "area" : "negatives",
+      "gb" : "plˈan ɐ ɪz fˈIn.",
+      "text" : "Plan A is fine.",
+      "us" : "plˈæn ɐ ɪz fˈIn."
+    },
+    {
+      "area" : "negatives",
+      "gb" : "fˈIv ɪn ɐ ɹˈQ, ˌI sˈɛd.",
+      "text" : "Five in a row, I said.",
+      "us" : "fˈIv ɪn ɐ ɹˈO, ˌI sˈɛd."
+    },
+    {
+      "area" : "negatives",
+      "gb" : "tˈiː ɔː kˈɒfi? ˈɔː wɒz ɪn kˈaps.",
+      "text" : "Tea or coffee? OR was in caps.",
+      "us" : "tˈi ɔɹ kˈɔfi? ˈɔɹ wʌz ɪn kˈæps."
+    },
+    {
+      "area" : "negatives",
+      "gb" : "ˌI ˈAt mˈɛmz at fˈIv pˌiːˈɛm.",
+      "text" : "I ate M&Ms at 5 pm.",
+      "us" : "ˌI ˈAt mˈɛmz æt fˈIv pˌiˈɛm."
+    },
+    {
+      "area" : "negatives",
+      "gb" : "dˈɒktə ʃˈɑː wɪl sˈiː juː nˈW.",
+      "text" : "Dr. Shah will see you now.",
+      "us" : "dˈɑktəɹ ʃˈɑ wɪl sˈi ju nˈW."
+    },
+    {
+      "area" : "negatives",
+      "gb" : "sˈɛkʃᵊn fˈIv ɐ kˈʌvəz ɪt.",
+      "text" : "Section 5 A covers it.",
+      "us" : "sˈɛkʃən fˈIv ɐ kˈʌvəɹz ɪt."
+    }
+  ],
+  "speech_cases" : [
+    {
+      "area" : "money",
+      "says" : "It costs four ninety-nine Canadian.",
+      "text" : "It costs $4.99 CAD."
+    },
+    {
+      "area" : "money",
+      "says" : "It costs four ninety-nine.",
+      "text" : "It costs $4.99."
+    },
+    {
+      "area" : "money",
+      "says" : "Revenue hit two point five million dollars in March.",
+      "text" : "Revenue hit $2.5M in March."
+    },
+    {
+      "area" : "money",
+      "says" : "It costs five Canadian dollars.",
+      "text" : "It costs C$5."
+    },
+    {
+      "area" : "units",
+      "says" : "Run four hundred meters today.",
+      "text" : "Run 400 m today."
+    },
+    {
+      "area" : "units",
+      "says" : "Use three quarts of stock.",
+      "text" : "Use 3 qt of stock."
+    },
+    {
+      "area" : "units",
+      "says" : "Add two tablespoons sugar.",
+      "text" : "Add 2 tbsp sugar."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "He stood six foot two.",
+      "text" : "He stood 6'2\"."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "It's three times faster.",
+      "text" : "It's 3x faster."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Play it at two ex speed.",
+      "text" : "Play it at 2x speed."
+    },
+    {
+      "area" : "roman",
+      "says" : "Henry the Eighth had six wives.",
+      "text" : "Henry VIII had six wives."
+    },
+    {
+      "area" : "roman",
+      "says" : "He fought in World War Two.",
+      "text" : "He fought in WWII."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Turn left on Oak Drive near the park.",
+      "text" : "Turn left on Oak Dr. near the park."
+    },
+    {
+      "area" : "addresses",
+      "says" : "She lives in Portland, Oregon now.",
+      "text" : "She lives in Portland, OR now."
+    },
+    {
+      "area" : "titles",
+      "says" : "Lieutenant Dan saluted.",
+      "text" : "Lt. Dan saluted."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Coffee with milk.",
+      "text" : "Coffee w/ milk."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "We're number one again.",
+      "text" : "We're #1 again."
+    },
+    {
+      "area" : "timestamps",
+      "says" : "Posted five minutes ago.",
+      "text" : "Posted 5m ago."
+    },
+    {
+      "area" : "symbols",
+      "says" : "See section twelve for details.",
+      "text" : "See § 12 for details."
+    }
+  ]
+}
