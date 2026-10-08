@@ -6,6 +6,15 @@
     <description>Updates for Aloud</description>
     <language>en</language>
     <item>
+      <title>Aloud 1.5.0</title>
+      <pubDate>Wed, 07 Oct 2026 18:28:05 GMT</pubDate>
+      <sparkle:version>39</sparkle:version>
+      <sparkle:shortVersionString>1.5.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>New Settings window (right-click the menu bar icon → Settings…): pick your own shortcuts, including a double-tap of any modifier key; choose which microphone and speakers Aloud uses; and download or remove the voice and dictation models. Aloud now sends a notification when an update is available.</p>]]></description>
+      <enclosure url="https://aloudformac.com/releases/v1.5.0/Aloud.dmg" length="11413354" type="application/octet-stream" sparkle:edSignature="6cGm7Fu3dnB67KOjaZsVdDJMMd25wC8OPjwsCgBL4HZqtHf7QZKjTcXE7VWa0LY4l6YZaVkkrMwLmAblajYtCA=="/>
+    </item>
+    <item>
       <title>Aloud 1.4.0</title>
       <pubDate>Wed, 07 Oct 2026 00:07:35 GMT</pubDate>
       <sparkle:version>33</sparkle:version>
