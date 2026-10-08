@@ -67,11 +67,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
         enableLoginItemOnFirstLaunch()
         moveLoginItemIfRenamed(force: !cleanup.trashed.isEmpty)
         if cleanup.migratedVoice { model.preload() }
-        if !DebugScript.isActive {
-            // Voices downloaded by Aloud 1.4 and earlier came in sherpa-onnx's archive, with
-            // eSpeak NG's data and lexicons that nothing uses now (about 46 MB).
-            DispatchQueue.global(qos: .utility).async { KokoroEngine.removeUnusedFiles() }
-        }
+        // Clear out what interrupted downloads left in the models folder. (The old voice's
+        // eSpeak NG files stay: Aloud 1.5 needs them if someone goes back to it.)
+        ModelStore.removeAbandonedDownloads()
         // Fetch the voice soon after first launch so it's usually ready by the first read
         // (unless it was removed in Settings; then it downloads when someone next reads).
         guard !UserDefaults.standard.bool(forKey: PlayerModel.voiceRemovedKey) else { return }

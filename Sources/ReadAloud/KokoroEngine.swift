@@ -83,8 +83,9 @@ final class KokoroEngine {
         ]
     }()
 
-    /// Files left over from the sherpa-onnx archive that nothing reads any more
-    /// (eSpeak NG's data, its lexicons, and Chinese text normalization).
+    /// Files left over from the sherpa-onnx archive that this version doesn't read
+    /// (eSpeak NG's data, its lexicons, and Chinese text normalization). Aloud 1.5 and
+    /// earlier need them, so they stay unless someone tidies up by hand (--tidy-voice).
     static let unusedFiles = ["espeak-ng-data", "dict", "lexicon-us-en.txt", "lexicon-gb-en.txt", "lexicon-zh.txt",
                               "date-zh.fst", "number-zh.fst", "phone-zh.fst"]
 
@@ -109,7 +110,8 @@ final class KokoroEngine {
     }
 
     /// Removes the eSpeak NG data and other leftovers of the old archive from a
-    /// downloaded voice. Never touches a voice bundled inside an app.
+    /// downloaded voice. Never touches a voice bundled inside an app. Only run by hand
+    /// (--tidy-voice): at launch they stay, so going back to Aloud 1.5 keeps working.
     static func removeUnusedFiles() {
         let dir = downloadedModelDirectory
         guard isComplete(dir) else { return }

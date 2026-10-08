@@ -29,6 +29,22 @@ enum ModelStore {
         return FileManager.default.homeDirectoryForCurrentUser
             .appendingPathComponent("Library/Application Support/ReadAloud/models")
     }
+
+    /// Removes what interrupted downloads left behind: the hidden .download-, .unpack- and
+    /// .migrate- items in the models folder, which no later attempt reuses and which can
+    /// hold hundreds of MB if Aloud quit, crashed or was logged out of mid-download.
+    /// Skips anything a download in progress is using. Call on the main thread.
+    static func removeAbandonedDownloads() {
+        let fm = FileManager.default
+        let dir = root
+        let abandoned = ((try? fm.contentsOfDirectory(atPath: dir.path)) ?? []).filter { name in
+            [".download-", ".unpack-", ".migrate-"].contains { name.hasPrefix($0) } && !ModelDownloader.inUse.contains(name)
+        }
+        guard !abandoned.isEmpty else { return }
+        DispatchQueue.global(qos: .utility).async {
+            for name in abandoned { try? fm.removeItem(at: dir.appendingPathComponent(name)) }
+        }
+    }
 }
 
 /// Downloads a model into Application Support, reporting progress: either a tar.bz2
@@ -56,6 +72,10 @@ final class ModelDownloader: NSObject, URLSessionDownloadDelegate {
     private var bytesTotal: Int64 = 0
 
     var isRunning: Bool { session != nil }
+
+    /// Names of the hidden folders and archives that downloads in progress are working in,
+    /// so ModelStore.removeAbandonedDownloads leaves them alone. Main thread only.
+    fileprivate static var inUse = Set<String>()
 
     /// Downloads a tar.bz2 archive and unpacks it into `directory`.
     func download(_ url: URL, into directory: URL, progress: @escaping (Double) -> Void, completion: @escaping (Error?) -> Void) {
@@ -87,6 +107,7 @@ final class ModelDownloader: NSObject, URLSessionDownloadDelegate {
         queue = files
         expected = files
         self.staging = staging
+        Self.inUse.insert(staging.lastPathComponent)
         bytesDone = 0
         bytesTotal = files.reduce(0) { $0 + $1.size }
         let session = URLSession(configuration: .default, delegate: self, delegateQueue: .main)
@@ -116,16 +137,19 @@ final class ModelDownloader: NSObject, URLSessionDownloadDelegate {
         // The temporary file disappears when this method returns, so move it first.
         let fm = FileManager.default
         let archive = destination.appendingPathComponent(".download-\(UUID().uuidString).tar.bz2")
+        let staging = destination.appendingPathComponent(".unpack-\(UUID().uuidString)")
+        let working = [archive.lastPathComponent, staging.lastPathComponent]
+        Self.inUse.formUnion(working)
         do {
             try fm.createDirectory(at: destination, withIntermediateDirectories: true)
             try fm.moveItem(at: location, to: archive)
         } catch {
+            Self.inUse.subtract(working)
             finish(error)
             return
         }
         let dest = destination!
         DispatchQueue.global(qos: .userInitiated).async {
-            let staging = dest.appendingPathComponent(".unpack-\(UUID().uuidString)")
             var failure: Error?
             do {
                 try fm.createDirectory(at: staging, withIntermediateDirectories: true)
@@ -143,7 +167,10 @@ final class ModelDownloader: NSObject, URLSessionDownloadDelegate {
             } catch { failure = error }
             try? fm.removeItem(at: staging)
             try? fm.removeItem(at: archive)
-            DispatchQueue.main.async { self.finish(failure) }
+            DispatchQueue.main.async {
+                Self.inUse.subtract(working)
+                self.finish(failure)
+            }
         }
     }
 
@@ -204,7 +231,10 @@ final class ModelDownloader: NSObject, URLSessionDownloadDelegate {
     }
 
     private func finish(_ error: Error?) {
-        if let staging { try? FileManager.default.removeItem(at: staging) }
+        if let staging {
+            try? FileManager.default.removeItem(at: staging)
+            Self.inUse.remove(staging.lastPathComponent)
+        }
         staging = nil
         queue = []
         expected = []
