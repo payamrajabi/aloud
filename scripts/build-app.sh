@@ -21,8 +21,13 @@ APP="build/$APP_NAME.app"
 DEST="/Applications/$APP_NAME.app"
 
 echo "Compiling..."
-swift build -c release --arch arm64 2>&1 | grep -E "error|warning: |Compiling|Build complete" || true
 BIN=".build/arm64-apple-macosx/release/ReadAloud"
+# SwiftPM leaves the previous binary in place when a build fails, so delete it first
+# and stop on the compiler's exit status: never package (and release) stale code.
+rm -f "$BIN"
+if ! swift build -c release --arch arm64 2>&1 | { grep -E "error|warning: |Compiling|Build complete" || true; }; then
+  echo "Build failed"; exit 1
+fi
 [[ -x "$BIN" ]] || { echo "Build failed"; exit 1; }
 SPARKLE=".build/arm64-apple-macosx/release/Sparkle.framework"
 [[ -d "$SPARKLE" ]] || { echo "Sparkle.framework missing from the build products"; exit 1; }
