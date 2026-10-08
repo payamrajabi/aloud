@@ -18,6 +18,8 @@ missing one of them).
 | sherpa-onnx 1.13.8, built without text-to-speech | Dictation runtime | Apache-2.0 | https://github.com/k2-fsa/sherpa-onnx | `licenses/sherpa-onnx-LICENSE.txt` |
 | Sparkle 2.10.0 | Automatic updates | MIT (its license file also covers the code it includes: bsdiff, sais-lite, ed25519) | https://github.com/sparkle-project/Sparkle | `licenses/Sparkle-LICENSE.txt` |
 | NVIDIA Parakeet TDT 0.6B v2 (downloaded on first launch, not bundled) | Dictation model | CC-BY-4.0 | https://huggingface.co/nvidia/parakeet-tdt-0.6b-v2 | see the model card |
+| llama.cpp b11138 (ggml) | Language model runtime (dictation clean-up) | MIT | https://github.com/ggml-org/llama.cpp | `licenses/llama.cpp-LICENSE.txt` |
+| Qwen3.5-4B, 4-bit GGUF by Unsloth (optional download, not bundled) | Dictation clean-up model | Apache-2.0 | https://huggingface.co/Qwen/Qwen3.5-4B | see the model card |
 
 The sherpa-onnx library (`Contents/Frameworks/libsherpa-onnx-c-api.dylib`) is built
 from source by `scripts/build-sherpa-asr.sh`, which compiles these libraries into it.

@@ -53,6 +53,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
         DebugScript.run(model: model, app: self)
     }
 
+    func applicationWillTerminate(_ notification: Notification) {
+        // Metal aborts at exit if the language model's buffers are still alive.
+        dictation.shutDown()
+    }
+
     private func finishLaunching(after cleanup: LegacyAppCleanup.Outcome) {
         if Synthesizer.trace {
             print("   cleanup: trashed \(cleanup.trashed.map(\.path)), failed \(cleanup.failed.map(\.path)), quit others: \(cleanup.terminatedOthers), moved voice: \(cleanup.migratedVoice)")

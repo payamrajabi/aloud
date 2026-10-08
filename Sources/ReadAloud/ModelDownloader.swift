@@ -148,6 +148,18 @@ final class ModelDownloader: NSObject, URLSessionDownloadDelegate {
             finish(error)
             return
         }
+        if let saveAs {
+            do {
+                let target = destination.appendingPathComponent(saveAs)
+                if fm.fileExists(atPath: target.path) { try fm.removeItem(at: target) }
+                try fm.moveItem(at: archive, to: target)
+                finish(nil)
+            } catch {
+                try? fm.removeItem(at: archive)
+                finish(error)
+            }
+            return
+        }
         let dest = destination!
         DispatchQueue.global(qos: .userInitiated).async {
             var failure: Error?

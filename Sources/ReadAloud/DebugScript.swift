@@ -15,6 +15,7 @@ import CSherpaOnnx
 ///   --correct-dictation "text" [--lexicon f.json]       what dictation would type, and why (reads lines from stdin without text)
 ///   --test-dictation Tests/dictation/regression.json    dictation corrector regression suite
 ///   --render-phonemes "ðə kwˈɪk" [--voice v] [--out f.wav] [--raw]   synthesize exact phonemes
+///   --clean "text" | --clean-file path [--piece-words 30]  tidy dictation text as if it arrived in pieces, print timing
 ///   --test-gestures                                     check modifier tap / double-tap / hold detection and exit
 ///   READALOUD_MODELS_DIR=/some/folder                   use a different models folder (test fresh installs)
 ///   --script "2:seek=30;4:pause;5:play;8:open;9:snapshot=/tmp/p.png;10:quit"
@@ -70,6 +71,35 @@ enum DebugScript {
                 exit(1)
             }
         }
+        if var text = value("--clean") ?? value("--clean-file").flatMap({ try? String(contentsOfFile: $0, encoding: .utf8) }) {
+            // Feeds raw text to the clean-up model in Parakeet-sized pieces, then times the
+            // wait after "stop" (only the last piece and the open sentence are left).
+            text = text.trimmingCharacters(in: .whitespacesAndNewlines)
+            let size = Int(value("--piece-words") ?? "30") ?? 30
+            let words = text.split(whereSeparator: \.isWhitespace)
+            let pieces = stride(from: 0, to: words.count, by: size).map { words[$0..<min(words.count, $0 + size)].joined(separator: " ") }
+            let cleaner = TranscriptCleaner()
+            var t0 = Date()
+            guard cleaner.reset() else { print("clean-up model not installed at \(TranscriptCleaner.modelPath.path)"); exit(1) }
+            cleaner.waitUntilIdle()
+            print(String(format: "model load: %.2fs; %d words in %d pieces", Date().timeIntervalSince(t0), words.count, pieces.count))
+            t0 = Date()
+            // In real use each piece is cleaned before the next one arrives (8–15 s later).
+            for piece in pieces.dropLast() {
+                cleaner.add(piece)
+                cleaner.waitUntilIdle()
+            }
+            print(String(format: "while talking: %.2fs in total", Date().timeIntervalSince(t0)))
+            t0 = Date()
+            cleaner.willFinish()
+            if let last = pieces.last { cleaner.add(last) }
+            cleaner.finish { result in
+                print(String(format: "STOP → clean text in %.2fs\n\n%@", Date().timeIntervalSince(t0), result ?? "(nil: model failed)"))
+                cleaner.shutDown()
+                exit(0)
+            }
+            RunLoop.main.run()
+        }
         if let path = value("--stream-sim") {
             // Simulates a long recording arriving in real time (sped up), with background
             // transcription, then measures the wait after "stop".
@@ -82,6 +112,14 @@ enum DebugScript {
             queue.sync { engine = try? ParakeetEngine() }
             let streamer = StreamingTranscriber(queue: queue) { engine }
             streamer.reset()
+            // --tidy: clean up with the language model, the way dictation does when it's downloaded.
+            let cleaner = TranscriptCleaner()
+            if args.contains("--tidy") {
+                guard cleaner.reset() else { print("clean-up model not installed"); exit(1) }
+                streamer.onPiece = { cleaner.add($0) }
+                streamer.minChunk = 8 * ParakeetEngine.sampleRate
+                streamer.maxChunk = 15 * ParakeetEngine.sampleRate
+            }
             var recorded = 0
             let step = Int(0.25 * speed * 16_000)
             var ticks = 0
@@ -95,8 +133,17 @@ enum DebugScript {
                 if recorded == all.count {
                     timer.invalidate()
                     let stop = Date()
+                    cleaner.willFinish()
                     streamer.finish(all: all) { text, tail in
                         print(String(format: "STOP → text ready in %.2fs (tail %.1fs).", Date().timeIntervalSince(stop), tail))
+                        if cleaner.isActive {
+                            cleaner.finish { tidied in
+                                print(String(format: "STOP → tidied text ready in %.2fs:\n\n%@\n\nraw: %@", Date().timeIntervalSince(stop), tidied ?? "(nil)", text))
+                                cleaner.shutDown()
+                                exit(0)
+                            }
+                            return
+                        }
                         let t0 = Date()
                         let oneShot = engine?.transcribe(all) ?? ""
                         print(String(format: "Old way (transcribe everything after stop): %.2fs.", Date().timeIntervalSince(t0)))
@@ -285,6 +332,7 @@ enum DebugScript {
         case "hudshot":
             if let view = app.dictationHUD?.panel.contentView { snapshot(view, to: arg) }
         case "settings": app.showSettings()
+        case "cleanupdownload": app.dictationController.downloadCleanupModel()  // with --trace, prints when it's done
         case "settingsshot":
             // Forms don't draw into cached bitmaps, so capture the window from the screen.
             if let number = app.settings.contentView?.window?.windowNumber {
@@ -348,48 +396,84 @@ enum DebugScript {
         let lo = ModifierKey.leftOption, ro = ModifierKey.rightOption
         func down(_ k: ModifierKey, _ t: Double, extra: UInt = 0) -> G.Event { .modifier(code: k.code, flags: k.family.rawValue | k.bit | extra, time: t) }
         func up(_ k: ModifierKey, _ t: Double) -> G.Event { .modifier(code: k.code, flags: 0, time: t) }
-        func run(_ read: KeyBinding?, _ dictate: KeyBinding?, recording: Bool = false, _ events: [G.Event]) -> [G.Action] {
-            var g = G(read: read, dictate: dictate)
+        func tap(_ k: ModifierKey, _ t: Double) -> [G.Event] { [down(k, t), up(k, t + 0.1)] }
+        /// Feeds the events, then lets any waiting tap's timer run. Finishing follows dictating unless given.
+        func run(_ read: KeyBinding?, _ dictate: KeyBinding?, finish: KeyBinding?? = nil, recording: Bool = false,
+                 _ events: [G.Event]) -> [G.Action] {
+            var g = G(read: read, dictate: dictate, finish: finish ?? dictate.map { $0.modifierKey.map { .tap($0) } ?? $0 })
             g.interval = 0.4
             g.recording = recording
-            return events.compactMap { g.handle($0) }
+            return events.compactMap { g.handle($0) } + [g.tapTimerFired(at: 100)].compactMap { $0 }
         }
+        let read = KeyBinding.doubleTap(ro), dictate = KeyBinding.tap(ro)  // the defaults
         let cases: [(String, [G.Action], [G.Action])] = [
-            ("double-tap left reads", run(.doubleTap(lo), .doubleTap(ro), [down(lo, 0), up(lo, 0.1), down(lo, 0.25), up(lo, 0.3)]), [.read]),
-            ("double-tap right dictates", run(.doubleTap(lo), .doubleTap(ro), [down(ro, 0), up(ro, 0.1), down(ro, 0.25), up(ro, 0.3)]), [.dictate]),
-            ("slow taps do nothing", run(.doubleTap(lo), .doubleTap(ro), [down(lo, 0), up(lo, 0.1), down(lo, 0.7), up(lo, 0.8)]), []),
-            ("single tap does nothing for a double-tap shortcut", run(.doubleTap(lo), nil, [down(lo, 0), up(lo, 0.1)]), []),
-            ("left then right isn't a double-tap", run(.doubleTap(lo), .doubleTap(ro), [down(lo, 0), up(lo, 0.1), down(ro, 0.2), up(ro, 0.3)]), []),
-            ("a key between taps cancels", run(.doubleTap(lo), nil, [down(lo, 0), up(lo, 0.1), .keyDown, down(lo, 0.2), up(lo, 0.3)]), []),
+            ("tap right ⌥ dictates", run(read, dictate, tap(ro, 0)), [.dictate]),
+            ("double-tap right ⌥ reads, and doesn't dictate", run(read, dictate, tap(ro, 0) + tap(ro, 0.25)), [.read]),
+            ("a third quick tap doesn't dictate after reading", run(read, dictate, tap(ro, 0) + tap(ro, 0.25) + tap(ro, 0.5)), [.read]),
+            ("two slow taps dictate", run(read, dictate, tap(ro, 0) + tap(ro, 0.7)), [.dictate, .dictate]),
+            ("typing right after a tap dictates at once", run(read, dictate, tap(ro, 0) + [.keyDown]), [.dictate]),
+            ("one tap finishes at once while recording", run(read, dictate, recording: true, tap(ro, 0)), [.finish]),
+            ("a long press finishes too", run(read, dictate, recording: true, [down(ro, 0), up(ro, 1.2)]), [.finish]),
+            ("a separate finish key", run(read, dictate, finish: .tap(.rightCommand), recording: true,
+                                          tap(ro, 0) + tap(.rightCommand, 1)), [.finish]),
+            ("no finish key: taps do nothing while recording", run(read, dictate, finish: .some(nil), recording: true, tap(ro, 0)), []),
+            ("a waiting tap belongs to read when it's the tap", run(.tap(lo), .doubleTap(lo), tap(lo, 0)), [.read]),
+            ("double-tap left reads", run(.doubleTap(lo), .doubleTap(ro), tap(lo, 0) + tap(lo, 0.15)), [.read]),
+            ("double-tap right dictates", run(.doubleTap(lo), .doubleTap(ro), tap(ro, 0) + tap(ro, 0.15)), [.dictate]),
+            ("slow taps do nothing", run(.doubleTap(lo), .doubleTap(ro), tap(lo, 0) + tap(lo, 0.7)), []),
+            ("single tap does nothing for a double-tap shortcut", run(.doubleTap(lo), nil, tap(lo, 0)), []),
+            ("left then right isn't a double-tap", run(.doubleTap(lo), .doubleTap(ro), tap(lo, 0) + tap(ro, 0.2)), []),
+            ("a key between taps cancels", run(.doubleTap(lo), nil, tap(lo, 0) + [.keyDown] + tap(lo, 0.2)), []),
             ("chord with ⌘ isn't a tap", run(.doubleTap(lo), nil, [down(lo, 0, extra: NSEvent.ModifierFlags.command.rawValue), up(lo, 0.1),
                                                                     down(lo, 0.2, extra: NSEvent.ModifierFlags.command.rawValue), up(lo, 0.3)]), []),
-            ("tap fn dictates", run(nil, .tap(.fn), [down(.fn, 0), up(.fn, 0.1)]), [.dictate]),
-            ("tap right ⌘ reads", run(.tap(.rightCommand), nil, [down(.rightCommand, 0), up(.rightCommand, 0.1)]), [.read]),
-            ("one press finishes a recording", run(nil, .doubleTap(ro), recording: true, [down(ro, 0), up(ro, 0.1)]), [.dictate]),
-            ("a long press finishes a recording too", run(nil, .doubleTap(ro), recording: true, [down(ro, 0), up(ro, 1.2)]), [.dictate]),
+            ("tap fn dictates", run(nil, .tap(.fn), tap(.fn, 0)), [.dictate]),
+            ("tap right ⌘ reads", run(.tap(.rightCommand), nil, tap(.rightCommand, 0)), [.read]),
+            ("one press finishes a double-tap dictation", run(nil, .doubleTap(ro), recording: true, tap(ro, 0)), [.finish]),
             ("double-tap ⇧ on any side", run(.doubleTap(.rightShift), .doubleTap(.leftControl),
-                                            [down(.rightShift, 0), up(.rightShift, 0.1), down(.rightShift, 0.2), up(.rightShift, 0.3),
-                                             down(.leftControl, 1), up(.leftControl, 1.1), down(.leftControl, 1.2), up(.leftControl, 1.3)]), [.read, .dictate]),
-            ("combos are ignored here", run(.combo(keyCode: 15, modifiers: 6144), nil, [down(lo, 0), up(lo, 0.1), down(lo, 0.2), up(lo, 0.3)]), []),
+                                            tap(.rightShift, 0) + tap(.rightShift, 0.2) + tap(.leftControl, 1) + tap(.leftControl, 1.2)), [.read, .dictate]),
+            ("combos are ignored here", run(.combo(keyCode: 15, modifiers: 6144), nil, tap(lo, 0) + tap(lo, 0.2)), []),
         ]
         var ok = true
-        for (name, got, want) in cases {
-            let pass = got == want
+        func check(_ name: String, _ pass: Bool, _ detail: @autoclosure () -> String = "") {
             ok = ok && pass
-            print("\(pass ? "✓" : "✗") \(name)\(pass ? "" : ": got \(got), want \(want)")")
+            print("\(pass ? "✓" : "✗") \(name)\(pass ? "" : ": \(detail())")")
         }
+        for (name, got, want) in cases { check(name, got == want, "got \(got), want \(want)") }
+
+        // A tap waits out the double-click interval before dictating.
+        var g = G(read: read, dictate: dictate, finish: dictate)
+        g.interval = 0.4
+        _ = tap(ro, 0).map { g.handle($0) }
+        let early = g.tapTimerFired(at: 0.3), deadline = g.tapDeadline, onTime = g.tapTimerFired(at: 0.4)
+        check("dictation waits for a possible second tap", early == nil && deadline == 0.4 && onTime == .dictate,
+              "early \(String(describing: early)), deadline \(String(describing: deadline)), on time \(String(describing: onTime))")
+
+        // Tapping twice while recording (old habit) finishes, and the second tap doesn't start again.
+        g = G(read: read, dictate: dictate, finish: dictate)
+        g.interval = 0.4
+        g.recording = true
+        var got = tap(ro, 0).compactMap { g.handle($0) }
+        g.recording = false
+        got += tap(ro, 0.2).compactMap { g.handle($0) } + [g.tapTimerFired(at: 100)].compactMap { $0 }
+        check("a double tap while recording finishes once", got == [.finish], "got \(got)")
+
         // Holding the dictation key is push-to-talk.
-        var g = G(read: nil, dictate: .doubleTap(ro))
-        _ = g.handle(down(ro, 0))
-        let hold = [g.holdTimerFired(at: 0.35), g.handle(up(ro, 2))]
-        let holdOK = hold == [.holdBegan, .holdEnded]
-        ok = ok && holdOK
-        print("\(holdOK ? "✓" : "✗") hold right ⌥ to talk\(holdOK ? "" : ": got \(hold)")")
+        for dictate in [KeyBinding.tap(ro), .doubleTap(ro)] {
+            g = G(read: read == dictate ? nil : read, dictate: dictate, finish: .tap(ro))
+            _ = g.handle(down(ro, 0))
+            let hold = [g.holdTimerFired(at: 0.35), g.handle(up(ro, 2))]
+            check("hold right ⌥ to talk (\(dictate.display))", hold == [.holdBegan, .holdEnded], "got \(hold)")
+        }
+
+        // Defaults: everything on right ⌥, and they don't clash.
+        let defaults = ShortcutAction.allCases.map(\.defaultBinding)
+        check("defaults are tap / double-tap right ⌥ and ⌘⎋", defaults.map(\.display) == ["double-tap right ⌥", "right ⌥", "right ⌥", "⌘⎋"],
+              "\(defaults.map(\.display))")
+        check("defaults don't conflict", ShortcutAction.allCases.allSatisfy { $0.conflict(with: $0.defaultBinding) == nil })
+
         // Stored shortcuts read back the same.
         let all: [KeyBinding] = [.combo(keyCode: 15, modifiers: 6144), .tap(.fn), .doubleTap(.rightControl)]
-        let roundTrip = all.allSatisfy { KeyBinding(storageValue: $0.storageValue) == $0 }
-        ok = ok && roundTrip
-        print("\(roundTrip ? "✓" : "✗") shortcuts save and load; displays: \(all.map(\.display))")
+        check("shortcuts save and load; displays: \(all.map(\.display))", all.allSatisfy { KeyBinding(storageValue: $0.storageValue) == $0 })
         return ok
     }
 
