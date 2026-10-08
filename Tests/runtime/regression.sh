@@ -122,9 +122,14 @@ check "dictation still uses the checkout's Lexicons/" eval '"$B" --correct-dicta
 echo "Download size: the website and README quote the one release.sh measures"
 # release.sh puts the disk image's size in the release notes and says when these two differ
 # from it; here they only have to agree with each other (20 MB since llama.cpp came in).
+# Between releases the website can instead still describe the release it offers, the newest
+# one in the update feed (du -m rounds up, as release.sh measures it).
 site=$(grep -oE '· [0-9]+ MB</p>' docs/index.html | grep -oE '[0-9]+')
 readme=$(grep -oE 'This builds the app \(about [0-9]+ MB' README.md | grep -oE '[0-9]+')
-check "docs/index.html ($site MB) and README.md ($readme MB) agree" eval '[[ -n "$site" && "$site" == "$readme" ]]'
+feed=$(grep -m1 -oE 'length="[0-9]+"' docs/appcast.xml | grep -oE '[0-9]+')
+feed_mb=$(( (${feed:-0} + 1048575) / 1048576 ))
+check "docs/index.html ($site MB) agrees with README.md ($readme MB) or the release it offers ($feed_mb MB)" \
+  eval '[[ -n "$site" && ( "$site" == "$readme" || "$site" == "$feed_mb" ) ]]'
 check "release.sh reminds you when they differ from the disk image" eval 'grep -qF "change both to \$SIZE MB" scripts/release.sh'
 
 echo "Test harness"
