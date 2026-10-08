@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://aloudformac.com/">
 <meta name="description" content="Aloud is a free Mac menu bar app that reads any selected text to you in a natural voice, and types what you say into any app. Both run entirely on your Mac.">
 <meta property="og:title" content="Aloud for Mac: reads to you, listens to you">
-<meta property="og:description" content="Select text and hear it. Double-tap a key and talk, and it types for you. Free, private, and offline on your Mac.">
+<meta property="og:description" content="Select text and hear it. Tap a key and talk, and it types for you. Free, private, and offline on your Mac.">
 <meta property="og:image" content="https://aloudformac.com/assets/player.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
@@ -44,9 +44,6 @@
     --hill-2: #67879d;
     --hill-3: #44616f;
 
-    --deck: #dcdde2;
-    --key: #fdfdfd;
-    --key-ink: #3a3a3c;
     --key-edge: rgba(0, 0, 0, 0.16);
 
     --night: #0c0c0d;
@@ -69,7 +66,7 @@
       --window: #1f1f21; --window-bar: #2b2b2e; --window-ink: #f2f2f4; --window-muted: #8e8e93;
       --menubar: rgba(24, 26, 32, 0.55); --menubar-ink: #f5f5f7; --hud: rgba(58, 58, 60, 0.88);
       --sky-top: #0e1a2c; --sky-bottom: #463a40; --hill-1: #2a3a52; --hill-2: #1d2a3d; --hill-3: #131c2a;
-      --deck: #17171a; --key: #2c2c2f; --key-ink: #d8d8dc; --key-edge: rgba(0, 0, 0, 0.6);
+      --key-edge: rgba(0, 0, 0, 0.6);
       --night: #1c1c1e; --night-surface: #2c2c2e;
       color-scheme: dark;
     }
@@ -81,7 +78,7 @@
     --window: #1f1f21; --window-bar: #2b2b2e; --window-ink: #f2f2f4; --window-muted: #8e8e93;
     --menubar: rgba(24, 26, 32, 0.55); --menubar-ink: #f5f5f7; --hud: rgba(58, 58, 60, 0.88);
     --sky-top: #0e1a2c; --sky-bottom: #463a40; --hill-1: #2a3a52; --hill-2: #1d2a3d; --hill-3: #131c2a;
-    --deck: #17171a; --key: #2c2c2f; --key-ink: #d8d8dc; --key-edge: rgba(0, 0, 0, 0.6);
+    --key-edge: rgba(0, 0, 0, 0.6);
     --night: #1c1c1e; --night-surface: #2c2c2e;
     color-scheme: dark;
   }
@@ -272,57 +269,13 @@
   .sec-head h2 { font-size: clamp(34px, 5vw, 56px); line-height: 1.04; letter-spacing: -0.035em; margin: 0 0 14px; font-weight: 700; }
   .sec-head p { margin: 0; font-size: 19px; color: var(--muted); }
 
-  /* Keyboard */
-  .kb-stage { background: var(--surface); border-radius: 28px; padding: 40px clamp(16px, 4vw, 56px) 44px; box-shadow: 0 0 0 0.5px var(--line); }
-  .kb-label { text-align: center; min-height: 96px; margin-bottom: 28px; }
-  .nowrap { white-space: nowrap; }
-  .kb-title { margin: 0 0 14px; font: 700 clamp(24px, 3.4vw, 34px)/1.1 var(--font-display); letter-spacing: -0.025em; display: flex; justify-content: center; align-items: center; gap: 12px; }
-  .kb-title .dot { width: 12px; height: 12px; }
-  .kb-status { margin: 0; font-size: 17px; color: var(--muted); display: flex; justify-content: center; align-items: center; gap: 10px; min-height: 34px; flex-wrap: wrap; }
-  .chip { display: inline-flex; align-items: center; gap: 9px; padding: 6px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; font-variant-numeric: tabular-nums; }
-  .chip.read { background: var(--read-soft); color: var(--read); }
-  .chip.listen { background: #2b2b2d; color: #fff; }
-  .chip .bars { display: inline-flex; gap: 2px; align-items: center; height: 14px; }
-  .chip .bars i { width: 2.5px; height: 14px; border-radius: 2px; background: currentColor; animation: dance 0.9s ease-in-out infinite; }
-  .chip .bars i:nth-child(2) { animation-delay: -0.3s; } .chip .bars i:nth-child(3) { animation-delay: -0.6s; } .chip .bars i:nth-child(4) { animation-delay: -0.15s; }
-  .chip .rec { width: 9px; height: 9px; border-radius: 50%; background: #ff453a; }
-
-  .kb { --g: 0.55cqi; --u: calc((100cqi + var(--g)) / 14.5 - var(--g)); container-type: inline-size; max-width: 900px; margin-inline: auto;
-    background: var(--deck); border-radius: 2.4cqi; padding: 1.6cqi; box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12); }
-  .kb-inner { container-type: inline-size; display: grid; gap: var(--g); }
-  .kb[data-mode="read"] { --hl: var(--read); }
-  .kb[data-mode="dictate"] { --hl: var(--listen); }
-  .row { display: flex; gap: var(--g); }
-  .k { --w: 1; flex: none; width: calc(var(--u) * var(--w) + var(--g) * (var(--w) - 1)); height: calc(var(--u) * 0.94); position: relative;
-    background: var(--key); color: var(--key-ink); border-radius: calc(var(--u) * 0.13); box-shadow: 0 0.18cqi 0 var(--key-edge), 0 0 0 0.5px var(--key-edge);
-    font: 500 2cqi/1 var(--font-text); display: flex; align-items: center; justify-content: center; user-select: none;
-    transition: transform 0.08s ease, background-color 0.12s ease, color 0.12s ease, box-shadow 0.12s ease; }
-  .row.fnrow .k { height: calc(var(--u) * 0.55); font-size: 1.15cqi; }
-  .k.word { font-size: 1.15cqi; align-items: flex-end; justify-content: flex-start; padding: 0 0 0.9cqi 1cqi; }
-  .k.word.right { justify-content: flex-end; padding: 0 1cqi 0.9cqi 0; }
-  .k.mod { font-size: 1.15cqi; flex-direction: column; align-items: flex-start; justify-content: space-between; padding: 0.9cqi 1cqi; }
-  .k.mod.right { align-items: flex-end; }
-  .k.mod .sym { font-size: 1.7cqi; align-self: flex-end; }
-  .k.mod.right .sym { align-self: flex-start; }
-  .k.space { font-size: 0; }
-  .arrows { flex: none; width: calc(var(--u) * 3 + var(--g) * 2); height: calc(var(--u) * 0.94); display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 1fr 1fr; column-gap: var(--g); row-gap: 0.2cqi; }
-  .arrows .k { width: auto; height: auto; font-size: 1.2cqi; }
-  .arrows .up { grid-column: 2; grid-row: 1; border-bottom-left-radius: 0.3cqi; border-bottom-right-radius: 0.3cqi; }
-  .arrows .lt { grid-column: 1; grid-row: 2; } .arrows .dn { grid-column: 2; grid-row: 2; } .arrows .rt { grid-column: 3; grid-row: 2; }
-  .k.lit { box-shadow: 0 0.18cqi 0 var(--key-edge), 0 0 0 0.3cqi color-mix(in srgb, var(--hl) 55%, transparent); color: var(--hl); }
-  .k.down { transform: translateY(0.25cqi); background: var(--hl); color: #fff; box-shadow: 0 0 0 0.3cqi color-mix(in srgb, var(--hl) 35%, transparent), 0 0 3cqi color-mix(in srgb, var(--hl) 55%, transparent); }
-  .kb-note { text-align: center; color: var(--muted); font-size: 14px; margin: 18px 0 0; }
-
-  .modes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px; }
+  /* The one key */
+  .modes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   @media (max-width: 720px) { .modes { grid-template-columns: 1fr; } }
-  .mode { appearance: none; text-align: left; font: inherit; color: inherit; cursor: pointer; border: 0; background: var(--bg); border-radius: 18px; padding: 22px 24px;
-    display: grid; gap: 10px; box-shadow: 0 0 0 1px transparent; transition: box-shadow 0.2s ease, background-color 0.2s ease; min-width: 0; }
-  .mode:hover { box-shadow: 0 0 0 1px var(--line); }
-  .mode[aria-pressed="true"][data-mode="read"] { box-shadow: 0 0 0 2px var(--read); }
-  .mode[aria-pressed="true"][data-mode="dictate"] { box-shadow: 0 0 0 2px var(--listen); }
+  .mode { background: var(--surface); border-radius: 28px; padding: clamp(24px, 4vw, 36px); box-shadow: 0 0 0 0.5px var(--line); display: grid; gap: 10px; align-content: start; min-width: 0; }
   .mode .combo { display: flex; gap: 6px; align-items: center; font-size: 20px; }
   .mode .combo kbd { font-size: 16px; }
-  .mode .desc { color: var(--muted); font-size: 16px; }
+  .mode .desc { margin: 0; color: var(--muted); font-size: 16px; }
 
   /* Two halves */
   .halves { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -343,27 +296,13 @@
   .facts b { color: var(--ink); font-weight: 600; }
   @media (max-width: 480px) { .facts li { grid-template-columns: 1fr; gap: 2px; } }
 
-  /* Private: a dark spec sheet */
+  /* Private */
   .night { background: var(--night); color: var(--night-ink); border-radius: 32px; padding: clamp(32px, 6vw, 72px); }
   .night h2 { font-size: clamp(34px, 5vw, 56px); line-height: 1.04; letter-spacing: -0.035em; margin: 0 0 16px; max-width: 760px; }
-  .night > p { margin: 0 0 44px; color: var(--night-muted); font-size: 19px; max-width: 640px; }
-  .specs { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  @media (max-width: 760px) { .specs { grid-template-columns: 1fr; } }
-  .spec { background: var(--night-surface); border-radius: 20px; padding: 26px 28px; min-width: 0; }
-  .spec .eyebrow.read { color: #409cff; }
-  .spec .eyebrow.listen { color: #ff6961; }
-  .spec h3 { margin: 8px 0 18px; font-size: 26px; letter-spacing: -0.02em; }
-  .spec dl { margin: 0; display: grid; grid-template-columns: auto 1fr; font-size: 15px; }
-  .spec dt, .spec dd { padding: 10px 0; border-top: 0.5px solid var(--night-line); margin: 0; }
-  .spec dt { color: var(--night-muted); padding-right: 20px; }
-  .spec dd { text-align: right; font-variant-numeric: tabular-nums; }
-  .promises { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 32px 0 0; padding: 0; list-style: none; color: var(--night-muted); font-size: 15px; }
+  .night > p { margin: 0 0 28px; color: var(--night-muted); font-size: 19px; max-width: 640px; }
+  .promises { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 0; padding: 0; list-style: none; color: var(--night-muted); font-size: 15px; }
   .promises li::before { content: "✓"; color: #30d158; font-weight: 700; margin-right: 8px; }
 
-  .apps { text-align: center; padding-block: 120px 0; }
-  .apps p { margin: 0 0 18px; color: var(--muted); font-size: 15px; }
-  .apps ul { list-style: none; margin: 0 auto; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 34px; max-width: 860px;
-    font: 600 clamp(20px, 2.6vw, 28px)/1.3 var(--font-display); letter-spacing: -0.02em; color: color-mix(in srgb, var(--ink) 30%, transparent); }
 
   /* Install + FAQ */
   .two-col { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; align-items: start; }
@@ -412,7 +351,7 @@
 <main>
   <div class="wrap hero">
     <h1><span>Reads to you<span class="p-read">.</span></span><span>Listens to you<span class="p-listen">.</span></span></h1>
-    <p class="lede">Aloud is a small Mac menu bar app. <b>Select any text</b> and it reads it to you in a natural voice. <b>Double-tap a key and talk</b>, and it types what you say into any app. Both run on your Mac, so nothing you read or say goes online.</p>
+    <p class="lede">Aloud is a small Mac menu bar app. <b>Select any text</b> and it reads it to you in a natural voice. <b>Tap a key and talk</b>, and it types what you say into any app. Both run on your Mac, so nothing you read or say goes online.</p>
     <a class="cta" href="/download">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0 4.5-4.5M12 15l-4.5-4.5M5 19h14"/></svg>
       Download for Mac
@@ -489,26 +428,19 @@
 
   <section class="wrap" id="keys">
     <div class="sec-head">
-      <h2>Two taps. That's it.</h2>
-      <p>Both Option keys do the work. Double-tap the left one to hear what you've selected, the right one to start talking. They work in every app.</p>
+      <h2>One key. That's it.</h2>
+      <p>The right Option key does the work. Double-tap it to hear what you've selected. Tap it once to start talking, and again when you're done. It works in every app.</p>
     </div>
-    <div class="kb-stage">
-      <div class="kb-label" aria-live="polite">
-        <p class="kb-title"><span class="dot read" id="kbDot"></span><span id="kbTitle">Read the selected text</span></p>
-        <p class="kb-status" id="kbStatus">Select text in any app, then double-tap <span class="nowrap"><kbd>left ⌥</kbd></span></p>
+    <div class="modes">
+      <div class="mode">
+        <span class="eyebrow read"><span class="dot read"></span>Read aloud</span>
+        <span class="combo"><kbd>right ⌥</kbd><kbd>right ⌥</kbd></span>
+        <p class="desc">Select text in any app, then double-tap the right Option key. The player takes it from there: pause with Space, the player or your AirPods.</p>
       </div>
-      <div class="kb" id="kb" data-mode="read"><div class="kb-inner" id="kbInner"></div></div>
-      <div class="modes">
-        <button type="button" class="mode" data-mode="read" aria-pressed="true">
-          <span class="eyebrow read"><span class="dot read"></span>Read aloud</span>
-          <span class="combo"><kbd>left ⌥</kbd><kbd>left ⌥</kbd></span>
-          <span class="desc">Select text in any app, then double-tap the left Option key. The player takes it from there: pause with Space, the player or your AirPods.</span>
-        </button>
-        <button type="button" class="mode" data-mode="dictate" aria-pressed="false">
-          <span class="eyebrow listen"><span class="dot listen"></span>Dictate</span>
-          <span class="combo"><kbd>right ⌥</kbd><kbd>right ⌥</kbd></span>
-          <span class="desc">Double-tap the right Option key, talk, then tap it once to finish. Or hold it while you talk. <kbd>⌃</kbd><kbd>⌥</kbd><kbd>esc</kbd> throws a recording away.</span>
-        </button>
+      <div class="mode">
+        <span class="eyebrow listen"><span class="dot listen"></span>Dictate</span>
+        <span class="combo"><kbd>right ⌥</kbd></span>
+        <p class="desc">Tap the right Option key, talk, then tap it again to finish. Or hold it while you talk. <kbd>⌘</kbd><kbd>esc</kbd> throws a recording away.</p>
       </div>
     </div>
   </section>
@@ -535,7 +467,7 @@
       <article class="half listen">
         <p class="eyebrow listen"><span class="dot listen"></span>Listens to you</p>
         <h2>Talk instead of typing.</h2>
-        <p>Click into any text field and double-tap the right Option key. Talk for ten seconds or ten minutes. Tap it once more and your words appear, punctuated, about a second later.</p>
+        <p>Click into any text field and tap the right Option key. Talk for ten seconds or ten minutes. Tap it again and your words appear, punctuated, about a second later.</p>
         <div class="shot">
           <div class="field">
             <div class="to">To: Sam Okafor</div>
@@ -544,9 +476,9 @@
           <img class="pillimg" src="assets/dictation-pill.png" width="320" height="56" alt="The dictation pill: a red recording dot, a live sound level and a timer">
         </div>
         <ul class="facts">
-          <li><b>Double-tap, then tap</b><span>Double-tap to start, one tap to finish. Or hold the key and let go when you're done</span></li>
+          <li><b>Tap, talk, tap</b><span>One tap to start, another to finish. Or hold the key and let go when you're done</span></li>
           <li><b>About 1 second</b><span>It transcribes while you talk, so even long dictation is ready right after you stop</span></li>
-          <li><b>Hard to lose</b><span>Only <kbd>⌃</kbd><kbd>⌥</kbd><kbd>esc</kbd> cancels, so a stray Esc can't throw away ten minutes of talking</span></li>
+          <li><b>Hard to lose</b><span>Only <kbd>⌘</kbd><kbd>esc</kbd> cancels, so a stray Esc can't throw away ten minutes of talking</span></li>
           <li><b>Any app</b><span>Mail, Slack, Notes, Messages, your browser, your code editor</span></li>
         </ul>
       </article>
@@ -557,29 +489,6 @@
     <div class="night">
       <h2>Nothing you read or say leaves your Mac.</h2>
       <p>Both models are stored on your Mac and run on its own chip. There's no account and no subscription, and it keeps working with Wi-Fi off.</p>
-      <div class="specs">
-        <div class="spec">
-          <p class="eyebrow read"><span class="dot read"></span>The voice</p>
-          <h3>Kokoro 82M</h3>
-          <dl>
-            <dt>Model size</dt><dd>82 million parameters</dd>
-            <dt>First words</dt><dd>about 0.5 seconds</dd>
-            <dt>Speed</dt><dd>2–4× real time on an M1 Max</dd>
-            <dt>Voices</dt><dd>14, American and British</dd>
-            <dt>Download</dt><dd>330 MB, once</dd>
-          </dl>
-        </div>
-        <div class="spec">
-          <p class="eyebrow listen"><span class="dot listen"></span>The ears</p>
-          <h3>NVIDIA Parakeet 0.6B</h3>
-          <dl>
-            <dt>Model size</dt><dd>600 million parameters</dd>
-            <dt>Text ready</dt><dd>about 1 second after you stop</dd>
-            <dt>Speed</dt><dd>20–30× real time</dd>
-            <dt>Download</dt><dd>460 MB, once</dd>
-          </dl>
-        </div>
-      </div>
       <ul class="promises">
         <li>Free, with no usage limit</li>
         <li>No account</li>
@@ -589,11 +498,6 @@
     </div>
   </section>
 
-  <div class="wrap apps">
-    <p>Works anywhere you can select or type text</p>
-    <ul><li>Safari</li><li>Chrome</li><li>Mail</li><li>Slack</li><li>Notes</li><li>Messages</li><li>PDFs</li><li>Google Docs</li><li>Notion</li><li>VS Code</li></ul>
-  </div>
-
   <section class="wrap" id="install">
     <div class="two-col">
       <div class="sec-head">
@@ -602,7 +506,7 @@
       </div>
       <ol class="steps">
         <li><div><strong>Download and open the disk image</strong><span><a href="/download">Download it here</a>, then drag Aloud into your Applications folder.</span></div></li>
-        <li><div><strong>Open Aloud from Applications</strong><span>macOS asks once whether to open an app from the internet; click Open. The bars appear in your menu bar, with a short welcome underneath. The voice (about 330 MB) downloads in the background, usually within a minute or two, then reading is ready.</span></div></li>
+        <li><div><strong>Open Aloud from Applications</strong><span>macOS asks once whether to open an app from the internet; click Open. The bars appear in your menu bar, with a short welcome underneath. The voice (about 355 MB) downloads in the background, usually within a minute or two, then reading is ready.</span></div></li>
         <li><div><strong>Allow Accessibility access</strong><span>Click Open Accessibility Settings and switch Aloud on. This lets it see the text you select and type what you dictate. It doesn't record your screen or keystrokes.</span></div></li>
         <li><div><strong>Allow the microphone the first time you dictate</strong><span>The 460 MB dictation model starts downloading shortly after first launch, so it's usually ready by then.</span></div></li>
       </ol>
@@ -619,10 +523,12 @@
         <details><summary>Is it really free?</summary><p>Yes. The voice and transcription models run on your own Mac, so there's no server to pay for and no usage limit. Aloud is open source.</p></details>
         <details><summary>Is anything I select or say sent to the internet?</summary><p>No. Text is turned into speech, and speech into text, on your Mac. Nothing is uploaded, and both work with Wi-Fi switched off once the voice and dictation models have downloaded.</p></details>
         <details><summary>Which Macs does it run on?</summary><p>Macs with Apple silicon (M1 or newer) running macOS 14 Sonoma or later. Intel Macs aren't supported because the voice would be too slow.</p></details>
+        <details><summary>Does it know tech words?</summary><p>Yes. It knows about 10,000 tech, design, engineering and business terms and says them the way people do, from nginx to Kubernetes. Dictation spells them right too: say “super base” and you get Supabase. If you'd rather dictation typed exactly what it heard, turn off Fix tech terms in dictation in Settings.</p></details>
+        <details><summary>Which languages can it read?</summary><p>English, in American and British voices. If a selection is all in another script, like Chinese, Japanese or Arabic, Aloud shows a message saying it reads English. In mixed text, the sentences in other scripts are skipped and the rest is read aloud. Other languages written in the Latin alphabet are read as if they were English. Dictation works in English only.</p></details>
         <details><summary>Can I choose which microphone and speakers it uses?</summary><p>Yes. In Settings, drag your speakers and microphones into the order you prefer, and Aloud uses the highest one that's connected, even if your Mac is set to something else. Handy with a display or headset that has its own mic and speakers. Until you set an order, it follows your Mac's Sound settings.</p></details>
-        <details><summary>Can I keep using another dictation app?</summary><p>Yes, but give them different keys. Aloud listens for a double-tap of the right ⌥ (Option) key by default. If your other app uses Option too, pick a different key for Aloud in Settings (right-click the menu bar icon → Settings…).</p></details>
+        <details><summary>Can I keep using another dictation app?</summary><p>Yes, but give them different keys. By default Aloud uses the right ⌥ (Option) key: tap it to dictate, double-tap it to read. If your other app uses that key too, pick a different key for Aloud in Settings (right-click the menu bar icon → Settings…).</p></details>
         <details><summary>Why does it need Accessibility and microphone access?</summary><p>macOS only lets apps read another app's selected text, notice the dictation key, and type into other apps through Accessibility. The microphone is used only while you're dictating.</p></details>
-        <details><summary>Can I change the shortcuts?</summary><p>Yes. Right-click the menu bar icon and choose Settings…. Click a shortcut, then press a key combination (like ⌃⌥R), tap a modifier key, or double-tap any modifier key on either side: ⌥, ⌘, ⌃, ⇧ or fn. Restore Defaults puts them back.</p></details>
+        <details><summary>Can I change the shortcuts?</summary><p>Yes. Right-click the menu bar icon and choose Settings…. There are four: Read selection, Start dictation, Finish dictation and Cancel dictation. Click one, then press a key combination, tap a modifier key, or double-tap any modifier key on either side: ⌥, ⌘, ⌃, ⇧ or fn. Finish follows Start until you set it yourself, and Cancel takes a key combination, so a stray tap can't throw a recording away. Restore Defaults puts them back.</p></details>
         <details><summary>How do I uninstall it?</summary><p>Right-click the menu bar icon, choose Quit, then drag Aloud from Applications to the Trash. To remove the downloaded voice and dictation models too, delete the ReadAloud folder in ~/Library/Application Support. To free up space but keep the app, remove either model in Settings; Aloud asks before downloading it again.</p></details>
         <details><summary>How do I get updates?</summary><p>Aloud checks once a day and lets you know with a notification when a new version is out; you can also choose Check for Updates… from the menu bar icon. If you have version 1.3 or earlier, download the latest once from this page.</p></details>
       </div>
@@ -636,14 +542,14 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0 4.5-4.5M12 15l-4.5-4.5M5 19h14"/></svg>
       Download for Mac
     </a>
-    <p class="meta">Free · Apple silicon · macOS 14 or later · 11 MB</p>
+    <p class="meta">Free · Apple silicon · macOS 14 or later · 20 MB</p>
   </div>
 </main>
 
 <footer>
   <div class="wrap">
     <span>Made by <a href="https://payamrajabi.co">Payam Rajabi</a>. <a href="https://github.com/payamrajabi/aloud">Source on GitHub</a>.</span>
-    <span>Voices by <a href="https://huggingface.co/hexgrad/Kokoro-82M">Kokoro</a>, dictation by <a href="https://huggingface.co/nvidia/parakeet-tdt-0.6b-v2">NVIDIA Parakeet</a>, running on <a href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a> and <a href="https://github.com/espeak-ng/espeak-ng">eSpeak NG</a>.</span>
+    <span>Voices by <a href="https://huggingface.co/hexgrad/Kokoro-82M">Kokoro</a> on <a href="https://onnxruntime.ai">ONNX Runtime</a>. Pronunciation from the <a href="https://github.com/hexgrad/misaki">misaki</a> dictionary, <a href="https://github.com/cmusphinx/cmudict">CMUdict</a> and the <a href="https://huggingface.co/cisco-ai/mini-bart-g2p">mini-bart</a> G2P model. Dictation by <a href="https://huggingface.co/nvidia/parakeet-tdt-0.6b-v2">NVIDIA Parakeet</a> on <a href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a>.</span>
   </div>
 </footer>
 
@@ -712,9 +618,9 @@
     hint("Select some text in any app…");
     await sleep(700); if (!alive(id)) return;
     for (const w of articleWords) { w.classList.add("sel"); await sleep(28); if (!alive(id)) return; }
-    hint("…then double-tap the left Option key.");
+    hint("…then double-tap the right Option key.");
     await sleep(300); if (!alive(id)) return;
-    await keys(id, ["<small>left</small>⌥", "<small>left</small>⌥"]); if (!alive(id)) return;
+    await keys(id, ["<small>right</small>⌥", "<small>right</small>⌥"]); if (!alive(id)) return;
     screen.classList.add("reading");
     pop.classList.remove("hide");
     for (let i = 0; i < 2; i++) {
@@ -737,9 +643,9 @@
     setTab("dictate");
     typed.textContent = "";
     pill.classList.add("hide"); pill.classList.remove("busy");
-    hint("Click where you want the words, then double-tap the right Option key…");
+    hint("Click where you want the words, then tap the right Option key…");
     await sleep(1300); if (!alive(id)) return;
-    await keys(id, ["<small>right</small>⌥", "<small>right</small>⌥"]); if (!alive(id)) return;
+    await keys(id, ["<small>right</small>⌥"]); if (!alive(id)) return;
     pill.classList.remove("hide");
     const ws = say("dictate", SPOKEN);
     const t0 = Date.now();
@@ -783,103 +689,6 @@
 
   tabs.forEach(t => t.addEventListener("click", () => still ? showStill(t.dataset.scene) : loop(t.dataset.scene)));
   if (still) showStill("read"); else setTimeout(() => loop("read"), 900);
-
-  /* ---------- Keyboard ---------- */
-  // [label, width in key units, kind, id]; rows add up to 14.5 units like a MacBook.
-  const F = Array.from({ length: 12 }, (_, i) => [`F${i + 1}`, 1, "word"]);
-  const letters = s => [...s].map(c => [c, 1]);
-  const ROWS = [
-    [["esc", 1.5, "word", "esc"], ...F, ["", 1]],
-    [...letters("`1234567890-="), ["delete", 1.5, "word right"]],
-    [["tab", 1.5, "word"], ...letters("QWERTYUIOP[]\\")],
-    [["caps lock", 1.8, "word"], ...letters("ASDFGHJKL;'"), ["return", 1.7, "word right"]],
-    [["shift", 2.3, "word"], ...letters("ZXCVBNM,./"), ["shift", 2.2, "word right"]],
-    [["fn", 1, "word"], ["control", 1, "mod", "ctrl", "⌃"], ["option", 1, "mod", "lopt", "⌥"], ["command", 1.25, "mod", "", "⌘"],
-     ["", 5, "space"], ["command", 1.25, "mod right", "", "⌘"], ["option", 1, "mod right", "ropt", "⌥"], "arrows"],
-  ];
-  const inner = $("kbInner");
-  inner.innerHTML = ROWS.map((row, r) => `<div class="row${r === 0 ? " fnrow" : ""}">` + row.map(k => {
-    if (k === "arrows") return `<div class="arrows"><span class="k up">▲</span><span class="k lt">◀</span><span class="k dn">▼</span><span class="k rt">▶</span></div>`;
-    const [label, w, kind = "", id = "", sym = ""] = k;
-    const idAttr = id ? ` data-k="${id}"` : label.length === 1 ? ` data-k="${label.toLowerCase()}"` : "";
-    const body = kind.startsWith("mod") ? `<span class="sym">${sym}</span><span>${label}</span>` : label;
-    return `<span class="k ${kind}" style="--w:${w}"${idAttr}>${body}</span>`;
-  }).join("") + `</div>`).join("");
-  inner.setAttribute("aria-hidden", "true");
-
-  const kb = $("kb"), kbTitle = $("kbTitle"), kbStatus = $("kbStatus"), kbDot = $("kbDot");
-  const modeBtns = [...document.querySelectorAll(".mode")];
-  const key = id => inner.querySelector(`[data-k="${id}"]`);
-  const COMBOS = { read: ["lopt"], dictate: ["ropt"] };
-  async function tap(id, k, times) {
-    const el = key(k);
-    for (let i = 0; i < times; i++) {
-      el.classList.add("down"); await sleep(120); el.classList.remove("down");
-      if (id !== kbRun) return false;
-      await sleep(140); if (id !== kbRun) return false;
-    }
-    return true;
-  }
-  let kbRun = 0;
-
-  function kbMode(mode) {
-    kb.dataset.mode = mode;
-    modeBtns.forEach(b => b.setAttribute("aria-pressed", String(b.dataset.mode === mode)));
-    kbDot.className = `dot ${mode === "read" ? "read" : "listen"}`;
-    inner.querySelectorAll(".k").forEach(k => k.classList.remove("lit", "down"));
-    COMBOS[mode].forEach(id => key(id).classList.add("lit"));
-  }
-  const status = html => { kbStatus.innerHTML = html; };
-  const BARS = `<span class="bars"><i></i><i></i><i></i><i></i></span>`;
-
-  async function kbRead(id) {
-    kbMode("read");
-    kbTitle.textContent = "Read the selected text";
-    status(`Select text in any app, then double-tap <span class="nowrap"><kbd>left ⌥</kbd></span>`);
-    await sleep(1200); if (id !== kbRun) return;
-    if (!await tap(id, "lopt", 2)) return;
-    status(`<span class="chip read">${BARS}Reading aloud</span> The player takes it from there.`);
-    await sleep(2800);
-  }
-  async function kbDictate(id) {
-    kbMode("dictate");
-    kbTitle.textContent = "Dictate into any app";
-    status(`Click where you want the words, then double-tap <span class="nowrap"><kbd>right ⌥</kbd></span>`);
-    await sleep(1300); if (id !== kbRun) return;
-    if (!await tap(id, "ropt", 2)) return;
-    for (let s = 0; s <= 3; s++) {
-      status(`<span class="chip listen"><i class="rec"></i>${BARS}0:0${s}</span> Talk as long as you like.`);
-      await sleep(900); if (id !== kbRun) return;
-    }
-    status(`Tap <span class="nowrap"><kbd>right ⌥</kbd></span> once when you're done`);
-    await sleep(700); if (id !== kbRun) return;
-    if (!await tap(id, "ropt", 1)) return;
-    status(`Your words appear where your cursor is, about a second later.`);
-    await sleep(2600);
-  }
-  async function kbLoop(first) {
-    const id = ++kbRun;
-    let mode = first;
-    while (id === kbRun) {
-      await (mode === "read" ? kbRead(id) : kbDictate(id));
-      mode = mode === "read" ? "dictate" : "read";
-    }
-  }
-  function kbStill(mode) {
-    kbRun++;
-    kbMode(mode);
-    if (mode === "read") { kbTitle.textContent = "Read the selected text"; status(`Select text in any app, then double-tap <span class="nowrap"><kbd>left ⌥</kbd></span>`); }
-    else { kbTitle.textContent = "Dictate into any app"; status(`Double-tap <span class="nowrap"><kbd>right ⌥</kbd></span>, talk, then tap it once`); }
-  }
-
-  kbStill("read");
-  modeBtns.forEach(b => b.addEventListener("click", () => still ? kbStill(b.dataset.mode) : kbLoop(b.dataset.mode)));
-  if (!still) {
-    const io = new IntersectionObserver(entries => {
-      if (entries.some(e => e.isIntersecting)) { io.disconnect(); kbLoop("read"); }
-    }, { threshold: 0.35 });
-    io.observe(kb);
-  }
 })();
 </script>
 </body>

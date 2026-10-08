@@ -6,6 +6,15 @@
     <description>Updates for Aloud</description>
     <language>en</language>
     <item>
+      <title>Aloud 1.6.0</title>
+      <pubDate>Thu, 08 Oct 2026 17:46:02 GMT</pubDate>
+      <sparkle:version>107</sparkle:version>
+      <sparkle:shortVersionString>1.6.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>A new voice that says 10,000 tech, design and business terms the way people do, and dictation that spells them right. One key does everything: tap right ⌥ to dictate, double-tap it to read, and a small on-screen pill shows what Aloud is doing.</p>]]></description>
+      <enclosure url="https://aloudformac.com/releases/v1.6.0/Aloud.dmg" length="19993598" type="application/octet-stream" sparkle:edSignature="I3WyIghwL2czZwHnv4sRnPsf8njtwBayTYle9+11D1UlMtUP3S+HvTGVHwxQauUS970x4fuzeAbdh5/73fWDDw=="/>
+    </item>
+    <item>
       <title>Aloud 1.5.0</title>
       <pubDate>Wed, 07 Oct 2026 18:28:05 GMT</pubDate>
       <sparkle:version>39</sparkle:version>

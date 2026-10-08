@@ -121,7 +121,7 @@ voice over first so it isn't downloaded again.
 ./scripts/release.sh 1.0.1
 ```
 
-This builds the app (about 17 MB, including the pronunciation data; the voice downloads on first launch), wraps it
+This builds the app (about 20 MB, including the pronunciation data; the voice downloads on first launch), wraps it
 in `Aloud.dmg`, notarizes it, publishes it as a release of the public
 [aloud-releases](https://github.com/payamrajabi/aloud-releases) repo, and adds it to
 `docs/appcast.xml`. Commit and push that file to `main` afterwards: it's the feed
