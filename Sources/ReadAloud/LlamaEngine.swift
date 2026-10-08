@@ -6,6 +6,10 @@ import llama
 /// so each request only pays for its own text.
 /// Not thread-safe: call it from a single serial queue.
 final class LlamaEngine {
+    struct LoadError: LocalizedError {
+        var errorDescription: String? { "The clean-up model failed to load." }
+    }
+
     private let model: OpaquePointer
     private let ctx: OpaquePointer
     private let vocab: OpaquePointer
@@ -19,7 +23,7 @@ final class LlamaEngine {
         Self.setUp()
         var mparams = llama_model_default_params()
         mparams.n_gpu_layers = 999
-        guard let model = llama_model_load_from_file(path, mparams) else { throw EngineError.loadFailed }
+        guard let model = llama_model_load_from_file(path, mparams) else { throw LoadError() }
         var cparams = llama_context_default_params()
         cparams.n_ctx = contextLength
         cparams.n_batch = UInt32(batchSize)
@@ -29,7 +33,7 @@ final class LlamaEngine {
         cparams.no_perf = true
         guard let ctx = llama_init_from_model(model, cparams) else {
             llama_model_free(model)
-            throw EngineError.loadFailed
+            throw LoadError()
         }
         self.model = model
         self.ctx = ctx
