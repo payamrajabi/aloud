@@ -1,0 +1,22 @@
+{
+  "about": "Dictation corrector checks against the app's own lexicons (Lexicons/), not a fixture: .build/debug/ReadAloud --test-dictation Tests/dictation/app-lexicon.json. regression.json checks must_change against its fixture only, so the tech talk that must still be fixed with the shipped lists lives here. A gated rewrite (sequel, jason, home brew) needs a tech hit within 12 words, before or after.",
+  "must_change": [
+    {"in": "Send the jason payload to the API.", "out": "Send the JSON payload to the API."},
+    {"in": "Use TypeScript types for the jason.", "out": "Use TypeScript types for the JSON."},
+    {"in": "The API returns jason, not XML.", "out": "The API returns JSON, not XML."},
+    {"in": "Run it with sue dough.", "out": "Run it with sudo."},
+    {"in": "Log in with oh auth.", "out": "Log in with OAuth."},
+    {"in": "Install it with home brew from GitHub.", "out": "Install it with Homebrew from GitHub."},
+    {"in": "Deploy the k8s cluster, then write the sequel.", "out": "Deploy the K8s cluster, then write the SQL."},
+    {"in": "Check the API, then we can all go for a walk and parse the jason.", "out": "Check the API, then we can all go for a walk and parse the JSON."},
+    {"in": "Write the sequel, then we can all go for a walk and push to GitHub.", "out": "Write the SQL, then we can all go for a walk and push to GitHub."},
+    {"in": "Parse the jason from the API. Later that evening we all sat down on the sofa together and watched the sequel with the kids.", "out": "Parse the JSON from the API. Later that evening we all sat down on the sofa together and watched the sequel with the kids."}
+  ],
+  "must_not_change": [
+    "I pushed the fix to GitHub this morning, then I took the dog for a long walk around the park because the weather was lovely and the leaves were turning, and later we all watched the sequel together.",
+    "We moved everything to Kubernetes last spring, but this weekend was all about family: my sister drove up from the coast with her kids, we cooked a huge breakfast, went down to the river, and my nephew jason caught his very first fish.",
+    "My brother still writes TypeScript for a living, though these days he spends most evenings in the garden, fixing up the old shed, feeding the chickens and talking to the neighbours, and every autumn he makes a batch of home brew for the whole street.",
+    "Check the API, then we can all go for a long walk and parse the jason.",
+    "Write the sequel, then we can all go for a long walk and push to GitHub."
+  ]
+}

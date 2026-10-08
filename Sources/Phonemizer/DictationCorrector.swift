@@ -19,11 +19,13 @@ import Foundation
 ///   - entries with `dictation: never`, entries without dictation fields, and units
 ///     (`unit: true`: "ms" and "GB" are for reading numbers, never written back);
 ///   - variants of `context` entries, variants listed in `spoken_context_only`, and the
-///     spelling of a `context` term itself ("asap" → ASAP), unless the same dictation
-///     also has an unambiguous tech hit: an `always` variant, an `always` term written as
-///     itself (GitHub, API, Kubernetes), or a `context` term spelled as no word or
-///     abbreviation is (Next.js, K8s). A hit that itself needed context never supplies it,
-///     and neither does an entry marked `evidence: false` (Netflix, iPhone, LOL);
+///     spelling of a `context` term itself ("asap" → ASAP), unless an unambiguous tech hit
+///     comes within 12 words of it, before or after, in the same dictation: an `always`
+///     variant, an `always` term written as itself (GitHub, API, Kubernetes), or a
+///     `context` term spelled as no word or abbreviation is (Next.js, K8s). One tech word
+///     at the start of a long message doesn't make "the sequel" thirty words on SQL. A hit
+///     that itself needed context never supplies it, and neither does an entry marked
+///     `evidence: false` (Netflix, iPhone, LOL);
 ///   - entries marked `caps_word` in a sentence written all in capitals ("I AM SO HAPPY");
 ///   - ordinary-word variants written with a capital ("Jason" is a person, "jason"
 ///     may be JSON), very common words ("next", "view") and ordinary phrases that
@@ -46,8 +48,14 @@ public final class DictationCorrector {
     public struct Result {
         public let text: String
         public let changes: [Change]
+        /// An unambiguous tech hit somewhere in the dictation. A gated change also needs one
+        /// within `contextReach` words of it.
         public let hasTechContext: Bool
     }
+
+    /// How far tech context reaches, in words either way: a gated rewrite needs an
+    /// unambiguous tech hit no more than this many words before or after it.
+    public static let contextReach = 12
 
     /// How one written form relates to one entry.
     struct Target {
@@ -322,14 +330,16 @@ public final class DictationCorrector {
         }
         guard !hits.isEmpty else { return Result(text: text, changes: [], hasTechContext: false) }
         let context = hits.contains { $0.evidence }
+        let near = context ? Self.nearEvidence(hits, s) : []
         var out = String.UnicodeScalarView()
         var changes: [Change] = []
         var last = 0
-        for h in hits {
+        for (k, h) in hits.enumerated() {
             guard let r = h.replacement, !s[h.start..<h.end].elementsEqual(r) else { continue }
-            let applied = !h.gated || context
+            let applied = !h.gated || (context && near[k])
+            let missing = applied ? "" : context ? ", but no tech context within \(Self.contextReach) words" : ", but no tech context"
             changes.append(Change(original: String(String.UnicodeScalarView(s[h.start..<h.end])), replacement: String(String.UnicodeScalarView(r)),
-                                  applied: applied, reason: reason(h.target) + (applied ? "" : ", but no tech context")))
+                                  applied: applied, reason: reason(h.target) + missing))
             guard applied else { continue }
             out.append(contentsOf: s[last..<h.start])
             out.append(contentsOf: r)
@@ -338,6 +348,37 @@ public final class DictationCorrector {
         guard last > 0 else { return Result(text: text, changes: changes, hasTechContext: context) }
         out.append(contentsOf: s[last...])
         return Result(text: String(out), changes: changes, hasTechContext: context)
+    }
+
+    /// For each hit, whether an evidence hit lies within `contextReach` words of it, before
+    /// or after (an evidence hit is near itself). Words are counted the way patterns match
+    /// them: any run of spaces, hyphens or dashes is a break ("16-year-old" is three).
+    private static func nearEvidence(_ hits: [Hit], _ s: [Unicode.Scalar]) -> [Bool] {
+        // The word each hit starts and ends in. Hits are in order and don't overlap, so
+        // one pass over the text numbers them all.
+        var firstWord = [Int](repeating: 0, count: hits.count), lastWord = firstWord
+        var words = 0, p = 0
+        func word(at q: Int) -> Int {
+            while p <= q {
+                if !isSeparator(s[p]), p == 0 || isSeparator(s[p - 1]) { words += 1 }
+                p += 1
+            }
+            return words
+        }
+        for (k, h) in hits.enumerated() {
+            firstWord[k] = word(at: h.start)
+            lastWord[k] = word(at: h.end - 1)
+        }
+        var near = hits.map(\.evidence)
+        var previous: Int?   // last word of the closest evidence hit before
+        for k in hits.indices {
+            if hits[k].evidence { previous = lastWord[k] } else if let w = previous, firstWord[k] - w <= contextReach { near[k] = true }
+        }
+        var following: Int?  // first word of the closest evidence hit after
+        for k in hits.indices.reversed() {
+            if hits[k].evidence { following = firstWord[k] } else if let w = following, w - lastWord[k] <= contextReach { near[k] = true }
+        }
+        return near
     }
 
     /// Where the pattern ends in the text, if it matches at `i`.
