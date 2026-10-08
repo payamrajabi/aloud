@@ -113,10 +113,6 @@ public struct LexiconPacks: Equatable {
     }
 
     public func isEnabled(_ pack: String) -> Bool { enabled.contains(pack) }
-
-    /// Whether the entry can take part at all: general entries always, pack-only entries
-    /// while their pack is on.
-    public func applies(to e: LexiconEntry) -> Bool { !e.isPackOnly || enabled.contains(e.pack) }
 }
 
 /// Every entry from a set of lexicon files, read once and shared by the reading side
