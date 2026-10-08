@@ -12,6 +12,11 @@ A small Mac menu-bar app that reads and writes for you, entirely on your Mac.
 for the player, with the text and a scrubbable timeline. Speech is generated
 locally by [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) on
 [ONNX Runtime](https://onnxruntime.ai), so it's free and works offline.
+- **Tech words:** about 10,000 tech, design, engineering and business terms are read
+  the way people say them, and dictation spells them right (say "super base", get
+  Supabase). Settings → Fix tech terms in dictation turns the dictation half off.
+- **English only:** Aloud reads English. Text in other scripts (Chinese, Japanese,
+  Arabic...) is skipped, with a message; dictation is English too.
 
 **Website and download:** https://aloudformac.com
 
@@ -26,8 +31,12 @@ locally by [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) on
 eSpeak NG) into `Vendor/sherpa-onnx-asr` (needs Xcode's command-line tools; it fetches
 cmake into a private venv if you don't have it), builds the pronunciation data into
 `Vendor/g2p` (`scripts/make-g2p-data.py`: misaki's gold lexicons, CMUdict and the
-mini-bart G2P model, pinned by checksum), and downloads the voice (355 MB) and the
-dictation model (460 MB). `INSTALL=0 ./scripts/build-app.sh` builds without installing.
+mini-bart G2P model), and downloads the voice (355 MB) and the dictation model (460 MB).
+The pronunciation data is reproducible: its inputs are pinned by checksum, the Python
+packages that quantise mini-bart are pinned to exact versions (with macOS's own Python
+3.9 by default; `PYTHON=...` picks another 3.9–3.12), and every output file must match
+the checksums in `make-g2p-data.py`, which `build-app.sh` checks again before bundling
+it. `INSTALL=0 ./scripts/build-app.sh` builds without installing.
 
 On first launch macOS asks for **Accessibility** access. It's needed to read
 the selected text from other apps (System Settings → Privacy & Security →
@@ -97,7 +106,7 @@ voice over first so it isn't downloaded again.
 ./scripts/release.sh 1.0.1
 ```
 
-This builds the app (about 16 MB, including the pronunciation data; the voice downloads on first launch), wraps it
+This builds the app (about 17 MB, including the pronunciation data; the voice downloads on first launch), wraps it
 in `Aloud.dmg`, notarizes it, publishes it as a release of the public
 [aloud-releases](https://github.com/payamrajabi/aloud-releases) repo, and adds it to
 `docs/appcast.xml`. Commit and push that file to `main` afterwards: it's the feed
@@ -125,9 +134,16 @@ The landing page lives in `docs/` and is served at https://aloudformac.com by Ve
 ## License
 
 MIT for this app's code. The download also bundles or fetches Kokoro, misaki's
-lexicons, CMUdict, mini-bart-g2p, ONNX Runtime, sherpa-onnx and Sparkle under their
-own licenses; see THIRD-PARTY-NOTICES.md. Nothing in it is GPL: eSpeak NG is gone as
-of this version (`scripts/check-no-espeak.sh build/Aloud.app` proves it).
+lexicons, CMUdict, mini-bart-g2p, ONNX Runtime, sherpa-onnx (with the libraries
+compiled into it: OpenFst, Kaldi's decoder and feature code, KISS FFT, Eigen and
+others) and Sparkle under their own licenses; see THIRD-PARTY-NOTICES.md. Their
+license texts ship inside the app (`Contents/Resources/licenses`); the ones for
+sherpa-onnx's libraries are kept in `licenses/`. Nothing in it is GPL: eSpeak NG is
+gone as of 1.6 (`scripts/check-no-espeak.sh build/Aloud.app` proves it).
+
+`build-app.sh` stops rather than package a bad app: if the compile fails, the
+pronunciation data doesn't match its checksums, a license THIRD-PARTY-NOTICES.md lists
+is missing, eSpeak NG turns up, or the app's binary contains a path from the build Mac.
 
 ## Pronunciations
 
