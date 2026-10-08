@@ -36,7 +36,15 @@ final class DictationController: ObservableObject {
     init(player: PlayerModel) {
         self.player = player
         recorder.onLevel = { [weak self] in self?.level = $0 }
-        shortcuts.onDictate = { [weak self] in self?.toggle() }
+        shortcuts.onDictate = { [weak self] in
+            switch self?.state {
+            case .idle, .message: self?.begin(pushToTalk: false)
+            default: break
+            }
+        }
+        shortcuts.onFinish = { [weak self] in
+            if self?.state == .recording { self?.finish() }
+        }
         shortcuts.isRecording = { [weak self] in self?.state == .recording }
         shortcuts.onHoldBegan = { [weak self] in self?.holdBegan() }
         shortcuts.onHoldEnded = { [weak self] in self?.holdEnded() }
@@ -77,7 +85,7 @@ final class DictationController: ObservableObject {
         set { shortcuts.onRead = newValue }
     }
 
-    /// "Double-tap right ⌥", for messages.
+    /// "Tap right ⌥", for messages.
     private static var dictateInstruction: String {
         ShortcutAction.dictate.binding?.instruction ?? "Choose Dictate in the menu bar menu"
     }

@@ -308,13 +308,21 @@ struct WelcomeView: View {
 
     private static var dictateText: String {
         let typed = "Your words are typed wherever your cursor is."
-        guard let binding = ShortcutAction.dictate.binding else {
+        guard let start = ShortcutAction.dictate.binding else {
             return "To dictate, choose Dictate from the menu bar icon. \(typed)"
         }
-        if let key = binding.modifierKey {
-            let finish = binding == .tap(key) ? "tap it again" : "tap it once"
-            return "To dictate, \(phrase(binding)), speak, and \(finish) to finish (or hold it while you talk). \(typed)"
+        let key = start.modifierKey, end = ShortcutAction.finishDictation.binding
+        let finish: String
+        if end == start {
+            finish = key == nil ? "press it again" : "tap it again"
+        } else if let key, end == .tap(key) {
+            finish = "tap it once"
+        } else if let end {
+            finish = phrase(end)
+        } else {
+            finish = "choose Dictate again from the menu bar icon"
         }
-        return "To dictate, \(phrase(binding)), speak, and press it again to finish. \(typed)"
+        let hold = key == nil ? "" : " (or hold it while you talk)"
+        return "To dictate, \(phrase(start)), speak, and \(finish) to finish\(hold). \(typed)"
     }
 }

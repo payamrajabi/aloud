@@ -2,9 +2,9 @@
 
 A small Mac menu-bar app that reads and writes for you, entirely on your Mac.
 
-- **Read aloud:** select text in any app, double-tap **left ⌥**, and it's read
+- **Read aloud:** select text in any app, double-tap **right ⌥**, and it's read
   aloud in the background.
-- **Dictation:** double-tap **right ⌥**, speak, tap it once more (or hold right ⌥ while you
+- **Dictation:** tap **right ⌥** once, speak, tap it again (or hold right ⌥ while you
   talk), and the words are typed into whatever app you're in. Transcription
   uses NVIDIA's Parakeet TDT 0.6B v2 model locally, about 20–30× faster than real time.
   While you talk, every 20–30 s of speech (cut at a pause) is transcribed in the
@@ -30,8 +30,8 @@ Accessibility → Aloud).
 
 | Action | How |
 |---|---|
-| Read selected text | Double-tap left ⌥ (change it in Settings) |
-| Pause / resume | Press the shortcut again, or space in the player |
+| Read selected text | Double-tap right ⌥ (change it in Settings) |
+| Pause / resume | Space in the player, the play/pause key, or AirPods |
 | Open the player | Click the menu bar icon |
 | Settings | Right-click the menu bar icon, or ⋯ in the player |
 | Scrub | Drag the timeline. The darker bar shows audio that's already generated |
@@ -40,7 +40,7 @@ Accessibility → Aloud).
 | Stop | ■ in the player |
 | AirPods / headphones | Press once to pause or resume, twice for the next sentence, three times for the previous one |
 | Keyboard media keys, Control Center | Play/pause, next/previous sentence, and scrubbing all work |
-| Dictate | Double-tap right ⌥ to start and tap it once to finish, or hold it while you speak. ⌃⌥Esc cancels. Change either in Settings |
+| Dictate | Tap right ⌥ to start and tap it again to finish, or hold it while you speak. ⌘Esc cancels. Start, finish and cancel each have their own shortcut in Settings. A single tap waits the double-click interval (about half a second) in case it's a double-tap to read |
 | Settings | Right-click the menu bar icon → Settings… (⌘,). Shortcuts can be a key combination, or a tap or double-tap of any modifier key (left/right ⌥ ⌘ ⌃ ⇧, or fn) |
 | Speakers and microphones | Settings lists every connected device. Drag them into order and Aloud uses the highest one that's connected, whatever macOS is set to. Until you do, it follows macOS |
 | Voice and dictation models | Both download on first launch. Settings shows their progress and lets you remove either one; Aloud then asks before downloading it again the next time you use it |
