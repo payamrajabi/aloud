@@ -233,15 +233,20 @@ final class KokoroEngine {
         phonemes.contains { $0.isLetter }
     }
 
-    /// The voices only speak English, so text whose letters are all in another script
-    /// (Chinese, Russian, Arabic…) would come out as silence. True when `text` has a Latin
-    /// letter, or no letters but Greek ones (π, λ and μ turn up in English) or none at all.
+    /// The voices only speak English, so text mostly in another script comes out as silence
+    /// (Chinese, Russian, Greek…) or, where a few Latin letters run into it ("我们用AI和GPU"),
+    /// as one made-up word. True when at least half of `text`'s letters are Latin, or it has
+    /// none (numbers, symbols): an English sentence with π or μs in it still reads.
     static func canRead(_ text: String) -> Bool {
         // Compatibility forms first: 𝐛𝐨𝐥𝐝 and ｗｉｄｅ letters are Latin underneath.
         let s = text.precomposedStringWithCompatibilityMapping
-        return s.range(of: "\\p{Script=Latin}", options: .regularExpression) != nil
-            || s.range(of: "[\\p{L}--[\\p{Script=Latin}\\p{Script=Greek}]]", options: .regularExpression) == nil
+        let all = NSRange(s.startIndex..., in: s)
+        let letters = anyLetter.numberOfMatches(in: s, range: all)
+        return letters == 0 || 2 * latinLetter.numberOfMatches(in: s, range: all) >= letters
     }
+
+    private static let anyLetter = try! NSRegularExpression(pattern: "\\p{L}")
+    private static let latinLetter = try! NSRegularExpression(pattern: "[\\p{L}&&\\p{Script=Latin}]")
 
     /// Synthesizes `text` and returns mono float samples at `sampleRate` (none if it has
     /// nothing speakable). Long pauses are shortened to a fifth, as sherpa-onnx did with

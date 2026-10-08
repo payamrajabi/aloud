@@ -33,18 +33,30 @@ enum ModelStore {
     /// Removes what interrupted downloads left behind: the hidden .download-, .unpack- and
     /// .migrate- items in the models folder, which no later attempt reuses and which can
     /// hold hundreds of MB if Aloud quit, crashed or was logged out of mid-download.
-    /// Skips anything a download in progress is using. Call on the main thread.
+    /// Skips anything a download in progress is using, and anything touched in the last
+    /// day: another copy of Aloud (one opened from the disk image, or a debug build) may be
+    /// downloading into the same folder, and its downloads keep their folders' modification
+    /// dates fresh (see ModelDownloader.keepFresh). Call on the main thread.
     static func removeAbandonedDownloads() {
         let fm = FileManager.default
         let dir = root
-        let abandoned = ((try? fm.contentsOfDirectory(atPath: dir.path)) ?? []).filter { name in
+        let candidates = ((try? fm.contentsOfDirectory(atPath: dir.path)) ?? []).filter { name in
             [".download-", ".unpack-", ".migrate-"].contains { name.hasPrefix($0) } && !ModelDownloader.inUse.contains(name)
         }
-        guard !abandoned.isEmpty else { return }
+        guard !candidates.isEmpty else { return }
+        let cutoff = Date().addingTimeInterval(-abandonedAfter)
         DispatchQueue.global(qos: .utility).async {
-            for name in abandoned { try? fm.removeItem(at: dir.appendingPathComponent(name)) }
+            for name in candidates {
+                let item = dir.appendingPathComponent(name)
+                guard let modified = (try? fm.attributesOfItem(atPath: item.path))?[.modificationDate] as? Date,
+                      modified < cutoff else { continue }
+                try? fm.removeItem(at: item)
+            }
         }
     }
+
+    /// How long a download's hidden item must sit untouched before it counts as abandoned.
+    static let abandonedAfter: TimeInterval = 24 * 60 * 60
 }
 
 /// Downloads a model into Application Support, reporting progress: either a tar.bz2
@@ -70,6 +82,7 @@ final class ModelDownloader: NSObject, URLSessionDownloadDelegate {
     private var staging: URL?
     private var bytesDone: Int64 = 0
     private var bytesTotal: Int64 = 0
+    private var stagingTouched = Date.distantPast
 
     var isRunning: Bool { session != nil }
 
@@ -107,6 +120,7 @@ final class ModelDownloader: NSObject, URLSessionDownloadDelegate {
         queue = files
         expected = files
         self.staging = staging
+        stagingTouched = Date()
         Self.inUse.insert(staging.lastPathComponent)
         bytesDone = 0
         bytesTotal = files.reduce(0) { $0 + $1.size }
@@ -117,7 +131,8 @@ final class ModelDownloader: NSObject, URLSessionDownloadDelegate {
 
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64,
                     totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
-        if staging != nil {
+        if let staging {
+            keepFresh(staging)
             guard bytesTotal > 0 else { return }
             onProgress?(min(1, Double(bytesDone + totalBytesWritten) / Double(bytesTotal)))
         } else if totalBytesExpectedToWrite > 0 {
@@ -172,6 +187,16 @@ final class ModelDownloader: NSObject, URLSessionDownloadDelegate {
                 self.finish(failure)
             }
         }
+    }
+
+    /// A file can take hours to arrive on a slow connection, and until it does nothing in
+    /// the staging folder changes. Bump the folder's modification date every few minutes
+    /// meanwhile, so another copy of Aloud never takes it for an abandoned download.
+    private func keepFresh(_ staging: URL) {
+        let now = Date()
+        guard now.timeIntervalSince(stagingTouched) > 300 else { return }
+        stagingTouched = now
+        try? FileManager.default.setAttributes([.modificationDate: now], ofItemAtPath: staging.path)
     }
 
     /// One of several files arrived: keep it and start the next, or, after the last,

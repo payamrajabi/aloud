@@ -27,10 +27,13 @@ voice_copy() {
 }
 say() { READALOUD_MODELS_DIR="$1" "$B" --say "$2" 2>&1; }
 # Opens the player on some text in a models folder, prints its trace, quits after $3 seconds.
+# (Braces matter: zsh reads "$3:q…" as $3 with its :q modifier, which made "2uit".) A run
+# the watchdog has to kill is noted in $TMP/killed, and fails the check at the end. The
+# watchdog's output goes nowhere, or its sleep would hold $(read_aloud …) open for 30 s.
 read_aloud() {
-  READALOUD_MODELS_DIR="$1" "$B" --read "$2" --mute --trace --script "$3:quit" >"$TMP/read.log" 2>&1 &
+  READALOUD_MODELS_DIR="$1" "$B" --read "$2" --mute --trace --script "${3}:quit" >"$TMP/read.log" 2>&1 &
   local pid=$!
-  ( sleep 30; kill $pid 2>/dev/null ) &
+  ( sleep 30; kill $pid 2>/dev/null && echo "$2" >>"$TMP/killed" ) >/dev/null 2>&1 &
   local watchdog=$!
   wait $pid
   kill $watchdog 2>/dev/null
@@ -40,9 +43,14 @@ voice_copy "$TMP/models"  # an intact voice, for the checks that read
 
 echo "RT-1 and RT-3: launch keeps the old voice files and clears abandoned downloads"
 K="$TMP/models/kokoro-multi-lang-v1_0"
-mkdir -p "$K/espeak-ng-data" "$TMP/models/.download-AAA" "$TMP/models/.unpack-BBB" "$TMP/models/.migrate-CCC"
+M="$TMP/models"
+mkdir -p "$K/espeak-ng-data" "$M/.download-AAA" "$M/.unpack-BBB" "$M/.migrate-CCC" "$M/.download-EEE" "$M/.unpack-FFF"
 touch "$K/espeak-ng-data/phontab" "$K/lexicon-us-en.txt" "$K/lexicon-zh.txt" \
-  "$TMP/models/.download-AAA/model.onnx" "$TMP/models/.download-DDD.tar.bz2" "$TMP/models/.unpack-BBB/x" "$TMP/models/.keep"
+  "$M/.download-AAA/model.onnx" "$M/.download-DDD.tar.bz2" "$M/.unpack-BBB/x" "$M/.keep" \
+  "$M/.download-EEE/model.onnx" "$M/.unpack-FFF/x" "$M/.download-GGG.tar.bz2"
+# AAA to DDD were left behind two days ago. EEE to GGG were touched just now, like the
+# download another copy of Aloud (opened from the disk image, say) is making right now.
+touch -t "$(date -v-2d +%Y%m%d%H%M)" "$M/.download-AAA" "$M/.download-DDD.tar.bz2" "$M/.unpack-BBB" "$M/.migrate-CCC"
 read_aloud "$TMP/models" "Hello." 2 >/dev/null
 check "eSpeak NG data and lexicons survive launch (Aloud 1.5 needs them)" \
   eval '[[ -e "$K/espeak-ng-data/phontab" && -e "$K/lexicon-us-en.txt" && -e "$K/lexicon-zh.txt" ]]'
@@ -51,7 +59,9 @@ check "eSpeak NG data and lexicons survive launch (Aloud 1.5 needs them)" \
 check "only --tidy-voice removes them" \
   eval '[[ "$(grep -rl "removeUnusedFiles()" Sources/ReadAloud | grep -v KokoroEngine.swift)" == "Sources/ReadAloud/DebugScript.swift" ]]'
 check "abandoned .download-, .unpack- and .migrate- items are gone" \
-  eval '[[ -z "$(ls -A "$TMP/models" | grep -E "^\.(download|unpack|migrate)-")" ]]'
+  eval '[[ ! -e "$M/.download-AAA" && ! -e "$M/.download-DDD.tar.bz2" && ! -e "$M/.unpack-BBB" && ! -e "$M/.migrate-CCC" ]]'
+check "a download in progress elsewhere (touched in the last day) is left alone" \
+  eval '[[ -f "$M/.download-EEE/model.onnx" && -f "$M/.unpack-FFF/x" && -f "$M/.download-GGG.tar.bz2" ]]'
 check "nothing else in the models folder is touched" eval '[[ -e "$TMP/models/.keep" && -f "$K/model.onnx" ]]'
 READALOUD_MODELS_DIR="$TMP/models" "$B" --tidy-voice
 check "--tidy-voice still removes them by hand" eval '[[ ! -e "$K/espeak-ng-data" && ! -e "$K/lexicon-us-en.txt" && -f "$K/voices.bin" ]]'
@@ -78,14 +88,47 @@ NOT_ENGLISH="Aloud reads English text, and this selection isn't in English."
 out=$(say "$TMP/models" "Привет, как дела?")
 check "Russian makes no near-silent audio from its punctuation" eval '[[ "$out" == *"0.00s audio"* ]]'
 check "Chinese: the player says it reads English" eval 'read_aloud "$TMP/models" "我们今天去公园散步。天气很好。" 2 | grep -qF "$NOT_ENGLISH"'
-check "Greek (no phonemes at all): the same message once nothing could be said" \
-  eval 'read_aloud "$TMP/models" "Καλημέρα κόσμε. Τι κάνεις;" 3 | grep -qF "$NOT_ENGLISH"'
+# Greek used to start a session that played nothing, and only then show the message, so a
+# shortcut read (which opens the player only for a message it has at once) stayed silent.
+check "Greek (no phonemes at all): the same message, before any session starts" \
+  eval 'log=$(read_aloud "$TMP/models" "Καλημέρα κόσμε. Τι κάνεις;" 2); [[ "$log" == *"$NOT_ENGLISH"* && "$log" != *"sentence 1/2"* ]]'
 check "mixed text reads the English and skips the Chinese sentence" \
   eval 'log=$(read_aloud "$TMP/models" "Tokyo is big. 东京是日本的首都。 It is old." 3); [[ "$log" == *"sentence 1/2"* && "$log" != *"$NOT_ENGLISH"* ]]'
+# A sentence counts as English when at least half its letters are Latin. Fewer, and the
+# phonemizer runs the English into the rest as one made-up word ("用AI" came out /tˈI/).
+check "Chinese with a few English terms is skipped like Chinese, so the whole selection gets the message" \
+  eval 'log=$(read_aloud "$TMP/models" "我们用AI和GPU训练模型。今天天气很好。我们去公园散步。" 2); [[ "$log" == *"$NOT_ENGLISH"* && "$log" != *"sentence 1/1"* ]]'
+check "the same for Japanese with an English name" \
+  eval 'read_aloud "$TMP/models" "今日はiPhoneを買いました。" 2 | grep -qF "$NOT_ENGLISH"'
+check "Greek symbols in English sentences (π, μs) still read" \
+  eval 'log=$(read_aloud "$TMP/models" "The value of π is about 3.14. Latency is 5 μs." 2); [[ "$log" == *"sentence 1/2"* && "$log" != *"$NOT_ENGLISH"* ]]'
+check "an English sentence after mostly Chinese text is still read, with no message" \
+  eval 'log=$(read_aloud "$TMP/models" "我们今天去公园散步。天气很好。 It is a nice day." 2); [[ "$log" == *"sentence 1/1"* && "$log" != *"$NOT_ENGLISH"* ]]'
 
 echo "PKG-4: no build-machine paths in the binary; lexicons still found from a checkout"
-check "no path into Sources/ReadAloud is compiled in" eval '! strings -a "$B" | grep -q "/Sources/ReadAloud/"'
+# build-app.sh strips the linker's debug map and drops the checkout's library path before
+# signing. Do the same to a copy, then read every byte: strings -a only scans sections, so
+# it can't see the debug map's object-file paths (/Users/<name>/…/KokoroEngine.swift.o).
+cp "$B" "$TMP/ReadAloud"
+strip -S "$TMP/ReadAloud"
+install_name_tool -delete_rpath "$PWD/Vendor/sherpa-onnx-asr/lib" "$TMP/ReadAloud" 2>/dev/null
+check "no path into Sources/ReadAloud is compiled in" eval '! LC_ALL=C grep -aqF "/Sources/ReadAloud/" "$TMP/ReadAloud"'
+check "nor any other path from this Mac, once stripped as build-app.sh does" \
+  eval '! LC_ALL=C grep -aqF -e "$PWD/" -e "$HOME/" "$TMP/ReadAloud"'
+check "build-app.sh strips before it signs, and its leak checks read raw bytes" \
+  eval '(( $(grep -n "^strip -S" scripts/build-app.sh | cut -d: -f1) < $(grep -n "^codesign" scripts/build-app.sh | head -1 | cut -d: -f1) )) && ! grep -qE "^[^#]*strings -a" scripts/build-app.sh'
 check "dictation still uses the checkout's Lexicons/" eval '"$B" --correct-dictation "push it to git hub" | grep -q "GitHub"'
+
+echo "Download size: the website and README quote the one release.sh measures"
+# release.sh puts the disk image's size in the release notes and says when these two differ
+# from it; here they only have to agree with each other (20 MB since llama.cpp came in).
+site=$(grep -oE '· [0-9]+ MB</p>' docs/index.html | grep -oE '[0-9]+')
+readme=$(grep -oE 'This builds the app \(about [0-9]+ MB' README.md | grep -oE '[0-9]+')
+check "docs/index.html ($site MB) and README.md ($readme MB) agree" eval '[[ -n "$site" && "$site" == "$readme" ]]'
+check "release.sh reminds you when they differ from the disk image" eval 'grep -qF "change both to \$SIZE MB" scripts/release.sh'
+
+echo "Test harness"
+check "every scripted run quit on cue, not at the 30 s watchdog" eval '[[ ! -s "$TMP/killed" ]]'
 
 echo
 if (( fail == 0 )); then echo "PASSED"; else echo "FAILED"; fi
