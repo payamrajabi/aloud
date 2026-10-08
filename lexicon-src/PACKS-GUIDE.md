@@ -95,6 +95,12 @@ As in `GUIDE.md`. `spoken_variants` are lowercase strings the dictation engine i
 someone says the term. `dictation` is `always` (no variant is an ordinary word or phrase), `context`
 (some variant is: rewrite only when the dictation is clearly about *this field*), or `never`
 (pronunciation only). A `pack_only` term is at least `context`.
+- `spoken_context_only` (optional): the variants that are ordinary words, gated one by one.
+- `spoken_exclude` (optional): transcriptions a reviewer rejected. The merge ships `spoken_variants` minus these and
+  never adds round-trip transcriptions on its own, so fold the good ones into `spoken_variants` yourself.
+
+The merge (`tools/merge_pack.py`) also drops an entry that changes nothing: the stack already reads it right, it has no
+spoken variants and it isn't evidence for the field.
 
 ## Conflicts
 When your field reads a spelling differently from the tech lexicon, Core or another pack, add an
