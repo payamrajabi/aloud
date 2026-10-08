@@ -21,8 +21,9 @@ locally by [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) on
 - **Tech words:** about 10,000 tech, design, engineering and business terms are read
   the way people say them, and dictation spells them right (say "super base", get
   Supabase). Settings → Fix tech terms in dictation turns the dictation half off.
-- **English only:** Aloud reads English. Text in other scripts (Chinese, Japanese,
-  Arabic...) is skipped, with a message; dictation is English too.
+- **English only:** Aloud reads English. A selection entirely in another script
+  (Chinese, Japanese, Arabic...) shows a message saying so; in mixed text, sentences in
+  other scripts are skipped and the rest is read. Dictation is English too.
 
 **Website and download:** https://aloudformac.com
 
@@ -120,7 +121,7 @@ voice over first so it isn't downloaded again.
 ./scripts/release.sh 1.0.1
 ```
 
-This builds the app (about 20 MB, including the pronunciation data; the voice downloads on first launch), wraps it
+This builds the app (about 17 MB, including the pronunciation data; the voice downloads on first launch), wraps it
 in `Aloud.dmg`, notarizes it, publishes it as a release of the public
 [aloud-releases](https://github.com/payamrajabi/aloud-releases) repo, and adds it to
 `docs/appcast.xml`. Commit and push that file to `main` afterwards: it's the feed
