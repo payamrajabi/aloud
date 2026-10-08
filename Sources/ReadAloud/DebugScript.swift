@@ -21,6 +21,8 @@ import CSherpaOnnx
 ///   --no-paste                                          print what dictation would type instead of typing it
 ///   --dead-mic                                          drop all microphone audio (dictation should give up and say so)
 ///   --slow-mic-setup                                    make the microphone's background setup take 15 s longer
+///   --check-license KEY                                 check a license or activation link and exit
+///   ALOUD_TRIAL_START=2026-10-01                        pretend the free trial started then
 ///   READALOUD_MODELS_DIR=/some/folder                   use a different models folder (test fresh installs)
 ///   --script "2:seek=30;4:pause;5:play;8:open;9:snapshot=/tmp/p.png;10:quit"
 enum DebugScript {
@@ -58,6 +60,12 @@ enum DebugScript {
     /// Synthesis benchmark that runs before the app starts.
     static func runCommandLineIfNeeded() {
         if args.contains("--test-gestures") { exit(testGestures() ? 0 : 1) }
+        if let key = value("--check-license") {
+            // Checks a license (or activation link) against the built-in public key, without storing it.
+            let license = Licensing.verify(Licensing.extractKey(from: key))
+            print(license.map { "valid: \($0.email) (\($0.id))" } ?? "invalid")
+            exit(license == nil ? 1 : 0)
+        }
         if let path = value("--transcribe") {
             do {
                 var t0 = Date()
@@ -353,6 +361,9 @@ enum DebugScript {
                 try? capture.run()
             }
         case "settings": app.showSettings()
+        case "license":  // license=KEY (or an activation link) stores it; license= removes it
+            if arg.isEmpty { Licensing.shared.removeLicense() } else { Licensing.shared.activate(arg) }
+            print("   license: \(Licensing.shared.status)")
         case "cleanupdownload": app.dictationController.downloadCleanupModel()  // with --trace, prints when it's done
         case "settingsshot":
             // Forms don't draw into cached bitmaps, so capture the window from the screen.
@@ -364,8 +375,9 @@ enum DebugScript {
                 capture.waitUntilExit()
                 print("snapshot saved to \(arg)")
             }
-        case "promptshot":  // the "download again?" question, shown without waiting for an answer
-            let alert = DownloadPrompt.alert(model: "dictation", size: "480 MB", feature: "Dictation")
+        case "promptshot", "expiredshot":  // the "download again?" or "free week is over" question, without waiting for an answer
+            let alert = kv[0] == "expiredshot" ? Licensing.expiredAlert()
+                : DownloadPrompt.alert(model: "dictation", size: "480 MB", feature: "Dictation")
             alert.layout()
             alert.window.center()
             alert.window.orderFrontRegardless()

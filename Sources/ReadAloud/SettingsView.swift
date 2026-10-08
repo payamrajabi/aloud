@@ -63,11 +63,14 @@ struct SettingsView: View {
     @ObservedObject var monitor: ShortcutMonitor
     @ObservedObject var recorder: ShortcutRecorder
     @ObservedObject private var devices = AudioDevices.shared
+    @ObservedObject private var licensing = Licensing.shared
     @State private var shortcutsVersion = 0  // bumps when shortcuts change, to redraw the fields
     @AppStorage(DictationController.fixTechTermsKey) private var fixTechTerms = true
 
     var body: some View {
         Form {
+            LicenseSection(licensing: licensing)
+
             Section {
                 ForEach(ShortcutAction.allCases) { action in
                     ShortcutRow(action: action, recorder: recorder, unavailable: monitor.unavailable.contains(action))
@@ -134,6 +137,79 @@ struct SettingsView: View {
         .frame(width: 500)
         .frame(minHeight: 420)
         .onReceive(NotificationCenter.default.publisher(for: .shortcutsChanged)) { _ in shortcutsVersion += 1 }
+    }
+}
+
+// MARK: - License
+
+private struct LicenseSection: View {
+    @ObservedObject var licensing: Licensing
+
+    var body: some View {
+        Section {
+            HStack(spacing: 10) {
+                Image(systemName: symbol.name)
+                    .font(.system(size: 14))
+                    .foregroundStyle(symbol.color)
+                    .frame(width: 22)
+                VStack(alignment: .leading, spacing: 1) {
+                    Text(title)
+                    if let detail { Text(detail).font(.caption).foregroundStyle(.secondary) }
+                }
+                Spacer()
+                if !isUnlockedForGood {
+                    Button("Enter License…") { licensing.promptForLicense() }
+                    Button("Buy Aloud…") { licensing.buy() }
+                        .keyboardShortcut(.defaultAction)
+                }
+            }
+            .padding(.vertical, 2)
+        } header: {
+            Text("License")
+        } footer: {
+            if !isUnlockedForGood {
+                HStack(spacing: 4) {
+                    Text("One-time purchase, no subscription. Works on all your Macs.")
+                    Button("Find my license") { licensing.restore() }.buttonStyle(.link)
+                }
+                .foregroundStyle(.secondary)
+                .font(.caption)
+            }
+        }
+        .onAppear { licensing.refresh() }
+    }
+
+    private var isUnlockedForGood: Bool {
+        switch licensing.status {
+        case .licensed, .earlyUser: return true
+        case .trial, .expired: return false
+        }
+    }
+
+    private var title: String {
+        switch licensing.status {
+        case .licensed: return "Aloud is yours"
+        case .earlyUser: return "Free for you, for good"
+        case .trial(let days): return "Free trial: \(days) \(days == 1 ? "day" : "days") left"
+        case .expired: return "Your free week is over"
+        }
+    }
+
+    private var detail: String? {
+        switch licensing.status {
+        case .licensed(let email): return "Licensed to \(email)"
+        case .earlyUser: return "Thanks for using Aloud early."
+        case .trial: return "Everything works until then."
+        case .expired: return "Buy Aloud to keep reading and dictating."
+        }
+    }
+
+    private var symbol: (name: String, color: Color) {
+        switch licensing.status {
+        case .licensed, .earlyUser: return ("checkmark.seal.fill", .green)
+        case .trial: return ("clock", .secondary)
+        case .expired: return ("exclamationmark.circle", .orange)
+        }
     }
 }
 
