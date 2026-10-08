@@ -9,7 +9,6 @@
 #   4. llama.cpp, which runs the optional dictation clean-up model (for building)
 set -euo pipefail
 
-LLAMA_VERSION="b11138"
 ASR_MODEL="sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8"
 VOICE_DIR_NAME="kokoro-multi-lang-v1_0"
 VOICE_BASE="https://huggingface.co/csukuangfj/kokoro-multi-lang-v1_0/resolve/f7b96bb6bef5c5da4d3aa4f4e0498fbbf62dc78b"
@@ -39,19 +38,30 @@ python3 "$ROOT/scripts/make-g2p-data.py" --verify "$ROOT/Vendor/g2p" >/dev/null
 echo "Pronunciation data: ready"
 
 # llama.cpp runs the small language model that tidies dictation (Metal, built in).
+# The release is pinned by checksum (scripts/llama-pin.sh): the download is checked
+# before it's unpacked, and the unpacked library on every run.
+source "$ROOT/scripts/llama-pin.sh"
 LLAMA="$ROOT/Vendor/llama.xcframework"
 if [[ ! -f "$LLAMA/.version-$LLAMA_VERSION" ]]; then
   echo "Downloading llama.cpp $LLAMA_VERSION (about 58 MB)..."
   tmp=$(mktemp -d)
-  curl -fL --progress-bar -o "$tmp/llama.zip" \
-    "https://github.com/ggml-org/llama.cpp/releases/download/${LLAMA_VERSION}/llama-${LLAMA_VERSION}-xcframework.zip"
+  curl -fL --progress-bar -o "$tmp/llama.zip" "$LLAMA_URL"
+  got=$(shasum -a 256 "$tmp/llama.zip" | cut -d' ' -f1)
+  if [[ "$got" != "$LLAMA_ZIP_SHA256" ]]; then
+    echo "The llama.cpp $LLAMA_VERSION download doesn't match its pinned checksum"
+    echo "  expected sha256 $LLAMA_ZIP_SHA256"
+    echo "  found           $got"
+    rm -rf "$tmp"
+    exit 1
+  fi
   ditto -x -k "$tmp/llama.zip" "$tmp"
   rm -rf "$LLAMA"
   ditto "$tmp/build-apple/llama.xcframework" "$LLAMA"
   touch "$LLAMA/.version-$LLAMA_VERSION"
   rm -rf "$tmp"
 fi
-echo "llama.cpp library: ready"
+verify_llama "$LLAMA" || exit 1
+echo "llama.cpp library: ready (matches its pinned checksum)"
 
 # The voice: the model, the voice styles and the symbol table (about 355 MB), the same
 # files the app fetches. (Not sherpa-onnx's tar archive, which also carries eSpeak NG's data.)

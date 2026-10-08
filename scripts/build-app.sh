@@ -12,6 +12,10 @@ set -euo pipefail
 ROOT="${0:A:h:h}"
 cd "$ROOT"
 [[ -f Vendor/sherpa-onnx-asr/lib/libsherpa-onnx-c-api.dylib && -f Vendor/g2p/manifest.json && -d Vendor/llama.xcframework ]] || ./scripts/setup.sh
+# Only build against (and ship) the llama.cpp release pinned in scripts/llama-pin.sh.
+source scripts/llama-pin.sh
+verify_llama Vendor/llama.xcframework || exit 1
+echo "llama.cpp: Vendor/llama.xcframework matches its pinned checksum"
 
 APP_NAME="Aloud"
 FEED_URL="${FEED_URL:-https://aloudformac.com/appcast.xml}"
