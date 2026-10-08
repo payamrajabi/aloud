@@ -54,6 +54,8 @@ fi
 cp build/AppIcon.icns "$APP/Contents/Resources/AppIcon.icns"
 cp LICENSE THIRD-PARTY-NOTICES.md "$APP/Contents/Resources/"
 # Pronunciation data (misaki gold lexicons, CMUdict, mini-bart G2P) and hand-written lexicons.
+# Only ship the exact files make-g2p-data.py pins by checksum.
+python3 scripts/make-g2p-data.py --verify Vendor/g2p
 rsync -a --exclude manifest.json Vendor/g2p/ "$APP/Contents/Resources/g2p/"
 cp Vendor/g2p/manifest.json "$APP/Contents/Resources/g2p/"
 mkdir -p "$APP/Contents/Resources/lexicons" "$APP/Contents/Resources/licenses"
