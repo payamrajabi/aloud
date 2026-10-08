@@ -43,9 +43,14 @@ voice_copy "$TMP/models"  # an intact voice, for the checks that read
 
 echo "RT-1 and RT-3: launch keeps the old voice files and clears abandoned downloads"
 K="$TMP/models/kokoro-multi-lang-v1_0"
-mkdir -p "$K/espeak-ng-data" "$TMP/models/.download-AAA" "$TMP/models/.unpack-BBB" "$TMP/models/.migrate-CCC"
+M="$TMP/models"
+mkdir -p "$K/espeak-ng-data" "$M/.download-AAA" "$M/.unpack-BBB" "$M/.migrate-CCC" "$M/.download-EEE" "$M/.unpack-FFF"
 touch "$K/espeak-ng-data/phontab" "$K/lexicon-us-en.txt" "$K/lexicon-zh.txt" \
-  "$TMP/models/.download-AAA/model.onnx" "$TMP/models/.download-DDD.tar.bz2" "$TMP/models/.unpack-BBB/x" "$TMP/models/.keep"
+  "$M/.download-AAA/model.onnx" "$M/.download-DDD.tar.bz2" "$M/.unpack-BBB/x" "$M/.keep" \
+  "$M/.download-EEE/model.onnx" "$M/.unpack-FFF/x" "$M/.download-GGG.tar.bz2"
+# AAA to DDD were left behind two days ago. EEE to GGG were touched just now, like the
+# download another copy of Aloud (opened from the disk image, say) is making right now.
+touch -t "$(date -v-2d +%Y%m%d%H%M)" "$M/.download-AAA" "$M/.download-DDD.tar.bz2" "$M/.unpack-BBB" "$M/.migrate-CCC"
 read_aloud "$TMP/models" "Hello." 2 >/dev/null
 check "eSpeak NG data and lexicons survive launch (Aloud 1.5 needs them)" \
   eval '[[ -e "$K/espeak-ng-data/phontab" && -e "$K/lexicon-us-en.txt" && -e "$K/lexicon-zh.txt" ]]'
@@ -54,7 +59,9 @@ check "eSpeak NG data and lexicons survive launch (Aloud 1.5 needs them)" \
 check "only --tidy-voice removes them" \
   eval '[[ "$(grep -rl "removeUnusedFiles()" Sources/ReadAloud | grep -v KokoroEngine.swift)" == "Sources/ReadAloud/DebugScript.swift" ]]'
 check "abandoned .download-, .unpack- and .migrate- items are gone" \
-  eval '[[ -z "$(ls -A "$TMP/models" | grep -E "^\.(download|unpack|migrate)-")" ]]'
+  eval '[[ ! -e "$M/.download-AAA" && ! -e "$M/.download-DDD.tar.bz2" && ! -e "$M/.unpack-BBB" && ! -e "$M/.migrate-CCC" ]]'
+check "a download in progress elsewhere (touched in the last day) is left alone" \
+  eval '[[ -f "$M/.download-EEE/model.onnx" && -f "$M/.unpack-FFF/x" && -f "$M/.download-GGG.tar.bz2" ]]'
 check "nothing else in the models folder is touched" eval '[[ -e "$TMP/models/.keep" && -f "$K/model.onnx" ]]'
 READALOUD_MODELS_DIR="$TMP/models" "$B" --tidy-voice
 check "--tidy-voice still removes them by hand" eval '[[ ! -e "$K/espeak-ng-data" && ! -e "$K/lexicon-us-en.txt" && -f "$K/voices.bin" ]]'
