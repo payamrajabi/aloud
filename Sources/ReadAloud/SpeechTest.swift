@@ -73,16 +73,14 @@ enum SpeechTest {
             set = LexiconFiles.shared
             for p in set.problems { print("lexicon problem: \(p)") }
         }
-        // The shipped phonemizer for each set of packs a case asks for.
-        var made: [String: [Bool: Phonemizer]] = [:]
+        // The shipped phonemizers, switched to the packs each case asks for. One lexicon is
+        // switched rather than one built per set, so the cases also check that switching
+        // packs takes effect (pack-readings.json goes back and forth).
+        let custom = CustomLexicon(set, packs: LexiconFiles.packs)
+        let shipped = [false: Phonemizer(british: false, data: data, custom: custom), true: Phonemizer(british: true, data: data, custom: custom)]
         func phonemizer(_ names: [String]?, british: Bool) -> Phonemizer {
-            let packs = names.map { LexiconPacks($0) } ?? LexiconFiles.packs
-            let key = packs.enabled.sorted().joined(separator: ",")
-            if let p = made[key] { return p[british]! }
-            let custom = CustomLexicon(set, packs: packs)
-            let p = [false: Phonemizer(british: false, data: data, custom: custom), true: Phonemizer(british: true, data: data, custom: custom)]
-            made[key] = p
-            return p[british]!
+            custom.setEnabledPacks(names.map { LexiconPacks($0) } ?? LexiconFiles.packs)
+            return shipped[british]!
         }
         func packsNote(_ packs: [String]?) -> String {
             packs.map { $0.isEmpty ? " [no packs]" : " [packs: \($0.joined(separator: ", "))]" } ?? ""
