@@ -83,6 +83,10 @@ check "Greek (no phonemes at all): the same message once nothing could be said" 
 check "mixed text reads the English and skips the Chinese sentence" \
   eval 'log=$(read_aloud "$TMP/models" "Tokyo is big. 东京是日本的首都。 It is old." 3); [[ "$log" == *"sentence 1/2"* && "$log" != *"$NOT_ENGLISH"* ]]'
 
+echo "PKG-4: no build-machine paths in the binary; lexicons still found from a checkout"
+check "no path into Sources/ReadAloud is compiled in" eval '! strings -a "$B" | grep -q "/Sources/ReadAloud/"'
+check "dictation still uses the checkout's Lexicons/" eval '"$B" --correct-dictation "push it to git hub" | grep -q "GitHub"'
+
 echo
 if (( fail == 0 )); then echo "PASSED"; else echo "FAILED"; fi
 exit $fail

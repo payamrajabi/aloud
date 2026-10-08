@@ -345,12 +345,27 @@ enum LexiconFiles {
         if let bundled = Bundle.main.resourceURL?.appendingPathComponent("lexicons"),
            FileManager.default.fileExists(atPath: bundled.path) {
             dirs.append(bundled)
-        } else {
-            // Running from a source checkout (swift build).
-            dirs.append(URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent()
-                .deletingLastPathComponent().appendingPathComponent("Lexicons"))
+        } else if let source = sourceCheckoutLexicons {
+            dirs.append(source)
         }
         dirs.append(userDirectory)
         return dirs
+    }
+
+    /// Lexicons/ in the source checkout a `swift build` binary was built in (the binary
+    /// lives in .build/<platform>/<configuration>/). Found from where the binary is, not
+    /// from #filePath, so release builds don't carry the build machine's folder names.
+    private static var sourceCheckoutLexicons: URL? {
+        let fm = FileManager.default
+        var dir = Bundle.main.executableURL?.resolvingSymlinksInPath().deletingLastPathComponent()
+        for _ in 0..<4 {
+            guard let d = dir else { return nil }
+            let lexicons = d.appendingPathComponent("Lexicons")
+            if fm.fileExists(atPath: d.appendingPathComponent("Package.swift").path), fm.fileExists(atPath: lexicons.path) {
+                return lexicons
+            }
+            dir = d.deletingLastPathComponent()
+        }
+        return nil
     }
 }
