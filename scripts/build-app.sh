@@ -157,7 +157,9 @@ LEAKS=$(strings -a "$APP/Contents/MacOS/ReadAloud" | grep -F -e "$ROOT/" -e "$HO
 [[ -z "$LEAKS" ]] || { echo "$LEAKS"; echo "The app's binary contains paths from this Mac (above)"; exit 1; }
 # The same for the bundled libraries (sherpa-onnx logs with __FILE__; build-sherpa-asr.sh maps
 # its paths away, so a hit here means Vendor/sherpa-onnx-asr predates that and needs rebuilding).
-for lib in "$APP/Contents/Frameworks/"*.dylib; do
+# ONNX Runtime and llama.cpp are prebuilt by their projects: they carry their CI's
+# /Users/runner/... paths, which is fine; only this Mac's paths fail the build.
+for lib in "$APP/Contents/Frameworks/"*.dylib "$APP/Contents/Frameworks/llama.framework/llama"; do
   if strings -a "$lib" | grep -qF -e "$ROOT/" -e "$HOME/"; then
     echo "${lib:t} contains paths from this Mac: rm -rf Vendor/sherpa-onnx-asr && ./scripts/build-sherpa-asr.sh"; exit 1
   fi
