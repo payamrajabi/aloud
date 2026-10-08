@@ -4248,6 +4248,55 @@
    "text": "She lives on Main St.",
    "us": "mˈAn stɹˈit.",
    "gb": "mˈAn stɹˈiːt."
+  },
+  {
+   "text": "I AM SO HAPPY.",
+   "us": "æm sˈO",
+   "absent": "ˌAˈɛm"
+  },
+  {
+   "text": "THE ART SHOW IS TONIGHT.",
+   "us": "ˈɑɹt ʃˈO",
+   "absent": "ˌɑɹtˈi"
+  },
+  {
+   "text": "The ART model is out.",
+   "us": "ˌAˌɑɹtˈi"
+  },
+  {
+   "text": "mm, that is nice.",
+   "us": "ðˈæt ɪz nˈIs",
+   "absent": "mˈɪləm"
+  },
+  {
+   "text": "mm-hmm, sure.",
+   "us": "ʃˈʊɹ",
+   "absent": "mˈɪləm"
+  },
+  {
+   "text": "A 3mm screw.",
+   "us": "θɹˈi mˈɪləmˌiTəɹz"
+  },
+  {
+   "text": "The px value is wrong.",
+   "us": "vˈælju",
+   "absent": "pˈɪksᵊlz"
+  },
+  {
+   "text": "Set it to 16px.",
+   "us": "sˌɪkstˈin pˈɪksᵊlz"
+  },
+  {
+   "text": "Record at 60 fps.",
+   "us": "sˈɪksti ˌɛfpˌiˈɛs"
+  },
+  {
+   "text": "Record at 60fps.",
+   "us": "sˈɪksti ˌɛfpˌiˈɛs"
+  },
+  {
+   "text": "Meet at 9 AM.",
+   "us": "nˈIn ˌAˈɛm"
   }
  ]
 }

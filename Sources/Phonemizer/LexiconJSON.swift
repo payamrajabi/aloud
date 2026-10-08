@@ -1,7 +1,8 @@
 import Foundation
 
 /// A small reader for lexicon files: a JSON array of flat objects (or an object holding
-/// that array under "entries" or "words"), keeping only string and string-array fields.
+/// that array under "entries" or "words"), keeping only the string, string-array and
+/// true/false fields an entry uses.
 ///
 /// JSONSerialization plus bridging every field into Swift took about 30 ms for a
 /// 10,000-entry list, most of the launch budget; this reads the bytes directly and
@@ -18,20 +19,24 @@ enum LexiconJSON {
         var spoken: [String]?
         var spokenVariants: [String]?
         var spokenContextOnly: [String]?
+        var evidence: Bool?
+        var unit: Bool?
+        var capsWord: Bool?
         /// A known field holding an unexpected kind of value: read the file the slow way.
         var malformed = false
     }
 
     private enum Field {
-        case word, match, us, gb, dictation, spoken, spokenVariants, spokenContextOnly, other
+        case word, match, us, gb, dictation, spoken, spokenVariants, spokenContextOnly, evidence, unit, capsWord, other
 
         init(_ key: UnsafeBufferPointer<UInt8>) {
             switch key.count {
             case 2: self = Self.equal(key, "us") ? .us : Self.equal(key, "gb") ? .gb : .other
-            case 4: self = Self.equal(key, "word") ? .word : .other
+            case 4: self = Self.equal(key, "word") ? .word : Self.equal(key, "unit") ? .unit : .other
             case 5: self = Self.equal(key, "match") ? .match : .other
             case 6: self = Self.equal(key, "spoken") ? .spoken : .other
-            case 9: self = Self.equal(key, "dictation") ? .dictation : .other
+            case 8: self = Self.equal(key, "evidence") ? .evidence : .other
+            case 9: self = Self.equal(key, "dictation") ? .dictation : Self.equal(key, "caps_word") ? .capsWord : .other
             case 15: self = Self.equal(key, "spoken_variants") ? .spokenVariants : .other
             case 19: self = Self.equal(key, "spoken_context_only") ? .spokenContextOnly : .other
             default: self = .other
@@ -157,6 +162,19 @@ enum LexiconJSON {
                     case .spokenVariants: o.spokenVariants = list
                     default: o.spokenContextOnly = list
                     }
+                case .evidence, .unit, .capsWord:
+                    guard let value = boolean() else {
+                        let start = i
+                        guard skipValue() else { return nil }
+                        // null means the field isn't set; any other surprise goes the slow way.
+                        if !(i - start == 4 && p[start] == UInt8(ascii: "n")) { o.malformed = true }
+                        break
+                    }
+                    switch field {
+                    case .evidence: o.evidence = value
+                    case .unit: o.unit = value
+                    default: o.capsWord = value
+                    }
                 default:
                     guard p[i] == UInt8(ascii: "\"") else {
                         let start = i
@@ -196,6 +214,21 @@ enum LexiconJSON {
             }
             guard var s = string() else { return nil }
             return s.withUTF8 { Field($0) }
+        }
+
+        /// `true` or `false`; anything else is left for the caller to skip.
+        mutating func boolean() -> Bool? {
+            if i + 4 <= n, p[i] == UInt8(ascii: "t"), p[i + 1] == UInt8(ascii: "r"), p[i + 2] == UInt8(ascii: "u"),
+               p[i + 3] == UInt8(ascii: "e") {
+                i += 4
+                return true
+            }
+            if i + 5 <= n, p[i] == UInt8(ascii: "f"), p[i + 1] == UInt8(ascii: "a"), p[i + 2] == UInt8(ascii: "l"),
+               p[i + 3] == UInt8(ascii: "s"), p[i + 4] == UInt8(ascii: "e") {
+                i += 5
+                return false
+            }
+            return nil
         }
 
         /// The strings in an array (other items are skipped).

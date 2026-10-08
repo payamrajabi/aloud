@@ -7,8 +7,9 @@ import Foundation
 ///
 /// `match` is "case-sensitive" (exact casing), "case-insensitive" (any casing) or
 /// "exact" (exact casing, no suffixes). `gb` is optional; British voices use `us` when
-/// it's missing. Other fields are ignored here (`LexiconEntry` describes the dictation
-/// fields). Phonemes are in the final form Kokoro reads (misaki's symbols, US flaps written T).
+/// it's missing. `unit` and `caps_word` limit where a key applies (below); other fields
+/// are ignored here (`LexiconEntry` describes the dictation fields). Phonemes are in the
+/// final form Kokoro reads (misaki's symbols, US flaps written T).
 ///
 /// Matching runs on the raw text before tokenization (techlex/lexicon.py is the
 /// reference), so keys can hold punctuation and digits ("Next.js", "A/B", "TL;DR",
@@ -19,7 +20,11 @@ import Foundation
 ///   - after a key ending in a letter, a plural or possessive ending (s, es, 's, ’s,
 ///     s') adds misaki's -s sound; a bare trailing apostrophe adds nothing;
 ///   - "1:1" is read "one-on-one" only when it's clearly a meeting ("1:1s", "a 1:1
-///     meeting"), never as a ratio ("a 1:1 crop").
+///     meeting"), never as a ratio ("a 1:1 crop");
+///   - a `unit` key applies only right after a number, with or without a space ("16 GB",
+///     "3mm", "9 AM"), and nowhere else ("mm, that's nice", "the GB team");
+///   - a `caps_word` key is skipped in a sentence written all in capitals ("I AM SO
+///     HAPPY", see `ShoutedSentences`), where it's an ordinary word.
 ///
 /// These rules used to be one regular expression with an alternative per key, which
 /// is fine for a hundred terms and hopeless for ten thousand (seconds per sentence).
@@ -33,6 +38,8 @@ public final class CustomLexicon {
         let folded: [UInt32]
         let caseSensitive: Bool
         let allowSuffix: Bool
+        let unit: Bool
+        let capsWord: Bool
         let gate: NSRegularExpression?
         let us: String
         let gb: String?
@@ -112,7 +119,7 @@ public final class CustomLexicon {
             idx.entries.append(Entry(key: e.word, scalars: scalars, folded: Scalars.fold(scalars),
                                      caseSensitive: e.isCaseSensitive,
                                      allowSuffix: !e.isExact && (e.word.last?.isLetter ?? false),
-                                     gate: gate, us: e.us, gb: e.gb))
+                                     unit: e.isUnit, capsWord: e.isCapsWord, gate: gate, us: e.us, gb: e.gb))
         }
         // The old expression tried keys longest first (in characters), then alphabetically.
         let lengths = idx.entries.map { $0.key.count }
@@ -166,6 +173,8 @@ public final class CustomLexicon {
                 if !(suffix.count == 1 && (suffix.first == "'" || suffix.first == "’")) { ps = Self.addS(ps, british: british) }
             }
             out.append(contentsOf: s[last..<m.start])
+            // A unit written against its number ("16GB") is still a word of its own.
+            if m.start > 0, Scalars.isDigit(s[m.start - 1]) { out.append(" ") }
             out.append("[")
             out.append(contentsOf: s[m.start..<m.end])
             out.append(contentsOf: "](/\(ps)/)".unicodeScalars)
@@ -180,14 +189,24 @@ public final class CustomLexicon {
         let n = s.count
         let f = Scalars.fold(s)
         var matches: [Match] = []
+        var shouted = ShoutedSentences()
         var i = 0
         while i < n {
-            // (?<![\w./:]) — nothing that continues a word, a domain or a path.
+            // (?<![\w./:]) — nothing that continues a word, a domain or a path; except that
+            // a unit may follow its number directly ("16GB").
+            var glued = false
             if i > 0 {
                 let p = s[i - 1]
-                if Scalars.isWord(p) || p == "." || p == "/" || p == ":" { i += 1; continue }
+                if Scalars.isDigit(p), Self.isNumber(endingAt: i, s) {
+                    glued = true
+                } else if Scalars.isWord(p) || p == "." || p == "/" || p == ":" {
+                    i += 1
+                    continue
+                }
             }
-            if let m = match(at: i, s, f, idx) {
+            let afterNumber = glued || (i > 1 && Scalars.isSpace(s[i - 1]) && s[i - 1] != "\n" && Scalars.isDigit(s[i - 2])
+                                        && Self.isNumber(endingAt: i - 1, s))
+            if let m = match(at: i, s, f, idx, afterNumber: afterNumber, unitsOnly: glued, shouted: &shouted) {
                 matches.append(m)
                 i = m.end
             } else {
@@ -197,7 +216,8 @@ public final class CustomLexicon {
         return matches
     }
 
-    private func match(at i: Int, _ s: [Unicode.Scalar], _ f: [UInt32], _ idx: Index) -> Match? {
+    private func match(at i: Int, _ s: [Unicode.Scalar], _ f: [UInt32], _ idx: Index,
+                       afterNumber: Bool, unitsOnly: Bool, shouted: inout ShoutedSentences) -> Match? {
         let n = s.count
         // Keys of two or more characters, then single-character keys (always shorter).
         for pass in 0..<2 {
@@ -205,6 +225,7 @@ public final class CustomLexicon {
             guard let key, let list = idx.buckets[key] else { continue }
             for k in list {
                 let e = idx.entries[Int(k)]
+                if e.unit ? !afterNumber : unitsOnly { continue }
                 let len = e.scalars.count
                 guard i + len <= n else { continue }
                 var same = true
@@ -214,6 +235,7 @@ public final class CustomLexicon {
                     for j in 0..<len where f[i + j] != e.folded[j] { same = false; break }
                 }
                 guard same else { continue }
+                if e.capsWord, shouted.contains(i, in: s) { continue }
                 let end = i + len
                 if let gate = e.gate {
                     // The text right after the key must pass the gate; then an optional "s".
@@ -240,6 +262,14 @@ public final class CustomLexicon {
             }
         }
         return nil
+    }
+
+    /// The digits before `end` start a number of their own ("16", "1.5", "2,000"), not
+    /// the tail of a name or code ("A16", "x86", "v1.2").
+    private static func isNumber(endingAt end: Int, _ s: [Unicode.Scalar]) -> Bool {
+        var j = end - 1
+        while j >= 0, Scalars.isDigit(s[j]) || ((s[j] == "." || s[j] == ",") && j > 0 && Scalars.isDigit(s[j - 1])) { j -= 1 }
+        return j < 0 || !Scalars.isWord(s[j])
     }
 
     /// (?![\w])(?!:\d) — the match doesn't run on into a word or a time.
