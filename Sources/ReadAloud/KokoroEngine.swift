@@ -156,7 +156,8 @@ final class KokoroEngine {
         } catch {
             throw EngineError.loadFailed("The voice model failed to load (\(error.localizedDescription)).")
         }
-        lexicon = CustomLexicon(directories: LexiconFiles.directories)
+        lexicon = CustomLexicon(LexiconFiles.shared)
+        lexicon.prepare()
     }
 
     /// Warms up the phonemizer for an accent (loads nothing new; builds lookup state).
@@ -266,6 +267,9 @@ enum LexiconFiles {
     static var userDirectory: URL {
         ModelStore.root.deletingLastPathComponent().appendingPathComponent("lexicons")
     }
+
+    /// Every list, read once per launch and shared by reading and dictation.
+    static let shared = LexiconSet(directories: directories)
 
     static var directories: [URL] {
         var dirs: [URL] = []

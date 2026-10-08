@@ -38,7 +38,7 @@ enum G2PTest {
 
     static func phonemizers() throws -> (raw: [Bool: Phonemizer], shipped: [Bool: Phonemizer]) {
         let data = try G2PData.load(from: G2PData.defaultDirectory())
-        let custom = CustomLexicon(directories: LexiconFiles.directories)
+        let custom = CustomLexicon(LexiconFiles.shared)
         for p in custom.problems { print("lexicon problem: \(p)") }
         var raw: [Bool: Phonemizer] = [:], shipped: [Bool: Phonemizer] = [:]
         for b in [false, true] {

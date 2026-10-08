@@ -11,6 +11,7 @@ import CSherpaOnnx
 ///   --download-voice                                    download the voice model and exit
 ///   --phonemize [--gb] [--raw] < lines.txt               print each line's phonemes
 ///   --g2p-test Tests/g2p/regression.json [--verbose]    pronunciation regression suite
+///   --bench-lexicon [lexicon.json] [--article f.txt]    custom lexicon load and matching times (made-up 10,000 entries by default)
 ///   --render-phonemes "ðə kwˈɪk" [--voice v] [--out f.wav] [--raw]   synthesize exact phonemes
 ///   --test-gestures                                     check modifier tap / double-tap / hold detection and exit
 ///   READALOUD_MODELS_DIR=/some/folder                   use a different models folder (test fresh installs)
@@ -166,6 +167,10 @@ enum DebugScript {
         }
         if let path = value("--g2p-test") {
             exit(G2PTest.run(path: path, verbose: args.contains("--verbose")))
+        }
+        if args.contains("--bench-lexicon") {
+            let path = value("--bench-lexicon").flatMap { $0.hasPrefix("--") ? nil : $0 }
+            exit(LexiconBench.run(path: path, articlePath: value("--article")))
         }
         if let ps = value("--render-phonemes") {
             // Synthesizes a phoneme string as is (for comparing audio with another implementation).
