@@ -4138,8 +4138,8 @@
   },
   {
    "text": "Run kubectl apply.",
-   "us": "kjˈub kəntɹˌOl",
-   "gb": "kjˈuːb kəntɹˌQl"
+   "us": "kˈub kəntɹˌOl",
+   "gb": "kˈuːb kəntɹˌQl"
   },
   {
    "text": "Put nginx in front of it.",
