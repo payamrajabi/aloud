@@ -29,9 +29,9 @@
 "person": 803
 },
 "dictation": {
-"always": 7043,
-"never": 2316,
-"context": 629
+"always": 5779,
+"context": 1903,
+"never": 2306
 },
 "asr_exact": 7556,
 "asr_tested": 9988,
@@ -82,6 +82,15 @@
 [
 "a gentic ai",
 0.0
+]
+]
+},
+{
+"word": "AI",
+"risky": [
+[
+"a.i",
+2.93
 ]
 ]
 },
@@ -140,11 +149,11 @@
 ]
 },
 {
-"word": "function calling",
+"word": "GAN",
 "risky": [
 [
-"save function calling",
-4.46
+"gann",
+2.23
 ]
 ]
 },
@@ -314,6 +323,15 @@
 ]
 },
 {
+"word": "BPE",
+"risky": [
+[
+"bpa",
+2.92
+]
+]
+},
+{
 "word": "Common Crawl",
 "risky": [
 [
@@ -332,11 +350,11 @@
 ]
 },
 {
-"word": "feature store",
+"word": "e/acc",
 "risky": [
 [
-"save feature store",
-4.5
+"eac",
+2.66
 ]
 ]
 },
@@ -607,6 +625,33 @@
 ]
 },
 {
+"word": "DAU",
+"risky": [
+[
+"diu",
+2.24
+]
+]
+},
+{
+"word": "de facto",
+"risky": [
+[
+"defacto",
+2.11
+]
+]
+},
+{
+"word": "DMs",
+"risky": [
+[
+"dm's",
+2.48
+]
+]
+},
+{
 "word": "dogfood",
 "risky": [
 [
@@ -643,6 +688,15 @@
 ]
 },
 {
+"word": "EM",
+"risky": [
+[
+"e.m",
+2.37
+]
+]
+},
+{
 "word": "event storming",
 "risky": [
 [
@@ -652,11 +706,11 @@
 ]
 },
 {
-"word": "funnel",
+"word": "Gantt",
 "risky": [
 [
-"save funnel",
-3.46
+"gant",
+2.69
 ]
 ]
 },
@@ -732,6 +786,19 @@
 [
 "cano",
 2.81
+]
+]
+},
+{
+"word": "kata",
+"risky": [
+[
+"cata",
+2.25
+],
+[
+"cotter",
+2.79
 ]
 ]
 },
@@ -922,6 +989,15 @@
 ]
 },
 {
+"word": "SOM",
+"risky": [
+[
+"sahm",
+2.25
+]
+]
+},
+{
 "word": "standup",
 "risky": [
 [
@@ -966,11 +1042,11 @@
 ]
 },
 {
-"word": "viral coefficient",
+"word": "XP",
 "risky": [
 [
-"save viral coefficient",
-3.3
+"xb",
+2.45
 ]
 ]
 },
@@ -1007,6 +1083,15 @@
 [
 "a vod",
 2.85
+]
+]
+},
+{
+"word": "bona fide",
+"risky": [
+[
+"bonafide",
+2.39
 ]
 ]
 },
@@ -1074,6 +1159,15 @@
 [
 "green field",
 4.88
+]
+]
+},
+{
+"word": "GSB",
+"risky": [
+[
+"gsp",
+2.76
 ]
 ]
 },
@@ -1157,11 +1251,20 @@
 ]
 },
 {
-"word": "MAP",
+"word": "MSP",
 "risky": [
 [
-"same map",
-4.72
+"msb",
+2.17
+]
+]
+},
+{
+"word": "OODA",
+"risky": [
+[
+"uda",
+2.29
 ]
 ]
 },
@@ -1171,6 +1274,15 @@
 [
 "per seat",
 4.73
+]
+]
+},
+{
+"word": "PO",
+"risky": [
+[
+"p.o",
+2.92
 ]
 ]
 },
@@ -1233,11 +1345,29 @@
 ]
 },
 {
+"word": "SSP",
+"risky": [
+[
+"ssb",
+2.64
+]
+]
+},
+{
 "word": "SXSW",
 "risky": [
 [
 "south by",
 5.38
+]
+]
+},
+{
+"word": "TED",
+"risky": [
+[
+"tet",
+2.81
 ]
 ]
 },
@@ -1345,6 +1475,23 @@
 [
 "is tio",
 2.67
+]
+]
+},
+{
+"word": "Jaeger",
+"risky": [
+[
+"jager",
+2.51
+],
+[
+"yager",
+2.01
+],
+[
+"yeager",
+2.64
 ]
 ]
 },
@@ -1712,15 +1859,6 @@
 ]
 },
 {
-"word": "Front Door",
-"risky": [
-[
-"save front door",
-4.68
-]
-]
-},
-{
 "word": "GuardDuty",
 "risky": [
 [
@@ -1744,15 +1882,6 @@
 [
 "cousteau",
 2.46
-]
-]
-},
-{
-"word": "Mimir",
-"risky": [
-[
-"same amir",
-3.4
 ]
 ]
 },
@@ -1860,6 +1989,15 @@
 ]
 },
 {
+"word": "PACELC",
+"risky": [
+[
+"pasok",
+2.24
+]
+]
+},
+{
 "word": "Afterpay",
 "risky": [
 [
@@ -1896,6 +2034,15 @@
 [
 "ali baba",
 3.51
+]
+]
+},
+{
+"word": "Amex",
+"risky": [
+[
+"amx",
+2.16
 ]
 ]
 },
@@ -2021,6 +2168,15 @@
 ]
 },
 {
+"word": "ESA",
+"risky": [
+[
+"isra",
+2.0
+]
+]
+},
+{
 "word": "Gartner",
 "risky": [
 [
@@ -2078,15 +2234,46 @@
 ]
 },
 {
+"word": "Kaggle",
+"risky": [
+[
+"cagle",
+2.06
+]
+]
+},
+{
 "word": "Kia",
 "risky": [
 [
-"key a",
-5.12
-],
-[
 "keir",
 2.64
+],
+[
+"key a",
+5.12
+]
+]
+},
+{
+"word": "L'Oréal",
+"risky": [
+[
+"l'oreal",
+2.71
+],
+[
+"loreal",
+2.04
+]
+]
+},
+{
+"word": "Leica",
+"risky": [
+[
+"lika",
+2.07
 ]
 ]
 },
@@ -2118,6 +2305,15 @@
 [
 "monza",
 2.67
+]
+]
+},
+{
+"word": "Okta",
+"risky": [
+[
+"octa",
+2.32
 ]
 ]
 },
@@ -2221,6 +2417,19 @@
 ]
 },
 {
+"word": "Temu",
+"risky": [
+[
+"teemu",
+2.24
+],
+[
+"timo",
+2.65
+]
+]
+},
+{
 "word": "Tencent",
 "risky": [
 [
@@ -2262,6 +2471,15 @@
 [
 "you nee clo",
 2.49
+]
+]
+},
+{
+"word": "Vanta",
+"risky": [
+[
+"venta",
+2.14
 ]
 ]
 },
@@ -2401,6 +2619,15 @@
 ]
 },
 {
+"word": "Barclays",
+"risky": [
+[
+"barclay's",
+2.12
+]
+]
+},
+{
 "word": "Baseten",
 "risky": [
 [
@@ -2464,6 +2691,19 @@
 [
 "see charge point",
 4.88
+]
+]
+},
+{
+"word": "Chewy",
+"risky": [
+[
+"chui",
+2.26
+],
+[
+"chuy",
+2.24
 ]
 ]
 },
@@ -2651,37 +2891,6 @@
 ]
 },
 {
-"word": "FactSet",
-"risky": [
-[
-"safe accident",
-4.55
-]
-]
-},
-{
-"word": "Form Energy",
-"risky": [
-[
-"save form energy",
-4.74
-]
-]
-},
-{
-"word": "Front",
-"risky": [
-[
-"save front",
-4.9
-],
-[
-"save run",
-4.98
-]
-]
-},
-{
 "word": "GetYourGuide",
 "risky": [
 [
@@ -2727,6 +2936,19 @@
 [
 "high silicon",
 3.99
+]
+]
+},
+{
+"word": "Hopin",
+"risky": [
+[
+"hoppin",
+2.22
+],
+[
+"hoppin'",
+2.22
 ]
 ]
 },
@@ -2841,6 +3063,10 @@
 [
 "i koo",
 2.97
+],
+[
+"iku",
+2.06
 ]
 ]
 },
@@ -2935,6 +3161,15 @@
 ]
 },
 {
+"word": "Manus",
+"risky": [
+[
+"manis",
+2.23
+]
+]
+},
+{
 "word": "Marqeta",
 "risky": [
 [
@@ -2988,15 +3223,6 @@
 ]
 },
 {
-"word": "Mode",
-"risky": [
-[
-"same mode",
-4.6
-]
-]
-},
-{
 "word": "Moleskine",
 "risky": [
 [
@@ -3011,15 +3237,6 @@
 [
 "maz",
 2.51
-]
-]
-},
-{
-"word": "Myntra",
-"risky": [
-[
-"same intra",
-3.32
 ]
 ]
 },
@@ -3042,6 +3259,15 @@
 [
 "any a",
 6.05
+]
+]
+},
+{
+"word": "NIO",
+"risky": [
+[
+"niu",
+2.53
 ]
 ]
 },
@@ -3078,6 +3304,19 @@
 [
 "open sea",
 4.92
+]
+]
+},
+{
+"word": "OPPO",
+"risky": [
+[
+"apo",
+2.87
+],
+[
+"opo",
+2.1
 ]
 ]
 },
@@ -3127,6 +3366,24 @@
 ]
 },
 {
+"word": "Prada",
+"risky": [
+[
+"prado",
+2.85
+]
+]
+},
+{
+"word": "R/GA",
+"risky": [
+[
+"rga",
+2.14
+]
+]
+},
+{
 "word": "Redpanda",
 "risky": [
 [
@@ -3167,6 +3424,15 @@
 ]
 },
 {
+"word": "Rimac",
+"risky": [
+[
+"remotes",
+2.47
+]
+]
+},
+{
 "word": "Secureframe",
 "risky": [
 [
@@ -3181,6 +3447,15 @@
 [
 "simply safe",
 4.77
+]
+]
+},
+{
+"word": "Sina",
+"risky": [
+[
+"sino",
+3.22
 ]
 ]
 },
@@ -3255,16 +3530,16 @@
 "word": "Taboola",
 "risky": [
 [
+"tabula",
+2.36
+],
+[
 "to boola",
 1.41
 ],
 [
 "to booler",
 0.0
-],
-[
-"tabula",
-2.36
 ]
 ]
 },
@@ -3430,6 +3705,15 @@
 [
 "zika",
 2.82
+]
+]
+},
+{
+"word": "Škoda",
+"risky": [
+[
+"skoda",
+2.6
 ]
 ]
 },
@@ -3794,6 +4078,15 @@
 ]
 },
 {
+"word": "NATS",
+"risky": [
+[
+"gnats",
+2.46
+]
+]
+},
+{
 "word": "o11y",
 "risky": [
 [
@@ -3812,11 +4105,33 @@
 ]
 },
 {
+"word": "Quarto",
+"risky": [
+[
+"quatro",
+2.31
+]
+]
+},
+{
 "word": "RStudio",
 "risky": [
 [
 "are studio",
 4.66
+]
+]
+},
+{
+"word": "Scylla",
+"risky": [
+[
+"cilla",
+2.44
+],
+[
+"silla",
+2.37
 ]
 ]
 },
@@ -4018,6 +4333,24 @@
 ]
 },
 {
+"word": "GIF",
+"risky": [
+[
+"jif",
+2.09
+]
+]
+},
+{
+"word": "hi-fi",
+"risky": [
+[
+"hifi",
+2.37
+]
+]
+},
+{
 "word": "InVision",
 "risky": [
 [
@@ -4171,15 +4504,6 @@
 ]
 },
 {
-"word": "foreshortening",
-"risky": [
-[
-"save for shortening",
-3.15
-]
-]
-},
-{
 "word": "Gruvbox",
 "risky": [
 [
@@ -4220,6 +4544,15 @@
 ]
 },
 {
+"word": "LUT",
+"risky": [
+[
+"lud",
+2.23
+]
+]
+},
+{
 "word": "Onshape",
 "risky": [
 [
@@ -4243,15 +4576,6 @@
 [
 "solid works",
 4.62
-]
-]
-},
-{
-"word": "vignette",
-"risky": [
-[
-"save in yet",
-4.99
 ]
 ]
 },
@@ -4354,6 +4678,15 @@
 ]
 },
 {
+"word": "awk",
+"risky": [
+[
+"ock",
+2.33
+]
+]
+},
+{
 "word": "Biome",
 "risky": [
 [
@@ -4376,11 +4709,51 @@
 ]
 },
 {
+"word": "chown",
+"risky": [
+[
+"chon",
+2.43
+]
+]
+},
+{
 "word": "Codemagic",
 "risky": [
 [
 "code magic",
 4.59
+]
+]
+},
+{
+"word": "conda",
+"risky": [
+[
+"kanda",
+2.32
+]
+]
+},
+{
+"word": "cron",
+"risky": [
+[
+"chron",
+2.15
+],
+[
+"kron",
+2.32
+]
+]
+},
+{
+"word": "CSP",
+"risky": [
+[
+"csb",
+2.35
 ]
 ]
 },
@@ -4421,6 +4794,15 @@
 ]
 },
 {
+"word": "diff",
+"risky": [
+[
+"dif",
+2.7
+]
+]
+},
+{
 "word": "Django",
 "risky": [
 [
@@ -4435,15 +4817,6 @@
 [
 "fast forward",
 4.82
-]
-]
-},
-{
-"word": "feature flag",
-"risky": [
-[
-"save feature flag",
-4.31
 ]
 ]
 },
@@ -4663,6 +5036,15 @@
 ]
 },
 {
+"word": "Keras",
+"risky": [
+[
+"karis",
+2.07
+]
+]
+},
+{
 "word": "Linux Mint",
 "risky": [
 [
@@ -4699,20 +5081,20 @@
 ]
 },
 {
+"word": "LSP",
+"risky": [
+[
+"lsb",
+2.11
+]
+]
+},
+{
 "word": "Makefile",
 "risky": [
 [
 "make file",
 4.73
-]
-]
-},
-{
-"word": "Mistral",
-"risky": [
-[
-"same astral",
-3.13
 ]
 ]
 },
@@ -4748,6 +5130,24 @@
 ]
 },
 {
+"word": "nm",
+"risky": [
+[
+"nanometers",
+2.48
+]
+]
+},
+{
+"word": "Node.js",
+"risky": [
+[
+"nodejs",
+2.14
+]
+]
+},
+{
 "word": "nodemon",
 "risky": [
 [
@@ -4757,11 +5157,29 @@
 ]
 },
 {
+"word": "npm",
+"risky": [
+[
+"npn",
+2.14
+]
+]
+},
+{
 "word": "Nvidia",
 "risky": [
 [
 "in vidia",
 1.38
+]
+]
+},
+{
+"word": "Nx",
+"risky": [
+[
+"enix",
+2.76
 ]
 ]
 },
@@ -4807,6 +5225,15 @@
 [
 "read me",
 5.49
+]
+]
+},
+{
+"word": "RHEL",
+"risky": [
+[
+"rell",
+2.18
 ]
 ]
 },
@@ -4910,15 +5337,24 @@
 ]
 },
 {
+"word": "tilde",
+"risky": [
+[
+"tilda",
+2.66
+]
+]
+},
+{
 "word": "Unix",
 "risky": [
 [
-"you nix",
-3.0
-],
-[
 "eunuchs",
 2.6
+],
+[
+"you nix",
+3.0
 ]
 ]
 },
@@ -4937,24 +5373,6 @@
 [
 "use effect",
 4.95
-]
-]
-},
-{
-"word": "vertex",
-"risky": [
-[
-"save vertex",
-3.2
-]
-]
-},
-{
-"word": "Vim",
-"risky": [
-[
-"save him",
-5.1
 ]
 ]
 },
@@ -5247,6 +5665,10 @@
 [
 "a if",
 6.42
+],
+[
+"aif",
+2.24
 ]
 ]
 },
@@ -5256,6 +5678,10 @@
 [
 "a lack",
 4.92
+],
+[
+"alek",
+2.35
 ]
 ]
 },
@@ -5282,6 +5708,15 @@
 [
 "a penchild",
 0.0
+]
+]
+},
+{
+"word": "aptX",
+"risky": [
+[
+"apts",
+2.22
 ]
 ]
 },
@@ -5481,6 +5916,19 @@
 ]
 },
 {
+"word": "Checkov",
+"risky": [
+[
+"chekhov",
+2.73
+],
+[
+"chekov",
+2.07
+]
+]
+},
+{
 "word": "classList",
 "risky": [
 [
@@ -5579,11 +6027,38 @@
 ]
 },
 {
+"word": "egui",
+"risky": [
+[
+"goi",
+2.47
+]
+]
+},
+{
 "word": "Elysia",
 "risky": [
 [
 "a leasia",
 0.0
+]
+]
+},
+{
+"word": "Emmet",
+"risky": [
+[
+"emmett",
+3.16
+]
+]
+},
+{
+"word": "Erlang",
+"risky": [
+[
+"erling",
+2.01
 ]
 ]
 },
@@ -5615,15 +6090,6 @@
 ]
 },
 {
-"word": "Fast Refresh",
-"risky": [
-[
-"save fast refresh",
-3.62
-]
-]
-},
-{
 "word": "finite-state machine",
 "risky": [
 [
@@ -5651,15 +6117,6 @@
 ]
 },
 {
-"word": "Flow",
-"risky": [
-[
-"safe low",
-4.88
-]
-]
-},
-{
 "word": "Fortran",
 "risky": [
 [
@@ -5669,11 +6126,11 @@
 ]
 },
 {
-"word": "Frame Generation",
+"word": "FOUC",
 "risky": [
 [
-"save frame generation",
-4.31
+"fook",
+2.47
 ]
 ]
 },
@@ -5696,6 +6153,15 @@
 [
 "game object",
 4.53
+]
+]
+},
+{
+"word": "gem",
+"risky": [
+[
+"jem",
+2.89
 ]
 ]
 },
@@ -5790,6 +6256,15 @@
 ]
 },
 {
+"word": "Gutenberg",
+"risky": [
+[
+"guttenberg",
+2.01
+]
+]
+},
+{
 "word": "Haml",
 "risky": [
 [
@@ -5821,6 +6296,15 @@
 [
 "hard hat",
 4.49
+]
+]
+},
+{
+"word": "HEIF",
+"risky": [
+[
+"hef",
+2.05
 ]
 ]
 },
@@ -5977,15 +6461,6 @@
 ]
 },
 {
-"word": "Lit",
-"risky": [
-[
-"sail it",
-4.01
-]
-]
-},
-{
 "word": "Lua",
 "risky": [
 [
@@ -6047,6 +6522,15 @@
 ]
 },
 {
+"word": "MATE",
+"risky": [
+[
+"moti",
+2.47
+]
+]
+},
+{
 "word": "Miniconda",
 "risky": [
 [
@@ -6101,6 +6585,19 @@
 [
 "nettie",
 2.48
+]
+]
+},
+{
+"word": "Nix",
+"risky": [
+[
+"nick's",
+3.03
+],
+[
+"nicks",
+3.07
 ]
 ]
 },
@@ -6185,6 +6682,24 @@
 [
 "phoenix live you",
 4.19
+]
+]
+},
+{
+"word": "Pinia",
+"risky": [
+[
+"piña",
+2.41
+]
+]
+},
+{
+"word": "Pylint",
+"risky": [
+[
+"pilate",
+2.85
 ]
 ]
 },
@@ -6274,6 +6789,15 @@
 ]
 },
 {
+"word": "TeX",
+"risky": [
+[
+"tek",
+2.85
+]
+]
+},
+{
 "word": "tsup",
 "risky": [
 [
@@ -6339,11 +6863,11 @@
 ]
 },
 {
-"word": "View Transitions",
+"word": "VST",
 "risky": [
 [
-"save you transitions",
-3.58
+"vsd",
+2.01
 ]
 ]
 },
@@ -6455,6 +6979,15 @@
 ]
 },
 {
+"word": "HODL",
+"risky": [
+[
+"hoddle",
+2.18
+]
+]
+},
+{
 "word": "IBAN",
 "risky": [
 [
@@ -6521,6 +7054,15 @@
 ]
 },
 {
+"word": "P&L",
+"risky": [
+[
+"pnl",
+2.11
+]
+]
+},
+{
 "word": "pro rata",
 "risky": [
 [
@@ -6566,15 +7108,6 @@
 ]
 },
 {
-"word": "valuation cap",
-"risky": [
-[
-"save valuation cap",
-3.67
-]
-]
-},
-{
 "word": "8-K",
 "risky": [
 [
@@ -6593,6 +7126,15 @@
 ]
 },
 {
+"word": "ASP",
+"risky": [
+[
+"asb",
+2.61
+]
+]
+},
+{
 "word": "Atomico",
 "risky": [
 [
@@ -6602,11 +7144,29 @@
 ]
 },
 {
+"word": "BIC",
+"risky": [
+[
+"bick",
+2.15
+]
+]
+},
+{
 "word": "blue-chip",
 "risky": [
 [
 "blue chip",
 4.25
+]
+]
+},
+{
+"word": "bp",
+"risky": [
+[
+"bip",
+2.53
 ]
 ]
 },
@@ -6629,11 +7189,11 @@
 ]
 },
 {
-"word": "cold storage",
+"word": "Divvy",
 "risky": [
 [
-"sake cold storage",
-4.12
+"divi",
+2.54
 ]
 ]
 },
@@ -6643,15 +7203,6 @@
 [
 "i gen layer",
 4.06
-]
-]
-},
-{
-"word": "fiat",
-"risky": [
-[
-"safe yet",
-4.94
 ]
 ]
 },
@@ -6674,20 +7225,29 @@
 ]
 },
 {
-"word": "front-running",
-"risky": [
-[
-"save front running",
-4.74
-]
-]
-},
-{
 "word": "GameStop",
 "risky": [
 [
 "game stop",
 5.31
+]
+]
+},
+{
+"word": "GST",
+"risky": [
+[
+"gsd",
+2.41
+]
+]
+},
+{
+"word": "gwei",
+"risky": [
+[
+"guay",
+2.04
 ]
 ]
 },
@@ -6732,6 +7292,19 @@
 ]
 },
 {
+"word": "MiCA",
+"risky": [
+[
+"meeker",
+2.61
+],
+[
+"miko",
+2.53
+]
+]
+},
+{
 "word": "Nifty 50",
 "risky": [
 [
@@ -6759,6 +7332,15 @@
 ]
 },
 {
+"word": "REIT",
+"risky": [
+[
+"reet",
+2.06
+]
+]
+},
+{
 "word": "SG&A",
 "risky": [
 [
@@ -6768,6 +7350,32 @@
 [
 "sg and a",
 3.54
+]
+]
+},
+{
+"word": "SPE",
+"risky": [
+[
+"sbe",
+2.12
+]
+]
+},
+{
+"word": "Sui",
+"risky": [
+[
+"suey",
+2.29
+],
+[
+"swe",
+2.62
+],
+[
+"swee",
+2.21
 ]
 ]
 },
@@ -6794,6 +7402,24 @@
 ]
 },
 {
+"word": "VIX",
+"risky": [
+[
+"vicks",
+2.17
+]
+]
+},
+{
+"word": "W-2",
+"risky": [
+[
+"w2",
+2.73
+]
+]
+},
+{
 "word": ".py",
 "risky": [
 [
@@ -6812,6 +7438,55 @@
 [
 "i can",
 6.37
+]
+]
+},
+{
+"word": "mm",
+"risky": [
+[
+"millimeters",
+3.04
+]
+]
+},
+{
+"word": "ms",
+"risky": [
+[
+"milliseconds",
+2.88
+]
+]
+},
+{
+"word": "ns",
+"risky": [
+[
+"nanoseconds",
+2.18
+]
+]
+},
+{
+"word": "μm",
+"risky": [
+[
+"micrometers",
+2.43
+],
+[
+"microns",
+2.73
+]
+]
+},
+{
+"word": "μs",
+"risky": [
+[
+"microseconds",
+2.3
 ]
 ]
 },
@@ -6848,6 +7523,15 @@
 [
 "a das",
 3.73
+]
+]
+},
+{
+"word": "Bogotá",
+"risky": [
+[
+"bogota",
+2.9
 ]
 ]
 },
@@ -6920,6 +7604,19 @@
 [
 "i ana",
 3.89
+]
+]
+},
+{
+"word": "Kraków",
+"risky": [
+[
+"cracow",
+2.46
+],
+[
+"krakow",
+2.84
 ]
 ]
 },
@@ -7071,6 +7768,15 @@
 ]
 },
 {
+"word": "NAS",
+"risky": [
+[
+"naz",
+2.62
+]
+]
+},
+{
 "word": "Raspberry Pi",
 "risky": [
 [
@@ -7187,6 +7893,33 @@
 ]
 },
 {
+"word": "CISC",
+"risky": [
+[
+"sisk",
+2.07
+]
+]
+},
+{
+"word": "DSP",
+"risky": [
+[
+"dsb",
+2.3
+]
+]
+},
+{
+"word": "eARC",
+"risky": [
+[
+"erk",
+2.32
+]
+]
+},
+{
 "word": "Espressif",
 "risky": [
 [
@@ -7200,11 +7933,11 @@
 ]
 },
 {
-"word": "Framework",
+"word": "GW",
 "risky": [
 [
-"save framework",
-4.23
+"gigawatts",
+2.18
 ]
 ]
 },
@@ -7249,6 +7982,24 @@
 [
 "i scuzzy",
 1.8
+]
+]
+},
+{
+"word": "ISP",
+"risky": [
+[
+"isb",
+2.11
+]
+]
+},
+{
+"word": "Maia",
+"risky": [
+[
+"mya",
+2.81
 ]
 ]
 },
@@ -7316,6 +8067,24 @@
 [
 "omran",
 2.16
+]
+]
+},
+{
+"word": "PSP",
+"risky": [
+[
+"psb",
+2.42
+]
+]
+},
+{
+"word": "Qi",
+"risky": [
+[
+"chee",
+2.81
 ]
 ]
 },
@@ -7412,16 +8181,16 @@
 "word": "Godot",
 "risky": [
 [
-"go dot",
-4.05
-],
-[
 "gato",
 2.48
 ],
 [
 "gatto",
 2.25
+],
+[
+"go dot",
+4.05
 ]
 ]
 },
@@ -7458,15 +8227,6 @@
 [
 "you be soft",
 4.67
-]
-]
-},
-{
-"word": "Valve",
-"risky": [
-[
-"save valve",
-4.09
 ]
 ]
 },
@@ -7525,6 +8285,24 @@
 ]
 },
 {
+"word": "CS:GO",
+"risky": [
+[
+"csgo",
+3.09
+]
+]
+},
+{
+"word": "GDC",
+"risky": [
+[
+"gbc",
+2.32
+]
+]
+},
+{
 "word": "HN",
 "risky": [
 [
@@ -7578,6 +8356,15 @@
 ]
 },
 {
+"word": "Quora",
+"risky": [
+[
+"kwara",
+2.28
+]
+]
+},
+{
 "word": "Recode",
 "risky": [
 [
@@ -7592,6 +8379,15 @@
 [
 "red note",
 4.86
+]
+]
+},
+{
+"word": "Sega",
+"risky": [
+[
+"sager",
+2.49
 ]
 ]
 },
@@ -7778,6 +8574,15 @@
 [
 "casey nice at",
 3.94
+]
+]
+},
+{
+"word": "Codd",
+"risky": [
+[
+"cott",
+2.21
 ]
 ]
 },
@@ -8096,10 +8901,6 @@
 "word": "Vlad Tenev",
 "risky": [
 [
-"save lad ten of",
-3.85
-],
-[
 "vlad ten of",
 3.21
 ]
@@ -8240,11 +9041,29 @@
 ]
 },
 {
+"word": "Gemma",
+"risky": [
+[
+"jemma",
+2.55
+]
+]
+},
+{
 "word": "GoTo Meeting",
 "risky": [
 [
 "go to meeting",
 5.09
+]
+]
+},
+{
+"word": "GPT",
+"risky": [
+[
+"gpd",
+2.11
 ]
 ]
 },
@@ -8299,6 +9118,15 @@
 [
 "i mac",
 4.45
+]
+]
+},
+{
+"word": "Imagen",
+"risky": [
+[
+"imogen",
+2.85
 ]
 ]
 },
@@ -8437,6 +9265,19 @@
 ]
 },
 {
+"word": "Kimi",
+"risky": [
+[
+"kemi",
+2.33
+],
+[
+"kimmy",
+2.81
+]
+]
+},
+{
 "word": "Launchpad",
 "risky": [
 [
@@ -8469,15 +9310,6 @@
 [
 "material three",
 4.89
-]
-]
-},
-{
-"word": "Material Design",
-"risky": [
-[
-"same material design",
-4.71
 ]
 ]
 },
@@ -8572,6 +9404,15 @@
 ]
 },
 {
+"word": "Three.js",
+"risky": [
+[
+"3.js",
+3.54
+]
+]
+},
+{
 "word": "UIKit",
 "risky": [
 [
@@ -8586,6 +9427,15 @@
 [
 "untitled you i",
 3.23
+]
+]
+},
+{
+"word": "Veo",
+"risky": [
+[
+"vio",
+2.26
 ]
 ]
 },
@@ -8716,10 +9566,6 @@
 [
 "i'll pack her",
 4.58
-],
-[
-"sail packer",
-3.19
 ]
 ]
 },
@@ -8786,6 +9632,19 @@
 ]
 },
 {
+"word": "Cline",
+"risky": [
+[
+"clyne",
+2.54
+],
+[
+"kline",
+2.96
+]
+]
+},
+{
 "word": "Cocoa Touch",
 "risky": [
 [
@@ -8800,6 +9659,15 @@
 [
 "comfy you i",
 3.63
+]
+]
+},
+{
+"word": "Coolors",
+"risky": [
+[
+"coolers",
+2.92
 ]
 ]
 },
@@ -8862,6 +9730,15 @@
 ]
 },
 {
+"word": "Game Boy",
+"risky": [
+[
+"gameboy",
+2.55
+]
+]
+},
+{
 "word": "GameKit",
 "risky": [
 [
@@ -8912,6 +9789,15 @@
 [
 "i seek you",
 4.61
+]
+]
+},
+{
+"word": "IFTTT",
+"risky": [
+[
+"ift",
+2.3
 ]
 ]
 },
@@ -8988,6 +9874,15 @@
 ]
 },
 {
+"word": "Jelly Bean",
+"risky": [
+[
+"jellybean",
+2.28
+]
+]
+},
+{
 "word": "JEPA",
 "risky": [
 [
@@ -9024,20 +9919,20 @@
 ]
 },
 {
+"word": "Kiro",
+"risky": [
+[
+"kero",
+2.07
+]
+]
+},
+{
 "word": "Maxon",
 "risky": [
 [
 "maxson",
 2.05
-]
-]
-},
-{
-"word": "Mistral Small",
-"risky": [
-[
-"same astral small",
-3.13
 ]
 ]
 },
@@ -9051,11 +9946,20 @@
 ]
 },
 {
-"word": "Motion Canvas",
+"word": "Mojave",
 "risky": [
 [
-"same ocean canvas",
-3.88
+"mohave",
+2.34
+]
+]
+},
+{
+"word": "Orin",
+"risky": [
+[
+"oren",
+2.71
 ]
 ]
 },
@@ -9065,6 +9969,15 @@
 [
 "or kut",
 2.31
+]
+]
+},
+{
+"word": "Pardot",
+"risky": [
+[
+"pardo",
+2.51
 ]
 ]
 },
@@ -9270,6 +10183,15 @@
 [
 "i triple-e",
 4.26
+]
+]
+},
+{
+"word": "MIT",
+"risky": [
+[
+"m.i.t",
+2.46
 ]
 ]
 },
@@ -9692,6 +10614,19 @@
 ]
 },
 {
+"word": "Dahua",
+"risky": [
+[
+"dawa",
+2.35
+],
+[
+"dawah",
+2.04
+]
+]
+},
+{
 "word": "FIPS",
 "risky": [
 [
@@ -9719,6 +10654,10 @@
 [
 "joe zee",
 3.15
+],
+[
+"josie",
+3.18
 ]
 ]
 },
@@ -9762,6 +10701,15 @@
 ]
 },
 {
+"word": "OSINT",
+"risky": [
+[
+"osun",
+2.33
+]
+]
+},
+{
 "word": "SHA-1",
 "risky": [
 [
@@ -9793,6 +10741,24 @@
 ]
 },
 {
+"word": "Stytch",
+"risky": [
+[
+"stich",
+2.06
+]
+]
+},
+{
+"word": "YARA",
+"risky": [
+[
+"yarra",
+2.81
+]
+]
+},
+{
 "word": "Yubico",
 "risky": [
 [
@@ -9807,15 +10773,6 @@
 [
 "zt and a",
 2.18
-]
-]
-},
-{
-"word": "font",
-"risky": [
-[
-"save font",
-3.78
 ]
 ]
 },
@@ -9877,6 +10834,15 @@
 ]
 },
 {
+"word": "Rubik",
+"risky": [
+[
+"rubick",
+2.04
+]
+]
+},
+{
 "word": "Segoe UI",
 "risky": [
 [
@@ -9908,6 +10874,15 @@
 [
 "sona",
 2.83
+]
+]
+},
+{
+"word": "Tiempos",
+"risky": [
+[
+"tiempo",
+2.35
 ]
 ]
 },
@@ -10021,24 +10996,6 @@
 ]
 },
 {
-"word": "flush left",
-"risky": [
-[
-"save flush left",
-3.77
-]
-]
-},
-{
-"word": "font stack",
-"risky": [
-[
-"save font stack",
-3.59
-]
-]
-},
-{
 "word": "FreeType",
 "risky": [
 [
@@ -10057,6 +11014,15 @@
 ]
 },
 {
+"word": "guillemet",
+"risky": [
+[
+"guillaume",
+2.92
+]
+]
+},
+{
 "word": "Inconsolata",
 "risky": [
 [
@@ -10066,11 +11032,33 @@
 ]
 },
 {
+"word": "Janson",
+"risky": [
+[
+"jansen",
+2.98
+],
+[
+"janssen",
+2.8
+]
+]
+},
+{
 "word": "Josefin Sans",
 "risky": [
 [
 "josephine sands",
 3.21
+]
+]
+},
+{
+"word": "lower case",
+"risky": [
+[
+"lowercase",
+2.8
 ]
 ]
 },
@@ -10115,11 +11103,11 @@
 ]
 },
 {
-"word": "variable fonts",
+"word": "upper case",
 "risky": [
 [
-"save variable fonts",
-3.18
+"uppercase",
+2.47
 ]
 ]
 },
@@ -10164,6 +11152,15 @@
 ]
 },
 {
+"word": "Red Hat",
+"risky": [
+[
+"redhat",
+2.1
+]
+]
+},
+{
 "word": "BlackBerry",
 "risky": [
 [
@@ -10178,6 +11175,23 @@
 [
 "glossy a",
 3.43
+]
+]
+},
+{
+"word": "Knoll",
+"risky": [
+[
+"knowl",
+2.11
+],
+[
+"nole",
+2.0
+],
+[
+"noll",
+2.5
 ]
 ]
 },
@@ -10281,6 +11295,19 @@
 ]
 },
 {
+"word": "Roslyn",
+"risky": [
+[
+"roslin",
+2.37
+],
+[
+"rosslyn",
+2.42
+]
+]
+},
+{
 "word": "Snowpack",
 "risky": [
 [
@@ -10308,6 +11335,15 @@
 ]
 },
 {
+"word": "Point Nine",
+"risky": [
+[
+"0.9",
+2.19
+]
+]
+},
+{
 "word": "ASIC",
 "risky": [
 [
@@ -10322,6 +11358,15 @@
 [
 "by oss",
 2.98
+]
+]
+},
+{
+"word": "After Effects",
+"risky": [
+[
+"aftereffects",
+2.28
 ]
 ]
 },
@@ -10349,6 +11394,24 @@
 [
 "a fine",
 5.23
+]
+]
+},
+{
+"word": "EEVEE",
+"risky": [
+[
+"evie",
+2.91
+]
+]
+},
+{
+"word": "Kodi",
+"risky": [
+[
+"kody",
+2.28
 ]
 ]
 },
@@ -10604,10 +11667,6 @@
 "variant": "month over month"
 },
 {
-"word": "MoM",
-"variant": "same month over month"
-},
-{
 "word": "OOO",
 "variant": "out of office"
 },
@@ -10710,10 +11769,6 @@
 {
 "word": "4DX",
 "variant": "for dx"
-},
-{
-"word": "4DX",
-"variant": "save for dx"
 },
 {
 "word": "BLUF",
@@ -11008,10 +12063,6 @@
 "variant": "fly control"
 },
 {
-"word": "flyctl",
-"variant": "save fly control"
-},
-{
 "word": "Gateway API",
 "variant": "gateway a p i"
 },
@@ -11176,10 +12227,6 @@
 "variant": "flip card"
 },
 {
-"word": "Flipkart",
-"variant": "save flip card"
-},
-{
 "word": "Fuchsia",
 "variant": "future"
 },
@@ -11214,10 +12261,6 @@
 {
 "word": "JAXA",
 "variant": "jackson"
-},
-{
-"word": "Jio",
-"variant": "said you"
 },
 {
 "word": "Kakao",
@@ -11596,10 +12639,6 @@
 "variant": "browser stack"
 },
 {
-"word": "BrowserStack",
-"variant": "save browser stack"
-},
-{
 "word": "Bybit",
 "variant": "by bit"
 },
@@ -11788,10 +12827,6 @@
 "variant": "epsom"
 },
 {
-"word": "FabFilter",
-"variant": "save fab filter"
-},
-{
 "word": "FactSet",
 "variant": "fact said"
 },
@@ -11816,16 +12851,8 @@
 "variant": "figure a i"
 },
 {
-"word": "Firefly Aerospace",
-"variant": "save firefly aerospace"
-},
-{
 "word": "Focusrite",
 "variant": "focus right"
-},
-{
-"word": "Focusrite",
-"variant": "save focus right"
 },
 {
 "word": "Forrester",
@@ -11840,24 +12867,12 @@
 "variant": "fresh disk"
 },
 {
-"word": "Freshdesk",
-"variant": "save fresh desk"
-},
-{
-"word": "Freshdesk",
-"variant": "save fresh disk"
-},
-{
 "word": "FromSoftware",
 "variant": "from soft"
 },
 {
 "word": "FromSoftware",
 "variant": "from software"
-},
-{
-"word": "FromSoftware",
-"variant": "save from software"
 },
 {
 "word": "Gainsight",
@@ -12476,10 +13491,6 @@
 "variant": "d three"
 },
 {
-"word": "Flink",
-"variant": "safe link"
-},
-{
 "word": "Mongo",
 "variant": "mungo"
 },
@@ -12646,10 +13657,6 @@
 {
 "word": "vCard",
 "variant": "vee card"
-},
-{
-"word": "Vitess",
-"variant": "save a test"
 },
 {
 "word": "WAL",
@@ -13000,10 +14007,6 @@
 "variant": "g-force"
 },
 {
-"word": "getElementById",
-"variant": "sake it element by id"
-},
-{
 "word": "git add",
 "variant": "get add"
 },
@@ -13200,10 +14203,6 @@
 "variant": "scholar"
 },
 {
-"word": "sed",
-"variant": "said"
-},
-{
 "word": "setTimeout",
 "variant": "set time out"
 },
@@ -13284,16 +14283,8 @@
 "variant": "you stayed"
 },
 {
-"word": "Vercel",
-"variant": "save or sell"
-},
-{
 "word": "Vite",
 "variant": "vid"
-},
-{
-"word": "Vue",
-"variant": "save you"
 },
 {
 "word": "Vue",
@@ -13354,10 +14345,6 @@
 {
 "word": "/usr",
 "variant": "user"
-},
-{
-"word": "/var",
-"variant": "save var"
 },
 {
 "word": "/var",
@@ -13700,10 +14687,6 @@
 "variant": "fix-up"
 },
 {
-"word": "FlashAttention",
-"variant": "save flash attention"
-},
-{
 "word": "Flatpak",
 "variant": "flatpack"
 },
@@ -13720,16 +14703,8 @@
 "variant": "form data"
 },
 {
-"word": "FormData",
-"variant": "save form data"
-},
-{
 "word": "FoundationModels",
 "variant": "foundation models"
-},
-{
-"word": "framebuffer",
-"variant": "save frame buffer"
 },
 {
 "word": "fsck",
@@ -14044,10 +15019,6 @@
 "variant": "sambo"
 },
 {
-"word": "SameSite",
-"variant": "same site"
-},
-{
 "word": "setuptools",
 "variant": "set up tools"
 },
@@ -14198,22 +15169,6 @@
 {
 "word": "UB",
 "variant": "you be"
-},
-{
-"word": "udev",
-"variant": "you'd ever gain"
-},
-{
-"word": "visx",
-"variant": "save this x"
-},
-{
-"word": "VRR",
-"variant": "save err"
-},
-{
-"word": "Vue 3",
-"variant": "save you three"
 },
 {
 "word": "Vue Router",
@@ -14532,10 +15487,6 @@
 "variant": "mika"
 },
 {
-"word": "MOIC",
-"variant": "same wake"
-},
-{
 "word": "Nifty 50",
 "variant": "nifty-fifty"
 },
@@ -14738,10 +15689,6 @@
 {
 "word": "Samsung",
 "variant": "sam sung"
-},
-{
-"word": "SATA",
-"variant": "say ta"
 },
 {
 "word": "SATA",
@@ -14976,10 +15923,6 @@
 "variant": "doin"
 },
 {
-"word": "Fast Company",
-"variant": "save fast company"
-},
-{
 "word": "gacha",
 "variant": "gotcha"
 },
@@ -15076,10 +16019,6 @@
 "variant": "polisher"
 },
 {
-"word": "Vitalik",
-"variant": "save italic"
-},
-{
 "word": "Aaron Levie",
 "variant": "aaron levi"
 },
@@ -15126,10 +16065,6 @@
 {
 "word": "Daniel Stenberg",
 "variant": "daniel steinberg"
-},
-{
-"word": "Fireship",
-"variant": "save fire ship"
 },
 {
 "word": "Gödel",
@@ -15300,10 +16235,6 @@
 "variant": "fortnight"
 },
 {
-"word": "Framer Motion",
-"variant": "save frame or motion"
-},
-{
 "word": "Goodreads",
 "variant": "good reads"
 },
@@ -15346,10 +16277,6 @@
 {
 "word": "MainStage",
 "variant": "main stage"
-},
-{
-"word": "Mixtral",
-"variant": "same extra"
 },
 {
 "word": "OKR",
@@ -15588,18 +16515,6 @@
 "variant": "flux one"
 },
 {
-"word": "Fogg Behavior Model",
-"variant": "save fog behavior model"
-},
-{
-"word": "Fotor",
-"variant": "save folder"
-},
-{
-"word": "FreeSync",
-"variant": "save free sync"
-},
-{
 "word": "G Suite",
 "variant": "gee sweet"
 },
@@ -15764,10 +16679,6 @@
 "variant": "my fonts"
 },
 {
-"word": "MyFonts",
-"variant": "save my fonts"
-},
-{
 "word": "MySpace",
 "variant": "my space"
 },
@@ -15814,10 +16725,6 @@
 {
 "word": "PhysX",
 "variant": "physics"
-},
-{
-"word": "PhysX",
-"variant": "safe as x"
 },
 {
 "word": "Pirsch",
@@ -15922,14 +16829,6 @@
 {
 "word": "ViewModel",
 "variant": "view model"
-},
-{
-"word": "ViT",
-"variant": "save it"
-},
-{
-"word": "ViT",
-"variant": "save vid"
 },
 {
 "word": "Vitally",
@@ -16072,10 +16971,6 @@
 "variant": "fact"
 },
 {
-"word": "FAccT",
-"variant": "safe act"
-},
-{
 "word": "FAR.AI",
 "variant": "far ai"
 },
@@ -16136,10 +17031,6 @@
 "variant": "e to e"
 },
 {
-"word": "FileVault",
-"variant": "save file vault"
-},
-{
 "word": "Fortinet",
 "variant": "forty net"
 },
@@ -16166,10 +17057,6 @@
 {
 "word": "phishing",
 "variant": "fishing"
-},
-{
-"word": "phishing",
-"variant": "safe fishing"
 },
 {
 "word": "RBAC",
@@ -16464,28 +17351,12 @@
 "variant": "fig tree"
 },
 {
-"word": "FOIT",
-"variant": "save void"
-},
-{
 "word": "FontShop",
 "variant": "font shop"
 },
 {
 "word": "FOUT",
 "variant": "f out"
-},
-{
-"word": "FOUT",
-"variant": "safe out"
-},
-{
-"word": "fraktur",
-"variant": "safe rock tour"
-},
-{
-"word": "FreeType",
-"variant": "save free type"
 },
 {
 "word": "geometric sans",
@@ -16510,10 +17381,6 @@
 {
 "word": "Sabon",
 "variant": "saban"
-},
-{
-"word": "Sabon",
-"variant": "say bon"
 },
 {
 "word": "Styrene",
@@ -16550,10 +17417,6 @@
 {
 "word": "Flos",
 "variant": "floss"
-},
-{
-"word": "Flos",
-"variant": "safe loss"
 },
 {
 "word": "Glossier",
@@ -16594,10 +17457,6 @@
 {
 "word": "Redpoint",
 "variant": "red point"
-},
-{
-"word": "Safe Superintelligence",
-"variant": "safe super intelligence"
 },
 {
 "word": "Together AI",
@@ -17894,22 +18753,6 @@
 "why": "is another term"
 },
 {
-"variant": "save rotzwaf",
-"words": [
-"wroclaw",
-"wrocław"
-],
-"kept": null
-},
-{
-"variant": "save rotzwaff",
-"words": [
-"wroclaw",
-"wrocław"
-],
-"kept": null
-},
-{
 "variant": "io",
 "words": [
 "I/O"
@@ -18442,5 +19285,5 @@
 "Mulish"
 ],
 "variant_collisions": [],
-"runtime_bytes": 1545365
+"runtime_bytes": 1547516
 }

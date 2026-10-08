@@ -52,8 +52,8 @@ GOLD_WORDS = {g for g in GOLD if g == g.lower()}      # ordinary lowercase words
 for kk in [kk for kk, e in entries.items() if e["match"] == "case-insensitive" and isinstance(GOLD.get(e["word"].lower()), dict)]:
     del entries[kk]
 # Units and clock abbreviations only mean the unit right after a number ("16 GB", "9 AM"), never "mm, nice" or "I AM".
-UNITS = {"bps", "fps", "GB", "Gbps", "GHz", "GiB", "Hz", "KB", "kbps", "kHz", "KiB", "MB", "Mbps", "MiB", "mm", "ms", "nm",
-         "ns", "PB", "px", "TB", "Tbps", "THz", "μm", "μs", "rem", "AM", "PM"}
+# Only the ones that clash with an ordinary word, title or other meaning; GHz, Mbps or px read the same anywhere.
+UNITS = {"mm", "ms", "nm", "ns", "rem", "AM", "PM", "GB", "MB", "KB", "TB", "PB"}
 for e in entries.values():
     e["unit"] = e["word"] in UNITS
     if e["unit"]: e["dictation"] = "never"
@@ -63,13 +63,20 @@ for e in entries.values():
 # company/product/hardware/design terms an LLM pass judged to be developer tools (evidence/*.result.json), and never
 # from a term that is itself an ordinary word. Consumer brands (Netflix, iPhone, Tesla) no longer unlock rewrites.
 DEV = {"engineering", "cloud", "data", "ai", "security"}
+EVERYDAY_TECH = {"AI", "GPT", "ChatGPT", "OpenAI", "Claude", "Gemini", "Copilot", "URL", "UTC", "GMT", "VPN", "OTP", "SSL",
+                 "HTTP", "HTTPS", "iOS", "iPadOS", "watchOS", "macOS", "WWDC", "QA", "Wi-Fi", "Bluetooth", "PDF", "USB", "app", "apps"}
 DEV_EXTRA = set()
 for f in glob.glob(f"{L}/evidence/*.result.json"):
     DEV_EXTRA |= set(json.load(open(f, encoding="utf-8")).get("developer", []))
 for e in entries.values():
     acronym = e["word"].isupper() and len(e["word"]) <= 5 and e["category"] in DEV      # SQL, API, JSON, CORS
-    e["evidence"] = (e["category"] in DEV or e["word"] in DEV_EXTRA) and (acronym or e["word"].lower() not in GOLD_WORDS) and not e["unit"]
+    ordinary = e["word"].lower() in GOLD_WORDS and zipf_frequency(e["word"].lower(), "en") >= 3.5   # rust, swift, flask
+    e["evidence"] = (e["category"] in DEV or e["word"] in DEV_EXTRA) and (acronym or not ordinary) and not e["unit"] \
+        and e["word"] not in EVERYDAY_TECH
+# (EVERYDAY_TECH: tech words in everyday use, "I asked AI", "6 GMT", "my VPN is down", never make it developer talk.)
 # dictation: gather variants (agent + observed ASR), enforce safety
+CARRIER_START = {"save", "same", "say", "says", "said", "safe", "sake", "sail"}
+CARRIER_END = {"again", "gain", "agin"}
 # Forms real speech-to-text produces that the batches missed (the essay demo and the app's own regression suite).
 ADD_VARIANTS = {"kubectl": {"cubic control"}}   # ("dino" can't go to Deno: DINO is its own term)
 by_variant = defaultdict(set)
@@ -79,6 +86,9 @@ for e in entries.values():
         if e.get("asr", {}).get(key): vs.add(clean(e["asr"][key]))
     canon = clean(e["word"])
     vs = {v for v in vs if v and v != canon}
+    # The round trip said "Say <term> again."; a transcript that kept part of the carrier ("save font", "same material
+    # ui", "… gain") deletes or adds a word when used.
+    vs = {v for v in vs if v.split()[0] not in CARRIER_START and v.split()[-1] not in CARRIER_END}
     e["_variants"] = sorted(vs | ADD_VARIANTS.get(e["word"], set()))
     for v in e["_variants"]: by_variant[v].add(k(e))
 # Collisions: one spoken form claimed by several terms. Same-term aliases go to one canonical spelling; genuinely
@@ -148,6 +158,9 @@ for f in glob.glob(f"{L}/strict/s[0-9].json"):
                 if key in STRICT and RANKV[bucket] > RANKV[STRICT[key]]: STRICT[key] = bucket
 # The flagship spoken forms, kept after the strict pass: tech context now comes only from developer terms, so
 # "jason" and "sequel" change in "send the jason payload to the API" but not in "the sequel was great".
+# Context entries reviewed by hand whose safe variants may apply anywhere (a blanket promotion of 1,274 entries let
+# numbers and people's names through: "a 16-year-old" -> A16, "Larry Allison" -> Larry Ellison).
+PROMOTE = {"JSON", "sudo", "OAuth", "Jupyter", "Redis", "Deno", "Django", "PNG", "Vue"}
 RESTORE = {("jason", "JSON"): "context_only", ("sequel", "SQL"): "context_only", ("jupiter", "Jupyter"): "context_only",
            ("oh auth", "OAuth"): "keep", ("cubic control", "kubectl"): "keep"}
 FORCE_CONTEXT = {("p and g", "PNG"), ("log stash", "Logstash"), ("hot mail", "Hotmail")}
@@ -169,12 +182,13 @@ for e in entries.values():
         if (v, e["word"]) in FORCE_DROP: j = "drop"
         if j == "drop":
             e["_variants"].remove(v); dropped.append(dict(word=e["word"], variant=v)); continue
-        if j == "context_only" or risky_variant(v): risky.append((v, round(zipf_frequency(v, "en"), 2)))
+        if j == "context_only" or risky_variant(v) or (len(w) == 1 and zipf_frequency(v, "en") >= 2.0 and j != "keep_forced"):
+            risky.append((v, round(zipf_frequency(v, "en"), 2)))
         if len(by_variant[v]) > 1: collisions.append(dict(variant=v, words=sorted(by_variant[v])))
     # Risky variants are gated one by one in the app (spoken_context_only). A "context" entry whose own spelling is
     # no ordinary word ("json", "sudo", "svelte" is not; "mongo" is) needs no entry-wide gate any more: its safe
     # variants ("sue dough", "o auth") and its recasing apply anywhere, while the risky ones stay gated one by one.
-    if e["dictation"] == "context" and e["match"] != "case-sensitive" and e["word"].lower() not in GOLD_WORDS:
+    if e["dictation"] == "context" and e["word"] in PROMOTE:
         e["dictation"] = "always"; e["promoted"] = True
         # Its agent gated it for a reason: a one-word variant that is any recognisable word or name ("kates" for K8s)
         # stays gated even though it isn't in the dictionary.
