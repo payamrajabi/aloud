@@ -1,5 +1,5 @@
 {
-  "about": "Dictation corrector regression suite: .build/debug/ReadAloud --test-dictation Tests/dictation/regression.json. must_change is checked against the fixture lexicon below; must_not_change against the fixture and against the app's own lexicon files, since ordinary speech must survive any list.",
+  "about": "Dictation corrector regression suite: .build/debug/ReadAloud --test-dictation Tests/dictation/regression.json. must_change is checked against the fixture lexicon below; must_not_change against the fixture and against the app's own lexicon files, since ordinary speech must survive any list. app-lexicon.json checks must_change against the app's lexicons too.",
   "lexicon": "fixture-lexicon.json",
   "must_change": [
     {"in": "Push the fix to super base.", "out": "Push the fix to Supabase."},
@@ -67,7 +67,11 @@
     {"in": "Ship it with the API asap.", "out": "Ship it with the API ASAP."},
     {"in": "Deploy the k8s cluster, then write the sequel.", "out": "Deploy the K8s cluster, then write the SQL."},
     {"in": "Store it in mongo.", "out": "Store it in Mongo."},
-    {"in": "Serve it over https.", "out": "Serve it over HTTPS."}
+    {"in": "Serve it over https.", "out": "Serve it over HTTPS."},
+    {"in": "Use TypeScript types for the jason.", "out": "Use TypeScript types for the JSON."},
+    {"in": "Check the API, then we can all go for a walk and parse the jason.", "out": "Check the API, then we can all go for a walk and parse the JSON."},
+    {"in": "Write the sequel, then we can all go for a walk and push to GitHub.", "out": "Write the SQL, then we can all go for a walk and push to GitHub."},
+    {"in": "Parse the jason from the API. Later that evening we all sat down on the sofa together and watched the sequel with the kids.", "out": "Parse the JSON from the API. Later that evening we all sat down on the sofa together and watched the sequel with the kids."}
   ],
   "must_not_change": [
     "Jason went to the store.",
@@ -194,6 +198,26 @@
     "BIG NEWS TODAY.",
     "WE USE MONGO FOR EVERYTHING.",
     "It took thirty milliseconds.",
-    "16 GB of RAM is plenty."
+    "16 GB of RAM is plenty.",
+    "I pushed the fix to GitHub this morning, then I took the dog for a long walk around the park because the weather was lovely and the leaves were turning, and later we all watched the sequel together.",
+    "We moved everything to Kubernetes last spring, but this weekend was all about family: my sister drove up from the coast with her kids, we cooked a huge breakfast, went down to the river, and my nephew jason caught his very first fish.",
+    "My brother still writes TypeScript for a living, though these days he spends most evenings in the garden, fixing up the old shed, feeding the chickens and talking to the neighbours, and every autumn he makes a batch of home brew for the whole street.",
+    "Check the API, then we can all go for a long walk and parse the jason.",
+    "Write the sequel, then we can all go for a long walk and push to GitHub.",
+    "She's a 16-year-old student.",
+    "That's a 100% sure thing.",
+    "What is 1 plus 1?",
+    "Count in base 10.",
+    "Pick X or Y.",
+    "Hans Wagner called this morning.",
+    "Larry Allison and Diane Green came to dinner.",
+    "The clock went tick tock all night.",
+    "Don't forget to save Visual Studio settings.",
+    "Timo said he would be late.",
+    "Pontius Pilate washed his hands.",
+    "The AI said the sequel was better.",
+    "I asked AI about the red panda at the zoo.",
+    "I need service now, my VPN is down.",
+    "The brownies were gooey and the AI loved them."
   ]
 }
