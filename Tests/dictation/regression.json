@@ -6,6 +6,7 @@
     {"in": "Run cube control get pods.", "out": "Run kubectl get pods."},
     {"in": "Push the fix to Supabase, then run cube control get pods", "out": "Push the fix to Supabase, then run kubectl get pods"},
     {"in": "Cube control is installed.", "out": "kubectl is installed."},
+    {"in": "Push the fix to superbase, then run cubic control get pods.", "out": "Push the fix to Supabase, then run kubectl get pods."},
     {"in": "Our database is postgres q l.", "out": "Our database is PostgreSQL."},
     {"in": "Open a pull request on git hub.", "out": "Open a pull request on GitHub."},
     {"in": "Check git hub's status page.", "out": "Check GitHub's status page."},

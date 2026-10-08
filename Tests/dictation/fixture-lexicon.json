@@ -1,6 +1,6 @@
 [
 {"word":"Supabase","match":"case-insensitive","us":"sˈupəbˌAs","gb":"sˈuːpəbˌAs","dictation":"always","spoken":["super base","superbase","supa base","soupa base"]},
-{"word":"kubectl","match":"case-insensitive","us":"kjˈub kəntɹˌOl","gb":"kjˈuːb kəntɹˌQl","dictation":"always","spoken":["cube control","kube control","cube cuttle","kube cuttle","cube c t l"]},
+{"word":"kubectl","match":"case-insensitive","us":"kjˈub kəntɹˌOl","gb":"kjˈuːb kəntɹˌQl","dictation":"always","spoken":["cube control","kube control","cubic control","cube cuttle","kube cuttle","cube c t l"]},
 {"word":"PostgreSQL","match":"case-insensitive","us":"pˌOstɡɹˌɛskjˌuˈɛl","gb":"pˌQstɡɹˌɛskjˌuːˈɛl","dictation":"always","spoken":["postgres q l","postgres sequel","post gres q l","postgre sql","postgres ql","postgres"]},
 {"word":"Postgres","match":"case-insensitive","us":"pˈOstɡɹɛs","gb":"pˈQstɡɹɛs","dictation":"always","spoken":["post gres","post grez"]},
 {"word":"GitHub","match":"case-insensitive","us":"ɡˈɪthˌʌb","dictation":"always","spoken":["git hub","get hub"]},
