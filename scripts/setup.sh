@@ -6,8 +6,10 @@
 #      Vendor/g2p (bundled into the app)
 #   3. the Kokoro voice and the Parakeet dictation model into Application Support
 #      (for running; the app also downloads both itself on first launch)
+#   4. llama.cpp, which runs the optional dictation clean-up model (for building)
 set -euo pipefail
 
+LLAMA_VERSION="b11138"
 ASR_MODEL="sherpa-onnx-nemo-parakeet-tdt-0.6b-v2-int8"
 VOICE_DIR_NAME="kokoro-multi-lang-v1_0"
 VOICE_BASE="https://huggingface.co/csukuangfj/kokoro-multi-lang-v1_0/resolve/f7b96bb6bef5c5da4d3aa4f4e0498fbbf62dc78b"
@@ -35,6 +37,21 @@ if [[ ! -f "$ROOT/Vendor/g2p/manifest.json" ]]; then
 fi
 python3 "$ROOT/scripts/make-g2p-data.py" --verify "$ROOT/Vendor/g2p" >/dev/null
 echo "Pronunciation data: ready"
+
+# llama.cpp runs the small language model that tidies dictation (Metal, built in).
+LLAMA="$ROOT/Vendor/llama.xcframework"
+if [[ ! -f "$LLAMA/.version-$LLAMA_VERSION" ]]; then
+  echo "Downloading llama.cpp $LLAMA_VERSION (about 58 MB)..."
+  tmp=$(mktemp -d)
+  curl -fL --progress-bar -o "$tmp/llama.zip" \
+    "https://github.com/ggml-org/llama.cpp/releases/download/${LLAMA_VERSION}/llama-${LLAMA_VERSION}-xcframework.zip"
+  ditto -x -k "$tmp/llama.zip" "$tmp"
+  rm -rf "$LLAMA"
+  ditto "$tmp/build-apple/llama.xcframework" "$LLAMA"
+  touch "$LLAMA/.version-$LLAMA_VERSION"
+  rm -rf "$tmp"
+fi
+echo "llama.cpp library: ready"
 
 # The voice: the model, the voice styles and the symbol table (about 355 MB), the same
 # files the app fetches. (Not sherpa-onnx's tar archive, which also carries eSpeak NG's data.)

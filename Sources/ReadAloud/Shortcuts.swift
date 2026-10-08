@@ -131,14 +131,16 @@ enum KeyBinding: Equatable {
 
 /// The things a global shortcut can do, and the shortcut chosen for each.
 enum ShortcutAction: String, CaseIterable, Identifiable {
-    case read, dictate, cancelDictation
+    // "dictate" is the stored name of Start dictation from before it had a separate finish.
+    case read, dictate, finishDictation, cancelDictation
 
     var id: String { rawValue }
 
     var title: String {
         switch self {
         case .read: return "Read selection"
-        case .dictate: return "Dictate"
+        case .dictate: return "Start dictation"
+        case .finishDictation: return "Finish dictation"
         case .cancelDictation: return "Cancel dictation"
         }
     }
@@ -146,12 +148,20 @@ enum ShortcutAction: String, CaseIterable, Identifiable {
     /// Cancelling only makes sense as a key combination: a stray modifier tap shouldn't throw away a long dictation.
     var allowsModifierKeys: Bool { self != .cancelDictation }
 
+    /// Everything on right ⌥: tap to start dictating, tap again to finish, double-tap to read the selection.
+    /// Finishing follows whatever starts dictation, so changing one key changes both.
     var defaultBinding: KeyBinding {
         switch self {
-        case .read: return .doubleTap(.leftOption)
-        case .dictate: return .doubleTap(.rightOption)
-        case .cancelDictation: return .combo(keyCode: UInt32(kVK_Escape), modifiers: UInt32(controlKey | optionKey))
+        case .read: return .doubleTap(.rightOption)
+        case .dictate: return .tap(.rightOption)
+        case .finishDictation: return Self.dictate.binding.map(Self.finishing) ?? .tap(.rightOption)
+        case .cancelDictation: return .combo(keyCode: UInt32(kVK_Escape), modifiers: UInt32(cmdKey))
         }
+    }
+
+    /// What finishes a dictation that `start` begins: one press of the same key, or the same combination again.
+    private static func finishing(_ start: KeyBinding) -> KeyBinding {
+        start.modifierKey.map { .tap($0) } ?? start
     }
 
     private var defaultsKey: String { "shortcut.\(rawValue)" }
@@ -166,7 +176,11 @@ enum ShortcutAction: String, CaseIterable, Identifiable {
     }
 
     func set(_ binding: KeyBinding?) {
-        UserDefaults.standard.set(binding?.storageValue ?? Self.none, forKey: defaultsKey)
+        if self == .finishDictation, binding == defaultBinding {
+            UserDefaults.standard.removeObject(forKey: defaultsKey)  // keep following Start dictation
+        } else {
+            UserDefaults.standard.set(binding?.storageValue ?? Self.none, forKey: defaultsKey)
+        }
         NotificationCenter.default.post(name: .shortcutsChanged, object: nil)
     }
 
@@ -177,12 +191,17 @@ enum ShortcutAction: String, CaseIterable, Identifiable {
         NotificationCenter.default.post(name: .shortcutsChanged, object: nil)
     }
 
-    /// The action already using `binding` (or its modifier key), other than this one.
+    /// The action already using `binding`, other than this one. One modifier key can carry a tap and a
+    /// double-tap for different actions; the finish shortcut is live only while dictating, so it can match
+    /// the start one, and a read gesture too (but not a read combination, whose hot key would swallow it).
     func conflict(with binding: KeyBinding) -> ShortcutAction? {
         Self.allCases.first { other in
-            guard other != self, let theirs = other.binding else { return false }
-            if theirs == binding { return true }
-            return theirs.modifierKey != nil && theirs.modifierKey == binding.modifierKey
+            guard other != self, other.binding == binding else { return false }
+            switch Set([self, other]) {
+            case [.dictate, .finishDictation]: return false
+            case [.read, .finishDictation]: return binding.modifierKey == nil
+            default: return true
+            }
         }
     }
 
@@ -219,7 +238,7 @@ enum ShortcutAction: String, CaseIterable, Identifiable {
             case "controlOptionD": return .combo(keyCode: UInt32(kVK_ANSI_D), modifiers: UInt32(controlKey | optionKey))
             default: return .tap(.rightOption)
             }
-        case .cancelDictation:
+        case .finishDictation, .cancelDictation:
             return nil
         }
     }

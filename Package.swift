@@ -5,6 +5,8 @@ import Foundation
 // Native libraries built by scripts/setup.sh into Vendor/sherpa-onnx-asr: sherpa-onnx
 // compiled without text-to-speech (so without eSpeak NG), used for dictation, and the
 // ONNX Runtime it ships with, which also runs the Kokoro voice and the G2P model.
+// llama.cpp (the local language model that tidies dictation) is downloaded into
+// Vendor/llama.xcframework by scripts/setup.sh.
 let root = URL(fileURLWithPath: #filePath).deletingLastPathComponent().path
 let nativeLib = "\(root)/Vendor/sherpa-onnx-asr/lib"
 
@@ -28,9 +30,10 @@ let package = Package(
             path: "Sources/Phonemizer",
             exclude: ["LICENSE-MisakiSwift.txt"]
         ),
+        .binaryTarget(name: "llama", path: "Vendor/llama.xcframework"),
         .executableTarget(
             name: "ReadAloud",
-            dependencies: ["CSherpaOnnx", "COrt", "Phonemizer", .product(name: "Sparkle", package: "Sparkle")],
+            dependencies: ["CSherpaOnnx", "COrt", "Phonemizer", "llama", .product(name: "Sparkle", package: "Sparkle")],
             path: "Sources/ReadAloud",
             linkerSettings: [
                 .unsafeFlags([

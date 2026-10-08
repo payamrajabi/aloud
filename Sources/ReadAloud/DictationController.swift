@@ -2,8 +2,9 @@ import AppKit
 import AVFoundation
 import Phonemizer
 
-/// Dictation: record the microphone, transcribe with Parakeet on this Mac,
-/// and type the text into whatever app has focus.
+/// Dictation: record the microphone, transcribe with Parakeet on this Mac, tidy
+/// it with a small language model if that's downloaded, and type the text into
+/// whatever app has focus.
 final class DictationController: ObservableObject {
     enum State: Equatable {
         case idle
@@ -22,6 +23,8 @@ final class DictationController: ObservableObject {
     private(set) var lastHeard: String?
     /// 0…1 while the dictation model downloads, nil otherwise.
     @Published private(set) var modelProgress: Double?
+    /// 0…1 while the clean-up model downloads, nil otherwise.
+    @Published private(set) var cleanupProgress: Double?
 
     private let player: PlayerModel
     let shortcuts = ShortcutMonitor()
@@ -32,7 +35,14 @@ final class DictationController: ObservableObject {
     private var pushToTalk = false
     private var resumeReadingAfter = false
     private var messageTimer: Timer?
-    private lazy var streamer = StreamingTranscriber(queue: queue) { [weak self] in self?.loadEngine() }
+    private lazy var streamer: StreamingTranscriber = {
+        let streamer = StreamingTranscriber(queue: queue) { [weak self] in self?.loadEngine() }
+        streamer.onPiece = { [cleaner] in cleaner.add($0) }
+        return streamer
+    }()
+    /// Tidies the transcript with a local language model while you talk, once it's downloaded.
+    private let cleaner = TranscriptCleaner()
+    private let cleanupDownloader = ModelDownloader()
     private var pollTimer: Timer?
     private var downloadProgress: Double = 0
     private var showDownload = false   // only show progress once someone has tried to dictate
@@ -40,7 +50,15 @@ final class DictationController: ObservableObject {
     init(player: PlayerModel) {
         self.player = player
         recorder.onLevel = { [weak self] in self?.level = $0 }
-        shortcuts.onDictate = { [weak self] in self?.toggle() }
+        shortcuts.onDictate = { [weak self] in
+            switch self?.state {
+            case .idle, .message: self?.begin(pushToTalk: false)
+            default: break
+            }
+        }
+        shortcuts.onFinish = { [weak self] in
+            if self?.state == .recording { self?.finish() }
+        }
         shortcuts.isRecording = { [weak self] in self?.state == .recording }
         shortcuts.onHoldBegan = { [weak self] in self?.holdBegan() }
         shortcuts.onHoldEnded = { [weak self] in self?.holdEnded() }
@@ -56,6 +74,10 @@ final class DictationController: ObservableObject {
     func start() {
         shortcuts.start()
         queue.async { _ = Self.corrector }
+        // Get the clean-up model's GPU code compiled before the first dictation needs it.
+        if TranscriptCleaner.isInstalled {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10) { [cleaner] in cleaner.prepare() }
+        }
         if ParakeetEngine.isInstalled {
             queue.async { _ = self.loadEngine() }
         } else {
@@ -82,7 +104,7 @@ final class DictationController: ObservableObject {
         set { shortcuts.onRead = newValue }
     }
 
-    /// "Double-tap right ⌥", for messages.
+    /// "Tap right ⌥", for messages.
     private static var dictateInstruction: String {
         ShortcutAction.dictate.binding?.instruction ?? "Choose Dictate in the menu bar menu"
     }
@@ -156,6 +178,10 @@ final class DictationController: ObservableObject {
         resumeReadingAfter = player.isPlaying
         if resumeReadingAfter { player.pause() }
         streamer.reset()
+        // With the clean-up model, hand over shorter pieces so less is left when you stop.
+        let tidying = cleaner.reset()
+        streamer.minChunk = (tidying ? 8 : 20) * ParakeetEngine.sampleRate
+        streamer.maxChunk = (tidying ? 15 : 30) * ParakeetEngine.sampleRate
         do {
             try recorder.start()
         } catch {
@@ -182,6 +208,7 @@ final class DictationController: ObservableObject {
         pollTimer?.invalidate()
         _ = recorder.stop()
         streamer.reset()
+        cleaner.cancel()
         state = .idle
         if !quietly { NSSound(named: "Funk")?.play() }
         resumeReading()
@@ -191,20 +218,41 @@ final class DictationController: ObservableObject {
         if Self.dryRun { print("   dictation: stop and transcribe"); fflush(stdout); state = .idle; return }
         pollTimer?.invalidate()
         let samples = recorder.stop()
+        cleaner.willFinish()
         NSSound(named: "Pop")?.play()
         guard samples.count > ParakeetEngine.sampleRate / 3 else {  // under ~0.3 s: nothing said
             streamer.reset()
+            cleaner.cancel()
             state = .idle
             resumeReading()
             return
         }
         state = .transcribing
         let started = Date()
-        // Most of the recording is already transcribed; only the tail is left.
-        streamer.finish(all: samples) { text, _ in
-            self.deliver(text, audioSeconds: Double(samples.count) / 16_000, took: Date().timeIntervalSince(started))
+        let seconds = Double(samples.count) / 16_000
+        // Most of the recording is already transcribed (and tidied); only the tail is left.
+        streamer.finish(all: samples) { raw, _ in
+            guard self.cleaner.isActive else {
+                self.deliver(raw, audioSeconds: seconds, took: Date().timeIntervalSince(started))
+                return
+            }
+            var delivered = false
+            self.cleaner.finish { tidied in
+                guard !delivered else { return }
+                delivered = true
+                self.deliver(tidied ?? raw, audioSeconds: seconds, took: Date().timeIntervalSince(started))
+            }
+            // Never keep you waiting long: if tidying stalls, paste what was heard.
+            DispatchQueue.main.asyncAfter(deadline: .now() + Self.cleanupTimeout) {
+                guard !delivered else { return }
+                delivered = true
+                self.cleaner.cancel()
+                self.deliver(raw, audioSeconds: seconds, took: Date().timeIntervalSince(started))
+            }
         }
     }
+
+    private static let cleanupTimeout: TimeInterval = 6
 
     private func deliver(_ raw: String, audioSeconds: Double, took: Double) {
         let trace = DebugScript.args.contains("--trace")
@@ -340,6 +388,38 @@ final class DictationController: ObservableObject {
                 self.queue.async { _ = self.loadEngine() }
             }
         }
+    }
+
+    // MARK: - Clean-up model
+
+    /// Before quitting: frees the language model.
+    func shutDown() { cleaner.shutDown() }
+
+    var isCleanupBusy: Bool { isBusy && cleaner.isActive }
+
+    func downloadCleanupModel() {
+        guard !cleanupDownloader.isRunning, !TranscriptCleaner.isInstalled else { return }
+        cleanupProgress = 0
+        let file = ModelDownloader.RemoteFile(name: TranscriptCleaner.fileName, url: TranscriptCleaner.downloadURL, size: 2_740_937_888,
+                                              sha256: "00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4")
+        cleanupDownloader.download(files: [file], into: TranscriptCleaner.modelDirectory) { [weak self] p in
+            self?.cleanupProgress = p
+        } completion: { [weak self] error in
+            guard let self else { return }
+            self.cleanupProgress = nil
+            if DebugScript.args.contains("--trace") {
+                print("   cleanup: model download finished, error: \(error?.localizedDescription ?? "none"), installed: \(TranscriptCleaner.isInstalled)")
+                fflush(stdout)
+            }
+            if let error { self.show("Download failed: \(error.localizedDescription)") } else { self.cleaner.prepare() }
+        }
+    }
+
+    func removeCleanupModel() {
+        guard TranscriptCleaner.isInstalled, !isCleanupBusy else { return }
+        cleaner.unload()
+        try? FileManager.default.removeItem(at: TranscriptCleaner.modelDirectory)
+        objectWillChange.send()
     }
 
     private func show(_ message: String) {

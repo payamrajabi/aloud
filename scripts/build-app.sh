@@ -11,7 +11,7 @@ set -euo pipefail
 
 ROOT="${0:A:h:h}"
 cd "$ROOT"
-[[ -f Vendor/sherpa-onnx-asr/lib/libsherpa-onnx-c-api.dylib && -f Vendor/g2p/manifest.json ]] || ./scripts/setup.sh
+[[ -f Vendor/sherpa-onnx-asr/lib/libsherpa-onnx-c-api.dylib && -f Vendor/g2p/manifest.json && -d Vendor/llama.xcframework ]] || ./scripts/setup.sh
 
 APP_NAME="Aloud"
 FEED_URL="${FEED_URL:-https://aloudformac.com/appcast.xml}"
@@ -31,6 +31,8 @@ fi
 [[ -x "$BIN" ]] || { echo "Build failed"; exit 1; }
 SPARKLE=".build/arm64-apple-macosx/release/Sparkle.framework"
 [[ -d "$SPARKLE" ]] || { echo "Sparkle.framework missing from the build products"; exit 1; }
+LLAMA=".build/arm64-apple-macosx/release/llama.framework"
+[[ -d "$LLAMA" ]] || { echo "llama.framework missing from the build products"; exit 1; }
 
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Frameworks" "$APP/Contents/Resources"
@@ -38,6 +40,8 @@ cp "$BIN" "$APP/Contents/MacOS/ReadAloud"
 cp -L Vendor/sherpa-onnx-asr/lib/libsherpa-onnx-c-api.dylib Vendor/sherpa-onnx-asr/lib/libonnxruntime.dylib "$APP/Contents/Frameworks/"
 # Sparkle (auto-updates). ditto keeps the framework's internal symlinks.
 ditto "$SPARKLE" "$APP/Contents/Frameworks/Sparkle.framework"
+# llama.cpp (the language model that tidies dictation). Only the Apple silicon slice.
+ditto --arch arm64 "$LLAMA" "$APP/Contents/Frameworks/llama.framework"
 # Remove the developer-only library path so the app only uses its bundled copies.
 install_name_tool -delete_rpath "$ROOT/Vendor/sherpa-onnx-asr/lib" "$APP/Contents/MacOS/ReadAloud" 2>/dev/null || true
 
@@ -126,6 +130,7 @@ IDENTITY=${IDENTITY:--}
 echo "Signing with: $IDENTITY"
 echo "$IDENTITY" > build/signing-identity
 codesign --force $TIMESTAMP --options runtime -s "$IDENTITY" "$APP/Contents/Frameworks/"*.dylib
+codesign --force $TIMESTAMP --options runtime -s "$IDENTITY" "$APP/Contents/Frameworks/llama.framework"
 # Sparkle's helpers are signed inside-out with our identity (Sparkle's guide for builds outside Xcode).
 SPK="$APP/Contents/Frameworks/Sparkle.framework"
 codesign --force $TIMESTAMP --options runtime -s "$IDENTITY" "$SPK/Versions/B/XPCServices/Installer.xpc"

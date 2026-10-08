@@ -2,13 +2,19 @@
 
 A small Mac menu-bar app that reads and writes for you, entirely on your Mac.
 
-- **Read aloud:** select text in any app, double-tap **left ⌥**, and it's read
+- **Read aloud:** select text in any app, double-tap **right ⌥**, and it's read
   aloud in the background.
-- **Dictation:** double-tap **right ⌥**, speak, tap it once more (or hold right ⌥ while you
+- **Dictation:** tap **right ⌥** once, speak, tap it again (or hold right ⌥ while you
   talk), and the words are typed into whatever app you're in. Transcription
   uses NVIDIA's Parakeet TDT 0.6B v2 model locally, about 20–30× faster than real time.
   While you talk, every 20–30 s of speech (cut at a pause) is transcribed in the
-  background, so the text is ready about a second after you stop, however long you spoke. The menu bar icon animates while it reads; click it
+  background, so the text is ready about a second after you stop, however long you spoke.
+- **Clean-up (optional download):** a small language model, Qwen 3.5 4B run by
+  [llama.cpp](https://github.com/ggml-org/llama.cpp), tidies dictation while you talk:
+  punctuation and paragraphs from what you said rather than where you paused, and no
+  ums, stutters or false starts. It keeps your words and never answers what you dictate.
+
+The menu bar icon animates while it reads; click it
 for the player, with the text and a scrubbable timeline. Speech is generated
 locally by [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) on
 [ONNX Runtime](https://onnxruntime.ai), so it's free and works offline.
@@ -23,7 +29,7 @@ locally by [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) on
 ## Build it yourself
 
 ```bash
-./scripts/setup.sh       # one time, ~10 min: builds the dictation library, the pronunciation data, downloads the models
+./scripts/setup.sh       # one time, ~10 min: builds the dictation library and the pronunciation data, downloads llama.cpp and the models
 ./scripts/build-app.sh   # builds, signs, installs to /Applications and launches
 ```
 
@@ -46,8 +52,8 @@ Accessibility → Aloud).
 
 | Action | How |
 |---|---|
-| Read selected text | Double-tap left ⌥ (change it in Settings) |
-| Pause / resume | Press the shortcut again, or space in the player |
+| Read selected text | Double-tap right ⌥ (change it in Settings) |
+| Pause / resume | Space in the player, the play/pause key, or AirPods |
 | Open the player | Click the menu bar icon |
 | Settings | Right-click the menu bar icon, or ⋯ in the player |
 | Scrub | Drag the timeline. The darker bar shows audio that's already generated |
@@ -56,10 +62,11 @@ Accessibility → Aloud).
 | Stop | ■ in the player |
 | AirPods / headphones | Press once to pause or resume, twice for the next sentence, three times for the previous one |
 | Keyboard media keys, Control Center | Play/pause, next/previous sentence, and scrubbing all work |
-| Dictate | Double-tap right ⌥ to start and tap it once to finish, or hold it while you speak. ⌃⌥Esc cancels. Change either in Settings |
+| Dictate | Tap right ⌥ to start and tap it again to finish, or hold it while you speak. ⌘Esc cancels. Start, finish and cancel each have their own shortcut in Settings. A single tap waits the double-click interval (about half a second) in case it's a double-tap to read |
 | Settings | Right-click the menu bar icon → Settings… (⌘,). Shortcuts can be a key combination, or a tap or double-tap of any modifier key (left/right ⌥ ⌘ ⌃ ⇧, or fn) |
 | Speakers and microphones | Settings lists every connected device. Drag them into order and Aloud uses the highest one that's connected, whatever macOS is set to. Until you do, it follows macOS |
 | Voice and dictation models | Both download on first launch. Settings shows their progress and lets you remove either one; Aloud then asks before downloading it again the next time you use it |
+| Clean-up model | Optional, about 2.7 GB: Settings → Downloads → Clean-up. Once it's there, every dictation is tidied; remove it to go back to the raw transcript |
 | Updates | Aloud checks once a day. Right after launch it shows the update window; otherwise it sends a notification, and the menu item becomes Update to Aloud x.y… |
 | Copy last dictation | Right-click the menu bar icon → Copy Last Dictation |
 | Voice, speed | Menus in the player or the right-click menu |
@@ -85,6 +92,13 @@ Accessibility → Aloud).
   half a second. Kokoro runs about 2–4× faster than real time on an M1 Max.
 - `PlayerModel` schedules generated sentences on an `AVAudioEngine`; speed
   changes use a time-stretch unit, so the pitch stays natural.
+- `TranscriptCleaner` tidies dictation with Qwen 3.5 4B (`LlamaEngine` wraps llama.cpp
+  on the GPU). With it installed, Parakeet hands over a piece every 8–15 s; each piece
+  is cleaned with the text before it as context, and its last sentence stays open to
+  be cleaned again with the next piece, so a sentence split by a long pause joins back
+  up. The instructions and examples are processed once and remembered. If the model's
+  reply adds or swaps words (an answer instead of a tidy-up), that stretch stays raw.
+  The model loads when you start dictating and is let go after 20 idle minutes.
 
 The app was called Read Aloud before 1.2. The bundle ID, the `ReadAloud` folder in
 Application Support, this repo and the Swift module keep that name, so settings,
@@ -186,5 +200,6 @@ echo "Siobhan's K8s cluster" | .build/debug/ReadAloud --phonemize [--gb]    # wh
 .build/debug/ReadAloud --read-file article.txt --mute --trace --script "3:seek=60;6:pause;7:quit"
 READALOUD_MODELS_DIR=/tmp/models .build/debug/ReadAloud --download-voice   # test the first-launch download
 .build/debug/ReadAloud --test-gestures                                     # tap / double-tap / hold detection
+.build/debug/ReadAloud --clean-file ramble.txt --trace                     # tidy raw dictation text, time the wait after "stop"
 .build/debug/ReadAloud --script "1:settings;3:settingsshot=/tmp/s.png;4:quit"  # screenshot the Settings window
 ```
