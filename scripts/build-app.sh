@@ -146,6 +146,10 @@ codesign --force $TIMESTAMP --options runtime --entitlements build/entitlements.
 
 # Aloud ships no GPL code: fail the build if eSpeak NG (or piper-phonemize) sneaks back in.
 ./scripts/check-no-espeak.sh "$APP" >/dev/null || { ./scripts/check-no-espeak.sh "$APP"; echo "eSpeak NG found in $APP"; exit 1; }
+# Nor this Mac's folders: a #filePath left in release code would show every user the
+# developer's account name (source-checkout fallbacks find the checkout at run time instead).
+LEAKS=$(strings -a "$APP/Contents/MacOS/ReadAloud" | grep -F -e "$ROOT/" -e "$HOME/" || true)
+[[ -z "$LEAKS" ]] || { echo "$LEAKS"; echo "The app's binary contains paths from this Mac (above)"; exit 1; }
 
 if [[ "${INSTALL:-1}" == 0 ]]; then
   echo "Built $APP"
