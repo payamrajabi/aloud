@@ -71,20 +71,26 @@ enum NumberWords {
         return text
     }
 
+    /// Digit by digit, for a number too big to read whole: "one two three".
+    static func digits(_ s: String) -> String {
+        s.compactMap { $0.wholeNumberValue }.map { ones[$0] }.joined(separator: " ")
+    }
+
     /// num2words(float(s)) for a decimal string such as "3.14" or "0.5": "three point one four".
     static func decimal(_ s: String) -> String? {
         guard let d = Double(s), d.isFinite else { return nil }
         if d == d.rounded(), abs(d) < 1e15 { return cardinal(Int(d)) }  // num2words(3.0) is "three"
-        // Python reads the float's shortest repr, so "4.50" becomes 4.5.
+        // Python reads the float's shortest repr, so "4.50" becomes 4.5. One in exponent form
+        // ("1e-22", "1.2345678901234568e+29") is read from the digits as written instead:
+        // reformatting it rounded tiny numbers to zero and overflowed big ones.
         var repr = "\(d)"
-        if repr.contains("e") { repr = String(format: "%.10f", d).replacingOccurrences(of: "0+$", with: "", options: .regularExpression) }
+        if repr.contains("e") { repr = s.replacingOccurrences(of: #"(\.\d*?)0+$"#, with: "$1", options: .regularExpression) }
         let parts = repr.split(separator: ".", omittingEmptySubsequences: false)
         let negative = repr.hasPrefix("-")
-        let intPart = Int(parts[0].replacingOccurrences(of: "-", with: "")) ?? 0
-        var text = (negative ? "minus " : "") + cardinal(intPart)
-        if parts.count > 1 {
-            let digits = parts[1].compactMap { $0.wholeNumberValue }.map { ones[$0] }
-            text += " point " + digits.joined(separator: " ")
+        let intDigits = parts[0].replacingOccurrences(of: "-", with: "")
+        var text = (negative ? "minus " : "") + (Int(intDigits).map(cardinal) ?? digits(intDigits))
+        if parts.count > 1, !parts[1].isEmpty {
+            text += " point " + digits(String(parts[1]))
         }
         return text
     }

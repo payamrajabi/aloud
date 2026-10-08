@@ -11,10 +11,17 @@
 import Foundation
 
 final class Lexicon {
-    static let currencies: [String: (String, String)] = ["$": ("dollar", "cent"), "£": ("pound", "pence"), "€": ("euro", "cent")]
+    static let currencies: [String: (String, String)] = ["$": ("dollar", "cent"), "£": ("pound", "pence"), "€": ("euro", "cent"),
+                                                          "¥": ("yen", "sen"), "₹": ("rupee", "paisa"), "₩": ("won", "jeon")]
+    /// Currency words whose plural isn't word + s.
+    static let currencyPlurals = ["yen": "yen", "sen": "sen", "paisa": "paise", "won": "won", "jeon": "jeon"]
     static let ordinals: Set<String> = ["st", "nd", "rd", "th"]
     static let addSymbols = [".": "dot", "/": "slash"]
-    static let symbols = ["%": "percent", "&": "and", "+": "plus", "@": "at"]
+    // Beyond misaki's four: maths symbols, read as eSpeak (Aloud 1.5) did instead of dropped.
+    // "<" and ">" are read only between spaces (TextNormalizer), never in "<b>" or "->".
+    static let symbols = ["%": "percent", "&": "and", "+": "plus", "@": "at", "=": "equals", "×": "times",
+                          "÷": "divided by", "±": "plus or minus", "≠": "not equal to", "≈": "approximately",
+                          "≤": "less than or equal to", "≥": "greater than or equal to", "→": "to"]
 
     let british: Bool
     private let golds: [String: GoldEntry]
@@ -54,7 +61,10 @@ final class Lexicon {
         if tag == "ADD", let w = Lexicon.addSymbols[word] {
             return lookup(w, tag: nil, stress: -0.5, ctx: ctx)
         } else if let w = Lexicon.symbols[word] {
-            return lookup(w, tag: nil, stress: nil, ctx: ctx)
+            // Word by word, each read as it would be on its own ("equals", "divided by", "to").
+            let words = w.split(separator: " ").map { getWord(String($0), tag: "", stress: nil, ctx: ctx).0 }
+            guard words.allSatisfy({ $0 != nil }) else { return (nil, nil) }
+            return (words.compactMap { $0 }.joined(separator: " "), 4)
         } else if word.pyStrip(["."]).contains("."), word.replacingOccurrences(of: ".", with: "").pyIsAlpha,
                   (word.split(separator: ".", omittingEmptySubsequences: false).map(\.count).max() ?? 0) < 3 {
             return getNNP(word)
@@ -272,7 +282,11 @@ final class Lexicon {
             if escape {
                 text = num
             } else {
-                guard let n = Int(num) else { return }
+                guard let n = Int(num) else {
+                    // Too big for the number reader: digit by digit, never dropped.
+                    if num.isAsciiDigits { num.forEach { extend(String($0), first: false) } }
+                    return
+                }
                 text = NumberWords.cardinal(n)
             }
             let words = Self.splitNonLetters(text)
@@ -322,23 +336,27 @@ final class Lexicon {
             }
         } else if let currency, let units = Lexicon.currencies[currency], Lexicon.isCurrency(word) {
             let pieces = word.replacingOccurrences(of: ",", with: "").split(separator: ".", omittingEmptySubsequences: false).map(String.init)
-            var pairs: [(Int, String)] = zip(pieces, [units.0, units.1]).map { (Int($0) ?? 0, $1) }
+            // nil: too big for an Int, so not 0 or 1 (it was read as "zero dollars").
+            func value(_ s: String) -> Int? { s.isEmpty ? 0 : Int(s) }
+            var pairs: [(String, String)] = Array(zip(pieces, [units.0, units.1]))
             if pairs.count > 1 {
-                if pairs[1].0 == 0 { pairs = Array(pairs.prefix(1)) } else if pairs[0].0 == 0 { pairs = Array(pairs.dropFirst()) }
+                if value(pairs[1].0) == 0 { pairs = Array(pairs.prefix(1)) } else if value(pairs[0].0) == 0 { pairs = Array(pairs.dropFirst()) }
             }
-            for (i, (num, unit)) in pairs.enumerated() {
+            for (i, (digits, unit)) in pairs.enumerated() {
                 if i > 0 { result.append(lookup("and", tag: nil, stress: nil, ctx: nil)) }
-                extend(String(num), first: i == 0)
-                result.append(abs(num) != 1 && unit != "pence" ? stemS(unit + "s", tag: nil, stress: nil, ctx: nil)
-                                                               : lookup(unit, tag: nil, stress: nil, ctx: nil))
+                extend(value(digits).map(String.init) ?? digits, first: i == 0)
+                result.append(currencyWord(unit, plural: value(digits).map { abs($0) != 1 } ?? true))
             }
         } else {
             var text: String?
             if digitsOnly {
-                text = Int(word).map(NumberWords.cardinal)
+                text = Int(word).map(NumberWords.cardinal) ?? NumberWords.digits(word)
             } else if !word.contains(".") {
-                if let n = Int(word.replacingOccurrences(of: ",", with: "")) {
+                let w = word.replacingOccurrences(of: ",", with: "")
+                if let n = Int(w) {
                     text = suffix.map { Lexicon.ordinals.contains($0) } == true ? NumberWords.ordinal(n) : NumberWords.cardinal(n)
+                } else {
+                    text = NumberWords.digits(w)
                 }
             } else {
                 let w = word.replacingOccurrences(of: ",", with: "")
@@ -377,8 +395,15 @@ final class Lexicon {
 
     func appendCurrency(_ ps: String, _ currency: String?) -> String {
         guard let currency, let units = Lexicon.currencies[currency],
-              let c = stemS(units.0 + "s", tag: nil, stress: nil, ctx: nil).0 else { return ps }
+              let c = currencyWord(units.0, plural: true).0 else { return ps }
         return "\(ps) \(c)"
+    }
+
+    /// "dollar"/"dollars", "pence", "yen", "paise".
+    func currencyWord(_ unit: String, plural: Bool) -> (String?, Int?) {
+        if unit == "pence" || !plural { return lookup(unit, tag: nil, stress: nil, ctx: nil) }
+        if let p = Lexicon.currencyPlurals[unit] { return lookup(p, tag: nil, stress: nil, ctx: nil) }
+        return stemS(unit + "s", tag: nil, stress: nil, ctx: nil)
     }
 
     static func numericIfNeeded(_ c: Character) -> String {

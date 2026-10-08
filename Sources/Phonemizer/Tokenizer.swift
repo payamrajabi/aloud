@@ -18,7 +18,7 @@ struct TaggedToken {
 /// read it yesterday" used the present-tense "reed"). Here tokenization follows
 /// spaCy's prefix/suffix/exception rules, punctuation and numbers are tagged by
 /// rule, and NLTagger only supplies the word class, refined by context.
-enum Tokenizer {
+public enum Tokenizer {
     // spaCy keeps these whole (from its English tokenizer exceptions).
     static let exceptions: Set<String> = {
         var s: Set<String> = [
@@ -35,9 +35,9 @@ enum Tokenizer {
         return s
     }()
 
-    static let prefixChars: Set<Character> = Set("([{<\"'“‘«`$£€¥₹¢#§=—–*&!?,:;¡¿_~|%")
-    static let suffixChars: Set<Character> = Set(")]}>\"'”’»,;:!?—–*&#")
-    static let currencySymbols: Set<Character> = ["$", "£", "€", "¥", "₹", "¢"]
+    static let prefixChars: Set<Character> = Set("([{<\"'“‘«„‚‹＂`$£€¥₹₩¢#§=—–*&!?,:;¡¿_~|%")
+    static let suffixChars: Set<Character> = Set(")]}>\"'”’»“›＂,;:!?—–*&#")
+    static let currencySymbols: Set<Character> = ["$", "£", "€", "¥", "₹", "₩", "¢"]
 
     static func tokenize(_ text: String) -> [TaggedToken] {
         var tokens: [TaggedToken] = []
@@ -63,6 +63,12 @@ enum Tokenizer {
         var suffixes: [Substring] = []
         var s = chunk
         while !s.isEmpty {
+            // A single letter ending its sentence ("Plan B.", "x and y.") gives its period back as
+            // the full stop, as a title does; kept whole, the sentence lost its final fall. "an
+            // A." stays whole (alone, "A" would be the article).
+            if s.count == 2, s.last == ".", let c = s.first, c.isASCII, c.isLetter, !"aAI".contains(c), endsSentence(s) {
+                return prefixes + [s.prefix(1), s.suffix(1)] + suffixes
+            }
             if exceptions.contains(String(s)) {
                 let t = String(s)
                 if numberSign.contains(t) ? numberFollows(s) : titles.contains(t) ? !endsSentence(s) : true { break }
@@ -118,6 +124,46 @@ enum Tokenizer {
         var e = k
         while e < text.endIndex, text[e].isLetter || text[e] == "'" || text[e] == "’" { e = text.index(after: e) }
         return sentenceStarterSet.contains(String(text[k..<e]).replacingOccurrences(of: "’", with: "'"))
+    }
+
+    /// Whether "St." right after `before` (the text up to it) is a street rather than Saint:
+    /// the word before it holds a digit ("5th St.") or is capitalised mid-sentence and isn't
+    /// a usual opener ("Main St."). "to St. Louis", "The St. Louis Cardinals" and a "St."
+    /// that starts its sentence ("Visit St. Paul") are Saint.
+    static func isStreet(before text: String) -> Bool {
+        let head = text.replacingOccurrences(of: #"\s+$"#, with: "", options: .regularExpression)
+        guard head.count < text.count, let r = head.range(of: #"[\p{L}\p{N}'’]+$"#, options: .regularExpression) else { return false }
+        let word = String(head[r])
+        if word.contains(where: \.isNumber) { return true }
+        guard word.first?.isUppercase == true, !sentenceStarterSet.contains(word.replacingOccurrences(of: "’", with: "'")) else { return false }
+        // A capital that only starts the sentence says nothing.
+        let rest = head[..<r.lowerBound].trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let last = rest.last else { return false }
+        return !".!?:;\"“(—–".contains(last)
+    }
+
+    /// Titles a sentence splitter can take for a full stop.
+    private static let runOnTitles = titles.union(["Dr.", "Mr.", "Mrs.", "Ms.", "Mt."])
+
+    /// Whether `sentence` ends in a title that runs on into `next`, so the two are one
+    /// sentence: "We flew to St." + "Louis on Friday.", "Gov." + "Newsom signed it.", "See
+    /// No." + "5 on the list.". Apple's sentence splitter breaks after "St.", "Gov." and
+    /// "Sen." even before a name, and the halves were read apart ("…to Street", a pause,
+    /// "Louis…"). A title before a usual sentence opener ("…Amartya Sen. He was kind."), a
+    /// street ("Main St. Then…") or "No." before anything but a number does end the sentence.
+    public static func titleContinues(_ sentence: String, into next: String) -> Bool {
+        let head = sentence.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let r = head.range(of: #"(?<![\p{L}.])\p{L}+\.$"#, options: .regularExpression) else { return false }
+        let title = String(head[r])
+        let following = next.drop { $0.isWhitespace }
+        guard let first = following.first else { return false }
+        if numberSign.contains(title) { return first.isNumber || first == "#" }
+        guard runOnTitles.contains(title) else { return false }
+        if title == "St.", isStreet(before: String(head[..<r.lowerBound])) { return false }
+        if first.isNumber { return true }
+        guard first.isUppercase else { return false }
+        let word = following.prefix { $0.isLetter || $0 == "'" || $0 == "’" }
+        return !sentenceStarterSet.contains(String(word).replacingOccurrences(of: "’", with: "'"))
     }
 
     private static func prefixLength(_ s: Substring) -> Int? {
@@ -200,13 +246,15 @@ enum Tokenizer {
     private static func ruleTag(_ t: String) -> String? {
         switch t {
         case ",": return ","
-        case ".", "!", "?", "!?", "?!": return "."
+        case ".", "!", "?", "!?", "?!", "¿", "¡": return "."
         case ":", ";", "—", "–", "--", "...", "…", "-": return ":"
         case "(", "[", "{": return "-LRB-"
         case ")", "]", "}": return "-RRB-"
-        case "“", "‘", "``", "«": return "``"
-        case "”", "’", "''", "»": return "''"
-        case "$", "£", "€", "¥", "₹", "¢": return "$"
+        case "“", "‘", "``", "«", "„", "‚", "‹": return "``"
+        // A straight double quote opens or closes (decided in `tag`). Untagged, it stayed in
+        // the word's group and sent the whole thing ("\"hello\"") to the G2P model.
+        case "”", "’", "''", "»", "›", "\"", "＂": return "''"
+        case "$", "£", "€", "¥", "₹", "₩", "¢": return "$"
         case "#": return "$"
         case "%": return "NN"
         case "&", "+": return "CC"
@@ -274,8 +322,9 @@ enum Tokenizer {
             let t = tokens[i].text
             if let r = ruleTag(t) {
                 // A quote opening a word is `` and one closing it is ''.
-                if t == "\"" || t == "'" {
-                    let opens = tokens[i].whitespace.isEmpty && i + 1 < tokens.count && (i == 0 || !tokens[i - 1].whitespace.isEmpty)
+                if t == "\"" || t == "＂" || t == "'" {
+                    let opens = tokens[i].whitespace.isEmpty && i + 1 < tokens.count
+                        && (i == 0 || !tokens[i - 1].whitespace.isEmpty || ruleTag(tokens[i - 1].text) == "-LRB-")
                     tokens[i].tag = opens ? "``" : (t == "'" && i > 0 && lower[i - 1].hasSuffix("s") && tokens[i - 1].whitespace.isEmpty ? "POS" : "''")
                 } else if t == "-" && i > 0 && tokens[i - 1].whitespace.isEmpty {
                     tokens[i].tag = "HYPH"

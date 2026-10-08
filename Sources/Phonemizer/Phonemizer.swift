@@ -34,6 +34,7 @@ public final class Phonemizer {
     /// (or replaced by `unknown`).
     public func phonemize(_ text: String, unknown: String = "") -> String {
         var t = text
+        if normalizes { t = TextNormalizer.linkLabels(t) }
         // Hand-written terms first, on the raw text; then normalize everything else.
         if let custom { t = custom.mark(t.precomposedStringWithCanonicalMapping, british: british) }
         if normalizes { t = TextNormalizer.normalize(t, skippingMarkedSpans: custom != nil) }
