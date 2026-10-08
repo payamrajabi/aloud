@@ -1,5 +1,6 @@
 import Foundation
 import NaturalLanguage
+import Phonemizer
 
 /// One piece of text that is synthesized and played as a unit.
 struct Chunk {
@@ -18,6 +19,9 @@ enum TextPrep {
             .replacingOccurrences(of: "\r", with: "\n")
             .replacingOccurrences(of: "\u{00A0}", with: " ")
             .replacingOccurrences(of: "\u{00AD}", with: "")
+            // A byte-order mark or zero-width space glued to a word garbled it ("\u{FEFF}Hello").
+            .replacingOccurrences(of: "\u{FEFF}", with: "")
+            .replacingOccurrences(of: "\u{200B}", with: "")
         func sub(_ pattern: String, _ template: String) {
             s = s.replacingOccurrences(of: pattern, with: template, options: .regularExpression)
         }
@@ -44,6 +48,17 @@ enum TextPrep {
                 return true
             }
             if sentences.isEmpty { sentences = [paraRange] }
+            // NLTokenizer ends a sentence after "St.", "Gov." or "Sen." even before a name: "We
+            // flew to St." was read as Street, then a pause, then "Louis on Friday."
+            var joined: [NSRange] = []
+            for sentence in sentences {
+                if let last = joined.last, Tokenizer.titleContinues(ns.substring(with: last), into: ns.substring(with: sentence)) {
+                    joined[joined.count - 1] = NSUnionRange(last, sentence)
+                } else {
+                    joined.append(sentence)
+                }
+            }
+            sentences = joined
 
             var pieces: [(NSRange, Bool)] = []  // (range, ends a sentence)
             for sentence in sentences {
@@ -132,9 +147,11 @@ enum TextPrep {
         func sub(_ pattern: String, _ template: String) {
             t = t.replacingOccurrences(of: pattern, with: template, options: .regularExpression)
         }
+        sub("!?\\[([^\\]]*)\\]\\([^)]*\\)", "$1")  // markdown links and images: just the label
         sub("https?://\\S+", "link")
         sub("\\[\\d+(,\\s*\\d+)*\\]", "")      // citation markers like [12]
-        sub("[*#`~|>•▪●◦]+", " ")             // markdown and bullet symbols
+        sub("^(\\s*>)+", " ")                 // a markdown quote ("a > b" is read)
+        sub("[*#`~|•▪●◦]+", " ")              // markdown and bullet symbols
         sub("\\s+", " ")
         return t.trimmingCharacters(in: .whitespaces)
     }

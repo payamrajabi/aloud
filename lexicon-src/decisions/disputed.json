@@ -1,0 +1,753 @@
+[
+  {
+    "term": "GIF",
+    "decision_us": "hard g, one syllable, rhymes with 'if' (/ɡɪf/)",
+    "respelling": "GHIF",
+    "alternative": "soft g 'jif' (creator Steve Wilhite's / CompuServe spec's 'choosy programmers choose jif'); also letter-by-letter 'G-I-F' (common in China/Korea)",
+    "evidence": "Stack Overflow 2017 dev survey (~64k devs): hard g 65.6%, soft g 26.3%, letters 6%, other 2%. Economist re-weighting by country population: hard 44% vs soft 32% vs letters 21%. Mashable 2013/14 (30,706 worldwide): ~70% hard g. eBay Deals US adults: 'gift'-style hard g ~54% vs 'jiff' 41%. Meyerweb (1,457 self-selected): hard 77.8%. Dictionaries: Merriam-Webster, Cambridge (US+UK show only /ɡɪf/), American Heritage list hard g first; Dictionary.com and Oxford Dictionary of English list soft first. Wilhite: 'It is a soft g... End of story.'",
+    "links": [
+      "https://en.wikipedia.org/wiki/Pronunciation_of_GIF",
+      "https://www.entrepreneur.com/article/296674",
+      "https://mentalfloss.com/article/502434/how-do-you-pronounce-gif-it-probably-depends-where-youre",
+      "https://time.com/2901967/gif-pronunciation/",
+      "https://meyerweb.com/eric/thoughts/2016/11/08/results-of-the-gif-survey/",
+      "https://dictionary.cambridge.org/dictionary/english/gif",
+      "https://en.wiktionary.org/wiki/GIF"
+    ],
+    "confidence": "high",
+    "misaki_us": "ɡˈɪf"
+  },
+  {
+    "term": "PNG",
+    "decision_us": "letters 'P-N-G' (/ˌpiː ɛn ˈdʒiː/)",
+    "respelling": "pee-en-JEE",
+    "alternative": "'ping' (official per W3C PNG spec and libpng: 'PNG is pronounced ping')",
+    "evidence": "No numeric poll found. Official spec (W3C, libpng) says 'ping', but Wiktionary lists letters first, and developer forum threads (GameDev.net 2013 'how do you pronounce your image formats', Wikipedia Talk:PNG) report overwhelmingly that people spell it out and many had never heard 'ping'; 'ping' also collides with the networking verb. Owner also says letters.",
+    "links": [
+      "https://www.w3.org/TR/png-3/",
+      "http://www.libpng.org/pub/png/",
+      "https://en.wiktionary.org/wiki/PNG",
+      "https://gamedev.net/forums/topic/643617-how-do-you-pronounce-your-image-formats?page=1",
+      "https://en.wikipedia.org/wiki/Talk:PNG"
+    ],
+    "confidence": "medium",
+    "misaki_us": "pˌiɛnʤˈi"
+  },
+  {
+    "term": "SQL",
+    "decision_us": "letters 'S-Q-L' (/ˌɛs kjuː ˈɛl/) when standalone; dictation must accept both",
+    "respelling": "ess-kyoo-EL",
+    "alternative": "'sequel' (/ˈsiːkwəl/) — near-equal in usage, dominant in Microsoft/SQL Server and Oracle circles; dictation must map 'sequel' -> SQL in technical context",
+    "evidence": "Evidence is essentially split. Hacker News 2010 poll: 'Sequel' 825 points vs 'S-Q-L' 766 (~52/48). ISO/ANSI standard and co-creator Don Chamberlin say 'ess-cue-ell'; Oracle docs say 'sequel'; MySQL docs say 'My Ess Que Ell'. Wiktionary lists letters first, 'sequel' second. Informal tally of ~20 database luminaries leaned 'sequel'. Tie broken toward letters by the standard, the creator, and the owner's own usage. No large modern survey exists.",
+    "links": [
+      "https://news.ycombinator.com/item?id=1686832",
+      "https://learnsql.com/blog/sql-or-sequel/",
+      "https://ocelot.ca/blog/?p=137",
+      "https://tableplus.com/blog/2018/03/how-to-pronounce-SQL-properly.html",
+      "https://dev.mysql.com/doc/refman/8.0/en/what-is-mysql.html",
+      "https://en.wiktionary.org/wiki/SQL"
+    ],
+    "confidence": "low",
+    "misaki_us": "ˌɛskjuˈɛl"
+  },
+  {
+    "term": "MySQL",
+    "decision_us": "'my S-Q-L'",
+    "respelling": "my-ess-kyoo-EL",
+    "alternative": "'my sequel'",
+    "evidence": "MySQL reference manual: official pronunciation is 'My Ess Que Ell' (not 'my sequel'), though they 'do not mind' other pronunciations. Larry Ellison (Oracle, MySQL's owner) reportedly uses the official form. No poll; 'my sequel' is widely heard but the official form is well-established among practitioners.",
+    "links": [
+      "https://dev.mysql.com/doc/refman/8.0/en/what-is-mysql.html",
+      "https://ocelot.ca/blog/?p=137"
+    ],
+    "confidence": "medium",
+    "misaki_us": "mˌIˌɛskjuˈɛl"
+  },
+  {
+    "term": "SQLite",
+    "decision_us": "'S-Q-L-ite' (like a mineral name)",
+    "respelling": "ess-kyoo-el-ITE",
+    "alternative": "'sequel-lite' / 'S-Q-L light'",
+    "evidence": "D. Richard Hipp says pronounce it any way you like; he is heard saying 'Ess-Cue-El-ite' 'like a mineral'. Computer Hope gives ess-kue-ELL-ite. No poll; 'sequel-lite' common among sequel-sayers.",
+    "links": [
+      "https://sqlite.org/forum/forumpost/86421ac7034df8e3",
+      "https://www.computerhope.com/jargon/s/sqlite.htm",
+      "https://www.dnsfilter.com/podcast/episode-19"
+    ],
+    "confidence": "medium",
+    "misaki_us": "ˌɛskjuˌɛlˈIt"
+  },
+  {
+    "term": "PostgreSQL",
+    "decision_us": "'POST-gres-Q-L'",
+    "respelling": "POHST-gres-kyoo-EL",
+    "alternative": "'post-gres-sequel' (10.9%); colloquial short form 'Postgres' (see separate entry)",
+    "evidence": "postgresql.org community survey (5,267 votes): post-gres-q-l 45.17%, post-gres 30.59%, postgres-sequel 10.90%, post-gree 6.65%, other <5%. Official FAQ: 'PostgreSQL is pronounced Post-Gres-Q-L... also shortened to Postgres, especially in conversation.'",
+    "links": [
+      "https://www.postgresql.org/community/survey/33-how-do-you-pronounce-postgresql",
+      "https://wiki.postgresql.org/wiki/FAQ"
+    ],
+    "confidence": "high",
+    "misaki_us": "pˈOstɡɹɛskjuˌɛl"
+  },
+  {
+    "term": "Postgres",
+    "decision_us": "'POST-gres'",
+    "respelling": "POHST-gres",
+    "alternative": "'post-gree' (6.65% in the postgresql.org survey)",
+    "evidence": "Official FAQ endorses 'Postgres' as the conversational short form; 30.59% of 5,267 survey voters said they use 'post-gres' for PostgreSQL itself.",
+    "links": [
+      "https://www.postgresql.org/community/survey/33-how-do-you-pronounce-postgresql"
+    ],
+    "confidence": "high",
+    "misaki_us": "pˈOstɡɹɛs"
+  },
+  {
+    "term": "Microsoft SQL Server",
+    "decision_us": "'sequel server'",
+    "respelling": "SEE-kwul SER-ver",
+    "alternative": "'S-Q-L server'",
+    "evidence": "Strong practitioner convention: the Microsoft ecosystem overwhelmingly says 'sequel server' (LearnSQL, TablePlus/StackExchange norm, Microsoft webcasts; even Larry Ellison says 'Microsoft SEQUEL Server'). Exception to the standalone-SQL rule: in this product name, use 'sequel'.",
+    "links": [
+      "https://learnsql.com/blog/sql-or-sequel/",
+      "https://tableplus.com/blog/2018/03/how-to-pronounce-SQL-properly.html",
+      "https://ocelot.ca/blog/?p=137"
+    ],
+    "confidence": "high",
+    "misaki_us": "sˈikwəl sˈɜɹvəɹ"
+  },
+  {
+    "term": "WebP",
+    "decision_us": "'web-P' (/ˈwɛb piː/)",
+    "respelling": "WEB-pee",
+    "alternative": "'weppy' (/ˈwɛpi/, Google's 2010 launch page: 'Did you know? WebP is pronounced weppy'; note removed by ~2012)",
+    "evidence": "No poll exists. Google's original guidance was 'weppy', but the note disappeared from Google's site by 2012 and forum users report never having heard 'weppy' (Realmac forum, Lemmy threads); spelled-out 'web-P' is the form heard in practice. TechTerms still lists 'weppy'. Owner says 'web-P'.",
+    "links": [
+      "https://forums.realmacsoftware.com/t/did-you-know-webp-is-pronounced-weppy/43769",
+      "https://techterms.com/definition/webp",
+      "https://web.archive.org/web/2010/http://code.google.com/speed/webp/",
+      "https://developers.google.com/speed/webp"
+    ],
+    "confidence": "medium",
+    "misaki_us": "wˈɛbpˌi"
+  },
+  {
+    "term": "JPEG",
+    "decision_us": "'JAY-peg'",
+    "respelling": "JAY-peg",
+    "alternative": "letters 'J-P-E-G' (rare)",
+    "evidence": "Cambridge (UK & US) /ˈdʒeɪ.peɡ/; Wiktionary same for RP/GenAm/CanE. Undisputed in practice.",
+    "links": [
+      "https://dictionary.cambridge.org/dictionary/english/jpeg",
+      "https://en.wiktionary.org/wiki/JPEG"
+    ],
+    "confidence": "high",
+    "misaki_us": "ʤˈApɛɡ"
+  },
+  {
+    "term": "JPG",
+    "decision_us": "'JAY-peg' (same as JPEG)",
+    "respelling": "JAY-peg",
+    "alternative": "letters 'J-P-G'",
+    "evidence": "JPG is just the 3-letter extension of JPEG; practitioners read it as 'JAY-peg'. Letter-by-letter 'J-P-G' is heard when distinguishing the extension. No poll.",
+    "links": [
+      "https://en.wiktionary.org/wiki/JPEG"
+    ],
+    "confidence": "medium",
+    "misaki_us": "ʤˈApɛɡ"
+  },
+  {
+    "term": "char",
+    "decision_us": "'char' (as in charcoal, /tʃɑːr/)",
+    "respelling": "CHAR",
+    "alternative": "'care' (/kɛər/) or 'car' (/kɑːr/), from 'character'",
+    "evidence": "No survey. comp.lang.c FAQ: char/care/car all acceptable, 'the choice is arbitrary'. Jargon File: /keir/ or /char/ usual, /kar/ rarer. Stroustrup's C++ FAQ (as quoted): usually pronounced 'tchar', not 'kar'. Student/teacher threads (Treehouse) report instructors mostly saying 'char'.",
+    "links": [
+      "https://c-faq.com/misc/pronounce.html",
+      "https://www.stroustrup.com/bs_faq2.html",
+      "https://ariya.io/2005/11/pronounciation-of-char/",
+      "https://www.computerhope.com/jargon/c/char.htm"
+    ],
+    "confidence": "medium",
+    "misaki_us": "ʧˈɑɹ"
+  },
+  {
+    "term": "Linux",
+    "decision_us": "'LIN-ucks' (/ˈlɪnəks/)",
+    "respelling": "LIN-uks",
+    "alternative": "'LYE-nucks' (/ˈlaɪnəks/, listed by Cambridge UK as a variant); 'LEE-nooks' (Torvalds' original Swedish-influenced form)",
+    "evidence": "Cambridge US /ˈlɪn.əks/ (UK also /ˈlɪn.əks/, with /ˈlaɪnəks/ variant). Wiktionary /ˈlɪnəks/, /ˈlɪnʊks/. Torvalds' kernel.org 'how to pronounce Linux' recording uses a short i. Universal in practice.",
+    "links": [
+      "https://dictionary.cambridge.org/dictionary/english/linux",
+      "https://en.wiktionary.org/wiki/Linux",
+      "https://danielmiessler.com/p/how-pronounce-linux"
+    ],
+    "confidence": "high",
+    "misaki_us": "lˈɪnəks"
+  },
+  {
+    "term": "kubectl",
+    "decision_us": "'koob control'",
+    "respelling": "KOOB kun-trohl",
+    "alternative": "'koob cuddle' (very common, jokey), 'koob C-T-L', 'koob cuttle'",
+    "evidence": "No poll found. Kubernetes 1.9 CHANGELOG: 'The canonical pronunciation of kubectl is \"cube control\"'; Kelsey Hightower and many maintainers say 'koob-control'. Community collection (saada/kubectl-pronounciation) lists cube-control, cube-C-T-L, cube-cuddle; DevOpsDays talk 'Pronouncing kubectl: The Definitive Guide' shows no consensus. 'Kube' vowel matches Kubernetes (/kuː/), though 'cube' (/kjuː/) is also common.",
+    "links": [
+      "https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.9.md",
+      "https://github.com/saada/kubectl-pronounciation",
+      "https://github.com/saada/kubectl-pronounciation/issues/3",
+      "https://devopsdays.org/events/2019-stockholm/program/waldo-g/",
+      "https://docs.cloudposse.com/glossary/kubectl/"
+    ],
+    "confidence": "low",
+    "misaki_us": "kˈub kəntɹˌOl"
+  },
+  {
+    "term": "Kubernetes",
+    "decision_us": "'koo-ber-NET-eez'",
+    "respelling": "koo-ber-NET-eez",
+    "alternative": "'koo-ber-NAY-teez' / 'koo-ber-NET-iss'; 'kyoo-' onset",
+    "evidence": "Wiktionary /k(j)uːbəˈnɛtɪs/, /-ˈneɪtiːz/; Blue Matador and most conference talks: coo-ber-net-ees. Greek κυβερνήτης origin. Practitioner consensus.",
+    "links": [
+      "https://en.wiktionary.org/wiki/Kubernetes",
+      "https://www.bluematador.com/blog/how-to-pronounce-kubernetes"
+    ],
+    "confidence": "high",
+    "misaki_us": "kˌubəɹnˈɛɾiz"
+  },
+  {
+    "term": "K8s",
+    "decision_us": "'kates'",
+    "respelling": "KAYTS",
+    "alternative": "'K-eights'",
+    "evidence": "GitLab and dev.to explainers: K8s is pronounced 'Kates'; Brendan Burns (co-creator) reported that the team says either 'kubernetes' or 'k-eights'. Blue Matador advises against 'k-eights'. No poll.",
+    "links": [
+      "https://devops.gitlab.cn/archives/59413",
+      "https://www.dev.to/appmap/how-do-you-say-k8s-3mhb",
+      "https://www.bluematador.com/blog/how-to-pronounce-kubernetes"
+    ],
+    "confidence": "medium",
+    "misaki_us": "kˈAts"
+  },
+  {
+    "term": "nginx",
+    "decision_us": "'engine-X'",
+    "respelling": "EN-jin-EKS",
+    "alternative": "'en-jinks' / 'N-jinx'",
+    "evidence": "Official: 'NGINX (pronounced \"engine x\")' on nginx.com; Wikipedia IPA /ˌɛndʒɪnˈɛks/. Practitioners overwhelmingly follow the official form.",
+    "links": [
+      "https://www.nginx.com/about/the-nginx-name",
+      "https://en.wikipedia.org/wiki/Nginx"
+    ],
+    "confidence": "high",
+    "misaki_us": "ˌɛnʤənˈɛks"
+  },
+  {
+    "term": "sudo",
+    "decision_us": "'SOO-doo'",
+    "respelling": "SOO-doo",
+    "alternative": "'SOO-doh' (homophone of 'pseudo'), acknowledged as common by the maintainer",
+    "evidence": "Maintainer Todd C. Miller: 'The correct pronunciation is sue due / soo doo for superuser do'; sudo.ws troubleshooting: official 'soo-doo', 'pseudo' homophone also common. Wiktionary lists 'soo-doo' first and tags 'soo-doh' as a spelling pronunciation. No poll; both widely heard.",
+    "links": [
+      "https://sudo.ws/pipermail/sudo-users/2007-May/003208.html",
+      "https://www.sudo.ws/docs/troubleshooting/",
+      "https://en.wiktionary.org/wiki/sudo"
+    ],
+    "confidence": "medium",
+    "misaki_us": "sˈudu"
+  },
+  {
+    "term": "regex",
+    "decision_us": "'REJ-ex' vs 'REG-ex' — choose 'REG-ex' (hard g, as in 'regular')",
+    "respelling": "REG-eks",
+    "alternative": "'REJ-ex' (soft g)",
+    "evidence": "No poll found. Wiktionary lists hard g /ˈɹɛɡɛks/ first, soft /ˈɹɛdʒɛks/ second; a 2018 Medium post says hard g is 'the more common'. Both are heavily used; soft g is very common in spoken US usage, so dictation must accept both.",
+    "links": [
+      "https://en.wiktionary.org/wiki/regex",
+      "https://medium.com/@bethmschofield/regex-rejects-6203db53bc59"
+    ],
+    "confidence": "low",
+    "misaki_us": "ɹˈɛɡɛks"
+  },
+  {
+    "term": "Tauri",
+    "decision_us": "'TOW-ree' (rhymes with 'Maori')",
+    "respelling": "TOW-ree",
+    "alternative": "'TOR-ee'; Latin/astronomy 'TOR-eye' (genitive of Taurus, as in Alpha Tauri)",
+    "evidence": "No official pronunciation in Tauri docs, GitHub, or trademark guidelines (searched). Name evokes Latin Tauri / the Tauri people; Latin-dictionary reading is 'TOR-eye' but the developer community typically says 'TOW-ree' / 'TOR-ee'. Needs owner confirmation.",
+    "links": [
+      "https://v2.tauri.app/start/",
+      "https://en.wiktionary.org/wiki/Tauri",
+      "https://forvo.com/word/tauri/"
+    ],
+    "confidence": "low",
+    "misaki_us": "tˈWɹi"
+  },
+  {
+    "term": "YAML",
+    "decision_us": "'YAM-ul' (rhymes with camel)",
+    "respelling": "YAM-ul",
+    "alternative": "letters 'Y-A-M-L' (rare)",
+    "evidence": "Official spec abstract (yaml.org 1.0 through 1.2.2): 'YAML (rhymes with \"camel\")'. Wiktionary /ˈjæməl/. Undisputed.",
+    "links": [
+      "https://yaml.org/spec/1.2.2/",
+      "https://en.wiktionary.org/wiki/YAML"
+    ],
+    "confidence": "high",
+    "misaki_us": "jˈæməl"
+  },
+  {
+    "term": "JSON",
+    "decision_us": "'JAY-sun' (like the name Jason)",
+    "respelling": "JAY-sun",
+    "alternative": "'JAY-sahn' (/ˈdʒeɪˌsɑn/, stressed 'son' syllable — very common among US developers)",
+    "evidence": "ECMA-404 2nd ed. / ISO/IEC 21778:2017 assign the 'Jason' pronunciation; Crockford: 'I strictly don't care'. Wiktionary GA lists /ˈdʒeɪsən/ first, /ˈdʒeɪˌsɑn/ second. UNIX & Linux System Administration Handbook says 'JAY-sawn seems to have become more common'. No poll; near-split in US practice.",
+    "links": [
+      "https://en.wikipedia.org/wiki/JSON",
+      "https://ecma-international.org/publications-and-standards/standards/ecma-404/",
+      "https://en.wiktionary.org/wiki/JSON"
+    ],
+    "confidence": "medium",
+    "misaki_us": "ʤˈAsən"
+  },
+  {
+    "term": "GUI",
+    "decision_us": "'GOO-ee'",
+    "respelling": "GOO-ee",
+    "alternative": "letters 'G-U-I'",
+    "evidence": "Cambridge UK & US: /ˈɡuː.i/ only. Wiktionary lists both. Practitioner standard.",
+    "links": [
+      "https://dictionary.cambridge.org/dictionary/english/gui",
+      "https://en.wiktionary.org/wiki/GUI"
+    ],
+    "confidence": "high",
+    "misaki_us": "ɡˈui"
+  },
+  {
+    "term": "URL",
+    "decision_us": "letters 'U-R-L'",
+    "respelling": "yoo-ar-EL",
+    "alternative": "'earl' (rare)",
+    "evidence": "Cambridge UK & US: /ˌjuː.ɑːrˈel/. Wiktionary tags 'earl' as rare (used by some early web pioneers).",
+    "links": [
+      "https://dictionary.cambridge.org/dictionary/english/url",
+      "https://en.wiktionary.org/wiki/URL"
+    ],
+    "confidence": "high",
+    "misaki_us": "jˌuɑɹˈɛl"
+  },
+  {
+    "term": "CLI",
+    "decision_us": "letters 'C-L-I'",
+    "respelling": "see-el-EYE",
+    "alternative": "'klye' / 'clee'",
+    "evidence": "No dictionary or poll; spelled-out form is standard in docs, talks and tutorials (e.g., 'the AWS C-L-I'). Acronym readings are rare.",
+    "links": [
+      "https://en.wiktionary.org/wiki/CLI"
+    ],
+    "confidence": "medium",
+    "misaki_us": "sˌiɛlˈI"
+  },
+  {
+    "term": "ASCII",
+    "decision_us": "'ASK-ee'",
+    "respelling": "ASK-ee",
+    "alternative": "letters 'A-S-C-I-I' (rare)",
+    "evidence": "Cambridge UK & US /ˈæs.ki/; Wiktionary /ˈæski/. Undisputed.",
+    "links": [
+      "https://dictionary.cambridge.org/dictionary/english/ascii",
+      "https://en.wiktionary.org/wiki/ASCII"
+    ],
+    "confidence": "high",
+    "misaki_us": "ˈæski"
+  },
+  {
+    "term": "Azure",
+    "decision_us": "'AZH-er' (/ˈæʒər/)",
+    "decision_gb": "'AZH-uh' (/ˈæʒə/); 'AZ-yoor' also common",
+    "respelling": "AZH-er",
+    "alternative": "'AZ-yoor' (/ˈæzjʊə/, common in UK), 'uh-ZHOOR'",
+    "evidence": "Cambridge US /ˈæʒ.ɚ/, UK /ˈæʒ.ər/ (also /ˈæz.jʊər/). Wiktionary lists /ˈæʒə/ first for UK and /ˈæʒɚ/ for US. Microsoft's #HowISayAzure (2021) campaign embraced variation; Satya Nadella and Scott Guthrie say roughly 'AZH-er'.",
+    "links": [
+      "https://dictionary.cambridge.org/dictionary/english/azure",
+      "https://en.wiktionary.org/wiki/azure",
+      "https://windowscentral.com/how-do-you-pronounce-azure-microsoft-wants-know"
+    ],
+    "confidence": "medium",
+    "misaki_us": "ˈæʒəɹ"
+  },
+  {
+    "term": "data",
+    "decision_us": "'DAY-tuh'",
+    "decision_gb": "'DAY-tuh'",
+    "respelling": "DAY-tuh",
+    "alternative": "'DAT-uh' (US), 'DAH-tuh' (RP/AU/NZ minority)",
+    "evidence": "Cambridge UK /ˈdeɪ.tə/, US /ˈdeɪ.t̬ə/ first (then /ˈdæt̬ə/, /ˈdɑt̬ə/). Wiktionary lists /ˈdeɪtə/ for RP and GA.",
+    "links": [
+      "https://dictionary.cambridge.org/dictionary/english/data",
+      "https://en.wiktionary.org/wiki/data"
+    ],
+    "confidence": "high",
+    "misaki_us": "dˈAɾə"
+  },
+  {
+    "term": "cache",
+    "decision_us": "'cash'",
+    "respelling": "KASH",
+    "alternative": "'kaysh'; 'cash-AY' is proscribed (confusion with cachet)",
+    "evidence": "Cambridge UK & US /kæʃ/ only; Wiktionary marks /kæˈʃeɪ/ proscribed.",
+    "links": [
+      "https://dictionary.cambridge.org/dictionary/english/cache",
+      "https://en.wiktionary.org/wiki/cache"
+    ],
+    "confidence": "high",
+    "misaki_us": "kˈæʃ"
+  },
+  {
+    "term": "router",
+    "decision_us": "'ROW-ter' (rhymes with 'outer')",
+    "decision_gb": "'ROO-tuh' (/ˈruːtə/)",
+    "respelling": "ROW-ter",
+    "alternative": "'ROO-ter'",
+    "evidence": "Cambridge US /ˈraʊ.t̬ɚ/ (and /ˈruːtər/ as a variant); Wiktionary: GA /ˈɹaʊtɚ/, RP /ˈɹuːtə/ for the networking device. Classic US/UK split.",
+    "links": [
+      "https://dictionary.cambridge.org/dictionary/english/router",
+      "https://en.wiktionary.org/wiki/router"
+    ],
+    "confidence": "high",
+    "misaki_us": "ɹˈWɾəɹ"
+  },
+  {
+    "term": "gigabyte",
+    "decision_us": "'GIG-uh-byte' (hard g)",
+    "respelling": "GIG-uh-byte",
+    "alternative": "'JIG-uh-byte' (older US variant, cf. 'jigawatts' in Back to the Future)",
+    "evidence": "Cambridge UK & US /ˈɡɪɡ.ə.baɪt/ only; Wiktionary US lists hard g first, /ˈdʒɪɡə-/ second.",
+    "links": [
+      "https://dictionary.cambridge.org/dictionary/english/gigabyte",
+      "https://en.wiktionary.org/wiki/gigabyte"
+    ],
+    "confidence": "high",
+    "misaki_us": "ɡˈɪɡəbˌIt"
+  },
+  {
+    "term": "Huawei",
+    "decision_us": "'WAH-way'",
+    "respelling": "WAH-way",
+    "alternative": "'HWAH-way' (closer to Mandarin huá wéi); 'HOO-ah-way'",
+    "evidence": "Huawei's own 2012 and 2015 New York pronunciation campaigns taught 'WAH-way' (Android Central, PhoneArena, Macworld). Wiktionary gives /ˈhwɑːweɪ/ and marks 'wah-way' as proscribed vs Mandarin, but 'WAH-way' is the company-taught and widely used English form.",
+    "links": [
+      "https://www.androidcentral.com/how-pronounce-huawei-official-way",
+      "https://www.phonearena.com/news/Huaweis-School-of-Pronunciation-helps-you-learn-how-to-say-the-manufacturers-name_id69585",
+      "https://www.macworld.com/article/671588/how-do-i-pronounce.html",
+      "https://en.wiktionary.org/wiki/Huawei"
+    ],
+    "confidence": "medium",
+    "misaki_us": "wˈɑwˌA"
+  },
+  {
+    "term": "Xiaomi",
+    "decision_us": "'SHOW-mee'",
+    "respelling": "SHOW-mee",
+    "alternative": "'zee-OW-mee', 'zhow-mee' (spelling-based)",
+    "evidence": "Hugo Barra (then Xiaomi VP) on video: 'show-me', with 'show' as in 'shower' (Mandarin xiǎo mǐ, 'little rice').",
+    "links": [
+      "https://www.phonearena.com/news/Hugo-Barra-teaches-you-how-to-say-Xiaomi_id65918",
+      "https://gizmodo.com.au/?p=1156766"
+    ],
+    "confidence": "high",
+    "misaki_us": "ʃˈWmi"
+  },
+  {
+    "term": "Mistral",
+    "decision_us": "'mis-TRAHL' (stress on second syllable)",
+    "respelling": "mis-TRAHL",
+    "alternative": "'MIS-trul' (anglicised first-syllable stress)",
+    "evidence": "Wiktionary English 'mistral' (the wind) /mɪˈstɹɑːl/; company is French [mistʁal]. English-speaking practitioners and podcasts mostly follow the second-syllable stress; 'MIS-trul' heard but less common. No poll.",
+    "links": [
+      "https://en.wikipedia.org/wiki/Mistral_AI",
+      "https://en.wiktionary.org/wiki/mistral"
+    ],
+    "confidence": "medium",
+    "misaki_us": "mɪstɹˈɑl"
+  },
+  {
+    "term": "Hugging Face",
+    "decision_us": "'HUG-ing face'",
+    "respelling": "HUG-ing FAYSS",
+    "alternative": "none notable",
+    "evidence": "Plain English words; company named after the 🤗 emoji. No dispute.",
+    "links": [
+      "https://huggingface.co/"
+    ],
+    "confidence": "high",
+    "misaki_us": "hˈʌɡɪŋ fˈAs"
+  },
+  {
+    "term": "Qwen",
+    "decision_us": "'kwen' (rhymes with 'when')",
+    "respelling": "KWEN",
+    "alternative": "'chwen' / 'chee-wen' (closer to Mandarin Qiānwèn)",
+    "evidence": "Qwen Technical Report (Alibaba, arXiv 2309.16609): pronunciation 'can vary... one possible way to pronounce it: /kwɛn/'. English-speaking practitioners mostly say 'kwen'; 'chwen' advocated as closer to the pinyin of Tongyi Qianwen. No poll.",
+    "links": [
+      "https://arxiv.org/pdf/2309.16609",
+      "https://en.wikipedia.org/wiki/Qwen",
+      "https://www.youtube.com/watch?v=WrSg7ArzPW8"
+    ],
+    "confidence": "medium",
+    "misaki_us": "kwˈɛn"
+  },
+  {
+    "term": "DeepSeek",
+    "decision_us": "'DEEP-seek'",
+    "respelling": "DEEP-seek",
+    "alternative": "none notable",
+    "evidence": "Plain English compound; universal.",
+    "links": [
+      "https://www.deepseek.com/"
+    ],
+    "confidence": "high",
+    "misaki_us": "dˈipsik"
+  },
+  {
+    "term": "Anthropic",
+    "decision_us": "'an-THROP-ik'",
+    "respelling": "an-THROP-ik",
+    "alternative": "'AN-thro-pik' (rare)",
+    "evidence": "Standard English adjective 'anthropic' (as in 'anthropic principle'), stress on second syllable; used by company leadership in interviews.",
+    "links": [
+      "https://en.wiktionary.org/wiki/anthropic",
+      "https://www.anthropic.com/"
+    ],
+    "confidence": "high",
+    "misaki_us": "ænθɹˈɑpɪk"
+  },
+  {
+    "term": "Nvidia",
+    "decision_us": "'en-VID-ee-uh'",
+    "respelling": "en-VID-ee-uh",
+    "alternative": "'nuh-VID-ee-uh', 'en-vee-DEE-uh'",
+    "evidence": "Nvidia brand guidelines: 'en-VID-ee-uh' (Fortune, Business Insider). From Latin invidia (envy).",
+    "links": [
+      "https://www.fortune.com/2024/06/21/how-do-you-pronounce-nvidia-jensen-huang-origin-invidia-mythology",
+      "https://www.businessinsider.nl/people-pronounce-nvidia-in-two-different-ways-only-one-is-correct"
+    ],
+    "confidence": "high",
+    "misaki_us": "ɛnvˈɪdiə"
+  },
+  {
+    "term": "Grafana",
+    "decision_us": "'gruh-FAH-nuh'",
+    "respelling": "gruh-FAH-nuh",
+    "alternative": "'GRAF-uh-nuh'",
+    "evidence": "Grafana community forum: 'Grah-fah-nah', pointing to CEO Raj Dutt and creator Torkel Ödegaard saying it at the GrafanaCon 2016 kickoff; stress on the second syllable in their talks. No poll.",
+    "links": [
+      "https://community.grafana.com/t/how-to-pronounce-grafana/1393"
+    ],
+    "confidence": "medium",
+    "misaki_us": "ɡɹəfˈɑnə"
+  },
+  {
+    "term": "Redis",
+    "decision_us": "'RED-iss'",
+    "respelling": "RED-iss",
+    "alternative": "'REE-dis'",
+    "evidence": "Wikipedia IPA /ˈrɛdɪs/ (from REmote DIctionary Server). No reliable source for 'REE-dis'.",
+    "links": [
+      "https://en.wikipedia.org/wiki/Redis"
+    ],
+    "confidence": "high",
+    "misaki_us": "ɹˈɛdɪs"
+  },
+  {
+    "term": "Deno",
+    "decision_us": "'DEE-no'",
+    "respelling": "DEE-noh",
+    "alternative": "'DEN-oh'",
+    "evidence": "Official README: 'Deno (/ˈdiːnoʊ/, pronounced dee-no)'; Ryan Dahl uses it; dinosaur mascot reinforces it. 'DEN-oh' heard among newcomers. No poll.",
+    "links": [
+      "https://github.com/denoland/deno/blob/main/README.md"
+    ],
+    "confidence": "high",
+    "misaki_us": "dˈinO"
+  },
+  {
+    "term": "Vite",
+    "decision_us": "'veet'",
+    "respelling": "VEET",
+    "alternative": "'vyte' (rhymes with 'kite')",
+    "evidence": "Official README/guide: 'Vite (French word for \"quick\", pronounced /viːt/, like \"veet\")' with an audio link; Evan You and ViteConf use it.",
+    "links": [
+      "https://vite.dev/guide/",
+      "https://v4.vitejs.dev/guide/"
+    ],
+    "confidence": "high",
+    "misaki_us": "vˈit"
+  },
+  {
+    "term": "Bun",
+    "decision_us": "'bun'",
+    "respelling": "BUN",
+    "alternative": "none notable",
+    "evidence": "Plain English word (bun.sh). No dispute.",
+    "links": [
+      "https://bun.sh/"
+    ],
+    "confidence": "high",
+    "misaki_us": "bˈʌn"
+  },
+  {
+    "term": "Avenir",
+    "decision_us": "'ah-vuh-NEER' (French 'future')",
+    "respelling": "ah-vuh-NEER",
+    "alternative": "'AV-uh-neer' (anglicised first-syllable stress, common among US designers)",
+    "evidence": "Typeface by Adrian Frutiger (Linotype, 1988); name is French avenir 'future' [av.niʁ]. No poll or foundry pronunciation guide found; both forms common in design circles.",
+    "links": [
+      "https://en.wikipedia.org/wiki/Avenir_(typeface)",
+      "https://en.wiktionary.org/wiki/avenir"
+    ],
+    "confidence": "low",
+    "misaki_us": "ˌævənˈɪɹ"
+  },
+  {
+    "term": "Bézier",
+    "decision_us": "'BEZ-ee-ay'",
+    "respelling": "BEZ-ee-ay",
+    "alternative": "'bez-YAY' (French), 'BEZ-ee-er' / 'BAY-zee-er' (anglicised)",
+    "evidence": "Wiktionary 'Bézier curve' /ˈbɛz.i.eɪ/; Merriam-Webster has an entry for Bezier curve. French original [bezje]. Designers and graphics engineers overwhelmingly say 'BEZ-ee-ay'.",
+    "links": [
+      "https://en.wiktionary.org/wiki/B%C3%A9zier_curve",
+      "https://www.merriam-webster.com/dictionary/Bezier%20curve",
+      "https://en.wikipedia.org/wiki/Pierre_B%C3%A9zier"
+    ],
+    "confidence": "medium",
+    "misaki_us": "bˈɛziˌA"
+  },
+  {
+    "term": "EBITDA",
+    "decision_us": "'ee-BIT-dah'",
+    "decision_gb": "'EE-bit-dah' or 'EB-it-dah'",
+    "respelling": "ee-BIT-dah",
+    "alternative": "'EB-it-dah' (Cambridge UK /ˈebɪtdə/), 'eh-BIT-dah'",
+    "evidence": "AAII financial dictionary: 'ee-bit-dah'; Wiktionary lists /iːbɪtˈdɑː/ first; Fishbowl finance threads show 'EE-BIT-DAH' as the majority with 'EH-bit-dah' variants. Cambridge (UK) gives /ˈebɪtdə/.",
+    "links": [
+      "https://www.aaii.com/terms/e/14121-ebitda",
+      "https://en.wiktionary.org/wiki/EBITDA",
+      "https://dictionary.cambridge.org/dictionary/english/ebitda",
+      "https://www.fishbowlapp.com/post/whats-the-preferred-way-to-say-ebitda-in-your-office-who-does-the-soft-eehbitda"
+    ],
+    "confidence": "medium",
+    "misaki_us": "ibˈɪtdɑ"
+  },
+  {
+    "term": "SKU",
+    "decision_us": "'skew'",
+    "respelling": "SKYOO",
+    "alternative": "letters 'S-K-U'",
+    "evidence": "Wiktionary lists both (/ˌɛsˌkeɪˈjuː/ and /skjuː/). In retail/e-commerce/product practice 'skew' is the dominant spoken form; letters common in some enterprise/UK settings. No poll.",
+    "links": [
+      "https://en.wiktionary.org/wiki/SKU"
+    ],
+    "confidence": "medium",
+    "misaki_us": "skjˈu"
+  },
+  {
+    "term": "CAC",
+    "decision_us": "'kack'",
+    "respelling": "KAK",
+    "alternative": "letters 'C-A-C'",
+    "evidence": "Marc Randolph's Netflix memoir 'That Will Never Work': 'Pronounced kack, it stands for cost of acquiring a customer.' Common in SaaS/VC talk ('CAC payback'). No poll.",
+    "links": [
+      "https://www.goodreads.com/notes/51106090-that-will-never-work/73813903-aisha-ayoosh/1792fa0f-b344-4a27-bb33-c7de46233777"
+    ],
+    "confidence": "medium",
+    "misaki_us": "kˈæk"
+  },
+  {
+    "term": "ARPU",
+    "decision_us": "'AR-poo'",
+    "respelling": "AR-poo",
+    "alternative": "letters 'A-R-P-U'",
+    "evidence": "No dictionary pronunciation found (Wiktionary defines only). Telecom/SaaS practitioners commonly say 'AR-poo' in earnings calls; letters also heard. Low evidence.",
+    "links": [
+      "https://en.wiktionary.org/wiki/ARPU"
+    ],
+    "confidence": "low",
+    "misaki_us": "ˈɑɹpu"
+  },
+  {
+    "term": "Heroku",
+    "decision_us": "'her-OH-koo'",
+    "respelling": "her-OH-koo",
+    "alternative": "'HAIR-oh-koo', 'HEER-oh-koo'",
+    "evidence": "Heroku's own About page (archived) gave 'her-OH-koo'; name is a portmanteau of 'heroic' + 'haiku'.",
+    "links": [
+      "https://web-archive.nli.org.il/National_Library/20160330061658mp_/https://heroku.com/about",
+      "https://en.wikipedia.org/wiki/Heroku"
+    ],
+    "confidence": "high",
+    "misaki_us": "hɛɹˈOku"
+  },
+  {
+    "term": "Calendly",
+    "decision_us": "'kuh-LEND-lee'",
+    "respelling": "kuh-LEND-lee",
+    "alternative": "'KAL-en-dlee'",
+    "evidence": "No official guide found; name derived from 'calendar' + '-ly', and the stress pattern 'kuh-LEND-lee' is what the company's founder and users say in videos. Low dispute in practice.",
+    "links": [
+      "https://calendly.com/about"
+    ],
+    "confidence": "medium",
+    "misaki_us": "kəlˈɛndli"
+  },
+  {
+    "term": "Zapier",
+    "decision_us": "'ZAP-ee-er' (rhymes with 'happier')",
+    "respelling": "ZAP-ee-er",
+    "alternative": "'ZAY-pee-er'",
+    "evidence": "Zapier's own slogan/community: 'Zapier makes you happier' — rhymes with happier.",
+    "links": [
+      "https://community.zapier.com/show-tell-5/how-to-pronounce-zapier-12856"
+    ],
+    "confidence": "high",
+    "misaki_us": "zˈæpiəɹ"
+  },
+  {
+    "term": "Asana",
+    "decision_us": "'uh-SAH-nuh'",
+    "respelling": "uh-SAH-nuh",
+    "alternative": "'AH-suh-nuh' (Sanskrit/yoga pronunciation, also common among customers)",
+    "evidence": "Asana About page: 'We typically pronounce Asana with the emphasis on the second syllable: uh-sāh-nuh', while accepting the Sanskrit 'āh-suh-nuh'. Asana staff on forum: 'ah-SAH-na'.",
+    "links": [
+      "https://asana.com/about",
+      "https://forum.asana.com/t/how-to-pronounce-asana-for-siri/11859"
+    ],
+    "confidence": "medium",
+    "misaki_us": "əsˈɑnə"
+  },
+  {
+    "term": "FigJam",
+    "decision_us": "'FIG-jam'",
+    "respelling": "FIG-jam",
+    "alternative": "none notable",
+    "evidence": "Plain English compound (Figma's whiteboard). No dispute.",
+    "links": [
+      "https://www.figma.com/figjam/"
+    ],
+    "confidence": "high",
+    "misaki_us": "fˈɪɡʤæm"
+  },
+  {
+    "term": "Miro",
+    "decision_us": "'MEER-oh'",
+    "respelling": "MEER-oh",
+    "alternative": "'MY-roh'",
+    "evidence": "Named after painter Joan Miró (CEO Andrey Khusid, Intercom interview). Miro community accepted answer: 'Mee-ro', per official YouTube channel; 'My-ro' heard among new users.",
+    "links": [
+      "https://community.miro.com/ask-the-community-45/how-do-you-pronounce-miro-470",
+      "https://www.intercom.com/blog/?p=22828",
+      "https://miro.com/blog/features/realtimeboard-is-now-miro/"
+    ],
+    "confidence": "medium",
+    "misaki_us": "mˈɪɹO"
+  }
+]

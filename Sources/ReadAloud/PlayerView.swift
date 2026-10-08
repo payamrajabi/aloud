@@ -245,7 +245,7 @@ struct VoiceDownloadRow: View {
         VStack(alignment: .leading, spacing: 5) {
             Text(waiting
                  ? "Downloading the voice… \(percent)%. Reading starts as soon as it's ready."
-                 : "Downloading the voice (about 330 MB, once)… \(percent)%")
+                 : "Downloading the voice (about \(KokoroEngine.downloadSize), once)… \(percent)%")
                 .font(.callout)
                 .monospacedDigit()
                 .fixedSize(horizontal: false, vertical: true)

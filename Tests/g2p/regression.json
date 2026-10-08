@@ -1,0 +1,4566 @@
+{
+ "about": "Pronunciation regression set from the Aloud phonemizer study (FIN-877). 'refs' are acceptable pronunciations in misaki notation (US): misaki gold entries, hand-written references, or plain-word readings phonemized from gold. 'python' is the output of the reference Python pipeline (misaki 0.9.4 gold lexicon + CMUdict + cisco-ai/mini-bart-g2p, spaCy en_core_web_sm tagger). Category 'silveronly' is diagnostic: its refs come from misaki's eSpeak-generated silver lexicon.",
+ "reference_scores": {
+  "in_lexicon_exact": 1.0,
+  "unknown_exact": 0.660714,
+  "unknown_per": 0.092567,
+  "heteronyms": 0.892857,
+  "normalisation_exact": 0.557143,
+  "normalisation_per": 0.105413
+ },
+ "items": [
+  {
+   "cat": "common",
+   "text": "uncontrollable",
+   "refs": [
+    "ˌʌnkəntɹˈOləbᵊl"
+   ],
+   "python": "ˌʌnkəntɹˈOləbᵊl"
+  },
+  {
+   "cat": "common",
+   "text": "authoritative",
+   "refs": [
+    "əθˈɔɹətˌAɾɪv"
+   ],
+   "python": "əθˈɔɹətˌATɪv"
+  },
+  {
+   "cat": "common",
+   "text": "mathematician",
+   "refs": [
+    "mˌæθᵊmətˈɪʃən"
+   ],
+   "python": "mˌæθᵊmətˈɪʃən"
+  },
+  {
+   "cat": "common",
+   "text": "afterlife",
+   "refs": [
+    "ˈæftəɹlˌIf"
+   ],
+   "python": "ˈæftəɹlˌIf"
+  },
+  {
+   "cat": "common",
+   "text": "cop",
+   "refs": [
+    "kˈɑp"
+   ],
+   "python": "kˈɑp"
+  },
+  {
+   "cat": "common",
+   "text": "maid",
+   "refs": [
+    "mˈAd"
+   ],
+   "python": "mˈAd"
+  },
+  {
+   "cat": "common",
+   "text": "thinner",
+   "refs": [
+    "θˈɪnəɹ"
+   ],
+   "python": "θˈɪnəɹ"
+  },
+  {
+   "cat": "common",
+   "text": "glaring",
+   "refs": [
+    "ɡlˈɛɹɪŋ"
+   ],
+   "python": "ɡlˈɛɹɪŋ"
+  },
+  {
+   "cat": "common",
+   "text": "anyway",
+   "refs": [
+    "ˈɛniwˌA"
+   ],
+   "python": "ˈɛniwˌA"
+  },
+  {
+   "cat": "common",
+   "text": "imperialist",
+   "refs": [
+    "ɪmpˈɪɹiəlɪst"
+   ],
+   "python": "ɪmpˈɪɹiəlɪst"
+  },
+  {
+   "cat": "common",
+   "text": "related",
+   "refs": [
+    "ɹəlˈAɾᵻd"
+   ],
+   "python": "ɹəlˈATᵻd"
+  },
+  {
+   "cat": "common",
+   "text": "wasting",
+   "refs": [
+    "wˈAstɪŋ"
+   ],
+   "python": "wˈAstɪŋ"
+  },
+  {
+   "cat": "common",
+   "text": "gradually",
+   "refs": [
+    "ɡɹˈæʤəwəli"
+   ],
+   "python": "ɡɹˈæʤəwəli"
+  },
+  {
+   "cat": "common",
+   "text": "metadata",
+   "refs": [
+    "mˈɛɾədˌAɾə"
+   ],
+   "python": "mˈɛTədˌATə"
+  },
+  {
+   "cat": "common",
+   "text": "ill",
+   "refs": [
+    "ˈɪl"
+   ],
+   "python": "ˈɪl"
+  },
+  {
+   "cat": "common",
+   "text": "interracial",
+   "refs": [
+    "ˌɪntəɹɹˈAʃᵊl"
+   ],
+   "python": "ˌɪntəɹɹˈAʃᵊl"
+  },
+  {
+   "cat": "common",
+   "text": "erotic",
+   "refs": [
+    "əɹˈɑɾɪk"
+   ],
+   "python": "əɹˈɑTɪk"
+  },
+  {
+   "cat": "common",
+   "text": "importance",
+   "refs": [
+    "ɪmpˈɔɹtᵊns"
+   ],
+   "python": "ɪmpˈɔɹtᵊns"
+  },
+  {
+   "cat": "common",
+   "text": "sup",
+   "refs": [
+    "sˈʌp"
+   ],
+   "python": "sˈʌp"
+  },
+  {
+   "cat": "common",
+   "text": "answer",
+   "refs": [
+    "ˈænsəɹ"
+   ],
+   "python": "ˈænsəɹ"
+  },
+  {
+   "cat": "common",
+   "text": "assassination",
+   "refs": [
+    "əsˌæsᵊnˈAʃən"
+   ],
+   "python": "əsˌæsᵊnˈAʃən"
+  },
+  {
+   "cat": "common",
+   "text": "attorney",
+   "refs": [
+    "ətˈɜɹni"
+   ],
+   "python": "ətˈɜɹni"
+  },
+  {
+   "cat": "common",
+   "text": "muse",
+   "refs": [
+    "mjˈuz"
+   ],
+   "python": "mjˈuz"
+  },
+  {
+   "cat": "common",
+   "text": "prestige",
+   "refs": [
+    "pɹɛstˈiʤ"
+   ],
+   "python": "pɹɛstˈiʤ"
+  },
+  {
+   "cat": "common",
+   "text": "bestselling",
+   "refs": [
+    "bˌɛstsˈɛlɪŋ"
+   ],
+   "python": "bˌɛstsˈɛlɪŋ"
+  },
+  {
+   "cat": "common",
+   "text": "treachery",
+   "refs": [
+    "tɹˈɛʧəɹi"
+   ],
+   "python": "tɹˈɛʧəɹi"
+  },
+  {
+   "cat": "common",
+   "text": "enzyme",
+   "refs": [
+    "ˈɛnzˌIm"
+   ],
+   "python": "ˈɛnzˌIm"
+  },
+  {
+   "cat": "common",
+   "text": "transistor",
+   "refs": [
+    "tɹænzˈɪstəɹ"
+   ],
+   "python": "tɹænzˈɪstəɹ"
+  },
+  {
+   "cat": "common",
+   "text": "curtain",
+   "refs": [
+    "kˈɜɹtᵊn"
+   ],
+   "python": "kˈɜɹtᵊn"
+  },
+  {
+   "cat": "common",
+   "text": "rarity",
+   "refs": [
+    "ɹˈɛɹəɾi"
+   ],
+   "python": "ɹˈɛɹəTi"
+  },
+  {
+   "cat": "common",
+   "text": "nostalgia",
+   "refs": [
+    "nəstˈælʤə"
+   ],
+   "python": "nəstˈælʤə"
+  },
+  {
+   "cat": "common",
+   "text": "decreased",
+   "refs": [
+    "dəkɹˈist"
+   ],
+   "python": "dəkɹˈist"
+  },
+  {
+   "cat": "common",
+   "text": "circumstance",
+   "refs": [
+    "sˈɜɹkəmstˌæns"
+   ],
+   "python": "sˈɜɹkəmstˌæns"
+  },
+  {
+   "cat": "common",
+   "text": "white",
+   "refs": [
+    "wˈIt"
+   ],
+   "python": "wˈIt"
+  },
+  {
+   "cat": "common",
+   "text": "hardened",
+   "refs": [
+    "hˈɑɹdᵊnd"
+   ],
+   "python": "hˈɑɹdᵊnd"
+  },
+  {
+   "cat": "common",
+   "text": "chili",
+   "refs": [
+    "ʧˈɪli"
+   ],
+   "python": "ʧˈɪli"
+  },
+  {
+   "cat": "common",
+   "text": "wasteful",
+   "refs": [
+    "wˈAstfəl"
+   ],
+   "python": "wˈAstfəl"
+  },
+  {
+   "cat": "common",
+   "text": "legislature",
+   "refs": [
+    "lˈɛʤəslˌAʧəɹ"
+   ],
+   "python": "lˈɛʤəslˌAʧəɹ"
+  },
+  {
+   "cat": "common",
+   "text": "reverse",
+   "refs": [
+    "ɹəvˈɜɹs"
+   ],
+   "python": "ɹəvˈɜɹs"
+  },
+  {
+   "cat": "common",
+   "text": "consciously",
+   "refs": [
+    "kˈɑnʃəsli"
+   ],
+   "python": "kˈɑnʃəsli"
+  },
+  {
+   "cat": "common",
+   "text": "federally",
+   "refs": [
+    "fˈɛdəɹəli"
+   ],
+   "python": "fˈɛdəɹəli"
+  },
+  {
+   "cat": "common",
+   "text": "paved",
+   "refs": [
+    "pˈAvd"
+   ],
+   "python": "pˈAvd"
+  },
+  {
+   "cat": "common",
+   "text": "exert",
+   "refs": [
+    "ɪɡzˈɜɹt"
+   ],
+   "python": "ɪɡzˈɜɹt"
+  },
+  {
+   "cat": "common",
+   "text": "donate",
+   "refs": [
+    "dˈOnˌAt"
+   ],
+   "python": "dˈOnˌAt"
+  },
+  {
+   "cat": "common",
+   "text": "vowel",
+   "refs": [
+    "vˈWᵊl"
+   ],
+   "python": "vˈWᵊl"
+  },
+  {
+   "cat": "common",
+   "text": "cyclone",
+   "refs": [
+    "sˈIklˌOn"
+   ],
+   "python": "sˈIklˌOn"
+  },
+  {
+   "cat": "common",
+   "text": "sonata",
+   "refs": [
+    "sənˈɑɾə"
+   ],
+   "python": "sənˈɑTə"
+  },
+  {
+   "cat": "common",
+   "text": "swap",
+   "refs": [
+    "swˈɑp"
+   ],
+   "python": "swˈɑp"
+  },
+  {
+   "cat": "common",
+   "text": "receptive",
+   "refs": [
+    "ɹəsˈɛptɪv"
+   ],
+   "python": "ɹəsˈɛptɪv"
+  },
+  {
+   "cat": "common",
+   "text": "mounted",
+   "refs": [
+    "mˈWntᵻd"
+   ],
+   "python": "mˈWntᵻd"
+  },
+  {
+   "cat": "common",
+   "text": "mutiny",
+   "refs": [
+    "mjˈutəni"
+   ],
+   "python": "mjˈutəni"
+  },
+  {
+   "cat": "common",
+   "text": "urgently",
+   "refs": [
+    "ˈɜɹʤəntli"
+   ],
+   "python": "ˈɜɹʤəntli"
+  },
+  {
+   "cat": "common",
+   "text": "stony",
+   "refs": [
+    "stˈOni"
+   ],
+   "python": "stˈOni"
+  },
+  {
+   "cat": "common",
+   "text": "flavored",
+   "refs": [
+    "flˈAvəɹd"
+   ],
+   "python": "flˈAvəɹd"
+  },
+  {
+   "cat": "common",
+   "text": "ends",
+   "refs": [
+    "ˈɛndz"
+   ],
+   "python": "ˈɛndz"
+  },
+  {
+   "cat": "common",
+   "text": "remedy",
+   "refs": [
+    "ɹˈɛmədi"
+   ],
+   "python": "ɹˈɛmədi"
+  },
+  {
+   "cat": "common",
+   "text": "afternoon",
+   "refs": [
+    "ˌæftəɹnˈun"
+   ],
+   "python": "ˌæftəɹnˈun"
+  },
+  {
+   "cat": "common",
+   "text": "until",
+   "refs": [
+    "ˌʌntˈɪl"
+   ],
+   "python": "ˌʌntˈɪl"
+  },
+  {
+   "cat": "common",
+   "text": "award",
+   "refs": [
+    "əwˈɔɹd"
+   ],
+   "python": "əwˈɔɹd"
+  },
+  {
+   "cat": "common",
+   "text": "neutrality",
+   "refs": [
+    "nutɹˈæləɾi"
+   ],
+   "python": "nutɹˈæləTi"
+  },
+  {
+   "cat": "common",
+   "text": "fulfill",
+   "refs": [
+    "fʊlfˈɪl"
+   ],
+   "python": "fʊlfˈɪl"
+  },
+  {
+   "cat": "common",
+   "text": "davenport",
+   "refs": [
+    "dˈævənpˌɔɹt"
+   ],
+   "python": "dˈævənpˌɔɹt"
+  },
+  {
+   "cat": "common",
+   "text": "armistice",
+   "refs": [
+    "ˈɑɹməstəs"
+   ],
+   "python": "ˈɑɹməstəs"
+  },
+  {
+   "cat": "common",
+   "text": "lantern",
+   "refs": [
+    "lˈæntəɹn"
+   ],
+   "python": "lˈæntəɹn"
+  },
+  {
+   "cat": "common",
+   "text": "carbohydrate",
+   "refs": [
+    "kˌɑɹbəhˈIdɹˌAt"
+   ],
+   "python": "kˌɑɹbəhˈIdɹˌAt"
+  },
+  {
+   "cat": "common",
+   "text": "restrain",
+   "refs": [
+    "ɹəstɹˈAn"
+   ],
+   "python": "ɹəstɹˈAn"
+  },
+  {
+   "cat": "common",
+   "text": "table",
+   "refs": [
+    "tˈAbᵊl"
+   ],
+   "python": "tˈAbᵊl"
+  },
+  {
+   "cat": "common",
+   "text": "boxing",
+   "refs": [
+    "bˈɑksɪŋ"
+   ],
+   "python": "bˈɑksɪŋ"
+  },
+  {
+   "cat": "common",
+   "text": "mar",
+   "refs": [
+    "mˈɑɹ"
+   ],
+   "python": "mˈɑɹ"
+  },
+  {
+   "cat": "common",
+   "text": "purse",
+   "refs": [
+    "pˈɜɹs"
+   ],
+   "python": "pˈɜɹs"
+  },
+  {
+   "cat": "common",
+   "text": "concrete",
+   "refs": [
+    "kˈɑnkɹˌit"
+   ],
+   "python": "kˈɑnkɹˌit"
+  },
+  {
+   "cat": "common",
+   "text": "incidentally",
+   "refs": [
+    "ˌɪnsədˈɛntəli"
+   ],
+   "python": "ˌɪnsədˈɛntəli"
+  },
+  {
+   "cat": "common",
+   "text": "simply",
+   "refs": [
+    "sˈɪmpli"
+   ],
+   "python": "sˈɪmpli"
+  },
+  {
+   "cat": "common",
+   "text": "fourteenth",
+   "refs": [
+    "fˌɔɹtˈinθ"
+   ],
+   "python": "fˌɔɹtˈinθ"
+  },
+  {
+   "cat": "common",
+   "text": "squire",
+   "refs": [
+    "skwˈIəɹ"
+   ],
+   "python": "skwˈIəɹ"
+  },
+  {
+   "cat": "common",
+   "text": "memorabilia",
+   "refs": [
+    "mˌɛməɹəbˈiljə"
+   ],
+   "python": "mˌɛməɹəbˈiljə"
+  },
+  {
+   "cat": "common",
+   "text": "sushi",
+   "refs": [
+    "sˈuʃi"
+   ],
+   "python": "sˈuʃi"
+  },
+  {
+   "cat": "common",
+   "text": "dal",
+   "refs": [
+    "dˈɑl"
+   ],
+   "python": "dˈɑl"
+  },
+  {
+   "cat": "common",
+   "text": "gist",
+   "refs": [
+    "ʤˈɪst"
+   ],
+   "python": "ʤˈɪst"
+  },
+  {
+   "cat": "common",
+   "text": "honeymoon",
+   "refs": [
+    "hˈʌnimˌun"
+   ],
+   "python": "hˈʌnimˌun"
+  },
+  {
+   "cat": "common",
+   "text": "hypnosis",
+   "refs": [
+    "hɪpnˈOsɪs"
+   ],
+   "python": "hɪpnˈOsɪs"
+  },
+  {
+   "cat": "common",
+   "text": "parting",
+   "refs": [
+    "pˈɑɹɾɪŋ"
+   ],
+   "python": "pˈɑɹTɪŋ"
+  },
+  {
+   "cat": "common",
+   "text": "pallet",
+   "refs": [
+    "pˈælət"
+   ],
+   "python": "pˈælət"
+  },
+  {
+   "cat": "common",
+   "text": "medina",
+   "refs": [
+    "mədˈinə"
+   ],
+   "python": "mədˈinə"
+  },
+  {
+   "cat": "common",
+   "text": "madras",
+   "refs": [
+    "mˈædɹəs"
+   ],
+   "python": "mˈædɹəs"
+  },
+  {
+   "cat": "common",
+   "text": "negativity",
+   "refs": [
+    "nˌɛɡətˈɪvəɾi"
+   ],
+   "python": "nˌɛɡətˈɪvəTi"
+  },
+  {
+   "cat": "common",
+   "text": "yen",
+   "refs": [
+    "jˈɛn"
+   ],
+   "python": "jˈɛn"
+  },
+  {
+   "cat": "common",
+   "text": "enterprise",
+   "refs": [
+    "ˈɛntəɹpɹˌIz"
+   ],
+   "python": "ˈɛntəɹpɹˌIz"
+  },
+  {
+   "cat": "common",
+   "text": "fact",
+   "refs": [
+    "fˈækt"
+   ],
+   "python": "fˈækt"
+  },
+  {
+   "cat": "common",
+   "text": "batsman",
+   "refs": [
+    "bˈætsmən"
+   ],
+   "python": "bˈætsmən"
+  },
+  {
+   "cat": "common",
+   "text": "unresolved",
+   "refs": [
+    "ˌʌnɹəzˈɑlvd"
+   ],
+   "python": "ˌʌnɹəzˈɑlvd"
+  },
+  {
+   "cat": "common",
+   "text": "mommy",
+   "refs": [
+    "mˈɑmi"
+   ],
+   "python": "mˈɑmi"
+  },
+  {
+   "cat": "common",
+   "text": "basketball",
+   "refs": [
+    "bˈæskətbˌɔl"
+   ],
+   "python": "bˈæskətbˌɔl"
+  },
+  {
+   "cat": "common",
+   "text": "crowded",
+   "refs": [
+    "kɹˈWdᵻd"
+   ],
+   "python": "kɹˈWdᵻd"
+  },
+  {
+   "cat": "common",
+   "text": "intern",
+   "refs": [
+    "ˈɪntˌɜɹn"
+   ],
+   "python": "ˈɪntˌɜɹn"
+  },
+  {
+   "cat": "common",
+   "text": "valve",
+   "refs": [
+    "vˈælv"
+   ],
+   "python": "vˈælv"
+  },
+  {
+   "cat": "common",
+   "text": "lawful",
+   "refs": [
+    "lˈɔfəl"
+   ],
+   "python": "lˈɔfəl"
+  },
+  {
+   "cat": "common",
+   "text": "replica",
+   "refs": [
+    "ɹˈɛpləkə"
+   ],
+   "python": "ɹˈɛpləkə"
+  },
+  {
+   "cat": "common",
+   "text": "experimentation",
+   "refs": [
+    "ɪkspˌɛɹəməntˈAʃən"
+   ],
+   "python": "ɪkspˌɛɹəməntˈAʃən"
+  },
+  {
+   "cat": "common",
+   "text": "aura",
+   "refs": [
+    "ˈɔɹə"
+   ],
+   "python": "ˈɔɹə"
+  },
+  {
+   "cat": "heldout",
+   "text": "conformal",
+   "refs": [
+    "kənfˈɔɹmᵊl"
+   ],
+   "python": "kənfˈɔɹmᵊl"
+  },
+  {
+   "cat": "heldout",
+   "text": "pettifogger",
+   "refs": [
+    "pˈɛɾifˌɔɡəɹ"
+   ],
+   "python": "pˈɛTifˌɔɡəɹ"
+  },
+  {
+   "cat": "heldout",
+   "text": "lactometer",
+   "refs": [
+    "læktˈɑməɾəɹ"
+   ],
+   "python": "læktˈɑməTəɹ"
+  },
+  {
+   "cat": "heldout",
+   "text": "sizeism",
+   "refs": [
+    "sˈIzˌɪzəm"
+   ],
+   "python": "sˈIzˌɪzəm"
+  },
+  {
+   "cat": "heldout",
+   "text": "jinns",
+   "refs": [
+    "ʤˈɪnz"
+   ],
+   "python": "ʤˈɪnz"
+  },
+  {
+   "cat": "heldout",
+   "text": "chewiness",
+   "refs": [
+    "ʧˈuinɪs"
+   ],
+   "python": "ʧˈuinɪs"
+  },
+  {
+   "cat": "heldout",
+   "text": "bastnaesite",
+   "refs": [
+    "bˈæstnəsˌIt"
+   ],
+   "python": "bˈæstnəsˌIt"
+  },
+  {
+   "cat": "heldout",
+   "text": "hematinic",
+   "refs": [
+    "hˌimətˈɪnɪk"
+   ],
+   "python": "hˌimətˈɪnɪk"
+  },
+  {
+   "cat": "heldout",
+   "text": "unbury",
+   "refs": [
+    "ˌʌnbˈɛɹi"
+   ],
+   "python": "ˌʌnbˈɛɹi"
+  },
+  {
+   "cat": "heldout",
+   "text": "succursal",
+   "refs": [
+    "səkˈɜɹsᵊl"
+   ],
+   "python": "səkˈɜɹsᵊl"
+  },
+  {
+   "cat": "heldout",
+   "text": "tailboard",
+   "refs": [
+    "tˈAlbˌɔɹd"
+   ],
+   "python": "tˈAlbˌɔɹd"
+  },
+  {
+   "cat": "heldout",
+   "text": "autarkic",
+   "refs": [
+    "ɔtˈɑɹkɪk"
+   ],
+   "python": "ɔtˈɑɹkɪk"
+  },
+  {
+   "cat": "heldout",
+   "text": "nastygram",
+   "refs": [
+    "nˈæstiɡɹˌæm"
+   ],
+   "python": "nˈæstiɡɹˌæm"
+  },
+  {
+   "cat": "heldout",
+   "text": "groaningly",
+   "refs": [
+    "ɡɹˈOnɪŋli"
+   ],
+   "python": "ɡɹˈOnɪŋli"
+  },
+  {
+   "cat": "heldout",
+   "text": "photocurrent",
+   "refs": [
+    "fˈOɾOkˌɜɹᵊnt"
+   ],
+   "python": "fˈOTOkˌɜɹᵊnt"
+  },
+  {
+   "cat": "heldout",
+   "text": "posthypnotic",
+   "refs": [
+    "pˌOsthˌɪpnˈɑdɪk"
+   ],
+   "python": "pˌOsthˌɪpnˈɑdɪk"
+  },
+  {
+   "cat": "heldout",
+   "text": "stonemasonry",
+   "refs": [
+    "stˈOnmˌAsᵊnɹi"
+   ],
+   "python": "stˈOnmˌAsᵊnɹi"
+  },
+  {
+   "cat": "heldout",
+   "text": "indoctrinator",
+   "refs": [
+    "ɪndˈɑktɹənˌAɾəɹ"
+   ],
+   "python": "ɪndˈɑktɹənˌATəɹ"
+  },
+  {
+   "cat": "heldout",
+   "text": "organza",
+   "refs": [
+    "ɔɹɡˈænzə"
+   ],
+   "python": "ɔɹɡˈænzə"
+  },
+  {
+   "cat": "heldout",
+   "text": "bronchodilator",
+   "refs": [
+    "bɹˌɑŋkOdIlˈAɾəɹ"
+   ],
+   "python": "bɹˌɑŋkOdIlˈATəɹ"
+  },
+  {
+   "cat": "heldout",
+   "text": "rebirthing",
+   "refs": [
+    "ɹibˈɜɹθɪŋ"
+   ],
+   "python": "ɹibˈɜɹθɪŋ"
+  },
+  {
+   "cat": "heldout",
+   "text": "unselfconsciousness",
+   "refs": [
+    "ˌʌnsˌɛlfkˈɑnʃəsnəs"
+   ],
+   "python": "ˌʌnsˌɛlfkˈɑnʃəsnəs"
+  },
+  {
+   "cat": "heldout",
+   "text": "centigramme",
+   "refs": [
+    "sˈɛntəɡɹˌæm"
+   ],
+   "python": "sˈɛntəɡɹˌæm"
+  },
+  {
+   "cat": "heldout",
+   "text": "automize",
+   "refs": [
+    "ˈɔɾOmˌIz"
+   ],
+   "python": "ˈɔTOmˌIz"
+  },
+  {
+   "cat": "heldout",
+   "text": "arbovirus",
+   "refs": [
+    "ˈɑɹbOvˌIɹəs"
+   ],
+   "python": "ˈɑɹbOvˌIɹəs"
+  },
+  {
+   "cat": "heldout",
+   "text": "scintigram",
+   "refs": [
+    "sˈɪntəɡɹˌæm"
+   ],
+   "python": "sˈɪntəɡɹˌæm"
+  },
+  {
+   "cat": "heldout",
+   "text": "coccolithophore",
+   "refs": [
+    "kˌɑkəlˈɪθəfˌɔɹ"
+   ],
+   "python": "kˌɑkəlˈɪθəfˌɔɹ"
+  },
+  {
+   "cat": "heldout",
+   "text": "desensitise",
+   "refs": [
+    "disˈɛnsətˌIz"
+   ],
+   "python": "disˈɛnsətˌIz"
+  },
+  {
+   "cat": "heldout",
+   "text": "summariness",
+   "refs": [
+    "səmˈɛɹinɪs"
+   ],
+   "python": "səmˈɛɹinɪs"
+  },
+  {
+   "cat": "heldout",
+   "text": "disconsolateness",
+   "refs": [
+    "dɪskˈɑnsᵊlətnəs"
+   ],
+   "python": "dɪskˈɑnsᵊlətnəs"
+  },
+  {
+   "cat": "heldout",
+   "text": "fleabite",
+   "refs": [
+    "flˈibˌIt"
+   ],
+   "python": "flˈibˌIt"
+  },
+  {
+   "cat": "heldout",
+   "text": "leadenly",
+   "refs": [
+    "lˈɛdᵊnli"
+   ],
+   "python": "lˈɛdᵊnli"
+  },
+  {
+   "cat": "heldout",
+   "text": "ichor",
+   "refs": [
+    "ˈIkˌɔɹ"
+   ],
+   "python": "ˈIkˌɔɹ"
+  },
+  {
+   "cat": "heldout",
+   "text": "substitutive",
+   "refs": [
+    "sˈʌbstətjˌuɾɪv"
+   ],
+   "python": "sˈʌbstətjˌuTɪv"
+  },
+  {
+   "cat": "heldout",
+   "text": "berkelium",
+   "refs": [
+    "bˈɜɹkliəm"
+   ],
+   "python": "bˈɜɹkliəm"
+  },
+  {
+   "cat": "heldout",
+   "text": "resplendence",
+   "refs": [
+    "ɹəsplˈɛndᵊns"
+   ],
+   "python": "ɹəsplˈɛndᵊns"
+  },
+  {
+   "cat": "heldout",
+   "text": "unsounded",
+   "refs": [
+    "ˌʌnsˈWndᵻd"
+   ],
+   "python": "ˌʌnsˈWndᵻd"
+  },
+  {
+   "cat": "heldout",
+   "text": "restrictionist",
+   "refs": [
+    "ɹəstɹˈɪkʃənɪst"
+   ],
+   "python": "ɹəstɹˈɪkʃənɪst"
+  },
+  {
+   "cat": "heldout",
+   "text": "anemophily",
+   "refs": [
+    "ˌænəmˈɑfəli"
+   ],
+   "python": "ˌænəmˈɑfəli"
+  },
+  {
+   "cat": "heldout",
+   "text": "doomscroll",
+   "refs": [
+    "dˈumskɹˌOl"
+   ],
+   "python": "dˈumskɹˌOl"
+  },
+  {
+   "cat": "heldout",
+   "text": "tramontane",
+   "refs": [
+    "tɹəmˈɑntˌAn"
+   ],
+   "python": "tɹəmˈɑntˌAn"
+  },
+  {
+   "cat": "heldout",
+   "text": "ephemeropteran",
+   "refs": [
+    "əfˌɛməɹˈɑptəɹən"
+   ],
+   "python": "əfˌɛməɹˈɑptəɹən"
+  },
+  {
+   "cat": "heldout",
+   "text": "prosoma",
+   "refs": [
+    "pɹOsˈOmə"
+   ],
+   "python": "pɹOsˈOmə"
+  },
+  {
+   "cat": "heldout",
+   "text": "petitionary",
+   "refs": [
+    "pətˈɪʃənˌɛɹi"
+   ],
+   "python": "pətˈɪʃənˌɛɹi"
+  },
+  {
+   "cat": "heldout",
+   "text": "unguardedness",
+   "refs": [
+    "ˌʌnɡˈɑɹdᵻdnəs"
+   ],
+   "python": "ˌʌnɡˈɑɹdᵻdnəs"
+  },
+  {
+   "cat": "heldout",
+   "text": "queued",
+   "refs": [
+    "kjˈud"
+   ],
+   "python": "kjˈud"
+  },
+  {
+   "cat": "heldout",
+   "text": "exclosure",
+   "refs": [
+    "ɪksklˈOʒəɹ"
+   ],
+   "python": "ɪksklˈOʒəɹ"
+  },
+  {
+   "cat": "heldout",
+   "text": "meshugaas",
+   "refs": [
+    "məʃəɡˈɑs"
+   ],
+   "python": "məʃəɡˈɑs"
+  },
+  {
+   "cat": "heldout",
+   "text": "underinvestment",
+   "refs": [
+    "ˌʌndəɹɪnvˈɛstmənt"
+   ],
+   "python": "ˌʌndəɹɪnvˈɛstmənt"
+  },
+  {
+   "cat": "heldout",
+   "text": "ennoblement",
+   "refs": [
+    "ənˈObəlmᵊnt"
+   ],
+   "python": "ənˈObəlmᵊnt"
+  },
+  {
+   "cat": "heldout",
+   "text": "conjecturable",
+   "refs": [
+    "kənʤˈɛkʧəɹəbᵊl"
+   ],
+   "python": "kənʤˈɛkʧəɹəbᵊl"
+  },
+  {
+   "cat": "heldout",
+   "text": "toneme",
+   "refs": [
+    "tˈOnˌim"
+   ],
+   "python": "tˈOnˌim"
+  },
+  {
+   "cat": "heldout",
+   "text": "justifier",
+   "refs": [
+    "ʤˈʌstəfˌIəɹ"
+   ],
+   "python": "ʤˈʌstəfˌIəɹ"
+  },
+  {
+   "cat": "heldout",
+   "text": "infecund",
+   "refs": [
+    "ɪnfˈikənd"
+   ],
+   "python": "ɪnfˈikənd"
+  },
+  {
+   "cat": "heldout",
+   "text": "monobob",
+   "refs": [
+    "mˈɑnObˌɑb"
+   ],
+   "python": "mˈɑnObˌɑb"
+  },
+  {
+   "cat": "heldout",
+   "text": "rerating",
+   "refs": [
+    "ɹiɹˈAɾɪŋ"
+   ],
+   "python": "ɹiɹˈATɪŋ"
+  },
+  {
+   "cat": "heldout",
+   "text": "gushier",
+   "refs": [
+    "ɡˈʌʃiəɹ"
+   ],
+   "python": "ɡˈʌʃiəɹ"
+  },
+  {
+   "cat": "heldout",
+   "text": "prefixation",
+   "refs": [
+    "pɹˌifɪksˈAʃən"
+   ],
+   "python": "pɹˌifɪksˈAʃən"
+  },
+  {
+   "cat": "heldout",
+   "text": "sunburst",
+   "refs": [
+    "sˈʌnbˌɜɹst"
+   ],
+   "python": "sˈʌnbˌɜɹst"
+  },
+  {
+   "cat": "heldout",
+   "text": "postposition",
+   "refs": [
+    "pˌOstpəzˈɪʃən"
+   ],
+   "python": "pˌOstpəzˈɪʃən"
+  },
+  {
+   "cat": "heldout",
+   "text": "haterade",
+   "refs": [
+    "hˈAɾəɹˌAd"
+   ],
+   "python": "hˈATəɹˌAd"
+  },
+  {
+   "cat": "heldout",
+   "text": "halfsies",
+   "refs": [
+    "hˈæfsiz"
+   ],
+   "python": "hˈæfsiz"
+  },
+  {
+   "cat": "heldout",
+   "text": "lowliest",
+   "refs": [
+    "lˈOliᵻst"
+   ],
+   "python": "lˈOliᵻst"
+  },
+  {
+   "cat": "heldout",
+   "text": "baldhead",
+   "refs": [
+    "bˈɔldhɛd"
+   ],
+   "python": "bˈɔldhɛd"
+  },
+  {
+   "cat": "heldout",
+   "text": "bacteriostat",
+   "refs": [
+    "bæktˈɪɹiəstˌæt"
+   ],
+   "python": "bæktˈɪɹiəstˌæt"
+  },
+  {
+   "cat": "heldout",
+   "text": "elevenfold",
+   "refs": [
+    "əlˈɛvənfˌOld"
+   ],
+   "python": "əlˈɛvənfˌOld"
+  },
+  {
+   "cat": "heldout",
+   "text": "quoin",
+   "refs": [
+    "kwˈYn"
+   ],
+   "python": "kwˈYn"
+  },
+  {
+   "cat": "heldout",
+   "text": "stereospecifically",
+   "refs": [
+    "stˌɛɹiəspəsˈɪfɪkᵊli"
+   ],
+   "python": "stˌɛɹiəspəsˈɪfɪkᵊli"
+  },
+  {
+   "cat": "heldout",
+   "text": "vespine",
+   "refs": [
+    "vˈɛspˌIn"
+   ],
+   "python": "vˈɛspˌIn"
+  },
+  {
+   "cat": "heldout",
+   "text": "succentor",
+   "refs": [
+    "səksˈɛntəɹ"
+   ],
+   "python": "səksˈɛntəɹ"
+  },
+  {
+   "cat": "heldout",
+   "text": "pipsissewa",
+   "refs": [
+    "pɪpsˈɪsəwˌɑ"
+   ],
+   "python": "pɪpsˈɪsəwˌɑ"
+  },
+  {
+   "cat": "heldout",
+   "text": "stipitate",
+   "refs": [
+    "stˈɪpətˌAt"
+   ],
+   "python": "stˈɪpətˌAt"
+  },
+  {
+   "cat": "heldout",
+   "text": "regild",
+   "refs": [
+    "ɹiɡˈɪld"
+   ],
+   "python": "ɹiɡˈɪld"
+  },
+  {
+   "cat": "heldout",
+   "text": "trafficked",
+   "refs": [
+    "tɹˈæfɪkt"
+   ],
+   "python": "tɹˈæfɪkt"
+  },
+  {
+   "cat": "heldout",
+   "text": "spartina",
+   "refs": [
+    "spˈɑɹtᵊnə"
+   ],
+   "python": "spˈɑɹtᵊnə"
+  },
+  {
+   "cat": "heldout",
+   "text": "frenziedly",
+   "refs": [
+    "fɹˈɛnzidli"
+   ],
+   "python": "fɹˈɛnzidli"
+  },
+  {
+   "cat": "heldout",
+   "text": "herpetic",
+   "refs": [
+    "həɹpˈɛɾɪk"
+   ],
+   "python": "həɹpˈɛTɪk"
+  },
+  {
+   "cat": "heldout",
+   "text": "futilitarian",
+   "refs": [
+    "fjutˌɪlətˈɛɹiən"
+   ],
+   "python": "fjutˌɪlətˈɛɹiən"
+  },
+  {
+   "cat": "heldout",
+   "text": "unimodal",
+   "refs": [
+    "jˌunəmˈOdᵊl"
+   ],
+   "python": "jˌunəmˈOdᵊl"
+  },
+  {
+   "cat": "heldout",
+   "text": "rerecord",
+   "refs": [
+    "ɹˌiɹəkˈɔɹd"
+   ],
+   "python": "ɹˌiɹəkˈɔɹd"
+  },
+  {
+   "cat": "heteronym",
+   "text": "I read the book yesterday.",
+   "refs": [
+    "ɹˈɛd"
+   ],
+   "python": "ˌI ɹˈɛd ðə bˈʊk jˈɛstəɹdˌA.",
+   "target": "read"
+  },
+  {
+   "cat": "heteronym",
+   "text": "Please read the label carefully.",
+   "refs": [
+    "ɹˈid"
+   ],
+   "python": "plˈiz ɹˈid ðə lˈAbəl kˈɛɹfᵊli.",
+   "target": "read"
+  },
+  {
+   "cat": "heteronym",
+   "text": "She will lead the team.",
+   "refs": [
+    "lˈid"
+   ],
+   "python": "ʃˌi wɪl lˈid ðə tˈim.",
+   "target": "lead"
+  },
+  {
+   "cat": "heteronym",
+   "text": "The pipe was made of lead.",
+   "refs": [
+    "lˈɛd"
+   ],
+   "python": "ðə pˈIp wʌz mˌAd ʌv lˈid.",
+   "target": "lead"
+  },
+  {
+   "cat": "heteronym",
+   "text": "They live in Boston.",
+   "refs": [
+    "lˈɪv"
+   ],
+   "python": "ðˌA lˈɪv ɪn bˈɔstən.",
+   "target": "live"
+  },
+  {
+   "cat": "heteronym",
+   "text": "We watched the live broadcast.",
+   "refs": [
+    "lˈIv"
+   ],
+   "python": "wˌi wˈɑʧt ðə lˈIv bɹˈɔdkˌæst.",
+   "target": "live"
+  },
+  {
+   "cat": "heteronym",
+   "text": "The wind was cold.",
+   "refs": [
+    "wˈɪnd"
+   ],
+   "python": "ðə wˈɪnd wʌz kˈOld.",
+   "target": "wind"
+  },
+  {
+   "cat": "heteronym",
+   "text": "Remember to wind the clock.",
+   "refs": [
+    "wˈInd"
+   ],
+   "python": "ɹəmˈɛmbəɹ tə wˈInd ðə klˈɑk.",
+   "target": "wind"
+  },
+  {
+   "cat": "heteronym",
+   "text": "She broke the world record.",
+   "refs": [
+    "ɹˈɛkəɹd"
+   ],
+   "python": "ʃˌi bɹˈOk ðə wˈɜɹld ɹˈɛkəɹd.",
+   "target": "record"
+  },
+  {
+   "cat": "heteronym",
+   "text": "Please record the meeting.",
+   "refs": [
+    "ɹəkˈɔɹd"
+   ],
+   "python": "plˈiz ɹəkˈɔɹd ðə mˈiTɪŋ.",
+   "target": "record"
+  },
+  {
+   "cat": "heteronym",
+   "text": "A tear rolled down her cheek.",
+   "refs": [
+    "tˈɪɹ"
+   ],
+   "python": "ɐ tˈɪɹ ɹˈOld dˌWn hɜɹ ʧˈik.",
+   "target": "tear"
+  },
+  {
+   "cat": "heteronym",
+   "text": "Don't tear the paper.",
+   "refs": [
+    "tˈɛɹ"
+   ],
+   "python": "dˈOnt tˈɛɹ ðə pˈApəɹ.",
+   "target": "tear"
+  },
+  {
+   "cat": "heteronym",
+   "text": "He plays bass guitar.",
+   "refs": [
+    "bˈAs"
+   ],
+   "python": "hˌi plˈAz bˈæs ɡətˈɑɹ.",
+   "target": "bass"
+  },
+  {
+   "cat": "heteronym",
+   "text": "Please close the door.",
+   "refs": [
+    "klˈOz"
+   ],
+   "python": "plˈiz klˈOz ðə dˈɔɹ.",
+   "target": "close"
+  },
+  {
+   "cat": "heteronym",
+   "text": "The store is close to home.",
+   "refs": [
+    "klˈOs"
+   ],
+   "python": "ðə stˈɔɹ ɪz klˈOs tə hˈOm.",
+   "target": "close"
+  },
+  {
+   "cat": "heteronym",
+   "text": "I object to that.",
+   "refs": [
+    "əbʤˈɛkt"
+   ],
+   "python": "ˌI əbʤˈɛkt tə ðˈæt.",
+   "target": "object"
+  },
+  {
+   "cat": "heteronym",
+   "text": "She gave me a present.",
+   "refs": [
+    "pɹˈɛzᵊnt"
+   ],
+   "python": "ʃˌi ɡˈAv mˌi ɐ pɹˈɛzᵊnt.",
+   "target": "present"
+  },
+  {
+   "cat": "heteronym",
+   "text": "They will present the results.",
+   "refs": [
+    "pɹizˈɛnt"
+   ],
+   "python": "ðˌA wɪl pɹizˈɛnt ðə ɹəzˈʌlts.",
+   "target": "present"
+  },
+  {
+   "cat": "heteronym",
+   "text": "The wound healed slowly.",
+   "refs": [
+    "wˈund"
+   ],
+   "python": "ðə wˈund hˈild slˈOli.",
+   "target": "wound"
+  },
+  {
+   "cat": "heteronym",
+   "text": "He wound the rope around the post.",
+   "refs": [
+    "wˈWnd"
+   ],
+   "python": "hˌi wˈWnd ðə ɹˈOp əɹˈWnd ðə pˈOst.",
+   "target": "wound"
+  },
+  {
+   "cat": "heteronym",
+   "text": "Wait a minute.",
+   "refs": [
+    "mˈɪnət"
+   ],
+   "python": "wˈAt ɐ mˈɪnət.",
+   "target": "minute"
+  },
+  {
+   "cat": "heteronym",
+   "text": "The soldiers desert their posts.",
+   "refs": [
+    "dəzˈɜɹt"
+   ],
+   "python": "ðə sˈOlʤəɹz dəzˈɜɹt ðɛɹ pˈOsts.",
+   "target": "desert"
+  },
+  {
+   "cat": "heteronym",
+   "text": "What is the use of that?",
+   "refs": [
+    "jˈus"
+   ],
+   "python": "wˌʌt ɪz ðə jˈus ʌv ðˈæt?",
+   "target": "use"
+  },
+  {
+   "cat": "heteronym",
+   "text": "We used to walk there.",
+   "refs": [
+    "jˈust"
+   ],
+   "python": "wˌi jˈust tə wˈɔk ðˈɛɹ.",
+   "target": "used"
+  },
+  {
+   "cat": "heteronym",
+   "text": "The content is great.",
+   "refs": [
+    "kˈɑntɛnt"
+   ],
+   "python": "ðə kˈɑntɛnt ɪz ɡɹˈAt.",
+   "target": "content"
+  },
+  {
+   "cat": "heteronym",
+   "text": "Fresh produce arrives daily.",
+   "refs": [
+    "pɹˈOdˌus"
+   ],
+   "python": "fɹˈɛʃ pɹˈOdˌus əɹˈIvz dˈAli.",
+   "target": "produce"
+  },
+  {
+   "cat": "heteronym",
+   "text": "Take a bow after the show.",
+   "refs": [
+    "bˈW"
+   ],
+   "python": "tˈAk ɐ bˈO ˈæftəɹ ðə ʃˈO.",
+   "target": "bow"
+  },
+  {
+   "cat": "heteronym",
+   "text": "Does he like it?",
+   "refs": [
+    "dˈʌz"
+   ],
+   "python": "dˈʌz hi lˈIk ɪt?",
+   "target": "does"
+  },
+  {
+   "cat": "silveronly",
+   "text": "dudes",
+   "refs": [
+    "dˈudz"
+   ],
+   "python": "dˈudz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "villains",
+   "refs": [
+    "vˈɪlənz"
+   ],
+   "python": "vˈɪlənz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "purges",
+   "refs": [
+    "pˈɜɹʤᵻz"
+   ],
+   "python": "pˈɜɹʤᵻz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "subtracting",
+   "refs": [
+    "sʌbtɹˈæktɪŋ"
+   ],
+   "python": "səbtɹˈæktɪŋ"
+  },
+  {
+   "cat": "silveronly",
+   "text": "adoptions",
+   "refs": [
+    "ədˈɑpʃənz"
+   ],
+   "python": "ədˈɑpʃənz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "dolled",
+   "refs": [
+    "dˈɑld"
+   ],
+   "python": "dˈɑld"
+  },
+  {
+   "cat": "silveronly",
+   "text": "kinder",
+   "refs": [
+    "kˈIndəɹ"
+   ],
+   "python": "kˈIndəɹ"
+  },
+  {
+   "cat": "silveronly",
+   "text": "owning",
+   "refs": [
+    "ˈOnɪŋ"
+   ],
+   "python": "ˈOnɪŋ"
+  },
+  {
+   "cat": "silveronly",
+   "text": "calories",
+   "refs": [
+    "kˈæləɹiz"
+   ],
+   "python": "kˈæləɹiz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "fairs",
+   "refs": [
+    "fˈɛɹz"
+   ],
+   "python": "fˈɛɹz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "aristocrats",
+   "refs": [
+    "əɹˈɪstəkɹˌæts"
+   ],
+   "python": "əɹˈɪstəkɹˌæts"
+  },
+  {
+   "cat": "silveronly",
+   "text": "sewers",
+   "refs": [
+    "sˈuəɹz"
+   ],
+   "python": "sˈuəɹz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "expiring",
+   "refs": [
+    "ɛkspˈIəɹɪŋ"
+   ],
+   "python": "ɪkspˈIəɹɪŋ"
+  },
+  {
+   "cat": "silveronly",
+   "text": "jacks",
+   "refs": [
+    "ʤˈæks"
+   ],
+   "python": "ʤˈæks"
+  },
+  {
+   "cat": "silveronly",
+   "text": "buffering",
+   "refs": [
+    "bˈʌfəɹɪŋ"
+   ],
+   "python": "bˈʌfəɹɪŋ"
+  },
+  {
+   "cat": "silveronly",
+   "text": "bazaars",
+   "refs": [
+    "bəzˈɑɹz"
+   ],
+   "python": "bəzˈɑɹz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "heals",
+   "refs": [
+    "hˈilz"
+   ],
+   "python": "hˈilz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "bails",
+   "refs": [
+    "bˈAlz"
+   ],
+   "python": "bˈAlz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "papers",
+   "refs": [
+    "pˈApəɹz"
+   ],
+   "python": "pˈApəɹz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "loudest",
+   "refs": [
+    "lˈWdɪst"
+   ],
+   "python": "lˈWdəst"
+  },
+  {
+   "cat": "silveronly",
+   "text": "lucked",
+   "refs": [
+    "lˈʌkt"
+   ],
+   "python": "lˈʌkt"
+  },
+  {
+   "cat": "silveronly",
+   "text": "fourths",
+   "refs": [
+    "fˈɔɹθs"
+   ],
+   "python": "fˈɔɹθs"
+  },
+  {
+   "cat": "silveronly",
+   "text": "aimed",
+   "refs": [
+    "ˈAmd"
+   ],
+   "python": "ˈAmd"
+  },
+  {
+   "cat": "silveronly",
+   "text": "hindered",
+   "refs": [
+    "hˈɪndəɹd"
+   ],
+   "python": "hˈɪndəɹd"
+  },
+  {
+   "cat": "silveronly",
+   "text": "obsessions",
+   "refs": [
+    "əbsˈɛʃənz"
+   ],
+   "python": "əbsˈɛʃənz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "aliases",
+   "refs": [
+    "ˈAliəsᵻz"
+   ],
+   "python": "ˈAliəsᵻz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "roamed",
+   "refs": [
+    "ɹˈOmd"
+   ],
+   "python": "ɹˈOmd"
+  },
+  {
+   "cat": "silveronly",
+   "text": "irani",
+   "refs": [
+    "ɪɹˈæni"
+   ],
+   "python": "ɪɹˈɑni"
+  },
+  {
+   "cat": "silveronly",
+   "text": "leveraged",
+   "refs": [
+    "lˈɛvəɹɪʤd"
+   ],
+   "python": "lˈɛvəɹɪʤd"
+  },
+  {
+   "cat": "silveronly",
+   "text": "plumes",
+   "refs": [
+    "plˈumz"
+   ],
+   "python": "plˈumz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "lunches",
+   "refs": [
+    "lˈʌnʧᵻz"
+   ],
+   "python": "lˈʌnʧᵻz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "surprises",
+   "refs": [
+    "səɹpɹˈIzᵻz"
+   ],
+   "python": "səɹpɹˈIzᵻz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "judged",
+   "refs": [
+    "ʤˈʌʤd"
+   ],
+   "python": "ʤˈʌʤd"
+  },
+  {
+   "cat": "silveronly",
+   "text": "barged",
+   "refs": [
+    "bˈɑɹʤd"
+   ],
+   "python": "bˈɑɹʤd"
+  },
+  {
+   "cat": "silveronly",
+   "text": "bathers",
+   "refs": [
+    "bˈAðəɹz"
+   ],
+   "python": "bˈAðəɹz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "wining",
+   "refs": [
+    "wˈInɪŋ"
+   ],
+   "python": "wˈɪnɪŋ"
+  },
+  {
+   "cat": "silveronly",
+   "text": "overheating",
+   "refs": [
+    "ˌOvəɹhˈiɾɪŋ"
+   ],
+   "python": "ˈOvəɹhˌiTɪŋ"
+  },
+  {
+   "cat": "silveronly",
+   "text": "denoting",
+   "refs": [
+    "dᵻnˈOɾɪŋ"
+   ],
+   "python": "dənˈOTɪŋ"
+  },
+  {
+   "cat": "silveronly",
+   "text": "rations",
+   "refs": [
+    "ɹˈæʃənz"
+   ],
+   "python": "ɹˈæʃənz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "tossing",
+   "refs": [
+    "tˈɔsɪŋ"
+   ],
+   "python": "tˈɔsɪŋ"
+  },
+  {
+   "cat": "silveronly",
+   "text": "facto",
+   "refs": [
+    "fˈæktO"
+   ],
+   "python": "fˈæktO"
+  },
+  {
+   "cat": "silveronly",
+   "text": "gins",
+   "refs": [
+    "ʤˈɪnz"
+   ],
+   "python": "ʤˈɪnz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "reconnecting",
+   "refs": [
+    "ɹˌikənˈɛktɪŋ"
+   ],
+   "python": "ɹˌikənˈɛktɪŋ"
+  },
+  {
+   "cat": "silveronly",
+   "text": "drills",
+   "refs": [
+    "dɹˈɪlz"
+   ],
+   "python": "dɹˈɪlz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "judgements",
+   "refs": [
+    "ʤˈʌʤmənts"
+   ],
+   "python": "ʤˈʌʤmənts"
+  },
+  {
+   "cat": "silveronly",
+   "text": "solutions",
+   "refs": [
+    "səlˈuʃənz"
+   ],
+   "python": "səlˈuʃənz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "swiped",
+   "refs": [
+    "swˈIpt"
+   ],
+   "python": "swˈIpt"
+  },
+  {
+   "cat": "silveronly",
+   "text": "renovating",
+   "refs": [
+    "ɹˈɛnəvˌAɾɪŋ"
+   ],
+   "python": "ɹˈɛnəvˌATɪŋ"
+  },
+  {
+   "cat": "silveronly",
+   "text": "carnegie",
+   "refs": [
+    "kˈɑɹnəɡi"
+   ],
+   "python": "kˈɑɹnəɡi"
+  },
+  {
+   "cat": "silveronly",
+   "text": "senses",
+   "refs": [
+    "sˈɛnsᵻz"
+   ],
+   "python": "sˈɛnsᵻz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "hitches",
+   "refs": [
+    "hˈɪʧᵻz"
+   ],
+   "python": "hˈɪʧᵻz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "traversing",
+   "refs": [
+    "tɹəvˈɜɹsɪŋ"
+   ],
+   "python": "tɹˈævəɹsɪŋ"
+  },
+  {
+   "cat": "silveronly",
+   "text": "transcribed",
+   "refs": [
+    "tɹænskɹˈIbd"
+   ],
+   "python": "tɹænskɹˈIbd"
+  },
+  {
+   "cat": "silveronly",
+   "text": "joyce",
+   "refs": [
+    "ʤˈYs"
+   ],
+   "python": "ʤˈYs"
+  },
+  {
+   "cat": "silveronly",
+   "text": "skiers",
+   "refs": [
+    "skˈiəɹz"
+   ],
+   "python": "skˈiəɹz"
+  },
+  {
+   "cat": "silveronly",
+   "text": "designates",
+   "refs": [
+    "dˈɛzɪɡnˌAts"
+   ],
+   "python": "dˈɛzɪɡnˌAts"
+  },
+  {
+   "cat": "silveronly",
+   "text": "waits",
+   "refs": [
+    "wˈAts"
+   ],
+   "python": "wˈAts"
+  },
+  {
+   "cat": "silveronly",
+   "text": "attempting",
+   "refs": [
+    "ətˈɛmptɪŋ"
+   ],
+   "python": "ətˈɛmptɪŋ"
+  },
+  {
+   "cat": "silveronly",
+   "text": "clive",
+   "refs": [
+    "klˈIv"
+   ],
+   "python": "klˈIv"
+  },
+  {
+   "cat": "silveronly",
+   "text": "apologizes",
+   "refs": [
+    "əpˈɑləʤˌIzᵻz"
+   ],
+   "python": "əpˈɑləʤˌIzᵻz"
+  },
+  {
+   "cat": "name",
+   "text": "Siobhan",
+   "refs": [
+    "ʃəvˈɔn",
+    "ʃɪvˈɔn"
+   ],
+   "python": "ʃˈWbˌɑn",
+   "oov": true
+  },
+  {
+   "cat": "name",
+   "text": "Nguyen",
+   "refs": [
+    "wˈɪn",
+    "nˈujɛn",
+    "nəwˈɪn"
+   ],
+   "python": "nujˈɛn",
+   "oov": true
+  },
+  {
+   "cat": "name",
+   "text": "Worcester",
+   "refs": [
+    "wˈʊstəɹ"
+   ],
+   "python": "wˈʊstəɹ"
+  },
+  {
+   "cat": "name",
+   "text": "Saoirse",
+   "refs": [
+    "sˈɜɹʃə",
+    "sˈiɹʃə"
+   ],
+   "python": "sˈWəɹs",
+   "oov": true
+  },
+  {
+   "cat": "name",
+   "text": "Joaquin",
+   "refs": [
+    "wɑkˈin",
+    "hwɑkˈin"
+   ],
+   "python": "wˌɑkˈin",
+   "oov": true
+  },
+  {
+   "cat": "name",
+   "text": "Leicester",
+   "refs": [
+    "lˈɛstəɹ"
+   ],
+   "python": "lˈɛstəɹ"
+  },
+  {
+   "cat": "name",
+   "text": "Gloucester",
+   "refs": [
+    "ɡlˈɔstəɹ",
+    "ɡlˈɑstəɹ"
+   ],
+   "python": "ɡlˈɔstəɹ"
+  },
+  {
+   "cat": "name",
+   "text": "Niamh",
+   "refs": [
+    "nˈiv"
+   ],
+   "python": "nˈIəm",
+   "oov": true
+  },
+  {
+   "cat": "name",
+   "text": "Aoife",
+   "refs": [
+    "ˈifə"
+   ],
+   "python": "ˈWIf",
+   "oov": true
+  },
+  {
+   "cat": "name",
+   "text": "Xavier",
+   "refs": [
+    "zˈAviəɹ",
+    "ɛɡzˈAviəɹ"
+   ],
+   "python": "zˈAvjəɹ",
+   "oov": true
+  },
+  {
+   "cat": "name",
+   "text": "Sean",
+   "refs": [
+    "ʃˈɔn"
+   ],
+   "python": "ʃˈɔn",
+   "oov": true
+  },
+  {
+   "cat": "name",
+   "text": "Hermione",
+   "refs": [
+    "həɹmˈIəni"
+   ],
+   "python": "hˈɜɹmiˌOni",
+   "oov": true
+  },
+  {
+   "cat": "name",
+   "text": "Nietzsche",
+   "refs": [
+    "nˈiʧə"
+   ],
+   "python": "nˈiʧə"
+  },
+  {
+   "cat": "name",
+   "text": "Goethe",
+   "refs": [
+    "ɡˈɜɹtə"
+   ],
+   "python": "ɡˈOθ",
+   "oov": true
+  },
+  {
+   "cat": "name",
+   "text": "Beijing",
+   "refs": [
+    "bˌAʤˈɪŋ"
+   ],
+   "python": "bˌAʤˈɪŋ"
+  },
+  {
+   "cat": "name",
+   "text": "Qatar",
+   "refs": [
+    "kˈɑtˌɑɹ",
+    "kətˈɑɹ"
+   ],
+   "python": "kˈɑtˌɑɹ"
+  },
+  {
+   "cat": "name",
+   "text": "Edinburgh",
+   "refs": [
+    "ˈɛdənbəɹə"
+   ],
+   "python": "ˈɛdənbəɹə"
+  },
+  {
+   "cat": "name",
+   "text": "Arkansas",
+   "refs": [
+    "ˈɑɹkənsˌɔ"
+   ],
+   "python": "ˈɑɹkənsˌɔ"
+  },
+  {
+   "cat": "name",
+   "text": "Illinois",
+   "refs": [
+    "ˌɪlənˈY"
+   ],
+   "python": "ˌɪlənˈY"
+  },
+  {
+   "cat": "name",
+   "text": "Yosemite",
+   "refs": [
+    "jOsˈɛməTi"
+   ],
+   "python": "jOsˈɛmɪti",
+   "oov": true
+  },
+  {
+   "cat": "name",
+   "text": "Phoebe",
+   "refs": [
+    "fˈibˌi",
+    "fˈibi"
+   ],
+   "python": "fˈibˌi"
+  },
+  {
+   "cat": "name",
+   "text": "Priyanka",
+   "refs": [
+    "pɹijˈɑŋkə",
+    "pɹiˈɑŋkə"
+   ],
+   "python": "pɹijˈɑŋkə",
+   "oov": true
+  },
+  {
+   "cat": "name",
+   "text": "Oaxaca",
+   "refs": [
+    "wɑhˈɑkə"
+   ],
+   "python": "wɑhˈɑkə"
+  },
+  {
+   "cat": "name",
+   "text": "Tucson",
+   "refs": [
+    "tˈusˌɑn"
+   ],
+   "python": "tˈusˌɑn"
+  },
+  {
+   "cat": "name",
+   "text": "Greenwich",
+   "refs": [
+    "ɡɹˈɛnɪʧ"
+   ],
+   "python": "ɡɹˈɛnɪʧ"
+  },
+  {
+   "cat": "name",
+   "text": "Reykjavik",
+   "refs": [
+    "ɹˈAkjəvˌɪk"
+   ],
+   "python": "ɹˈAkjəvˌɪk"
+  },
+  {
+   "cat": "name",
+   "text": "Chloe",
+   "refs": [
+    "klˈOi"
+   ],
+   "python": "klˈOi",
+   "oov": true
+  },
+  {
+   "cat": "name",
+   "text": "Giuseppe",
+   "refs": [
+    "ʤusˈɛpi"
+   ],
+   "python": "ʤɪsˈɛpi",
+   "oov": true
+  },
+  {
+   "cat": "name",
+   "text": "Daenerys",
+   "refs": [
+    "dənˈɛɹɪs",
+    "dAnˈɛɹɪs"
+   ],
+   "python": "dˈinəɹiz",
+   "oov": true
+  },
+  {
+   "cat": "name",
+   "text": "Sinead",
+   "refs": [
+    "ʃɪnˈAd"
+   ],
+   "python": "sɪnˈAæd",
+   "oov": true
+  },
+  {
+   "cat": "name",
+   "text": "Toyota",
+   "refs": [
+    "tYˈOTə"
+   ],
+   "python": "tOjˈOtə",
+   "oov": true
+  },
+  {
+   "cat": "name",
+   "text": "Zoe",
+   "refs": [
+    "zˈOi"
+   ],
+   "python": "zˈOi",
+   "oov": true
+  },
+  {
+   "cat": "tech",
+   "text": "GitHub",
+   "refs": [
+    "ɡˈɪthˌʌb"
+   ],
+   "python": "ɡˌɪthˈʌb"
+  },
+  {
+   "cat": "tech",
+   "text": "SQL",
+   "refs": [
+    "sˈikwəl",
+    "ˌɛskjuˈɛl"
+   ],
+   "python": "sˈikwəl"
+  },
+  {
+   "cat": "tech",
+   "text": "iOS",
+   "refs": [
+    "ˌIOˈɛs"
+   ],
+   "python": "ˌIOˈɛs"
+  },
+  {
+   "cat": "tech",
+   "text": "Kubernetes",
+   "refs": [
+    "kˌubəɹnˈɛTiz"
+   ],
+   "python": "kjˈubəɹnˌits",
+   "oov": true
+  },
+  {
+   "cat": "tech",
+   "text": "macOS",
+   "refs": [
+    "mˌækOˈɛs"
+   ],
+   "python": "mˌækˌOˈɛs"
+  },
+  {
+   "cat": "tech",
+   "text": "ChatGPT",
+   "refs": [
+    "ʧˈætʤˌipˌitˈi"
+   ],
+   "python": "ʧˌætʤˌipˌitˈi"
+  },
+  {
+   "cat": "tech",
+   "text": "Nvidia",
+   "refs": [
+    "ɛnvˈɪdiə"
+   ],
+   "python": "ɛnvˈɪdiə"
+  },
+  {
+   "cat": "tech",
+   "text": "PyTorch",
+   "refs": [
+    "pˈItˌɔɹʧ"
+   ],
+   "python": "pˈItəɹʧ",
+   "oov": true
+  },
+  {
+   "cat": "tech",
+   "text": "JSON",
+   "refs": [
+    "ʤˈAsən"
+   ],
+   "python": "ʤˌAˌɛsˌOˈɛn"
+  },
+  {
+   "cat": "tech",
+   "text": "YAML",
+   "refs": [
+    "jˈæməl"
+   ],
+   "python": "wˌIˌAˌɛmˈɛl"
+  },
+  {
+   "cat": "tech",
+   "text": "nginx",
+   "refs": [
+    "ˌɛnʤɪnˈɛks"
+   ],
+   "python": "nʤˈɪŋks",
+   "oov": true
+  },
+  {
+   "cat": "tech",
+   "text": "Linux",
+   "refs": [
+    "lˈɪnəks"
+   ],
+   "python": "lˈɪnəks"
+  },
+  {
+   "cat": "tech",
+   "text": "Xcode",
+   "refs": [
+    "ˈɛkskˌOd"
+   ],
+   "python": "ˈɛkskˌOd",
+   "oov": true
+  },
+  {
+   "cat": "tech",
+   "text": "iPhone",
+   "refs": [
+    "ˈIfˌOn"
+   ],
+   "python": "ˈIfˌOn"
+  },
+  {
+   "cat": "tech",
+   "text": "WiFi",
+   "refs": [
+    "wˈIfˌI"
+   ],
+   "python": "wˈIfˌI",
+   "oov": true
+  },
+  {
+   "cat": "tech",
+   "text": "OAuth",
+   "refs": [
+    "ˈOˌɔθ"
+   ],
+   "python": "ˈOˌɔθ"
+  },
+  {
+   "cat": "tech",
+   "text": "Postgres",
+   "refs": [
+    "pˈOstɡɹˌɛs"
+   ],
+   "python": "pˈOstɡɹɛs",
+   "oov": true
+  },
+  {
+   "cat": "tech",
+   "text": "TensorFlow",
+   "refs": [
+    "tˈɛnsəɹflˌO"
+   ],
+   "python": "tˈɛnsəɹflˌO"
+  },
+  {
+   "cat": "tech",
+   "text": "README",
+   "refs": [
+    "ɹˈidmˌi"
+   ],
+   "python": "ˌɑɹˌiˌAdˌiˌɛmˈi"
+  },
+  {
+   "cat": "tech",
+   "text": "npm",
+   "refs": [
+    "ˌɛnpˌiˈɛm"
+   ],
+   "python": "ˈɛnpˌiˌɛm",
+   "oov": true
+  },
+  {
+   "cat": "tech",
+   "text": "URL",
+   "refs": [
+    "jˌuˌɑɹˈɛl"
+   ],
+   "python": "jˌuˌɑɹˈɛl"
+  },
+  {
+   "cat": "tech",
+   "text": "API",
+   "refs": [
+    "ˌApˌiˈI"
+   ],
+   "python": "ˌApˌiˈI"
+  },
+  {
+   "cat": "tech",
+   "text": "GPU",
+   "refs": [
+    "ʤˌipˌiˈju"
+   ],
+   "python": "ʤˌipˌijˈu"
+  },
+  {
+   "cat": "tech",
+   "text": "Huawei",
+   "refs": [
+    "wˈɑwˌA"
+   ],
+   "python": "hwˈɑwˌA",
+   "oov": true
+  },
+  {
+   "cat": "tech",
+   "text": "Hyundai",
+   "refs": [
+    "hˈʌndˌA"
+   ],
+   "python": "hjˈʌndˌA",
+   "oov": true
+  },
+  {
+   "cat": "tech",
+   "text": "Porsche",
+   "refs": [
+    "pˈɔɹʃə"
+   ],
+   "python": "pˈɔɹʃə",
+   "oov": true
+  },
+  {
+   "cat": "tech",
+   "text": "IKEA",
+   "refs": [
+    "Ikˈiə"
+   ],
+   "python": "ˌIkˌAˌiˈA"
+  },
+  {
+   "cat": "tech",
+   "text": "Spotify",
+   "refs": [
+    "spˈɑTəfˌI"
+   ],
+   "python": "spˈɑtəfˌI",
+   "oov": true
+  },
+  {
+   "cat": "tech",
+   "text": "LinkedIn",
+   "refs": [
+    "lˈɪŋktˌɪn"
+   ],
+   "python": "lˈɪŋktˌɪn"
+  },
+  {
+   "cat": "tech",
+   "text": "Supabase",
+   "refs": [
+    "sˈupəbˌAs"
+   ],
+   "python": "sˈupəbˌAs",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "zorbled",
+   "refs": [
+    "zˈɔɹbᵊld"
+   ],
+   "python": "zˈɔɹbəld",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "blorptastic",
+   "refs": [
+    "blˌɔɹptˈæstɪk"
+   ],
+   "python": "blˌɔɹptˈæstɪk",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "snerf",
+   "refs": [
+    "snˈɜɹf"
+   ],
+   "python": "snˈɜɹf",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "glimmerfrost",
+   "refs": [
+    "ɡlˈɪməɹfɹˌɔst"
+   ],
+   "python": "ɡlˈɪməɹfɹˌɔst",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "plonkish",
+   "refs": [
+    "plˈɑŋkɪʃ"
+   ],
+   "python": "plˈɑŋkɪʃ",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "wuggle",
+   "refs": [
+    "wˈʌɡᵊl"
+   ],
+   "python": "wˈʌɡəl",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "trazzle",
+   "refs": [
+    "tɹˈæzᵊl"
+   ],
+   "python": "tɹˈæzəl",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "smeeble",
+   "refs": [
+    "smˈibᵊl"
+   ],
+   "python": "smˈibəl",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "brillig",
+   "refs": [
+    "bɹˈɪlɪɡ"
+   ],
+   "python": "bɹˈɪlɪɡ",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "borogoves",
+   "refs": [
+    "bˈɔɹəɡˌOvz"
+   ],
+   "python": "bˈɔɹəɡˌʌvz",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "frumious",
+   "refs": [
+    "fɹˈumiəs"
+   ],
+   "python": "fɹˈumiəs",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "quorbish",
+   "refs": [
+    "kwˈɔɹbɪʃ"
+   ],
+   "python": "kwˈɜɹbɪʃ",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "flumpet",
+   "refs": [
+    "flˈʌmpɪt"
+   ],
+   "python": "flˈʌmpət",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "zibbering",
+   "refs": [
+    "zˈɪbəɹɪŋ"
+   ],
+   "python": "zˈɪbəɹɪŋ",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "crundle",
+   "refs": [
+    "kɹˈʌndᵊl"
+   ],
+   "python": "kɹˈʌndəl",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "vorpal",
+   "refs": [
+    "vˈɔɹpᵊl"
+   ],
+   "python": "vˈɔɹpəl",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "Grimbleton",
+   "refs": [
+    "ɡɹˈɪmbᵊltən"
+   ],
+   "python": "ɡɹˈɪmbəltən",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "Thraxxon",
+   "refs": [
+    "θɹˈæksɑn"
+   ],
+   "python": "θɹˈæksən",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "unfrobbable",
+   "refs": [
+    "ʌnfɹˈɑbəbᵊl"
+   ],
+   "python": "ənfɹˈʌbəbəl",
+   "oov": true
+  },
+  {
+   "cat": "madeup",
+   "text": "splendiferously",
+   "refs": [
+    "splɛndˈɪfəɹəsli"
+   ],
+   "python": "splɛndˈɪfəɹəsli"
+  },
+  {
+   "cat": "contraction",
+   "text": "don't",
+   "refs": [
+    "dˈOnt"
+   ],
+   "python": "dˈOnt"
+  },
+  {
+   "cat": "contraction",
+   "text": "won't",
+   "refs": [
+    "wOnt",
+    "wˈOnt"
+   ],
+   "python": "wˈOnt"
+  },
+  {
+   "cat": "contraction",
+   "text": "can't",
+   "refs": [
+    "kˈænt"
+   ],
+   "python": "kˈænt"
+  },
+  {
+   "cat": "contraction",
+   "text": "they're",
+   "refs": [
+    "ðɛɹ",
+    "ðˈɛɹ"
+   ],
+   "python": "ðɛɹ"
+  },
+  {
+   "cat": "contraction",
+   "text": "it's",
+   "refs": [
+    "ɪts",
+    "ˈɪts"
+   ],
+   "python": "ɪts"
+  },
+  {
+   "cat": "contraction",
+   "text": "could've",
+   "refs": [
+    "kʊdəv",
+    "kˈʊdəv"
+   ],
+   "python": "kˈʊdəv"
+  },
+  {
+   "cat": "contraction",
+   "text": "shouldn't",
+   "refs": [
+    "ʃˈʊdᵊnt"
+   ],
+   "python": "ʃˈʊdᵊnt"
+  },
+  {
+   "cat": "contraction",
+   "text": "ma'am",
+   "refs": [
+    "mˈæm"
+   ],
+   "python": "mˈæm"
+  },
+  {
+   "cat": "contraction",
+   "text": "o'clock",
+   "refs": [
+    "əklˈɑk"
+   ],
+   "python": "əklˈɑk"
+  },
+  {
+   "cat": "contraction",
+   "text": "y'all",
+   "refs": [
+    "jˈɔl"
+   ],
+   "python": "jˈɔl"
+  },
+  {
+   "cat": "contraction",
+   "text": "we'll",
+   "refs": [
+    "wil",
+    "wˈil"
+   ],
+   "python": "wil"
+  },
+  {
+   "cat": "contraction",
+   "text": "he's",
+   "refs": [
+    "hiz",
+    "hˈiz"
+   ],
+   "python": "hiz"
+  },
+  {
+   "cat": "contraction",
+   "text": "isn't",
+   "refs": [
+    "ˈɪzᵊnt"
+   ],
+   "python": "ˈɪzᵊnt"
+  },
+  {
+   "cat": "contraction",
+   "text": "I'd've",
+   "refs": [
+    "ˈIdəv"
+   ],
+   "python": "ˈIdəv"
+  },
+  {
+   "cat": "contraction",
+   "text": "'tis",
+   "refs": [
+    "tˈɪz"
+   ],
+   "python": "“tˈiz"
+  },
+  {
+   "cat": "freqoov",
+   "text": "Paul",
+   "refs": [
+    "pˈɔl"
+   ],
+   "python": "pˈɔl",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Ryan",
+   "refs": [
+    "ɹˈIən"
+   ],
+   "python": "ɹˈIən",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Kevin",
+   "refs": [
+    "kˈɛvɪn"
+   ],
+   "python": "kˈɛvɪn",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Matthew",
+   "refs": [
+    "mˈæθju"
+   ],
+   "python": "mˈæθju",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Howard",
+   "refs": [
+    "hˈWəɹd"
+   ],
+   "python": "hˈWəɹd",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Simon",
+   "refs": [
+    "sˈImən"
+   ],
+   "python": "sˈImən",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Brian",
+   "refs": [
+    "bɹˈIən"
+   ],
+   "python": "bɹˈIən",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Luke",
+   "refs": [
+    "lˈuk"
+   ],
+   "python": "lˈuk",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Harris",
+   "refs": [
+    "hˈɛɹɪs",
+    "hˈæɹɪs"
+   ],
+   "python": "hˈɛɹɪs",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Anthony",
+   "refs": [
+    "ˈænθəni"
+   ],
+   "python": "ˈænθəni",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Gordon",
+   "refs": [
+    "ɡˈɔɹdᵊn"
+   ],
+   "python": "ɡˈɔɹdən",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Patrick",
+   "refs": [
+    "pˈætɹɪk"
+   ],
+   "python": "pˈætɹɪk",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Diego",
+   "refs": [
+    "diˈAɡO"
+   ],
+   "python": "diˈAɡO",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Bruce",
+   "refs": [
+    "bɹˈus"
+   ],
+   "python": "bɹˈus",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Russell",
+   "refs": [
+    "ɹˈʌsᵊl"
+   ],
+   "python": "ɹˈʌsəl",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Larry",
+   "refs": [
+    "lˈɛɹi",
+    "lˈæɹi"
+   ],
+   "python": "lˈɛɹi",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Thompson",
+   "refs": [
+    "tˈɑmsən"
+   ],
+   "python": "tˈɑmpsən",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Cameron",
+   "refs": [
+    "kˈæməɹən"
+   ],
+   "python": "kˈæməɹən",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Margaret",
+   "refs": [
+    "mˈɑɹɡɹət",
+    "mˈɑɹɡəɹət"
+   ],
+   "python": "mˈɑɹɡəɹɪt",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Douglas",
+   "refs": [
+    "dˈʌɡləs"
+   ],
+   "python": "dˈʌɡləs",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Jose",
+   "refs": [
+    "hOzˈA"
+   ],
+   "python": "hˌOzˈA",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Michelle",
+   "refs": [
+    "mɪʃˈɛl"
+   ],
+   "python": "mɪʃˈɛl",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Jeremy",
+   "refs": [
+    "ʤˈɛɹəmi"
+   ],
+   "python": "ʤˈɛɹəmi",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Emily",
+   "refs": [
+    "ˈɛməli"
+   ],
+   "python": "ˈɛmɪli",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Nathan",
+   "refs": [
+    "nˈAθən"
+   ],
+   "python": "nˈAθən",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Putin",
+   "refs": [
+    "pˈutɪn"
+   ],
+   "python": "pˈutɪn",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Juan",
+   "refs": [
+    "wˈɑn",
+    "hwˈɑn"
+   ],
+   "python": "wˈɑn",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Ashley",
+   "refs": [
+    "ˈæʃli"
+   ],
+   "python": "ˈæʃli",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Catherine",
+   "refs": [
+    "kˈæθəɹɪn",
+    "kˈæθɹɪn"
+   ],
+   "python": "kˈæθəɹən",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Lucas",
+   "refs": [
+    "lˈukəs"
+   ],
+   "python": "lˈukəs",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Hannah",
+   "refs": [
+    "hˈænə"
+   ],
+   "python": "hˈænə",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Dylan",
+   "refs": [
+    "dˈɪlən"
+   ],
+   "python": "dˈɪlən",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Angela",
+   "refs": [
+    "ˈænʤələ"
+   ],
+   "python": "ˈænʤələ",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Leonard",
+   "refs": [
+    "lˈɛnəɹd"
+   ],
+   "python": "lˈɛnəɹd",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Barack",
+   "refs": [
+    "bəɹˈɑk"
+   ],
+   "python": "bˈæɹək",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Rebecca",
+   "refs": [
+    "ɹəbˈɛkə"
+   ],
+   "python": "ɹəbˈɛkə",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Biden",
+   "refs": [
+    "bˈIdᵊn"
+   ],
+   "python": "bˈIdən",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Olivia",
+   "refs": [
+    "əlˈɪviə",
+    "Olˈɪviə"
+   ],
+   "python": "Olˈɪviə",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Gandhi",
+   "refs": [
+    "ɡˈɑndi"
+   ],
+   "python": "ɡˈɑndi",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Ahmed",
+   "refs": [
+    "ˈɑmɛd",
+    "ˈɑhmɛd"
+   ],
+   "python": "ˈɑməd",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Microsoft",
+   "refs": [
+    "mˈIkɹəsˌɔft"
+   ],
+   "python": "mˈIkɹˌOsˌɔft",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Samsung",
+   "refs": [
+    "sˈæmsˌʌŋ",
+    "sˈɑmsˌʊŋ"
+   ],
+   "python": "sˈæmsˌʌŋ",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Sony",
+   "refs": [
+    "sˈOni"
+   ],
+   "python": "sˈOni",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Xbox",
+   "refs": [
+    "ˈɛksbˌɑks"
+   ],
+   "python": "ˈɛksbˌɑks",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Nintendo",
+   "refs": [
+    "nɪntˈɛndO"
+   ],
+   "python": "nɪntˈɛndO",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Pokemon",
+   "refs": [
+    "pˈOkimˌɑn",
+    "pˈOkAmˌɑn"
+   ],
+   "python": "pˈOkmən",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Uber",
+   "refs": [
+    "ˈubəɹ"
+   ],
+   "python": "jˈubəɹ",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Honda",
+   "refs": [
+    "hˈɑndə"
+   ],
+   "python": "hˈɔndə",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Ferrari",
+   "refs": [
+    "fəɹˈɑɹi"
+   ],
+   "python": "fəɹˈɑɹi",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Wikipedia",
+   "refs": [
+    "wˌɪkəpˈidiə"
+   ],
+   "python": "wˈɪkipˌidˌiə",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "PlayStation",
+   "refs": [
+    "plˈAstˌAʃən"
+   ],
+   "python": "plˌAstˈAʃən"
+  },
+  {
+   "cat": "freqoov",
+   "text": "iPad",
+   "refs": [
+    "ˈIpˌæd"
+   ],
+   "python": "ˈIpˌæd"
+  },
+  {
+   "cat": "freqoov",
+   "text": "iTunes",
+   "refs": [
+    "ˈItˌunz"
+   ],
+   "python": "ˈItˌunz"
+  },
+  {
+   "cat": "freqoov",
+   "text": "denied",
+   "refs": [
+    "dənˈId",
+    "dɪnˈId"
+   ],
+   "python": "dɪnˈId",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "verified",
+   "refs": [
+    "vˈɛɹəfˌId"
+   ],
+   "python": "vˈɛɹəfˌId",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "specified",
+   "refs": [
+    "spˈɛsəfˌId"
+   ],
+   "python": "spˈɛsəfˌId",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "notified",
+   "refs": [
+    "nˈOTəfˌId"
+   ],
+   "python": "nˈOtəfˌId",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "testified",
+   "refs": [
+    "tˈɛstəfˌId"
+   ],
+   "python": "tˈɛstəfˌId",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Birmingham",
+   "refs": [
+    "bˈɜɹmɪŋhˌæm"
+   ],
+   "python": "bˈɜɹmɪŋhˌæm",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Harvard",
+   "refs": [
+    "hˈɑɹvəɹd"
+   ],
+   "python": "hˈɑɹvəɹd",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Stanford",
+   "refs": [
+    "stˈænfəɹd"
+   ],
+   "python": "stˈænfəɹd",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "Gaza",
+   "refs": [
+    "ɡˈɑzə"
+   ],
+   "python": "ɡˈɑzə",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "hometown",
+   "refs": [
+    "hˈOmtˌWn"
+   ],
+   "python": "hˈOmtˌWn",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "underway",
+   "refs": [
+    "ˌʌndəɹwˈA"
+   ],
+   "python": "ˌʌndəɹwˈA",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "hardcore",
+   "refs": [
+    "hˈɑɹdkˌɔɹ"
+   ],
+   "python": "hˈɑɹdkˌɔɹ",
+   "oov": true
+  },
+  {
+   "cat": "freqoov",
+   "text": "blonde",
+   "refs": [
+    "blˈɑnd"
+   ],
+   "python": "blˈɑnd",
+   "oov": true
+  },
+  {
+   "cat": "abbrev",
+   "text": "etc.",
+   "refs": [
+    "ɛtsˈɛTəɹə",
+    "ɛtsˈɛtəɹə"
+   ],
+   "python": "ɛtsˈɛTəɹə."
+  },
+  {
+   "cat": "number",
+   "text": "$4.99",
+   "refs": [
+    "fˈɔɹ dˈɑləɹz ænd nˈIndi nˈIn sˈɛnts",
+    "fˈɔɹ nˈIndi nˈIn"
+   ],
+   "python": "fˈɔɹ dˈɑləɹz ænd nˈIndi nˈIn sˈɛnts"
+  },
+  {
+   "cat": "number",
+   "text": "3:45 pm",
+   "refs": [
+    "θɹˈi fˈɔɹTi fˈIv pˈi ˈɛm"
+   ],
+   "python": "θɹˈi  fˈɔɹTi fˈIv pˌiˈɛm"
+  },
+  {
+   "cat": "number",
+   "text": "2026",
+   "refs": [
+    "twˈɛnti twˈɛnti sˈɪks",
+    "tˈu θˈWzᵊnd twˈɛnti sˈɪks",
+    "tˈu θˈWzᵊnd ænd twˈɛnti sˈɪks"
+   ],
+   "python": "twˈɛnti twˈɛnti sˈɪks"
+  },
+  {
+   "cat": "number",
+   "text": "10 km",
+   "refs": [
+    "tˈɛn kəlˈɑməTəɹz"
+   ],
+   "python": "tˈɛn kˈAˌɛm"
+  },
+  {
+   "cat": "number",
+   "text": "1,234,567",
+   "refs": [
+    "wˈʌn mˈɪljᵊn tˈu hˈʌndɹəd θˈɜɹTi fˈɔɹ θˈWzᵊnd fˈIv hˈʌndɹəd sˈɪksti sˈɛvən"
+   ],
+   "python": "wˈʌn mˈɪljᵊn tˈu hˈʌndɹəd θˈɜɹTi fˈɔɹ θˈWzᵊnd fˈIv hˈʌndɹəd sˈɪksti sˈɛvən"
+  },
+  {
+   "cat": "number",
+   "text": "3.14",
+   "refs": [
+    "θɹˈi pˈYnt wˈʌn fˈɔɹ"
+   ],
+   "python": "θɹˈi pYnt wˈʌn fˈɔɹ"
+  },
+  {
+   "cat": "number",
+   "text": "50%",
+   "refs": [
+    "fˈɪfti pəɹsˈɛnt"
+   ],
+   "python": "fˈɪfti pəɹsˈɛnt"
+  },
+  {
+   "cat": "number",
+   "text": "1st",
+   "refs": [
+    "fˈɜɹst"
+   ],
+   "python": "fˈɜɹst"
+  },
+  {
+   "cat": "number",
+   "text": "22nd",
+   "refs": [
+    "twˈɛnti sˈɛkənd"
+   ],
+   "python": "twˈɛnti sˈɛkənd"
+  },
+  {
+   "cat": "number",
+   "text": "the 1990s",
+   "refs": [
+    "ðə nˌIntˈin nˈIndiz"
+   ],
+   "python": "ðə nˌIntˈin nˈIndiz"
+  },
+  {
+   "cat": "number",
+   "text": "Jan 5, 2024",
+   "refs": [
+    "ʤˈænjəwˌɛɹi fˈɪfθ twˈɛnti twˈɛnti fˈɔɹ",
+    "ʤˈænjəwˌɛɹi fˈIv twˈɛnti twˈɛnti fˈɔɹ"
+   ],
+   "python": "ʤˈæn fˈIv, twˈɛnti twˈɛnti fˈɔɹ"
+  },
+  {
+   "cat": "number",
+   "text": "£20",
+   "refs": [
+    "twˈɛnti pˈWndz"
+   ],
+   "python": "twˈɛnti pˈWndz"
+  },
+  {
+   "cat": "number",
+   "text": "€5",
+   "refs": [
+    "fˈIv jˈʊɹOz"
+   ],
+   "python": "fˈIv jˈʊɹOz"
+  },
+  {
+   "cat": "number",
+   "text": "7 kg",
+   "refs": [
+    "sˈɛvən kˈɪləɡɹˌæmz"
+   ],
+   "python": "sˈɛvən kˈAʤˌi"
+  },
+  {
+   "cat": "number",
+   "text": "100 mph",
+   "refs": [
+    "wˈʌn hˈʌndɹəd mˈIlz pɜɹ ˈWəɹ",
+    "ɐ hˈʌndɹəd mˈIlz pɜɹ ˈWəɹ"
+   ],
+   "python": "wˈʌn hˈʌndɹəd ˈɛmpˌiˌAʧ"
+  },
+  {
+   "cat": "number",
+   "text": "24/7",
+   "refs": [
+    "twˈɛnti fˈɔɹ sˈɛvən"
+   ],
+   "python": "twˈɛnti fˈɔɹ sˈɛvən"
+  },
+  {
+   "cat": "number",
+   "text": "6:00 am",
+   "refs": [
+    "sˈɪks ɐ ˈɛm",
+    "sˈɪks əklˈɑk ɐ ˈɛm"
+   ],
+   "python": "sˈɪks  zˈɪɹO zˈɪɹO ˌAˈɛm"
+  },
+  {
+   "cat": "number",
+   "text": "-5°C",
+   "refs": [
+    "mˈInəs fˈIv dəɡɹˈiz sˈɛlsiəs"
+   ],
+   "python": "“sˈi"
+  },
+  {
+   "cat": "number",
+   "text": "No. 7",
+   "refs": [
+    "nˈʌmbəɹ sˈɛvən"
+   ],
+   "python": "nˈʌmbəɹ sˈɛvən"
+  },
+  {
+   "cat": "number",
+   "text": "Q3",
+   "refs": [
+    "kjˈu θɹˈi"
+   ],
+   "python": "kjˈu θɹˈi"
+  },
+  {
+   "cat": "number",
+   "text": "v2.0",
+   "refs": [
+    "vˈɜɹʒən tˈu pˈYnt ˈO",
+    "vˈi tˈu pˈYnt ˈO",
+    "vˈɜɹʒən tˈu pˈYnt zˈɪɹO"
+   ],
+   "python": "vˈi tˈu zˈɪɹO"
+  },
+  {
+   "cat": "number",
+   "text": "1/2",
+   "refs": [
+    "wˈʌn hˈæf"
+   ],
+   "python": "wˈʌn tˈu"
+  },
+  {
+   "cat": "number",
+   "text": "0.5",
+   "refs": [
+    "zˈɪɹO pˈYnt fˈIv",
+    "pˈYnt fˈIv"
+   ],
+   "python": "zˈɪɹO pYnt fˈIv"
+  },
+  {
+   "cat": "number",
+   "text": "1,000",
+   "refs": [
+    "wˈʌn θˈWzᵊnd",
+    "ɐ θˈWzᵊnd"
+   ],
+   "python": "wˈʌn θˈWzᵊnd"
+  },
+  {
+   "cat": "number",
+   "text": "1984",
+   "refs": [
+    "nˌIntˈin ˈATi fˈɔɹ"
+   ],
+   "python": "nˌIntˈin ˈATi fˈɔɹ"
+  },
+  {
+   "cat": "abbrev",
+   "text": "Dr. Smith",
+   "refs": [
+    "dˈɑktəɹ smˈɪθ"
+   ],
+   "python": "dˈɑktəɹ smˈɪθ"
+  },
+  {
+   "cat": "abbrev",
+   "text": "St. Louis",
+   "refs": [
+    "sˈAnt lˈui"
+   ],
+   "python": "sˈAntˌi lˈui"
+  },
+  {
+   "cat": "abbrev",
+   "text": "Mr. Jones",
+   "refs": [
+    "mˈɪstəɹ ʤˈOnz"
+   ],
+   "python": "mˈɪstəɹ ʤˈOnz"
+  },
+  {
+   "cat": "abbrev",
+   "text": "e.g.",
+   "refs": [
+    "fɔɹ ɪɡzˈæmpəl",
+    "ˈi ʤˈi"
+   ],
+   "python": "ˌiʤˈi"
+  },
+  {
+   "cat": "abbrev",
+   "text": "i.e.",
+   "refs": [
+    "ðˈæt ɪz",
+    "ˈI ˈi"
+   ],
+   "python": "ˌIˈi"
+  },
+  {
+   "cat": "abbrev",
+   "text": "vs.",
+   "refs": [
+    "vˈɜɹsəs"
+   ],
+   "python": "vˈɜɹsəs"
+  },
+  {
+   "cat": "abbrev",
+   "text": "Main Ave.",
+   "refs": [
+    "mˈAn ˈævənˌu"
+   ],
+   "python": "mˈAn ˈɑvˌA."
+  },
+  {
+   "cat": "abbrev",
+   "text": "Apple Inc.",
+   "refs": [
+    "ˈæpᵊl ɪnkˈɔɹpəɹˌATᵻd",
+    "ˈæpᵊl ˈɪŋk"
+   ],
+   "python": "ˈæpᵊl ˈɪŋk"
+  },
+  {
+   "cat": "abbrev",
+   "text": "Feb.",
+   "refs": [
+    "fˈɛbjəwˌɛɹi"
+   ],
+   "python": "fˈɛb"
+  },
+  {
+   "cat": "abbrev",
+   "text": "NASA",
+   "refs": [
+    "nˈæsə"
+   ],
+   "python": "nˈæsə"
+  },
+  {
+   "cat": "abbrev",
+   "text": "FBI",
+   "refs": [
+    "ˈɛf bˈi ˈI"
+   ],
+   "python": "ˌɛfbˌiˈI"
+  },
+  {
+   "cat": "abbrev",
+   "text": "ASAP",
+   "refs": [
+    "ɐ ˈɛs ɐ pˈi"
+   ],
+   "python": "ˈAsæp"
+  },
+  {
+   "cat": "abbrev",
+   "text": "Ph.D.",
+   "refs": [
+    "pˈi ˈAʧ dˈi"
+   ],
+   "python": "pˌiˌAʧdˈi"
+  },
+  {
+   "cat": "abbrev",
+   "text": "approx.",
+   "refs": [
+    "əpɹˈɑksəmətli"
+   ],
+   "python": "əpɹˈɑks."
+  },
+  {
+   "cat": "hyphen",
+   "text": "state-of-the-art",
+   "refs": [
+    "stˈAt ʌv ði ˈɑɹt"
+   ],
+   "python": "stˈAtʌvðiˈɑɹt"
+  },
+  {
+   "cat": "hyphen",
+   "text": "mother-in-law",
+   "refs": [
+    "mˈʌðəɹ ɪn lˈɔ"
+   ],
+   "python": "mˈʌðəɹənlˌɔ"
+  },
+  {
+   "cat": "hyphen",
+   "text": "well-known",
+   "refs": [
+    "wˈɛl nˈOn"
+   ],
+   "python": "wˌɛlnˈOn"
+  },
+  {
+   "cat": "hyphen",
+   "text": "twenty-one",
+   "refs": [
+    "twˈɛnti wˈʌn"
+   ],
+   "python": "twˌɛntiwˈʌn"
+  },
+  {
+   "cat": "hyphen",
+   "text": "self-driving",
+   "refs": [
+    "sˈɛlf dɹˈIvɪŋ"
+   ],
+   "python": "sˌɛlfdɹˈIvɪŋ"
+  },
+  {
+   "cat": "hyphen",
+   "text": "e-mail",
+   "refs": [
+    "ˈimˌAl"
+   ],
+   "python": "ˈimˌAl"
+  },
+  {
+   "cat": "hyphen",
+   "text": "re-enter",
+   "refs": [
+    "ɹiˈɛntəɹ"
+   ],
+   "python": "ɹiˈɛntəɹ"
+  },
+  {
+   "cat": "hyphen",
+   "text": "co-op",
+   "refs": [
+    "kˈO ˈɑp"
+   ],
+   "python": "kˈOˌɑp"
+  },
+  {
+   "cat": "hyphen",
+   "text": "x-ray",
+   "refs": [
+    "ˈɛks ɹˈA"
+   ],
+   "python": "ˈɛksɹˌA"
+  },
+  {
+   "cat": "hyphen",
+   "text": "long-term",
+   "refs": [
+    "lˈɔŋ tˈɜɹm"
+   ],
+   "python": "lˈɔŋtˌɜɹm"
+  },
+  {
+   "cat": "hyphen",
+   "text": "user-friendly",
+   "refs": [
+    "jˈuzəɹ fɹˈɛndli"
+   ],
+   "python": "jˌuzəɹfɹˈɛndli"
+  },
+  {
+   "cat": "hyphen",
+   "text": "follow-up",
+   "refs": [
+    "fˈɑlO ˌʌp"
+   ],
+   "python": "fˈɑlOˌʌp"
+  },
+  {
+   "cat": "hyphen",
+   "text": "check-in",
+   "refs": [
+    "ʧˈɛk ˈɪn"
+   ],
+   "python": "ʧˈɛkˌɪn"
+  },
+  {
+   "cat": "hyphen",
+   "text": "one-on-one",
+   "refs": [
+    "wˈʌn ˌɔn wˈʌn"
+   ],
+   "python": "wˌʌnɔnwˈʌn"
+  },
+  {
+   "cat": "hyphen",
+   "text": "so-called",
+   "refs": [
+    "sˌO kˈɔld"
+   ],
+   "python": "sˌOkˈɔld"
+  }
+ ],
+ "sentences": [
+  {
+   "name": "prose",
+   "text": "The quick brown fox jumps over the lazy dog, then naps in the warm afternoon sun.",
+   "python_us": "ðə kwˈɪk bɹˈWn fˈɑks ʤˈʌmps ˈOvəɹ ðə lˈAzi dˈɔɡ, ðˈɛn nˈæps ɪn ðə wˈɔɹm ˌæftəɹnˈun sˈʌn.",
+   "python_gb": "ðə kwˈɪk bɹˈWn fˈɒks ʤˈʌmps ˈQvə ðə lˈAzi dˈɒɡ, ðˈɛn nˈaps ɪn ðə wˈɔːm ˌɑːftənˈuːn sˈʌn."
+  },
+  {
+   "name": "names",
+   "text": "Siobhan, Saoirse and Joaquin flew from Worcester to Reykjavik to meet Nguyen.",
+   "python_us": "ʃˈWbˌɑn, sˈWəɹs ænd wˌɑkˈin flˈu fɹʌm wˈʊstəɹ tə ɹˈAkjəvˌɪk tə mˈit nujˈɛn.",
+   "python_gb": "ʃˈWbˌɒn, sˈWəs and wˌɒkˈiːn flˈuː fɹɒm wˈʊstə tə ɹˈAkjəvɪk tə mˈiːt nujˈɛn."
+  },
+  {
+   "name": "tech",
+   "text": "Push the fix to GitHub, then redeploy the Kubernetes cluster and update the SQL schema.",
+   "python_us": "pˈʊʃ ðə fˈɪks tə ɡˌɪthˈʌb, ðˈɛn ɹˌidəplˈY ðə kjˈubəɹnˌits klˈʌstəɹ ænd ˈʌpdˌAt ðə sˈikwəl skˈimə.",
+   "python_gb": "pˈʊʃ ðə fˈɪks tə ɡˌɪthˈʌb, ðˈɛn ɹˌiːdɪplˈY ðə kjˈuːbənˌiːts klˈʌstə and ˌʌpdˈAt ðə sˈiːkwᵊl skˈiːmə."
+  },
+  {
+   "name": "brands",
+   "text": "ChatGPT runs on Nvidia GPUs, and the new iOS and macOS releases ship next week.",
+   "python_us": "ʧˌætʤˌipˌitˈi ɹˈʌnz ˌɔn ɛnvˈɪdiə ʤˌipˌijˈuz, ænd ðə nˈu ˌIOˈɛs ænd mˌækˌOˈɛs ɹəlˈisᵻz ʃˈɪp nˈɛkst wˈik.",
+   "python_gb": "ʧˌatʤˌiːpˌiːtˈiː ɹˈʌnz ˌɒn ɛnvˈɪdɪə ʤˌiːpˌiːjˈuːz, and ðə njˈuː IQˈɛs and mˌakˌQˈɛs ɹɪlˈiːsɪz ʃˈɪp nˈɛkst wˈiːk."
+  },
+  {
+   "name": "numbers",
+   "text": "Your order comes to $4.99, arriving at 3:45 pm on Jan 5, 2026, about 10 km away.",
+   "python_us": "jˌʊɹ ˈɔɹdəɹ kˈʌmz tə fˈɔɹ dˈɑləɹz ænd nˈIndi nˈIn sˈɛnts, əɹˈIvɪŋ æt θɹˈi  fˈɔɹTi fˈIv pˌiˈɛm ˌɔn ʤˈæn fˈIv, twˈɛnti twˈɛnti sˈɪks, əbˈWt tˈɛn kˈAˌɛm əwˈA.",
+   "python_gb": "jˌɔː ˈɔːdə kˈʌmz tə fˈɔː dˈɒləz and nˈInti nˈIn sˈɛnts, əɹˈIvɪŋ at θɹˈiː  fˈɔːti fˈIv pˌiːˈɛm ˌɒn ʤˈan fˈIv, twˈɛnti twˈɛnti sˈɪks, əbˈWt tˈɛn kˈAˌɛm əwˈA."
+  },
+  {
+   "name": "heteronyms 1",
+   "text": "I read the report yesterday; please read it too, and record the results before the wind picks up.",
+   "python_us": "ˌI ɹˈɛd ðə ɹəpˈɔɹt jˈɛstəɹdˌA; plˈiz ɹˈid ɪt tˈu, ænd ɹəkˈɔɹd ðə ɹəzˈʌlts bəfˈɔɹ ðə wˈɪnd pˈɪks ˌʌp.",
+   "python_gb": "ˌI ɹˈɛd ðə ɹɪpˈɔːt jˈɛstədA; plˈiːz ɹˈiːd ɪt tˈuː, and ɹɪkˈɔːd ðə ɹɪzˈʌlts bɪfˈɔː ðə wˈɪnd pˈɪks ˌʌp."
+  },
+  {
+   "name": "heteronyms 2",
+   "text": "They live near the old lead mine, but we watched the live broadcast of the record-breaking race.",
+   "python_us": "ðˌA lˈɪv nˌɪɹ ði ˈOld lˈid mˈIn, bˌʌt wi wˈɑʧt ðə lˈIv bɹˈɔdkˌæst ʌv ðə ɹˌɛkəɹdbɹˈAkɪŋ ɹˈAs.",
+   "python_gb": "ðˌA lˈɪv nˌɪə ði ˈQld lˈiːd mˈIn, bˌʌt wiː wˈɒʧt ðə lˈIv bɹˈɔːdkɑːst ɒv ðə ɹˌɛkɔːdbɹˈAkɪŋ ɹˈAs."
+  },
+  {
+   "name": "mixed",
+   "text": "Dr. Smith said Paul's zorbled gizmos weren't state-of-the-art, and Microsoft denied it.",
+   "python_us": "dˈɑktəɹ smˈɪθ sˈɛd pˈɔlz zˈɔɹbəld ɡˈɪzmOz wˌɜɹnt stˈAtʌvðiˈɑɹt, ænd mˈIkɹˌOsˌɔft dɪnˈId ɪt.",
+   "python_gb": "dˈɒktə smˈɪθ sˈɛd pˈɔːlz zˈɔːbəld ɡˈɪzmQz wˌɜːnt stˈAtɒvðiˈɑːt, and mˈIkɹˌQsˌɔːft dˈɛniːd ɪt."
+  }
+ ],
+ "lexicon_cases": [
+  {
+   "text": "Deploy it on Kubernetes.",
+   "us": "kˌubəɹnˈɛTiz",
+   "gb": "kˌuːbənˈɛtiːz"
+  },
+  {
+   "text": "Run kubectl apply.",
+   "us": "kˈub kəntɹˌOl",
+   "gb": "kˈuːb kəntɹˌQl"
+  },
+  {
+   "text": "Put nginx in front of it.",
+   "us": "ˌɛnʤənˈɛks",
+   "gb": "ˌɛnʤɪnˈɛks"
+  },
+  {
+   "text": "Back it with PostgreSQL.",
+   "us": "pˌOstɡɹˌɛskjˌuˈɛl",
+   "gb": "pˌQstɡɹˌɛskjˌuːˈɛl"
+  },
+  {
+   "text": "Build it in Next.js today.",
+   "us": "nˈɛkst ʤˌAˈɛs",
+   "gb": "nˈɛkst ʤˌAˈɛs"
+  },
+  {
+   "text": "Ship it to K8s.",
+   "us": "kˈAts",
+   "gb": "kˈAts"
+  },
+  {
+   "text": "Our OKRs slipped.",
+   "us": "ˌOkˌAˈɑɹz",
+   "gb": "ˌQkˌAˈɑːz"
+  },
+  {
+   "text": "Figma's pricing changed.",
+   "us": "fˈɪɡməz",
+   "gb": "fˈɪɡməz"
+  },
+  {
+   "text": "A SQL-based tool.",
+   "us": "ˌɛskjˌuˈɛl",
+   "gb": "ˌɛskjˌuːˈɛl"
+  },
+  {
+   "text": "Kubernetes' docs are long.",
+   "us": "kˌubəɹnˈɛTiz dˈɑks",
+   "absent": "nˈɛTizᵻz"
+  },
+  {
+   "text": "KUBERNETES is loud.",
+   "us": "kˌubəɹnˈɛTiz"
+  },
+  {
+   "text": "We have our 1:1 meeting today.",
+   "us": "wˌʌn ɔn wˈʌn"
+  },
+  {
+   "text": "My 1:1s are weekly.",
+   "us": "wˌʌn ɔn wˈʌnz"
+  },
+  {
+   "text": "Use a 1:1 crop.",
+   "us": "wˈʌn tə wˈʌn",
+   "absent": "ɔn wˈʌn"
+  },
+  {
+   "text": "Niamh's book.",
+   "us": "nˈivz",
+   "gb": "nˈiːvz"
+  },
+  {
+   "text": "The answer was no.",
+   "us": "wʌz nˈO.",
+   "gb": "wɒz nˈQ.",
+   "absent": "nˈʌmb"
+  },
+  {
+   "text": "No, thanks.",
+   "us": "nˈO, θˈæŋks.",
+   "gb": "nˈQ, θˈaŋks.",
+   "absent": "nˈʌmb"
+  },
+  {
+   "text": "See No. 5 on the list.",
+   "us": "nˈʌmbəɹ fˈIv",
+   "gb": "nˈʌmbə fˈIv"
+  },
+  {
+   "text": "I met Amartya Sen.",
+   "us": "sˈɛn.",
+   "gb": "sˈɛn.",
+   "absent": "sˈɛnə"
+  },
+  {
+   "text": "Sen. Warren spoke.",
+   "us": "sˈɛnəTəɹ wˈɔɹən",
+   "gb": "sˈɛnɪtə wˈɒɹən"
+  },
+  {
+   "text": "I met Amartya Sen. He was kind.",
+   "us": "sˈɛn. hˌi",
+   "absent": "sˈɛnə"
+  },
+  {
+   "text": "Gen. Lee surrendered.",
+   "us": "ʤˈɛnəɹəl lˈi"
+  },
+  {
+   "text": "We went to St. Louis.",
+   "us": "sˈAnt lˈui"
+  },
+  {
+   "text": "She lives on Main St.",
+   "us": "mˈAn stɹˈit.",
+   "gb": "mˈAn stɹˈiːt."
+  },
+  {
+   "text": "I AM SO HAPPY.",
+   "us": "æm sˈO",
+   "absent": "ˌAˈɛm"
+  },
+  {
+   "text": "THE ART SHOW IS TONIGHT.",
+   "us": "ˈɑɹt ʃˈO",
+   "absent": "ˌɑɹtˈi"
+  },
+  {
+   "text": "The ART model is out.",
+   "us": "ˌAˌɑɹtˈi"
+  },
+  {
+   "text": "mm, that is nice.",
+   "us": "ðˈæt ɪz nˈIs",
+   "absent": "mˈɪləm"
+  },
+  {
+   "text": "mm-hmm, sure.",
+   "us": "ʃˈʊɹ",
+   "absent": "mˈɪləm"
+  },
+  {
+   "text": "A 3mm screw.",
+   "us": "θɹˈi mˈɪləmˌiTəɹz"
+  },
+  {
+   "text": "The px value is wrong.",
+   "us": "vˈælju",
+   "absent": "pˈɪksᵊlz"
+  },
+  {
+   "text": "Set it to 16px.",
+   "us": "sˌɪkstˈin pˈɪksᵊlz"
+  },
+  {
+   "text": "Record at 60 fps.",
+   "us": "sˈɪksti ˌɛfpˌiˈɛs"
+  },
+  {
+   "text": "Record at 60fps.",
+   "us": "sˈɪksti ˌɛfpˌiˈɛs"
+  },
+  {
+   "text": "Meet at 9 AM.",
+   "us": "nˈIn ˌAˈɛm"
+  },
+  {
+   "text": "He said \"hello\" and left.",
+   "us": "sˈɛd “həlˈO” ænd",
+   "gb": "sˈɛd “həlˈQ” and",
+   "absent": "ʧ"
+  },
+  {
+   "text": "Click \"Save\" then \"Open\".",
+   "us": "klˈɪk “sˈAv” ðˈɛn “ˈOpᵊn”.",
+   "gb": "klˈɪk “sˈAv” ðˈɛn “ˈQpᵊn”."
+  },
+  {
+   "text": "\"Why?\" he asked.",
+   "us": "“wˌI?”",
+   "gb": "“wˌI?”"
+  },
+  {
+   "text": "Common words (\"next\", \"view\") never are.",
+   "us": "(“nˈɛkst”, “vjˈu”)",
+   "gb": "(“nˈɛkst”, “vjˈuː”)"
+  },
+  {
+   "text": "„Hallo“, sagte er.",
+   "us": "hˈælO",
+   "gb": "hˈalQ",
+   "absent": "ʧ"
+  },
+  {
+   "text": "﻿Hello there.",
+   "us": "həlˈO ðˈɛɹ.",
+   "gb": "həlˈQ ðˈɛː.",
+   "absent": "ʧ"
+  },
+  {
+   "text": "Plan B.",
+   "us": "plˈæn bˈi.",
+   "gb": "plˈan bˈiː."
+  },
+  {
+   "text": "Plain English word(s) here.",
+   "us": "wˈɜɹdz hˈɪɹ",
+   "gb": "wˈɜːdz hˈɪə",
+   "absent": "ˈɛs"
+  },
+  {
+   "text": "We flew to St. Louis on Friday.",
+   "us": "tə sˈAnt lˈui ˌɔn",
+   "gb": "tə sˈAnt lˈuːi ˌɒn"
+  },
+  {
+   "text": "Gov. Newsom signed it.",
+   "us": "ɡˈʌvᵊnəɹ nˈuzəm",
+   "gb": "ɡˈʌvᵊnə nˈuːzəm"
+  },
+  {
+   "text": "She lives on Main St. Then we left.",
+   "us": "mˈAn stɹˈit. ðˈɛn",
+   "gb": "mˈAn stɹˈiːt. ðˈɛn"
+  },
+  {
+   "text": "I live on Main St. Louis is far away.",
+   "us": "mˈAn stɹˈit. lˈui",
+   "gb": "mˈAn stɹˈiːt. lˈuːi",
+   "absent": "sˈAnt"
+  },
+  {
+   "text": "It takes 5-10 minutes.",
+   "us": "fˈIv tə tˈɛn mˈɪnəts",
+   "gb": "fˈIv tə tˈɛn mˈɪnɪts"
+  },
+  {
+   "text": "From 1990-2000 it grew.",
+   "us": "nˌIntˈin nˈIndi tə tˈu θˈWzᵊnd",
+   "gb": "nˌIntˈiːn nˈInti tə tˈuː θˈWzᵊnd"
+  },
+  {
+   "text": "Ages 18-25 apply.",
+   "us": "ˌAtˈin tə twˈɛnti fˈIv",
+   "gb": "ˌAtˈiːn tə twˈɛnti fˈIv"
+  },
+  {
+   "text": "The score was 3-2.",
+   "us": "θɹˈi tə tˈu",
+   "gb": "θɹˈiː tə tˈuː"
+  },
+  {
+   "text": "On 2024-03-15 we met.",
+   "us": "mˈɑɹʧ fˌɪftˈinθ, twˈɛnti twˈɛnti fˈɔɹ",
+   "gb": "mˈɑːʧ fˌɪftˈiːnθ, twˈɛnti twˈɛnti fˈɔː"
+  },
+  {
+   "text": "Call 1-800-555-1234 now.",
+   "us": "kˈɔl wˌʌnˌAt",
+   "gb": "kˈɔːl wˌʌnˌAt",
+   "absent": "tə"
+  },
+  {
+   "text": "FIPS 140-2 applies.",
+   "us": "wˈʌn hˈʌndɹəd",
+   "gb": "wˈʌn hˈʌndɹəd",
+   "absent": "tə"
+  },
+  {
+   "text": "x = y",
+   "us": "ˈɛks ˈikwᵊlz wˈI",
+   "gb": "ˈɛks ˈiːkwᵊlz wˈI"
+  },
+  {
+   "text": "2 × 3 = 6 and 5 ± 2",
+   "us": "tˈu tˈImz θɹˈi ˈikwᵊlz sˈɪks ænd fˈIv plˈʌs ɔɹ mˈInəs tˈu",
+   "gb": "tˈuː tˈImz θɹˈiː ˈiːkwᵊlz sˈɪks and fˈIv plˈʌs ɔː mˈInəs tˈuː"
+  },
+  {
+   "text": "10 ÷ 2",
+   "us": "tˈɛn dəvˈIdᵻd bI tˈu",
+   "gb": "tˈɛn dɪvˈIdɪd bI tˈuː"
+  },
+  {
+   "text": "a ≠ b and c ≈ d",
+   "us": "nˌɑt ˈikwᵊl tə bˈi ænd sˈi əpɹˈɑksəmətli dˈi",
+   "gb": "nˌɒt ˈiːkwᵊl tə bˈiː and sˈiː əpɹˈɒksɪmətli dˈiː"
+  },
+  {
+   "text": "x ≤ 5 and y ≥ 3",
+   "us": "lˈɛs ðən ɔɹ ˈikwᵊl tə fˈIv ænd wˈI ɡɹˈATəɹ ðən ɔɹ ˈikwᵊl tə θɹˈi",
+   "gb": "lˈɛs ðən ɔː ˈiːkwᵊl tə fˈIv and wˈI ɡɹˈAtə ðən ɔː ˈiːkwᵊl tə θɹˈiː"
+  },
+  {
+   "text": "a < b and x > y",
+   "us": "ɐ lˈɛs ðən bˈi ænd ˈɛks ɡɹˈATəɹ ðən wˈI",
+   "gb": "ɐ lˈɛs ðən bˈiː and ˈɛks ɡɹˈAtə ðən wˈI"
+  },
+  {
+   "text": "Wrap it in <b> tags.",
+   "us": "ɪn bˈi tˈæɡz",
+   "gb": "ɪn bˈiː tˈaɡz",
+   "absent": "ðən"
+  },
+  {
+   "text": "Open Settings > Privacy.",
+   "us": "sˈɛTɪŋz",
+   "gb": "sˈɛtɪŋz",
+   "absent": "ðən"
+  },
+  {
+   "text": "It costs ¥100 or ₹200.",
+   "us": "wˈʌn hˈʌndɹəd jˈɛn ɔɹ tˈu hˈʌndɹəd ɹupˈiz",
+   "gb": "wˈʌn hˈʌndɹəd jˈɛn ɔː tˈuː hˈʌndɹəd ɹˌuːpˈiːz"
+  },
+  {
+   "text": "Add ½ cup and 1½ cups.",
+   "us": "wˈʌn hˈæf kˈʌp ænd wˈʌn ænd ɐ hˈæf kˈʌps",
+   "gb": "wˈʌn hˈɑːf kˈʌp and wˈʌn and ɐ hˈɑːf kˈʌps"
+  },
+  {
+   "text": "Go → next.",
+   "us": "ɡˈO tə nˈɛkst",
+   "gb": "ɡˈQ tə nˈɛkst"
+  },
+  {
+   "text": "50¢ each.",
+   "us": "fˈɪfti sˈɛnts",
+   "gb": "fˈɪfti sˈɛnts"
+  },
+  {
+   "text": "That is $12345678901234567890.",
+   "us": "wˈʌn tˈu θɹˈi fˈɔɹ fˈIv sˈɪks sˈɛvən ˈAt nˈIn zˈɪɹO wˈʌn tˈu θɹˈi fˈɔɹ fˈIv sˈɪks sˈɛvən ˈAt nˈIn zˈɪɹO dˈɑləɹz",
+   "gb": "wˈʌn tˈuː θɹˈiː fˈɔː fˈIv sˈɪks sˈɛvᵊn ˈAt nˈIn zˈɪəɹQ wˈʌn tˈuː θɹˈiː fˈɔː fˈIv sˈɪks sˈɛvᵊn ˈAt nˈIn zˈɪəɹQ dˈɒləz"
+  },
+  {
+   "text": "12345678901234567890 stars",
+   "us": "wˈʌn tˈu θɹˈi fˈɔɹ fˈIv sˈɪks sˈɛvən ˈAt nˈIn zˈɪɹO wˈʌn tˈu θɹˈi fˈɔɹ fˈIv sˈɪks sˈɛvən ˈAt nˈIn zˈɪɹO stˈɑɹz",
+   "gb": "wˈʌn tˈuː θɹˈiː fˈɔː fˈIv sˈɪks sˈɛvᵊn ˈAt nˈIn zˈɪəɹQ wˈʌn tˈuː θɹˈiː fˈɔː fˈIv sˈɪks sˈɛvᵊn ˈAt nˈIn zˈɪəɹQ stˈɑːz"
+  },
+  {
+   "text": "It was 123456789012345678901.5 wide.",
+   "us": "nˈIn zˈɪɹO wˈʌn pYnt fˈIv",
+   "gb": "nˈIn zˈɪəɹQ wˈʌn pYnt fˈIv",
+   "absent": "zˈɪɹO pYnt"
+  },
+  {
+   "text": "See [Getting started](/guide/start/) for more.",
+   "us": "sˈi ɡˌɛTɪŋ stˈɑɹTᵻd fɔɹ",
+   "gb": "sˈiː ɡˌɛtɪŋ stˈɑːtɪd fɔː",
+   "absent": "guide"
+  },
+  {
+   "text": "Read [docs](/docs/) now.",
+   "us": "ɹˈid dˈɑks nˈW",
+   "gb": "ɹˈiːd dˈɒks nˈW",
+   "absent": "docs"
+  },
+  {
+   "text": "Set [x](-1) and [y](2).",
+   "us": "sˈɛt ˈɛks ænd wˈI.",
+   "gb": "sˈɛt ˈɛks and wˈI."
+  },
+  {
+   "text": "Visit [our site](https://example.com) today.",
+   "us": "vˈɪzət ˌWəɹ sˈIt tədˈA.",
+   "gb": "vˈɪzɪt ˌWə sˈIt tədˈA."
+  },
+  {
+   "text": "I have 16 GB of RAM.",
+   "us": "sˌɪkstˈin ɡˈɪɡəbˌIts ʌv ɹˈæm",
+   "gb": "sˌɪkstˈiːn ɡˈɪɡəbIts ɒv ɹˈam"
+  },
+  {
+   "text": "It needs 500 MB free.",
+   "us": "fˈIv hˈʌndɹəd mˈɛɡəbˌIts",
+   "gb": "fˈIv hˈʌndɹəd mˈɛɡəbIts"
+  },
+  {
+   "text": "Wake me at 9 AM please.",
+   "us": "nˈIn ˌAˈɛm",
+   "gb": "nˈIn ˌAˈɛm"
+  },
+  {
+   "text": "Meet at 6:00 AM tomorrow.",
+   "us": "sˈɪks ˌAˈɛm",
+   "gb": "sˈɪks ˌAˈɛm",
+   "absent": "əklˈɑk"
+  }
+ ],
+ "chunk_cases": [
+  {
+   "text": "We flew to St. Louis on Friday.",
+   "chunks": [
+    "We flew to St. Louis on Friday."
+   ]
+  },
+  {
+   "text": "Gov. Newsom signed it. Then he left.",
+   "chunks": [
+    "Gov. Newsom signed it.",
+    "Then he left."
+   ]
+  },
+  {
+   "text": "I met Sen. Warren today.",
+   "chunks": [
+    "I met Sen. Warren today."
+   ]
+  },
+  {
+   "text": "She lives on Main St. Then she moved.",
+   "chunks": [
+    "She lives on Main St.",
+    "Then she moved."
+   ]
+  },
+  {
+   "text": "The answer was no. We left.",
+   "chunks": [
+    "The answer was no.",
+    "We left."
+   ]
+  },
+  {
+   "text": "See No. 5 on the list.",
+   "chunks": [
+    "See No. 5 on the list."
+   ]
+  }
+ ]
+}

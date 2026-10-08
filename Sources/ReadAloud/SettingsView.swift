@@ -23,7 +23,7 @@ final class SettingsWindow: NSObject, NSWindowDelegate {
     func show() {
         if window == nil {
             let view = SettingsView(player: player, dictation: dictation, monitor: dictation.shortcuts, recorder: recorder)
-            let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 500, height: 850),
+            let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 500, height: 930),
                                   styleMask: [.titled, .closable, .resizable, .fullSizeContentView], backing: .buffered, defer: false)
             window.title = "Aloud Settings"
             window.contentView = NSHostingView(rootView: view)
@@ -64,6 +64,7 @@ struct SettingsView: View {
     @ObservedObject var recorder: ShortcutRecorder
     @ObservedObject private var devices = AudioDevices.shared
     @State private var shortcutsVersion = 0  // bumps when shortcuts change, to redraw the fields
+    @AppStorage(DictationController.fixTechTermsKey) private var fixTechTerms = true
 
     var body: some View {
         Form {
@@ -93,7 +94,18 @@ struct SettingsView: View {
             DeviceSection(direction: .input, devices: devices)
 
             Section {
-                ModelRow(title: "Voice", detail: "Reads text aloud · about 330 MB", symbol: "waveform",
+                Toggle("Fix tech terms in dictation", isOn: $fixTechTerms)
+            } header: {
+                Text("Dictation")
+            } footer: {
+                Text("Types names like GitHub, Supabase and kubectl the way they're spelled, even when they sound like ordinary words. Words such as “gooey” or “back end” are only changed when you're clearly talking tech.")
+                    .foregroundStyle(.secondary)
+                    .font(.caption)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
+            Section {
+                ModelRow(title: "Voice", detail: "Reads text aloud · about \(KokoroEngine.downloadSize)", symbol: "waveform",
                          installed: KokoroEngine.isModelInstalled, progress: player.voiceDownloadProgress,
                          canRemove: player.canRemoveVoice, busy: false,
                          download: { player.downloadVoiceIfNeeded() }, remove: { player.removeVoice() })

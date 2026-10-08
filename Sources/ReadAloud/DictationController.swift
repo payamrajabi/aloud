@@ -1,5 +1,6 @@
 import AppKit
 import AVFoundation
+import Phonemizer
 
 /// Dictation: record the microphone, transcribe with Parakeet on this Mac, tidy
 /// it with a small language model if that's downloaded, and type the text into
@@ -17,6 +18,9 @@ final class DictationController: ObservableObject {
     @Published private(set) var level: Float = 0
     @Published private(set) var startedAt = Date()
     private(set) var lastTranscript: String?
+    /// The last dictation as the engine heard it, before tech terms were fixed: the way
+    /// back when the fixer got a word wrong.
+    private(set) var lastHeard: String?
     /// 0…1 while the dictation model downloads, nil otherwise.
     @Published private(set) var modelProgress: Double?
     /// 0…1 while the clean-up model downloads, nil otherwise.
@@ -71,6 +75,7 @@ final class DictationController: ObservableObject {
 
     func start() {
         shortcuts.start()
+        queue.async { _ = Self.corrector }
         // Get the clean-up model's GPU code compiled before the first dictation needs it.
         if TranscriptCleaner.isInstalled {
             DispatchQueue.main.asyncAfter(deadline: .now() + 10) { [cleaner] in cleaner.prepare() }
@@ -264,41 +269,67 @@ final class DictationController: ObservableObject {
         // Most of the recording is already transcribed (and tidied); only the tail is left.
         streamer.finish(all: samples) { raw, _ in
             guard self.cleaner.isActive else {
-                self.deliver(raw, audioSeconds: seconds, took: Date().timeIntervalSince(started))
+                self.deliver(heard: raw, tidied: nil, audioSeconds: seconds, took: Date().timeIntervalSince(started))
                 return
             }
             var delivered = false
             self.cleaner.finish { tidied in
                 guard !delivered else { return }
                 delivered = true
-                self.deliver(tidied ?? raw, audioSeconds: seconds, took: Date().timeIntervalSince(started))
+                self.deliver(heard: raw, tidied: tidied, audioSeconds: seconds, took: Date().timeIntervalSince(started))
             }
             // Never keep you waiting long: if tidying stalls, paste what was heard.
             DispatchQueue.main.asyncAfter(deadline: .now() + Self.cleanupTimeout) {
                 guard !delivered else { return }
                 delivered = true
                 self.cleaner.cancel()
-                self.deliver(raw, audioSeconds: seconds, took: Date().timeIntervalSince(started))
+                self.deliver(heard: raw, tidied: nil, audioSeconds: seconds, took: Date().timeIntervalSince(started))
             }
         }
     }
 
     private static let cleanupTimeout: TimeInterval = 6
 
-    private func deliver(_ raw: String, audioSeconds: Double, took: Double) {
-        if DebugScript.args.contains("--trace") {
-            print(String(format: "   dictation: %.1fs recording, text ready %.2fs after stopping: %@", audioSeconds, took, raw))
+    /// `heard` is Parakeet's transcript; `tidied` the clean-up model's version, when it ran.
+    private func deliver(heard raw: String, tidied: String?, audioSeconds: Double, took: Double) {
+        let trace = DebugScript.args.contains("--trace")
+        if trace {
+            print(String(format: "   dictation: %.1fs recording, text ready %.2fs after stopping: %@", audioSeconds, took, tidied ?? raw))
         }
-        let text = raw.trimmingCharacters(in: .whitespacesAndNewlines)
         state = .idle
         resumeReading()
-        guard !text.isEmpty else {
+        guard let result = Self.result(heard: raw, tidied: tidied, fixTerms: Self.fixesTechTerms) else {
             show("Didn't catch that.")
             return
         }
-        lastTranscript = text
-        insert(text)
+        if trace, result.typed != (tidied ?? raw).trimmingCharacters(in: .whitespacesAndNewlines) {
+            print("   dictation: tech terms fixed: \(result.typed)")
+        }
+        lastTranscript = result.typed
+        lastHeard = result.heard
+        insert(result.typed)
     }
+
+    /// What gets typed (the tidied text if the clean-up model ran, then tech terms fixed)
+    /// and what "Copy Last Dictation as Heard" keeps: Parakeet's own words, before either.
+    /// An empty tidied result falls back to what was heard rather than losing the dictation.
+    static func result(heard raw: String, tidied: String?, fixTerms: Bool) -> (typed: String, heard: String)? {
+        let heard = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+        let tidy = tidied?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let base = tidy.isEmpty ? heard : tidy
+        guard !base.isEmpty else { return nil }
+        return (fixTerms ? corrector.correct(base) : base, heard.isEmpty ? base : heard)
+    }
+
+    // MARK: - Tech terms
+
+    /// The Settings switch "Fix tech terms in dictation" (on unless it's been turned off).
+    static let fixTechTermsKey = "fixTechTermsInDictation"
+    static var fixesTechTerms: Bool { UserDefaults.standard.object(forKey: fixTechTermsKey) as? Bool ?? true }
+
+    /// The lexicons in reverse ("super base" → Supabase). Built once, on the dictation
+    /// queue at launch (a few tens of milliseconds for the full list).
+    static let corrector = DictationCorrector(LexiconFiles.shared)
 
     private func resumeReading() {
         if resumeReadingAfter { player.play() }
@@ -332,6 +363,15 @@ final class DictationController: ObservableObject {
         guard let lastTranscript else { return }
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(lastTranscript, forType: .string)
+    }
+
+    /// Whether clean-up or fixing tech terms changed the last dictation (so "as heard" is different).
+    var lastDictationWasFixed: Bool { lastHeard != nil && lastHeard != lastTranscript }
+
+    func copyLastHeard() {
+        guard let lastHeard else { return }
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(lastHeard, forType: .string)
     }
 
     // MARK: - Model
@@ -408,8 +448,9 @@ final class DictationController: ObservableObject {
     func downloadCleanupModel() {
         guard !cleanupDownloader.isRunning, !TranscriptCleaner.isInstalled else { return }
         cleanupProgress = 0
-        cleanupDownloader.download(TranscriptCleaner.downloadURL, into: TranscriptCleaner.modelDirectory,
-                                   saveAs: TranscriptCleaner.fileName) { [weak self] p in
+        let file = ModelDownloader.RemoteFile(name: TranscriptCleaner.fileName, url: TranscriptCleaner.downloadURL, size: 2_740_937_888,
+                                              sha256: "00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4")
+        cleanupDownloader.download(files: [file], into: TranscriptCleaner.modelDirectory) { [weak self] p in
             self?.cleanupProgress = p
         } completion: { [weak self] error in
             guard let self else { return }

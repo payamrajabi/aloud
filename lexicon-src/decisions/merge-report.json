@@ -1,0 +1,18446 @@
+{
+"total": 9988,
+"verdicts": {
+"right": 6541,
+"partial": 1734,
+"wrong": 1713
+},
+"confidence": {
+"medium": 1374,
+"high": 8455,
+"low": 159
+},
+"categories": {
+"engineering": 2016,
+"general": 173,
+"security": 291,
+"cloud": 690,
+"finance": 461,
+"media": 269,
+"business": 482,
+"product": 960,
+"design": 321,
+"company": 1491,
+"hardware": 428,
+"ai": 659,
+"data": 414,
+"typography": 297,
+"science": 233,
+"person": 803
+},
+"dictation": {
+"always": 7043,
+"never": 2316,
+"context": 629
+},
+"asr_exact": 7556,
+"asr_tested": 9988,
+"conflicts": [
+{
+"word": "Synthesia",
+"kept": "b004",
+"a": "sɪnθˈiʒə",
+"b": "sɪnθˈiʒə"
+},
+{
+"word": "EOL",
+"kept": "b049",
+"a": "ˌiˌOˈɛl",
+"b": "ˌiˌOˈɛl"
+}
+],
+"context_only_variants": [
+{
+"word": "Agentforce",
+"risky": [
+[
+"agent force",
+4.67
+]
+]
+},
+{
+"word": "agentic",
+"risky": [
+[
+"a genetic",
+4.34
+],
+[
+"a gentic",
+0.0
+]
+]
+},
+{
+"word": "agentic AI",
+"risky": [
+[
+"a genetic ai",
+3.98
+],
+[
+"a gentic ai",
+0.0
+]
+]
+},
+{
+"word": "chain-of-thought",
+"risky": [
+[
+"chain of thought",
+4.6
+]
+]
+},
+{
+"word": "DALL-E",
+"risky": [
+[
+"dali",
+2.91
+]
+]
+},
+{
+"word": "embedding",
+"risky": [
+[
+"i'm betting",
+4.0
+]
+]
+},
+{
+"word": "few-shot",
+"risky": [
+[
+"few shot",
+5.07
+]
+]
+},
+{
+"word": "fine-tune",
+"risky": [
+[
+"fine tune",
+4.23
+]
+]
+},
+{
+"word": "fine-tuning",
+"risky": [
+[
+"fine tuning",
+3.66
+]
+]
+},
+{
+"word": "function calling",
+"risky": [
+[
+"save function calling",
+4.46
+]
+]
+},
+{
+"word": "guardrails",
+"risky": [
+[
+"guard rails",
+3.74
+]
+]
+},
+{
+"word": "jailbreak",
+"risky": [
+[
+"jail break",
+4.51
+]
+]
+},
+{
+"word": "multimodal",
+"risky": [
+[
+"multi modal",
+3.11
+],
+[
+"multi-modal",
+3.11
+]
+]
+},
+{
+"word": "on-device",
+"risky": [
+[
+"on device",
+4.67
+]
+]
+},
+{
+"word": "open-weight",
+"risky": [
+[
+"open wait",
+5.11
+],
+[
+"open weight",
+4.89
+]
+]
+},
+{
+"word": "pretraining",
+"risky": [
+[
+"pre training",
+4.75
+],
+[
+"pre-training",
+4.75
+]
+]
+},
+{
+"word": "QA",
+"risky": [
+[
+"cue a",
+3.75
+]
+]
+},
+{
+"word": "SOTA",
+"risky": [
+[
+"so ta",
+4.02
+]
+]
+},
+{
+"word": "speech-to-text",
+"risky": [
+[
+"speech to text",
+4.62
+]
+]
+},
+{
+"word": "text-to-image",
+"risky": [
+[
+"text to image",
+4.67
+]
+]
+},
+{
+"word": "text-to-speech",
+"risky": [
+[
+"text to speech",
+4.62
+]
+]
+},
+{
+"word": "text-to-video",
+"risky": [
+[
+"text to video",
+4.87
+]
+]
+},
+{
+"word": "ABEJA",
+"risky": [
+[
+"a beja",
+1.64
+]
+]
+},
+{
+"word": "AdamW",
+"risky": [
+[
+"adam double you",
+4.43
+]
+]
+},
+{
+"word": "ANN",
+"risky": [
+[
+"a and n",
+5.15
+]
+]
+},
+{
+"word": "AUC",
+"risky": [
+[
+"i you see",
+6.01
+]
+]
+},
+{
+"word": "bfloat16",
+"risky": [
+[
+"be float sixteen",
+3.64
+]
+]
+},
+{
+"word": "Common Crawl",
+"risky": [
+[
+"calm and crawl",
+3.7
+]
+]
+},
+{
+"word": "DoRA",
+"risky": [
+[
+"door a",
+5.08
+]
+]
+},
+{
+"word": "feature store",
+"risky": [
+[
+"save feature store",
+4.5
+]
+]
+},
+{
+"word": "GELU",
+"risky": [
+[
+"jell you",
+2.62
+]
+]
+},
+{
+"word": "ICLR",
+"risky": [
+[
+"i clear",
+5.24
+]
+]
+},
+{
+"word": "ICML",
+"risky": [
+[
+"i cml",
+2.39
+]
+]
+},
+{
+"word": "INT4",
+"risky": [
+[
+"in for",
+6.82
+]
+]
+},
+{
+"word": "INT8",
+"risky": [
+[
+"an eight",
+5.01
+]
+]
+},
+{
+"word": "IR",
+"risky": [
+[
+"i are",
+6.58
+]
+]
+},
+{
+"word": "Portkey",
+"risky": [
+[
+"port key",
+4.58
+]
+]
+},
+{
+"word": "upscaling",
+"risky": [
+[
+"up scaling",
+3.63
+]
+]
+},
+{
+"word": "10x",
+"risky": [
+[
+"ten x",
+4.82
+]
+]
+},
+{
+"word": "@mention",
+"risky": [
+[
+"at mention",
+4.73
+],
+[
+"at-mention",
+4.73
+]
+]
+},
+{
+"word": "A/A test",
+"risky": [
+[
+"a a test",
+5.18
+],
+[
+"a-a test",
+5.18
+],
+[
+"aa test",
+3.98
+]
+]
+},
+{
+"word": "a16z",
+"risky": [
+[
+"a sixteen z",
+3.84
+],
+[
+"a sixteen zed",
+2.97
+]
+]
+},
+{
+"word": "acqui-hire",
+"risky": [
+[
+"acquire hire",
+3.94
+]
+]
+},
+{
+"word": "ad hoc",
+"risky": [
+[
+"it hawk",
+3.81
+]
+]
+},
+{
+"word": "all-hands",
+"risky": [
+[
+"all hands",
+5.14
+]
+]
+},
+{
+"word": "andon",
+"risky": [
+[
+"an don",
+4.59
+],
+[
+"and on",
+6.79
+]
+]
+},
+{
+"word": "antitrust",
+"risky": [
+[
+"anti trust",
+4.76
+]
+]
+},
+{
+"word": "ARPU",
+"risky": [
+[
+"are poo",
+3.54
+]
+]
+},
+{
+"word": "Asana",
+"risky": [
+[
+"a sana",
+3.03
+],
+[
+"a sauna",
+3.25
+]
+]
+},
+{
+"word": "ASAP",
+"risky": [
+[
+"a sap",
+3.6
+]
+]
+},
+{
+"word": "Atlassian",
+"risky": [
+[
+"at lassian",
+0.0
+],
+[
+"it lassian",
+0.0
+]
+]
+},
+{
+"word": "biotech",
+"risky": [
+[
+"bio tech",
+3.98
+]
+]
+},
+{
+"word": "build-measure-learn",
+"risky": [
+[
+"build measure learn",
+4.42
+]
+]
+},
+{
+"word": "coach marks",
+"risky": [
+[
+"coach-marks",
+4.36
+]
+]
+},
+{
+"word": "cofounder",
+"risky": [
+[
+"co founder",
+4.39
+],
+[
+"co-founder",
+4.39
+]
+]
+},
+{
+"word": "cohort",
+"risky": [
+[
+"co-word",
+4.93
+]
+]
+},
+{
+"word": "dogfood",
+"risky": [
+[
+"dog food",
+4.92
+]
+]
+},
+{
+"word": "double-click",
+"risky": [
+[
+"double click",
+4.6
+]
+]
+},
+{
+"word": "e-commerce",
+"risky": [
+[
+"ecommerce",
+3.3
+]
+]
+},
+{
+"word": "EBITDA",
+"risky": [
+[
+"i bit da",
+4.48
+]
+]
+},
+{
+"word": "event storming",
+"risky": [
+[
+"events storming",
+3.16
+]
+]
+},
+{
+"word": "funnel",
+"risky": [
+[
+"save funnel",
+3.46
+]
+]
+},
+{
+"word": "go-to-market",
+"risky": [
+[
+"go to market",
+5.21
+]
+]
+},
+{
+"word": "i18n",
+"risky": [
+[
+"i 18n",
+1.26
+],
+[
+"i eighteen n",
+3.79
+]
+]
+},
+{
+"word": "IaaS",
+"risky": [
+[
+"eye as",
+5.01
+],
+[
+"eye az",
+3.66
+],
+[
+"i as",
+6.6
+]
+]
+},
+{
+"word": "ICE scoring",
+"risky": [
+[
+"i scoring",
+4.36
+]
+]
+},
+{
+"word": "IMO",
+"risky": [
+[
+"i am o",
+5.03
+]
+]
+},
+{
+"word": "jobs-to-be-done",
+"risky": [
+[
+"jobs to be done",
+4.88
+]
+]
+},
+{
+"word": "Kano",
+"risky": [
+[
+"cano",
+2.81
+]
+]
+},
+{
+"word": "l10n",
+"risky": [
+[
+"l ten in",
+4.81
+]
+]
+},
+{
+"word": "Lean Canvas",
+"risky": [
+[
+"saline canvas",
+3.24
+]
+]
+},
+{
+"word": "Lean Startup",
+"risky": [
+[
+"lean start up",
+4.12
+],
+[
+"saline startup",
+3.21
+],
+[
+"selene start up",
+2.51
+]
+]
+},
+{
+"word": "M&A",
+"risky": [
+[
+"m and a",
+5.38
+]
+]
+},
+{
+"word": "multi-armed bandit",
+"risky": [
+[
+"multi armed bandit",
+3.32
+]
+]
+},
+{
+"word": "onboarding",
+"risky": [
+[
+"on boarding",
+3.96
+]
+]
+},
+{
+"word": "paywall",
+"risky": [
+[
+"pay wall",
+4.88
+]
+]
+},
+{
+"word": "postmortem",
+"risky": [
+[
+"post mortem",
+3.16
+],
+[
+"post-mortem",
+3.16
+]
+]
+},
+{
+"word": "product-led",
+"risky": [
+[
+"product led",
+4.72
+],
+[
+"product let",
+4.86
+]
+]
+},
+{
+"word": "product-led growth",
+"risky": [
+[
+"product led growth",
+4.55
+]
+]
+},
+{
+"word": "product-market fit",
+"risky": [
+[
+"product market fit",
+4.56
+]
+]
+},
+{
+"word": "roll-up",
+"risky": [
+[
+"roll up",
+4.74
+]
+]
+},
+{
+"word": "S-1",
+"risky": [
+[
+"s one",
+5.76
+]
+]
+},
+{
+"word": "S-3",
+"risky": [
+[
+"s three",
+5.52
+]
+]
+},
+{
+"word": "sales-led",
+"risky": [
+[
+"sails led",
+3.51
+],
+[
+"sales led",
+4.76
+],
+[
+"sales lit",
+4.13
+]
+]
+},
+{
+"word": "self-serve",
+"risky": [
+[
+"self serve",
+4.7
+]
+]
+},
+{
+"word": "skip-level",
+"risky": [
+[
+"skip level",
+4.18
+]
+]
+},
+{
+"word": "SOC 2",
+"risky": [
+[
+"sock to",
+3.61
+]
+]
+},
+{
+"word": "standup",
+"risky": [
+[
+"stand up",
+5.12
+],
+[
+"stand-up",
+5.12
+]
+]
+},
+{
+"word": "think-aloud protocol",
+"risky": [
+[
+"think aloud protocol",
+3.42
+],
+[
+"think out loud protocol",
+3.99
+]
+]
+},
+{
+"word": "trade-off",
+"risky": [
+[
+"trade off",
+5.06
+]
+]
+},
+{
+"word": "upsell",
+"risky": [
+[
+"up sell",
+4.96
+]
+]
+},
+{
+"word": "viral coefficient",
+"risky": [
+[
+"save viral coefficient",
+3.3
+]
+]
+},
+{
+"word": "10x engineer",
+"risky": [
+[
+"ten ex engineer",
+4.25
+]
+]
+},
+{
+"word": "@channel",
+"risky": [
+[
+"at channel",
+4.84
+]
+]
+},
+{
+"word": "@here",
+"risky": [
+[
+"at here",
+5.9
+]
+]
+},
+{
+"word": "AVOD",
+"risky": [
+[
+"a vod",
+2.85
+]
+]
+},
+{
+"word": "bootstrapped",
+"risky": [
+[
+"boot strapped",
+3.37
+]
+]
+},
+{
+"word": "carve-out",
+"risky": [
+[
+"carve out",
+3.41
+]
+]
+},
+{
+"word": "cohort analysis",
+"risky": [
+[
+"covert analysis",
+3.52
+]
+]
+},
+{
+"word": "EULA",
+"risky": [
+[
+"you la",
+5.05
+]
+]
+},
+{
+"word": "G&A",
+"risky": [
+[
+"g and a",
+5.0
+],
+[
+"sagian a",
+0.0
+]
+]
+},
+{
+"word": "GLBA",
+"risky": [
+[
+"sage i'll be a",
+3.82
+]
+]
+},
+{
+"word": "greenfield",
+"risky": [
+[
+"green field",
+4.88
+]
+]
+},
+{
+"word": "HMW",
+"risky": [
+[
+"how might we",
+5.52
+]
+]
+},
+{
+"word": "IIRC",
+"risky": [
+[
+"i or see",
+5.93
+]
+]
+},
+{
+"word": "IMHO",
+"risky": [
+[
+"i am a cho",
+3.49
+],
+[
+"i am ho",
+4.21
+]
+]
+},
+{
+"word": "Innovator's Dilemma",
+"risky": [
+[
+"innovators dilemma",
+2.98
+]
+]
+},
+{
+"word": "INSEAD",
+"risky": [
+[
+"in sead",
+1.88
+],
+[
+"in see ad",
+4.74
+],
+[
+"in siat",
+0.0
+]
+]
+},
+{
+"word": "iPaaS",
+"risky": [
+[
+"i paas",
+2.32
+],
+[
+"i pass",
+5.05
+]
+]
+},
+{
+"word": "low-hanging fruit",
+"risky": [
+[
+"low hanging fruit",
+4.2
+]
+]
+},
+{
+"word": "MAP",
+"risky": [
+[
+"same map",
+4.72
+]
+]
+},
+{
+"word": "per-seat",
+"risky": [
+[
+"per seat",
+4.73
+]
+]
+},
+{
+"word": "POPIA",
+"risky": [
+[
+"popeye a",
+2.83
+],
+[
+"popi a",
+1.63
+]
+]
+},
+{
+"word": "RAPID",
+"risky": [
+[
+"rap it",
+4.12
+]
+]
+},
+{
+"word": "runbook",
+"risky": [
+[
+"run book",
+5.16
+]
+]
+},
+{
+"word": "S corp",
+"risky": [
+[
+"as corp",
+4.27
+]
+]
+},
+{
+"word": "SME",
+"risky": [
+[
+"smee",
+2.19
+]
+]
+},
+{
+"word": "SoMa",
+"risky": [
+[
+"so ma",
+4.62
+]
+]
+},
+{
+"word": "SXSW",
+"risky": [
+[
+"south by",
+5.38
+]
+]
+},
+{
+"word": "UCD",
+"risky": [
+[
+"you see d",
+5.36
+]
+]
+},
+{
+"word": "UMUX",
+"risky": [
+[
+"you mucks",
+1.77
+],
+[
+"you mux",
+2.01
+]
+]
+},
+{
+"word": "AMI",
+"risky": [
+[
+"a am i",
+5.75
+],
+[
+"am i",
+5.76
+]
+]
+},
+{
+"word": "CloudFront",
+"risky": [
+[
+"cloud front",
+4.4
+]
+]
+},
+{
+"word": "CloudWatch",
+"risky": [
+[
+"cloud watch",
+4.41
+]
+]
+},
+{
+"word": "CNAME",
+"risky": [
+[
+"see name",
+5.49
+]
+]
+},
+{
+"word": "ESXi",
+"risky": [
+[
+"esx i",
+1.67
+]
+]
+},
+{
+"word": "Gunicorn",
+"risky": [
+[
+"sage unicorn",
+3.36
+]
+]
+},
+{
+"word": "IAM",
+"risky": [
+[
+"i am",
+5.76
+]
+]
+},
+{
+"word": "IOPS",
+"risky": [
+[
+"i ops",
+3.8
+]
+]
+},
+{
+"word": "Istio",
+"risky": [
+[
+"is tio",
+2.67
+]
+]
+},
+{
+"word": "k9s",
+"risky": [
+[
+"canines",
+2.8
+],
+[
+"k9",
+2.81
+]
+]
+},
+{
+"word": "Logstash",
+"risky": [
+[
+"log stash",
+3.48
+]
+]
+},
+{
+"word": "namespace",
+"risky": [
+[
+"name space",
+5.08
+]
+]
+},
+{
+"word": "on-prem",
+"risky": [
+[
+"on prem",
+3.28
+]
+]
+},
+{
+"word": "on-premises",
+"risky": [
+[
+"on premises",
+4.02
+]
+]
+},
+{
+"word": "OpenShift",
+"risky": [
+[
+"open shift",
+4.52
+]
+]
+},
+{
+"word": "Power BI",
+"risky": [
+[
+"power be i",
+5.49
+]
+]
+},
+{
+"word": "serverless",
+"risky": [
+[
+"server less",
+4.42
+]
+]
+},
+{
+"word": "sidecar",
+"risky": [
+[
+"side car",
+5.17
+]
+]
+},
+{
+"word": "SolarWinds",
+"risky": [
+[
+"solar winds",
+4.05
+]
+]
+},
+{
+"word": "subnet",
+"risky": [
+[
+"sub net",
+4.41
+]
+]
+},
+{
+"word": "Travis CI",
+"risky": [
+[
+"travis see i",
+4.0
+]
+]
+},
+{
+"word": "Uvicorn",
+"risky": [
+[
+"you vicorn",
+0.0
+]
+]
+},
+{
+"word": "2PC",
+"risky": [
+[
+"two pc",
+4.52
+]
+]
+},
+{
+"word": "AAAA record",
+"risky": [
+[
+"four a record",
+5.04
+]
+]
+},
+{
+"word": "ALB",
+"risky": [
+[
+"a i'll b",
+5.09
+]
+]
+},
+{
+"word": "Alertmanager",
+"risky": [
+[
+"alert manager",
+4.24
+]
+]
+},
+{
+"word": "Amazon Lightsail",
+"risky": [
+[
+"amazon light sale",
+4.37
+]
+]
+},
+{
+"word": "Amazon Rekognition",
+"risky": [
+[
+"amazon recognition",
+4.21
+]
+]
+},
+{
+"word": "Anthos",
+"risky": [
+[
+"an thos",
+2.61
+]
+]
+},
+{
+"word": "App Insights",
+"risky": [
+[
+"app insight",
+4.11
+]
+]
+},
+{
+"word": "AWS Backup",
+"risky": [
+[
+"aws back up",
+3.17
+]
+]
+},
+{
+"word": "Azure Advisor",
+"risky": [
+[
+"asher advisor",
+3.12
+]
+]
+},
+{
+"word": "Azure Backup",
+"risky": [
+[
+"azure back up",
+3.35
+]
+]
+},
+{
+"word": "Azure Files",
+"risky": [
+[
+"asher files",
+3.16
+]
+]
+},
+{
+"word": "backpressure",
+"risky": [
+[
+"back pressure",
+4.97
+]
+]
+},
+{
+"word": "bastion host",
+"risky": [
+[
+"sebastian host",
+3.85
+]
+]
+},
+{
+"word": "Bigtable",
+"risky": [
+[
+"big table",
+4.96
+]
+]
+},
+{
+"word": "Bottlerocket",
+"risky": [
+[
+"bottle rocket",
+4.12
+]
+]
+},
+{
+"word": "Buildah",
+"risky": [
+[
+"bilder",
+2.01
+]
+]
+},
+{
+"word": "Cache-Control",
+"risky": [
+[
+"cache control",
+3.62
+]
+]
+},
+{
+"word": "CNI",
+"risky": [
+[
+"c and i",
+5.32
+],
+[
+"see and i",
+6.04
+]
+]
+},
+{
+"word": "colocation",
+"risky": [
+[
+"co location",
+4.7
+],
+[
+"co-location",
+4.7
+]
+]
+},
+{
+"word": "CRI-O",
+"risky": [
+[
+"cryo",
+2.61
+]
+]
+},
+{
+"word": "DBaaS",
+"risky": [
+[
+"db ass",
+3.75
+]
+]
+},
+{
+"word": "Dialogflow",
+"risky": [
+[
+"dialogue flow",
+4.14
+]
+]
+},
+{
+"word": "Dokku",
+"risky": [
+[
+"dock oo",
+3.43
+]
+]
+},
+{
+"word": "Eventarc",
+"risky": [
+[
+"of entarch",
+0.0
+]
+]
+},
+{
+"word": "fan-out",
+"risky": [
+[
+"fan out",
+4.91
+]
+]
+},
+{
+"word": "Front Door",
+"risky": [
+[
+"save front door",
+4.68
+]
+]
+},
+{
+"word": "GuardDuty",
+"risky": [
+[
+"guard duty",
+4.42
+]
+]
+},
+{
+"word": "IAM Identity Center",
+"risky": [
+[
+"i am identity center",
+4.51
+]
+]
+},
+{
+"word": "Kusto",
+"risky": [
+[
+"cousteau",
+2.46
+]
+]
+},
+{
+"word": "Mimir",
+"risky": [
+[
+"same amir",
+3.4
+]
+]
+},
+{
+"word": "minikube",
+"risky": [
+[
+"mini cube",
+3.73
+]
+]
+},
+{
+"word": "PrivateLink",
+"risky": [
+[
+"private link",
+4.78
+]
+]
+},
+{
+"word": "Quay",
+"risky": [
+[
+"quay io",
+3.03
+]
+]
+},
+{
+"word": "SNI",
+"risky": [
+[
+"s and i",
+5.82
+]
+]
+},
+{
+"word": "Tomcat",
+"risky": [
+[
+"tom cat",
+4.5
+]
+]
+},
+{
+"word": "TXT record",
+"risky": [
+[
+"text record",
+4.8
+]
+]
+},
+{
+"word": "uWSGI",
+"risky": [
+[
+"you whiskey",
+3.78
+]
+]
+},
+{
+"word": "Velero",
+"risky": [
+[
+"the lero",
+1.28
+],
+[
+"valero",
+2.34
+]
+]
+},
+{
+"word": "Vercel Edge Functions",
+"risky": [
+[
+"for sale edge functions",
+4.22
+]
+]
+},
+{
+"word": "VirtualBox",
+"risky": [
+[
+"virtual box",
+4.24
+]
+]
+},
+{
+"word": "AsyncAPI",
+"risky": [
+[
+"a sync api",
+3.46
+]
+]
+},
+{
+"word": "Afterpay",
+"risky": [
+[
+"after pay",
+5.32
+]
+]
+},
+{
+"word": "Ahrefs",
+"risky": [
+[
+"a hrefs",
+0.0
+],
+[
+"a refs",
+3.68
+]
+]
+},
+{
+"word": "Akamai",
+"risky": [
+[
+"acme i",
+2.89
+]
+]
+},
+{
+"word": "Alibaba",
+"risky": [
+[
+"ali baba",
+3.51
+]
+]
+},
+{
+"word": "AngelList",
+"risky": [
+[
+"angel list",
+4.39
+]
+]
+},
+{
+"word": "AT&T",
+"risky": [
+[
+"at and t",
+5.4
+]
+]
+},
+{
+"word": "Atlassian Jira",
+"risky": [
+[
+"at lassiangira",
+0.0
+]
+]
+},
+{
+"word": "Baidu",
+"risky": [
+[
+"by doo",
+3.62
+],
+[
+"bye do",
+4.39
+]
+]
+},
+{
+"word": "Best Buy",
+"risky": [
+[
+"best by",
+5.78
+]
+]
+},
+{
+"word": "Binance",
+"risky": [
+[
+"by nance",
+2.9
+]
+]
+},
+{
+"word": "BlackRock",
+"risky": [
+[
+"black rock",
+4.89
+]
+]
+},
+{
+"word": "Blackstone",
+"risky": [
+[
+"black stone",
+4.71
+]
+]
+},
+{
+"word": "Carta",
+"risky": [
+[
+"karta",
+2.07
+]
+]
+},
+{
+"word": "Character.AI",
+"risky": [
+[
+"character ai",
+4.18
+]
+]
+},
+{
+"word": "Colab",
+"risky": [
+[
+"co lab",
+4.35
+]
+]
+},
+{
+"word": "DeepMind",
+"risky": [
+[
+"deep mind",
+4.89
+]
+]
+},
+{
+"word": "Ericsson",
+"risky": [
+[
+"ericson",
+2.3
+]
+]
+},
+{
+"word": "Gartner",
+"risky": [
+[
+"gardner",
+3.76
+]
+]
+},
+{
+"word": "Glassdoor",
+"risky": [
+[
+"glass door",
+4.65
+]
+]
+},
+{
+"word": "IKEA",
+"risky": [
+[
+"i care",
+5.55
+],
+[
+"i kea",
+2.54
+],
+[
+"i key",
+5.11
+]
+]
+},
+{
+"word": "ISRO",
+"risky": [
+[
+"is ro",
+3.62
+]
+]
+},
+{
+"word": "Jio",
+"risky": [
+[
+"gio",
+2.93
+],
+[
+"seiji",
+2.3
+]
+]
+},
+{
+"word": "Kia",
+"risky": [
+[
+"key a",
+5.12
+],
+[
+"keir",
+2.64
+]
+]
+},
+{
+"word": "McDonald's",
+"risky": [
+[
+"mcdonalds",
+3.39
+]
+]
+},
+{
+"word": "Midjourney",
+"risky": [
+[
+"mid journey",
+4.43
+],
+[
+"mid-journey",
+4.43
+]
+]
+},
+{
+"word": "Monzo",
+"risky": [
+[
+"monza",
+2.67
+]
+]
+},
+{
+"word": "OnePlus",
+"risky": [
+[
+"one plus",
+4.94
+]
+]
+},
+{
+"word": "Pinecone",
+"risky": [
+[
+"pine cone",
+3.64
+]
+]
+},
+{
+"word": "Porsche",
+"risky": [
+[
+"portia",
+2.88
+]
+]
+},
+{
+"word": "Powerwall",
+"risky": [
+[
+"power wall",
+4.92
+]
+]
+},
+{
+"word": "Robinhood",
+"risky": [
+[
+"robin hood",
+3.96
+]
+]
+},
+{
+"word": "Rollbar",
+"risky": [
+[
+"roll bar",
+4.53
+]
+]
+},
+{
+"word": "ServiceNow",
+"risky": [
+[
+"service now",
+5.41
+]
+]
+},
+{
+"word": "Shein",
+"risky": [
+[
+"she-in",
+6.22
+]
+]
+},
+{
+"word": "Starbase",
+"risky": [
+[
+"star base",
+4.81
+]
+]
+},
+{
+"word": "Stargate",
+"risky": [
+[
+"star gate",
+4.39
+]
+]
+},
+{
+"word": "Strapi",
+"risky": [
+[
+"strap i",
+3.79
+]
+]
+},
+{
+"word": "Tencent",
+"risky": [
+[
+"ten cent",
+4.63
+]
+]
+},
+{
+"word": "Toshiba",
+"risky": [
+[
+"to sheba",
+2.75
+]
+]
+},
+{
+"word": "Typeform",
+"risky": [
+[
+"type form",
+4.99
+]
+]
+},
+{
+"word": "Udemy",
+"risky": [
+[
+"you demi",
+3.37
+]
+]
+},
+{
+"word": "Uniqlo",
+"risky": [
+[
+"you nee clo",
+2.49
+]
+]
+},
+{
+"word": "Wix",
+"risky": [
+[
+"wicks",
+2.82
+]
+]
+},
+{
+"word": "Xiaomi",
+"risky": [
+[
+"shami",
+2.44
+]
+]
+},
+{
+"word": "8VC",
+"risky": [
+[
+"eight v c",
+4.64
+]
+]
+},
+{
+"word": "a16z crypto",
+"risky": [
+[
+"a sixteen z crypto",
+3.4
+]
+]
+},
+{
+"word": "Aircall",
+"risky": [
+[
+"air call",
+5.13
+]
+]
+},
+{
+"word": "Alessi",
+"risky": [
+[
+"a lessi",
+0.0
+]
+]
+},
+{
+"word": "Andela",
+"risky": [
+[
+"an della",
+3.42
+]
+]
+},
+{
+"word": "Ashby",
+"risky": [
+[
+"ash be",
+4.16
+]
+]
+},
+{
+"word": "ASOS",
+"risky": [
+[
+"a sos",
+3.36
+]
+]
+},
+{
+"word": "Astranis",
+"risky": [
+[
+"a stranis",
+0.0
+]
+]
+},
+{
+"word": "Atlas V",
+"risky": [
+[
+"atlas five",
+3.79
+]
+]
+},
+{
+"word": "Atlassian Rovo",
+"risky": [
+[
+"it lassian rovo",
+0.0
+]
+]
+},
+{
+"word": "Avito",
+"risky": [
+[
+"a vito",
+3.07
+]
+]
+},
+{
+"word": "Baichuan",
+"risky": [
+[
+"by chuan",
+2.5
+]
+]
+},
+{
+"word": "Baidu Apollo",
+"risky": [
+[
+"by do apollo",
+3.82
+]
+]
+},
+{
+"word": "Baseten",
+"risky": [
+[
+"based on",
+5.49
+]
+]
+},
+{
+"word": "Beautiful.ai",
+"risky": [
+[
+"beautiful ai",
+4.19
+]
+]
+},
+{
+"word": "BofA",
+"risky": [
+[
+"b of a",
+5.34
+],
+[
+"bee of a",
+4.09
+]
+]
+},
+{
+"word": "Byju's",
+"risky": [
+[
+"by joos",
+1.89
+]
+]
+},
+{
+"word": "Chang'e",
+"risky": [
+[
+"chang a",
+3.73
+]
+]
+},
+{
+"word": "Chargebee",
+"risky": [
+[
+"charge be",
+5.01
+]
+]
+},
+{
+"word": "ChargePoint",
+"risky": [
+[
+"see charge point",
+4.88
+]
+]
+},
+{
+"word": "China Telecom",
+"risky": [
+[
+"china tele com",
+3.09
+]
+]
+},
+{
+"word": "ChurnZero",
+"risky": [
+[
+"churn zero",
+3.06
+]
+]
+},
+{
+"word": "Citigroup",
+"risky": [
+[
+"city group",
+5.29
+]
+]
+},
+{
+"word": "Citroën",
+"risky": [
+[
+"citroen",
+2.62
+]
+]
+},
+{
+"word": "Cloudera",
+"risky": [
+[
+"cloud era",
+4.25
+]
+]
+},
+{
+"word": "Clubhouse",
+"risky": [
+[
+"club house",
+5.08
+]
+]
+},
+{
+"word": "Coatue",
+"risky": [
+[
+"co two a",
+5.16
+]
+]
+},
+{
+"word": "Codespaces",
+"risky": [
+[
+"code spaces",
+4.21
+]
+]
+},
+{
+"word": "Coupa",
+"risky": [
+[
+"koopa",
+2.07
+]
+]
+},
+{
+"word": "D. E. Shaw",
+"risky": [
+[
+"thee shah",
+3.61
+]
+]
+},
+{
+"word": "Demandbase",
+"risky": [
+[
+"demand base",
+4.63
+]
+]
+},
+{
+"word": "DeNA",
+"risky": [
+[
+"d and a",
+5.45
+]
+]
+},
+{
+"word": "Domino's",
+"risky": [
+[
+"dominoes",
+2.83
+],
+[
+"dominos",
+2.69
+]
+]
+},
+{
+"word": "ecobee",
+"risky": [
+[
+"echo be",
+4.04
+]
+]
+},
+{
+"word": "Ecosia",
+"risky": [
+[
+"a cosia",
+0.0
+],
+[
+"a cozier",
+2.02
+],
+[
+"eco see a",
+3.71
+]
+]
+},
+{
+"word": "eero",
+"risky": [
+[
+"ero",
+2.36
+]
+]
+},
+{
+"word": "EleutherAI",
+"risky": [
+[
+"a luther ai",
+3.72
+]
+]
+},
+{
+"word": "Envato",
+"risky": [
+[
+"in vato",
+1.9
+]
+]
+},
+{
+"word": "Eufy",
+"risky": [
+[
+"you fee",
+4.51
+]
+]
+},
+{
+"word": "FactSet",
+"risky": [
+[
+"safe accident",
+4.55
+]
+]
+},
+{
+"word": "Form Energy",
+"risky": [
+[
+"save form energy",
+4.74
+]
+]
+},
+{
+"word": "Front",
+"risky": [
+[
+"save front",
+4.9
+],
+[
+"save run",
+4.98
+]
+]
+},
+{
+"word": "GetYourGuide",
+"risky": [
+[
+"get your guide",
+4.73
+]
+]
+},
+{
+"word": "Helion",
+"risky": [
+[
+"healy on",
+3.23
+],
+[
+"heli on",
+2.66
+]
+]
+},
+{
+"word": "Higgsfield",
+"risky": [
+[
+"higgs field",
+3.07
+]
+]
+},
+{
+"word": "Highspot",
+"risky": [
+[
+"high spot",
+4.83
+]
+]
+},
+{
+"word": "HiSilicon",
+"risky": [
+[
+"high silicon",
+3.99
+]
+]
+},
+{
+"word": "Hotmail",
+"risky": [
+[
+"hot mail",
+4.59
+]
+]
+},
+{
+"word": "iFlytek",
+"risky": [
+[
+"i fly tech",
+4.42
+],
+[
+"i flytek",
+0.0
+]
+]
+},
+{
+"word": "iFood",
+"risky": [
+[
+"i food",
+5.39
+]
+]
+},
+{
+"word": "Inditex",
+"risky": [
+[
+"in di tex",
+3.46
+]
+]
+},
+{
+"word": "Infura",
+"risky": [
+[
+"in fura",
+1.63
+],
+[
+"in furia",
+1.86
+]
+]
+},
+{
+"word": "Inoreader",
+"risky": [
+[
+"i know reader",
+4.33
+]
+]
+},
+{
+"word": "IONITY",
+"risky": [
+[
+"i onity",
+0.0
+]
+]
+},
+{
+"word": "IonQ",
+"risky": [
+[
+"i on queue",
+3.78
+],
+[
+"i unc you",
+3.33
+]
+]
+},
+{
+"word": "iQIYI",
+"risky": [
+[
+"i chee yee",
+2.68
+],
+[
+"i chi",
+3.95
+],
+[
+"i chi yi",
+3.48
+]
+]
+},
+{
+"word": "iQOO",
+"risky": [
+[
+"i coo",
+3.3
+],
+[
+"i koo",
+2.97
+]
+]
+},
+{
+"word": "iRobot",
+"risky": [
+[
+"i robot",
+4.24
+]
+]
+},
+{
+"word": "ispace",
+"risky": [
+[
+"i space",
+5.23
+]
+]
+},
+{
+"word": "iStat Menus",
+"risky": [
+[
+"i stat menus",
+3.32
+]
+]
+},
+{
+"word": "KeepTruckin",
+"risky": [
+[
+"keep truck in",
+4.6
+]
+]
+},
+{
+"word": "Khosla Ventures",
+"risky": [
+[
+"coastal ventures",
+3.62
+]
+]
+},
+{
+"word": "Kickstarter",
+"risky": [
+[
+"kick starter",
+3.94
+]
+]
+},
+{
+"word": "Krea",
+"risky": [
+[
+"kray a",
+2.45
+]
+]
+},
+{
+"word": "Kroger",
+"risky": [
+[
+"kroeger",
+2.02
+]
+]
+},
+{
+"word": "LinearB",
+"risky": [
+[
+"linear be",
+4.12
+]
+]
+},
+{
+"word": "Lowe's",
+"risky": [
+[
+"lowes",
+2.69
+]
+]
+},
+{
+"word": "Marqeta",
+"risky": [
+[
+"market a",
+5.29
+]
+]
+},
+{
+"word": "Meituan",
+"risky": [
+[
+"mate one",
+4.55
+]
+]
+},
+{
+"word": "Midea",
+"risky": [
+[
+"my dea",
+3.39
+],
+[
+"my dear",
+4.76
+],
+[
+"my deer",
+4.12
+]
+]
+},
+{
+"word": "MITRE",
+"risky": [
+[
+"my ter",
+3.26
+]
+]
+},
+{
+"word": "MIUI",
+"risky": [
+[
+"me you i",
+6.29
+]
+]
+},
+{
+"word": "Mode",
+"risky": [
+[
+"same mode",
+4.6
+]
+]
+},
+{
+"word": "Moleskine",
+"risky": [
+[
+"mole skin",
+3.65
+]
+]
+},
+{
+"word": "Moz",
+"risky": [
+[
+"maz",
+2.51
+]
+]
+},
+{
+"word": "Myntra",
+"risky": [
+[
+"same intra",
+3.32
+]
+]
+},
+{
+"word": "Navan",
+"risky": [
+[
+"nav an",
+3.26
+],
+[
+"navin",
+2.23
+]
+]
+},
+{
+"word": "NEA",
+"risky": [
+[
+"any a",
+6.05
+]
+]
+},
+{
+"word": "Nykaa",
+"risky": [
+[
+"nika",
+2.34
+]
+]
+},
+{
+"word": "OneWeb",
+"risky": [
+[
+"one web",
+4.73
+]
+]
+},
+{
+"word": "OpenRouter",
+"risky": [
+[
+"open router",
+3.5
+]
+]
+},
+{
+"word": "OpenSea",
+"risky": [
+[
+"open sea",
+4.92
+]
+]
+},
+{
+"word": "Patreon",
+"risky": [
+[
+"pay tree on",
+4.74
+]
+]
+},
+{
+"word": "Paychex",
+"risky": [
+[
+"paychecks",
+2.93
+]
+]
+},
+{
+"word": "PhonePe",
+"risky": [
+[
+"phone pay",
+5.05
+]
+]
+},
+{
+"word": "Pinduoduo",
+"risky": [
+[
+"pin do do",
+4.27
+]
+]
+},
+{
+"word": "Posit",
+"risky": [
+[
+"pause it",
+4.0
+]
+]
+},
+{
+"word": "Redpanda",
+"risky": [
+[
+"red panda",
+3.64
+]
+]
+},
+{
+"word": "Reka",
+"risky": [
+[
+"rekha",
+2.27
+]
+]
+},
+{
+"word": "Renault",
+"risky": [
+[
+"re no",
+5.2
+],
+[
+"ruh no",
+2.24
+]
+]
+},
+{
+"word": "Resend",
+"risky": [
+[
+"re send",
+4.87
+]
+]
+},
+{
+"word": "Secureframe",
+"risky": [
+[
+"secure frame",
+4.31
+]
+]
+},
+{
+"word": "SimpliSafe",
+"risky": [
+[
+"simply safe",
+4.77
+]
+]
+},
+{
+"word": "SmartNews",
+"risky": [
+[
+"smart news",
+4.73
+]
+]
+},
+{
+"word": "Snøhetta",
+"risky": [
+[
+"snow het a",
+3.13
+]
+]
+},
+{
+"word": "SoFi",
+"risky": [
+[
+"so fi",
+4.26
+],
+[
+"so fy",
+3.13
+]
+]
+},
+{
+"word": "Sourcegraph",
+"risky": [
+[
+"source graph",
+4.02
+]
+]
+},
+{
+"word": "Steelcase",
+"risky": [
+[
+"steel case",
+4.65
+]
+]
+},
+{
+"word": "StoneCo",
+"risky": [
+[
+"stone company",
+4.74
+]
+]
+},
+{
+"word": "Suno",
+"risky": [
+[
+"sue no",
+4.22
+]
+]
+},
+{
+"word": "Taboola",
+"risky": [
+[
+"to boola",
+1.41
+],
+[
+"to booler",
+0.0
+],
+[
+"tabula",
+2.36
+]
+]
+},
+{
+"word": "Telus",
+"risky": [
+[
+"tellus",
+2.15
+]
+]
+},
+{
+"word": "Thumbtack",
+"risky": [
+[
+"thumb tack",
+3.28
+]
+]
+},
+{
+"word": "Tibber",
+"risky": [
+[
+"tibor",
+2.29
+]
+]
+},
+{
+"word": "TomTom",
+"risky": [
+[
+"tom tom",
+4.53
+],
+[
+"tom-tom",
+4.53
+]
+]
+},
+{
+"word": "Trezor",
+"risky": [
+[
+"trez or",
+1.53
+]
+]
+},
+{
+"word": "Udacity",
+"risky": [
+[
+"you dacity",
+0.0
+],
+[
+"you dassity",
+0.0
+]
+]
+},
+{
+"word": "Udio",
+"risky": [
+[
+"you dio",
+3.11
+]
+]
+},
+{
+"word": "Ugreen",
+"risky": [
+[
+"you green",
+5.12
+]
+]
+},
+{
+"word": "Upstash",
+"risky": [
+[
+"up stash",
+3.54
+]
+]
+},
+{
+"word": "Vidu",
+"risky": [
+[
+"vee do",
+3.03
+]
+]
+},
+{
+"word": "Vinted",
+"risky": [
+[
+"vint it",
+1.99
+]
+]
+},
+{
+"word": "Weaviate",
+"risky": [
+[
+"we viate",
+0.0
+],
+[
+"we vit",
+2.64
+]
+]
+},
+{
+"word": "Webull",
+"risky": [
+[
+"we bull",
+4.34
+]
+]
+},
+{
+"word": "WeCom",
+"risky": [
+[
+"we com",
+4.22
+]
+]
+},
+{
+"word": "Wefunder",
+"risky": [
+[
+"we funder",
+2.54
+]
+]
+},
+{
+"word": "Windsurf",
+"risky": [
+[
+"wind surf",
+3.82
+]
+]
+},
+{
+"word": "Zeekr",
+"risky": [
+[
+"zika",
+2.82
+]
+]
+},
+{
+"word": "A/B test",
+"risky": [
+[
+"ab test",
+4.03
+]
+]
+},
+{
+"word": "A/B testing",
+"risky": [
+[
+"ab testing",
+3.96
+]
+]
+},
+{
+"word": "BI",
+"risky": [
+[
+"be i",
+6.61
+]
+]
+},
+{
+"word": "eigenvalue",
+"risky": [
+[
+"i can value",
+5.12
+]
+]
+},
+{
+"word": "lakehouse",
+"risky": [
+[
+"lake house",
+4.78
+]
+]
+},
+{
+"word": "NoSQL",
+"risky": [
+[
+"no sequel",
+3.98
+],
+[
+"no sql",
+3.38
+]
+]
+},
+{
+"word": "SAP HANA",
+"risky": [
+[
+"a sape honor",
+1.53
+]
+]
+},
+{
+"word": "upsert",
+"risky": [
+[
+"up cert",
+3.19
+],
+[
+"up sert",
+2.1
+]
+]
+},
+{
+"word": "UUID",
+"risky": [
+[
+"you you id",
+4.61
+]
+]
+},
+{
+"word": "VLOOKUP",
+"risky": [
+[
+"v look up",
+4.97
+]
+]
+},
+{
+"word": "Aerospike",
+"risky": [
+[
+"aero spike",
+3.24
+],
+[
+"arrow spike",
+3.74
+]
+]
+},
+{
+"word": "Alation",
+"risky": [
+[
+"a lation",
+1.47
+]
+]
+},
+{
+"word": "Apache Druid",
+"risky": [
+[
+"apache drew it",
+3.49
+]
+]
+},
+{
+"word": "ArangoDB",
+"risky": [
+[
+"a rango db",
+2.03
+]
+]
+},
+{
+"word": "at-least-once",
+"risky": [
+[
+"at least once",
+5.17
+]
+]
+},
+{
+"word": "Atlan",
+"risky": [
+[
+"at lan",
+3.64
+]
+]
+},
+{
+"word": "B+ tree",
+"risky": [
+[
+"b+tree",
+4.73
+]
+]
+},
+{
+"word": "B-tree",
+"risky": [
+[
+"bee tree",
+4.02
+]
+]
+},
+{
+"word": "DataHub",
+"risky": [
+[
+"data hub",
+4.06
+]
+]
+},
+{
+"word": "Deepnote",
+"risky": [
+[
+"deep note",
+4.74
+]
+]
+},
+{
+"word": "Druid",
+"risky": [
+[
+"drew it",
+4.46
+]
+]
+},
+{
+"word": "Eppo",
+"risky": [
+[
+"epo",
+2.59
+]
+]
+},
+{
+"word": "exactly-once",
+"risky": [
+[
+"exactly once",
+5.0
+]
+]
+},
+{
+"word": "Hightouch",
+"risky": [
+[
+"hi touch",
+4.65
+]
+]
+},
+{
+"word": "Hudi",
+"risky": [
+[
+"hoody",
+2.29
+],
+[
+"hootie",
+2.13
+]
+]
+},
+{
+"word": "iCalendar",
+"risky": [
+[
+"i calendar",
+4.3
+],
+[
+"i-calendar",
+4.3
+]
+]
+},
+{
+"word": "ICS",
+"risky": [
+[
+"i cs",
+3.9
+],
+[
+"i see us",
+5.75
+]
+]
+},
+{
+"word": "ICU",
+"risky": [
+[
+"i see you",
+6.01
+]
+]
+},
+{
+"word": "Impala",
+"risky": [
+[
+"him palo",
+3.31
+]
+]
+},
+{
+"word": "InnoDB",
+"risky": [
+[
+"in no db",
+3.77
+],
+[
+"in odb",
+2.16
+]
+]
+},
+{
+"word": "Jepsen",
+"risky": [
+[
+"jeps in",
+1.12
+],
+[
+"jepson",
+2.11
+]
+]
+},
+{
+"word": "JSONB",
+"risky": [
+[
+"jason bee",
+3.94
+]
+]
+},
+{
+"word": "Knex",
+"risky": [
+[
+"connex",
+2.0
+]
+]
+},
+{
+"word": "Liquibase",
+"risky": [
+[
+"liquid base",
+4.3
+]
+]
+},
+{
+"word": "MicroStrategy",
+"risky": [
+[
+"micro strategy",
+3.99
+]
+]
+},
+{
+"word": "MySQL Workbench",
+"risky": [
+[
+"my sequel workbench",
+2.57
+],
+[
+"my sql workbench",
+2.53
+]
+]
+},
+{
+"word": "o11y",
+"risky": [
+[
+"olly",
+2.93
+]
+]
+},
+{
+"word": "PyData",
+"risky": [
+[
+"pie data",
+4.16
+]
+]
+},
+{
+"word": "RStudio",
+"risky": [
+[
+"are studio",
+4.66
+]
+]
+},
+{
+"word": "Snowpark",
+"risky": [
+[
+"snow park",
+4.54
+]
+]
+},
+{
+"word": "Solr",
+"risky": [
+[
+"soler",
+2.36
+]
+]
+},
+{
+"word": "SwiftData",
+"risky": [
+[
+"swift data",
+4.12
+]
+]
+},
+{
+"word": "Turso",
+"risky": [
+[
+"tur so",
+2.76
+]
+]
+},
+{
+"word": "ULID",
+"risky": [
+[
+"you lid",
+3.81
+]
+]
+},
+{
+"word": "Vitess",
+"risky": [
+[
+"vitesse",
+2.26
+]
+]
+},
+{
+"word": "Zarr",
+"risky": [
+[
+"zar",
+2.34
+]
+]
+},
+{
+"word": "@2x",
+"risky": [
+[
+"at 2x",
+3.55
+],
+[
+"at two x",
+5.14
+],
+[
+"it to x",
+5.19
+]
+]
+},
+{
+"word": "a11y",
+"risky": [
+[
+"a eleven y",
+4.07
+]
+]
+},
+{
+"word": "AAA",
+"risky": [
+[
+"triple a",
+4.31
+]
+]
+},
+{
+"word": "AutoCAD",
+"risky": [
+[
+"auto cat",
+4.3
+]
+]
+},
+{
+"word": "Autodesk",
+"risky": [
+[
+"auto desk",
+4.15
+]
+]
+},
+{
+"word": "AVIF",
+"risky": [
+[
+"a vif",
+1.8
+]
+]
+},
+{
+"word": "Bauhaus",
+"risky": [
+[
+"bow house",
+4.28
+]
+]
+},
+{
+"word": "Behance",
+"risky": [
+[
+"be hance",
+2.04
+]
+]
+},
+{
+"word": "Bézier",
+"risky": [
+[
+"bezzy a",
+0.0
+]
+]
+},
+{
+"word": "Chakra UI",
+"risky": [
+[
+"chakra you i",
+3.17
+]
+]
+},
+{
+"word": "Didot",
+"risky": [
+[
+"dito",
+2.17
+]
+]
+},
+{
+"word": "Dovetail",
+"risky": [
+[
+"dove tail",
+3.59
+]
+]
+},
+{
+"word": "FigJam",
+"risky": [
+[
+"fig jam",
+3.83
+]
+]
+},
+{
+"word": "Futura",
+"risky": [
+[
+"future a",
+5.33
+]
+]
+},
+{
+"word": "InVision",
+"risky": [
+[
+"in vision",
+4.63
+]
+]
+},
+{
+"word": "Lightroom",
+"risky": [
+[
+"light room",
+5.06
+]
+]
+},
+{
+"word": "Material UI",
+"risky": [
+[
+"material you i",
+4.94
+]
+]
+},
+{
+"word": "Photoshop",
+"risky": [
+[
+"photo shop",
+4.62
+]
+]
+},
+{
+"word": "PNG",
+"risky": [
+[
+"p and g",
+4.76
+]
+]
+},
+{
+"word": "RGBA",
+"risky": [
+[
+"rgb a",
+3.13
+]
+]
+},
+{
+"word": "UI",
+"risky": [
+[
+"you i",
+6.73
+]
+]
+},
+{
+"word": "UI/UX",
+"risky": [
+[
+"you are ux",
+3.17
+]
+]
+},
+{
+"word": "WCAG",
+"risky": [
+[
+"we cag",
+2.51
+]
+]
+},
+{
+"word": "AA",
+"risky": [
+[
+"double a",
+5.01
+]
+]
+},
+{
+"word": "affine transformation",
+"risky": [
+[
+"a fine transformation",
+4.17
+]
+]
+},
+{
+"word": "bicubic",
+"risky": [
+[
+"by cubic",
+3.71
+]
+]
+},
+{
+"word": "bilinear",
+"risky": [
+[
+"by linear",
+4.12
+]
+]
+},
+{
+"word": "depth of field",
+"risky": [
+[
+"depth the field",
+4.47
+]
+]
+},
+{
+"word": "ease-in",
+"risky": [
+[
+"ease in",
+4.34
+]
+]
+},
+{
+"word": "ease-in-out",
+"risky": [
+[
+"ease in and out",
+4.33
+]
+]
+},
+{
+"word": "ease-out",
+"risky": [
+[
+"ease out",
+4.34
+]
+]
+},
+{
+"word": "foreshortening",
+"risky": [
+[
+"save for shortening",
+3.15
+]
+]
+},
+{
+"word": "Gruvbox",
+"risky": [
+[
+"groove box",
+3.72
+]
+]
+},
+{
+"word": "HDRI",
+"risky": [
+[
+"hdr i",
+3.04
+]
+]
+},
+{
+"word": "iStock",
+"risky": [
+[
+"i stalk",
+3.46
+],
+[
+"i stock",
+4.93
+]
+]
+},
+{
+"word": "Live Activities",
+"risky": [
+[
+"life activities",
+4.87
+]
+]
+},
+{
+"word": "Onshape",
+"risky": [
+[
+"on shape",
+4.72
+]
+]
+},
+{
+"word": "SketchUp",
+"risky": [
+[
+"sketch up",
+4.04
+]
+]
+},
+{
+"word": "SolidWorks",
+"risky": [
+[
+"solid works",
+4.62
+]
+]
+},
+{
+"word": "vignette",
+"risky": [
+[
+"save in yet",
+4.99
+]
+]
+},
+{
+"word": "$PATH",
+"risky": [
+[
+"dollar path",
+4.34
+]
+]
+},
+{
+"word": ".gitignore",
+"risky": [
+[
+"git ignore",
+3.33
+]
+]
+},
+{
+"word": ".NET",
+"risky": [
+[
+"dot net",
+3.97
+]
+]
+},
+{
+"word": "404",
+"risky": [
+[
+"four oh four",
+5.02
+],
+[
+"four zero four",
+4.53
+]
+]
+},
+{
+"word": "AAC",
+"risky": [
+[
+"double a c",
+4.84
+]
+]
+},
+{
+"word": "alt text",
+"risky": [
+[
+"all text",
+5.0
+]
+]
+},
+{
+"word": "apt-get",
+"risky": [
+[
+"app get",
+4.84
+]
+]
+},
+{
+"word": "async",
+"risky": [
+[
+"a sink",
+4.21
+],
+[
+"a sync",
+3.86
+]
+]
+},
+{
+"word": "async/await",
+"risky": [
+[
+"a sync await",
+3.43
+]
+]
+},
+{
+"word": "AV1",
+"risky": [
+[
+"a v1",
+3.08
+]
+]
+},
+{
+"word": "Biome",
+"risky": [
+[
+"by ome",
+2.56
+],
+[
+"bye ohm",
+2.99
+]
+]
+},
+{
+"word": "cherry-pick",
+"risky": [
+[
+"cherry pick",
+4.13
+]
+]
+},
+{
+"word": "Codemagic",
+"risky": [
+[
+"code magic",
+4.59
+]
+]
+},
+{
+"word": "Ctrl-C",
+"risky": [
+[
+"control c",
+5.06
+]
+]
+},
+{
+"word": "CUDA",
+"risky": [
+[
+"kuda",
+2.01
+]
+]
+},
+{
+"word": "Debian",
+"risky": [
+[
+"debbie an",
+3.66
+]
+]
+},
+{
+"word": "Deno",
+"risky": [
+[
+"dee no",
+3.84
+]
+]
+},
+{
+"word": "Django",
+"risky": [
+[
+"jango",
+2.3
+]
+]
+},
+{
+"word": "fast-forward",
+"risky": [
+[
+"fast forward",
+4.82
+]
+]
+},
+{
+"word": "feature flag",
+"risky": [
+[
+"save feature flag",
+4.31
+]
+]
+},
+{
+"word": "Formik",
+"risky": [
+[
+"formic",
+2.24
+]
+]
+},
+{
+"word": "GeForce",
+"risky": [
+[
+"gee force",
+3.62
+]
+]
+},
+{
+"word": "git clone",
+"risky": [
+[
+"get clone",
+3.68
+]
+]
+},
+{
+"word": "git init",
+"risky": [
+[
+"git in it",
+3.36
+]
+]
+},
+{
+"word": "git rebase",
+"risky": [
+[
+"get rebase",
+1.81
+]
+]
+},
+{
+"word": "git revert",
+"risky": [
+[
+"get revert",
+3.35
+]
+]
+},
+{
+"word": "GitHub",
+"risky": [
+[
+"get hub",
+4.08
+]
+]
+},
+{
+"word": "GrowthBook",
+"risky": [
+[
+"growth book",
+4.88
+]
+]
+},
+{
+"word": "GUI",
+"risky": [
+[
+"gooey",
+2.86
+]
+]
+},
+{
+"word": "Hono",
+"risky": [
+[
+"ho no",
+4.22
+],
+[
+"hoe no",
+3.25
+]
+]
+},
+{
+"word": "I-frame",
+"risky": [
+[
+"i frame",
+4.58
+]
+]
+},
+{
+"word": "i18next",
+"risky": [
+[
+"i eighteen next",
+3.8
+]
+]
+},
+{
+"word": "idempotency",
+"risky": [
+[
+"i dem potency",
+3.17
+]
+]
+},
+{
+"word": "idempotent",
+"risky": [
+[
+"i dem potent",
+3.5
+]
+]
+},
+{
+"word": "ImageMagick",
+"risky": [
+[
+"image magic",
+4.54
+]
+]
+},
+{
+"word": "innerHTML",
+"risky": [
+[
+"in her html",
+3.65
+]
+]
+},
+{
+"word": "INP",
+"risky": [
+[
+"i and p",
+5.12
+]
+]
+},
+{
+"word": "IntelliJ",
+"risky": [
+[
+"and tell ej",
+2.97
+]
+]
+},
+{
+"word": "iTerm",
+"risky": [
+[
+"i term",
+5.23
+]
+]
+},
+{
+"word": "iTerm2",
+"risky": [
+[
+"i term 2",
+5.16
+],
+[
+"i term two",
+5.17
+]
+]
+},
+{
+"word": "JSON",
+"risky": [
+[
+"jason",
+4.46
+]
+]
+},
+{
+"word": "Jupyter",
+"risky": [
+[
+"jupiter",
+3.68
+]
+]
+},
+{
+"word": "K8s",
+"risky": [
+[
+"kates",
+2.19
+]
+]
+},
+{
+"word": "Linux Mint",
+"risky": [
+[
+"linux min",
+3.85
+]
+]
+},
+{
+"word": "localhost",
+"risky": [
+[
+"local host",
+4.68
+]
+]
+},
+{
+"word": "localStorage",
+"risky": [
+[
+"local storage",
+4.51
+]
+]
+},
+{
+"word": "ls",
+"risky": [
+[
+"a less",
+5.48
+]
+]
+},
+{
+"word": "Makefile",
+"risky": [
+[
+"make file",
+4.73
+]
+]
+},
+{
+"word": "Mistral",
+"risky": [
+[
+"same astral",
+3.13
+]
+]
+},
+{
+"word": "MySQL",
+"risky": [
+[
+"my sequel",
+3.98
+],
+[
+"my sql",
+3.38
+]
+]
+},
+{
+"word": "Neovim",
+"risky": [
+[
+"neo of him",
+3.99
+]
+]
+},
+{
+"word": "ngrok",
+"risky": [
+[
+"in grok",
+1.88
+]
+]
+},
+{
+"word": "nodemon",
+"risky": [
+[
+"no demon",
+4.06
+]
+]
+},
+{
+"word": "Nvidia",
+"risky": [
+[
+"in vidia",
+1.38
+]
+]
+},
+{
+"word": "Objective-C",
+"risky": [
+[
+"objective c",
+4.32
+]
+]
+},
+{
+"word": "on-call",
+"risky": [
+[
+"on call",
+5.49
+]
+]
+},
+{
+"word": "OpenSearch",
+"risky": [
+[
+"open search",
+4.85
+]
+]
+},
+{
+"word": "Pino",
+"risky": [
+[
+"pee no",
+3.96
+]
+]
+},
+{
+"word": "README",
+"risky": [
+[
+"read me",
+5.49
+]
+]
+},
+{
+"word": "rsync",
+"risky": [
+[
+"are sync",
+3.86
+]
+]
+},
+{
+"word": "SciPy",
+"risky": [
+[
+"si pai",
+3.06
+]
+]
+},
+{
+"word": "SQL",
+"risky": [
+[
+"sequel",
+3.98
+]
+]
+},
+{
+"word": "stdin",
+"risky": [
+[
+"std in",
+3.42
+]
+]
+},
+{
+"word": "stdout",
+"risky": [
+[
+"standard out",
+5.01
+]
+]
+},
+{
+"word": "sudo",
+"risky": [
+[
+"sue do",
+4.22
+]
+]
+},
+{
+"word": "SwiftUI",
+"risky": [
+[
+"swift you i",
+4.15
+]
+]
+},
+{
+"word": "systemctl",
+"risky": [
+[
+"system control",
+5.17
+]
+]
+},
+{
+"word": "Tailwind",
+"risky": [
+[
+"tail wind",
+4.22
+]
+]
+},
+{
+"word": "Tauri",
+"risky": [
+[
+"tari",
+2.25
+]
+]
+},
+{
+"word": "TestFlight",
+"risky": [
+[
+"test flight",
+4.69
+]
+]
+},
+{
+"word": "Unix",
+"risky": [
+[
+"you nix",
+3.0
+],
+[
+"eunuchs",
+2.6
+]
+]
+},
+{
+"word": "URL",
+"risky": [
+[
+"you are l",
+5.16
+]
+]
+},
+{
+"word": "useEffect",
+"risky": [
+[
+"use effect",
+4.95
+]
+]
+},
+{
+"word": "vertex",
+"risky": [
+[
+"save vertex",
+3.2
+]
+]
+},
+{
+"word": "Vim",
+"risky": [
+[
+"save him",
+5.1
+]
+]
+},
+{
+"word": "XOR",
+"risky": [
+[
+"ex or",
+4.8
+]
+]
+},
+{
+"word": ".DS_Store",
+"risky": [
+[
+"d s store",
+4.84
+]
+]
+},
+{
+"word": "/etc",
+"risky": [
+[
+"slash etc",
+3.63
+]
+]
+},
+{
+"word": "/tmp",
+"risky": [
+[
+"slash temp",
+3.4
+]
+]
+},
+{
+"word": "200 OK",
+"risky": [
+[
+"two hundred ok",
+4.56
+],
+[
+"two hundred okay",
+4.54
+]
+]
+},
+{
+"word": "301",
+"risky": [
+[
+"three oh one",
+5.24
+],
+[
+"three zero one",
+4.59
+]
+]
+},
+{
+"word": "401",
+"risky": [
+[
+"four oh one",
+5.16
+],
+[
+"four zero one",
+4.57
+]
+]
+},
+{
+"word": "403",
+"risky": [
+[
+"four oh three",
+5.08
+],
+[
+"four zero three",
+4.55
+]
+]
+},
+{
+"word": "502",
+"risky": [
+[
+"five oh two",
+5.09
+],
+[
+"five zero two",
+4.56
+]
+]
+},
+{
+"word": "503",
+"risky": [
+[
+"five oh three",
+5.05
+],
+[
+"five zero three",
+4.54
+]
+]
+},
+{
+"word": "429",
+"risky": [
+[
+"four twenty nine",
+4.41
+],
+[
+"four two nine",
+4.76
+]
+]
+},
+{
+"word": "6G",
+"risky": [
+[
+"six g",
+4.82
+]
+]
+},
+{
+"word": "7z",
+"risky": [
+[
+"seven zed",
+3.02
+],
+[
+"seven zee",
+3.16
+]
+]
+},
+{
+"word": "@babel/core",
+"risky": [
+[
+"at babble core",
+2.76
+],
+[
+"at babel core",
+2.9
+],
+[
+"at babel slash core",
+2.83
+],
+[
+"it babble core",
+2.76
+],
+[
+"it babelcore",
+0.0
+]
+]
+},
+{
+"word": "@Binding",
+"risky": [
+[
+"at binding",
+4.14
+]
+]
+},
+{
+"word": "@emotion/react",
+"risky": [
+[
+"at emotion react",
+3.87
+],
+[
+"at emotion slash react",
+3.45
+],
+[
+"emotion react",
+3.87
+]
+]
+},
+{
+"word": "@MainActor",
+"risky": [
+[
+"at main actor",
+4.55
+],
+[
+"at mainactor",
+0.0
+]
+]
+},
+{
+"word": "@media",
+"risky": [
+[
+"at media",
+5.28
+]
+]
+},
+{
+"word": "@Observable",
+"risky": [
+[
+"at observable",
+3.11
+]
+]
+},
+{
+"word": "A*",
+"risky": [
+[
+"a star",
+5.19
+],
+[
+"a-star",
+5.19
+]
+]
+},
+{
+"word": "A* search",
+"risky": [
+[
+"a star search",
+4.76
+],
+[
+"a-star search",
+4.76
+]
+]
+},
+{
+"word": "A2A",
+"risky": [
+[
+"a to a",
+6.9
+],
+[
+"a two a",
+6.05
+],
+[
+"a-to-a",
+6.9
+]
+]
+},
+{
+"word": "ActivityPub",
+"risky": [
+[
+"activity pub",
+4.14
+]
+]
+},
+{
+"word": "AIFF",
+"risky": [
+[
+"a if",
+6.42
+]
+]
+},
+{
+"word": "ALAC",
+"risky": [
+[
+"a lack",
+4.92
+]
+]
+},
+{
+"word": "antd",
+"risky": [
+[
+"ant d",
+3.85
+],
+[
+"ant dee",
+3.55
+]
+]
+},
+{
+"word": "appendChild",
+"risky": [
+[
+"a pen child",
+4.33
+],
+[
+"a penchild",
+0.0
+]
+]
+},
+{
+"word": "Asahi Linux",
+"risky": [
+[
+"a sahi linux",
+2.06
+]
+]
+},
+{
+"word": "asyncio",
+"risky": [
+[
+"a sync i o",
+3.84
+],
+[
+"a sync io",
+3.28
+]
+]
+},
+{
+"word": "AT Protocol",
+"risky": [
+[
+"at proto",
+3.23
+],
+[
+"at-proto",
+3.23
+]
+]
+},
+{
+"word": "atuin",
+"risky": [
+[
+"a to an",
+6.42
+],
+[
+"a tuin",
+1.33
+],
+[
+"a tune",
+4.27
+],
+[
+"at tuin",
+1.33
+]
+]
+},
+{
+"word": "AU",
+"risky": [
+[
+"i you",
+6.73
+]
+]
+},
+{
+"word": "AUR",
+"risky": [
+[
+"a you are",
+6.48
+]
+]
+},
+{
+"word": "Azure AI Search",
+"risky": [
+[
+"as your ai search",
+4.15
+]
+]
+},
+{
+"word": "backend",
+"risky": [
+[
+"back end",
+5.52
+],
+[
+"back-end",
+5.52
+]
+]
+},
+{
+"word": "Base UI",
+"risky": [
+[
+"base you i",
+5.04
+]
+]
+},
+{
+"word": "basename",
+"risky": [
+[
+"base name",
+4.94
+]
+]
+},
+{
+"word": "big-endian",
+"risky": [
+[
+"big indian",
+4.84
+]
+]
+},
+{
+"word": "bitwise",
+"risky": [
+[
+"bit wise",
+4.45
+]
+]
+},
+{
+"word": "bluebird",
+"risky": [
+[
+"blue bird",
+4.51
+]
+]
+},
+{
+"word": "Bookworm",
+"risky": [
+[
+"book worm",
+3.76
+]
+]
+},
+{
+"word": "Bootstrap Icons",
+"risky": [
+[
+"boot strap icons",
+3.39
+]
+]
+},
+{
+"word": "Browserify",
+"risky": [
+[
+"browser if i",
+3.89
+]
+]
+},
+{
+"word": "Browserslist",
+"risky": [
+[
+"browser list",
+3.87
+]
+]
+},
+{
+"word": "bunx",
+"risky": [
+[
+"bunks",
+2.63
+]
+]
+},
+{
+"word": "bzip2",
+"risky": [
+[
+"be zip two",
+3.87
+]
+]
+},
+{
+"word": "classList",
+"risky": [
+[
+"class list",
+5.02
+]
+]
+},
+{
+"word": "cloud-init",
+"risky": [
+[
+"cloud in it",
+4.46
+]
+]
+},
+{
+"word": "CODEOWNERS",
+"risky": [
+[
+"code owners",
+4.51
+]
+]
+},
+{
+"word": "codesign",
+"risky": [
+[
+"code sign",
+4.78
+]
+]
+},
+{
+"word": "Ctrl-D",
+"risky": [
+[
+"control d",
+5.13
+]
+]
+},
+{
+"word": "Ctrl-R",
+"risky": [
+[
+"control r",
+5.07
+]
+]
+},
+{
+"word": "Ctrl-Z",
+"risky": [
+[
+"control z",
+4.42
+]
+]
+},
+{
+"word": "De Morgan's laws",
+"risky": [
+[
+"the morgan's laws",
+3.07
+],
+[
+"to morgan's laws",
+3.07
+]
+]
+},
+{
+"word": "DSPy",
+"risky": [
+[
+"d as by",
+5.41
+],
+[
+"ds by",
+3.76
+]
+]
+},
+{
+"word": "edge runtime",
+"risky": [
+[
+"edge run time",
+4.66
+]
+]
+},
+{
+"word": "Elysia",
+"risky": [
+[
+"a leasia",
+0.0
+]
+]
+},
+{
+"word": "execa",
+"risky": [
+[
+"exec a",
+3.32
+]
+]
+},
+{
+"word": "EXIF",
+"risky": [
+[
+"ex if",
+4.8
+]
+]
+},
+{
+"word": "eza",
+"risky": [
+[
+"easa",
+2.1
+]
+]
+},
+{
+"word": "Fast Refresh",
+"risky": [
+[
+"save fast refresh",
+3.62
+]
+]
+},
+{
+"word": "finite-state machine",
+"risky": [
+[
+"finite state machine",
+3.72
+]
+]
+},
+{
+"word": "first-class function",
+"risky": [
+[
+"first class function",
+4.66
+]
+]
+},
+{
+"word": "Flatpak",
+"risky": [
+[
+"flat pack",
+4.39
+]
+]
+},
+{
+"word": "Flow",
+"risky": [
+[
+"safe low",
+4.88
+]
+]
+},
+{
+"word": "Fortran",
+"risky": [
+[
+"for tran",
+3.09
+]
+]
+},
+{
+"word": "Frame Generation",
+"risky": [
+[
+"save frame generation",
+4.31
+]
+]
+},
+{
+"word": "frontend",
+"risky": [
+[
+"front end",
+5.13
+],
+[
+"front-end",
+5.13
+]
+]
+},
+{
+"word": "GameObject",
+"risky": [
+[
+"game object",
+4.53
+]
+]
+},
+{
+"word": "getter",
+"risky": [
+[
+"get her",
+5.99
+]
+]
+},
+{
+"word": "git blame",
+"risky": [
+[
+"get blame",
+4.62
+]
+]
+},
+{
+"word": "git restore",
+"risky": [
+[
+"get restore",
+4.18
+]
+]
+},
+{
+"word": "git show",
+"risky": [
+[
+"get show",
+5.58
+]
+]
+},
+{
+"word": "git switch",
+"risky": [
+[
+"get switch",
+4.59
+]
+]
+},
+{
+"word": "git tag",
+"risky": [
+[
+"get tag",
+4.43
+]
+]
+},
+{
+"word": "Gitea",
+"risky": [
+[
+"gti",
+2.72
+]
+]
+},
+{
+"word": "gitflow",
+"risky": [
+[
+"get flow",
+4.67
+]
+]
+},
+{
+"word": "gofmt",
+"risky": [
+[
+"go format",
+4.46
+]
+]
+},
+{
+"word": "GoLand",
+"risky": [
+[
+"go land",
+5.16
+]
+]
+},
+{
+"word": "Haml",
+"risky": [
+[
+"hamel",
+2.47
+],
+[
+"hamill",
+2.89
+],
+[
+"hammel",
+2.19
+]
+]
+},
+{
+"word": "Handlebars",
+"risky": [
+[
+"handle bars",
+4.29
+]
+]
+},
+{
+"word": "Hardhat",
+"risky": [
+[
+"hard hat",
+4.49
+]
+]
+},
+{
+"word": "HomeKit",
+"risky": [
+[
+"home kit",
+4.4
+]
+]
+},
+{
+"word": "Hotwire",
+"risky": [
+[
+"hot wire",
+4.36
+]
+]
+},
+{
+"word": "i3",
+"risky": [
+[
+"i three",
+5.76
+]
+]
+},
+{
+"word": "iconv-lite",
+"risky": [
+[
+"i conv lite",
+2.36
+]
+]
+},
+{
+"word": "IEEE 754",
+"risky": [
+[
+"i triple e 754",
+2.99
+],
+[
+"i triple e seven fifty four",
+3.93
+],
+[
+"i triple e seven five four",
+4.16
+]
+]
+},
+{
+"word": "IIFE",
+"risky": [
+[
+"if ye",
+4.25
+]
+]
+},
+{
+"word": "IMAP",
+"risky": [
+[
+"i map",
+4.76
+]
+]
+},
+{
+"word": "init",
+"risky": [
+[
+"in' it",
+6.78
+]
+]
+},
+{
+"word": "Intl",
+"risky": [
+[
+"in tull",
+2.52
+]
+]
+},
+{
+"word": "io_uring",
+"risky": [
+[
+"i owe you ring",
+4.05
+]
+]
+},
+{
+"word": "IPython",
+"risky": [
+[
+"i python",
+3.78
+]
+]
+},
+{
+"word": "IRC",
+"risky": [
+[
+"i or c",
+5.3
+]
+]
+},
+{
+"word": "isNaN",
+"risky": [
+[
+"is nan",
+3.49
+]
+]
+},
+{
+"word": "isort",
+"risky": [
+[
+"i sort",
+5.0
+]
+]
+},
+{
+"word": "JUnit",
+"risky": [
+[
+"j in it",
+4.99
+]
+]
+},
+{
+"word": "Linux kernel",
+"risky": [
+[
+"linux colonel",
+3.85
+]
+]
+},
+{
+"word": "Lit",
+"risky": [
+[
+"sail it",
+4.01
+]
+]
+},
+{
+"word": "Lua",
+"risky": [
+[
+"loo a",
+3.3
+]
+]
+},
+{
+"word": "Luxon",
+"risky": [
+[
+"lux on",
+3.33
+]
+]
+},
+{
+"word": "M4A",
+"risky": [
+[
+"em for a",
+4.57
+],
+[
+"him for a",
+6.04
+],
+[
+"m four a",
+5.15
+],
+[
+"m4 a",
+3.25
+]
+]
+},
+{
+"word": "Magit",
+"risky": [
+[
+"maj it",
+3.41
+]
+]
+},
+{
+"word": "markdown-it",
+"risky": [
+[
+"mark down it",
+4.99
+],
+[
+"markdown it",
+2.4
+]
+]
+},
+{
+"word": "Miniconda",
+"risky": [
+[
+"mini condo",
+3.57
+]
+]
+},
+{
+"word": "mise",
+"risky": [
+[
+"me's",
+2.39
+]
+]
+},
+{
+"word": "mysql2",
+"risky": [
+[
+"my sequel two",
+3.98
+],
+[
+"my sql 2",
+3.38
+]
+]
+},
+{
+"word": "NativeScript",
+"risky": [
+[
+"native script",
+4.19
+]
+]
+},
+{
+"word": "NCCL",
+"risky": [
+[
+"nickle",
+2.23
+]
+]
+},
+{
+"word": "Netty",
+"risky": [
+[
+"nettie",
+2.48
+]
+]
+},
+{
+"word": "node-gyp",
+"risky": [
+[
+"no jip",
+2.02
+]
+]
+},
+{
+"word": "nose2",
+"risky": [
+[
+"no's to",
+2.3
+]
+]
+},
+{
+"word": "Nunjucks",
+"risky": [
+[
+"nunchucks",
+2.04
+]
+]
+},
+{
+"word": "OneSignal",
+"risky": [
+[
+"one signal",
+4.61
+]
+]
+},
+{
+"word": "Optuna",
+"risky": [
+[
+"up tuna",
+3.64
+],
+[
+"up tuner",
+2.91
+]
+]
+},
+{
+"word": "orjson",
+"risky": [
+[
+"or json",
+2.75
+]
+]
+},
+{
+"word": "pacman",
+"risky": [
+[
+"pac man",
+3.92
+],
+[
+"pac-man",
+3.92
+],
+[
+"pack man",
+4.63
+]
+]
+},
+{
+"word": "Phoenix LiveView",
+"risky": [
+[
+"phoenix live you",
+4.19
+]
+]
+},
+{
+"word": "RAII",
+"risky": [
+[
+"r a double i",
+4.84
+],
+[
+"rai i",
+3.25
+]
+]
+},
+{
+"word": "Retool",
+"risky": [
+[
+"re tool",
+4.48
+]
+]
+},
+{
+"word": "RSpec",
+"risky": [
+[
+"are spec",
+3.59
+]
+]
+},
+{
+"word": "RuboCop",
+"risky": [
+[
+"robocop",
+2.82
+]
+]
+},
+{
+"word": "rustup",
+"risky": [
+[
+"rust up",
+3.74
+]
+]
+},
+{
+"word": "setuptools",
+"risky": [
+[
+"setup tools",
+3.97
+]
+]
+},
+{
+"word": "Sinon.js",
+"risky": [
+[
+"sinon",
+2.0
+]
+]
+},
+{
+"word": "SpiderMonkey",
+"risky": [
+[
+"spider monkey",
+3.85
+]
+]
+},
+{
+"word": "SUSE",
+"risky": [
+[
+"sousa",
+2.77
+]
+]
+},
+{
+"word": "tsup",
+"risky": [
+[
+"t us up",
+5.3
+],
+[
+"tea us up",
+4.7
+],
+[
+"tee ess up",
+2.78
+],
+[
+"ts up",
+3.67
+]
+]
+},
+{
+"word": "udev",
+"risky": [
+[
+"you dev",
+3.76
+]
+]
+},
+{
+"word": "undici",
+"risky": [
+[
+"on dichi",
+0.0
+]
+]
+},
+{
+"word": "urllib3",
+"risky": [
+[
+"you are a lib three",
+3.75
+],
+[
+"you are lib 3",
+3.75
+],
+[
+"you are lib3",
+0.0
+]
+]
+},
+{
+"word": "vanilla-extract",
+"risky": [
+[
+"vanilla extract",
+3.62
+]
+]
+},
+{
+"word": "View Transitions",
+"risky": [
+[
+"save you transitions",
+3.58
+]
+]
+},
+{
+"word": "Vue 3",
+"risky": [
+[
+"view three",
+5.09
+]
+]
+},
+{
+"word": "WebXR",
+"risky": [
+[
+"web ex are",
+4.47
+]
+]
+},
+{
+"word": "Workbox",
+"risky": [
+[
+"work box",
+4.99
+]
+]
+},
+{
+"word": "APNG",
+"risky": [
+[
+"a png",
+3.36
+],
+[
+"a-png",
+3.36
+]
+]
+},
+{
+"word": "10-K",
+"risky": [
+[
+"10k",
+2.9
+]
+]
+},
+{
+"word": "10-Q",
+"risky": [
+[
+"ten q",
+4.44
+]
+]
+},
+{
+"word": "409A",
+"risky": [
+[
+"four o nine a",
+4.62
+]
+]
+},
+{
+"word": "accrual",
+"risky": [
+[
+"a cruel",
+4.12
+]
+]
+},
+{
+"word": "burn rate",
+"risky": [
+[
+"burn raid",
+4.03
+]
+]
+},
+{
+"word": "FP&A",
+"risky": [
+[
+"f p and a",
+4.8
+],
+[
+"fp and a",
+3.17
+]
+]
+},
+{
+"word": "HIPAA",
+"risky": [
+[
+"hip a",
+4.46
+]
+]
+},
+{
+"word": "IBAN",
+"risky": [
+[
+"i ban",
+4.55
+],
+[
+"i been",
+6.21
+],
+[
+"i ben",
+4.69
+]
+]
+},
+{
+"word": "IC",
+"risky": [
+[
+"i see",
+6.06
+]
+]
+},
+{
+"word": "ISO",
+"risky": [
+[
+"eye so",
+5.01
+],
+[
+"i so",
+6.42
+]
+]
+},
+{
+"word": "ISO 27001",
+"risky": [
+[
+"i so 27001",
+0.11
+]
+]
+},
+{
+"word": "Klarna Pay in 4",
+"risky": [
+[
+"klarna pay in for",
+1.57
+]
+]
+},
+{
+"word": "on-chain",
+"risky": [
+[
+"on chain",
+4.65
+]
+]
+},
+{
+"word": "pro rata",
+"risky": [
+[
+"pro rate a",
+4.73
+]
+]
+},
+{
+"word": "ROAS",
+"risky": [
+[
+"ro as",
+3.62
+]
+]
+},
+{
+"word": "run rate",
+"risky": [
+[
+"run-rate",
+4.98
+]
+]
+},
+{
+"word": "SAFE",
+"risky": [
+[
+"stay safe",
+4.88
+]
+]
+},
+{
+"word": "Solana",
+"risky": [
+[
+"so lana",
+3.63
+]
+]
+},
+{
+"word": "valuation cap",
+"risky": [
+[
+"save valuation cap",
+3.67
+]
+]
+},
+{
+"word": "8-K",
+"risky": [
+[
+"8k",
+2.89
+]
+]
+},
+{
+"word": "accrue",
+"risky": [
+[
+"a crew",
+4.7
+]
+]
+},
+{
+"word": "Atomico",
+"risky": [
+[
+"a tomico",
+0.0
+]
+]
+},
+{
+"word": "blue-chip",
+"risky": [
+[
+"blue chip",
+4.25
+]
+]
+},
+{
+"word": "Chainalysis",
+"risky": [
+[
+"chain analysis",
+4.46
+]
+]
+},
+{
+"word": "Chapter 7",
+"risky": [
+[
+"chapter seven",
+4.51
+]
+]
+},
+{
+"word": "cold storage",
+"risky": [
+[
+"sake cold storage",
+4.12
+]
+]
+},
+{
+"word": "EigenLayer",
+"risky": [
+[
+"i gen layer",
+4.06
+]
+]
+},
+{
+"word": "fiat",
+"risky": [
+[
+"safe yet",
+4.94
+]
+]
+},
+{
+"word": "follow-on",
+"risky": [
+[
+"follow on",
+5.13
+]
+]
+},
+{
+"word": "forex",
+"risky": [
+[
+"for ex",
+4.81
+]
+]
+},
+{
+"word": "front-running",
+"risky": [
+[
+"save front running",
+4.74
+]
+]
+},
+{
+"word": "GameStop",
+"risky": [
+[
+"game stop",
+5.31
+]
+]
+},
+{
+"word": "ICONIQ Growth",
+"risky": [
+[
+"iconic growth",
+4.08
+]
+]
+},
+{
+"word": "IMC Trading",
+"risky": [
+[
+"i am sea trading",
+4.47
+]
+]
+},
+{
+"word": "IMF",
+"risky": [
+[
+"i am f",
+5.0
+]
+]
+},
+{
+"word": "Invesco",
+"risky": [
+[
+"in vesco",
+1.44
+],
+[
+"in vesko",
+1.04
+]
+]
+},
+{
+"word": "Nifty 50",
+"risky": [
+[
+"nifty fifty",
+3.14
+]
+]
+},
+{
+"word": "Nikkei",
+"risky": [
+[
+"nick a",
+4.59
+]
+]
+},
+{
+"word": "Nordea",
+"risky": [
+[
+"nor day a",
+4.75
+]
+]
+},
+{
+"word": "SG&A",
+"risky": [
+[
+"s g and a",
+4.94
+],
+[
+"sg and a",
+3.54
+]
+]
+},
+{
+"word": "Ualá",
+"risky": [
+[
+"wala",
+2.53
+],
+[
+"walla",
+2.92
+]
+]
+},
+{
+"word": "UTXO",
+"risky": [
+[
+"you tex oh",
+3.51
+]
+]
+},
+{
+"word": ".py",
+"risky": [
+[
+"dot pi",
+3.68
+],
+[
+"dot pie",
+3.81
+]
+]
+},
+{
+"word": "ICANN",
+"risky": [
+[
+"i can",
+6.37
+]
+]
+},
+{
+"word": "+1",
+"risky": [
+[
+"plus one",
+4.94
+]
+]
+},
+{
+"word": ".app",
+"risky": [
+[
+"dot app",
+3.99
+]
+]
+},
+{
+"word": "ad infinitum",
+"risky": [
+[
+"at infinitum",
+2.48
+]
+]
+},
+{
+"word": "ADAS",
+"risky": [
+[
+"a das",
+3.73
+]
+]
+},
+{
+"word": "e.g.",
+"risky": [
+[
+"eg",
+3.62
+]
+]
+},
+{
+"word": "enshittification",
+"risky": [
+[
+"and shittification",
+0.0
+]
+]
+},
+{
+"word": "et al.",
+"risky": [
+[
+"it al",
+5.15
+]
+]
+},
+{
+"word": "ex ante",
+"risky": [
+[
+"ex-ante",
+3.32
+]
+]
+},
+{
+"word": "ICYMI",
+"risky": [
+[
+"i see why am i",
+5.42
+]
+]
+},
+{
+"word": "IYKYK",
+"risky": [
+[
+"i waike wake",
+0.0
+]
+]
+},
+{
+"word": "Haifa",
+"risky": [
+[
+"hi for",
+5.0
+]
+]
+},
+{
+"word": "IANA",
+"risky": [
+[
+"i ana",
+3.89
+]
+]
+},
+{
+"word": "N3E",
+"risky": [
+[
+"in 3e",
+2.59
+],
+[
+"in three e",
+5.16
+]
+]
+},
+{
+"word": "NACS",
+"risky": [
+[
+"knacks",
+2.27
+]
+]
+},
+{
+"word": "São Paulo",
+"risky": [
+[
+"sao paulo",
+3.22
+]
+]
+},
+{
+"word": "4G",
+"risky": [
+[
+"four g",
+4.89
+]
+]
+},
+{
+"word": "5G",
+"risky": [
+[
+"five g",
+4.87
+]
+]
+},
+{
+"word": "A100",
+"risky": [
+[
+"a one hundred",
+4.7
+]
+]
+},
+{
+"word": "A18 Pro",
+"risky": [
+[
+"a eighteen pro",
+3.78
+]
+]
+},
+{
+"word": "Arduino",
+"risky": [
+[
+"are do we no",
+5.87
+]
+]
+},
+{
+"word": "ASUS",
+"risky": [
+[
+"a seuss",
+2.83
+],
+[
+"a soos",
+2.05
+]
+]
+},
+{
+"word": "Blackwell",
+"risky": [
+[
+"black well",
+5.36
+]
+]
+},
+{
+"word": "CoWoS",
+"risky": [
+[
+"co was",
+5.2
+]
+]
+},
+{
+"word": "Gaudi",
+"risky": [
+[
+"gowdy",
+2.59
+]
+]
+},
+{
+"word": "Inferentia",
+"risky": [
+[
+"in ferentia",
+0.0
+]
+]
+},
+{
+"word": "ISA",
+"risky": [
+[
+"i assay",
+3.28
+],
+[
+"i essay",
+4.23
+]
+]
+},
+{
+"word": "Kirin",
+"risky": [
+[
+"kiran",
+2.77
+]
+]
+},
+{
+"word": "Raspberry Pi",
+"risky": [
+[
+"raspberry pie",
+3.42
+]
+]
+},
+{
+"word": "RISC-V",
+"risky": [
+[
+"risk five",
+4.9
+]
+]
+},
+{
+"word": "SATA",
+"risky": [
+[
+"seda",
+2.07
+]
+]
+},
+{
+"word": "Wi-Fi",
+"risky": [
+[
+"wifi",
+3.94
+]
+]
+},
+{
+"word": "Xeon",
+"risky": [
+[
+"zee on",
+3.16
+]
+]
+},
+{
+"word": "AArch64",
+"risky": [
+[
+"a arch 64",
+3.93
+],
+[
+"a arch sixty four",
+3.67
+],
+[
+"a arch64",
+0.0
+]
+]
+},
+{
+"word": "ALU",
+"risky": [
+[
+"ail you",
+2.26
+]
+]
+},
+{
+"word": "AM5",
+"risky": [
+[
+"a m five",
+5.11
+]
+]
+},
+{
+"word": "ANC",
+"risky": [
+[
+"a and c",
+5.32
+]
+]
+},
+{
+"word": "Ansys",
+"risky": [
+[
+"an sis",
+3.63
+]
+]
+},
+{
+"word": "Arista Networks",
+"risky": [
+[
+"a rista networks",
+1.1
+]
+]
+},
+{
+"word": "Biren",
+"risky": [
+[
+"be ren",
+3.46
+]
+]
+},
+{
+"word": "Espressif",
+"risky": [
+[
+"espress if",
+0.0
+],
+[
+"express if",
+4.67
+]
+]
+},
+{
+"word": "Framework",
+"risky": [
+[
+"save framework",
+4.23
+]
+]
+},
+{
+"word": "iGPU",
+"risky": [
+[
+"i gpu",
+3.22
+]
+]
+},
+{
+"word": "IMEI",
+"risky": [
+[
+"i am ei",
+3.16
+]
+]
+},
+{
+"word": "Infineon",
+"risky": [
+[
+"infini on",
+1.62
+],
+[
+"infiny on",
+0.0
+]
+]
+},
+{
+"word": "iSCSI",
+"risky": [
+[
+"i scsi",
+2.59
+],
+[
+"i scuzzy",
+1.8
+]
+]
+},
+{
+"word": "Microchip Technology",
+"risky": [
+[
+"micro chip technology",
+3.85
+]
+]
+},
+{
+"word": "MIMO",
+"risky": [
+[
+"my mo",
+4.38
+]
+]
+},
+{
+"word": "mmWave",
+"risky": [
+[
+"millimeter wave",
+3.12
+],
+[
+"millimetre wave",
+2.6
+]
+]
+},
+{
+"word": "Netgear",
+"risky": [
+[
+"net gear",
+4.28
+]
+]
+},
+{
+"word": "Nordic Semiconductor",
+"risky": [
+[
+"nordic semi",
+3.48
+]
+]
+},
+{
+"word": "Ohm's law",
+"risky": [
+[
+"ohm law",
+3.01
+]
+]
+},
+{
+"word": "Omron",
+"risky": [
+[
+"omran",
+2.16
+]
+]
+},
+{
+"word": "ROG Ally",
+"risky": [
+[
+"rogue ally",
+3.68
+]
+]
+},
+{
+"word": "Texas Instruments",
+"risky": [
+[
+"texas instrument",
+4.17
+]
+]
+},
+{
+"word": "UBTech",
+"risky": [
+[
+"you be tech",
+4.68
+]
+]
+},
+{
+"word": "USB-A",
+"risky": [
+[
+"usb a",
+3.98
+]
+]
+},
+{
+"word": "Wii U",
+"risky": [
+[
+"wee you",
+3.87
+],
+[
+"wii you",
+3.68
+]
+]
+},
+{
+"word": "9to5Mac",
+"risky": [
+[
+"nine to five mac",
+4.28
+]
+]
+},
+{
+"word": "CNET",
+"risky": [
+[
+"see net",
+4.74
+]
+]
+},
+{
+"word": "Daring Fireball",
+"risky": [
+[
+"daring fire ball",
+3.67
+]
+]
+},
+{
+"word": "Engadget",
+"risky": [
+[
+"engadge it",
+0.0
+],
+[
+"in gadget",
+3.45
+]
+]
+},
+{
+"word": "Godot",
+"risky": [
+[
+"go dot",
+4.05
+],
+[
+"gato",
+2.48
+],
+[
+"gatto",
+2.25
+]
+]
+},
+{
+"word": "PlayStation",
+"risky": [
+[
+"play station",
+4.91
+]
+]
+},
+{
+"word": "Reddit",
+"risky": [
+[
+"red it",
+5.31
+]
+]
+},
+{
+"word": "Sonos",
+"risky": [
+[
+"so nos",
+3.52
+]
+]
+},
+{
+"word": "Ubisoft",
+"risky": [
+[
+"you be soft",
+4.67
+]
+]
+},
+{
+"word": "Valve",
+"risky": [
+[
+"save valve",
+4.09
+]
+]
+},
+{
+"word": "YouTube",
+"risky": [
+[
+"you tube",
+4.36
+]
+]
+},
+{
+"word": "YouTube Shorts",
+"risky": [
+[
+"you tube shorts",
+3.89
+]
+]
+},
+{
+"word": "AnandTech",
+"risky": [
+[
+"an and tech",
+4.68
+]
+]
+},
+{
+"word": "binaural",
+"risky": [
+[
+"by naural",
+0.0
+]
+]
+},
+{
+"word": "Bloodborne",
+"risky": [
+[
+"blood borne",
+3.65
+]
+]
+},
+{
+"word": "Counter-Strike",
+"risky": [
+[
+"counter strike",
+4.31
+]
+]
+},
+{
+"word": "HN",
+"risky": [
+[
+"a chan",
+4.0
+],
+[
+"a chin",
+4.0
+]
+]
+},
+{
+"word": "iZotope",
+"risky": [
+[
+"i zotope",
+0.0
+]
+]
+},
+{
+"word": "Krafton",
+"risky": [
+[
+"kraft on",
+3.38
+]
+]
+},
+{
+"word": "Nexon",
+"risky": [
+[
+"nex on",
+2.66
+]
+]
+},
+{
+"word": "PDF/A",
+"risky": [
+[
+"pdf a",
+3.84
+],
+[
+"pdf slash a",
+3.43
+]
+]
+},
+{
+"word": "Recode",
+"risky": [
+[
+"re/code",
+4.85
+]
+]
+},
+{
+"word": "RedNote",
+"risky": [
+[
+"red note",
+4.86
+]
+]
+},
+{
+"word": "The Mythical Man-Month",
+"risky": [
+[
+"the mythical man month",
+3.43
+]
+]
+},
+{
+"word": "The Witcher",
+"risky": [
+[
+"the wicher",
+1.11
+],
+[
+"the witch er",
+3.87
+]
+]
+},
+{
+"word": "Alexandr Wang",
+"risky": [
+[
+"alexander wang",
+3.82
+],
+[
+"alexander wong",
+3.6
+]
+]
+},
+{
+"word": "Dijkstra",
+"risky": [
+[
+"dykstra",
+2.22
+]
+]
+},
+{
+"word": "Emad Mostaque",
+"risky": [
+[
+"a mod must talk",
+3.89
+]
+]
+},
+{
+"word": "Frank Gehry",
+"risky": [
+[
+"frank gary",
+4.23
+],
+[
+"frank gerry",
+3.59
+]
+]
+},
+{
+"word": "Frank Lloyd Wright",
+"risky": [
+[
+"frank lloyd right",
+3.95
+],
+[
+"frank lloyd write",
+3.92
+]
+]
+},
+{
+"word": "Garry Tan",
+"risky": [
+[
+"gary tan",
+3.86
+]
+]
+},
+{
+"word": "Ivan Zhao",
+"risky": [
+[
+"ivan chow",
+3.29
+],
+[
+"ivan zhou",
+3.26
+]
+]
+},
+{
+"word": "Jack Ma",
+"risky": [
+[
+"jack mah",
+3.23
+]
+]
+},
+{
+"word": "Jakob Nielsen",
+"risky": [
+[
+"jacob nielsen",
+3.37
+]
+]
+},
+{
+"word": "Julie Zhuo",
+"risky": [
+[
+"julie zhou",
+3.3
+]
+]
+},
+{
+"word": "Paul Rand",
+"risky": [
+[
+"saint paul ran",
+4.21
+],
+[
+"se paul rand",
+3.68
+]
+]
+},
+{
+"word": "Aaron Levie",
+"risky": [
+[
+"aaron levy",
+3.7
+]
+]
+},
+{
+"word": "Aaron Swartz",
+"risky": [
+[
+"aaron schwartz",
+3.43
+]
+]
+},
+{
+"word": "Adam Neumann",
+"risky": [
+[
+"adam newman",
+3.76
+]
+]
+},
+{
+"word": "Amanda Askell",
+"risky": [
+[
+"amanda haskell",
+3.19
+]
+]
+},
+{
+"word": "Casey Neistat",
+"risky": [
+[
+"casey nice at",
+3.94
+]
+]
+},
+{
+"word": "Do Kwon",
+"risky": [
+[
+"do kwan",
+2.91
+],
+[
+"do quan",
+2.97
+]
+]
+},
+{
+"word": "Douglas Crockford",
+"risky": [
+[
+"douglas crawford",
+3.69
+]
+]
+},
+{
+"word": "Eddie Wu",
+"risky": [
+[
+"eddie woo",
+3.68
+]
+]
+},
+{
+"word": "Eric Ries",
+"risky": [
+[
+"eric reece",
+3.12
+],
+[
+"eric rees",
+3.23
+],
+[
+"eric reese",
+3.45
+]
+]
+},
+{
+"word": "Eric Yuan",
+"risky": [
+[
+"eric you an",
+4.48
+]
+]
+},
+{
+"word": "Ethan Mollick",
+"risky": [
+[
+"ethan malik",
+3.36
+]
+]
+},
+{
+"word": "Gavin Wood",
+"risky": [
+[
+"gavin would",
+3.74
+]
+]
+},
+{
+"word": "Geoffrey Moore",
+"risky": [
+[
+"jeffrey moore",
+3.75
+]
+]
+},
+{
+"word": "I. M. Pei",
+"risky": [
+[
+"i am pay",
+5.24
+]
+]
+},
+{
+"word": "iJustine",
+"risky": [
+[
+"i justine",
+3.22
+]
+]
+},
+{
+"word": "Ilkka Paananen",
+"risky": [
+[
+"ilk upon an and",
+2.91
+]
+]
+},
+{
+"word": "Inmon",
+"risky": [
+[
+"in mon",
+3.86
+],
+[
+"inman",
+2.72
+]
+]
+},
+{
+"word": "Isamu Noguchi",
+"risky": [
+[
+"i samunoguchi",
+0.0
+]
+]
+},
+{
+"word": "Jeff Huber",
+"risky": [
+[
+"jeff hooper",
+3.3
+]
+]
+},
+{
+"word": "Jim Simons",
+"risky": [
+[
+"jim simmons",
+3.72
+]
+]
+},
+{
+"word": "Katherine Adams",
+"risky": [
+[
+"catherine adams",
+3.87
+]
+]
+},
+{
+"word": "Kaz Hirai",
+"risky": [
+[
+"kaz here i",
+2.72
+]
+]
+},
+{
+"word": "Kent Beck",
+"risky": [
+[
+"kent back",
+4.16
+]
+]
+},
+{
+"word": "Laplace",
+"risky": [
+[
+"la place",
+4.96
+]
+]
+},
+{
+"word": "Lee Robinson",
+"risky": [
+[
+"sale robinson",
+4.14
+]
+]
+},
+{
+"word": "Mark Chen",
+"risky": [
+[
+"mark chin",
+3.96
+]
+]
+},
+{
+"word": "N. Chandrasekaran",
+"risky": [
+[
+"in chandrasekharan",
+1.05
+]
+]
+},
+{
+"word": "Nilay Patel",
+"risky": [
+[
+"nil patel",
+3.1
+]
+]
+},
+{
+"word": "Robin Li",
+"risky": [
+[
+"robin lee",
+4.18
+]
+]
+},
+{
+"word": "Ruth Porat",
+"risky": [
+[
+"ruth por at",
+3.39
+],
+[
+"ruth pour it",
+3.77
+]
+]
+},
+{
+"word": "Sarah Guo",
+"risky": [
+[
+"sarah go",
+4.47
+]
+]
+},
+{
+"word": "Sou Fujimoto",
+"risky": [
+[
+"so fujimoto",
+2.15
+]
+]
+},
+{
+"word": "Susan Kare",
+"risky": [
+[
+"susan kerr",
+3.54
+]
+]
+},
+{
+"word": "Tadao Ando",
+"risky": [
+[
+"tadao on to",
+1.83
+]
+]
+},
+{
+"word": "ThePrimeagen",
+"risky": [
+[
+"the primagen",
+0.0
+],
+[
+"the prime agen",
+2.46
+],
+[
+"the primeagen",
+0.0
+],
+[
+"the primogen",
+0.0
+]
+]
+},
+{
+"word": "Ugur Sahin",
+"risky": [
+[
+"or shaheen",
+2.64
+]
+]
+},
+{
+"word": "Vlad Tenev",
+"risky": [
+[
+"save lad ten of",
+3.85
+],
+[
+"vlad ten of",
+3.21
+]
+]
+},
+{
+"word": "Yves Béhar",
+"risky": [
+[
+"eve bay are",
+4.18
+]
+]
+},
+{
+"word": "Jerry Liu",
+"risky": [
+[
+"jerry lew",
+3.23
+],
+[
+"jerry lu",
+3.55
+]
+]
+},
+{
+"word": "Aha!",
+"risky": [
+[
+"a hargen",
+0.0
+]
+]
+},
+{
+"word": "AlphaGo",
+"risky": [
+[
+"alpha go",
+4.24
+]
+]
+},
+{
+"word": "Amazon Q",
+"risky": [
+[
+"amazon queue",
+3.71
+]
+]
+},
+{
+"word": "Atlassian Design System",
+"risky": [
+[
+"at lassian design system",
+0.0
+]
+]
+},
+{
+"word": "Claude Code",
+"risky": [
+[
+"cloud code",
+4.37
+]
+]
+},
+{
+"word": "Claude Haiku",
+"risky": [
+[
+"cloud haiku",
+3.06
+]
+]
+},
+{
+"word": "Claude Sonnet",
+"risky": [
+[
+"cloud sonnet",
+2.95
+]
+]
+},
+{
+"word": "Command R",
+"risky": [
+[
+"command are",
+4.7
+]
+]
+},
+{
+"word": "Copilot",
+"risky": [
+[
+"co pilot",
+4.44
+],
+[
+"co-pilot",
+4.44
+]
+]
+},
+{
+"word": "Doubao",
+"risky": [
+[
+"do bao",
+3.13
+]
+]
+},
+{
+"word": "Firefly",
+"risky": [
+[
+"fire fly",
+4.64
+]
+]
+},
+{
+"word": "GarageBand",
+"risky": [
+[
+"garage band",
+4.17
+]
+]
+},
+{
+"word": "GoTo Meeting",
+"risky": [
+[
+"go to meeting",
+5.09
+]
+]
+},
+{
+"word": "Handoff",
+"risky": [
+[
+"hand off",
+5.29
+]
+]
+},
+{
+"word": "HealthKit",
+"risky": [
+[
+"health kit",
+4.38
+]
+]
+},
+{
+"word": "Hunyuan",
+"risky": [
+[
+"han yuan",
+3.5
+]
+]
+},
+{
+"word": "iCloud",
+"risky": [
+[
+"i cloud",
+4.46
+]
+]
+},
+{
+"word": "iCloud Drive",
+"risky": [
+[
+"i cloud drive",
+4.37
+]
+]
+},
+{
+"word": "iMac",
+"risky": [
+[
+"i mac",
+4.45
+]
+]
+},
+{
+"word": "IMDb",
+"risky": [
+[
+"i am d b",
+5.01
+],
+[
+"i am db",
+3.77
+]
+]
+},
+{
+"word": "iMessage",
+"risky": [
+[
+"i message",
+5.0
+]
+]
+},
+{
+"word": "iMovie",
+"risky": [
+[
+"i movie",
+5.16
+]
+]
+},
+{
+"word": "iPad",
+"risky": [
+[
+"i pad",
+4.01
+]
+]
+},
+{
+"word": "iPad Air",
+"risky": [
+[
+"i pad air",
+3.99
+]
+]
+},
+{
+"word": "iPad mini",
+"risky": [
+[
+"i pad mini",
+3.87
+]
+]
+},
+{
+"word": "iPad Pro",
+"risky": [
+[
+"i pad pro",
+3.96
+]
+]
+},
+{
+"word": "iPadOS",
+"risky": [
+[
+"i pad os",
+3.75
+]
+]
+},
+{
+"word": "iPhone",
+"risky": [
+[
+"i phone",
+5.29
+]
+]
+},
+{
+"word": "iPhone 17",
+"risky": [
+[
+"i phone 17",
+5.0
+],
+[
+"i phone seventeen",
+3.85
+]
+]
+},
+{
+"word": "iPhone 17 Pro",
+"risky": [
+[
+"i phone 17 pro",
+4.67
+]
+]
+},
+{
+"word": "iPod touch",
+"risky": [
+[
+"i pod touch",
+3.68
+]
+]
+},
+{
+"word": "iTunes",
+"risky": [
+[
+"i tunes",
+3.82
+]
+]
+},
+{
+"word": "Jetpack",
+"risky": [
+[
+"jet pack",
+4.14
+]
+]
+},
+{
+"word": "Launchpad",
+"risky": [
+[
+"launch pad",
+3.93
+]
+]
+},
+{
+"word": "Llama 2",
+"risky": [
+[
+"lama to",
+3.48
+]
+]
+},
+{
+"word": "Llama 4",
+"risky": [
+[
+"llama for",
+2.95
+]
+]
+},
+{
+"word": "Material 3",
+"risky": [
+[
+"material three",
+4.89
+]
+]
+},
+{
+"word": "Material Design",
+"risky": [
+[
+"same material design",
+4.71
+]
+]
+},
+{
+"word": "Microsoft To Do",
+"risky": [
+[
+"microsoft to-do",
+4.36
+]
+]
+},
+{
+"word": "Neuralink",
+"risky": [
+[
+"neural link",
+3.73
+]
+]
+},
+{
+"word": "NextUI",
+"risky": [
+[
+"next you i",
+5.66
+]
+]
+},
+{
+"word": "o1",
+"risky": [
+[
+"oh one",
+5.39
+]
+]
+},
+{
+"word": "o3",
+"risky": [
+[
+"oh three",
+5.27
+]
+]
+},
+{
+"word": "OneDrive",
+"risky": [
+[
+"one drive",
+5.11
+]
+]
+},
+{
+"word": "Pokémon",
+"risky": [
+[
+"pokemon",
+4.06
+]
+]
+},
+{
+"word": "PowerPoint",
+"risky": [
+[
+"power point",
+5.23
+]
+]
+},
+{
+"word": "Prisma",
+"risky": [
+[
+"prism a",
+3.44
+]
+]
+},
+{
+"word": "SharePoint",
+"risky": [
+[
+"share point",
+5.04
+]
+]
+},
+{
+"word": "UIKit",
+"risky": [
+[
+"you eye kit",
+4.32
+]
+]
+},
+{
+"word": "Untitled UI",
+"risky": [
+[
+"untitled you i",
+3.23
+]
+]
+},
+{
+"word": "Whole Foods",
+"risky": [
+[
+"hole foods",
+4.22
+],
+[
+"whole food",
+5.13
+]
+]
+},
+{
+"word": "YouTube Music",
+"risky": [
+[
+"you tube music",
+4.33
+]
+]
+},
+{
+"word": "YouTube TV",
+"risky": [
+[
+"you tube tv",
+4.3
+]
+]
+},
+{
+"word": "Zelle",
+"risky": [
+[
+"zell",
+2.4
+]
+]
+},
+{
+"word": "A16",
+"risky": [
+[
+"a sixteen",
+3.95
+]
+]
+},
+{
+"word": "A17 Pro",
+"risky": [
+[
+"a seventeen pro",
+3.83
+]
+]
+},
+{
+"word": "A18",
+"risky": [
+[
+"a eighteen",
+3.81
+]
+]
+},
+{
+"word": "A19",
+"risky": [
+[
+"a nineteen",
+3.59
+]
+]
+},
+{
+"word": "A19 Pro",
+"risky": [
+[
+"a nineteen pro",
+3.57
+]
+]
+},
+{
+"word": "AB Tasty",
+"risky": [
+[
+"a be tasty",
+3.84
+]
+]
+},
+{
+"word": "AdMob",
+"risky": [
+[
+"ad mob",
+3.96
+]
+]
+},
+{
+"word": "Adreno",
+"risky": [
+[
+"a dreno",
+0.0
+]
+]
+},
+{
+"word": "Airfocus",
+"risky": [
+[
+"air focus",
+4.85
+]
+]
+},
+{
+"word": "Alpaca",
+"risky": [
+[
+"i'll pack her",
+4.58
+],
+[
+"sail packer",
+3.19
+]
+]
+},
+{
+"word": "AndroidX",
+"risky": [
+[
+"android ex",
+4.27
+],
+[
+"android x",
+4.35
+]
+]
+},
+{
+"word": "App Intents",
+"risky": [
+[
+"app intent",
+4.18
+]
+]
+},
+{
+"word": "Apple Foundation Models",
+"risky": [
+[
+"apple foundation model",
+4.39
+]
+]
+},
+{
+"word": "Are.na",
+"risky": [
+[
+"are dot na",
+3.89
+],
+[
+"are na",
+4.42
+]
+]
+},
+{
+"word": "Authy",
+"risky": [
+[
+"auth e",
+2.95
+]
+]
+},
+{
+"word": "Auto Layout",
+"risky": [
+[
+"auto lay out",
+4.25
+]
+]
+},
+{
+"word": "Cocoa Touch",
+"risky": [
+[
+"coco touch",
+3.47
+]
+]
+},
+{
+"word": "ComfyUI",
+"risky": [
+[
+"comfy you i",
+3.63
+]
+]
+},
+{
+"word": "Cortex-A",
+"risky": [
+[
+"cortex a",
+3.59
+]
+]
+},
+{
+"word": "daisyUI",
+"risky": [
+[
+"daisy you i",
+3.78
+]
+]
+},
+{
+"word": "Dev.to",
+"risky": [
+[
+"dev dot to",
+3.58
+],
+[
+"dev.2",
+3.76
+]
+]
+},
+{
+"word": "Erika Hall",
+"risky": [
+[
+"erica hall",
+3.54
+]
+]
+},
+{
+"word": "Fluent UI",
+"risky": [
+[
+"fluent you i",
+3.52
+]
+]
+},
+{
+"word": "Fotor",
+"risky": [
+[
+"fodor",
+2.12
+]
+]
+},
+{
+"word": "GameKit",
+"risky": [
+[
+"game kit",
+4.4
+]
+]
+},
+{
+"word": "GameMaker",
+"risky": [
+[
+"game maker",
+4.22
+]
+]
+},
+{
+"word": "Gen-4",
+"risky": [
+[
+"gen four",
+4.3
+]
+]
+},
+{
+"word": "Grok 2",
+"risky": [
+[
+"grok to",
+1.88
+]
+]
+},
+{
+"word": "Hoppscotch",
+"risky": [
+[
+"hop scotch",
+3.61
+]
+]
+},
+{
+"word": "ICQ",
+"risky": [
+[
+"i seek you",
+4.61
+]
+]
+},
+{
+"word": "Intel 18A",
+"risky": [
+[
+"intel eighteen a",
+3.62
+]
+]
+},
+{
+"word": "iPhone 16e",
+"risky": [
+[
+"i phone 16e",
+1.74
+]
+]
+},
+{
+"word": "iPhone 17 Pro Max",
+"risky": [
+[
+"i phone 17 pro max",
+4.36
+]
+]
+},
+{
+"word": "iPhone Air",
+"risky": [
+[
+"i phone air",
+5.03
+]
+]
+},
+{
+"word": "iPhone SE",
+"risky": [
+[
+"i phone s e",
+4.93
+]
+]
+},
+{
+"word": "iPod",
+"risky": [
+[
+"i pod",
+3.71
+]
+]
+},
+{
+"word": "ITIL",
+"risky": [
+[
+"i till",
+4.79
+]
+]
+},
+{
+"word": "iWork",
+"risky": [
+[
+"i work",
+5.93
+]
+]
+},
+{
+"word": "JEPA",
+"risky": [
+[
+"jeb a",
+3.29
+]
+]
+},
+{
+"word": "JNI",
+"risky": [
+[
+"j and i",
+4.99
+]
+]
+},
+{
+"word": "KeePass",
+"risky": [
+[
+"key pass",
+4.78
+]
+]
+},
+{
+"word": "KeyShot",
+"risky": [
+[
+"key shot",
+4.87
+]
+]
+},
+{
+"word": "Maxon",
+"risky": [
+[
+"maxson",
+2.05
+]
+]
+},
+{
+"word": "Mistral Small",
+"risky": [
+[
+"same astral small",
+3.13
+]
+]
+},
+{
+"word": "Mobbin",
+"risky": [
+[
+"mob in",
+4.03
+]
+]
+},
+{
+"word": "Motion Canvas",
+"risky": [
+[
+"same ocean canvas",
+3.88
+]
+]
+},
+{
+"word": "Orkut",
+"risky": [
+[
+"or kut",
+2.31
+]
+]
+},
+{
+"word": "Prezi",
+"risky": [
+[
+"presi",
+2.23
+]
+]
+},
+{
+"word": "Project Astra",
+"risky": [
+[
+"project astro",
+3.23
+]
+]
+},
+{
+"word": "Readwise",
+"risky": [
+[
+"reed wise",
+3.94
+]
+]
+},
+{
+"word": "Ryan Singer",
+"risky": [
+[
+"ryan's singer",
+3.26
+]
+]
+},
+{
+"word": "Skillshare",
+"risky": [
+[
+"skill share",
+4.35
+]
+]
+},
+{
+"word": "SmartScreen",
+"risky": [
+[
+"smart screen",
+4.54
+]
+]
+},
+{
+"word": "Speechify",
+"risky": [
+[
+"speech if i",
+4.84
+]
+]
+},
+{
+"word": "StoreKit",
+"risky": [
+[
+"stork it",
+2.88
+]
+]
+},
+{
+"word": "Team Topologies",
+"risky": [
+[
+"team to apologies",
+3.84
+]
+]
+},
+{
+"word": "Todoist",
+"risky": [
+[
+"to do ist",
+3.35
+],
+[
+"to doist",
+0.0
+]
+]
+},
+{
+"word": "uBlock Origin",
+"risky": [
+[
+"you block origin",
+4.38
+]
+]
+},
+{
+"word": "uTorrent",
+"risky": [
+[
+"you torrent",
+3.43
+]
+]
+},
+{
+"word": "UXPin",
+"risky": [
+[
+"you ex pin",
+4.17
+],
+[
+"you expin",
+0.0
+]
+]
+},
+{
+"word": "Visio",
+"risky": [
+[
+"vizio",
+2.23
+]
+]
+},
+{
+"word": "WebPageTest",
+"risky": [
+[
+"webpage test",
+3.35
+]
+]
+},
+{
+"word": "WeChat Pay",
+"risky": [
+[
+"we chat pay",
+4.51
+]
+]
+},
+{
+"word": "Windows on Arm",
+"risky": [
+[
+"windows and arm",
+4.42
+]
+]
+},
+{
+"word": "WinUI",
+"risky": [
+[
+"when you i",
+6.21
+],
+[
+"win you i",
+5.37
+]
+]
+},
+{
+"word": "Yahoo",
+"risky": [
+[
+"ya hoo",
+3.36
+]
+]
+},
+{
+"word": "Dia",
+"risky": [
+[
+"dee a",
+3.84
+]
+]
+},
+{
+"word": "IEEE",
+"risky": [
+[
+"i triple e",
+4.26
+],
+[
+"i triple-e",
+4.26
+]
+]
+},
+{
+"word": "qubit",
+"risky": [
+[
+"cubit",
+2.07
+]
+]
+},
+{
+"word": "qubits",
+"risky": [
+[
+"cubits",
+2.43
+]
+]
+},
+{
+"word": "UC Berkeley",
+"risky": [
+[
+"you see berkeley",
+3.93
+]
+]
+},
+{
+"word": "Aho-Corasick",
+"risky": [
+[
+"a ho corasick",
+0.0
+],
+[
+"a ho korosik",
+0.0
+]
+]
+},
+{
+"word": "Alignment Forum",
+"risky": [
+[
+"alignment for him",
+3.78
+]
+]
+},
+{
+"word": "ANOVA",
+"risky": [
+[
+"a nova",
+3.92
+]
+]
+},
+{
+"word": "ARIMA",
+"risky": [
+[
+"a rima",
+2.31
+]
+]
+},
+{
+"word": "athenahealth",
+"risky": [
+[
+"athena health",
+3.25
+]
+]
+},
+{
+"word": "bijection",
+"risky": [
+[
+"by jection",
+0.0
+]
+]
+},
+{
+"word": "bipartite graph",
+"risky": [
+[
+"by partite graph",
+1.56
+]
+]
+},
+{
+"word": "Cirq",
+"risky": [
+[
+"circ",
+2.29
+]
+]
+},
+{
+"word": "Cournot",
+"risky": [
+[
+"coor no",
+1.46
+],
+[
+"cour no",
+2.71
+]
+]
+},
+{
+"word": "eigendecomposition",
+"risky": [
+[
+"i gen decomposition",
+3.23
+]
+]
+},
+{
+"word": "Fermat's Last Theorem",
+"risky": [
+[
+"for ma's last theorem",
+2.7
+]
+]
+},
+{
+"word": "Higgs boson",
+"risky": [
+[
+"higgs bows on",
+2.93
+]
+]
+},
+{
+"word": "IARPA",
+"risky": [
+[
+"i arpa",
+2.3
+]
+]
+},
+{
+"word": "ICCV",
+"risky": [
+[
+"i cv",
+3.61
+]
+]
+},
+{
+"word": "ICD-10",
+"risky": [
+[
+"i cd 10",
+4.31
+]
+]
+},
+{
+"word": "IISc",
+"risky": [
+[
+"i iac",
+2.7
+]
+]
+},
+{
+"word": "Illumina",
+"risky": [
+[
+"a lumina",
+2.31
+]
+]
+},
+{
+"word": "Insitro",
+"risky": [
+[
+"in citro",
+1.32
+],
+[
+"in see tro",
+2.53
+],
+[
+"in sitro",
+0.0
+]
+]
+},
+{
+"word": "Open Philanthropy",
+"risky": [
+[
+"open phil",
+4.34
+]
+]
+},
+{
+"word": "Wegovy",
+"risky": [
+[
+"we go v",
+5.0
+],
+[
+"we gov ye",
+3.81
+],
+[
+"we govi",
+1.21
+],
+[
+"we govie",
+0.0
+]
+]
+},
+{
+"word": "1Password",
+"risky": [
+[
+"one password",
+4.06
+]
+]
+},
+{
+"word": "2FA",
+"risky": [
+[
+"to fa",
+4.2
+]
+]
+},
+{
+"word": "bcrypt",
+"risky": [
+[
+"be crypt",
+3.1
+]
+]
+},
+{
+"word": "CISA",
+"risky": [
+[
+"sis a",
+3.63
+],
+[
+"sisa",
+2.0
+]
+]
+},
+{
+"word": "end-to-end encryption",
+"risky": [
+[
+"end to end encryption",
+3.55
+]
+]
+},
+{
+"word": "passkey",
+"risky": [
+[
+"pass key",
+4.78
+]
+]
+},
+{
+"word": "SBOM",
+"risky": [
+[
+"as bomb",
+4.6
+]
+]
+},
+{
+"word": "spear phishing",
+"risky": [
+[
+"spear fishing",
+3.63
+]
+]
+},
+{
+"word": "YubiKey",
+"risky": [
+[
+"you be key",
+5.1
+]
+]
+},
+{
+"word": "/etc/passwd",
+"risky": [
+[
+"etc password",
+4.02
+]
+]
+},
+{
+"word": "ABAC",
+"risky": [
+[
+"a back",
+6.02
+],
+[
+"a-back",
+6.02
+]
+]
+},
+{
+"word": "AuthN",
+"risky": [
+[
+"auth in",
+2.95
+]
+]
+},
+{
+"word": "authorized_keys",
+"risky": [
+[
+"authorized keys",
+3.93
+]
+]
+},
+{
+"word": "Avast",
+"risky": [
+[
+"a vast",
+4.49
+]
+]
+},
+{
+"word": "backdoor",
+"risky": [
+[
+"back door",
+5.03
+]
+]
+},
+{
+"word": "BigID",
+"risky": [
+[
+"big id",
+4.57
+]
+]
+},
+{
+"word": "brute-force",
+"risky": [
+[
+"brute force",
+3.41
+]
+]
+},
+{
+"word": "CIA triad",
+"risky": [
+[
+"cia try it",
+4.19
+]
+]
+},
+{
+"word": "cosign",
+"risky": [
+[
+"co sign",
+4.84
+],
+[
+"co-sign",
+4.84
+]
+]
+},
+{
+"word": "FIPS",
+"risky": [
+[
+"phipps",
+2.94
+]
+]
+},
+{
+"word": "IDOR",
+"risky": [
+[
+"i door",
+5.08
+]
+]
+},
+{
+"word": "JOSE",
+"risky": [
+[
+"jo zee",
+3.1
+],
+[
+"joe zee",
+3.15
+]
+]
+},
+{
+"word": "Keeper",
+"risky": [
+[
+"keep her",
+5.57
+]
+]
+},
+{
+"word": "NIS2",
+"risky": [
+[
+"niss to",
+1.67
+]
+]
+},
+{
+"word": "NotPetya",
+"risky": [
+[
+"not pet ya",
+4.24
+],
+[
+"not petia",
+0.0
+],
+[
+"not petya",
+1.98
+],
+[
+"not petyer",
+0.0
+]
+]
+},
+{
+"word": "SHA-1",
+"risky": [
+[
+"shaw on",
+4.08
+]
+]
+},
+{
+"word": "Sophos",
+"risky": [
+[
+"so foss",
+2.88
+]
+]
+},
+{
+"word": "SQLi",
+"risky": [
+[
+"sequel i",
+3.98
+],
+[
+"sql i",
+3.38
+]
+]
+},
+{
+"word": "Yubico",
+"risky": [
+[
+"you be co",
+5.19
+]
+]
+},
+{
+"word": "ZTNA",
+"risky": [
+[
+"zt and a",
+2.18
+]
+]
+},
+{
+"word": "font",
+"risky": [
+[
+"save font",
+3.78
+]
+]
+},
+{
+"word": "interrobang",
+"risky": [
+[
+"in tarabang",
+0.0
+],
+[
+"in terabang",
+0.0
+]
+]
+},
+{
+"word": "Merriweather",
+"risky": [
+[
+"meriwether",
+2.2
+],
+[
+"merryweather",
+2.06
+]
+]
+},
+{
+"word": "Noto",
+"risky": [
+[
+"no toe",
+4.07
+]
+]
+},
+{
+"word": "Noto Sans",
+"risky": [
+[
+"no to sans",
+3.58
+],
+[
+"no toe sans",
+3.46
+]
+]
+},
+{
+"word": "OpenType",
+"risky": [
+[
+"open type",
+5.06
+]
+]
+},
+{
+"word": "Segoe UI",
+"risky": [
+[
+"so go ui",
+3.62
+],
+[
+"so go you aye",
+3.89
+],
+[
+"so go you i",
+5.85
+]
+]
+},
+{
+"word": "Suisse Int'l",
+"risky": [
+[
+"swiss international",
+4.18
+]
+]
+},
+{
+"word": "Söhne",
+"risky": [
+[
+"sona",
+2.83
+]
+]
+},
+{
+"word": "TrueType",
+"risky": [
+[
+"true type",
+5.03
+]
+]
+},
+{
+"word": "umlaut",
+"risky": [
+[
+"om loud",
+3.51
+]
+]
+},
+{
+"word": "@font-face",
+"risky": [
+[
+"a fant face",
+2.23
+],
+[
+"at font face",
+3.79
+],
+[
+"at font-face",
+3.79
+]
+]
+},
+{
+"word": "ATypI",
+"risky": [
+[
+"8 type i",
+5.06
+],
+[
+"a type eye",
+4.82
+],
+[
+"a type i",
+5.26
+],
+[
+"a typi",
+1.04
+],
+[
+"a-type i",
+5.26
+]
+]
+},
+{
+"word": "Avant Garde",
+"risky": [
+[
+"avant guard",
+3.34
+],
+[
+"avant-garde",
+3.05
+]
+]
+},
+{
+"word": "baseline grid",
+"risky": [
+[
+"base line grid",
+4.11
+]
+]
+},
+{
+"word": "Blackletter",
+"risky": [
+[
+"black letter",
+4.83
+]
+]
+},
+{
+"word": "Copperplate",
+"risky": [
+[
+"copper plate",
+4.09
+]
+]
+},
+{
+"word": "drop cap",
+"risky": [
+[
+"drop caps",
+4.09
+]
+]
+},
+{
+"word": "flush left",
+"risky": [
+[
+"save flush left",
+3.77
+]
+]
+},
+{
+"word": "font stack",
+"risky": [
+[
+"save font stack",
+3.59
+]
+]
+},
+{
+"word": "FreeType",
+"risky": [
+[
+"free type",
+5.11
+]
+]
+},
+{
+"word": "greeking",
+"risky": [
+[
+"greek ing",
+3.84
+]
+]
+},
+{
+"word": "Inconsolata",
+"risky": [
+[
+"in consolata",
+1.13
+]
+]
+},
+{
+"word": "Josefin Sans",
+"risky": [
+[
+"josephine sands",
+3.21
+]
+]
+},
+{
+"word": "nbsp",
+"risky": [
+[
+"and bsp",
+2.81
+]
+]
+},
+{
+"word": "Noto Serif",
+"risky": [
+[
+"no to seraph",
+2.41
+],
+[
+"no toe serif",
+2.62
+]
+]
+},
+{
+"word": "OCR-A",
+"risky": [
+[
+"ocr a",
+2.79
+]
+]
+},
+{
+"word": "Sabon",
+"risky": [
+[
+"sabin",
+2.49
+]
+]
+},
+{
+"word": "variable fonts",
+"risky": [
+[
+"save variable fonts",
+3.18
+]
+]
+},
+{
+"word": "WOFF2",
+"risky": [
+[
+"waf to",
+2.02
+],
+[
+"waft to",
+2.38
+]
+]
+},
+{
+"word": "GRU",
+"risky": [
+[
+"seiji are you",
+2.3
+]
+]
+},
+{
+"word": "The Lean Startup",
+"risky": [
+[
+"the lean start up",
+4.12
+]
+]
+},
+{
+"word": "PitchBook",
+"risky": [
+[
+"pitch book",
+4.39
+]
+]
+},
+{
+"word": "BlackBerry",
+"risky": [
+[
+"black berry",
+3.96
+]
+]
+},
+{
+"word": "Glossier",
+"risky": [
+[
+"glossy a",
+3.43
+]
+]
+},
+{
+"word": "Momenta",
+"risky": [
+[
+"moment a",
+5.24
+]
+]
+},
+{
+"word": "Polestar",
+"risky": [
+[
+"pole star",
+4.18
+]
+]
+},
+{
+"word": "ZooKeeper",
+"risky": [
+[
+"zoo keeper",
+3.77
+]
+]
+},
+{
+"word": "GUID",
+"risky": [
+[
+"goo it",
+3.41
+]
+]
+},
+{
+"word": "VoiceOver",
+"risky": [
+[
+"voice over",
+5.03
+]
+]
+},
+{
+"word": "AJAX",
+"risky": [
+[
+"a jax",
+3.31
+]
+]
+},
+{
+"word": "Homebrew",
+"risky": [
+[
+"home brew",
+3.64
+]
+]
+},
+{
+"word": "Markdown",
+"risky": [
+[
+"mark down",
+4.99
+]
+]
+},
+{
+"word": "Passkeys",
+"risky": [
+[
+"pass keys",
+4.3
+]
+]
+},
+{
+"word": "Raycast",
+"risky": [
+[
+"ray cast",
+4.44
+]
+]
+},
+{
+"word": "HandBrake",
+"risky": [
+[
+"hand brake",
+3.94
+]
+]
+},
+{
+"word": "Snowpack",
+"risky": [
+[
+"snow pack",
+4.36
+]
+]
+},
+{
+"word": "URI",
+"risky": [
+[
+"you are i",
+6.43
+]
+]
+},
+{
+"word": "Chainlink",
+"risky": [
+[
+"chain link",
+4.49
+]
+]
+},
+{
+"word": "ASIC",
+"risky": [
+[
+"a sick",
+4.88
+]
+]
+},
+{
+"word": "BIOS",
+"risky": [
+[
+"by oss",
+2.98
+]
+]
+},
+{
+"word": "AirDrop",
+"risky": [
+[
+"air drop",
+4.84
+]
+]
+},
+{
+"word": "Basecamp",
+"risky": [
+[
+"base camp",
+4.6
+]
+]
+},
+{
+"word": "AFFiNE",
+"risky": [
+[
+"a fine",
+5.23
+]
+]
+},
+{
+"word": "Apercu",
+"risky": [
+[
+"a per sue",
+4.2
+],
+[
+"a pursue",
+4.26
+]
+]
+}
+],
+"dropped_variants": [
+{
+"word": "autoregressive",
+"variant": "auto aggressive"
+},
+{
+"word": "autoregressive",
+"variant": "auto-aggressive"
+},
+{
+"word": "DALL-E",
+"variant": "dally"
+},
+{
+"word": "DALL-E",
+"variant": "dolly"
+},
+{
+"word": "latent",
+"variant": "layton"
+},
+{
+"word": "LoRA",
+"variant": "laura"
+},
+{
+"word": "SOTA",
+"variant": "so to"
+},
+{
+"word": "SOTA",
+"variant": "soda"
+},
+{
+"word": "AdamW",
+"variant": "adam w"
+},
+{
+"word": "ANN",
+"variant": "a'en and"
+},
+{
+"word": "Arize",
+"variant": "arise"
+},
+{
+"word": "ASL-3",
+"variant": "a s l three"
+},
+{
+"word": "BLEU",
+"variant": "blue"
+},
+{
+"word": "Braintrust",
+"variant": "brain trust"
+},
+{
+"word": "CIFAR-10",
+"variant": "see far ten"
+},
+{
+"word": "Covariant",
+"variant": "co variant"
+},
+{
+"word": "cv2",
+"variant": "c v two"
+},
+{
+"word": "deepset",
+"variant": "deep set"
+},
+{
+"word": "DiT",
+"variant": "did"
+},
+{
+"word": "DoRA",
+"variant": "door"
+},
+{
+"word": "e/acc",
+"variant": "yak"
+},
+{
+"word": "fastai",
+"variant": "fast ai"
+},
+{
+"word": "GELU",
+"variant": "jello"
+},
+{
+"word": "GELU",
+"variant": "jelly"
+},
+{
+"word": "Golden Gate Claude",
+"variant": "golden gate cloud"
+},
+{
+"word": "HumanEval",
+"variant": "human evil"
+},
+{
+"word": "Humanloop",
+"variant": "human loop"
+},
+{
+"word": "ICLR",
+"variant": "eye clear"
+},
+{
+"word": "INT4",
+"variant": "int for"
+},
+{
+"word": "INT8",
+"variant": "in eight"
+},
+{
+"word": "Jacobian",
+"variant": "jacobean"
+},
+{
+"word": "LeNet",
+"variant": "lean at"
+},
+{
+"word": "MLE",
+"variant": "emily"
+},
+{
+"word": "n-gram",
+"variant": "engram"
+},
+{
+"word": "NER",
+"variant": "any are"
+},
+{
+"word": "ROC",
+"variant": "rock"
+},
+{
+"word": "scikit-image",
+"variant": "psychic image"
+},
+{
+"word": "UMAP",
+"variant": "you map"
+},
+{
+"word": "Upstage",
+"variant": "up stage"
+},
+{
+"word": "Vellum",
+"variant": "velum"
+},
+{
+"word": "10x",
+"variant": "ten ex"
+},
+{
+"word": "1:1s",
+"variant": "one on ones"
+},
+{
+"word": "1:1s",
+"variant": "one-on-ones"
+},
+{
+"word": "acqui-hire",
+"variant": "acquihire"
+},
+{
+"word": "Asana",
+"variant": "uh sauna"
+},
+{
+"word": "B2C",
+"variant": "be to see"
+},
+{
+"word": "burndown",
+"variant": "burn down"
+},
+{
+"word": "C-suite",
+"variant": "see suite"
+},
+{
+"word": "C-suite",
+"variant": "see sweet"
+},
+{
+"word": "cache",
+"variant": "cash"
+},
+{
+"word": "CSAT",
+"variant": "see sat"
+},
+{
+"word": "DAO",
+"variant": "dow"
+},
+{
+"word": "DAO",
+"variant": "tao"
+},
+{
+"word": "DAO",
+"variant": "thou"
+},
+{
+"word": "Likert",
+"variant": "like art"
+},
+{
+"word": "MaxDiff",
+"variant": "max diff"
+},
+{
+"word": "MMM",
+"variant": "triple m"
+},
+{
+"word": "moat",
+"variant": "mote"
+},
+{
+"word": "MoM",
+"variant": "month over month"
+},
+{
+"word": "MoM",
+"variant": "same month over month"
+},
+{
+"word": "OOO",
+"variant": "out of office"
+},
+{
+"word": "PaaS",
+"variant": "pas"
+},
+{
+"word": "PaaS",
+"variant": "pass"
+},
+{
+"word": "Q3",
+"variant": "queue three"
+},
+{
+"word": "Q4",
+"variant": "queue four"
+},
+{
+"word": "QoQ",
+"variant": "quarter over quarter"
+},
+{
+"word": "S-1",
+"variant": "s1"
+},
+{
+"word": "S-3",
+"variant": "s3"
+},
+{
+"word": "SKU",
+"variant": "skew"
+},
+{
+"word": "SOC",
+"variant": "sock"
+},
+{
+"word": "SOC 2",
+"variant": "sock too"
+},
+{
+"word": "SOM",
+"variant": "psalm"
+},
+{
+"word": "SOM",
+"variant": "some"
+},
+{
+"word": "SWOT",
+"variant": "swat"
+},
+{
+"word": "sync",
+"variant": "sink"
+},
+{
+"word": "trade-off",
+"variant": "tradeoff"
+},
+{
+"word": "WAU",
+"variant": "w"
+},
+{
+"word": "WIP",
+"variant": "whip"
+},
+{
+"word": "WoW",
+"variant": "week over week"
+},
+{
+"word": "XP",
+"variant": "exp"
+},
+{
+"word": "YC",
+"variant": "why see"
+},
+{
+"word": "YoY",
+"variant": "year on year"
+},
+{
+"word": "YoY",
+"variant": "year over year"
+},
+{
+"word": "Zapier",
+"variant": "zapper"
+},
+{
+"word": "Zapier",
+"variant": "zappier"
+},
+{
+"word": "4DX",
+"variant": "for dx"
+},
+{
+"word": "4DX",
+"variant": "save for dx"
+},
+{
+"word": "BLUF",
+"variant": "bluff"
+},
+{
+"word": "BOM",
+"variant": "bomb"
+},
+{
+"word": "CAN-SPAM",
+"variant": "can spam"
+},
+{
+"word": "CAN-SPAM",
+"variant": "can't spam"
+},
+{
+"word": "Co., Ltd.",
+"variant": "company limited"
+},
+{
+"word": "Computex",
+"variant": "compute x"
+},
+{
+"word": "ELI5",
+"variant": "eli five"
+},
+{
+"word": "FaaS",
+"variant": "fast"
+},
+{
+"word": "HEART",
+"variant": "hard"
+},
+{
+"word": "Ltd",
+"variant": "limited"
+},
+{
+"word": "MEDDIC",
+"variant": "medic"
+},
+{
+"word": "OEC",
+"variant": "always see"
+},
+{
+"word": "PI planning",
+"variant": "pie planning"
+},
+{
+"word": "Radical Candor",
+"variant": "radical candour"
+},
+{
+"word": "RIF",
+"variant": "riff"
+},
+{
+"word": "RTE",
+"variant": "our t"
+},
+{
+"word": "Section 230",
+"variant": "section two thirty"
+},
+{
+"word": "SOX",
+"variant": "socks"
+},
+{
+"word": "SXSW",
+"variant": "south by south west"
+},
+{
+"word": "SXSW",
+"variant": "south by southwest"
+},
+{
+"word": "Apigee",
+"variant": "apogee"
+},
+{
+"word": "ARN",
+"variant": "aren't"
+},
+{
+"word": "Azure Monitor",
+"variant": "asher monitor"
+},
+{
+"word": "BigQuery",
+"variant": "big query"
+},
+{
+"word": "Ceph",
+"variant": "sef"
+},
+{
+"word": "CIDR",
+"variant": "cider"
+},
+{
+"word": "CloudFormation",
+"variant": "cloud formation"
+},
+{
+"word": "Consul",
+"variant": "console"
+},
+{
+"word": "DaemonSet",
+"variant": "demon said"
+},
+{
+"word": "DNS",
+"variant": "d and s"
+},
+{
+"word": "EC2",
+"variant": "easy to"
+},
+{
+"word": "k9s",
+"variant": "canons"
+},
+{
+"word": "Karpenter",
+"variant": "carpenter"
+},
+{
+"word": "NAT",
+"variant": "gnat"
+},
+{
+"word": "OpenAPI",
+"variant": "open a p i"
+},
+{
+"word": "OTel",
+"variant": "hotel"
+},
+{
+"word": "Pod",
+"variant": "pot"
+},
+{
+"word": "Power BI",
+"variant": "power buy"
+},
+{
+"word": "re:Invent",
+"variant": "reinvent"
+},
+{
+"word": "reCAPTCHA",
+"variant": "recapture"
+},
+{
+"word": "SNS",
+"variant": "s and s"
+},
+{
+"word": "Traefik",
+"variant": "traffic"
+},
+{
+"word": "1.1.1.1",
+"variant": "one one one one"
+},
+{
+"word": "2PC",
+"variant": "to p c"
+},
+{
+"word": "2PC",
+"variant": "to pc"
+},
+{
+"word": "2PC",
+"variant": "two p c"
+},
+{
+"word": "anycast",
+"variant": "any cast"
+},
+{
+"word": "Appwrite",
+"variant": "app right"
+},
+{
+"word": "Appwrite",
+"variant": "app write"
+},
+{
+"word": "Appwrite",
+"variant": "upright"
+},
+{
+"word": "Azure Backup",
+"variant": "asher backup"
+},
+{
+"word": "Azure Policy",
+"variant": "asher policy"
+},
+{
+"word": "Azure Stack",
+"variant": "asher stack"
+},
+{
+"word": "Buildah",
+"variant": "builder"
+},
+{
+"word": "BuildKit",
+"variant": "build kit"
+},
+{
+"word": "Buildx",
+"variant": "build x"
+},
+{
+"word": "cache hit",
+"variant": "cash hit"
+},
+{
+"word": "cache miss",
+"variant": "cash miss"
+},
+{
+"word": "Cache-Control",
+"variant": "cash control"
+},
+{
+"word": "Caddy",
+"variant": "caddie"
+},
+{
+"word": "Caddy",
+"variant": "catty"
+},
+{
+"word": "CoreOS",
+"variant": "core os"
+},
+{
+"word": "Dapr",
+"variant": "dapper"
+},
+{
+"word": "DBaaS",
+"variant": "d b as"
+},
+{
+"word": "Dialogflow",
+"variant": "dialog flow"
+},
+{
+"word": "Document AI",
+"variant": "document a i"
+},
+{
+"word": "DocumentDB",
+"variant": "document d b"
+},
+{
+"word": "DocumentDB",
+"variant": "document db"
+},
+{
+"word": "DoH",
+"variant": "dough"
+},
+{
+"word": "ExpressRoute",
+"variant": "express route"
+},
+{
+"word": "Firebase Auth",
+"variant": "firebase off"
+},
+{
+"word": "Flatcar",
+"variant": "flat car"
+},
+{
+"word": "flyctl",
+"variant": "fly control"
+},
+{
+"word": "flyctl",
+"variant": "save fly control"
+},
+{
+"word": "Gateway API",
+"variant": "gateway a p i"
+},
+{
+"word": "Inngest",
+"variant": "in just"
+},
+{
+"word": "k6",
+"variant": "k six"
+},
+{
+"word": "KEDA",
+"variant": "cater"
+},
+{
+"word": "kops",
+"variant": "cops"
+},
+{
+"word": "kustomize",
+"variant": "customize"
+},
+{
+"word": "Memorystore",
+"variant": "memory store"
+},
+{
+"word": "NLB",
+"variant": "and i'll be"
+},
+{
+"word": "OneLake",
+"variant": "one lake"
+},
+{
+"word": "OpenFaaS",
+"variant": "open fast"
+},
+{
+"word": "PartyRock",
+"variant": "party rock"
+},
+{
+"word": "QuickSight",
+"variant": "quick side"
+},
+{
+"word": "R2",
+"variant": "our two"
+},
+{
+"word": "runc",
+"variant": "run see"
+},
+{
+"word": "Skaffold",
+"variant": "scaffold"
+},
+{
+"word": "Thanos",
+"variant": "than os"
+},
+{
+"word": "VirusTotal",
+"variant": "virus total"
+},
+{
+"word": "WSGI",
+"variant": "whiskey"
+},
+{
+"word": "WSGI",
+"variant": "whisky"
+},
+{
+"word": "Accel",
+"variant": "axel"
+},
+{
+"word": "Airtable",
+"variant": "air table"
+},
+{
+"word": "Amex",
+"variant": "am ex"
+},
+{
+"word": "arXiv",
+"variant": "archive"
+},
+{
+"word": "Automattic",
+"variant": "automatic"
+},
+{
+"word": "Baidu",
+"variant": "bye to"
+},
+{
+"word": "Bitbucket",
+"variant": "bit bucket"
+},
+{
+"word": "Bosch",
+"variant": "bosh"
+},
+{
+"word": "Braun",
+"variant": "brown"
+},
+{
+"word": "Carta",
+"variant": "carter"
+},
+{
+"word": "Character.AI",
+"variant": "character a i"
+},
+{
+"word": "ClickUp",
+"variant": "click up"
+},
+{
+"word": "Coda",
+"variant": "coder"
+},
+{
+"word": "Coda",
+"variant": "colder"
+},
+{
+"word": "Colab",
+"variant": "collab"
+},
+{
+"word": "Deel",
+"variant": "deal"
+},
+{
+"word": "Dropbox",
+"variant": "drop box"
+},
+{
+"word": "Ericsson",
+"variant": "erickson"
+},
+{
+"word": "EY",
+"variant": "eye"
+},
+{
+"word": "EY",
+"variant": "why"
+},
+{
+"word": "Fiverr",
+"variant": "fiver"
+},
+{
+"word": "Flipkart",
+"variant": "flip card"
+},
+{
+"word": "Flipkart",
+"variant": "save flip card"
+},
+{
+"word": "Fuchsia",
+"variant": "future"
+},
+{
+"word": "FullStory",
+"variant": "full story"
+},
+{
+"word": "GoDaddy",
+"variant": "go daddy"
+},
+{
+"word": "Google Colab",
+"variant": "google collab"
+},
+{
+"word": "Hermès",
+"variant": "air mess"
+},
+{
+"word": "Hotjar",
+"variant": "hot jar"
+},
+{
+"word": "Intuit",
+"variant": "in to it"
+},
+{
+"word": "Intuit",
+"variant": "into it"
+},
+{
+"word": "JAXA",
+"variant": "jackson"
+},
+{
+"word": "Jio",
+"variant": "said you"
+},
+{
+"word": "Kakao",
+"variant": "cacao"
+},
+{
+"word": "Kia",
+"variant": "kea"
+},
+{
+"word": "Kia",
+"variant": "kir"
+},
+{
+"word": "LeetCode",
+"variant": "lead code"
+},
+{
+"word": "LeetCode",
+"variant": "leak code"
+},
+{
+"word": "LeetCode",
+"variant": "lit code"
+},
+{
+"word": "Leica",
+"variant": "like her"
+},
+{
+"word": "LinkedIn",
+"variant": "linked in"
+},
+{
+"word": "Lyft",
+"variant": "lift"
+},
+{
+"word": "McKinsey",
+"variant": "mckenzie"
+},
+{
+"word": "Megapack",
+"variant": "mega pack"
+},
+{
+"word": "Mobileye",
+"variant": "mobile eye"
+},
+{
+"word": "Model 3",
+"variant": "model three"
+},
+{
+"word": "Model Y",
+"variant": "model why"
+},
+{
+"word": "Naver",
+"variant": "neighbor"
+},
+{
+"word": "Naver",
+"variant": "neighbour"
+},
+{
+"word": "NEC",
+"variant": "any c"
+},
+{
+"word": "Nestlé",
+"variant": "nestle"
+},
+{
+"word": "New Shepard",
+"variant": "new shepherd"
+},
+{
+"word": "Nubank",
+"variant": "new bank"
+},
+{
+"word": "OnePlus",
+"variant": "1+"
+},
+{
+"word": "OpenAI",
+"variant": "open eye"
+},
+{
+"word": "Philips",
+"variant": "phillips"
+},
+{
+"word": "Plaid",
+"variant": "plat"
+},
+{
+"word": "PlanetScale",
+"variant": "planet scale"
+},
+{
+"word": "Revolut",
+"variant": "revolute"
+},
+{
+"word": "Salesforce",
+"variant": "sales force"
+},
+{
+"word": "Semrush",
+"variant": "sam rush"
+},
+{
+"word": "Semrush",
+"variant": "semi rush"
+},
+{
+"word": "Shein",
+"variant": "she in"
+},
+{
+"word": "Shein",
+"variant": "sheehan"
+},
+{
+"word": "Shein",
+"variant": "sheen"
+},
+{
+"word": "SoftBank",
+"variant": "soft bank"
+},
+{
+"word": "Squarespace",
+"variant": "square space"
+},
+{
+"word": "Strapi",
+"variant": "strappy"
+},
+{
+"word": "Turing",
+"variant": "touring"
+},
+{
+"word": "Udemy",
+"variant": "you to me"
+},
+{
+"word": "Upwork",
+"variant": "up work"
+},
+{
+"word": "v0",
+"variant": "v zero"
+},
+{
+"word": "v0",
+"variant": "vee zero"
+},
+{
+"word": "Waze",
+"variant": "ways"
+},
+{
+"word": "Wear OS",
+"variant": "where os"
+},
+{
+"word": "Weights & Biases",
+"variant": "weights and biases"
+},
+{
+"word": "Workday",
+"variant": "work day"
+},
+{
+"word": "xAI",
+"variant": "ex ai"
+},
+{
+"word": "Xiaomi",
+"variant": "shammy"
+},
+{
+"word": "Xiaomi",
+"variant": "show me"
+},
+{
+"word": "Zscaler",
+"variant": "z scalar"
+},
+{
+"word": "1X",
+"variant": "one ex"
+},
+{
+"word": "1X",
+"variant": "one x"
+},
+{
+"word": "2K",
+"variant": "two k"
+},
+{
+"word": "2K",
+"variant": "two kay"
+},
+{
+"word": "500 Global",
+"variant": "five hundred global"
+},
+{
+"word": "500 Startups",
+"variant": "five hundred startups"
+},
+{
+"word": "6sense",
+"variant": "six cents"
+},
+{
+"word": "6sense",
+"variant": "six sense"
+},
+{
+"word": "6sense",
+"variant": "sixth sense"
+},
+{
+"word": "Ai2",
+"variant": "a i too"
+},
+{
+"word": "Ai2",
+"variant": "a i two"
+},
+{
+"word": "Ai2",
+"variant": "ai two"
+},
+{
+"word": "Aiven",
+"variant": "ivan"
+},
+{
+"word": "Allbirds",
+"variant": "all birds"
+},
+{
+"word": "Anaplan",
+"variant": "an a plan"
+},
+{
+"word": "Anaplan",
+"variant": "anna plan"
+},
+{
+"word": "Anker",
+"variant": "anchor"
+},
+{
+"word": "Anta",
+"variant": "answer"
+},
+{
+"word": "Anyscale",
+"variant": "any scale"
+},
+{
+"word": "Anysphere",
+"variant": "any sphere"
+},
+{
+"word": "AOMedia",
+"variant": "o media"
+},
+{
+"word": "AppCode",
+"variant": "app code"
+},
+{
+"word": "AppLovin",
+"variant": "app loving"
+},
+{
+"word": "ARRI",
+"variant": "aerie"
+},
+{
+"word": "ARRI",
+"variant": "airy"
+},
+{
+"word": "ARRI",
+"variant": "are e"
+},
+{
+"word": "ARRI",
+"variant": "ari"
+},
+{
+"word": "ARRI",
+"variant": "harry"
+},
+{
+"word": "ASOS",
+"variant": "ace os"
+},
+{
+"word": "Attio",
+"variant": "add you"
+},
+{
+"word": "Attio",
+"variant": "at e o"
+},
+{
+"word": "Baidu Apollo",
+"variant": "bye to apollo"
+},
+{
+"word": "Bandcamp",
+"variant": "band camp"
+},
+{
+"word": "Baseten",
+"variant": "base ten"
+},
+{
+"word": "Baseten",
+"variant": "bastion"
+},
+{
+"word": "Baseus",
+"variant": "base us"
+},
+{
+"word": "Baseus",
+"variant": "basis"
+},
+{
+"word": "Beehiiv",
+"variant": "bee hive"
+},
+{
+"word": "Beehiiv",
+"variant": "beehive"
+},
+{
+"word": "BeReal",
+"variant": "be real"
+},
+{
+"word": "BigCommerce",
+"variant": "big commerce"
+},
+{
+"word": "BlaBlaCar",
+"variant": "blah blah car"
+},
+{
+"word": "Braze",
+"variant": "braise"
+},
+{
+"word": "Brooklinen",
+"variant": "brooklyn and"
+},
+{
+"word": "Brooklinen",
+"variant": "brooklyn linen"
+},
+{
+"word": "BrowserStack",
+"variant": "browser stack"
+},
+{
+"word": "BrowserStack",
+"variant": "save browser stack"
+},
+{
+"word": "Bybit",
+"variant": "by bit"
+},
+{
+"word": "CapitalG",
+"variant": "capital g"
+},
+{
+"word": "Careem",
+"variant": "kareem"
+},
+{
+"word": "Carlyle Group",
+"variant": "carlisle group"
+},
+{
+"word": "Cazoo",
+"variant": "kazoo"
+},
+{
+"word": "Chang'e",
+"variant": "chang"
+},
+{
+"word": "Chang'e",
+"variant": "change"
+},
+{
+"word": "ChargePoint",
+"variant": "charge point"
+},
+{
+"word": "ChargePoint",
+"variant": "chart point"
+},
+{
+"word": "Checkr",
+"variant": "checker"
+},
+{
+"word": "Citi",
+"variant": "city"
+},
+{
+"word": "Citroën",
+"variant": "citron"
+},
+{
+"word": "Clari",
+"variant": "clary"
+},
+{
+"word": "Clearbit",
+"variant": "clear bit"
+},
+{
+"word": "Clearbit",
+"variant": "clear but"
+},
+{
+"word": "Cloudera",
+"variant": "cloud error"
+},
+{
+"word": "CNSA",
+"variant": "sienna say"
+},
+{
+"word": "Codecademy",
+"variant": "code academy"
+},
+{
+"word": "Cooley",
+"variant": "coolly"
+},
+{
+"word": "Copy.ai",
+"variant": "copy ai"
+},
+{
+"word": "Coupa",
+"variant": "cooper"
+},
+{
+"word": "Crunchyroll",
+"variant": "crunchy roll"
+},
+{
+"word": "Ctrip",
+"variant": "sea trip"
+},
+{
+"word": "Ctrip",
+"variant": "see trip"
+},
+{
+"word": "Cvent",
+"variant": "see then"
+},
+{
+"word": "Cvent",
+"variant": "see vent"
+},
+{
+"word": "CyberAgent",
+"variant": "cyber agent"
+},
+{
+"word": "d-Matrix",
+"variant": "d matrix"
+},
+{
+"word": "d-Matrix",
+"variant": "the matrix"
+},
+{
+"word": "D. E. Shaw",
+"variant": "sadi shah"
+},
+{
+"word": "DataStax",
+"variant": "data stacks"
+},
+{
+"word": "Daum",
+"variant": "dame"
+},
+{
+"word": "Daum",
+"variant": "dome"
+},
+{
+"word": "DEF CON",
+"variant": "defcon"
+},
+{
+"word": "DeNA",
+"variant": "dna"
+},
+{
+"word": "Descript",
+"variant": "the script"
+},
+{
+"word": "Descript",
+"variant": "to script"
+},
+{
+"word": "Dialpad",
+"variant": "dial pad"
+},
+{
+"word": "DiDi",
+"variant": "dee dee"
+},
+{
+"word": "Dreame",
+"variant": "dream"
+},
+{
+"word": "Dreame",
+"variant": "dreamy"
+},
+{
+"word": "EasyPost",
+"variant": "easy post"
+},
+{
+"word": "Emigre",
+"variant": "emma gray"
+},
+{
+"word": "Emigre",
+"variant": "emmy gray"
+},
+{
+"word": "Enphase",
+"variant": "n phase"
+},
+{
+"word": "Enphase",
+"variant": "n-phase"
+},
+{
+"word": "Epson",
+"variant": "epsom"
+},
+{
+"word": "FabFilter",
+"variant": "save fab filter"
+},
+{
+"word": "FactSet",
+"variant": "fact said"
+},
+{
+"word": "FactSet",
+"variant": "fact set"
+},
+{
+"word": "fal.ai",
+"variant": "pal ai"
+},
+{
+"word": "Farfetch",
+"variant": "far fetch"
+},
+{
+"word": "Feedbin",
+"variant": "feed bin"
+},
+{
+"word": "Figure AI",
+"variant": "figure a i"
+},
+{
+"word": "Firefly Aerospace",
+"variant": "save firefly aerospace"
+},
+{
+"word": "Focusrite",
+"variant": "focus right"
+},
+{
+"word": "Focusrite",
+"variant": "save focus right"
+},
+{
+"word": "Forrester",
+"variant": "forester"
+},
+{
+"word": "Freshdesk",
+"variant": "fresh desk"
+},
+{
+"word": "Freshdesk",
+"variant": "fresh disk"
+},
+{
+"word": "Freshdesk",
+"variant": "save fresh desk"
+},
+{
+"word": "Freshdesk",
+"variant": "save fresh disk"
+},
+{
+"word": "FromSoftware",
+"variant": "from soft"
+},
+{
+"word": "FromSoftware",
+"variant": "from software"
+},
+{
+"word": "FromSoftware",
+"variant": "save from software"
+},
+{
+"word": "Gainsight",
+"variant": "gain sight"
+},
+{
+"word": "Gojek",
+"variant": "go jack"
+},
+{
+"word": "GoodNotes",
+"variant": "good notes"
+},
+{
+"word": "GoPro",
+"variant": "go pro"
+},
+{
+"word": "Gorgias",
+"variant": "gorgeous"
+},
+{
+"word": "GoTo",
+"variant": "go to"
+},
+{
+"word": "Greylock",
+"variant": "gray lock"
+},
+{
+"word": "Greylock",
+"variant": "grey lock"
+},
+{
+"word": "Grindr",
+"variant": "grinder"
+},
+{
+"word": "Groww",
+"variant": "grow"
+},
+{
+"word": "Haier",
+"variant": "higher"
+},
+{
+"word": "Haier",
+"variant": "hire"
+},
+{
+"word": "HeyGen",
+"variant": "hey jen"
+},
+{
+"word": "Highspot",
+"variant": "hi spot"
+},
+{
+"word": "Hisense",
+"variant": "high sense"
+},
+{
+"word": "Hopin",
+"variant": "hop in"
+},
+{
+"word": "Hydrow",
+"variant": "hydro"
+},
+{
+"word": "HyperX",
+"variant": "hyper ex"
+},
+{
+"word": "imgix",
+"variant": "image x"
+},
+{
+"word": "Inditex",
+"variant": "into text"
+},
+{
+"word": "Infinix",
+"variant": "infinite x"
+},
+{
+"word": "Justworks",
+"variant": "just works"
+},
+{
+"word": "Kandji",
+"variant": "candy"
+},
+{
+"word": "Kandji",
+"variant": "kanji"
+},
+{
+"word": "Kartell",
+"variant": "cartel"
+},
+{
+"word": "KeepTruckin",
+"variant": "keep trucking"
+},
+{
+"word": "Kit",
+"variant": "kid"
+},
+{
+"word": "Krea",
+"variant": "prayer"
+},
+{
+"word": "Kurly",
+"variant": "curly"
+},
+{
+"word": "Kustomer",
+"variant": "customer"
+},
+{
+"word": "Labelbox",
+"variant": "label box"
+},
+{
+"word": "LAION",
+"variant": "lie on"
+},
+{
+"word": "LAION",
+"variant": "lion"
+},
+{
+"word": "LAION",
+"variant": "lying"
+},
+{
+"word": "Landor",
+"variant": "land or"
+},
+{
+"word": "Landor",
+"variant": "lander"
+},
+{
+"word": "Lazard",
+"variant": "lizard"
+},
+{
+"word": "Lightmatter",
+"variant": "light matter"
+},
+{
+"word": "Lightricks",
+"variant": "light tricks"
+},
+{
+"word": "LinearB",
+"variant": "linear b"
+},
+{
+"word": "Lineto",
+"variant": "line to"
+},
+{
+"word": "Lineto",
+"variant": "line two"
+},
+{
+"word": "Linksys",
+"variant": "links is"
+},
+{
+"word": "Lowe's",
+"variant": "lows"
+},
+{
+"word": "Manus",
+"variant": "man us"
+},
+{
+"word": "MarginNote",
+"variant": "margin note"
+},
+{
+"word": "MathWorks",
+"variant": "math works"
+},
+{
+"word": "Mattermost",
+"variant": "matter most"
+},
+{
+"word": "Maxar",
+"variant": "max are"
+},
+{
+"word": "Meitu",
+"variant": "may to"
+},
+{
+"word": "Meitu",
+"variant": "may two"
+},
+{
+"word": "Meitu",
+"variant": "me to"
+},
+{
+"word": "METR",
+"variant": "meter"
+},
+{
+"word": "Mirakl",
+"variant": "miracle"
+},
+{
+"word": "MITRE",
+"variant": "miter"
+},
+{
+"word": "MIUI",
+"variant": "me why"
+},
+{
+"word": "Moleskine",
+"variant": "moleskin"
+},
+{
+"word": "Morningstar",
+"variant": "morning star"
+},
+{
+"word": "Motional",
+"variant": "emotional"
+},
+{
+"word": "Moz",
+"variant": "mas"
+},
+{
+"word": "NetApp",
+"variant": "net app"
+},
+{
+"word": "Nextdoor",
+"variant": "next door"
+},
+{
+"word": "NIO",
+"variant": "neo"
+},
+{
+"word": "NIO",
+"variant": "new"
+},
+{
+"word": "Nous Research",
+"variant": "news research"
+},
+{
+"word": "Nuro",
+"variant": "nero"
+},
+{
+"word": "Nuro",
+"variant": "neuro"
+},
+{
+"word": "Oklo",
+"variant": "ok low"
+},
+{
+"word": "OKX",
+"variant": "okay x"
+},
+{
+"word": "OneTrust",
+"variant": "one trust"
+},
+{
+"word": "Opendoor",
+"variant": "open door"
+},
+{
+"word": "Ozon",
+"variant": "o zone"
+},
+{
+"word": "PARC",
+"variant": "park"
+},
+{
+"word": "Paychex",
+"variant": "pay checks"
+},
+{
+"word": "Peak XV",
+"variant": "peak fifteen"
+},
+{
+"word": "Pika",
+"variant": "pico"
+},
+{
+"word": "Point72",
+"variant": "point seventy two"
+},
+{
+"word": "Point72",
+"variant": "point seventy-two"
+},
+{
+"word": "project44",
+"variant": "project forty four"
+},
+{
+"word": "project44",
+"variant": "project forty-four"
+},
+{
+"word": "Prosus",
+"variant": "process"
+},
+{
+"word": "Qdrant",
+"variant": "quadrant"
+},
+{
+"word": "Reaktor",
+"variant": "reactor"
+},
+{
+"word": "Realme",
+"variant": "real me"
+},
+{
+"word": "Reeder",
+"variant": "reader"
+},
+{
+"word": "Reka",
+"variant": "raker"
+},
+{
+"word": "Renault",
+"variant": "reno"
+},
+{
+"word": "Ricoh",
+"variant": "rico"
+},
+{
+"word": "Rightmove",
+"variant": "right move"
+},
+{
+"word": "Riskified",
+"variant": "risk a fight"
+},
+{
+"word": "Røde",
+"variant": "road"
+},
+{
+"word": "Røde",
+"variant": "rode"
+},
+{
+"word": "Røde",
+"variant": "wrote"
+},
+{
+"word": "SafetyCulture",
+"variant": "safety culture"
+},
+{
+"word": "Samsara",
+"variant": "sam sarah"
+},
+{
+"word": "SanDisk",
+"variant": "sand disk"
+},
+{
+"word": "Sansan",
+"variant": "saison"
+},
+{
+"word": "Scaleway",
+"variant": "scale way"
+},
+{
+"word": "Schwab",
+"variant": "swab"
+},
+{
+"word": "Sea Limited",
+"variant": "see limited"
+},
+{
+"word": "SenseTime",
+"variant": "sense time"
+},
+{
+"word": "SenseTime",
+"variant": "since time"
+},
+{
+"word": "Shottr",
+"variant": "shot her"
+},
+{
+"word": "Skild AI",
+"variant": "skilled a i"
+},
+{
+"word": "Skild AI",
+"variant": "skilled ai"
+},
+{
+"word": "SoFi",
+"variant": "sophie"
+},
+{
+"word": "Softr",
+"variant": "softer"
+},
+{
+"word": "Soyuz",
+"variant": "soy use"
+},
+{
+"word": "Startpage",
+"variant": "start page"
+},
+{
+"word": "Statuspage",
+"variant": "status page"
+},
+{
+"word": "StockX",
+"variant": "stock x"
+},
+{
+"word": "StockX",
+"variant": "stocks"
+},
+{
+"word": "Storyblok",
+"variant": "story block"
+},
+{
+"word": "Sunrun",
+"variant": "sun run"
+},
+{
+"word": "Surfshark",
+"variant": "surf shark"
+},
+{
+"word": "Symantec",
+"variant": "semantic"
+},
+{
+"word": "Tabnine",
+"variant": "tab nine"
+},
+{
+"word": "Talabat",
+"variant": "taliban"
+},
+{
+"word": "Talon Voice",
+"variant": "talent voice"
+},
+{
+"word": "Tecno",
+"variant": "techno"
+},
+{
+"word": "Telus",
+"variant": "tell us"
+},
+{
+"word": "Theranos",
+"variant": "there a nose"
+},
+{
+"word": "Thinking Machines Lab",
+"variant": "thinking machines"
+},
+{
+"word": "Thunderbird",
+"variant": "thunder bird"
+},
+{
+"word": "Tibber",
+"variant": "tiber"
+},
+{
+"word": "Tidal",
+"variant": "title"
+},
+{
+"word": "Timescale",
+"variant": "time scale"
+},
+{
+"word": "Tmall",
+"variant": "team all"
+},
+{
+"word": "Tmall",
+"variant": "tim all"
+},
+{
+"word": "Toggl",
+"variant": "toggle"
+},
+{
+"word": "Totango",
+"variant": "to tango"
+},
+{
+"word": "Trellix",
+"variant": "trellis"
+},
+{
+"word": "TypeTogether",
+"variant": "type together"
+},
+{
+"word": "UBS",
+"variant": "you b s"
+},
+{
+"word": "UnionPay",
+"variant": "union pay"
+},
+{
+"word": "Vespa",
+"variant": "vesper"
+},
+{
+"word": "Vidu",
+"variant": "vito"
+},
+{
+"word": "Vinted",
+"variant": "vintage"
+},
+{
+"word": "VTEX",
+"variant": "vitex"
+},
+{
+"word": "Vultr",
+"variant": "vulture"
+},
+{
+"word": "WeCom",
+"variant": "we come"
+},
+{
+"word": "Weixin",
+"variant": "waitin"
+},
+{
+"word": "Wellfound",
+"variant": "well found"
+},
+{
+"word": "WeRide",
+"variant": "we ride"
+},
+{
+"word": "WeRide",
+"variant": "we right"
+},
+{
+"word": "WeWork",
+"variant": "we work"
+},
+{
+"word": "Wispr Flow",
+"variant": "whisper flow"
+},
+{
+"word": "Work & Co",
+"variant": "work and co"
+},
+{
+"word": "Xpeng",
+"variant": "x bang"
+},
+{
+"word": "Xpeng",
+"variant": "x-bang"
+},
+{
+"word": "Zipline",
+"variant": "zip line"
+},
+{
+"word": "ZoomInfo",
+"variant": "zoom info"
+},
+{
+"word": "Infisical",
+"variant": "in physical"
+},
+{
+"word": "D3",
+"variant": "d three"
+},
+{
+"word": "Flink",
+"variant": "safe link"
+},
+{
+"word": "Mongo",
+"variant": "mungo"
+},
+{
+"word": "seaborn",
+"variant": "sea born"
+},
+{
+"word": "seaborn",
+"variant": "seaborne"
+},
+{
+"word": "Trino",
+"variant": "tree no"
+},
+{
+"word": "Alation",
+"variant": "elation"
+},
+{
+"word": "Automerge",
+"variant": "auto merge"
+},
+{
+"word": "BSON",
+"variant": "bison"
+},
+{
+"word": "Citus",
+"variant": "situs"
+},
+{
+"word": "CUPED",
+"variant": "cupid"
+},
+{
+"word": "DataFusion",
+"variant": "data fusion"
+},
+{
+"word": "DBeaver",
+"variant": "the beaver"
+},
+{
+"word": "dtype",
+"variant": "d type"
+},
+{
+"word": "dtype",
+"variant": "d-type"
+},
+{
+"word": "Firebolt",
+"variant": "fire bolt"
+},
+{
+"word": "Flyway",
+"variant": "fly way"
+},
+{
+"word": "Greenplum",
+"variant": "green plum"
+},
+{
+"word": "HANA",
+"variant": "hanna"
+},
+{
+"word": "HANA",
+"variant": "hannah"
+},
+{
+"word": "HBase",
+"variant": "age base"
+},
+{
+"word": "Hightouch",
+"variant": "high touch"
+},
+{
+"word": "Hudi",
+"variant": "hoodie"
+},
+{
+"word": "JSONB",
+"variant": "jason b"
+},
+{
+"word": "JSONL",
+"variant": "jason l"
+},
+{
+"word": "Knex",
+"variant": "connects"
+},
+{
+"word": "Lucene",
+"variant": "lucine"
+},
+{
+"word": "NDJSON",
+"variant": "andy jason"
+},
+{
+"word": "o11y",
+"variant": "ollie"
+},
+{
+"word": "PIL",
+"variant": "pill"
+},
+{
+"word": "Pipedream",
+"variant": "pipe dream"
+},
+{
+"word": "PostgREST",
+"variant": "post rest"
+},
+{
+"word": "Prophet",
+"variant": "profit"
+},
+{
+"word": "PyArrow",
+"variant": "pyro"
+},
+{
+"word": "RStudio",
+"variant": "our studio"
+},
+{
+"word": "Scrapy",
+"variant": "scrapie"
+},
+{
+"word": "Scrapy",
+"variant": "scrappy"
+},
+{
+"word": "SingleStore",
+"variant": "single store"
+},
+{
+"word": "Solr",
+"variant": "solar"
+},
+{
+"word": "Spyder",
+"variant": "spider"
+},
+{
+"word": "Stata",
+"variant": "stater"
+},
+{
+"word": "TablePlus",
+"variant": "table plus"
+},
+{
+"word": "vCard",
+"variant": "v card"
+},
+{
+"word": "vCard",
+"variant": "vee card"
+},
+{
+"word": "Vitess",
+"variant": "save a test"
+},
+{
+"word": "WAL",
+"variant": "wall"
+},
+{
+"word": "Zarr",
+"variant": "cesar"
+},
+{
+"word": "Zarr",
+"variant": "czar"
+},
+{
+"word": "@2x",
+"variant": "it 2x"
+},
+{
+"word": "a11y",
+"variant": "ally"
+},
+{
+"word": "Bootstrap",
+"variant": "boot strap"
+},
+{
+"word": "CIELAB",
+"variant": "c lab"
+},
+{
+"word": "CIELAB",
+"variant": "c-lab"
+},
+{
+"word": "CIELAB",
+"variant": "see lab"
+},
+{
+"word": "coachmark",
+"variant": "coach mark"
+},
+{
+"word": "cyan",
+"variant": "scion"
+},
+{
+"word": "Didot",
+"variant": "dido"
+},
+{
+"word": "Dribbble",
+"variant": "dribble"
+},
+{
+"word": "dvh",
+"variant": "deviate"
+},
+{
+"word": "favicon",
+"variant": "fave icon"
+},
+{
+"word": "GIF",
+"variant": "gift"
+},
+{
+"word": "InDesign",
+"variant": "in design"
+},
+{
+"word": "Inter",
+"variant": "enter"
+},
+{
+"word": "InVision",
+"variant": "envision"
+},
+{
+"word": "mauve",
+"variant": "move"
+},
+{
+"word": "moiré",
+"variant": "moire"
+},
+{
+"word": "moiré",
+"variant": "more"
+},
+{
+"word": "Neue",
+"variant": "nor"
+},
+{
+"word": "OKLab",
+"variant": "ok lab"
+},
+{
+"word": "OKLab",
+"variant": "okay lab"
+},
+{
+"word": "ombré",
+"variant": "hombre"
+},
+{
+"word": "ombré",
+"variant": "ombre"
+},
+{
+"word": "px",
+"variant": "pixels"
+},
+{
+"word": "Serif",
+"variant": "seraph"
+},
+{
+"word": "UserTesting",
+"variant": "user testing"
+},
+{
+"word": "UX",
+"variant": "you x"
+},
+{
+"word": "Webflow",
+"variant": "web flow"
+},
+{
+"word": "Zeplin",
+"variant": "zeppelin"
+},
+{
+"word": "Aeron chair",
+"variant": "aaron chair"
+},
+{
+"word": "Aeron chair",
+"variant": "erin chair"
+},
+{
+"word": "carmine",
+"variant": "carmen"
+},
+{
+"word": "Catppuccin",
+"variant": "capuchin"
+},
+{
+"word": "CNC",
+"variant": "c and c"
+},
+{
+"word": "De Stijl",
+"variant": "the style"
+},
+{
+"word": "De Stijl",
+"variant": "to style"
+},
+{
+"word": "dp",
+"variant": "dee pee"
+},
+{
+"word": "Dreamweaver",
+"variant": "dream weaver"
+},
+{
+"word": "découpage",
+"variant": "decoupage"
+},
+{
+"word": "ease-in",
+"variant": "he's in"
+},
+{
+"word": "ease-in-out",
+"variant": "easing out"
+},
+{
+"word": "ease-out",
+"variant": "he's out"
+},
+{
+"word": "façade",
+"variant": "facade"
+},
+{
+"word": "Jonathan Ive",
+"variant": "jonathan i've"
+},
+{
+"word": "LUT",
+"variant": "let"
+},
+{
+"word": "Monokai",
+"variant": "monica"
+},
+{
+"word": "Nord",
+"variant": "nought"
+},
+{
+"word": "ProMotion",
+"variant": "pro motion"
+},
+{
+"word": "Revit",
+"variant": "rev it"
+},
+{
+"word": "Revit",
+"variant": "revet"
+},
+{
+"word": ".gitignore",
+"variant": "get ignore"
+},
+{
+"word": "/dev/null",
+"variant": "see dev null"
+},
+{
+"word": "@types",
+"variant": "at types"
+},
+{
+"word": "ASCII",
+"variant": "ask e"
+},
+{
+"word": "ASCII",
+"variant": "ask ye"
+},
+{
+"word": "ASCII",
+"variant": "ass key"
+},
+{
+"word": "AST",
+"variant": "asd"
+},
+{
+"word": "awk",
+"variant": "auk"
+},
+{
+"word": "Bazel",
+"variant": "basel"
+},
+{
+"word": "Bazel",
+"variant": "basil"
+},
+{
+"word": "Big O",
+"variant": "big oh"
+},
+{
+"word": "C#",
+"variant": "c sharp"
+},
+{
+"word": "C#",
+"variant": "c-sharp"
+},
+{
+"word": "C#",
+"variant": "s he sharp"
+},
+{
+"word": "C#",
+"variant": "sacey sharp"
+},
+{
+"word": "C#",
+"variant": "see sharp"
+},
+{
+"word": "callback",
+"variant": "call back"
+},
+{
+"word": "cgroups",
+"variant": "see groups"
+},
+{
+"word": "CMake",
+"variant": "see make"
+},
+{
+"word": "CodeSandbox",
+"variant": "code sandbox"
+},
+{
+"word": "conda",
+"variant": "condo"
+},
+{
+"word": "console.log",
+"variant": "console log"
+},
+{
+"word": "cron job",
+"variant": "crown job"
+},
+{
+"word": "Ctrl-C",
+"variant": "control see"
+},
+{
+"word": "daemon",
+"variant": "demon"
+},
+{
+"word": "DirectX",
+"variant": "direct ex"
+},
+{
+"word": "dotfiles",
+"variant": "files"
+},
+{
+"word": "env",
+"variant": "envy"
+},
+{
+"word": "esbuild",
+"variant": "ease build"
+},
+{
+"word": "FLAC",
+"variant": "flack"
+},
+{
+"word": "FLAC",
+"variant": "flak"
+},
+{
+"word": "GeForce",
+"variant": "g force"
+},
+{
+"word": "GeForce",
+"variant": "g-force"
+},
+{
+"word": "getElementById",
+"variant": "sake it element by id"
+},
+{
+"word": "git add",
+"variant": "get add"
+},
+{
+"word": "git add",
+"variant": "get at"
+},
+{
+"word": "git add",
+"variant": "get out"
+},
+{
+"word": "git branch",
+"variant": "get branch"
+},
+{
+"word": "git checkout",
+"variant": "get check out"
+},
+{
+"word": "git commit",
+"variant": "get commit"
+},
+{
+"word": "git diff",
+"variant": "get diff"
+},
+{
+"word": "git init",
+"variant": "get a knit"
+},
+{
+"word": "git init",
+"variant": "get in it"
+},
+{
+"word": "git init",
+"variant": "git innit"
+},
+{
+"word": "git log",
+"variant": "get log"
+},
+{
+"word": "git merge",
+"variant": "get merge"
+},
+{
+"word": "git pull",
+"variant": "get pull"
+},
+{
+"word": "git push",
+"variant": "get push"
+},
+{
+"word": "git reset",
+"variant": "get reset"
+},
+{
+"word": "git stash",
+"variant": "get stash"
+},
+{
+"word": "git status",
+"variant": "get status"
+},
+{
+"word": "GitLab",
+"variant": "get lab"
+},
+{
+"word": "Gradle",
+"variant": "gray dull"
+},
+{
+"word": "Gradle",
+"variant": "grey dull"
+},
+{
+"word": "grep",
+"variant": "grip"
+},
+{
+"word": "gzip",
+"variant": "jesus"
+},
+{
+"word": "I-frame",
+"variant": "eye frame"
+},
+{
+"word": "Inquirer.js",
+"variant": "inquirer"
+},
+{
+"word": "Intune",
+"variant": "in tune"
+},
+{
+"word": "JAX",
+"variant": "jacks"
+},
+{
+"word": "Joi",
+"variant": "joy"
+},
+{
+"word": "JWT",
+"variant": "jot"
+},
+{
+"word": "LaTeX",
+"variant": "la tech"
+},
+{
+"word": "Lean",
+"variant": "saline"
+},
+{
+"word": "mypy",
+"variant": "my pi"
+},
+{
+"word": "mypy",
+"variant": "my pie"
+},
+{
+"word": "NaN",
+"variant": "not a number"
+},
+{
+"word": "NextAuth.js",
+"variant": "next auth"
+},
+{
+"word": "Node.js",
+"variant": "no js"
+},
+{
+"word": "Nuxt",
+"variant": "next"
+},
+{
+"word": "OAuth",
+"variant": "oath"
+},
+{
+"word": "Objective-C",
+"variant": "objective see"
+},
+{
+"word": "octothorpe",
+"variant": "octothorp"
+},
+{
+"word": "ONNX",
+"variant": "on x"
+},
+{
+"word": "ONNX",
+"variant": "onyx"
+},
+{
+"word": "PM2",
+"variant": "pm two"
+},
+{
+"word": "PostgreSQL",
+"variant": "post-rescue"
+},
+{
+"word": "Redis",
+"variant": "red is"
+},
+{
+"word": "REPL",
+"variant": "repel"
+},
+{
+"word": "RHEL",
+"variant": "rel"
+},
+{
+"word": "root",
+"variant": "rude"
+},
+{
+"word": "Ruff",
+"variant": "rough"
+},
+{
+"word": "Scala",
+"variant": "scholar"
+},
+{
+"word": "sed",
+"variant": "said"
+},
+{
+"word": "setTimeout",
+"variant": "set time out"
+},
+{
+"word": "SHA",
+"variant": "shah"
+},
+{
+"word": "SHA",
+"variant": "shaw"
+},
+{
+"word": "shebang",
+"variant": "she bang"
+},
+{
+"word": "spaCy",
+"variant": "spacey"
+},
+{
+"word": "stderr",
+"variant": "standard error"
+},
+{
+"word": "stdin",
+"variant": "standard in"
+},
+{
+"word": "Streamlit",
+"variant": "stream lit"
+},
+{
+"word": "Streamlit",
+"variant": "streamlet"
+},
+{
+"word": "struct",
+"variant": "struck"
+},
+{
+"word": "sudo",
+"variant": "pseudo"
+},
+{
+"word": "tail",
+"variant": "tale"
+},
+{
+"word": "Tauri",
+"variant": "tory"
+},
+{
+"word": "tmux",
+"variant": "t max"
+},
+{
+"word": "TOML",
+"variant": "tamil"
+},
+{
+"word": "TOML",
+"variant": "tom l"
+},
+{
+"word": "trait",
+"variant": "trade"
+},
+{
+"word": "User-Agent",
+"variant": "user agent"
+},
+{
+"word": "useState",
+"variant": "use state"
+},
+{
+"word": "useState",
+"variant": "you stayed"
+},
+{
+"word": "Vercel",
+"variant": "save or sell"
+},
+{
+"word": "Vite",
+"variant": "vid"
+},
+{
+"word": "Vue",
+"variant": "save you"
+},
+{
+"word": "Vue",
+"variant": "view"
+},
+{
+"word": "Vulkan",
+"variant": "vulcan"
+},
+{
+"word": "Xcode",
+"variant": "ex gold"
+},
+{
+"word": "XOR",
+"variant": "x or"
+},
+{
+"word": "XState",
+"variant": "ex state"
+},
+{
+"word": "XState",
+"variant": "x state"
+},
+{
+"word": "$HOME",
+"variant": "dollar home"
+},
+{
+"word": "&&",
+"variant": "an and"
+},
+{
+"word": "&&",
+"variant": "and and"
+},
+{
+"word": ".deb",
+"variant": "see dot deb"
+},
+{
+"word": "/bin",
+"variant": "bin"
+},
+{
+"word": "/tmp",
+"variant": "see temp"
+},
+{
+"word": "/tmp",
+"variant": "temp"
+},
+{
+"word": "/usr",
+"variant": "slash user"
+},
+{
+"word": "/usr",
+"variant": "user"
+},
+{
+"word": "/var",
+"variant": "save var"
+},
+{
+"word": "/var",
+"variant": "var"
+},
+{
+"word": "7z",
+"variant": "seven z"
+},
+{
+"word": "@Binding",
+"variant": "up binding"
+},
+{
+"word": "@MainActor",
+"variant": "it main actor"
+},
+{
+"word": "@Observable",
+"variant": "ad observable"
+},
+{
+"word": "@State",
+"variant": "at state"
+},
+{
+"word": "Agent2Agent",
+"variant": "agent to agent"
+},
+{
+"word": "Akka",
+"variant": "aka"
+},
+{
+"word": "Akka",
+"variant": "awkward"
+},
+{
+"word": "Alacritty",
+"variant": "alacrity"
+},
+{
+"word": "ANSI",
+"variant": "an see"
+},
+{
+"word": "antd",
+"variant": "aunt d"
+},
+{
+"word": "ANTLR",
+"variant": "antler"
+},
+{
+"word": "AppImage",
+"variant": "app image"
+},
+{
+"word": "AppsFlyer",
+"variant": "app flyer"
+},
+{
+"word": "ArkType",
+"variant": "arc type"
+},
+{
+"word": "ArkType",
+"variant": "archetype"
+},
+{
+"word": "ASIO",
+"variant": "asia"
+},
+{
+"word": "AuthenticationServices",
+"variant": "authentication services"
+},
+{
+"word": "AutoGen",
+"variant": "auto gen"
+},
+{
+"word": "AVC",
+"variant": "abc"
+},
+{
+"word": "AVKit",
+"variant": "a v kit"
+},
+{
+"word": "B-spline",
+"variant": "beast blind"
+},
+{
+"word": "backend",
+"variant": "backhand"
+},
+{
+"word": "BackgroundTasks",
+"variant": "background tasks"
+},
+{
+"word": "bat",
+"variant": "bad"
+},
+{
+"word": "BeeWare",
+"variant": "beware"
+},
+{
+"word": "BEM",
+"variant": "bam"
+},
+{
+"word": "BigInt",
+"variant": "big and"
+},
+{
+"word": "BigInt",
+"variant": "big in"
+},
+{
+"word": "bitsandbytes",
+"variant": "bits and bytes"
+},
+{
+"word": "Blazor",
+"variant": "blazer"
+},
+{
+"word": "Blazor",
+"variant": "blazers"
+},
+{
+"word": "BrowserSync",
+"variant": "browser sync"
+},
+{
+"word": "Buildroot",
+"variant": "build root"
+},
+{
+"word": "cel shading",
+"variant": "cell shading"
+},
+{
+"word": "cel shading",
+"variant": "self-shading"
+},
+{
+"word": "Changesets",
+"variant": "change sets"
+},
+{
+"word": "Checkov",
+"variant": "check of"
+},
+{
+"word": "Checkov",
+"variant": "check off"
+},
+{
+"word": "chgrp",
+"variant": "change group"
+},
+{
+"word": "chgrp",
+"variant": "to group"
+},
+{
+"word": "chroot",
+"variant": "change root"
+},
+{
+"word": "chroot",
+"variant": "cheroot"
+},
+{
+"word": "clang-format",
+"variant": "claim format"
+},
+{
+"word": "classnames",
+"variant": "class names"
+},
+{
+"word": "CLion",
+"variant": "sea lion"
+},
+{
+"word": "CLion",
+"variant": "see lion"
+},
+{
+"word": "Closure Compiler",
+"variant": "close your compiler"
+},
+{
+"word": "COM",
+"variant": "calm"
+},
+{
+"word": "comptime",
+"variant": "comp time"
+},
+{
+"word": "Content-Type",
+"variant": "content type"
+},
+{
+"word": "coreutils",
+"variant": "core utilities"
+},
+{
+"word": "CPython",
+"variant": "see python"
+},
+{
+"word": "createElement",
+"variant": "create element"
+},
+{
+"word": "cross-env",
+"variant": "cross and begin"
+},
+{
+"word": "cruft",
+"variant": "croft"
+},
+{
+"word": "ctor",
+"variant": "sea tor"
+},
+{
+"word": "ctor",
+"variant": "see tor"
+},
+{
+"word": "daemonize",
+"variant": "demonize"
+},
+{
+"word": "dataclasses",
+"variant": "data classes"
+},
+{
+"word": "DDD",
+"variant": "triple d"
+},
+{
+"word": "DefinitelyTyped",
+"variant": "definitely typed"
+},
+{
+"word": "deque",
+"variant": "deck"
+},
+{
+"word": "direnv",
+"variant": "durham"
+},
+{
+"word": "dnd kit",
+"variant": "d and d kit"
+},
+{
+"word": "dnd kit",
+"variant": "d n d kit"
+},
+{
+"word": "DOCTYPE",
+"variant": "doc type"
+},
+{
+"word": "DOCTYPE",
+"variant": "dock type"
+},
+{
+"word": "dotfile",
+"variant": "file"
+},
+{
+"word": "DriverKit",
+"variant": "driver kit"
+},
+{
+"word": "dtor",
+"variant": "detour"
+},
+{
+"word": "Elysia",
+"variant": "alicia"
+},
+{
+"word": "Esc",
+"variant": "escape"
+},
+{
+"word": "eval",
+"variant": "evil"
+},
+{
+"word": "EventKit",
+"variant": "event kit"
+},
+{
+"word": "EXIF",
+"variant": "x if"
+},
+{
+"word": "eza",
+"variant": "easer"
+},
+{
+"word": "F#",
+"variant": "f sharp"
+},
+{
+"word": "F#",
+"variant": "f-sharp"
+},
+{
+"word": "FairPlay",
+"variant": "fair play"
+},
+{
+"word": "FAISS",
+"variant": "face"
+},
+{
+"word": "fastlane",
+"variant": "fast lane"
+},
+{
+"word": "fixup",
+"variant": "fix up"
+},
+{
+"word": "fixup",
+"variant": "fix-up"
+},
+{
+"word": "FlashAttention",
+"variant": "save flash attention"
+},
+{
+"word": "Flatpak",
+"variant": "flatpack"
+},
+{
+"word": "foo",
+"variant": "fu"
+},
+{
+"word": "foobar",
+"variant": "fubar"
+},
+{
+"word": "FormData",
+"variant": "form data"
+},
+{
+"word": "FormData",
+"variant": "save form data"
+},
+{
+"word": "FoundationModels",
+"variant": "foundation models"
+},
+{
+"word": "framebuffer",
+"variant": "save frame buffer"
+},
+{
+"word": "fsck",
+"variant": "fisk"
+},
+{
+"word": "GIL",
+"variant": "gill"
+},
+{
+"word": "GIL",
+"variant": "the gill"
+},
+{
+"word": "Gin",
+"variant": "jin"
+},
+{
+"word": "git clean",
+"variant": "get clean"
+},
+{
+"word": "git remote",
+"variant": "get remote"
+},
+{
+"word": "Gitea",
+"variant": "get tea"
+},
+{
+"word": "GlassFish",
+"variant": "glass fish"
+},
+{
+"word": "got",
+"variant": "god"
+},
+{
+"word": "GraphiQL",
+"variant": "graphical"
+},
+{
+"word": "Graphviz",
+"variant": "graph is"
+},
+{
+"word": "Gson",
+"variant": "gee son"
+},
+{
+"word": "Hapi",
+"variant": "happy"
+},
+{
+"word": "HEIF",
+"variant": "heath"
+},
+{
+"word": "HomeKit",
+"variant": "home kid"
+},
+{
+"word": "IIFE",
+"variant": "iffy"
+},
+{
+"word": "INI",
+"variant": "any"
+},
+{
+"word": "INI",
+"variant": "in e"
+},
+{
+"word": "init",
+"variant": "in it"
+},
+{
+"word": "init",
+"variant": "innit"
+},
+{
+"word": "Jinja",
+"variant": "ginger"
+},
+{
+"word": "JUCE",
+"variant": "juice"
+},
+{
+"word": "Jujutsu",
+"variant": "jujitsu"
+},
+{
+"word": "LaunchAgent",
+"variant": "launch agent"
+},
+{
+"word": "LaunchAgent",
+"variant": "launch agents"
+},
+{
+"word": "lazygit",
+"variant": "lazy get"
+},
+{
+"word": "left-pad",
+"variant": "left pad"
+},
+{
+"word": "Lerna",
+"variant": "lerner"
+},
+{
+"word": "LINQ",
+"variant": "link"
+},
+{
+"word": "little-endian",
+"variant": "little indian"
+},
+{
+"word": "LiveView",
+"variant": "live view"
+},
+{
+"word": "LiveView",
+"variant": "live you"
+},
+{
+"word": "Livewire",
+"variant": "live or"
+},
+{
+"word": "Livewire",
+"variant": "live wire"
+},
+{
+"word": "Logback",
+"variant": "log back"
+},
+{
+"word": "Lua",
+"variant": "lure"
+},
+{
+"word": "Markdoc",
+"variant": "mark doc"
+},
+{
+"word": "MATE",
+"variant": "matte"
+},
+{
+"word": "minimist",
+"variant": "minimalist"
+},
+{
+"word": "Minitest",
+"variant": "mini test"
+},
+{
+"word": "Modernizr",
+"variant": "modernizer"
+},
+{
+"word": "multer",
+"variant": "malta"
+},
+{
+"word": "musl",
+"variant": "muscle"
+},
+{
+"word": "musl",
+"variant": "mussel"
+},
+{
+"word": "NCCL",
+"variant": "nickel"
+},
+{
+"word": "NERDTree",
+"variant": "nurturing"
+},
+{
+"word": "NetworkManager",
+"variant": "network manager"
+},
+{
+"word": "Nix",
+"variant": "nyx"
+},
+{
+"word": "NOC",
+"variant": "knock"
+},
+{
+"word": "NOC",
+"variant": "nock"
+},
+{
+"word": "Notepad++",
+"variant": "notepad plus"
+},
+{
+"word": "NuGet",
+"variant": "new get"
+},
+{
+"word": "Numba",
+"variant": "number"
+},
+{
+"word": "Nushell",
+"variant": "new shell"
+},
+{
+"word": "oclif",
+"variant": "oak cliff"
+},
+{
+"word": "oclif",
+"variant": "oh cliff"
+},
+{
+"word": "Ogg",
+"variant": "og"
+},
+{
+"word": "OOM",
+"variant": "um"
+},
+{
+"word": "OR-Tools",
+"variant": "or tools"
+},
+{
+"word": "orjson",
+"variant": "or jason"
+},
+{
+"word": "Oxc",
+"variant": "oxy"
+},
+{
+"word": "pacman",
+"variant": "packman"
+},
+{
+"word": "PartyKit",
+"variant": "party kit"
+},
+{
+"word": "PEFT",
+"variant": "puffed"
+},
+{
+"word": "Perforce",
+"variant": "per force"
+},
+{
+"word": "Perl",
+"variant": "pearl"
+},
+{
+"word": "PipeWire",
+"variant": "pipe wire"
+},
+{
+"word": "PIX",
+"variant": "pics"
+},
+{
+"word": "POP3",
+"variant": "pop three"
+},
+{
+"word": "Pyright",
+"variant": "pi right"
+},
+{
+"word": "Pyright",
+"variant": "pie right"
+},
+{
+"word": "Pyright",
+"variant": "pyrite"
+},
+{
+"word": "Reqwest",
+"variant": "request"
+},
+{
+"word": "Resque",
+"variant": "rescue"
+},
+{
+"word": "ROCm",
+"variant": "rock em"
+},
+{
+"word": "Rolldown",
+"variant": "roll down"
+},
+{
+"word": "rustc",
+"variant": "rust see"
+},
+{
+"word": "Samba",
+"variant": "sambo"
+},
+{
+"word": "SameSite",
+"variant": "same site"
+},
+{
+"word": "setuptools",
+"variant": "set up tools"
+},
+{
+"word": "Sidekiq",
+"variant": "side kick"
+},
+{
+"word": "Sidekiq",
+"variant": "sidekick"
+},
+{
+"word": "Skia",
+"variant": "skier"
+},
+{
+"word": "SolidStart",
+"variant": "solid start"
+},
+{
+"word": "Sonner",
+"variant": "sonar"
+},
+{
+"word": "sounddevice",
+"variant": "sound device"
+},
+{
+"word": "SourceTree",
+"variant": "source tree"
+},
+{
+"word": "SpiderMonkey",
+"variant": "spider-monkey"
+},
+{
+"word": "Starlette",
+"variant": "starlet"
+},
+{
+"word": "State of JS",
+"variant": "state of javascript"
+},
+{
+"word": "Stylelint",
+"variant": "style in"
+},
+{
+"word": "Stylelint",
+"variant": "styling"
+},
+{
+"word": "Supertest",
+"variant": "super test"
+},
+{
+"word": "SUSE",
+"variant": "susa"
+},
+{
+"word": "SUSE",
+"variant": "susie"
+},
+{
+"word": "Symfony",
+"variant": "symphony"
+},
+{
+"word": "Syncthing",
+"variant": "sink thing"
+},
+{
+"word": "Syncthing",
+"variant": "sync thing"
+},
+{
+"word": "Tabler Icons",
+"variant": "table icons"
+},
+{
+"word": "Tails",
+"variant": "tales"
+},
+{
+"word": "Tcl",
+"variant": "tickle"
+},
+{
+"word": "tee",
+"variant": "tea"
+},
+{
+"word": "TeX",
+"variant": "tech"
+},
+{
+"word": "TextMate",
+"variant": "text mate"
+},
+{
+"word": "thenable",
+"variant": "then able"
+},
+{
+"word": "thiserror",
+"variant": "the sarah"
+},
+{
+"word": "thiserror",
+"variant": "this error"
+},
+{
+"word": "Timsort",
+"variant": "tim sort"
+},
+{
+"word": "Tiptap",
+"variant": "tip tap"
+},
+{
+"word": "Tiptap",
+"variant": "tip-tap"
+},
+{
+"word": "Tiptap",
+"variant": "tip-top"
+},
+{
+"word": "Tokio",
+"variant": "tokyo"
+},
+{
+"word": "tox",
+"variant": "talks"
+},
+{
+"word": "tsup",
+"variant": "tee us up"
+},
+{
+"word": "two's complement",
+"variant": "two complement"
+},
+{
+"word": "TypeBox",
+"variant": "type box"
+},
+{
+"word": "UB",
+"variant": "you be"
+},
+{
+"word": "udev",
+"variant": "you'd ever gain"
+},
+{
+"word": "visx",
+"variant": "save this x"
+},
+{
+"word": "VRR",
+"variant": "save err"
+},
+{
+"word": "Vue 3",
+"variant": "save you three"
+},
+{
+"word": "Vue Router",
+"variant": "view router"
+},
+{
+"word": "VuePress",
+"variant": "view press"
+},
+{
+"word": "Vuex",
+"variant": "view x"
+},
+{
+"word": "WAI-ARIA",
+"variant": "way are you"
+},
+{
+"word": "WAI-ARIA",
+"variant": "way area"
+},
+{
+"word": "WebDAV",
+"variant": "web dev"
+},
+{
+"word": "WebLogic",
+"variant": "web logic"
+},
+{
+"word": "WET",
+"variant": "what"
+},
+{
+"word": "whois",
+"variant": "who is"
+},
+{
+"word": "WiMAX",
+"variant": "why max"
+},
+{
+"word": "Win32",
+"variant": "win thirty two"
+},
+{
+"word": "Win32",
+"variant": "win thirty-two"
+},
+{
+"word": "winget",
+"variant": "win get"
+},
+{
+"word": "XNU",
+"variant": "x and u"
+},
+{
+"word": "yay",
+"variant": "yea"
+},
+{
+"word": "Yii",
+"variant": "ye"
+},
+{
+"word": "Yii",
+"variant": "yee"
+},
+{
+"word": "zypper",
+"variant": "zipper"
+},
+{
+"word": "Buck2",
+"variant": "buck to"
+},
+{
+"word": "Buck2",
+"variant": "buck two"
+},
+{
+"word": "JSON5",
+"variant": "jason five"
+},
+{
+"word": "10-K",
+"variant": "ten k"
+},
+{
+"word": "Afterpay Day",
+"variant": "after pay day"
+},
+{
+"word": "CapEx",
+"variant": "cap x"
+},
+{
+"word": "Chapter 11",
+"variant": "chapter eleven"
+},
+{
+"word": "CISO",
+"variant": "see so"
+},
+{
+"word": "DeFi",
+"variant": "defy"
+},
+{
+"word": "FAANG",
+"variant": "fang"
+},
+{
+"word": "GAAP",
+"variant": "gap"
+},
+{
+"word": "H2",
+"variant": "h to"
+},
+{
+"word": "HIPAA",
+"variant": "hipper"
+},
+{
+"word": "LIFO",
+"variant": "life oh"
+},
+{
+"word": "LIFO",
+"variant": "life or"
+},
+{
+"word": "P/E",
+"variant": "p"
+},
+{
+"word": "pre-seed",
+"variant": "precede"
+},
+{
+"word": "Q1",
+"variant": "queue one"
+},
+{
+"word": "Q2",
+"variant": "queue two"
+},
+{
+"word": "RACI",
+"variant": "racy"
+},
+{
+"word": "RACI",
+"variant": "ray see"
+},
+{
+"word": "ROAS",
+"variant": "row as"
+},
+{
+"word": "ROAS",
+"variant": "row us"
+},
+{
+"word": "1099",
+"variant": "ten ninety nine"
+},
+{
+"word": "1099",
+"variant": "ten ninety-nine"
+},
+{
+"word": "2 and 20",
+"variant": "two and twenty"
+},
+{
+"word": "8-K",
+"variant": "eight k"
+},
+{
+"word": "83(b)",
+"variant": "eighty three b"
+},
+{
+"word": "83(b)",
+"variant": "eighty-three b"
+},
+{
+"word": "Aave",
+"variant": "ave"
+},
+{
+"word": "ADIA",
+"variant": "our dear"
+},
+{
+"word": "Airwallex",
+"variant": "air wallets"
+},
+{
+"word": "altcoin",
+"variant": "i'll coin"
+},
+{
+"word": "AM",
+"variant": "a.m"
+},
+{
+"word": "Ant Group",
+"variant": "aunt group"
+},
+{
+"word": "ARKK",
+"variant": "ark"
+},
+{
+"word": "Atomico",
+"variant": "atomic o"
+},
+{
+"word": "BaaS",
+"variant": "bass"
+},
+{
+"word": "Bunq",
+"variant": "bunk"
+},
+{
+"word": "carry",
+"variant": "carrie"
+},
+{
+"word": "DACI",
+"variant": "day see"
+},
+{
+"word": "DAI",
+"variant": "dye"
+},
+{
+"word": "degen",
+"variant": "dijon"
+},
+{
+"word": "DEX",
+"variant": "decks"
+},
+{
+"word": "drag-along",
+"variant": "drag along"
+},
+{
+"word": "ESMA",
+"variant": "asthma"
+},
+{
+"word": "ESOP",
+"variant": "aesop"
+},
+{
+"word": "EUR",
+"variant": "euro"
+},
+{
+"word": "Euronext",
+"variant": "euro next"
+},
+{
+"word": "EV/Revenue",
+"variant": "e v revenue"
+},
+{
+"word": "FedNow",
+"variant": "fed now"
+},
+{
+"word": "freee",
+"variant": "free"
+},
+{
+"word": "FTSE",
+"variant": "footsie"
+},
+{
+"word": "halving",
+"variant": "having"
+},
+{
+"word": "ICONIQ",
+"variant": "iconic"
+},
+{
+"word": "KOSPI",
+"variant": "cosby"
+},
+{
+"word": "L1",
+"variant": "layer one"
+},
+{
+"word": "L2",
+"variant": "layer two"
+},
+{
+"word": "LBO",
+"variant": "i'll be o"
+},
+{
+"word": "Lido",
+"variant": "leto"
+},
+{
+"word": "MiCA",
+"variant": "mika"
+},
+{
+"word": "MOIC",
+"variant": "same wake"
+},
+{
+"word": "Nifty 50",
+"variant": "nifty-fifty"
+},
+{
+"word": "Northzone",
+"variant": "north zone"
+},
+{
+"word": "P/B",
+"variant": "price to book"
+},
+{
+"word": "P/S",
+"variant": "p.s"
+},
+{
+"word": "PayPay",
+"variant": "pay pay"
+},
+{
+"word": "PIIA",
+"variant": "pia"
+},
+{
+"word": "Qonto",
+"variant": "canto"
+},
+{
+"word": "REIT",
+"variant": "read"
+},
+{
+"word": "Sensex",
+"variant": "sense"
+},
+{
+"word": "SOL",
+"variant": "sole"
+},
+{
+"word": "SOL",
+"variant": "soul"
+},
+{
+"word": "SumUp",
+"variant": "sum up"
+},
+{
+"word": "Ualá",
+"variant": "wallah"
+},
+{
+"word": "WACC",
+"variant": "wack"
+},
+{
+"word": "WACC",
+"variant": "whack"
+},
+{
+"word": "ROCE",
+"variant": "rosie"
+},
+{
+"word": "ROCE",
+"variant": "row see"
+},
+{
+"word": "DOCX",
+"variant": "doc x"
+},
+{
+"word": "ICANN",
+"variant": "eye can"
+},
+{
+"word": "indie",
+"variant": "indy"
+},
+{
+"word": "cf.",
+"variant": "compare"
+},
+{
+"word": "doppelgänger",
+"variant": "doppelganger"
+},
+{
+"word": "et al.",
+"variant": "it all"
+},
+{
+"word": "Hangzhou",
+"variant": "hang joe"
+},
+{
+"word": "IANA",
+"variant": "anna"
+},
+{
+"word": "kWh",
+"variant": "kilowatt hour"
+},
+{
+"word": "Kyiv",
+"variant": "kiev"
+},
+{
+"word": "Montréal",
+"variant": "montreal"
+},
+{
+"word": "Pune",
+"variant": "poona"
+},
+{
+"word": "Reykjavík",
+"variant": "reykjavik"
+},
+{
+"word": "ROFL",
+"variant": "raffle"
+},
+{
+"word": "Shoreditch",
+"variant": "shortage"
+},
+{
+"word": "Tallinn",
+"variant": "talon"
+},
+{
+"word": "THz",
+"variant": "terahertz"
+},
+{
+"word": "WHATWG",
+"variant": "what wig"
+},
+{
+"word": "Zürich",
+"variant": "zurich"
+},
+{
+"word": "4G",
+"variant": "for g"
+},
+{
+"word": "CMOS",
+"variant": "sea moss"
+},
+{
+"word": "CMOS",
+"variant": "see moss"
+},
+{
+"word": "fabless",
+"variant": "fabulous"
+},
+{
+"word": "Gaudi",
+"variant": "gaudy"
+},
+{
+"word": "Inferentia",
+"variant": "inferential"
+},
+{
+"word": "InfiniBand",
+"variant": "infinity band"
+},
+{
+"word": "Kirin",
+"variant": "kieran"
+},
+{
+"word": "MediaTek",
+"variant": "media tech"
+},
+{
+"word": "node",
+"variant": "note"
+},
+{
+"word": "RISC",
+"variant": "risk"
+},
+{
+"word": "RISC-V",
+"variant": "risk v"
+},
+{
+"word": "Ryzen",
+"variant": "rise in"
+},
+{
+"word": "Ryzen",
+"variant": "risen"
+},
+{
+"word": "Samsung",
+"variant": "sam sung"
+},
+{
+"word": "SATA",
+"variant": "say ta"
+},
+{
+"word": "SATA",
+"variant": "seder"
+},
+{
+"word": "Xeon",
+"variant": "zion"
+},
+{
+"word": "Advantest",
+"variant": "advantage test"
+},
+{
+"word": "AMOLED",
+"variant": "amulet"
+},
+{
+"word": "Ansys",
+"variant": "answers"
+},
+{
+"word": "BlueField",
+"variant": "blue field"
+},
+{
+"word": "chipset",
+"variant": "chip said"
+},
+{
+"word": "chipset",
+"variant": "chip set"
+},
+{
+"word": "CUDA cores",
+"variant": "coup de corps"
+},
+{
+"word": "DAC",
+"variant": "dak"
+},
+{
+"word": "Das Keyboard",
+"variant": "dos keyboard"
+},
+{
+"word": "DIMM",
+"variant": "dim"
+},
+{
+"word": "eARC",
+"variant": "earth"
+},
+{
+"word": "Espressif",
+"variant": "expressive"
+},
+{
+"word": "GW",
+"variant": "gigawatt"
+},
+{
+"word": "Hesai",
+"variant": "her sigh"
+},
+{
+"word": "Hesai",
+"variant": "hey sigh"
+},
+{
+"word": "Hon Hai",
+"variant": "hon hi"
+},
+{
+"word": "Hon Hai",
+"variant": "hon high"
+},
+{
+"word": "Lasertec",
+"variant": "laser tech"
+},
+{
+"word": "Loongson",
+"variant": "long sun"
+},
+{
+"word": "Marvell",
+"variant": "marvel"
+},
+{
+"word": "MI300",
+"variant": "am i three hundred"
+},
+{
+"word": "Moore Threads",
+"variant": "more threads"
+},
+{
+"word": "Netgear",
+"variant": "neck gear"
+},
+{
+"word": "NIC",
+"variant": "nick"
+},
+{
+"word": "Qi",
+"variant": "chi"
+},
+{
+"word": "Rapidus",
+"variant": "rapid us"
+},
+{
+"word": "Razer",
+"variant": "razor"
+},
+{
+"word": "Renesas",
+"variant": "renaissance"
+},
+{
+"word": "ROHM",
+"variant": "roam"
+},
+{
+"word": "ROHM",
+"variant": "rome"
+},
+{
+"word": "SCSI",
+"variant": "scuzzy"
+},
+{
+"word": "Seagate",
+"variant": "sea gate"
+},
+{
+"word": "SparkFun",
+"variant": "spark fun"
+},
+{
+"word": "Synology",
+"variant": "sinology"
+},
+{
+"word": "Synopsys",
+"variant": "synopsis"
+},
+{
+"word": "Ti",
+"variant": "tie"
+},
+{
+"word": "Ubiquiti",
+"variant": "ubiquity"
+},
+{
+"word": "Wii U",
+"variant": "we you"
+},
+{
+"word": "4K",
+"variant": "four k"
+},
+{
+"word": "9to5Google",
+"variant": "nine to five google"
+},
+{
+"word": "AppleInsider",
+"variant": "apple and cider"
+},
+{
+"word": "DAW",
+"variant": "da"
+},
+{
+"word": "EQ",
+"variant": "iq"
+},
+{
+"word": "Godot",
+"variant": "god oh"
+},
+{
+"word": "Reddit",
+"variant": "read it"
+},
+{
+"word": "The Wall Street Journal",
+"variant": "wall street journal"
+},
+{
+"word": "WeChat",
+"variant": "we chat"
+},
+{
+"word": "AnandTech",
+"variant": "on in tech"
+},
+{
+"word": "App Annie",
+"variant": "app any"
+},
+{
+"word": "Bluesky",
+"variant": "blue sky"
+},
+{
+"word": "CD Projekt",
+"variant": "c d project"
+},
+{
+"word": "CD Projekt",
+"variant": "cd project"
+},
+{
+"word": "Counter-Strike",
+"variant": "counterstrike"
+},
+{
+"word": "DNG",
+"variant": "d and g"
+},
+{
+"word": "Dota",
+"variant": "doter"
+},
+{
+"word": "Douyin",
+"variant": "doin"
+},
+{
+"word": "Fast Company",
+"variant": "save fast company"
+},
+{
+"word": "gacha",
+"variant": "gotcha"
+},
+{
+"word": "Gamescom",
+"variant": "games come"
+},
+{
+"word": "iZotope",
+"variant": "isotope"
+},
+{
+"word": "Krafton",
+"variant": "craft on"
+},
+{
+"word": "Recode",
+"variant": "re code"
+},
+{
+"word": "Sega",
+"variant": "saga"
+},
+{
+"word": "Shure",
+"variant": "sure"
+},
+{
+"word": "Similarweb",
+"variant": "similar web"
+},
+{
+"word": "Slashdot",
+"variant": "slash dot"
+},
+{
+"word": "Techmeme",
+"variant": "tech meme"
+},
+{
+"word": "Tumblr",
+"variant": "tumbler"
+},
+{
+"word": "Zynga",
+"variant": "zinger"
+},
+{
+"word": "Alex Karp",
+"variant": "alex carp"
+},
+{
+"word": "Arthur Mensch",
+"variant": "arthur minch"
+},
+{
+"word": "Cathie Wood",
+"variant": "cathy would"
+},
+{
+"word": "Daphne Koller",
+"variant": "daphne call her"
+},
+{
+"word": "DHH",
+"variant": "dh"
+},
+{
+"word": "Euler",
+"variant": "oiler"
+},
+{
+"word": "John Maeda",
+"variant": "john made her"
+},
+{
+"word": "Larry Fink",
+"variant": "larry think"
+},
+{
+"word": "Lei Jun",
+"variant": "late june"
+},
+{
+"word": "Lisa Su",
+"variant": "lisa sue"
+},
+{
+"word": "Noam Brown",
+"variant": "no i'm brown"
+},
+{
+"word": "Paula Scher",
+"variant": "polisher"
+},
+{
+"word": "Vitalik",
+"variant": "save italic"
+},
+{
+"word": "Aaron Levie",
+"variant": "aaron levi"
+},
+{
+"word": "Aaron Levie",
+"variant": "erin levy"
+},
+{
+"word": "Alan Dye",
+"variant": "alan die"
+},
+{
+"word": "Alan Kay",
+"variant": "alan k"
+},
+{
+"word": "Beatrice Warde",
+"variant": "beatrice ward"
+},
+{
+"word": "Bob Kahn",
+"variant": "bob khan"
+},
+{
+"word": "Boz",
+"variant": "boss"
+},
+{
+"word": "Cauchy",
+"variant": "co she"
+},
+{
+"word": "Cauchy",
+"variant": "kochi"
+},
+{
+"word": "Codd",
+"variant": "cod"
+},
+{
+"word": "Colin Huang",
+"variant": "colin wang"
+},
+{
+"word": "Daniel Stenberg",
+"variant": "daniel steinberg"
+},
+{
+"word": "Fireship",
+"variant": "save fire ship"
+},
+{
+"word": "Gödel",
+"variant": "girdle"
+},
+{
+"word": "Hoare",
+"variant": "whore"
+},
+{
+"word": "Jan Leike",
+"variant": "jan like"
+},
+{
+"word": "Jason Fried",
+"variant": "jason freed"
+},
+{
+"word": "John Doerr",
+"variant": "john door"
+},
+{
+"word": "Kevin Weil",
+"variant": "kevin while"
+},
+{
+"word": "Lagrange",
+"variant": "la grange"
+},
+{
+"word": "Lars Bak",
+"variant": "lars back"
+},
+{
+"word": "Mark Gurman",
+"variant": "mark german"
+},
+{
+"word": "Max Miedinger",
+"variant": "max meeting her"
+},
+{
+"word": "Michael Burry",
+"variant": "michael berry"
+},
+{
+"word": "Michael Saylor",
+"variant": "michael sailor"
+},
+{
+"word": "Mike Moritz",
+"variant": "mike morris"
+},
+{
+"word": "Philip Johnson",
+"variant": "phillip johnson"
+},
+{
+"word": "Planck",
+"variant": "plank"
+},
+{
+"word": "Planck",
+"variant": "plonk"
+},
+{
+"word": "Sarah Friar",
+"variant": "sarah fryer"
+},
+{
+"word": "Scott Wu",
+"variant": "scott woo"
+},
+{
+"word": "Stewart Brand",
+"variant": "stuart brand"
+},
+{
+"word": "Stonebraker",
+"variant": "stone breaker"
+},
+{
+"word": "Susan Kare",
+"variant": "susan care"
+},
+{
+"word": "Terry Gou",
+"variant": "terry go"
+},
+{
+"word": "William Li",
+"variant": "william lee"
+},
+{
+"word": "Thomas Wolf",
+"variant": "thomas wolfe"
+},
+{
+"word": "1:1",
+"variant": "one on one"
+},
+{
+"word": "1:1",
+"variant": "one-on-one"
+},
+{
+"word": "A/B",
+"variant": "ab"
+},
+{
+"word": "AdWords",
+"variant": "add words"
+},
+{
+"word": "Alipay",
+"variant": "ally pay"
+},
+{
+"word": "Apple Cash",
+"variant": "apple cache"
+},
+{
+"word": "BERT",
+"variant": "bird"
+},
+{
+"word": "BERT",
+"variant": "burt"
+},
+{
+"word": "Cash App",
+"variant": "cache app"
+},
+{
+"word": "Claude",
+"variant": "clawed"
+},
+{
+"word": "Claude",
+"variant": "clod"
+},
+{
+"word": "Codex",
+"variant": "code x"
+},
+{
+"word": "Cypress",
+"variant": "cyprus"
+},
+{
+"word": "Devin",
+"variant": "devon"
+},
+{
+"word": "FaceTime",
+"variant": "face time"
+},
+{
+"word": "Finder",
+"variant": "find her"
+},
+{
+"word": "Fortnite",
+"variant": "fort night"
+},
+{
+"word": "Fortnite",
+"variant": "fortnight"
+},
+{
+"word": "Framer Motion",
+"variant": "save frame or motion"
+},
+{
+"word": "Goodreads",
+"variant": "good reads"
+},
+{
+"word": "Google Ads",
+"variant": "google adds"
+},
+{
+"word": "Google Duo",
+"variant": "google do"
+},
+{
+"word": "HeroUI",
+"variant": "hero u i"
+},
+{
+"word": "Imagen",
+"variant": "imagine"
+},
+{
+"word": "Llama",
+"variant": "lama"
+},
+{
+"word": "Llama 2",
+"variant": "llama too"
+},
+{
+"word": "Lucide",
+"variant": "lucid"
+},
+{
+"word": "Macintosh",
+"variant": "mackintosh"
+},
+{
+"word": "Macintosh",
+"variant": "mcintosh"
+},
+{
+"word": "MainStage",
+"variant": "main stage"
+},
+{
+"word": "Mixtral",
+"variant": "same extra"
+},
+{
+"word": "OKR",
+"variant": "okay"
+},
+{
+"word": "One UI",
+"variant": "one u i"
+},
+{
+"word": "OneNote",
+"variant": "one note"
+},
+{
+"word": "Phi",
+"variant": "fi"
+},
+{
+"word": "Phi",
+"variant": "fie"
+},
+{
+"word": "Picasa",
+"variant": "picasso"
+},
+{
+"word": "Productboard",
+"variant": "product board"
+},
+{
+"word": "React Aria",
+"variant": "react area"
+},
+{
+"word": "Reforge",
+"variant": "re forge"
+},
+{
+"word": "Reforge",
+"variant": "re-forge"
+},
+{
+"word": "Smartlook",
+"variant": "smart look"
+},
+{
+"word": "SuccessFactors",
+"variant": "success factors"
+},
+{
+"word": "ThinkPad",
+"variant": "think pat"
+},
+{
+"word": "UIKit",
+"variant": "you like it"
+},
+{
+"word": "Vuetify",
+"variant": "beautify"
+},
+{
+"word": "Wan",
+"variant": "juan"
+},
+{
+"word": "Wan",
+"variant": "one"
+},
+{
+"word": "Windows 10",
+"variant": "windows ten"
+},
+{
+"word": "Zed",
+"variant": "z"
+},
+{
+"word": "ActiveCampaign",
+"variant": "active campaign"
+},
+{
+"word": "ActivityKit",
+"variant": "activity kit"
+},
+{
+"word": "Adreno",
+"variant": "adrenal"
+},
+{
+"word": "AlphaCode",
+"variant": "alpha code"
+},
+{
+"word": "AlphaZero",
+"variant": "alpha zero"
+},
+{
+"word": "Anki",
+"variant": "on key"
+},
+{
+"word": "AnyDesk",
+"variant": "any desk"
+},
+{
+"word": "Appcues",
+"variant": "app queues"
+},
+{
+"word": "Appcues",
+"variant": "app use"
+},
+{
+"word": "Appcues",
+"variant": "apt cues"
+},
+{
+"word": "Are.na",
+"variant": "arena"
+},
+{
+"word": "Ash Maurya",
+"variant": "ash maria"
+},
+{
+"word": "AskNicely",
+"variant": "ask nicely"
+},
+{
+"word": "Authy",
+"variant": "author"
+},
+{
+"word": "Authy",
+"variant": "off the"
+},
+{
+"word": "Awwwards",
+"variant": "awards"
+},
+{
+"word": "Balsamiq",
+"variant": "balsamic"
+},
+{
+"word": "BitTorrent",
+"variant": "bit torn"
+},
+{
+"word": "Claude 3.7 Sonnet",
+"variant": "see claude three point seven sonnet"
+},
+{
+"word": "Claude Desktop",
+"variant": "cloud desktop"
+},
+{
+"word": "CleanMyMac",
+"variant": "clean my mac"
+},
+{
+"word": "Cline",
+"variant": "klein"
+},
+{
+"word": "Cocoa",
+"variant": "coco"
+},
+{
+"word": "Condens",
+"variant": "condense"
+},
+{
+"word": "ConnectX",
+"variant": "connect x"
+},
+{
+"word": "Coolors",
+"variant": "colors"
+},
+{
+"word": "Coolors",
+"variant": "cool colors"
+},
+{
+"word": "Creately",
+"variant": "creatively"
+},
+{
+"word": "DALL-E 2",
+"variant": "dolly two"
+},
+{
+"word": "DALL-E 3",
+"variant": "dolly three"
+},
+{
+"word": "Dan Olsen",
+"variant": "dan olson"
+},
+{
+"word": "del.icio.us",
+"variant": "delicious"
+},
+{
+"word": "Dev.to",
+"variant": "dev to"
+},
+{
+"word": "Directus",
+"variant": "direct us"
+},
+{
+"word": "Duo",
+"variant": "due"
+},
+{
+"word": "Find My",
+"variant": "fine my"
+},
+{
+"word": "Flaticon",
+"variant": "flat icon"
+},
+{
+"word": "Flickr",
+"variant": "flicker"
+},
+{
+"word": "Flipt",
+"variant": "flipped"
+},
+{
+"word": "FLUX.1",
+"variant": "flux one"
+},
+{
+"word": "Fogg Behavior Model",
+"variant": "save fog behavior model"
+},
+{
+"word": "Fotor",
+"variant": "save folder"
+},
+{
+"word": "FreeSync",
+"variant": "save free sync"
+},
+{
+"word": "G Suite",
+"variant": "gee sweet"
+},
+{
+"word": "GeForce NOW",
+"variant": "sage force now"
+},
+{
+"word": "Gemma 2",
+"variant": "gemma two"
+},
+{
+"word": "Gemma 3",
+"variant": "gemma three"
+},
+{
+"word": "Genie 3",
+"variant": "genie three"
+},
+{
+"word": "Glassbox",
+"variant": "glass box"
+},
+{
+"word": "GreenSock",
+"variant": "green sock"
+},
+{
+"word": "Grok 2",
+"variant": "grok too"
+},
+{
+"word": "Halide",
+"variant": "halite"
+},
+{
+"word": "Havok",
+"variant": "havoc"
+},
+{
+"word": "Heroicons",
+"variant": "hero icon"
+},
+{
+"word": "Heroicons",
+"variant": "heroic"
+},
+{
+"word": "High Sierra",
+"variant": "hi sierra"
+},
+{
+"word": "HoloLens",
+"variant": "hollow lens"
+},
+{
+"word": "Hoppscotch",
+"variant": "hopscotch"
+},
+{
+"word": "iA Writer",
+"variant": "ai writer"
+},
+{
+"word": "IFTTT",
+"variant": "if this then that"
+},
+{
+"word": "Imagen 4",
+"variant": "imagine four"
+},
+{
+"word": "Indi Young",
+"variant": "indie young"
+},
+{
+"word": "ITIL",
+"variant": "idle"
+},
+{
+"word": "iWork",
+"variant": "eye work"
+},
+{
+"word": "Jules",
+"variant": "jewels"
+},
+{
+"word": "KeePass",
+"variant": "keep ask"
+},
+{
+"word": "Kling",
+"variant": "cling"
+},
+{
+"word": "Kontakt",
+"variant": "contact"
+},
+{
+"word": "Kuiper",
+"variant": "project kuiper"
+},
+{
+"word": "Lenis",
+"variant": "salinas"
+},
+{
+"word": "LiveData",
+"variant": "live data"
+},
+{
+"word": "LLaVA",
+"variant": "lava"
+},
+{
+"word": "Lookback",
+"variant": "look back"
+},
+{
+"word": "Lycos",
+"variant": "like us"
+},
+{
+"word": "Lyssna",
+"variant": "listener"
+},
+{
+"word": "MapKit",
+"variant": "map kit"
+},
+{
+"word": "Maxon",
+"variant": "max on"
+},
+{
+"word": "Melissa Perri",
+"variant": "melissa perry"
+},
+{
+"word": "MetalKit",
+"variant": "metal kit"
+},
+{
+"word": "MI400",
+"variant": "am i four hundred"
+},
+{
+"word": "Mike Cohn",
+"variant": "mike cohen"
+},
+{
+"word": "Mobbin",
+"variant": "mobbing"
+},
+{
+"word": "MOVEit",
+"variant": "move it"
+},
+{
+"word": "MyFonts",
+"variant": "my fonts"
+},
+{
+"word": "MyFonts",
+"variant": "save my fonts"
+},
+{
+"word": "MySpace",
+"variant": "my space"
+},
+{
+"word": "Nextra",
+"variant": "next era"
+},
+{
+"word": "Nextra",
+"variant": "next train"
+},
+{
+"word": "NN/g",
+"variant": "n and g"
+},
+{
+"word": "o4-mini",
+"variant": "o for many"
+},
+{
+"word": "OpenHands",
+"variant": "open hands"
+},
+{
+"word": "OpenTable",
+"variant": "open table"
+},
+{
+"word": "Orkut",
+"variant": "or cut"
+},
+{
+"word": "Oryon",
+"variant": "orion"
+},
+{
+"word": "Pardot",
+"variant": "part"
+},
+{
+"word": "Penpot",
+"variant": "pen pot"
+},
+{
+"word": "PhysX",
+"variant": "physics"
+},
+{
+"word": "PhysX",
+"variant": "safe as x"
+},
+{
+"word": "Pirsch",
+"variant": "pierce"
+},
+{
+"word": "Planhat",
+"variant": "plan had"
+},
+{
+"word": "ProductPlan",
+"variant": "product plan"
+},
+{
+"word": "Project Treble",
+"variant": "project trouble"
+},
+{
+"word": "QuickTime",
+"variant": "quick time"
+},
+{
+"word": "QwQ",
+"variant": "crew"
+},
+{
+"word": "RealPlayer",
+"variant": "real player"
+},
+{
+"word": "Richard Thaler",
+"variant": "richard taylor"
+},
+{
+"word": "Roam Research",
+"variant": "rome research"
+},
+{
+"word": "ROG",
+"variant": "rogue"
+},
+{
+"word": "Roomba",
+"variant": "rumba"
+},
+{
+"word": "SafetyNet",
+"variant": "safety net"
+},
+{
+"word": "ScrollTrigger",
+"variant": "scroll trigger"
+},
+{
+"word": "Seedance",
+"variant": "see dance"
+},
+{
+"word": "Shodan",
+"variant": "show dan"
+},
+{
+"word": "Spectre",
+"variant": "specter"
+},
+{
+"word": "StoreKit",
+"variant": "store kit"
+},
+{
+"word": "StumbleUpon",
+"variant": "stumble upon"
+},
+{
+"word": "Toggl Track",
+"variant": "toggle track"
+},
+{
+"word": "U-Net",
+"variant": "you net"
+},
+{
+"word": "Uizard",
+"variant": "wizard"
+},
+{
+"word": "UniFi",
+"variant": "unify"
+},
+{
+"word": "Userpilot",
+"variant": "user pilot"
+},
+{
+"word": "UserVoice",
+"variant": "user voice"
+},
+{
+"word": "UserZoom",
+"variant": "user zoom"
+},
+{
+"word": "ViewModel",
+"variant": "view model"
+},
+{
+"word": "ViT",
+"variant": "save it"
+},
+{
+"word": "ViT",
+"variant": "save vid"
+},
+{
+"word": "Vitally",
+"variant": "vital"
+},
+{
+"word": "WalkMe",
+"variant": "walk me"
+},
+{
+"word": "WebPageTest",
+"variant": "web page test"
+},
+{
+"word": "Whatfix",
+"variant": "what fix"
+},
+{
+"word": "Wii",
+"variant": "we"
+},
+{
+"word": "Wii",
+"variant": "wee"
+},
+{
+"word": "Windows 7",
+"variant": "windows seven"
+},
+{
+"word": "Windows 8",
+"variant": "windows eight"
+},
+{
+"word": "WorkManager",
+"variant": "work manager"
+},
+{
+"word": "Wrike",
+"variant": "reich"
+},
+{
+"word": "Wrike",
+"variant": "right"
+},
+{
+"word": "Wrike",
+"variant": "wright"
+},
+{
+"word": "YouTrack",
+"variant": "you track"
+},
+{
+"word": "Zeroheight",
+"variant": "zero height"
+},
+{
+"word": "Zeroheight",
+"variant": "zero-height"
+},
+{
+"word": "Dia",
+"variant": "dear"
+},
+{
+"word": "oneAPI",
+"variant": "one a p i"
+},
+{
+"word": "U2",
+"variant": "you too"
+},
+{
+"word": "U2",
+"variant": "you two"
+},
+{
+"word": "kHz",
+"variant": "kilohertz"
+},
+{
+"word": "Markov",
+"variant": "mark off"
+},
+{
+"word": "qubit",
+"variant": "cube it"
+},
+{
+"word": "Stanford",
+"variant": "stamford"
+},
+{
+"word": "UIUC",
+"variant": "you are you see"
+},
+{
+"word": "ANOVA",
+"variant": "an over"
+},
+{
+"word": "ANOVA",
+"variant": "in' over"
+},
+{
+"word": "ANOVA",
+"variant": "uh nova"
+},
+{
+"word": "Argonne",
+"variant": "argon"
+},
+{
+"word": "Bayes",
+"variant": "bays"
+},
+{
+"word": "BioNTech",
+"variant": "bio and tech"
+},
+{
+"word": "Bézout",
+"variant": "bay zoo"
+},
+{
+"word": "Cirq",
+"variant": "cirque"
+},
+{
+"word": "CoRL",
+"variant": "coral"
+},
+{
+"word": "Euler's number",
+"variant": "oilers"
+},
+{
+"word": "FAccT",
+"variant": "fact"
+},
+{
+"word": "FAccT",
+"variant": "safe act"
+},
+{
+"word": "FAR.AI",
+"variant": "far ai"
+},
+{
+"word": "FHIR",
+"variant": "fire"
+},
+{
+"word": "Fourier series",
+"variant": "four year series"
+},
+{
+"word": "Joule",
+"variant": "jewel"
+},
+{
+"word": "LessWrong",
+"variant": "less wrong"
+},
+{
+"word": "Qiskit",
+"variant": "kiss it"
+},
+{
+"word": "SymPy",
+"variant": "simply"
+},
+{
+"word": "Weibull",
+"variant": "wibble"
+},
+{
+"word": "Auth0",
+"variant": "off zero"
+},
+{
+"word": "CORS",
+"variant": "cords"
+},
+{
+"word": "CORS",
+"variant": "cores"
+},
+{
+"word": "CORS",
+"variant": "corps"
+},
+{
+"word": "CSRF",
+"variant": "sea surf"
+},
+{
+"word": "CSRF",
+"variant": "see surf"
+},
+{
+"word": "E2EE",
+"variant": "e to e"
+},
+{
+"word": "FileVault",
+"variant": "save file vault"
+},
+{
+"word": "Fortinet",
+"variant": "forty net"
+},
+{
+"word": "LastPass",
+"variant": "last pass"
+},
+{
+"word": "OPA",
+"variant": "oh pa"
+},
+{
+"word": "OPA",
+"variant": "opah"
+},
+{
+"word": "OPA",
+"variant": "oprah"
+},
+{
+"word": "OWASP",
+"variant": "oh wasp"
+},
+{
+"word": "phishing",
+"variant": "fishing"
+},
+{
+"word": "phishing",
+"variant": "safe fishing"
+},
+{
+"word": "RBAC",
+"variant": "our back"
+},
+{
+"word": "SAML",
+"variant": "samuel"
+},
+{
+"word": "Snyk",
+"variant": "sneak"
+},
+{
+"word": "Snyk",
+"variant": "sneaky"
+},
+{
+"word": "Snyk",
+"variant": "snick"
+},
+{
+"word": "spear phishing",
+"variant": "spearfishing"
+},
+{
+"word": "WebAuthn",
+"variant": "web auth"
+},
+{
+"word": "WireGuard",
+"variant": "wire guard"
+},
+{
+"word": "Wiz",
+"variant": "whiz"
+},
+{
+"word": "0-day",
+"variant": "oh day"
+},
+{
+"word": "ABAC",
+"variant": "aback"
+},
+{
+"word": "AuthN",
+"variant": "often"
+},
+{
+"word": "BEC",
+"variant": "b see"
+},
+{
+"word": "BEC",
+"variant": "bac"
+},
+{
+"word": "C2",
+"variant": "see two"
+},
+{
+"word": "Chainguard",
+"variant": "chain guard"
+},
+{
+"word": "Checkmarx",
+"variant": "check marks"
+},
+{
+"word": "cosign",
+"variant": "cosine"
+},
+{
+"word": "Descope",
+"variant": "de scope"
+},
+{
+"word": "DFIR",
+"variant": "d for"
+},
+{
+"word": "DMARC",
+"variant": "d mark"
+},
+{
+"word": "DoS",
+"variant": "das"
+},
+{
+"word": "DoS",
+"variant": "doss"
+},
+{
+"word": "fail2ban",
+"variant": "fail to ban"
+},
+{
+"word": "JOSE",
+"variant": "josé"
+},
+{
+"word": "Kerberos",
+"variant": "cerberus"
+},
+{
+"word": "KnowBe4",
+"variant": "know before"
+},
+{
+"word": "KnowBe4",
+"variant": "no before"
+},
+{
+"word": "LockBit",
+"variant": "lock bit"
+},
+{
+"word": "PKCE",
+"variant": "pixie"
+},
+{
+"word": "Proofpoint",
+"variant": "proof point"
+},
+{
+"word": "Rapid7",
+"variant": "rapid seven"
+},
+{
+"word": "Rego",
+"variant": "ray go"
+},
+{
+"word": "SASE",
+"variant": "sassy"
+},
+{
+"word": "SCIM",
+"variant": "skim"
+},
+{
+"word": "Sigstore",
+"variant": "six store"
+},
+{
+"word": "SLSA",
+"variant": "salsa"
+},
+{
+"word": "SOAR",
+"variant": "sore"
+},
+{
+"word": "SPIFFE",
+"variant": "spiffy"
+},
+{
+"word": "Stytch",
+"variant": "stitch"
+},
+{
+"word": "TruffleHog",
+"variant": "truffle hog"
+},
+{
+"word": "WannaCry",
+"variant": "wanna cry"
+},
+{
+"word": "Wickr",
+"variant": "wicker"
+},
+{
+"word": "scrypt",
+"variant": "script"
+},
+{
+"word": "Arial",
+"variant": "aerial"
+},
+{
+"word": "Arial",
+"variant": "ariel"
+},
+{
+"word": "Calibri",
+"variant": "calibre"
+},
+{
+"word": "Cascadia Code",
+"variant": "cascade code"
+},
+{
+"word": "Consolas",
+"variant": "console as"
+},
+{
+"word": "Consolas",
+"variant": "console us"
+},
+{
+"word": "Consolas",
+"variant": "consoles"
+},
+{
+"word": "en dash",
+"variant": "in dash"
+},
+{
+"word": "Eurostile",
+"variant": "euro steel"
+},
+{
+"word": "Eurostile",
+"variant": "euro style"
+},
+{
+"word": "font",
+"variant": "fawn"
+},
+{
+"word": "Fraunces",
+"variant": "frances"
+},
+{
+"word": "Fraunces",
+"variant": "francis"
+},
+{
+"word": "Graphik",
+"variant": "graphic"
+},
+{
+"word": "Lato",
+"variant": "lotto"
+},
+{
+"word": "Merriweather",
+"variant": "merry weather"
+},
+{
+"word": "Neue Montreal",
+"variant": "new montreal"
+},
+{
+"word": "Noto",
+"variant": "no to"
+},
+{
+"word": "Raleway",
+"variant": "rail way"
+},
+{
+"word": "Source Serif",
+"variant": "source sarah"
+},
+{
+"word": "Tahoma",
+"variant": "to homer"
+},
+{
+"word": "Univers",
+"variant": "universe"
+},
+{
+"word": "x-height",
+"variant": "excite"
+},
+{
+"word": "@font-face",
+"variant": "font face"
+},
+{
+"word": "Acumin",
+"variant": "acumen"
+},
+{
+"word": "Bembo",
+"variant": "bimbo"
+},
+{
+"word": "ClearType",
+"variant": "clear type"
+},
+{
+"word": "Clearview",
+"variant": "clear view"
+},
+{
+"word": "Figtree",
+"variant": "fig tree"
+},
+{
+"word": "FOIT",
+"variant": "save void"
+},
+{
+"word": "FontShop",
+"variant": "font shop"
+},
+{
+"word": "FOUT",
+"variant": "f out"
+},
+{
+"word": "FOUT",
+"variant": "safe out"
+},
+{
+"word": "fraktur",
+"variant": "safe rock tour"
+},
+{
+"word": "FreeType",
+"variant": "save free type"
+},
+{
+"word": "geometric sans",
+"variant": "geometric sans serif"
+},
+{
+"word": "greeking",
+"variant": "greeting"
+},
+{
+"word": "guillemet",
+"variant": "ghee may"
+},
+{
+"word": "Mrs Eaves",
+"variant": "mrs. eaves"
+},
+{
+"word": "Nexa",
+"variant": "next or"
+},
+{
+"word": "Sabon",
+"variant": "saban"
+},
+{
+"word": "Sabon",
+"variant": "say bon"
+},
+{
+"word": "Styrene",
+"variant": "staring"
+},
+{
+"word": "Styrene",
+"variant": "starring"
+},
+{
+"word": "WOFF",
+"variant": "wolf"
+},
+{
+"word": "Essential AI",
+"variant": "essential a i"
+},
+{
+"word": "Dataflow",
+"variant": "data flow"
+},
+{
+"word": "Route 53",
+"variant": "route fifty three"
+},
+{
+"word": "Datastore",
+"variant": "data store"
+},
+{
+"word": "Bitstream",
+"variant": "bit stream"
+},
+{
+"word": "Flos",
+"variant": "floss"
+},
+{
+"word": "Flos",
+"variant": "safe loss"
+},
+{
+"word": "Glossier",
+"variant": "glossy eh"
+},
+{
+"word": "Glossier",
+"variant": "glossy yay"
+},
+{
+"word": "Knoll",
+"variant": "no"
+},
+{
+"word": "Koto",
+"variant": "code"
+},
+{
+"word": "Koto",
+"variant": "cold"
+},
+{
+"word": "Lightspeed",
+"variant": "light speed"
+},
+{
+"word": "MiniMax",
+"variant": "mini max"
+},
+{
+"word": "Momenta",
+"variant": "momentum"
+},
+{
+"word": "Redfin",
+"variant": "red fin"
+},
+{
+"word": "Redpoint",
+"variant": "red point"
+},
+{
+"word": "Safe Superintelligence",
+"variant": "safe super intelligence"
+},
+{
+"word": "Together AI",
+"variant": "together a i"
+},
+{
+"word": "Wildberries",
+"variant": "wild berries"
+},
+{
+"word": "Tableau",
+"variant": "tab low"
+},
+{
+"word": "Bokeh",
+"variant": "boca"
+},
+{
+"word": "Bokeh",
+"variant": "bouquet"
+},
+{
+"word": "GUID",
+"variant": "good"
+},
+{
+"word": "ARIA",
+"variant": "area"
+},
+{
+"word": "ARIA",
+"variant": "arya"
+},
+{
+"word": "LEED",
+"variant": "lead"
+},
+{
+"word": "MIDI",
+"variant": "middy"
+},
+{
+"word": "WAV",
+"variant": "wave file"
+},
+{
+"word": "Better Auth",
+"variant": "better off"
+},
+{
+"word": "Gentoo",
+"variant": "gen too"
+},
+{
+"word": "Gentoo",
+"variant": "gen two"
+},
+{
+"word": "Gentoo",
+"variant": "jen too"
+},
+{
+"word": "Koa",
+"variant": "co"
+},
+{
+"word": "Polkadot",
+"variant": "polka dot"
+},
+{
+"word": "BIOS",
+"variant": "by us"
+},
+{
+"word": "DRAM",
+"variant": "dear am"
+},
+{
+"word": "Rubin",
+"variant": "reuben"
+},
+{
+"word": "Rubin",
+"variant": "ruben"
+},
+{
+"word": "Half-Life",
+"variant": "half life"
+},
+{
+"word": "Hearthstone",
+"variant": "heart stone"
+},
+{
+"word": "Hearthstone",
+"variant": "hearth stone"
+},
+{
+"word": "Overwatch",
+"variant": "over watch"
+},
+{
+"word": "AirPlay",
+"variant": "air play"
+},
+{
+"word": "Kodi",
+"variant": "cody"
+},
+{
+"word": "MasterClass",
+"variant": "master class"
+},
+{
+"word": "Recraft",
+"variant": "re craft"
+},
+{
+"word": "Switch 2",
+"variant": "switch two"
+},
+{
+"word": "PostScript",
+"variant": "post script"
+}
+],
+"resolved_collisions": [
+{
+"variant": "dali",
+"words": [
+"DALL·E",
+"dall-e"
+],
+"kept": "DALL-E"
+},
+{
+"variant": "dall e",
+"words": [
+"dall-e"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "dolly",
+"words": [
+"DALL·E",
+"dall-e"
+],
+"kept": "DALL-E"
+},
+{
+"variant": "epic",
+"words": [
+"EPYC",
+"epoch"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "aim",
+"words": [
+"AIME"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "exa flop",
+"words": [
+"exaflop",
+"exaflops"
+],
+"kept": "exaflop"
+},
+{
+"variant": "peta flops",
+"words": [
+"PFLOPS",
+"petaflops"
+],
+"kept": "petaFLOPS"
+},
+{
+"variant": "tek ton",
+"words": [
+"tecton",
+"tekton"
+],
+"kept": "Tekton"
+},
+{
+"variant": "bio tech",
+"words": [
+"biontech",
+"biotech"
+],
+"kept": "biotech"
+},
+{
+"variant": "d to c",
+"words": [
+"DTC",
+"d2c"
+],
+"kept": "DTC"
+},
+{
+"variant": "gan",
+"words": [
+"gantt"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "sage",
+"words": [
+"jit"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "mode",
+"words": [
+"moat"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "m s a",
+"words": [
+"msa",
+"msaa"
+],
+"kept": "MSA"
+},
+{
+"variant": "sass",
+"words": [
+"SAS",
+"saas"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "segway",
+"words": [
+"gwei",
+"segue"
+],
+"kept": null
+},
+{
+"variant": "arr",
+"words": [
+"AARRR"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "r",
+"words": [
+"AARRR"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "bangalore",
+"words": [
+"bengaluru"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "euler",
+"words": [
+"eula"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "nucks",
+"words": [
+"NUX",
+"nuxt"
+],
+"kept": "Nuxt"
+},
+{
+"variant": "o t",
+"words": [
+"OT",
+"OTT"
+],
+"kept": "OT"
+},
+{
+"variant": "proceed",
+"words": [
+"per-seat",
+"pre-seed"
+],
+"kept": null
+},
+{
+"variant": "usb",
+"words": [
+"usp"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "quick",
+"words": [
+"Qwik",
+"quic"
+],
+"kept": null
+},
+{
+"variant": "waff",
+"words": [
+"WAF",
+"WOFF"
+],
+"kept": "WAF"
+},
+{
+"variant": "action",
+"words": [
+"Axion",
+"axure"
+],
+"kept": null
+},
+{
+"variant": "do",
+"words": [
+"DoH",
+"du"
+],
+"kept": null
+},
+{
+"variant": "dino",
+"words": [
+"deno",
+"dyno"
+],
+"kept": null
+},
+{
+"variant": "in jest",
+"words": [
+"ingest",
+"inngest"
+],
+"kept": null
+},
+{
+"variant": "in' just",
+"words": [
+"ingest",
+"inngest"
+],
+"kept": null
+},
+{
+"variant": "ingest",
+"words": [
+"inngest"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "zen",
+"words": [
+"Xen"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "excel",
+"words": [
+"accel"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "ader",
+"words": [
+"Ada",
+"Aider"
+],
+"kept": "Aider"
+},
+{
+"variant": "isa",
+"words": [
+"ESA",
+"eset"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "et see",
+"words": [
+"/etc",
+"etsy"
+],
+"kept": "Etsy"
+},
+{
+"variant": "hermes",
+"words": [
+"hermeus",
+"hermès"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "geo",
+"words": [
+"jio"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "mercury",
+"words": [
+"mercari"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "aura",
+"words": [
+"ora",
+"oura"
+],
+"kept": null
+},
+{
+"variant": "ora",
+"words": [
+"oura"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "oura ring",
+"words": [
+"oura"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "vw",
+"words": [
+"volkswagen"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "w and b",
+"words": [
+"W&B",
+"Weights & Biases"
+],
+"kept": "W&B"
+},
+{
+"variant": "w&b",
+"words": [
+"Weights & Biases"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "wandb",
+"words": [
+"Weights & Biases"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "wix dot com",
+"words": [
+"Wix.com",
+"wix"
+],
+"kept": "Wix.com"
+},
+{
+"variant": "zero",
+"words": [
+"xero"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "babble",
+"words": [
+"Babel",
+"babbel"
+],
+"kept": null
+},
+{
+"variant": "babel",
+"words": [
+"babbel"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "canoe",
+"words": [
+"GNU",
+"canoo"
+],
+"kept": null
+},
+{
+"variant": "carousel",
+"words": [
+"carousell"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "consensus",
+"words": [
+"consensys"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "dom",
+"words": [
+"daum"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "you fee",
+"words": [
+"eufy",
+"uefi"
+],
+"kept": "Eufy"
+},
+{
+"variant": "grock",
+"words": [
+"Grok",
+"groq"
+],
+"kept": null
+},
+{
+"variant": "grok",
+"words": [
+"groq"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "eye oh",
+"words": [
+"I/O",
+"io"
+],
+"kept": "I/O"
+},
+{
+"variant": "i o",
+"words": [
+"I/O",
+"io"
+],
+"kept": "I/O"
+},
+{
+"variant": "i owe",
+"words": [
+"I/O",
+"io"
+],
+"kept": null
+},
+{
+"variant": "carrot",
+"words": [
+"Karrot",
+"caret"
+],
+"kept": null
+},
+{
+"variant": "kick",
+"words": [
+"Kik"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "marchetto",
+"words": [
+"marketo",
+"marqeta"
+],
+"kept": null
+},
+{
+"variant": "p and g",
+"words": [
+"P&G",
+"png"
+],
+"kept": "PNG"
+},
+{
+"variant": "piker",
+"words": [
+"Pika",
+"pica"
+],
+"kept": null
+},
+{
+"variant": "wise",
+"words": [
+"wwise",
+"wyze"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "dedup",
+"words": [
+"dedupe"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "cipher",
+"words": [
+"Cypher"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "dedupe",
+"words": [
+"dedup"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "sap hana",
+"words": [
+"HANA"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "p b",
+"words": [
+"P/B",
+"PB"
+],
+"kept": null
+},
+{
+"variant": "pino",
+"words": [
+"Pinot"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "click",
+"words": [
+"Qlik"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "sparkle",
+"words": [
+"SPARQL"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "message pack",
+"words": [
+"messagepack",
+"msgpack"
+],
+"kept": "MessagePack"
+},
+{
+"variant": "ant d",
+"words": [
+"ant design",
+"antd"
+],
+"kept": "antd"
+},
+{
+"variant": "antd",
+"words": [
+"ant design"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "coach marks",
+"words": [
+"coachmark"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "adobe creative cloud",
+"words": [
+"creative cloud"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "jpeg",
+"words": [
+"jpg"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "ram",
+"words": [
+"rem"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "shad c n",
+"words": [
+"shadcn",
+"shadcn/ui"
+],
+"kept": "shadcn"
+},
+{
+"variant": "shad cn",
+"words": [
+"shadcn",
+"shadcn/ui"
+],
+"kept": "shadcn"
+},
+{
+"variant": "shad see en",
+"words": [
+"shadcn",
+"shadcn/ui"
+],
+"kept": "shadcn"
+},
+{
+"variant": "shadcn ui",
+"words": [
+"shadcn",
+"shadcn/ui"
+],
+"kept": "shadcn/ui"
+},
+{
+"variant": "meyer",
+"words": [
+"Maia",
+"maya"
+],
+"kept": null
+},
+{
+"variant": "mire",
+"words": [
+"Maia",
+"maya"
+],
+"kept": null
+},
+{
+"variant": "dotnet",
+"words": [
+".NET"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "cpp",
+"words": [
+"C++"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "closure",
+"words": [
+"clojure"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "codex",
+"words": [
+"codecs"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "coda",
+"words": [
+"cuda"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "just",
+"words": [
+"Jest"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "nux",
+"words": [
+"nuxt"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "p s",
+"words": [
+"P/S",
+"ps"
+],
+"kept": null
+},
+{
+"variant": "radix ui",
+"words": [
+"Radix"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "read me",
+"words": [
+"readme",
+"redmi"
+],
+"kept": "README"
+},
+{
+"variant": "tbd",
+"words": [
+"tdd"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "vm",
+"words": [
+"venv",
+"viem"
+],
+"kept": null
+},
+{
+"variant": "vit",
+"words": [
+"vite"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "yamel",
+"words": [
+"yaml",
+"yml"
+],
+"kept": "YAML"
+},
+{
+"variant": "yaml",
+"words": [
+"yml"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "z shell",
+"words": [
+"zsh"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "zed shell",
+"words": [
+"z shell",
+"zsh"
+],
+"kept": "zsh"
+},
+{
+"variant": "zee shell",
+"words": [
+"z shell",
+"zsh"
+],
+"kept": "zsh"
+},
+{
+"variant": "etsy",
+"words": [
+"/etc"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "adam",
+"words": [
+"Atom"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "cmd k",
+"words": [
+"Cmd+K",
+"cmdk",
+"⌘K"
+],
+"kept": "Cmd+K"
+},
+{
+"variant": "command k",
+"words": [
+"Cmd+K",
+"cmdk",
+"⌘K"
+],
+"kept": "Cmd+K"
+},
+{
+"variant": "command-k",
+"words": [
+"Cmd+K",
+"cmdk",
+"⌘K"
+],
+"kept": "Cmd+K"
+},
+{
+"variant": "doc",
+"words": [
+"Dock"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "net",
+"words": [
+"dotnet"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "gatsby",
+"words": [
+"gatsbyjs"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "heisenberg",
+"words": [
+"heisenbug"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "intel",
+"words": [
+"Intl"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "knex",
+"words": [
+"knex.js"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "magic",
+"words": [
+"magit"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "messagepack",
+"words": [
+"msgpack"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "nougat",
+"words": [
+"nuget"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "pilot",
+"words": [
+"pylint"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "seek",
+"words": [
+"seq"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "sdl",
+"words": [
+"stl"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "tecton",
+"words": [
+"tekton"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "t l d r",
+"words": [
+"TL;DR",
+"tldr"
+],
+"kept": "TL;DR"
+},
+{
+"variant": "tl dr",
+"words": [
+"tldr"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "zel",
+"words": [
+"z shell",
+"zelle"
+],
+"kept": "Zelle"
+},
+{
+"variant": "zell",
+"words": [
+"z shell",
+"zelle"
+],
+"kept": "Zelle"
+},
+{
+"variant": "z standard",
+"words": [
+"zstandard",
+"zstd"
+],
+"kept": "Zstandard"
+},
+{
+"variant": "x",
+"words": [
+"ex"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "cat",
+"words": [
+"CAD"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "ink",
+"words": [
+"Inc."
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "p e",
+"words": [
+"P/E",
+"PE"
+],
+"kept": null
+},
+{
+"variant": "pe",
+"words": [
+"P/E"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "sba",
+"words": [
+"SPA"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "vcs",
+"words": [
+"VC"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "avi",
+"words": [
+"aave"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "arc",
+"words": [
+"ARKK"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "die",
+"words": [
+"DAI"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "dap",
+"words": [
+"dapp"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "molly",
+"words": [
+"Mali",
+"Mollie"
+],
+"kept": null
+},
+{
+"variant": "nike",
+"words": [
+"nikkei"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "optima",
+"words": [
+"optiver"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "ps",
+"words": [
+"P/S"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "medellin",
+"words": [
+"medellín"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "save rotzwaf",
+"words": [
+"wroclaw",
+"wrocław"
+],
+"kept": null
+},
+{
+"variant": "save rotzwaff",
+"words": [
+"wroclaw",
+"wrocław"
+],
+"kept": null
+},
+{
+"variant": "io",
+"words": [
+"I/O"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "maya",
+"words": [
+"Maia"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "petaflops",
+"words": [
+"PFLOPS"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "premier pro",
+"words": [
+"adobe premiere pro",
+"premiere pro"
+],
+"kept": "Premiere Pro"
+},
+{
+"variant": "pro res",
+"words": [
+"apple prores",
+"prores"
+],
+"kept": "ProRes"
+},
+{
+"variant": "atlas",
+"words": [
+"atlus"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "viper",
+"words": [
+"viber"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "narayana murthy",
+"words": [
+"n. r. narayana murthy"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "sbf",
+"words": [
+"sam bankman-fried",
+"spf"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "cassandra",
+"words": [
+"cassandre"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "bill inmon",
+"words": [
+"inmon"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "codecs",
+"words": [
+"Codex"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "dall-e",
+"words": [
+"DALL·E"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "echo",
+"words": [
+"echo dot"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "imagine 4",
+"words": [
+"Imagen",
+"imagen 4"
+],
+"kept": "Imagen 4"
+},
+{
+"variant": "kpis",
+"words": [
+"kpi"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "okrs",
+"words": [
+"okr"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "tldr",
+"words": [
+"TL;DR"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "eleven t y",
+"words": [
+"11ty",
+"Eleventy"
+],
+"kept": "11ty"
+},
+{
+"variant": "eleventy",
+"words": [
+"11ty"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "premiere pro",
+"words": [
+"adobe premiere pro"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "app clip",
+"words": [
+"app clips"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "dig",
+"words": [
+"Digg"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "chameleon",
+"words": [
+"kameleoon"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "lambda",
+"words": [
+"LaMDA"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "pie",
+"words": [
+"Pi"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "r three f",
+"words": [
+"r3f",
+"react three fiber"
+],
+"kept": "R3F"
+},
+{
+"variant": "r3f",
+"words": [
+"react three fiber"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "replica",
+"words": [
+"replika"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "u e five",
+"words": [
+"ue5",
+"unreal engine 5"
+],
+"kept": "UE5"
+},
+{
+"variant": "ue five",
+"words": [
+"ue5",
+"unreal engine 5"
+],
+"kept": "UE5"
+},
+{
+"variant": "wave",
+"words": [
+"WAV",
+"wayve"
+],
+"kept": null
+},
+{
+"variant": "hurts",
+"words": [
+"Hertz",
+"Hz"
+],
+"kept": null
+},
+{
+"variant": "manjaro",
+"words": [
+"mounjaro"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "r2",
+"words": [
+"R²"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "fortnite",
+"words": [
+"fortinet"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "nest",
+"words": [
+"nist"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "opera",
+"words": [
+"OPA"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "sim",
+"words": [
+"siem"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "zero day",
+"words": [
+"0-day",
+"zero-day"
+],
+"kept": "zero-day"
+},
+{
+"variant": "kind",
+"words": [
+"kinde"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "ionic",
+"words": [
+"aeonik"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "mono space",
+"words": [
+"monaspace",
+"monospace"
+],
+"kept": "monospace"
+},
+{
+"variant": "monospace",
+"words": [
+"monaspace"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "railway",
+"words": [
+"raleway"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "grotesque",
+"words": [
+"grotesk"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "waf",
+"words": [
+"WOFF"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "day one",
+"words": [
+"Day 1"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "11ty",
+"words": [
+"Eleventy"
+],
+"kept": null,
+"why": "is another term"
+}
+],
+"made_case_sensitive": [
+"Essential AI",
+"Preferred Networks",
+"GRU",
+"ACH",
+"Day 1",
+"DRI",
+"The Lean Startup",
+"Cilium",
+"Cloud Functions",
+"Cloud Logging",
+"Cloud Monitoring",
+"Cloud Storage",
+"Dataflow",
+"GCS",
+"Key Vault",
+"KMS",
+"Route 53",
+"Terraform",
+"Better Stack",
+"Datastore",
+"Well-Architected",
+"Canva",
+"Monotype",
+"PitchBook",
+"Red Hat",
+"Applied Materials",
+"Bitstream",
+"BlackBerry",
+"Bonobos",
+"Decagon",
+"Flos",
+"Glossier",
+"Knoll",
+"Koto",
+"Lemon Squeezy",
+"Lightspeed",
+"MiniMax",
+"Momenta",
+"Podia",
+"Polestar",
+"Redfin",
+"Redpoint",
+"Safe Superintelligence",
+"Steinberg",
+"Together AI",
+"True Anomaly",
+"Turtle Beach",
+"Two Sigma",
+"Wildberries",
+"Beautiful Soup",
+"Tableau",
+"ZooKeeper",
+"Bokeh",
+"CRAN",
+"GUID",
+"ARIA",
+"Dev Mode",
+"Mocha Mousse",
+"TIFF",
+"LEED",
+"VoiceOver",
+"ABI",
+"AJAX",
+"Babel",
+"Homebrew",
+"IDE",
+"Markdown",
+"MIDI",
+"Passkeys",
+"Raycast",
+"Redux",
+"Spring Boot",
+"WAV",
+"Better Auth",
+"Dev Containers",
+"EAS",
+"Gentoo",
+"Hanami",
+"HandBrake",
+"Koa",
+"MAUI",
+"Roslyn",
+"Snowpack",
+"URI",
+"GRR",
+"Shop Pay",
+"Wise Account",
+"Chainlink",
+"Money Forward",
+"Motley Fool",
+"Point Nine",
+"Polkadot",
+"Seeking Alpha",
+"EXE",
+"ASIC",
+"BIOS",
+"DRAM",
+"HP",
+"Rubin",
+"VoLTE",
+"After Effects",
+"Business Insider",
+"Half-Life",
+"Hearthstone",
+"Indie Hackers",
+"Morning Brew",
+"Native Instruments",
+"Overwatch",
+"Tom's Guide",
+"Webtoon",
+"Larry Page",
+"AirDrop",
+"AirPlay",
+"Amazon Pay",
+"Apple Pay",
+"Basecamp",
+"Eleventy",
+"Mind the Product",
+"Pro Tools",
+"Spatial Audio",
+"Stage Manager",
+"AFFiNE",
+"Apple One",
+"Capture One",
+"Create ML",
+"EEVEE",
+"Kodi",
+"MasterClass",
+"Recraft",
+"Screen Studio",
+"Switch 2",
+"One Medical",
+"SRI",
+"Apercu",
+"PostScript",
+"Mulish"
+],
+"variant_collisions": [],
+"runtime_bytes": 1545365
+}

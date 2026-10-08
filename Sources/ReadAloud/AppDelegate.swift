@@ -72,6 +72,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
         enableLoginItemOnFirstLaunch()
         moveLoginItemIfRenamed(force: !cleanup.trashed.isEmpty)
         if cleanup.migratedVoice { model.preload() }
+        // Clear out what interrupted downloads left in the models folder. (The old voice's
+        // eSpeak NG files stay: Aloud 1.5 needs them if someone goes back to it.)
+        ModelStore.removeAbandonedDownloads()
         // Fetch the voice soon after first launch so it's usually ready by the first read
         // (unless it was removed in Settings; then it downloads when someone next reads).
         guard !UserDefaults.standard.bool(forKey: PlayerModel.voiceRemovedKey) else { return }
@@ -162,9 +165,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
             let selection = text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
             let current = self.model.sourceText.trimmingCharacters(in: .whitespacesAndNewlines)
             if !selection.isEmpty && !(selection == current && self.model.hasSession) {
-                // The voice was removed (or never finished downloading): ask before fetching 330 MB.
+                // The voice was removed (or never finished downloading): ask before fetching 355 MB.
                 if !KokoroEngine.isModelInstalled, !self.model.isDownloadingVoice,
-                   !DownloadPrompt.confirm(model: "the voice", size: "330 MB", feature: "Reading aloud") {
+                   !DownloadPrompt.confirm(model: "the voice", size: KokoroEngine.downloadSize, feature: "Reading aloud") {
                     pill?.show(.hidden)
                     return
                 }
@@ -317,6 +320,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
         let copyLast = NSMenuItem(title: "Copy Last Dictation", action: dictation.lastTranscript == nil ? nil : #selector(copyLastDictation), keyEquivalent: "")
         copyLast.target = self
         menu.addItem(copyLast)
+        // The words before tech terms were fixed, for when a fix was wrong ("phishing" for fishing).
+        let copyHeard = NSMenuItem(title: "Copy Last Dictation as Heard",
+                                   action: dictation.lastDictationWasFixed ? #selector(copyLastDictationAsHeard) : nil, keyEquivalent: "")
+        copyHeard.target = self
+        menu.addItem(copyHeard)
         menu.addItem(.separator())
 
         let settingsItem = NSMenuItem(title: "Settings…", action: #selector(showSettings), keyEquivalent: ",")
@@ -350,6 +358,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
     @objc private func toggleDictation() { dictation.toggle() }
 
     @objc private func copyLastDictation() { dictation.copyLastTranscript() }
+
+    @objc private func copyLastDictationAsHeard() { dictation.copyLastHeard() }
 
     var dictationController: DictationController { dictation }
 

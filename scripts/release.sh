@@ -78,7 +78,7 @@ LENGTH=$(echo "$SPARKLE_SIG" | sed -E 's/.*length="([0-9]+)".*/\1/')
 [[ -n "$ED_SIGNATURE" && "$LENGTH" == <-> ]] || { echo "sign_update failed: $SPARKLE_SIG"; exit 1; }
 
 SIZE=$(du -m "$DMG" | cut -f1)
-NOTES="Download **Aloud.dmg**, open it, and drag Aloud into Applications. Requires an Apple Silicon Mac with macOS 14 or later. (${SIZE} MB; the voice, about 330 MB, downloads the first time you open it.) If you already have Aloud 1.4 or later, it updates itself."
+NOTES="Download **Aloud.dmg**, open it, and drag Aloud into Applications. Requires an Apple Silicon Mac with macOS 14 or later. (${SIZE} MB; the voice, about 355 MB, downloads the first time you open it.) If you already have Aloud 1.4 or later, it updates itself."
 if [[ $NOTARIZED == 0 ]]; then
   NOTES="$NOTES
 
