@@ -29,9 +29,9 @@
 "person": 803
 },
 "dictation": {
-"always": 5769,
-"context": 1903,
-"never": 2316
+"always": 7043,
+"never": 2316,
+"context": 629
 },
 "asr_exact": 7556,
 "asr_tested": 9988,
@@ -91,6 +91,15 @@
 [
 "chain of thought",
 4.6
+]
+]
+},
+{
+"word": "DALL-E",
+"risky": [
+[
+"dali",
+2.91
 ]
 ]
 },
@@ -718,6 +727,15 @@
 ]
 },
 {
+"word": "Kano",
+"risky": [
+[
+"cano",
+2.81
+]
+]
+},
+{
 "word": "l10n",
 "risky": [
 [
@@ -1197,6 +1215,15 @@
 ]
 },
 {
+"word": "SME",
+"risky": [
+[
+"smee",
+2.19
+]
+]
+},
+{
 "word": "SoMa",
 "risky": [
 [
@@ -1318,6 +1345,19 @@
 [
 "is tio",
 2.67
+]
+]
+},
+{
+"word": "k9s",
+"risky": [
+[
+"canines",
+2.8
+],
+[
+"k9",
+2.81
 ]
 ]
 },
@@ -1574,6 +1614,15 @@
 ]
 },
 {
+"word": "Buildah",
+"risky": [
+[
+"bilder",
+2.01
+]
+]
+},
+{
 "word": "Cache-Control",
 "risky": [
 [
@@ -1605,6 +1654,15 @@
 [
 "co-location",
 4.7
+]
+]
+},
+{
+"word": "CRI-O",
+"risky": [
+[
+"cryo",
+2.61
 ]
 ]
 },
@@ -1677,6 +1735,15 @@
 [
 "i am identity center",
 4.51
+]
+]
+},
+{
+"word": "Kusto",
+"risky": [
+[
+"cousteau",
+2.46
 ]
 ]
 },
@@ -1758,6 +1825,10 @@
 [
 "the lero",
 1.28
+],
+[
+"valero",
+2.34
 ]
 ]
 },
@@ -1905,6 +1976,15 @@
 ]
 },
 {
+"word": "Carta",
+"risky": [
+[
+"karta",
+2.07
+]
+]
+},
+{
 "word": "Character.AI",
 "risky": [
 [
@@ -1928,6 +2008,15 @@
 [
 "deep mind",
 4.89
+]
+]
+},
+{
+"word": "Ericsson",
+"risky": [
+[
+"ericson",
+2.3
 ]
 ]
 },
@@ -1976,11 +2065,28 @@
 ]
 },
 {
+"word": "Jio",
+"risky": [
+[
+"gio",
+2.93
+],
+[
+"seiji",
+2.3
+]
+]
+},
+{
 "word": "Kia",
 "risky": [
 [
 "key a",
 5.12
+],
+[
+"keir",
+2.64
 ]
 ]
 },
@@ -2007,6 +2113,15 @@
 ]
 },
 {
+"word": "Monzo",
+"risky": [
+[
+"monza",
+2.67
+]
+]
+},
+{
 "word": "OnePlus",
 "risky": [
 [
@@ -2021,6 +2136,15 @@
 [
 "pine cone",
 3.64
+]
+]
+},
+{
+"word": "Porsche",
+"risky": [
+[
+"portia",
+2.88
 ]
 ]
 },
@@ -2138,6 +2262,24 @@
 [
 "you nee clo",
 2.49
+]
+]
+},
+{
+"word": "Wix",
+"risky": [
+[
+"wicks",
+2.82
+]
+]
+},
+{
+"word": "Xiaomi",
+"risky": [
+[
+"shami",
+2.44
 ]
 ]
 },
@@ -2353,6 +2495,15 @@
 ]
 },
 {
+"word": "Citroën",
+"risky": [
+[
+"citroen",
+2.62
+]
+]
+},
+{
 "word": "Cloudera",
 "risky": [
 [
@@ -2389,6 +2540,15 @@
 ]
 },
 {
+"word": "Coupa",
+"risky": [
+[
+"koopa",
+2.07
+]
+]
+},
+{
 "word": "D. E. Shaw",
 "risky": [
 [
@@ -2416,6 +2576,19 @@
 ]
 },
 {
+"word": "Domino's",
+"risky": [
+[
+"dominoes",
+2.83
+],
+[
+"dominos",
+2.69
+]
+]
+},
+{
 "word": "ecobee",
 "risky": [
 [
@@ -2438,6 +2611,15 @@
 [
 "eco see a",
 3.71
+]
+]
+},
+{
+"word": "eero",
+"risky": [
+[
+"ero",
+2.36
 ]
 ]
 },
@@ -2726,11 +2908,29 @@
 ]
 },
 {
+"word": "Kroger",
+"risky": [
+[
+"kroeger",
+2.02
+]
+]
+},
+{
 "word": "LinearB",
 "risky": [
 [
 "linear be",
 4.12
+]
+]
+},
+{
+"word": "Lowe's",
+"risky": [
+[
+"lowes",
+2.69
 ]
 ]
 },
@@ -2806,6 +3006,15 @@
 ]
 },
 {
+"word": "Moz",
+"risky": [
+[
+"maz",
+2.51
+]
+]
+},
+{
 "word": "Myntra",
 "risky": [
 [
@@ -2820,6 +3029,10 @@
 [
 "nav an",
 3.26
+],
+[
+"navin",
+2.23
 ]
 ]
 },
@@ -2829,6 +3042,15 @@
 [
 "any a",
 6.05
+]
+]
+},
+{
+"word": "Nykaa",
+"risky": [
+[
+"nika",
+2.34
 ]
 ]
 },
@@ -2869,6 +3091,15 @@
 ]
 },
 {
+"word": "Paychex",
+"risky": [
+[
+"paychecks",
+2.93
+]
+]
+},
+{
 "word": "PhonePe",
 "risky": [
 [
@@ -2901,6 +3132,15 @@
 [
 "red panda",
 3.64
+]
+]
+},
+{
+"word": "Reka",
+"risky": [
+[
+"rekha",
+2.27
 ]
 ]
 },
@@ -3021,6 +3261,19 @@
 [
 "to booler",
 0.0
+],
+[
+"tabula",
+2.36
+]
+]
+},
+{
+"word": "Telus",
+"risky": [
+[
+"tellus",
+2.15
 ]
 ]
 },
@@ -3030,6 +3283,15 @@
 [
 "thumb tack",
 3.28
+]
+]
+},
+{
+"word": "Tibber",
+"risky": [
+[
+"tibor",
+2.29
 ]
 ]
 },
@@ -3159,6 +3421,15 @@
 [
 "wind surf",
 3.82
+]
+]
+},
+{
+"word": "Zeekr",
+"risky": [
+[
+"zika",
+2.82
 ]
 ]
 },
@@ -3364,6 +3635,15 @@
 ]
 },
 {
+"word": "Eppo",
+"risky": [
+[
+"epo",
+2.59
+]
+]
+},
+{
 "word": "exactly-once",
 "risky": [
 [
@@ -3378,6 +3658,19 @@
 [
 "hi touch",
 4.65
+]
+]
+},
+{
+"word": "Hudi",
+"risky": [
+[
+"hoody",
+2.29
+],
+[
+"hootie",
+2.13
 ]
 ]
 },
@@ -3444,6 +3737,10 @@
 [
 "jeps in",
 1.12
+],
+[
+"jepson",
+2.11
 ]
 ]
 },
@@ -3453,6 +3750,15 @@
 [
 "jason bee",
 3.94
+]
+]
+},
+{
+"word": "Knex",
+"risky": [
+[
+"connex",
+2.0
 ]
 ]
 },
@@ -3488,6 +3794,15 @@
 ]
 },
 {
+"word": "o11y",
+"risky": [
+[
+"olly",
+2.93
+]
+]
+},
+{
 "word": "PyData",
 "risky": [
 [
@@ -3515,6 +3830,15 @@
 ]
 },
 {
+"word": "Solr",
+"risky": [
+[
+"soler",
+2.36
+]
+]
+},
+{
 "word": "SwiftData",
 "risky": [
 [
@@ -3538,6 +3862,24 @@
 [
 "you lid",
 3.81
+]
+]
+},
+{
+"word": "Vitess",
+"risky": [
+[
+"vitesse",
+2.26
+]
+]
+},
+{
+"word": "Zarr",
+"risky": [
+[
+"zar",
+2.34
 ]
 ]
 },
@@ -3636,6 +3978,15 @@
 [
 "chakra you i",
 3.17
+]
+]
+},
+{
+"word": "Didot",
+"risky": [
+[
+"dito",
+2.17
 ]
 ]
 },
@@ -4043,6 +4394,15 @@
 ]
 },
 {
+"word": "CUDA",
+"risky": [
+[
+"kuda",
+2.01
+]
+]
+},
+{
 "word": "Debian",
 "risky": [
 [
@@ -4061,6 +4421,15 @@
 ]
 },
 {
+"word": "Django",
+"risky": [
+[
+"jango",
+2.3
+]
+]
+},
+{
 "word": "fast-forward",
 "risky": [
 [
@@ -4075,6 +4444,15 @@
 [
 "save feature flag",
 4.31
+]
+]
+},
+{
+"word": "Formik",
+"risky": [
+[
+"formic",
+2.24
 ]
 ]
 },
@@ -4258,6 +4636,33 @@
 ]
 },
 {
+"word": "JSON",
+"risky": [
+[
+"jason",
+4.46
+]
+]
+},
+{
+"word": "Jupyter",
+"risky": [
+[
+"jupiter",
+3.68
+]
+]
+},
+{
+"word": "K8s",
+"risky": [
+[
+"kates",
+2.19
+]
+]
+},
+{
 "word": "Linux Mint",
 "risky": [
 [
@@ -4424,6 +4829,15 @@
 ]
 },
 {
+"word": "SQL",
+"risky": [
+[
+"sequel",
+3.98
+]
+]
+},
+{
 "word": "stdin",
 "risky": [
 [
@@ -4478,6 +4892,15 @@
 ]
 },
 {
+"word": "Tauri",
+"risky": [
+[
+"tari",
+2.25
+]
+]
+},
+{
 "word": "TestFlight",
 "risky": [
 [
@@ -4492,6 +4915,10 @@
 [
 "you nix",
 3.0
+],
+[
+"eunuchs",
+2.6
 ]
 ]
 },
@@ -5036,6 +5463,15 @@
 ]
 },
 {
+"word": "bunx",
+"risky": [
+[
+"bunks",
+2.63
+]
+]
+},
+{
 "word": "bzip2",
 "risky": [
 [
@@ -5166,6 +5602,15 @@
 [
 "ex if",
 4.8
+]
+]
+},
+{
+"word": "eza",
+"risky": [
+[
+"easa",
+2.1
 ]
 ]
 },
@@ -5309,6 +5754,15 @@
 ]
 },
 {
+"word": "Gitea",
+"risky": [
+[
+"gti",
+2.72
+]
+]
+},
+{
 "word": "gitflow",
 "risky": [
 [
@@ -5332,6 +5786,23 @@
 [
 "go land",
 5.16
+]
+]
+},
+{
+"word": "Haml",
+"risky": [
+[
+"hamel",
+2.47
+],
+[
+"hamill",
+2.89
+],
+[
+"hammel",
+2.19
 ]
 ]
 },
@@ -5585,6 +6056,15 @@
 ]
 },
 {
+"word": "mise",
+"risky": [
+[
+"me's",
+2.39
+]
+]
+},
+{
 "word": "mysql2",
 "risky": [
 [
@@ -5607,6 +6087,24 @@
 ]
 },
 {
+"word": "NCCL",
+"risky": [
+[
+"nickle",
+2.23
+]
+]
+},
+{
+"word": "Netty",
+"risky": [
+[
+"nettie",
+2.48
+]
+]
+},
+{
 "word": "node-gyp",
 "risky": [
 [
@@ -5621,6 +6119,15 @@
 [
 "no's to",
 2.3
+]
+]
+},
+{
+"word": "Nunjucks",
+"risky": [
+[
+"nunchucks",
+2.04
 ]
 ]
 },
@@ -5713,6 +6220,15 @@
 ]
 },
 {
+"word": "RuboCop",
+"risky": [
+[
+"robocop",
+2.82
+]
+]
+},
+{
 "word": "rustup",
 "risky": [
 [
@@ -5731,11 +6247,29 @@
 ]
 },
 {
+"word": "Sinon.js",
+"risky": [
+[
+"sinon",
+2.0
+]
+]
+},
+{
 "word": "SpiderMonkey",
 "risky": [
 [
 "spider monkey",
 3.85
+]
+]
+},
+{
+"word": "SUSE",
+"risky": [
+[
+"sousa",
+2.77
 ]
 ]
 },
@@ -5850,6 +6384,15 @@
 [
 "a-png",
 3.36
+]
+]
+},
+{
+"word": "10-K",
+"risky": [
+[
+"10k",
+2.9
 ]
 ]
 },
@@ -6028,6 +6571,15 @@
 [
 "save valuation cap",
 3.67
+]
+]
+},
+{
+"word": "8-K",
+"risky": [
+[
+"8k",
+2.89
 ]
 ]
 },
@@ -6220,6 +6772,19 @@
 ]
 },
 {
+"word": "Ualá",
+"risky": [
+[
+"wala",
+2.53
+],
+[
+"walla",
+2.92
+]
+]
+},
+{
 "word": "UTXO",
 "risky": [
 [
@@ -6372,6 +6937,15 @@
 ]
 },
 {
+"word": "NACS",
+"risky": [
+[
+"knacks",
+2.27
+]
+]
+},
+{
 "word": "São Paulo",
 "risky": [
 [
@@ -6457,6 +7031,15 @@
 ]
 },
 {
+"word": "Gaudi",
+"risky": [
+[
+"gowdy",
+2.59
+]
+]
+},
+{
 "word": "Inferentia",
 "risky": [
 [
@@ -6479,6 +7062,15 @@
 ]
 },
 {
+"word": "Kirin",
+"risky": [
+[
+"kiran",
+2.77
+]
+]
+},
+{
 "word": "Raspberry Pi",
 "risky": [
 [
@@ -6493,6 +7085,15 @@
 [
 "risk five",
 4.9
+]
+]
+},
+{
+"word": "SATA",
+"risky": [
+[
+"seda",
+2.07
 ]
 ]
 },
@@ -6710,6 +7311,15 @@
 ]
 },
 {
+"word": "Omron",
+"risky": [
+[
+"omran",
+2.16
+]
+]
+},
+{
 "word": "ROG Ally",
 "risky": [
 [
@@ -6804,6 +7414,14 @@
 [
 "go dot",
 4.05
+],
+[
+"gato",
+2.48
+],
+[
+"gatto",
+2.25
 ]
 ]
 },
@@ -7009,6 +7627,15 @@
 [
 "alexander wong",
 3.6
+]
+]
+},
+{
+"word": "Dijkstra",
+"risky": [
+[
+"dykstra",
+2.22
 ]
 ]
 },
@@ -7271,6 +7898,10 @@
 [
 "in mon",
 3.86
+],
+[
+"inman",
+2.72
 ]
 ]
 },
@@ -7990,6 +8621,15 @@
 ]
 },
 {
+"word": "Zelle",
+"risky": [
+[
+"zell",
+2.4
+]
+]
+},
+{
 "word": "A16",
 "risky": [
 [
@@ -8187,6 +8827,10 @@
 [
 "dev dot to",
 3.58
+],
+[
+"dev.2",
+3.76
 ]
 ]
 },
@@ -8205,6 +8849,15 @@
 [
 "fluent you i",
 3.52
+]
+]
+},
+{
+"word": "Fotor",
+"risky": [
+[
+"fodor",
+2.12
 ]
 ]
 },
@@ -8371,6 +9024,15 @@
 ]
 },
 {
+"word": "Maxon",
+"risky": [
+[
+"maxson",
+2.05
+]
+]
+},
+{
 "word": "Mistral Small",
 "risky": [
 [
@@ -8403,6 +9065,15 @@
 [
 "or kut",
 2.31
+]
+]
+},
+{
+"word": "Prezi",
+"risky": [
+[
+"presi",
+2.23
 ]
 ]
 },
@@ -8523,6 +9194,15 @@
 ]
 },
 {
+"word": "Visio",
+"risky": [
+[
+"vizio",
+2.23
+]
+]
+},
+{
 "word": "WebPageTest",
 "risky": [
 [
@@ -8603,6 +9283,15 @@
 ]
 },
 {
+"word": "qubits",
+"risky": [
+[
+"cubits",
+2.43
+]
+]
+},
+{
 "word": "UC Berkeley",
 "risky": [
 [
@@ -8675,6 +9364,15 @@
 [
 "by partite graph",
 1.56
+]
+]
+},
+{
+"word": "Cirq",
+"risky": [
+[
+"circ",
+2.29
 ]
 ]
 },
@@ -8843,6 +9541,10 @@
 [
 "sis a",
 3.63
+],
+[
+"sisa",
+2.0
 ]
 ]
 },
@@ -8990,6 +9692,15 @@
 ]
 },
 {
+"word": "FIPS",
+"risky": [
+[
+"phipps",
+2.94
+]
+]
+},
+{
 "word": "IDOR",
 "risky": [
 [
@@ -9122,6 +9833,19 @@
 ]
 },
 {
+"word": "Merriweather",
+"risky": [
+[
+"meriwether",
+2.2
+],
+[
+"merryweather",
+2.06
+]
+]
+},
+{
 "word": "Noto",
 "risky": [
 [
@@ -9175,6 +9899,15 @@
 [
 "swiss international",
 4.18
+]
+]
+},
+{
+"word": "Söhne",
+"risky": [
+[
+"sona",
+2.83
 ]
 ]
 },
@@ -9369,6 +10102,15 @@
 [
 "ocr a",
 2.79
+]
+]
+},
+{
+"word": "Sabon",
+"risky": [
+[
+"sabin",
+2.49
 ]
 ]
 },
@@ -12370,14 +13112,6 @@
 "variant": "joy"
 },
 {
-"word": "JSON",
-"variant": "jason"
-},
-{
-"word": "Jupyter",
-"variant": "jupiter"
-},
-{
 "word": "JWT",
 "variant": "jot"
 },
@@ -12416,10 +13150,6 @@
 {
 "word": "OAuth",
 "variant": "oath"
-},
-{
-"word": "OAuth",
-"variant": "oh auth"
 },
 {
 "word": "Objective-C",
@@ -12492,10 +13222,6 @@
 {
 "word": "spaCy",
 "variant": "spacey"
-},
-{
-"word": "SQL",
-"variant": "sequel"
 },
 {
 "word": "stderr",
@@ -16008,20 +16734,20 @@
 "kept": "DALL-E"
 },
 {
-"variant": "dolly",
-"words": [
-"DALL·E",
-"dall-e"
-],
-"kept": "DALL-E"
-},
-{
 "variant": "dall e",
 "words": [
 "dall-e"
 ],
 "kept": null,
 "why": "is another term"
+},
+{
+"variant": "dolly",
+"words": [
+"DALL·E",
+"dall-e"
+],
+"kept": "DALL-E"
 },
 {
 "variant": "epic",
@@ -16234,12 +16960,12 @@
 "kept": null
 },
 {
-"variant": "ingest",
+"variant": "in jest",
 "words": [
+"ingest",
 "inngest"
 ],
-"kept": null,
-"why": "is another term"
+"kept": null
 },
 {
 "variant": "in' just",
@@ -16250,12 +16976,12 @@
 "kept": null
 },
 {
-"variant": "in jest",
+"variant": "ingest",
 "words": [
-"ingest",
 "inngest"
 ],
-"kept": null
+"kept": null,
+"why": "is another term"
 },
 {
 "variant": "zen",
@@ -16324,14 +17050,6 @@
 "why": "is another term"
 },
 {
-"variant": "oura ring",
-"words": [
-"oura"
-],
-"kept": null,
-"why": "is another term"
-},
-{
 "variant": "aura",
 "words": [
 "ora",
@@ -16348,25 +17066,17 @@
 "why": "is another term"
 },
 {
+"variant": "oura ring",
+"words": [
+"oura"
+],
+"kept": null,
+"why": "is another term"
+},
+{
 "variant": "vw",
 "words": [
 "volkswagen"
-],
-"kept": null,
-"why": "is another term"
-},
-{
-"variant": "wandb",
-"words": [
-"Weights & Biases"
-],
-"kept": null,
-"why": "is another term"
-},
-{
-"variant": "w&b",
-"words": [
-"Weights & Biases"
 ],
 "kept": null,
 "why": "is another term"
@@ -16378,6 +17088,22 @@
 "Weights & Biases"
 ],
 "kept": "W&B"
+},
+{
+"variant": "w&b",
+"words": [
+"Weights & Biases"
+],
+"kept": null,
+"why": "is another term"
+},
+{
+"variant": "wandb",
+"words": [
+"Weights & Biases"
+],
+"kept": null,
+"why": "is another term"
 },
 {
 "variant": "wix dot com",
@@ -16468,7 +17194,7 @@
 "why": "is another term"
 },
 {
-"variant": "i o",
+"variant": "eye oh",
 "words": [
 "I/O",
 "io"
@@ -16476,7 +17202,7 @@
 "kept": "I/O"
 },
 {
-"variant": "eye oh",
+"variant": "i o",
 "words": [
 "I/O",
 "io"
@@ -16661,6 +17387,14 @@
 "why": "is another term"
 },
 {
+"variant": "shad c n",
+"words": [
+"shadcn",
+"shadcn/ui"
+],
+"kept": "shadcn"
+},
+{
 "variant": "shad cn",
 "words": [
 "shadcn",
@@ -16683,14 +17417,6 @@
 "shadcn/ui"
 ],
 "kept": "shadcn/ui"
-},
-{
-"variant": "shad c n",
-"words": [
-"shadcn",
-"shadcn/ui"
-],
-"kept": "shadcn"
 },
 {
 "variant": "meyer",
@@ -16829,14 +17555,6 @@
 "why": "is another term"
 },
 {
-"variant": "zee shell",
-"words": [
-"z shell",
-"zsh"
-],
-"kept": "zsh"
-},
-{
 "variant": "z shell",
 "words": [
 "zsh"
@@ -16846,6 +17564,14 @@
 },
 {
 "variant": "zed shell",
+"words": [
+"z shell",
+"zsh"
+],
+"kept": "zsh"
+},
+{
+"variant": "zee shell",
 "words": [
 "z shell",
 "zsh"
@@ -16869,7 +17595,7 @@
 "why": "is another term"
 },
 {
-"variant": "command-k",
+"variant": "cmd k",
 "words": [
 "Cmd+K",
 "cmdk",
@@ -16887,7 +17613,7 @@
 "kept": "Cmd+K"
 },
 {
-"variant": "cmd k",
+"variant": "command-k",
 "words": [
 "Cmd+K",
 "cmdk",
@@ -17064,20 +17790,20 @@
 "why": "is another term"
 },
 {
-"variant": "pe",
-"words": [
-"P/E"
-],
-"kept": null,
-"why": "is another term"
-},
-{
 "variant": "p e",
 "words": [
 "P/E",
 "PE"
 ],
 "kept": null
+},
+{
+"variant": "pe",
+"words": [
+"P/E"
+],
+"kept": null,
+"why": "is another term"
 },
 {
 "variant": "sba",
@@ -17168,7 +17894,7 @@
 "why": "is another term"
 },
 {
-"variant": "save rotzwaff",
+"variant": "save rotzwaf",
 "words": [
 "wroclaw",
 "wrocław"
@@ -17176,7 +17902,7 @@
 "kept": null
 },
 {
-"variant": "save rotzwaf",
+"variant": "save rotzwaff",
 "words": [
 "wroclaw",
 "wrocław"
@@ -17329,20 +18055,20 @@
 "why": "is another term"
 },
 {
-"variant": "eleventy",
-"words": [
-"11ty"
-],
-"kept": null,
-"why": "is another term"
-},
-{
 "variant": "eleven t y",
 "words": [
 "11ty",
 "Eleventy"
 ],
 "kept": "11ty"
+},
+{
+"variant": "eleventy",
+"words": [
+"11ty"
+],
+"kept": null,
+"why": "is another term"
 },
 {
 "variant": "premiere pro",
@@ -17417,7 +18143,7 @@
 "why": "is another term"
 },
 {
-"variant": "ue five",
+"variant": "u e five",
 "words": [
 "ue5",
 "unreal engine 5"
@@ -17425,7 +18151,7 @@
 "kept": "UE5"
 },
 {
-"variant": "u e five",
+"variant": "ue five",
 "words": [
 "ue5",
 "unreal engine 5"
@@ -17716,5 +18442,5 @@
 "Mulish"
 ],
 "variant_collisions": [],
-"runtime_bytes": 1545884
+"runtime_bytes": 1545365
 }

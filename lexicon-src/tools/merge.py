@@ -46,7 +46,8 @@ for e in entries.values():
         e["dictation"] = "never"; e["dictation_note"] = "everyday phrase when spoken"
 # Pre-release review fixes (2026-10-08). The misaki gold dictionary the app ships tells ordinary English words apart.
 GOLD = json.load(open(os.environ.get("ALOUD_GOLD", os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "Vendor", "g2p", "us_gold.json")), encoding="utf-8"))
-GOLD_LOWER = {g.lower() for g in GOLD}
+GOLD_LOWER = {g.lower() for g in GOLD}                 # any spelling, names and acronyms included
+GOLD_WORDS = {g for g in GOLD if g == g.lower()}      # ordinary lowercase words only ("art", "mongo"; not "SQL", "Jason")
 # Words whose everyday pronunciation depends on part of speech (exploit: verb vs noun) read better without an entry.
 for kk in [kk for kk, e in entries.items() if e["match"] == "case-insensitive" and isinstance(GOLD.get(e["word"].lower()), dict)]:
     del entries[kk]
@@ -57,7 +58,7 @@ for e in entries.values():
     e["unit"] = e["word"] in UNITS
     if e["unit"]: e["dictation"] = "never"
     # All-caps acronyms spelled like ordinary words (ART, BIG, KISS): skipped in all-caps text ("BIG NEWS").
-    e["caps_word"] = e["word"].isupper() and len(e["word"]) >= 2 and e["word"].lower() in GOLD_LOWER
+    e["caps_word"] = e["word"].isupper() and len(e["word"]) >= 2 and e["word"].lower() in GOLD_WORDS
 # Tech context for dictation comes only from developer tech: engineering/cloud/data/AI/security terms, plus the
 # company/product/hardware/design terms an LLM pass judged to be developer tools (evidence/*.result.json), and never
 # from a term that is itself an ordinary word. Consumer brands (Netflix, iPhone, Tesla) no longer unlock rewrites.
@@ -66,8 +67,11 @@ DEV_EXTRA = set()
 for f in glob.glob(f"{L}/evidence/*.result.json"):
     DEV_EXTRA |= set(json.load(open(f, encoding="utf-8")).get("developer", []))
 for e in entries.values():
-    e["evidence"] = (e["category"] in DEV or e["word"] in DEV_EXTRA) and e["word"].lower() not in GOLD_LOWER and not e["unit"]
+    acronym = e["word"].isupper() and len(e["word"]) <= 5 and e["category"] in DEV      # SQL, API, JSON, CORS
+    e["evidence"] = (e["category"] in DEV or e["word"] in DEV_EXTRA) and (acronym or e["word"].lower() not in GOLD_WORDS) and not e["unit"]
 # dictation: gather variants (agent + observed ASR), enforce safety
+# Forms real speech-to-text produces that the batches missed (the essay demo and the app's own regression suite).
+ADD_VARIANTS = {"kubectl": {"cubic control"}}   # ("dino" can't go to Deno: DINO is its own term)
 by_variant = defaultdict(set)
 for e in entries.values():
     vs = {clean(v) for v in e.get("spoken_variants", [])}
@@ -75,8 +79,8 @@ for e in entries.values():
         if e.get("asr", {}).get(key): vs.add(clean(e["asr"][key]))
     canon = clean(e["word"])
     vs = {v for v in vs if v and v != canon}
-    e["_variants"] = sorted(vs)
-    for v in vs: by_variant[v].add(k(e))
+    e["_variants"] = sorted(vs | ADD_VARIANTS.get(e["word"], set()))
+    for v in e["_variants"]: by_variant[v].add(k(e))
 # Collisions: one spoken form claimed by several terms. Same-term aliases go to one canonical spelling; genuinely
 # ambiguous forms are dropped from everyone (dictation then leaves them as heard). Anything not listed: dropped.
 OWNER = {"dali": "DALL-E", "dolly": "DALL-E", "exa flop": "exaflop", "peta flops": "petaflops", "tek ton": "Tekton",
@@ -142,6 +146,10 @@ for f in glob.glob(f"{L}/strict/s[0-9].json"):
             for it in got.get(bucket, []):
                 key = (clean(it["variant"]), it["term"])
                 if key in STRICT and RANKV[bucket] > RANKV[STRICT[key]]: STRICT[key] = bucket
+# The flagship spoken forms, kept after the strict pass: tech context now comes only from developer terms, so
+# "jason" and "sequel" change in "send the jason payload to the API" but not in "the sequel was great".
+RESTORE = {("jason", "JSON"): "context_only", ("sequel", "SQL"): "context_only", ("jupiter", "Jupyter"): "context_only",
+           ("oh auth", "OAuth"): "keep", ("cubic control", "kubectl"): "keep"}
 FORCE_CONTEXT = {("p and g", "PNG"), ("log stash", "Logstash"), ("hot mail", "Hotmail")}
 FORCE_DROP = {("sales force", "Salesforce"), ("sacey sharp", "C#")}   # "our sales force is two people"   # "Export it as P and G" vs "P and G reported earnings"
 def real_words(w): return all(len(x) > 1 and not x.isdigit() and zipf_frequency(x, "en") >= 3.0 for x in w)
@@ -156,13 +164,23 @@ for e in entries.values():
         sj = STRICT.get((v, e["word"]))
         if sj is None and len(w) == 1 and v in GOLD_LOWER: sj = "drop"            # an unjudged dictionary word
         if sj is not None and RANKV[sj] > RANKV.get(j or "keep", 0): j = sj
+        if (v, e["word"]) in RESTORE: j = RESTORE[(v, e["word"])]
         if (v, e["word"]) in FORCE_CONTEXT: j = "context_only"
         if (v, e["word"]) in FORCE_DROP: j = "drop"
         if j == "drop":
             e["_variants"].remove(v); dropped.append(dict(word=e["word"], variant=v)); continue
         if j == "context_only" or risky_variant(v): risky.append((v, round(zipf_frequency(v, "en"), 2)))
         if len(by_variant[v]) > 1: collisions.append(dict(variant=v, words=sorted(by_variant[v])))
-    # Risky variants are gated one by one in the app (spoken_context_only), so the entry keeps its own mode.
+    # Risky variants are gated one by one in the app (spoken_context_only). A "context" entry whose own spelling is
+    # no ordinary word ("json", "sudo", "svelte" is not; "mongo" is) needs no entry-wide gate any more: its safe
+    # variants ("sue dough", "o auth") and its recasing apply anywhere, while the risky ones stay gated one by one.
+    if e["dictation"] == "context" and e["match"] != "case-sensitive" and e["word"].lower() not in GOLD_WORDS:
+        e["dictation"] = "always"; e["promoted"] = True
+        # Its agent gated it for a reason: a one-word variant that is any recognisable word or name ("kates" for K8s)
+        # stays gated even though it isn't in the dictionary.
+        for v in e["_variants"]:
+            if " " not in v and "-" not in v and zipf_frequency(v, "en") >= 2.0 and v not in [x for x, _ in risky]:
+                risky.append((v, round(zipf_frequency(v, "en"), 2)))
     if risky: downgrades.append(dict(word=e["word"], risky=risky))
     e["dictation_risky"] = [v for v, _ in risky]
 final = sorted(entries.values(), key=lambda e: e["word"].casefold())
