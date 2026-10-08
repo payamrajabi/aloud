@@ -6,7 +6,8 @@ import AppKit
 /// key on its own is push-to-talk.
 /// One key can carry a tap and a double-tap (tap right ⌥ to dictate, double-tap it to read): its tap
 /// then waits out the double-click interval in case a second one follows, and the owner calls
-/// `tapTimerFired` at `tapDeadline`.
+/// `tapTimerFired` at `tapDeadline`. A dictation tap doesn't wait to start listening: it starts
+/// provisionally, then is confirmed, or taken back by the second tap of a double-tap.
 struct ModifierGestures {
     enum Event {
         case modifier(code: UInt16, flags: UInt, time: TimeInterval)  // flagsChanged
@@ -14,7 +15,15 @@ struct ModifierGestures {
         case input  // a click, or a key another app's shortcut swallowed
     }
 
-    enum Action: Equatable { case read, dictate, finish, holdBegan, holdEnded, interrupted }
+    enum Action: Equatable {
+        case read, dictate, finish, holdBegan, holdEnded, interrupted
+        /// Start dictating now, though the tap may yet turn out to be the first of a double-tap.
+        case dictateProvisionally
+        /// No second tap came: the provisional dictation stands.
+        case confirmDictation
+        /// It was a double-tap: drop the provisional dictation and read.
+        case readInstead
+    }
 
     static let holdDelay: TimeInterval = 0.3
     private static let families = NSEvent.ModifierFlags([.command, .option, .control, .shift, .function]).rawValue
@@ -26,9 +35,9 @@ struct ModifierGestures {
     var recording = false
 
     private var press: (key: ModifierKey, at: TimeInterval, clean: Bool, consumed: Bool)?
-    /// The last clean tap, which a quick second tap turns into a double-tap. `then` is what it does
-    /// on its own once that can't happen any more.
-    private var lastTap: (key: ModifierKey, at: TimeInterval, then: Action?)?
+    /// The last clean tap, which a quick second tap turns into `double`. `single` is what it does on
+    /// its own once that can't happen any more.
+    private var lastTap: (key: ModifierKey, at: TimeInterval, single: Action?, double: Action)?
     private var holding = false
     /// Presses of this key that start before `until` belong to the gesture that just fired.
     private var quiet: (key: ModifierKey, until: TimeInterval)?
@@ -62,7 +71,7 @@ struct ModifierGestures {
 
     /// When a tap that's waiting for a possible second one should go ahead on its own.
     var tapDeadline: TimeInterval? {
-        guard let lastTap, lastTap.then != nil else { return nil }
+        guard let lastTap, lastTap.single != nil else { return nil }
         return lastTap.at + interval
     }
 
@@ -77,7 +86,7 @@ struct ModifierGestures {
             }
             return waiting
         case let .modifier(code, flags, time):
-            guard let key = ModifierKey(code: code), press == nil ? hasGesture(key) : press?.key == key else {
+            guard let key = ModifierKey(code: code), press == nil ? hasGesture(key) || lastTap?.key == key : press?.key == key else {
                 // Another modifier changed: it's a chord, not a tap.
                 press?.clean = false
                 return endDoubleTap()
@@ -104,18 +113,17 @@ struct ModifierGestures {
     /// Anything other than a second tap means the last tap stays single: returns what it does.
     private mutating func endDoubleTap() -> Action? {
         defer { lastTap = nil }
-        return lastTap?.then
+        return lastTap?.single
     }
 
     private mutating func down(_ key: ModifierKey, flags: UInt, at time: TimeInterval) -> Action? {
         let clean = flags & Self.families & ~key.family.rawValue == 0
         let isQuiet = quiet.map { $0.key == key && time < $0.until } ?? false
-        if clean, !isQuiet, let tap = lastTap, tap.key == key, time - tap.at <= interval,
-           let double = action(for: .doubleTap(key)) {
+        if clean, !isQuiet, let tap = lastTap, tap.key == key, time - tap.at <= interval {
             lastTap = nil
             press = (key, time, false, true)  // fire now; ignore the rest of this press
             quiet = (key, time + interval)    // and a third tap
-            return double
+            return tap.double
         }
         press = (key, time, clean && !isQuiet, isQuiet)
         return endDoubleTap()
@@ -134,8 +142,13 @@ struct ModifierGestures {
             return .finish  // however long the press
         }
         guard time - press.at < Self.holdDelay else { return nil }
-        guard action(for: .doubleTap(press.key)) != nil else { return tap }
-        lastTap = (press.key, press.at, tap)
+        guard let double = action(for: .doubleTap(press.key)) else { return tap }
+        if tap == .dictate, double == .read {
+            // Listen from the first tap rather than after the wait, so no words are lost.
+            lastTap = (press.key, press.at, .confirmDictation, .readInstead)
+            return .dictateProvisionally
+        }
+        lastTap = (press.key, press.at, tap, double)
         return nil
     }
 }

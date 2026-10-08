@@ -20,6 +20,13 @@ final class TranscriptCleaner {
     static var modelPath: URL { modelDirectory.appendingPathComponent(fileName) }
     static var isInstalled: Bool { FileManager.default.fileExists(atPath: modelPath.path) }
 
+    /// Clean-up is a preview for now. Settings only offers the download on Macs that already
+    /// have the model, or after `defaults write co.payamrajabi.readaloud offerCleanup -bool YES`
+    /// on a Mac with 16 GB of memory or more (the model takes about 3 GB while it's loaded).
+    static var isOffered: Bool {
+        isInstalled || (UserDefaults.standard.bool(forKey: "offerCleanup") && ProcessInfo.processInfo.physicalMemory >= 16 << 30)
+    }
+
     /// Lets go of the model (about 3 GB of memory) after this long without dictating.
     static let idleUnload: TimeInterval = 20 * 60
 

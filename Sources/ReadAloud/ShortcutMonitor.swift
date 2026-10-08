@@ -8,8 +8,11 @@ import Carbon
 /// (the same permission reading already uses).
 final class ShortcutMonitor: ObservableObject {
     var onRead: (() -> Void)?
-    /// Start dictating.
-    var onDictate: (() -> Void)?
+    /// Start dictating. `provisional`: the tap may yet be the first of a double-tap, and
+    /// `onConfirm` or `onRetract` follows.
+    var onDictate: ((_ provisional: Bool) -> Void)?
+    var onConfirm: (() -> Void)?
+    var onRetract: (() -> Void)?
     var onFinish: (() -> Void)?
     /// A dictation is in progress (the finish shortcut then takes over its key).
     var isRecording: (() -> Bool)?
@@ -88,7 +91,7 @@ final class ShortcutMonitor: ObservableObject {
         if action == .read {
             onRead?()
         } else if isRecording?() != true {
-            onDictate?()
+            onDictate?(false)
         } else if ShortcutAction.finishDictation.binding == action.binding {
             onFinish?()
         }
@@ -135,7 +138,12 @@ final class ShortcutMonitor: ObservableObject {
     private func perform(_ action: ModifierGestures.Action?) {
         switch action {
         case .read: onRead?()
-        case .dictate: onDictate?()
+        case .dictate: onDictate?(false)
+        case .dictateProvisionally: onDictate?(true)
+        case .confirmDictation: onConfirm?()
+        case .readInstead:
+            onRetract?()
+            onRead?()
         case .finish: onFinish?()
         case .holdBegan: onHoldBegan?()
         case .holdEnded: onHoldEnded?()
