@@ -94,15 +94,26 @@ public final class G2PData {
         if let override = ProcessInfo.processInfo.environment["READALOUD_G2P_DIR"] {
             return URL(fileURLWithPath: override)
         }
-        if let r = bundle.resourceURL?.appendingPathComponent("g2p"),
-           FileManager.default.fileExists(atPath: r.appendingPathComponent("us_gold.json").path) {
+        let bundled = bundle.resourceURL?.appendingPathComponent("g2p")
+        if let r = bundled, FileManager.default.fileExists(atPath: r.appendingPathComponent("us_gold.json").path) {
             return r
         }
-        return sourceRoot.appendingPathComponent("Vendor/g2p")
+        if let root = sourceRoot(bundle: bundle) {
+            return root.appendingPathComponent("Vendor/g2p")
+        }
+        return bundled ?? URL(fileURLWithPath: "g2p")  // missing; loading it reports that
     }
 
-    /// The repository root when running from a source checkout.
-    static var sourceRoot: URL {
-        URL(fileURLWithPath: #filePath).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+    /// The repository root when running a `swift build` binary from a source checkout:
+    /// the nearest folder above the executable (.build/<triple>/<config>/) that holds
+    /// Package.swift. Found at run time, not with #filePath, which would put the build
+    /// machine's folder (and its user name) into every release binary.
+    static func sourceRoot(bundle: Bundle = .main) -> URL? {
+        var dir = bundle.executableURL?.resolvingSymlinksInPath().deletingLastPathComponent()
+        while let d = dir, d.pathComponents.count > 1 {
+            if FileManager.default.fileExists(atPath: d.appendingPathComponent("Package.swift").path) { return d }
+            dir = d.deletingLastPathComponent()
+        }
+        return nil
     }
 }

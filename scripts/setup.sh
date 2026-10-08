@@ -19,11 +19,21 @@ MODELS="${READALOUD_MODELS_DIR:-$HOME/Library/Application Support/ReadAloud/mode
 
 if [[ ! -f "$ROOT/Vendor/g2p/manifest.json" ]]; then
   echo "Building the pronunciation data (about 14 MB)..."
+  # The quantised G2P model depends on the onnx/onnxruntime versions, so make-g2p-data.py
+  # pins every package (they have wheels for Python 3.9 to 3.12) and checks its output.
+  # The data Aloud ships was built with macOS's own Python 3.9; PYTHON=... picks another.
+  PYTHON="${PYTHON:-/usr/bin/python3}"
   VENV="$ROOT/build/g2p-venv"
-  [[ -x "$VENV/bin/python" ]] || python3 -m venv "$VENV"
-  "$VENV/bin/pip" install -q --disable-pip-version-check onnx onnxruntime
+  [[ -x "$VENV/bin/python" ]] || "$PYTHON" -m venv "$VENV"
+  "$VENV/bin/pip" install -q --disable-pip-version-check --only-binary=:all: \
+      $("$VENV/bin/python" "$ROOT/scripts/make-g2p-data.py" --requirements) || {
+    echo "Couldn't install the pinned packages into $VENV ($("$VENV/bin/python" --version))."
+    echo "They need Python 3.9 to 3.12: rm -rf build/g2p-venv, then PYTHON=/path/to/python3.9 ./scripts/setup.sh"
+    exit 1
+  }
   "$VENV/bin/python" "$ROOT/scripts/make-g2p-data.py" "$ROOT/Vendor/g2p"
 fi
+python3 "$ROOT/scripts/make-g2p-data.py" --verify "$ROOT/Vendor/g2p" >/dev/null
 echo "Pronunciation data: ready"
 
 # The voice: the model, the voice styles and the symbol table (about 355 MB), the same

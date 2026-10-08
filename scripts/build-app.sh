@@ -21,8 +21,13 @@ APP="build/$APP_NAME.app"
 DEST="/Applications/$APP_NAME.app"
 
 echo "Compiling..."
-swift build -c release --arch arm64 2>&1 | grep -E "error|warning: |Compiling|Build complete" || true
 BIN=".build/arm64-apple-macosx/release/ReadAloud"
+# SwiftPM leaves the previous binary in place when a build fails, so delete it first
+# and stop on the compiler's exit status: never package (and release) stale code.
+rm -f "$BIN"
+if ! swift build -c release --arch arm64 2>&1 | { grep -E "error|warning: |Compiling|Build complete" || true; }; then
+  echo "Build failed"; exit 1
+fi
 [[ -x "$BIN" ]] || { echo "Build failed"; exit 1; }
 SPARKLE=".build/arm64-apple-macosx/release/Sparkle.framework"
 [[ -d "$SPARKLE" ]] || { echo "Sparkle.framework missing from the build products"; exit 1; }
@@ -49,6 +54,8 @@ fi
 cp build/AppIcon.icns "$APP/Contents/Resources/AppIcon.icns"
 cp LICENSE THIRD-PARTY-NOTICES.md "$APP/Contents/Resources/"
 # Pronunciation data (misaki gold lexicons, CMUdict, mini-bart G2P) and hand-written lexicons.
+# Only ship the exact files make-g2p-data.py pins by checksum.
+python3 scripts/make-g2p-data.py --verify Vendor/g2p
 rsync -a --exclude manifest.json Vendor/g2p/ "$APP/Contents/Resources/g2p/"
 cp Vendor/g2p/manifest.json "$APP/Contents/Resources/g2p/"
 mkdir -p "$APP/Contents/Resources/lexicons" "$APP/Contents/Resources/licenses"
@@ -58,6 +65,16 @@ cp Vendor/sherpa-onnx-asr/sherpa-onnx-LICENSE "$APP/Contents/Resources/licenses/
 cp Vendor/sherpa-onnx-asr/onnxruntime-LICENSE "$APP/Contents/Resources/licenses/onnxruntime-LICENSE.txt"
 cp Vendor/sherpa-onnx-asr/onnxruntime-ThirdPartyNotices.txt "$APP/Contents/Resources/licenses/"
 cp Sources/Phonemizer/LICENSE-MisakiSwift.txt "$APP/Contents/Resources/licenses/"
+# Sparkle's comes with its release (SwiftPM unpacks it under .build/artifacts).
+SPARKLE_LICENSE=(.build/artifacts/*/Sparkle/LICENSE(N))
+[[ -f "${SPARKLE_LICENSE[1]:-}" ]] || { echo "Sparkle's LICENSE is missing from .build/artifacts"; exit 1; }
+cp "${SPARKLE_LICENSE[1]}" "$APP/Contents/Resources/licenses/Sparkle-LICENSE.txt"
+# The libraries compiled into libsherpa-onnx-c-api.dylib (OpenFst, Kaldi's, KISS FFT, Eigen...).
+cp licenses/*.txt "$APP/Contents/Resources/licenses/"
+# Every licence file THIRD-PARTY-NOTICES.md points to must be in the app.
+for f in $(grep -oE '(g2p/)?licenses/[A-Za-z0-9._-]+\.txt' THIRD-PARTY-NOTICES.md | sort -u); do
+  [[ -f "$APP/Contents/Resources/$f" ]] || { echo "THIRD-PARTY-NOTICES.md lists $f, but it isn't in the app"; exit 1; }
+done
 
 if [[ "${BUNDLE_MODEL:-0}" == 1 ]]; then
   MODEL="${READALOUD_MODELS_DIR:-$HOME/Library/Application Support/ReadAloud/models}/kokoro-multi-lang-v1_0"
@@ -129,6 +146,10 @@ codesign --force $TIMESTAMP --options runtime --entitlements build/entitlements.
 
 # Aloud ships no GPL code: fail the build if eSpeak NG (or piper-phonemize) sneaks back in.
 ./scripts/check-no-espeak.sh "$APP" >/dev/null || { ./scripts/check-no-espeak.sh "$APP"; echo "eSpeak NG found in $APP"; exit 1; }
+# Nor this Mac's folders: a #filePath left in release code would show every user the
+# developer's account name (source-checkout fallbacks find the checkout at run time instead).
+LEAKS=$(strings -a "$APP/Contents/MacOS/ReadAloud" | grep -F -e "$ROOT/" -e "$HOME/" || true)
+[[ -z "$LEAKS" ]] || { echo "$LEAKS"; echo "The app's binary contains paths from this Mac (above)"; exit 1; }
 
 if [[ "${INSTALL:-1}" == 0 ]]; then
   echo "Built $APP"
