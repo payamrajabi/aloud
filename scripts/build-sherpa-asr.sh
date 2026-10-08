@@ -39,8 +39,16 @@ if [[ ! -d "$WORK/src/.git" ]]; then
 fi
 
 echo "Building sherpa-onnx v$SHERPA_VERSION without TTS (no eSpeak NG)..."
+# sherpa-onnx logs with __FILE__, which would otherwise put this Mac's source and build
+# paths (with the home folder in them) into the shipped library. Map them to neutral names.
+PREFIX_MAP=""
+for from_to in "$WORK/src=sherpa-onnx" "$WORK/build=sherpa-onnx-build"; do
+  PREFIX_MAP+=" -ffile-prefix-map=$from_to -fmacro-prefix-map=$from_to -fdebug-prefix-map=$from_to"
+done
 "$CMAKE" -S "$WORK/src" -B "$WORK/build" -G Ninja \
   -DCMAKE_MAKE_PROGRAM="$NINJA" \
+  -DCMAKE_C_FLAGS="$PREFIX_MAP" \
+  -DCMAKE_CXX_FLAGS="$PREFIX_MAP" \
   -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
   -DCMAKE_BUILD_TYPE=Release \
   -DCMAKE_OSX_ARCHITECTURES=arm64 \
@@ -73,6 +81,11 @@ cp "$WORK/install/include/sherpa-onnx/c-api/c-api.h" "$OUT/include/sherpa-onnx/c
 cp "$ORT_DIR"/include/*.h "$ORT_DIR"/include/*.inc "$OUT/include/onnxruntime/"
 cp "$ORT_DIR"/LICENSE "$OUT/onnxruntime-LICENSE"; cp "$ORT_DIR"/ThirdPartyNotices.txt "$OUT/onnxruntime-ThirdPartyNotices.txt"
 cp "$WORK/src/LICENSE" "$OUT/sherpa-onnx-LICENSE"
+
+# No paths from this Mac (its home folder, the build folders) in what ships.
+if strings -a "$OUT/lib/libsherpa-onnx-c-api.dylib" | grep -qF -e "$HOME/" -e "$WORK/"; then
+  echo "This Mac's paths ended up in libsherpa-onnx-c-api.dylib; refusing to continue"; rm -rf "$OUT"; exit 1
+fi
 
 # The whole point of this build: prove eSpeak isn't in it.
 "$ROOT/scripts/check-no-espeak.sh" "$OUT/lib" >/dev/null || {

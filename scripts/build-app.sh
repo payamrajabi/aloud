@@ -150,6 +150,13 @@ codesign --force $TIMESTAMP --options runtime --entitlements build/entitlements.
 # developer's account name (source-checkout fallbacks find the checkout at run time instead).
 LEAKS=$(strings -a "$APP/Contents/MacOS/ReadAloud" | grep -F -e "$ROOT/" -e "$HOME/" || true)
 [[ -z "$LEAKS" ]] || { echo "$LEAKS"; echo "The app's binary contains paths from this Mac (above)"; exit 1; }
+# The same for the bundled libraries (sherpa-onnx logs with __FILE__; build-sherpa-asr.sh maps
+# its paths away, so a hit here means Vendor/sherpa-onnx-asr predates that and needs rebuilding).
+for lib in "$APP/Contents/Frameworks/"*.dylib; do
+  if strings -a "$lib" | grep -qF -e "$ROOT/" -e "$HOME/"; then
+    echo "${lib:t} contains paths from this Mac: rm -rf Vendor/sherpa-onnx-asr && ./scripts/build-sherpa-asr.sh"; exit 1
+  fi
+done
 
 if [[ "${INSTALL:-1}" == 0 ]]; then
   echo "Built $APP"
