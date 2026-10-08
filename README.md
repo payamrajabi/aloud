@@ -40,7 +40,7 @@ Accessibility → Aloud).
 | Stop | ■ in the player |
 | AirPods / headphones | Press once to pause or resume, twice for the next sentence, three times for the previous one |
 | Keyboard media keys, Control Center | Play/pause, next/previous sentence, and scrubbing all work |
-| Dictate | Tap right ⌥ to start and tap it again to finish, or hold it while you speak. ⌘Esc cancels. Start, finish and cancel each have their own shortcut in Settings. A single tap waits the double-click interval (about half a second) in case it's a double-tap to read |
+| Dictate | Tap right ⌥ to start and tap it again to finish, or hold it while you speak. ⌘Esc cancels. Start, finish and cancel each have their own shortcut in Settings. The microphone starts on the first tap; if a second tap follows (a double-tap to read), that recording is dropped silently, and the start sound plays once the double-click interval has passed |
 | Settings | Right-click the menu bar icon → Settings… (⌘,). Shortcuts can be a key combination, or a tap or double-tap of any modifier key (left/right ⌥ ⌘ ⌃ ⇧, or fn) |
 | Speakers and microphones | Settings lists every connected device. Drag them into order and Aloud uses the highest one that's connected, whatever macOS is set to. Until you do, it follows macOS |
 | Voice and dictation models | Both download on first launch. Settings shows their progress and lets you remove either one; Aloud then asks before downloading it again the next time you use it |
