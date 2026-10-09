@@ -854,6 +854,42 @@
       "us" : "ði ˈɛm θɹˈi wʌz klˈOzd nˌɪɹ ʤˈʌŋkʃən fˈɔɹ."
     },
     {
+      "area" : "units",
+      "gb" : "ðˌA wˈɛnt tˈɛn dˈʌbᵊljuː, θɹˈiː ˈɛl ðɪs sˈiːzᵊn.",
+      "text" : "They went 10 W, 3 L this season.",
+      "us" : "ðˌA wˈɛnt tˈɛn dˈʌbᵊlju, θɹˈi ˈɛl ðɪs sˈizᵊn."
+    },
+    {
+      "area" : "units",
+      "gb" : "ˌI fˈɑːmd tˈɛn kˈA ɡˈQld ɪn ðə ɹˈAd.",
+      "text" : "I farmed 10k gold in the raid.",
+      "us" : "ˌI fˈɑɹmd tˈɛn kˈA ɡˈOld ɪn ðə ɹˈAd."
+    },
+    {
+      "area" : "units",
+      "gb" : "wˌiː hav θɹˈiː ˈɛm lˈɛft ˌɒn ðə klˈɒk.",
+      "text" : "We have 3 m left on the clock.",
+      "us" : "wˌi hæv θɹˈi ˈɛm lˈɛft ˌɔn ðə klˈɑk."
+    },
+    {
+      "area" : "units",
+      "gb" : "tˈAk ɹˈuːt nˈIn dˈʌbᵊljuː nˈɔːθ tə ðə bɹˈɪʤ.",
+      "text" : "Take Route 9-W north to the bridge.",
+      "us" : "tˈAk ɹˈut nˈIn dˈʌbᵊlju nˈɔɹθ tə ðə bɹˈɪʤ."
+    },
+    {
+      "area" : "units",
+      "gb" : "wˌiː plˈAd tˈuː vˈiː tˈuː at ðə pˈɑːk.",
+      "text" : "We played 2 V 2 at the park.",
+      "us" : "wˌi plˈAd tˈu vˈi tˈu æt ðə pˈɑɹk."
+    },
+    {
+      "area" : "units",
+      "gb" : "plˈʌɡ ðə lˈamp ˈɪntuː ˈWtlɛt fˈɔː ˈA",
+      "text" : "Plug the lamp into outlet 4 A.",
+      "us" : "plˈʌɡ ðə lˈæmp ˈɪntu ˈWtlˌɛt fˈɔɹ ˈA"
+    },
+    {
       "area" : "dimensions",
       "gb" : "sˈɒlv tˈuː ˈɛks plˈʌs θɹˈiː ˈiːkwᵊlz sˈɛvᵊn.",
       "text" : "Solve 2x + 3 = 7.",
