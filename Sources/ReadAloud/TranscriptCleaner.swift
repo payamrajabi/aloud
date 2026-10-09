@@ -20,12 +20,10 @@ final class TranscriptCleaner {
     static var modelPath: URL { modelDirectory.appendingPathComponent(fileName) }
     static var isInstalled: Bool { FileManager.default.fileExists(atPath: modelPath.path) }
 
-    /// Clean-up is a preview for now. Settings only offers the download on Macs that already
-    /// have the model, or after `defaults write co.payamrajabi.readaloud offerCleanup -bool YES`
-    /// on a Mac with 16 GB of memory or more (the model takes about 3 GB while it's loaded).
-    static var isOffered: Bool {
-        isInstalled || (UserDefaults.standard.bool(forKey: "offerCleanup") && ProcessInfo.processInfo.physicalMemory >= 16 << 30)
-    }
+    /// Clean-up is optional: Settings offers the download (never automatic, since it's
+    /// 2.7 GB) and removing it turns clean-up off. The model takes about 3 GB of memory
+    /// while it's loaded, so Settings says it's best with 16 GB or more.
+    static var hasRecommendedMemory: Bool { ProcessInfo.processInfo.physicalMemory >= 16 << 30 }
 
     /// Lets go of the model (about 3 GB of memory) after this long without dictating.
     static let idleUnload: TimeInterval = 20 * 60
@@ -41,6 +39,7 @@ final class TranscriptCleaner {
     // Queue only.
     private var engine: LlamaEngine?
     private var queueSession = -1
+    private var failedSession: Int?  // the model failed to load during this recording: don't retry until the next
     private var settled = ""        // cleaned text that won't change again
     private var open = ""           // cleaned last sentences, cleaned again with the next piece
     private var openBreak = false   // `open` starts a new paragraph
@@ -239,15 +238,23 @@ final class TranscriptCleaner {
 
     private func loadEngine() -> LlamaEngine? {
         if let engine { return engine }
-        guard Self.isInstalled else { return nil }
+        guard Self.isInstalled, failedSession != queueSession else { return nil }
         let t0 = Date()
         do {
             let engine = try LlamaEngine(path: Self.modelPath.path)
-            guard engine.remember(prefix: Self.promptPrefix), engine.remember(prefix: Self.paragraphPrefix) else { return nil }
+            guard engine.remember(prefix: Self.promptPrefix), engine.remember(prefix: Self.paragraphPrefix) else {
+                throw LlamaEngine.LoadError()
+            }
             self.engine = engine
             if trace { print(String(format: "   cleanup: model ready in %.2fs", Date().timeIntervalSince(t0))); fflush(stdout) }
         } catch {
             if trace { print("   cleanup: model failed to load: \(error.localizedDescription)"); fflush(stdout) }
+            // Type this recording as heard, straight away when it stops, rather than trying
+            // again with every piece. The next recording tries again.
+            failedSession = queueSession
+            lock.lock()
+            if session == queueSession { active = false }
+            lock.unlock()
         }
         return engine
     }

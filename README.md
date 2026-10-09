@@ -67,7 +67,7 @@ Accessibility → Aloud).
 | Settings | Right-click the menu bar icon → Settings… (⌘,). Shortcuts can be a key combination, or a tap or double-tap of any modifier key (left/right ⌥ ⌘ ⌃ ⇧, or fn) |
 | Speakers and microphones | Settings lists every connected device. Drag them into order and Aloud uses the highest one that's connected, whatever macOS is set to. Until you do, it follows macOS |
 | Voice and dictation models | Both download on first launch. Settings shows their progress and lets you remove either one; Aloud then asks before downloading it again the next time you use it |
-| Clean-up model | A preview, not offered to everyone yet: Settings → Downloads shows Clean-up (about 2.7 GB) only on Macs that already have the model, or after `defaults write co.payamrajabi.readaloud offerCleanup -bool YES` on a Mac with 16 GB or more. Once it's there, every dictation is tidied; remove it to go back to the raw transcript |
+| Clean-up model | Optional, for everyone: Settings → Downloads → Clean-up → Download (about 2.7 GB; best with 16 GB of memory). Never downloaded automatically. Once it's there, every dictation is tidied while you talk; if the model is still downloading, fails to load or takes more than 6 s after you stop, the raw transcript is typed instead. Remove it to go back to the raw transcript |
 | Updates | Aloud checks once a day. Right after launch it shows the update window; otherwise it sends a notification, and the menu item becomes Update to Aloud x.y… |
 | Copy last dictation | Right-click the menu bar icon → Copy Last Dictation |
 | Voice, speed | Menus in the player or the right-click menu |
