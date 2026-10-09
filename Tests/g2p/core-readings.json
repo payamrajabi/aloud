@@ -356,6 +356,24 @@
       "us" : "ði ˈɛs ən pˈi fˈIv hˈʌndɹəd ɹˈOz tˈu pəɹsˈɛnt tədˈA."
     },
     {
+      "area" : "money",
+      "gb" : "tˈIp ˈiːkwᵊlz sˈʌm bˈiː tˈuː : bˈiː tˈɛn) ɪn ðə sˈɛl.",
+      "text" : "Type =SUM($B$2:$B$10) in the cell.",
+      "us" : "tˈIp ˈikwᵊlz sˈʌm bˈi tˈu : bˈi tˈɛn) ɪn ðə sˈɛl."
+    },
+    {
+      "area" : "money",
+      "gb" : "ˌʌpɡɹˈAd tʊ ˈɑː fˈɔː pYnt θɹˈiː tədˈA.",
+      "text" : "Upgrade to R 4.3 today.",
+      "us" : "ˈʌpɡɹˌAd tʊ ˈɑɹ fˈɔɹ pYnt θɹˈi tədˈA."
+    },
+    {
+      "area" : "money",
+      "gb" : "wˌiː pˈAd θɹˈiː kˈad dɹˈɑːftəz ðɪs wˈiːk.",
+      "text" : "We paid 3 CAD drafters this week.",
+      "us" : "wˌi pˈAd θɹˈi kˈæd dɹˈæftəɹz ðɪs wˈik."
+    },
+    {
       "area" : "units",
       "gb" : "wˌiː wˈɛnt wɪð plˈan ɐ, ðˈɛn plˈan bˈiː.",
       "text" : "We went with Plan A, then Plan B.",
