@@ -261,7 +261,7 @@ enum DebugScript {
         guard var text = value("--say") ?? value("--say-file").flatMap({ try? String(contentsOfFile: $0, encoding: .utf8) }) else { return }
         if value("--say") != nil { text = text.replacingOccurrences(of: "\\n", with: "\n") }
         let voice = Voice.with(key: value("--voice"))
-        var chunks: [Chunk]
+        let chunks: [Chunk]
         if args.contains("--flat") {
             print("format: 1.6.0 (flat)")
             chunks = TextPrep.legacyChunks(for: TextPrep.clean(text))
@@ -275,8 +275,8 @@ enum DebugScript {
             print("format: \(format.rawValue)")
             chunks = NarrationPlanner.plan(NarrationDoc.parse(text, format: format)).chunks
         }
-        // As the player: sentences the voice can't read (other scripts) are left out.
-        chunks = NarrationPlanner.readable(chunks)
+        // Unlike the player, every chunk is generated, even text in another script: the
+        // runtime suite checks here that the voice gives no near-silent audio for it.
         do {
             print("model: \(KokoroEngine.modelDirectory.path)")
             var t0 = Date()
