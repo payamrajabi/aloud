@@ -11234,6 +11234,16 @@
       "area" : "dates",
       "says" : "Logs older than thirty days are deleted automatically.",
       "text" : "Logs older than 30d are deleted automatically."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Durant is listed at six ten and two hundred forty.",
+      "text" : "Durant is listed at 6-10 and 240."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "He's six seven with a long wingspan.",
+      "text" : "He's 6-7 with a long wingspan."
     }
   ]
 }
