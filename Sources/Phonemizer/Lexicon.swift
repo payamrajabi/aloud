@@ -144,6 +144,10 @@ final class Lexicon {
     func isShoutedWord(_ token: String) -> Bool {
         guard token.count > 1, token.contains(where: { "AEIOUY".contains($0) }) else { return false }
         let lower = token.pyLower.replacingOccurrences(of: "’", with: "'")
+        // A Roman numeral no rule read ("XVIII" with no "CHAPTER" before it) is spelled, as it
+        // is in mixed case: lower-cased, it was a made-up word (ɛksvˈii). One that is also a
+        // word stays a word ("MIX", "DIV"). (Core readings R14, FIN-889.)
+        if golds[lower] == nil, RomanPass.isNumeral(token) { return false }
         if let upper = golds[token] {
             guard golds[lower] != nil, !Self.shoutedAcronyms.contains(token) else { return false }
             if token.count == 2 { return Self.shoutedPairs.contains(token) }
