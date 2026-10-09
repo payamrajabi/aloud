@@ -4998,6 +4998,24 @@
       "gb" : "tˈAk ðə ɹˈIt ˈɒnəɹəbᵊl mˈɛmbəz wˈɜːd.",
       "text" : "Take the Rt. Hon. member's word.",
       "us" : "tˈAk ðə ɹˈIt ˈɑnəɹəbᵊl mˈɛmbəɹz wˈɜɹd."
+    },
+    {
+      "area" : "roman",
+      "gb" : "tˈɪə ˌI θˈɪŋk ɪz fˈIn.",
+      "text" : "Tier I think is fine.",
+      "us" : "tˈɪɹ ˌI θˈɪŋk ɪz fˈIn."
+    },
+    {
+      "area" : "roman",
+      "gb" : "ˈItɪm ˌI lˈIkt bˈɛst wɒz ðə kˈAk.",
+      "text" : "Item I liked best was the cake.",
+      "us" : "ˈITəm ˌI lˈIkt bˈɛst wʌz ðə kˈAk."
+    },
+    {
+      "area" : "roman",
+      "gb" : "klˈɔːz ˌI əɡɹˈiː wɪð ɪz ðə lˈɑːst wˈʌn.",
+      "text" : "Clause I agree with is the last one.",
+      "us" : "klˈɔz ˌI əɡɹˈi wɪð ɪz ðə lˈæst wˈʌn."
     }
   ],
   "speech_cases" : [
@@ -12507,6 +12525,26 @@
       "area" : "addresses",
       "says" : "Office is at three fifty Fifth Avenue, floor fifty-nine, New York, New York one oh one one eight.",
       "text" : "Office is at 350 5th Ave, Fl 59, New York, NY 10118."
+    },
+    {
+      "area" : "roman",
+      "says" : "Blair rewrote Clause four at a special conference in nineteen ninety-five.",
+      "text" : "Blair rewrote Clause IV at a special conference in 1995."
+    },
+    {
+      "area" : "roman",
+      "says" : "Hotel Henri the Fourth is near the Seine.",
+      "text" : "Hotel Henri IV is near the Seine."
+    },
+    {
+      "area" : "roman",
+      "says" : "Use the Tier one lounge by Gate three.",
+      "text" : "Use the Tier I lounge by Gate 3."
+    },
+    {
+      "area" : "roman",
+      "says" : "Next up: item four on the agenda.",
+      "text" : "Next up: item IV on the agenda."
     }
   ]
 }
