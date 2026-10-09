@@ -19,6 +19,8 @@ enum TitlePass {
     /// "Lt." as light (T9), a title before a name (T2, T4), a rank with no name (T11), and last
     /// a bare "Lt." as its letters (DECISIONS 6). Its words go through `ShoutedCasing`.
     static func apply(_ text: String, british: Bool) -> String {
+        // "Navy/Lt. Gray": a second colour after a slash, which the candidates skip ("2-Br.").
+        let text = text.contains("/Lt.") ? colourAfterSlash.stringByReplacingMatches(in: text, range: NSRange(location: 0, length: (text as NSString).length), withTemplate: " light") : text
         let ns = text as NSString
         let matches = candidates.matches(in: text, range: NSRange(location: 0, length: ns.length))
         guard !matches.isEmpty else { return text }
@@ -80,6 +82,8 @@ enum TitlePass {
     }()
 
     private static let starters = Set(Tokenizer.sentenceStarters)
+    /// "Navy/Lt. Gray", "Black/Lt. Blue": a colour, a slash and "Lt." before another colour.
+    private static let colourAfterSlash = try! NSRegularExpression(pattern: #"(?<=\p{L})/Lt\.(?=[ \t]+(?i:gray|grey|green|brown|blue|pink|purple|yellow|teal|aqua|beige|khaki|tan|olive|coral|rose)(?![\p{L}]))"#)
 
     /// An abbreviation in the text and the words around it.
     private struct Site {
@@ -243,6 +247,12 @@ enum TitlePass {
             let w = t.word.lowercased()
             if a == "Hon", mentions.contains(w) { return (s.end, british ? "Honourable" : "Honorable") }
             if let plain = plainReadings[a], plain.words.contains(w) { return (s.end, plain.reads) }
+            // "Sec. of State", "the Dir. of National Intelligence".
+            if let office = officesOf[a], t.chunk == "of", s.next.count > 1, s.next[1].word.first?.isUppercase == true {
+                return (s.end, office)
+            }
+            // "Prof. X": a single capital after "Prof." is still a name.
+            if a == "Prof", t.chunk.count == 1, t.chunk.first?.isUppercase == true { return (s.end, "Professor") }
         }
         if a == "Lt" || a == "lt", isLight(s) { return (s.end, a == "lt" ? "light" : "Light") }
         if let title = beforeName(s) { return (s.end, title == "Honorable" && british ? "Honourable" : title) }
@@ -327,10 +337,13 @@ enum TitlePass {
             if fits && !opens { return "Senior" + s.keptStop }
         }
         guard let first else { return nil }
-        // (b) A job or "senior" noun among the next three capitalised words.
+        // (b) A job or "senior" noun among the next three capitalised words, or the lower-case
+        // word right after them ("A Sr. White House adviser"); or an article before it ("a Sr.
+        // something" is never Sister or Señor).
         if first.word.first?.isLowercase == true, seniorWords.contains(first.word) { return "Senior" }
-        for t in s.next.prefix(3) {
-            guard t.word.first?.isUppercase == true else { break }
+        if s.dot, let b = s.before, b.chunk == b.word, ["a", "an", "A", "An", "our", "Our", "their", "his", "her"].contains(b.word) { return "Senior" }
+        for t in s.next.prefix(4) {
+            if t.word.first?.isLowercase == true { if seniorWords.contains(t.word) { return "Senior" }; break }
             if seniorWords.contains(t.word.lowercased()) { return "Senior" }
             if t.chunk != t.word { break }
         }
@@ -380,7 +393,11 @@ enum TitlePass {
         if nameColours.contains(colour) {
             return labelled || !(s.next.count > 1 && t.chunk == t.word && s.next[1].word.first?.isUppercase == true)
         }
-        return labelled && surnameColours.contains(colour)
+        guard surnameColours.contains(colour) else { return false }
+        // A colour in lower case is no surname ("Lt. gray is the new background"), and nor is one
+        // before a garment or a finish ("Lt. Gray sweater, $39").
+        if labelled || t.word.first?.isLowercase == true { return true }
+        return t.chunk == t.word && s.next.count > 1 && colourNouns.contains(s.next[1].word.lowercased())
     }
 
     /// T2 and T4: a title before a name (T1), with or without a period, as `titles` and

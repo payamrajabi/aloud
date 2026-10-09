@@ -14,7 +14,7 @@ extension TitlePass {
         "Supt": "Superintendent", "Ofc": "Officer", "Fr": "Father", "Msgr": "Monsignor", "Br": "Brother",
         "Hon": "Honorable", "Pres": "President", "Amb": "Ambassador", "Atty": "Attorney", "Sec": "Secretary",
         "Mx": "Mix", "Mme": "Madame", "Mlle": "Mademoiselle", "Sen": "Senator", "Gov": "Governor", "Prof": "Professor",
-        "Gen": "General", "Rep": "Representative", "Rev": "Reverend",
+        "Gen": "General", "Rep": "Representative", "Rev": "Reverend", "Del": "Delegate", "Dir": "Director",
         "Sens": "Senators", "Reps": "Representatives", "Govs": "Governors", "Gens": "Generals", "Sgts": "Sergeants",
         "Lts": "Lieutenants", "Capts": "Captains", "Cols": "Colonels", "Pvts": "Privates", "Cpls": "Corporals",
         "Dets": "Detectives", "Profs": "Professors", "Revs": "Reverends", "Drs": "Doctors",
@@ -107,6 +107,25 @@ extension TitlePass {
         "Sec": (["deposit", "guard", "code", "level"], "Security"),
         "Insp": (["date", "due", "report", "cert", "certificate", "sticker", "fee", "type", "result", "results", "record",
                   "form", "status"], "Inspection"),
+        // A form's revision date: "Form W-4 (Rev. December 2024)".
+        "Rev": (["january", "february", "march", "april", "may", "june", "july", "august", "september", "october",
+                 "november", "december", "jan", "feb", "mar", "apr", "jun", "jul", "aug", "sep", "sept", "oct", "nov",
+                 "dec"], "revised"),
+        // "Gen. admission tickets", "Gen. Manager".
+        "Gen": (["admission", "admissions", "manager", "public", "election", "assembly", "counsel", "practice",
+                 "practitioner", "surgery", "store", "contractor", "knowledge", "purpose", "education", "hospital",
+                 "studies", "population"], "General"),
+    ]
+    /// Offices "of" something, read before "of" and a capital: "Sec. of State", "Dir. of
+    /// National Intelligence".
+    static let officesOf: [String: String] = ["Sec": "Secretary", "Dir": "Director", "Asst": "Assistant", "Pres": "President",
+                                              "Gov": "Governor", "Supt": "Superintendent", "Amb": "Ambassador"]
+    /// Nouns after a colour that make "Lt." light: "Lt. Gray sweater", "Lt. Grey stripe scarf".
+    static let colourNouns: Set<String> = [
+        "sweater", "sweaters", "shirt", "shirts", "scarf", "scarves", "stripe", "stripes", "striped", "jacket", "coat", "dress",
+        "pants", "trousers", "jeans", "hoodie", "top", "tee", "skirt", "socks", "hat", "cap", "paint", "color", "colour",
+        "background", "shade", "finish", "fabric", "cotton", "wool", "leather", "wash", "denim", "marl", "heather", "check",
+        "plaid", "case", "cover", "frame", "tile", "tiles", "carpet", "rug", "curtains", "bedding", "throw", "fleece",
     ]
     /// "Hon. mention" is a fixed phrase every reader expands (T14).
     static let mentions: Set<String> = ["mention", "mentions"]
