@@ -2834,6 +2834,24 @@
       "us" : "ʤˈɛn ˈAˌI tˈulz ɑɹ ˈɛvɹiwˌɛɹ."
     },
     {
+      "area" : "titles",
+      "gb" : "kˈʌ, sˈiːnjə, bˈɑː and ɹˈɑː ɑː ˈalkəlIn ˈɜːθ mˈɛtᵊlz.",
+      "text" : "Ca, Sr, Ba and Ra are alkaline earth metals.",
+      "us" : "kˈʌ, sˈinjəɹ, bˈɑ ænd ɹˈɑ ɑɹ ˈælkəlˌIn ˈɜɹθ mˈɛTᵊlz."
+    },
+    {
+      "area" : "titles",
+      "gb" : "ɹˈiːd ˌWə ɹˈɛt. pˈɒlɪsi fˈɜːst.",
+      "text" : "Read our Ret. Policy first.",
+      "us" : "ɹˈid ˌWəɹ ɹˈɛt. pˈɑləsi fˈɜɹst."
+    },
+    {
+      "area" : "titles",
+      "gb" : "ˈast. kˈʌləz sˈQld sˈɛpəɹətli.",
+      "text" : "Asst. Colors sold separately.",
+      "us" : "ˈæst. kˈʌləɹz sˈOld sˈɛpəɹətli."
+    },
+    {
       "area" : "shorthand",
       "gb" : "ðə fˈIl ɪz ɪn ɐ bˈiː sˈiː ˌɒn dˈɪsk.",
       "text" : "The file is in a/b/c on disk.",
