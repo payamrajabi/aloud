@@ -1,0 +1,904 @@
+{
+ "area": "Addresses, states and postal codes",
+ "speech_cases": [
+  {
+   "text": "We live at 4 Privet Dr. in Surrey.",
+   "says": "We live at four Privet Drive in Surrey.",
+   "note": "house number before the name: Dr. is Drive"
+  },
+  {
+   "text": "We drove along Mulholland Dr. at dusk.",
+   "says": "We drove along Mulholland Drive at dusk.",
+   "note": "replaces 'Mulholland Dr. is a David Lynch film': with no house number or place word before it, Core leaves Dr. as Doctor (see rule D)"
+  },
+  {
+   "text": "She lives at 42 Ocean Dr, Miami Beach.",
+   "says": "She lives at forty-two Ocean Drive, Miami Beach.",
+   "note": "no period, before a comma"
+  },
+  {
+   "text": "Its office is at 500 Ocean Dr. Suite 3.",
+   "says": "Its office is at five hundred Ocean Drive Suite three.",
+   "note": "a unit word (Suite) after Dr. is not a name"
+  },
+  {
+   "text": "Our clinic is on Elm Rd. past the school.",
+   "says": "Our clinic is on Elm Road past the school.",
+   "note": "Elm is a tech-lexicon term"
+  },
+  {
+   "text": "Mail it to 18 Willow Ln., Springfield.",
+   "says": "Mail it to eighteen Willow Lane, Springfield.",
+   "note": "already right; Willow is a tech-lexicon term"
+  },
+  {
+   "text": "They live on Maple Ct. now.",
+   "says": "They live on Maple Court now.",
+   "note": "already reads court (the harness ignores the stray mid-sentence stop)"
+  },
+  {
+   "text": "Meet me at Astor Pl. station.",
+   "says": "Meet me at Astor Place station."
+  },
+  {
+   "text": "Exit onto the Garden State Pkwy. southbound.",
+   "says": "Exit onto the Garden State Parkway southbound."
+  },
+  {
+   "text": "Drive north on Pacific Coast Hwy until you see the pier.",
+   "says": "Drive north on Pacific Coast Highway until you see the pier."
+  },
+  {
+   "text": "Take Hwy 401 east to Kingston.",
+   "says": "Take Highway four oh one east to Kingston.",
+   "note": "Hwy before a route number needs no name; Ontario's 401 is 'the four-oh-one'"
+  },
+  {
+   "text": "Her flat is on Royal Cres. in Bath.",
+   "says": "Her flat is on Royal Crescent in Bath."
+  },
+  {
+   "text": "He grew up on Bellevue Terr. in Toronto.",
+   "says": "He grew up on Bellevue Terrace in Toronto.",
+   "note": "Bellevue is a tech-lexicon term"
+  },
+  {
+   "text": "We met in Washington Sq. Park.",
+   "says": "We met in Washington Square Park.",
+   "note": "Square is a tech-lexicon term"
+  },
+  {
+   "text": "Meet at 1250 Oak Ave?",
+   "says": "Meet at twelve fifty Oak Avenue?",
+   "note": "chat; bare Ave before a question mark (today the Latin 'ah-vay')"
+  },
+  {
+   "text": "Ave. A is in the East Village.",
+   "says": "Avenue ay is in the East Village.",
+   "note": "the letter A after Avenue (today the article)"
+  },
+  {
+   "text": "She lives at 7 Elm St. now.",
+   "says": "She lives at seven Elm Street now.",
+   "note": "already right since readStreets reads marked terms in view; keep"
+  },
+  {
+   "text": "We walked down Main St. Then we turned.",
+   "says": "We walked down Main Street. Then we turned.",
+   "note": "already right; keep"
+  },
+  {
+   "text": "The Wall St. Journal reported it first.",
+   "says": "The Wall Street Journal reported it first.",
+   "note": "today 'Wall Saint Journal': St. before a capitalised landmark word is Street"
+  },
+  {
+   "text": "Liverpool St. Station is closed.",
+   "says": "Liverpool Street Station is closed.",
+   "note": "today 'Liverpool Saint Station' (only 'at Liverpool St. Station' reads right today)"
+  },
+  {
+   "text": "Fans lined Bourbon St. Saturday night.",
+   "says": "Fans lined Bourbon Street Saturday night.",
+   "note": "today 'Bourbon Saint Saturday': a day name after St. is not a saint"
+  },
+  {
+   "text": "We visited St Paul's Cathedral.",
+   "says": "We visited Saint Paul's Cathedral.",
+   "note": "British St without a period before a name (today Street)"
+  },
+  {
+   "text": "Mount St Helens erupted in 1980.",
+   "says": "Mount Saint Helens erupted in nineteen eighty.",
+   "note": "today Street"
+  },
+  {
+   "text": "She wore Yves St Laurent to the gala.",
+   "says": "She wore Yves Saint Laurent to the gala.",
+   "note": "today Street"
+  },
+  {
+   "text": "Sault Ste. Marie is in Ontario.",
+   "says": "Sault Saint Marie is in Ontario.",
+   "note": "Ste. before a name is Saint (today 'stee'); the stack reads Sault as 'salt' on both sides, which is a names issue"
+  },
+  {
+   "text": "We stayed in Ste. Genevieve, MO for a night.",
+   "says": "We stayed in Saint Genevieve, Missouri for a night."
+  },
+  {
+   "text": "Ship to 123 MAIN ST APT 4B, AUSTIN TX 78701.",
+   "says": "Ship to one twenty-three Main Street Apartment four B, Austin Texas seven eight seven oh one.",
+   "note": "USPS capitals; no comma before the state when a ZIP follows. MAIN and AUSTIN already read as words"
+  },
+  {
+   "text": "Return to 450 OAK DR, BOISE ID 83702.",
+   "says": "Return to four fifty Oak Drive, Boise Idaho eight three seven oh two.",
+   "note": "USPS capitals: DR is a tech-lexicon term (D R)"
+  },
+  {
+   "text": "CORNER MARKET, 4545 S 1ST ST, AUSTIN TX 78745",
+   "says": "Corner Market, forty-five forty-five South First Street, Austin Texas seven eight seven four five",
+   "note": "receipt header, all capitals; the ordinal 1ST in capitals"
+  },
+  {
+   "text": "The theater is at 1300 E St NW.",
+   "says": "The theater is at thirteen hundred E Street Northwest.",
+   "note": "a single letter right before the type is the street's name, not East"
+  },
+  {
+   "text": "He lives at 300 E 23rd St, Apt 4C.",
+   "says": "He lives at three hundred East Twenty-Third Street, Apartment four C.",
+   "note": "here E is followed by a name, so it is East"
+  },
+  {
+   "text": "Meet me at 123 W 42nd St.",
+   "says": "Meet me at one twenty-three West Forty-Second Street."
+  },
+  {
+   "text": "The White House is at 1600 Pennsylvania Ave. NW.",
+   "says": "The White House is at sixteen hundred Pennsylvania Avenue Northwest."
+  },
+  {
+   "text": "Our store is at 350 5th Ave.",
+   "says": "Our store is at three fifty Fifth Avenue."
+  },
+  {
+   "text": "Ship to 2041 E Main St.",
+   "says": "Ship to twenty forty-one East Main Street."
+  },
+  {
+   "text": "Their address is 1005 N Elm St.",
+   "says": "Their address is ten oh five North Elm Street.",
+   "note": "today 'one thousand five'"
+  },
+  {
+   "text": "Visit us at 903 S Oak Rd.",
+   "says": "Visit us at nine oh three South Oak Road."
+  },
+  {
+   "text": "The office is at 1234 NW 5th Ave, Miami.",
+   "says": "The office is at twelve thirty-four Northwest Fifth Avenue, Miami."
+  },
+  {
+   "text": "The hotel is at 400 SE Main St.",
+   "says": "The hotel is at four hundred Southeast Main Street.",
+   "note": "SE is a tech-lexicon term"
+  },
+  {
+   "text": "Their shop is at 88 King St. W in Toronto.",
+   "says": "Their shop is at eighty-eight King Street West in Toronto."
+  },
+  {
+   "text": "My new place is Unit 302, 45 King St W, Toronto.",
+   "says": "My new place is Unit three oh two, forty-five King Street West, Toronto."
+  },
+  {
+   "text": "221B Baker St. is a museum now.",
+   "says": "Two twenty-one B Baker Street is a museum now.",
+   "voice": "us",
+   "note": "US only: British speakers commonly say 'two two one B'"
+  },
+  {
+   "text": "They moved to 2000 Market St.",
+   "says": "They moved to two thousand Market Street.",
+   "note": "already right; keep"
+  },
+  {
+   "text": "Head to 100 E Pine St, Seattle, WA 98122.",
+   "says": "Head to one hundred East Pine Street, Seattle, Washington nine eight one two two."
+  },
+  {
+   "text": "The shops at 123-125 Main St. closed.",
+   "says": "The shops at one twenty-three to one twenty-five Main Street closed."
+  },
+  {
+   "text": "I'm at 4400 Wilshire Blvd, Los Angeles, CA 90010.",
+   "says": "I'm at forty-four hundred Wilshire Boulevard, Los Angeles, California nine oh oh one oh.",
+   "note": "Blvd without a period"
+  },
+  {
+   "text": "Shipping address: 742 Evergreen Terrace, Springfield, OR 97477",
+   "says": "Shipping address: seven forty-two Evergreen Terrace, Springfield, Oregon nine seven four seven seven",
+   "note": "spelled-out type after an address cue"
+  },
+  {
+   "text": "Apple Park is at 1 Apple Park Way, Cupertino, CA 95014.",
+   "says": "Apple Park is at one Apple Park Way, Cupertino, California nine five oh one four.",
+   "note": "Cupertino and CA are both tech-lexicon terms"
+  },
+  {
+   "text": "Microsoft is at One Microsoft Way, Redmond, WA 98052.",
+   "says": "Microsoft is at One Microsoft Way, Redmond, Washington nine eight oh five two.",
+   "note": "Redmond is a tech-lexicon term"
+  },
+  {
+   "text": "Our office: Suite 1500, 233 S Wacker Dr, Chicago, IL 60606.",
+   "says": "Our office: Suite fifteen hundred, two thirty-three South Wacker Drive, Chicago, Illinois six oh six oh six."
+  },
+  {
+   "text": "Deliver to 100 Pine St, Ste 1010, San Francisco, CA 94111.",
+   "says": "Deliver to one hundred Pine Street, Suite ten ten, San Francisco, California nine four one one one.",
+   "note": "Ste without a period before a number is Suite"
+  },
+  {
+   "text": "Born in 2005, she moved to 2005 Main St. in 2010.",
+   "says": "Born in two thousand five, she moved to twenty oh five Main Street in twenty ten.",
+   "voice": "us",
+   "note": "the same number as a year and as a house number. US only: British speech says 'two thousand and five', which is a question for the years area"
+  },
+  {
+   "text": "Our office is at 500 Main St., Ste. 200.",
+   "says": "Our office is at five hundred Main Street, Suite two hundred."
+  },
+  {
+   "text": "She lives in Apt. 4B.",
+   "says": "She lives in Apartment four B."
+  },
+  {
+   "text": "He lives at 9 Elm St, Apt 3.",
+   "says": "He lives at nine Elm Street, Apartment three."
+  },
+  {
+   "text": "Take the elevator to Fl. 3.",
+   "says": "Take the elevator to Floor three."
+  },
+  {
+   "text": "The lab is on the 3rd Fl. of the Science Bldg.",
+   "says": "The lab is on the third Floor of the Science Building."
+  },
+  {
+   "text": "Classes meet in Rm. 214.",
+   "says": "Classes meet in Room two fourteen.",
+   "voice": "us",
+   "note": "US only: British speakers often say 'two one four' (open question)"
+  },
+  {
+   "text": "Room 101 is in Orwell's novel.",
+   "says": "Room one oh one is in Orwell's novel.",
+   "note": "Room is a tech-lexicon term, so the rule must see through the mark"
+  },
+  {
+   "text": "Send letters to P.O. Box 1234.",
+   "says": "Send letters to P O Box twelve thirty-four.",
+   "note": "already right (it passes once the harness ignores spaces); keep"
+  },
+  {
+   "text": "Write to PO Box 70, Austin, TX 78701.",
+   "says": "Write to P O Box seventy, Austin, Texas seven eight seven oh one."
+  },
+  {
+   "text": "Send it c/o Jane Smith.",
+   "says": "Send it care of Jane Smith."
+  },
+  {
+   "text": "Take US 101 north to San Francisco.",
+   "says": "Take U S one oh one north to San Francisco."
+  },
+  {
+   "text": "Traffic is backed up on I-405.",
+   "says": "Traffic is backed up on I four oh five.",
+   "note": "already right; keep"
+  },
+  {
+   "text": "He was born in Boise, ID.",
+   "says": "He was born in Boise, Idaho."
+  },
+  {
+   "text": "The conference is in Columbus, OH this year.",
+   "says": "The conference is in Columbus, Ohio this year."
+  },
+  {
+   "text": "She grew up in Honolulu, HI.",
+   "says": "She grew up in Honolulu, Hawaii."
+  },
+  {
+   "text": "Portland, ME is colder than Portland, OR.",
+   "says": "Portland, Maine is colder than Portland, Oregon.",
+   "note": "the first has a verb after it; the second comes after 'than'"
+  },
+  {
+   "text": "Have you been to Portland, OR?",
+   "says": "Have you been to Portland, Oregon?",
+   "note": "a question mark after OR still allows the state; compare the frozen 'Say hi to Norman, OK?'"
+  },
+  {
+   "text": "Our office is in Indianapolis, IN.",
+   "says": "Our office is in Indianapolis, Indiana."
+  },
+  {
+   "text": "They moved to Tulsa, OK in May.",
+   "says": "They moved to Tulsa, Oklahoma in May."
+  },
+  {
+   "text": "Pittsburgh, PA is hilly.",
+   "says": "Pittsburgh, Pennsylvania is hilly."
+  },
+  {
+   "text": "She joined a Portland, OR-based startup.",
+   "says": "She joined a Portland, Oregon-based startup."
+  },
+  {
+   "text": "The plant (Fresno, CA) closed.",
+   "says": "The plant (Fresno, California) closed.",
+   "note": "CA is a tech-lexicon term"
+  },
+  {
+   "text": "The Mall of America is in Bloomington, MN.",
+   "says": "The Mall of America is in Bloomington, Minnesota.",
+   "note": "no ZIP: needs the place list"
+  },
+  {
+   "text": "The Royals play in Kansas City, MO 64129.",
+   "says": "The Royals play in Kansas City, Missouri six four one two nine.",
+   "note": "a two-word place"
+  },
+  {
+   "text": "She lives in St. Paul, MN 55102.",
+   "says": "She lives in Saint Paul, Minnesota five five one oh two."
+  },
+  {
+   "text": "Mail it to Beverly Hills, CA 90210.",
+   "says": "Mail it to Beverly Hills, California nine oh two one oh."
+  },
+  {
+   "text": "The office is in Boston, MA 02110.",
+   "says": "The office is in Boston, Massachusetts oh two one one oh."
+  },
+  {
+   "text": "Our office is in Atlanta, GA 30303.",
+   "says": "Our office is in Atlanta, Georgia three oh three oh three.",
+   "note": "GA is a tech-lexicon term"
+  },
+  {
+   "text": "Ship to Chicago, IL 60601.",
+   "says": "Ship to Chicago, Illinois six oh six oh one.",
+   "note": "replaces the ZIP+4 case, which can be read two ways (open question)"
+  },
+  {
+   "text": "She works in Baltimore, MD 21201.",
+   "says": "She works in Baltimore, Maryland two one two oh one.",
+   "note": "MD is a case-insensitive tech-lexicon term"
+  },
+  {
+   "text": "The White House is in Washington, DC 20500.",
+   "says": "The White House is in Washington, D C two oh five oh oh.",
+   "note": "DC stays letters"
+  },
+  {
+   "text": "Send it to Miami, Fl 33101.",
+   "says": "Send it to Miami, Florida three three one oh one.",
+   "note": "a title-case code counts only before a ZIP; 'Fl 33101' must not become Floor (today 'fl thirty-three thousand…')"
+  },
+  {
+   "text": "Officials in Salem, Ore., said the bridge is safe.",
+   "says": "Officials in Salem, Oregon, said the bridge is safe.",
+   "note": "AP style"
+  },
+  {
+   "text": "Albany, N.Y., is the capital.",
+   "says": "Albany, New York, is the capital."
+  },
+  {
+   "text": "The plant is in Fresno, Calif.",
+   "says": "The plant is in Fresno, California.",
+   "note": "AP style at the end of the text; the period stays as the full stop"
+  },
+  {
+   "text": "My ZIP code is 90210.",
+   "says": "My zip code is nine oh two one oh."
+  },
+  {
+   "text": "Enter your zip code, 02139, below.",
+   "says": "Enter your zip code, oh two one three nine, below."
+  },
+  {
+   "text": "Ship it to Toronto, ON M5V 3L9.",
+   "says": "Ship it to Toronto, Ontario M five V three L nine."
+  },
+  {
+   "text": "The office is in Calgary, AB T2P 1J9.",
+   "says": "The office is in Calgary, Alberta T two P one J nine.",
+   "note": "today the 2 in T2P is read 'to'"
+  },
+  {
+   "text": "Write to Montreal, QC H3B 2Y5.",
+   "says": "Write to Montreal, Quebec H three B two Y five."
+  },
+  {
+   "text": "She lives in Vancouver, BC V6B 1A1.",
+   "says": "She lives in Vancouver, B C V six B one ay one.",
+   "note": "already right (it passes once the harness ignores spaces); BC stays letters"
+  },
+  {
+   "text": "Mail it to Charlottetown, PE C1A 7N8.",
+   "says": "Mail it to Charlottetown, Prince Edward Island C one ay seven N eight.",
+   "note": "PE is a tech-lexicon term. Islanders also say 'P E I'; either way, today's 'P E' is wrong"
+  },
+  {
+   "text": "Post it to Sydney NSW 2000.",
+   "says": "Post it to Sydney New South Wales two thousand."
+  },
+  {
+   "text": "Level 5, 1 Martin Pl, Sydney NSW 2000",
+   "says": "Level five, one Martin Place, Sydney New South Wales two thousand",
+   "note": "Pl without a period after a house number"
+  },
+  {
+   "text": "She rents in Fitzroy VIC 3065.",
+   "says": "She rents in Fitzroy Victoria three oh six five.",
+   "note": "postcode one digit at a time unless a round thousand"
+  },
+  {
+   "text": "Write to 10 Downing Street, London SW1A 2AA.",
+   "says": "Write to ten Downing Street, London S W one ay, two ay ay.",
+   "note": "already right (it passes once the harness ignores spaces); keep"
+  },
+  {
+   "text": "The club is in London SW19 5AE.",
+   "says": "The club is in London S W nineteen, five ay E.",
+   "note": "today AE is read as one vowel"
+  },
+  {
+   "text": "Write to Birmingham B33 8TH.",
+   "says": "Write to Birmingham B thirty-three, eight T H.",
+   "note": "already right (it passes once the harness ignores spaces); keep"
+  },
+  {
+   "text": "The college is in Oxford OX1 2JD.",
+   "says": "The college is in Oxford O X one, two J D.",
+   "note": "today OX is read 'ox'"
+  },
+  {
+   "text": "Flat 3, 14 High St, Oxford OX1 4AA",
+   "says": "Flat three, fourteen High Street, Oxford O X one, four ay ay"
+  },
+  {
+   "text": "Post it to Edinburgh EH1 1YZ.",
+   "says": "Post it to Edinburgh E H one, one Y Z.",
+   "says_gb": "Post it to Edinburgh E H one, one Y zed.",
+   "note": "the British voice says zed"
+  },
+  {
+   "text": "Then the dr. said to rest.",
+   "says": "Then the doctor said to rest.",
+   "note": "lower-case dr. is never Drive"
+  }
+ ],
+ "frozen_cases": [
+  {
+   "text": "Ask Dr. Patel about it.",
+   "note": "Dr. before a name is Doctor"
+  },
+  {
+   "text": "Head of Surgery Dr. Lee spoke first.",
+   "note": "a capitalised word before Dr. but a name after it"
+  },
+  {
+   "text": "Dr Smith will call you.",
+   "note": "British Dr without a period"
+  },
+  {
+   "text": "The Dr. Pepper ad aired.",
+   "note": "brand"
+  },
+  {
+   "text": "I loved Dr. Seuss as a kid."
+  },
+  {
+   "text": "Call the Dr. tomorrow.",
+   "note": "a lower-case word before Dr."
+  },
+  {
+   "text": "The ER Dr. said it was a sprain.",
+   "note": "NEW: an acronym before Dr. and a lower-case word after; rule D as first written read 'ER Drive'"
+  },
+  {
+   "text": "Our Family Dr. retired last year.",
+   "note": "NEW: a capitalised common noun before Dr. and no place word or house number, so Doctor"
+  },
+  {
+   "text": "Ask your Dr. about side effects.",
+   "note": "NEW: drug-label boilerplate"
+  },
+  {
+   "text": "Mount St. Helens erupted.",
+   "note": "Saint"
+  },
+  {
+   "text": "We flew to St. Louis on Friday.",
+   "note": "Saint"
+  },
+  {
+   "text": "Liverpool St Station is closed.",
+   "note": "NEW: St without a period, after a street name and before a landmark word, stays Street; rule F(1) as first written read Saint"
+  },
+  {
+   "text": "The Wall St Journal reported it.",
+   "note": "NEW: same, before Journal"
+  },
+  {
+   "text": "Apt to forget, he wrote it down.",
+   "note": "Apt before a word, not a number"
+  },
+  {
+   "text": "It was an apt name."
+  },
+  {
+   "text": "She sang Schubert's Ave Maria.",
+   "note": "Ave without a period before a name"
+  },
+  {
+   "text": "Get off at Avenue X.",
+   "note": "NEW: a lettered avenue stays a letter, not the Roman numeral ten"
+  },
+  {
+   "text": "Yes, OK, I will.",
+   "note": "OK after an interjection"
+  },
+  {
+   "text": "Hey Ada, OK?",
+   "note": "Ada, Oklahoma is real; the greeting blocks it"
+  },
+  {
+   "text": "Fine, Norman, OK, you win.",
+   "note": "Norman, Oklahoma is real"
+  },
+  {
+   "text": "Enid, OK, let's go.",
+   "note": "NEW: Enid, Oklahoma is real; a name being addressed, with no place word before it"
+  },
+  {
+   "text": "Say hi to Norman, OK?",
+   "note": "NEW: 'to' before a listed city, but OK before a question mark is the tag question"
+  },
+  {
+   "text": "In Paris, OK, we ate well.",
+   "note": "OK as an interjection after a city"
+  },
+  {
+   "text": "Hi, ME again.",
+   "note": "ME after an interjection"
+  },
+  {
+   "text": "Tea, OR coffee?",
+   "note": "OR after a common noun"
+  },
+  {
+   "text": "Was it Portland, OR Seattle?",
+   "note": "NEW: a listed pair, but a capitalised name follows OR, so it is the word 'or'"
+  },
+  {
+   "text": "IN THE BEGINNING, OR SO THEY SAY.",
+   "note": "shouted sentence"
+  },
+  {
+   "text": "WE LOVED PORTLAND, OR SO WE THOUGHT.",
+   "note": "shouted sentence: a real city but no ZIP"
+  },
+  {
+   "text": "Log IN, then OK the prompt."
+  },
+  {
+   "text": "OH, I get it now.",
+   "note": "NEW: OH as an interjection"
+  },
+  {
+   "text": "Say HI to Mom for me.",
+   "note": "HI with no city before it"
+  },
+  {
+   "text": "Welcome to LA, kid.",
+   "note": "LA with no city before it"
+  },
+  {
+   "text": "DE is the country code for Germany."
+  },
+  {
+   "text": "Offices: Munich, DE; Lyon, FR; Toronto, CA.",
+   "note": "NEW: country codes after cities; none is a listed US pair"
+  },
+  {
+   "text": "Jane Smith, MD, sees patients on Fridays.",
+   "note": "credential after a person's name"
+  },
+  {
+   "text": "Dr. Amy Jackson, MS, RD, leads the clinic.",
+   "note": "title before the name and a credential after"
+  },
+  {
+   "text": "Please welcome Amy Jackson, MS.",
+   "note": "NEW: no title and no second credential. Jackson, MS is a listed pair, so the list must match the whole run 'Amy Jackson', never just its last word"
+  },
+  {
+   "text": "Tom Ford, MA, teaches history.",
+   "note": "credential (Master of Arts)"
+  },
+  {
+   "text": "Our team is based in Chennai, TN.",
+   "note": "NEW: Tamil Nadu. TN is not an English word, so rule I path (c) as first written read 'Tennessee'"
+  },
+  {
+   "text": "We flew to Florianópolis, SC in March.",
+   "note": "NEW: Santa Catarina, Brazil; path (c) read 'South Carolina'"
+  },
+  {
+   "text": "Curitiba, PR has great buses.",
+   "note": "NEW: Paraná, Brazil, not Puerto Rico"
+  },
+  {
+   "text": "Bhopal, MP is in central India.",
+   "note": "NEW: Madhya Pradesh, not the Northern Mariana Islands"
+  },
+  {
+   "text": "Our plant is in Monterrey, NL.",
+   "note": "NEW: Nuevo León, Mexico, not Newfoundland"
+  },
+  {
+   "text": "Vancouver, BC is rainy.",
+   "note": "BC stays letters"
+  },
+  {
+   "text": "Washington, DC is humid.",
+   "note": "DC stays letters"
+  },
+  {
+   "text": "Parliament House is in Canberra, ACT.",
+   "note": "ACT stays letters (replaces the 2600 postcode case)"
+  },
+  {
+   "text": "NSW Health issued an alert.",
+   "note": "NEW: no place before NSW"
+  },
+  {
+   "text": "We need a PA system.",
+   "note": "tech-lexicon codes outside an address keep their reading"
+  },
+  {
+   "text": "The CA cert expired."
+  },
+  {
+   "text": "The OR was ready."
+  },
+  {
+   "text": "Morning, Miss.",
+   "note": "NEW: rule J as first written read 'Morning, Mississippi'"
+  },
+  {
+   "text": "Goodnight, Ma. Goodnight, Pa.",
+   "note": "NEW: Pa is a father, not Pennsylvania"
+  },
+  {
+   "text": "Love, Mo.",
+   "note": "NEW: a sign-off with a name, not Missouri"
+  },
+  {
+   "text": "Cheers, Vic.",
+   "note": "NEW: a name, not Victoria; rule N as first written fired after 'Place, ' before a full stop"
+  },
+  {
+   "text": "Over 350 Main Street businesses signed the letter.",
+   "note": "a quantity word before the number"
+  },
+  {
+   "text": "The 150 Federal Court judges met in Washington.",
+   "note": "NEW: a full type word (Court) with no address cue and a lower-case noun after it"
+  },
+  {
+   "text": "The 120 Times Square billboards went dark.",
+   "note": "NEW: same, with Square"
+  },
+  {
+   "text": "How 750 Oak Street Families Lost Power",
+   "note": "NEW: a headline in title case"
+  },
+  {
+   "text": "In 2005 Ocean Drive was repaved.",
+   "note": "NEW: a year after 'In'; rule B would read 'twenty oh five'"
+  },
+  {
+   "text": "We drove 350 miles to Portland."
+  },
+  {
+   "text": "I bought 1005 shares."
+  },
+  {
+   "text": "The stadium holds 70112 fans.",
+   "note": "five digits with no state or ZIP cue"
+  },
+  {
+   "text": "Can you zip 25000 files at once?",
+   "note": "NEW: the verb zip is not a ZIP-code cue"
+  },
+  {
+   "text": "Route 66 starts in Chicago.",
+   "note": "NEW: two-digit routes keep their cardinal"
+  },
+  {
+   "text": "He finished 3rd.",
+   "note": "'rd' as an ordinal ending"
+  },
+  {
+   "text": "Sit in Row N, Seat 4.",
+   "note": "a lone N outside a numbered address"
+  },
+  {
+   "text": "Exit 9 W to the bridge.",
+   "note": "NEW: a direction letter after a number with no street type"
+  },
+  {
+   "text": "Patient c/o chest pain since Monday.",
+   "note": "c/o before a lower-case word is not 'care of'"
+  },
+  {
+   "text": "The A1 road is busy.",
+   "note": "no inward half"
+  },
+  {
+   "text": "The H1N1 strain spread.",
+   "note": "not a Canadian postal code"
+  },
+  {
+   "text": "The MacBook Air M2 8GB is enough.",
+   "note": "NEW: 'M2 8GB' has the UK postcode shape; rule M as first written read 'M two, eight G B'"
+  },
+  {
+   "text": "Buy the PS5 1TB bundle.",
+   "note": "NEW: 'PS5 1TB' has the postcode shape too"
+  }
+ ],
+ "rules": [
+  {
+   "name": "A. Where the address rules run (ordering)",
+   "where": "Phonemizer.phonemize: a pass after TextNormalizer.linkLabels and before custom.mark (TextNormalizer.addresses(_:british:)), or the readStreets pattern inside normalize, extended so it can replace a whole mark",
+   "trigger": "Hosts rules B to O. It runs once on the raw text and rewrites only address pieces.",
+   "reads_as": "Plain words, or digit groups that later stages read as they are. 'Beverly Hills, CA 90210' becomes 'Beverly Hills, California nine oh two one oh', and later stages see only ordinary words.",
+   "risks": "Since the first draft, the fix3/reading merge added TextNormalizer.readStreets. It reads 'St.' with custom-lexicon marks in view, so '7 Elm St. now' passes and the draft's claim that it reads 'Elm sˈAntˌi' is out of date. That pattern sees marked words around a match but skips any match inside a mark. Many address pieces are themselves marked terms: CA, GA, IL, IA, AR, PR, MP, PE, SE, PO and MD (case-insensitive, so 'Md.' too), the USPS 'DR', and the words Room, Box and Square. Marked place and street names include Elm, Willow, Front, Fleet, Spring, Ventura, Redwood, Sycamore, Phoenix, Jasper, Oxford, Georgia, Island, Bellevue, Cupertino, Redmond, Menlo, Mesa and Ada. So either run before custom.mark (simpler), or let the in-normalize pass replace whole marks. The pass must call ShoutedSentences itself, because unshout runs after marking. Emit number words without hyphens, because the British voice reads 'ninety-nine' differently from 'ninety nine'. Run before the range, units and clock/ratio rules. App path: the speech-test harness phonemizes whole lines, but the app splits sentences first. Tokenizer.titleContinues only rejoins after Dr., Mr., Mrs., Ms., Mt., St. and the titles, so 'Rd.', 'Ave.', 'Ste.', 'Apt.', 'Fl.', 'Rm.', 'Ore.' or 'N.Y.' before a capital may be split off before any rule sees it ('Elm Rd.' + 'Suite 3'). Add them to runOnTitles, or test the app path separately."
+  },
+  {
+   "name": "B. Address number reading (helper)",
+   "where": "TextNormalizer helper built on NumberWords; used by rules C, D (Hwy), G and H",
+   "trigger": "A number in an address slot only: a house number (rule C); a Suite/Ste/Apt/Unit/Room/Rm/Floor/Fl/Bldg/Building number (rule G); a P.O. Box number; or a 3-digit route number (rule H).",
+   "reads_as": "1–2 digits: the cardinal (42 → forty-two). 3 digits abc: a00 → 'a hundred' (300 three hundred); a0c → 'a oh c' (903 nine oh three, 101 one oh one); otherwise a, then the cardinal of bc (123 one twenty-three, 214 two fourteen, 350 three fifty). 4 digits: a000 → 'a thousand' (2000, 9000); ab00 → 'ab hundred' (1600 sixteen hundred, 4400 forty-four hundred, 1500 fifteen hundred); ab0d → 'ab oh d' (1005 ten oh five, 2005 twenty oh five); otherwise ab then cd (2041 twenty forty-one, 1010 ten ten, 4545 forty-five forty-five). 5 or more digits: one digit at a time, with 0 read 'oh', except round thousands. A trailing capital is its letter name (221B, 4B, 4C). Emit the letter A so it reads ˈA, not the article.",
+   "risks": "These are the US patterns. 3-digit numbers are also read digit by digit ('nine two three'); the ESL Cafe street-number guide lists both, and reads 5+ digits one at a time with 'oh'. This set uses the grouped form. British readers often say 3-digit house and room numbers digit by digit, so 221B and Rm. 214 are US-only cases (open question). Apply this reading only in the slots above: a bare number keeps its cardinal ('We drove 350 miles', 'I bought 1005 shares' are frozen). misaki's year-style reading already matches every 4-digit pattern except ab0d (1005 is 'one thousand five' today), which is exactly why a year must never reach this helper ('In 2005 Ocean Drive was repaved' is frozen; see rule C)."
+  },
+  {
+   "name": "C. Numbered street address",
+   "where": "TextNormalizer.addresses",
+   "trigger": "A number (\\d{1,5}, an optional capital, optionally '-' and a second number). Then an optional direction (N|S|E|W|NE|NW|SE|SW|North|South|East|West, optional period); it must be followed by a name, not directly by the type. Then 1–4 name tokens. A token is one of: a capitalised word with a lower-case letter (or all capitals inside an all-capitals address); a single capital; an ordinal \\d{1,3}(st|nd|rd|th|ST|ND|RD|TH). Any token may follow St./Mt./Ft. Then a street type with an optional period: Street|St|Avenue|Ave|Av|Road|Rd|Drive|Dr|Boulevard|Blvd|Lane|Ln|Way|Court|Ct|Place|Pl|Parkway|Pkwy|Highway|Hwy|Terrace|Terr|Ter|Crescent|Cres|Square|Sq|Circle|Cir|Trail|Trl|Plaza|Plz|Close|Grove|Gardens|Gdns|Mews|Alley|Pike|Turnpike|Tpke|Expressway|Expy|Freeway|Fwy. Or the number comes straight before 'Broadway'. Then an optional trailing direction and a boundary: end, whitespace, [,;:)!?] or a period. USPS capitals match with the capital abbreviations ('123 MAIN ST APT 4B', '450 OAK DR', where DR is a marked term, '4545 S 1ST ST'). Gates: (1) an abbreviated type (St, Ave, Rd, Dr, Blvd, …) fires subject only to the guards under risks. (2) A type spelled out in full (Street, Court, Square, Place, Way, Terrace, …) fires only after an address cue: at, on, to, from, near, off, opposite, 'address', 'is at', 'Ship to', 'Shipping address:', 'Deliver to', 'Return to:', or the start of a line. It never fires when a lower-case noun follows the type, or in a title-case headline.",
+   "reads_as": "The number from rule B, plus 'to' and the second number for a range. Then the direction word, the name, the full street type and the trailing direction. '123 W 42nd St.' → one twenty-three West 42nd Street. '1300 E St NW' → thirteen hundred E Street Northwest: a single letter right before the type is the street's name. '300 E 23rd St' → three hundred East 23rd Street. '123-125 Main St.' → one twenty-three to one twenty-five Main Street. The type's period is dropped mid-sentence and kept as the full stop at the end of the text or before a sentence starter.",
+   "risks": "Skip when a quantity word or determiner comes before the number: over, under, about, around, nearly, almost, roughly, approximately, some, than, only, just, all, the, its, their, our, these, those. Skip a 4-digit number from 1000 to 2099 after a time word (in, since, by, until, before, after, during, of): 'In 2005 Ocean Drive was repaved' is frozen, while '…moved to 2005 Main St.' is an address (speech case). A number with a thousands separator or decimal point, or after $, # or No., is never a house number. New frozen near-misses: 'The 150 Federal Court judges', 'The 120 Times Square billboards', 'How 750 Oak Street Families Lost Power'. Only numbers of 3 or more digits change reading, so a misfire on 1–2 digits is harmless. A miss we accept: 'the 405 Freeway' has no name between the number and the type, so it stays 'four hundred five'."
+  },
+  {
+   "name": "D. Street-type abbreviation after a street name",
+   "where": "TextNormalizer.addresses",
+   "trigger": "Case-sensitive: (\\p{Lu}[\\p{L}'’-]*|\\d{1,3}(?:st|nd|rd|th))\\s+(Dr|Rd|Ln|Ct|Pl|Pkwy|Hwy|Cres|Terr|Ter|Sq|Cir|Trl|Ave)(\\.)?(?![\\p{L}\\d]). The word before is captured and re-emitted. It must contain a lower-case letter (so not an acronym: 'ER Dr.', 'VA Dr.'), and must not be a sentence starter or a title. What follows must not be a capitalised name. Allowed after: end of text or line; [,;:)\\]!?]; a lower-case word; a unit word (Suite, Ste, Apt, Unit, Fl, Floor, Rm, Room, Bldg, Building, #); a direction; a street-type or landmark word (Park, Square, Station); or a sentence starter after the period. A digit after the type is allowed only for Hwy, which then needs no name ('Take Hwy 401'). Dr only, extra condition: it also needs (a) a house number (rule C), (b) a place preposition right before the name with no article between (on, onto, off, along, down, up, at, to, from, near, past, via, across, into, toward, opposite, behind), or (c) a unit word, direction, ', City' or ZIP after it. Bare 'Ave' without a period gets the same test, which keeps 'Schubert's Ave Maria'.",
+   "reads_as": "Dr → Drive, Rd → Road, Ln → Lane, Ct → Court, Pl → Place, Pkwy → Parkway, Hwy → Highway, Cres → Crescent, Terr/Ter → Terrace, Sq → Square, Cir → Circle, Trl → Trail, Ave → Avenue. The period is handled as in rule C. 'Take Hwy 401 east' → Take Highway four oh one east.",
+   "risks": "Dr. before a capitalised name stays Doctor: 'Ask Dr. Patel', 'Head of Surgery Dr. Lee', 'Dr. Pepper' and 'Dr. Seuss' are frozen. The place-word condition on Dr is new. Without it, 'The ER Dr. said it was a sprain' read 'ER Drive' and 'Our Family Dr. retired' read 'Family Drive' (both now frozen). The cost is a miss: 'Mulholland Dr. is a David Lynch film' stays Doctor, so that case became 'We drove along Mulholland Dr. at dusk'. The digit condition keeps 'NFL Draft Rd. 1' (round) and 'Bar Ln 12' out. They aren't frozen because 'Rd.' reads 'ard' today. Pre-existing and outside this rule: the lexicon already reads 'Ct.' as 'court' everywhere, so 'Paper Towels, 12 Ct.' reads 'twelve court'. 'Heated Sq. ft.' would become 'Square ft.'; the units area should own 'Sq. ft.'. Today's readings: Rd. 'ard', Hwy 'hwI', Pkwy 'pikwI', Sq. 'S Q', Cres. 'krz', Terr. 'ter', Pl. 'P L', Dr. 'Doctor'."
+  },
+  {
+   "name": "E. Direction after a street type",
+   "where": "TextNormalizer.addresses",
+   "trigger": "A street type matched by rule C or D, or a full street-type word right after a capitalised name, followed by \\s+(NE|NW|SE|SW)\\.? and a boundary. A single N, S, E or W is allowed only inside a rule C match ('88 King St. W', '45 King St W').",
+   "reads_as": "Northeast, Northwest, Southeast, Southwest; North, South, East, West. '1600 Pennsylvania Ave. NW.' → … Avenue Northwest., with the final period kept as the full stop.",
+   "risks": "SE is a tech-lexicon term, so this belongs in the pre-pass. A lone letter outside an address stays as written: 'Sit in Row N, Seat 4' and 'Exit 9 W to the bridge' (new) are frozen, and 'Row' and 'Exit' are not street types. Position decides between a state and a direction: 'Omaha, NE' after 'City, ' is Nebraska (rule I), and NE after a street type is Northeast."
+  },
+  {
+   "name": "F. St / Ste: Saint, Street or Suite",
+   "where": "TextNormalizer.readStreets (St. with a period) and TextNormalizer.addresses",
+   "trigger": "(1) 'St.' with a period, in readStreets: keep today's logic, and add one thing. After a capitalised word that isn't in Tokenizer.placePrefixes, St. before a landmark or time word is Street. The words: Station, Stn, Journal, Bridge, Market, Mall, Pier, Tunnel, Garage, Line, Subway, Bus, Exit, Gate, Festival, Fair, Parade, the days and the months. (2) 'St' with no period, before a capitalised word that isn't a sentence starter, is Saint when: the word before isn't capitalised; or it is a place prefix; or St starts the text ('We visited St Paul's', 'Mount St Helens'). After another capitalised word it is also Saint ('Yves St Laurent'), unless a landmark or time word follows ('Liverpool St Station' and 'The Wall St Journal' stay Street). It is never Saint when Tokenizer.isStreet holds. (3) 'Ste.' or 'Ste' before a capitalised name is Saint ('Sault Ste. Marie', 'Ste. Genevieve'). (4) 'Ste.' or 'Ste' before a number is Suite (rule G).",
+   "reads_as": "Saint, Street or Suite.",
+   "risks": "Today 'The Wall St. Journal', 'Liverpool St. Station is closed' and 'Bourbon St. Saturday night' all read Saint. Only 'at Liverpool St. Station' reads right, thanks to readStreets' street prepositions. 'Mount St. Helens', 'St. Louis' and 'Kings Cross St. Pancras' stay Saint: only the word right after St. counts, not one further on. Keep the landmark list short, and leave off saints whose names are also common nouns ('St. Cloud', 'St. Mark's', 'St. Bees'). 'St' without a period reads Street everywhere today, and 'Ste.' reads 'stee'."
+  },
+  {
+   "name": "G. Unit designators, boxes and 'care of'",
+   "where": "TextNormalizer.addresses",
+   "trigger": "(Ste|Suite|Apt|Apartment|Unit|Fl|Floor|Rm|Room|Bldg|Building)\\.?\\s*#?\\s*(\\d{1,4}[A-Z]?|[A-Z]\\d{0,3})(?![\\p{L}\\d]), capitalised (or all capitals in a USPS address) and case-sensitive. Never right after 'City, '. Also: an ordinal followed by \\s+Fl\\.?; 'Bldg' or 'Bldg.' as a whole word; (P\\.?\\s?O\\.?|Post Office)\\s+Box\\s+(\\d+); and (?<![\\p{L}\\d/])[cC]/[oO](?![\\p{L}\\d/]) followed by \\s+\\p{Lu}.",
+   "reads_as": "Suite, Apartment, Unit, Floor, Room or Building, followed by the number from rule B. 'Rm. 214' → Room two fourteen; 'Room 101' → Room one oh one; 'Ste 1010' → Suite ten ten; 'Unit 302' → Unit three oh two; 'Apt 4C' → Apartment four C; '3rd Fl.' → third Floor; 'c/o Jane Smith' → care of Jane Smith.",
+   "risks": "At most 4 digits, and not after 'City, ': in 'Miami, Fl 33101' the Fl is Florida (rule I), not Floor. 'Room' and 'Box' are tech-lexicon terms, so the pass must see through their marks. A number must follow, so 'Apt to forget' and 'an apt name' stay as they are (frozen). Never touched: lower-case 'apt', 'fl.' and 'rm' (the Unix command), and 'RM 500' (ringgit). 'c/o' before a lower-case word stays letters ('Patient c/o chest pain' is frozen); 'c/o the front desk' is therefore a miss we accept."
+  },
+  {
+   "name": "H. Route numbers",
+   "where": "TextNormalizer.addresses",
+   "trigger": "(US|U\\.S\\.|Hwy\\.?|Highway|Route|Rte\\.?|SR|State Route|Interstate)\\s+(\\d{3})(?![\\d.,%]). After the number must come: the end; punctuation; a direction word or letter; 'exit', 'freeway', 'highway' or 'bridge'; or a lower-case word that isn't a number word or unit (million, billion, thousand, percent, miles, km).",
+   "reads_as": "The 3-digit number from rule B: 'US 101 north' → U S one oh one north; 'Hwy 401' → Highway four oh one. Rte. reads Route (today it is spelled out letter by letter).",
+   "risks": "'Route 66' keeps its cardinal (frozen). 'US 123 million' is ruled out by the follower check. 'I-405' already reads in pairs. 'The 405' with no keyword stays 'four hundred five', a miss we accept."
+  },
+  {
+   "name": "I. US state codes after 'City, '",
+   "where": "TextNormalizer.addresses (before custom.mark)",
+   "trigger": "A place, then ',[ \\t]+', then an uppercase code, then a boundary. The place is the whole run of 1–4 capitalised words before the comma, after any leading sentence starters. St./Ft./Mt./Pt. prefixes, hyphens, apostrophes and de/del/la/du are allowed. Codes: the 50 states plus DC, PR, GU, VI, AS and MP. The code fires when either (a) a 5-digit ZIP follows with no digit right after it (the comma is then optional: 'AUSTIN TX 78701'), or (b) the pair (whole place run, code) is in a bundled US place list. The draft's path (c) is dropped: it accepted any place before a code that isn't an English word. Word-like codes (AL AR CA CO DE GA HI ID IL IN IA LA MA MD ME MI MO MS MT NE OH OK OR PA UT VA WA WI) need more under (b). They also need a place word before the run (in, to, from, near, at, of, outside, around, via, through, than, and, toward, into, across, an opening parenthesis, or 'based in'), or a verb right after the code (is, was, has, had, will, …), or a '-based' suffix, or a closing ')'. Territories fire only under (a), or under (b) with a place word. A title-case code ('Fl', 'Tx') counts only before a ZIP.",
+   "reads_as": "The full state name, keeping any suffix ('Oregon-based'). A final period stays as the full stop. DC stays 'D C'. PR → Puerto Rico, GU → Guam, VI → U S Virgin Islands, AS → American Samoa, MP → Northern Mariana Islands.",
+   "risks": "Path (c) was unsafe because other countries use the same two letters. Frozen examples: 'Chennai, TN' (Tamil Nadu), 'Florianópolis, SC' (Santa Catarina), 'Curitiba, PR' (Paraná), 'Bhopal, MP' (Madhya Pradesh). MN is also Manipur. Matching the whole run keeps 'Please welcome Amy Jackson, MS.' as letters (frozen), even though 'Jackson, MS' is a listed pair. OK is never Oklahoma before '?' or '!', or when 'OK,' is followed by a pronoun or 'let's'. 'Say hi to Norman, OK?', 'Enid, OK, let's go' and 'Fine, Norman, OK, you win' are frozen, while 'Have you been to Portland, OR?' still reads Oregon. A capitalised word right after the code blocks it ('Was it Portland, OR Seattle?' is frozen). The draft's guards still apply: interjections, personal titles, a credential after the code, and a ZIP required in a shouted sentence. Coverage now depends on the list. Use the full Census Gazetteer places file (about 32,000 incorporated places and CDPs, a few hundred KB) rather than 5,000 pairs. An unlisted town with no ZIP stays as letters ('Marfa, TX' → 'T X'), a miss we accept."
+  },
+  {
+   "name": "J. AP-style state abbreviations after 'City, '",
+   "where": "TextNormalizer.addresses",
+   "trigger": "A place, then ',\\s+', then an AP abbreviation (Ala.|Ariz.|Ark.|Calif.|Colo.|Conn.|Del.|Fla.|Ga.|Ill.|Ind.|Kan.|Kans.|Ky.|La.|Md.|Mass.|Mich.|Minn.|Miss.|Mo.|Mont.|Neb.|Nebr.|Nev.|N.H.|N.J.|N.M.|N.Y.|N.C.|N.D.|Okla.|Ore.|Pa.|R.I.|S.C.|S.D.|Tenn.|Vt.|Va.|Wash.|W.Va.|Wis.|Wyo.). After it: a comma, the end, a ZIP, '(AP)', or a space and a lower-case word. The rule I place guards apply. Abbreviations that are also words or names (Miss., Pa., Mo., Ill., Ind., Mass., Wash., Del., La., Ga., Va., Conn., Mich., Ala., Md.) also need a listed (place, state) pair or a ZIP. Greetings and sign-offs never count as a place: Morning, Evening, Night, Goodnight, Love, Cheers, Regards, Best, Thanks, Yours.",
+   "reads_as": "The full state name: 'Salem, Ore., said' → Salem, Oregon, said; 'Albany, N.Y., is' → Albany, New York, is; 'Fresno, Calif.' at the end → California, with the full stop kept.",
+   "risks": "As first written, 'Morning, Miss.' read 'Mississippi', 'Goodnight, Pa.' read 'Pennsylvania' and 'Love, Mo.' read 'Missouri'. All three are frozen. Md. is a tech-lexicon term (read M D)."
+  },
+  {
+   "name": "K. ZIP codes",
+   "where": "TextNormalizer.addresses",
+   "trigger": "(?<!\\d)(\\d{5})(?:-(\\d{4}))?(?!\\d), right after a state matched by rule I or J, or after ', <full state name> '. Also after 'ZIP', 'ZIP code', 'Zip code' or 'zip code', optionally followed by ':', 'is' or ','. A bare 'zip' or 'Zip' is not a trigger.",
+   "reads_as": "One digit at a time as words, with 0 read 'oh': '90210' → nine oh two one oh, '02110' → oh two one one oh. Emit words, not spaced digits, because '9 0 2 1 0' reads 'zero'. ZIP+4 is an open question.",
+   "risks": "'Can you zip 25000 files at once?' is frozen. A 6-digit Indian PIN after a code ('Chennai, TN 600001') must not match on its first five digits. A bare 5-digit number stays a cardinal ('The stadium holds 70112 fans' is frozen). Today 90210 reads 'ninety thousand two hundred ten'."
+  },
+  {
+   "name": "L. Canadian provinces and postal codes",
+   "where": "TextNormalizer.addresses",
+   "trigger": "Provinces: a place, ',\\s+', then (ON|QC|AB|MB|SK|NS|NB|PE|NL|YT|NU|NT|BC). It fires only when a postal code follows or the place is in a list of about 300 Canadian municipalities, and only before the same followers as rule I. A capitalised word right after the code blocks it. Postal codes, uppercase: (?<![\\p{L}\\d])([ABCEGHJ-NPRSTVXY])(\\d)([ABCEGHJ-NPRSTV-Z])\\s?(\\d)([ABCEGHJ-NPRSTV-Z])(\\d)(?![\\p{L}\\d]), only after a province code or name, 'Canada' or 'postal code'.",
+   "reads_as": "ON → Ontario, QC → Quebec, AB → Alberta, MB → Manitoba, SK → Saskatchewan, NS → Nova Scotia, NB → New Brunswick, PE → Prince Edward Island, NL → open question, YT → Yukon, NU → Nunavut, NT → Northwest Territories. BC stays 'B C'. A postal code is read one character at a time with a pause between the halves: 'T2P 1J9' → T two P, one J nine. Emit A so it reads as the letter.",
+   "risks": "'Monterrey, NL' (Nuevo León) is frozen: Monterrey isn't a listed Canadian municipality. Today 'T2P' reads 'T to P' and 'AB' reads as a word. MB and NS are unit entries that apply only after a number, so there's no clash. 'H1N1' doesn't have the six-character shape."
+  },
+  {
+   "name": "M. UK postcodes",
+   "where": "TextNormalizer.addresses",
+   "trigger": "(?<![\\p{L}\\d])([A-PR-UWYZ][A-HK-Y]?\\d[A-Z\\d]?)[ ](\\d[ABD-HJLNP-UW-Z]{2})(?![\\p{L}\\d]), uppercase, both halves with the space between; also 'GIR 0AA'. The inward letters must not be a storage unit (GB, TB, PB, EB). A place cue must come before the outward half: a capitalised place word, 'postcode' or 'Postcode:', a comma, or the start of a line.",
+   "reads_as": "Outward code: the letters as letter names and the digits as a number (SW19 → S W nineteen, B33 → B thirty-three, OX1 → O X one, EH1 → E H one). Then a pause. Inward code: the digit, then two letter names (5AE → five A E, 1AA → one A A). Z is 'zed' in the British voice.",
+   "risks": "'The MacBook Air M2 8GB is enough' and 'Buy the PS5 1TB bundle' have the full postcode shape; both are frozen ('Galaxy S23 8GB' is the same). The inward letters exclude M, so '1PM' and '2AM' never match. Today: OX1 reads 'ox one', EH1 'eh one', 5AE 'five I', 1AE 'one I'. SW1A 1AA, SW1A 2AA and B33 8TH already read right."
+  },
+  {
+   "name": "N. Australian states and postcodes; WA",
+   "where": "TextNormalizer.addresses",
+   "trigger": "A place, ',?\\s+', then (NSW|VIC|QLD|TAS|ACT|NT|SA|WA), optionally followed by \\s+(\\d{4}), then a boundary. With no postcode, it needs 'Place, ' at the end of a sentence or before punctuation, and the place can't be a greeting or sign-off word. Mixed-case 'Vic', 'Tas' and 'Qld' (with or without a period) fire only before a 4-digit postcode. For WA after a city: Western Australia (kept as letters) if a 4-digit postcode follows or the city is Australian; Washington if a 5-digit ZIP follows or the place is in the US list; otherwise it stays letters.",
+   "reads_as": "NSW → New South Wales, VIC → Victoria, QLD → Queensland, TAS → Tasmania. ACT, NT, SA and WA stay letters. A round-thousand postcode is read as a number (2000 → two thousand); any other postcode one digit at a time with 'oh' (3065 → three oh six five).",
+   "risks": "'Cheers, Vic.' is frozen: as first written it read 'Victoria'. 'NSW Health' has no place before it (frozen). The ACT 2600 case was removed (open question), and 'Parliament House is in Canberra, ACT.' is frozen instead. NT clashes with Canada's Northwest Territories; what follows decides (4 digits means Australia)."
+  },
+  {
+   "name": "O. A single letter as a street name",
+   "where": "TextNormalizer.addresses",
+   "trigger": "(Avenue|Ave\\.?)\\s+([A-Z])(?![\\p{L}\\d]), and ([A-Z])\\s+(Street|St\\.?)(?![\\p{L}]) inside a rule C match or after a capitalised word or number.",
+   "reads_as": "The letter's name: 'Ave. A' → Avenue A (ˈA); '1300 E St' → E Street.",
+   "risks": "Today 'Ave. A' reads 'Avenue uh'. 'Avenue X', 'Avenue L' and 'Avenue V' (Brooklyn) read as letters today and must not become Roman numerals ('Get off at Avenue X.' is frozen); after Avenue, the letter outranks readRomanNumerals. 'Plan A' has no street word, so it is untouched."
+  }
+ ],
+ "open_questions": [
+  "Five-digit house numbers ('10548 Ventura Blvd.'): read one digit at a time ('one oh five four eight') or in groups ('ten five forty-eight')? Recommend one digit at a time, with round thousands kept whole. The ESL Cafe street-number guide reads 5+ digits this way.",
+  "ZIP+4 ('Chicago, IL 60601-1234'): 'six oh six oh one, one two three four' (pause) or 'six oh six oh one dash one two three four'? Both are common, so the case was removed until this is decided. Recommend the pause for reading aloud.",
+  "Zero in ZIP codes, postcodes and house or room numbers: 'oh' or 'zero'? Recommend 'oh', the habit in both US and UK speech.",
+  "Rule I's draft path (c) is dropped because it read 'Chennai, TN' as Tennessee and 'Florianópolis, SC' as South Carolina. Should the place list grow to the full Census Gazetteer (about 32,000 places and CDPs, a few hundred KB) to win back coverage? Otherwise unlisted towns with no ZIP stay as letters ('Marfa, TX'). Recommend the full list.",
+  "Dr. with no house number and no place word ('Mulholland Dr. is a David Lynch film'): accept 'Doctor' (a miss), or read Drive after any capitalised word that isn't an acronym (which also turns 'Our Family Dr. retired' into Drive)? Recommend accepting the miss.",
+  "British voice and 3-digit numbers: should 221B and room 214 be read digit by digit ('two two one B', 'room two one four') when the voice is British? Both cases are US-only until this is decided. 'Room 101' is 'one oh one' in both.",
+  "Canada's 'NL': 'Newfoundland' or 'Newfoundland and Labrador'? The St. John's case was removed until this is decided. Recommend 'Newfoundland'.",
+  "Australian postcodes: digit by digit except round thousands ('three oh six five', 'two thousand')? And is Canberra's 2600 'two six oh oh' or 'twenty-six hundred'? I found no source on Australian speech; a check with an Australian listener would help.",
+  "'PE' (Prince Edward Island): read 'Prince Edward Island' or 'P E I'? Recommend 'Prince Edward Island'."
+ ],
+ "review_notes": [
+  "The worktree moved during the review. The fix3/reading merge (b06b926) rebuilt the binary at 14:59 and added TextNormalizer.readStreets. Everything below was re-run on that binary. Today 7 of 104 US cases and 7 of 101 British cases pass. Five more (P.O. Box, the BC postcode, SW1A 2AA, B33 8TH and one other already-right case) pass only once spaces are ignored. Every frozen case reads correctly today in both voices.",
+  "Rule-text checks on every 'says' (scripted): no digits, symbols, abbreviations, all-capital tokens or Roman numerals. Letters are written as spaced capitals ('D C', 'P O', 'U S', 'S W'), and the letter A is written 'ay' because a lone 'A' reads as the article. Every 'says' sentence went through --phonemize in both voices with no unknown words. One misreading is shared by text and says: 'Sault' reads 'salt', a names issue noted on that case.",
+  "Expectations fixed or removed. The Chicago ZIP+4 case became a plain ZIP: '-1234' is read two ways. The St. John's 'NL' case was removed (name question). The Canberra 'ACT 2600' case became a frozen 'Canberra, ACT.' because the postcode reading is unsettled. 221B and Rm. 214 are now US-only, since British speakers often say 'two two one B' and 'two one four'. The added comma in 'Austin, Texas' was removed so the says matches the text. The '7 Elm St.' note was corrected: it reads right since readStreets.",
+  "'Mulholland Dr. is a David Lynch film' became 'We drove along Mulholland Dr. at dusk'. Rule D now needs a place word or a house number before Dr, because without one 'The ER Dr. said…' and 'Our Family Dr. retired…' read Drive.",
+  "Frozen cases removed. 'Thanks, MA!' reads 'M A' today, which is wrong for 'Ma'; freezing it would lock in a misreading. 'Come on, AL!' reads 'Al' in US and 'A L' in British, so it would block a letters fix. Also trimmed as low-value duplicates: Thanks Dr. Lee, Dr. No, Fine OK, He said OK, Press OK, Not you ME, Choose IN or OUT, GA now, MD will see you, from the US, Main Street was busy, A4 sheet, Chapter 123, Suite 200, Apartment 4B, Number 4 Privet Drive.",
+  "30 new frozen near-misses, each one something a draft rule would have rewritten. Dr: 'ER Dr.', 'Family Dr.', 'your Dr.'. St: 'Liverpool St Station', 'Wall St Journal'. Letters: 'Avenue X' (Roman numeral). OK and OR: Enid, Norman, 'Portland, OR Seattle'. Country codes. 'Amy Jackson, MS'. Foreign regions that share US codes: Chennai TN, Florianópolis SC, Curitiba PR, Bhopal MP, Monterrey NL. 'NSW Health'. AP-style words and names: Miss., Pa., Mo., Vic. Non-addresses: 'Federal Court judges', 'Times Square billboards', a title-case headline, '2005' as a year, 'zip 25000 files', 'Route 66', 'Exit 9 W', 'OH, I get it'. UK postcode look-alikes: 'M2 8GB' and 'PS5 1TB'.",
+  "Rules tightened in response: A, C, D, F, G, H, I, J, K, L, M, N and O; details are in each rule. The biggest changes: rule I drops path (c) and matches the whole place run; rule C needs an address cue before a spelled-out street type and skips years; rule D needs a place word before Dr; rule M won't take storage units; rule K drops bare 'zip' as a cue.",
+  "New positive cases from real text. Shipping and receipts: USPS-capitals 'OAK DR' (DR is a marked term), an all-capitals receipt with '1ST ST', Evergreen Terrace, Ste 1010, Unit 302. Company addresses: Apple Park and Microsoft, whose cities Cupertino and Redmond are marked terms; Wacker Dr Suite 1500; Wilshire 4400. Chat: 'Meet at 1250 Oak Ave?'. 'Born in 2005… 2005 Main St.' (a year and a house number in one sentence). E as a street name vs East. Hwy 401. Miami 'Fl 33101' (must not be Floor). Kansas City, St. Paul, Bloomington, Fresno 'Calif.', 'Portland, OR?'. St. bugs that exist today: 'Wall St. Journal', 'Liverpool St. Station' and 'Bourbon St. Saturday' read Saint; 'Mount St Helens' and 'Yves St Laurent' read Street. Also SW1A 2AA, a UK flat address, Martin Pl in Sydney.",
+  "The set is larger than the target (104 speech cases, 72 frozen) after trimming duplicates. It keeps US, Canadian, Australian and UK coverage and one near-miss per new rule condition. The parent can drop the 'already right' cases if size matters.",
+  "Carried over from the author and still needed: the harness keeps word boundaries, so 'P O Box' (pˈi ˈO) never matches today's 'P.O.' (pˌiˈO). Also, the British voice reads 'forty-two' differently from 'forty two'. Before phonemizing 'says', replace a hyphen between letters with a space, and compare with all whitespace removed. The scripted checks here did exactly that.",
+  "Frozen British cardinals ('The 150 Federal Court judges' reads 'one hundred fifty', with no 'and') lock in today's British numbers. If a numbers change adds the British 'and', re-freeze them; that is not an address regression.",
+  "Research: house-number reading patterns (grouped vs digit by digit; 5+ digits with 'oh') come from the ESL Cafe guide, https://eslcafe.com/resources/grammar-lessons/saying-numbers/saying-street-numbers. I found no source on how Australians speak postcodes or how British speakers say 3-digit house numbers; both are open questions.",
+  "Scratch files: /private/tmp/claude-501/-Users-claremccormack-Sites-readaloud--claude-worktrees-app-monetization-payments-2fe731/d937b965-6e6d-417c-ba43-5dde5061f672/scratchpad/addr-review/ (cases.py builds final.json; verify.py checks the 'says' rules, unknown words and today's passes; ph.py is the phonemize wrapper). No repo file was edited.",
+  "Linear: no update needed from this subagent; the parent owns FIN-889 sync."
+ ]
+}

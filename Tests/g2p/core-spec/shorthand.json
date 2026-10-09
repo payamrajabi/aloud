@@ -1,0 +1,892 @@
+{
+ "area": "Everyday shorthand and symbols: w/, w/o, w/out, w/in, b/c, c/o, Attn, est., avg., min./max., approx, excl., misc., ca./c., N/A, and/or, 24/7, ~, #, No./Nos./№/N°, §, ¶, ©, (c), ™, ®, ‰, ±, ≈, ×, &, @, +, °, †, ‡, …",
+ "speech_cases": [
+  {
+   "text": "Chicken salad w/ avocado, $12.",
+   "says": "Chicken salad with avocado, twelve dollars.",
+   "note": "w/ spaced, before a comma"
+  },
+  {
+   "text": "Iced tea w/lemon, please.",
+   "says": "Iced tea with lemon, please.",
+   "note": "w/ glued to its word"
+  },
+  {
+   "text": "BURGER W/ CHEESE",
+   "says": "BURGER WITH CHEESE",
+   "note": "all-caps menu line: the rule writes WITH so the line stays shouted and unshout reads it as words"
+  },
+  {
+   "text": "Deploy w/Kubernetes today.",
+   "says": "Deploy with Kubernetes today.",
+   "note": "must expand before the custom lexicon marks terms: the lexicon never matches right after a slash, so today Kubernetes is garbled"
+  },
+  {
+   "text": "Pancakes w/ 2 eggs.",
+   "says": "Pancakes with two eggs.",
+   "note": "w/ before a number"
+  },
+  {
+   "text": "Fries (w/ ketchup) cost extra.",
+   "says": "Fries (with ketchup) cost extra.",
+   "note": "w/ after an opening bracket"
+  },
+  {
+   "text": "Lunch w/ Sam @ noon.",
+   "says": "Lunch with Sam at noon.",
+   "note": "chat message; @ already reads at"
+  },
+  {
+   "text": "W/ love, Mia",
+   "says": "With love, Mia",
+   "note": "sign-off: capital W/ at the start of a line"
+  },
+  {
+   "text": "Tea w/o sugar, please.",
+   "says": "Tea without sugar, please.",
+   "note": "new rule"
+  },
+  {
+   "text": "Coffee W/O milk.",
+   "says": "Coffee without milk.",
+   "note": "upper-case W/O before a word"
+  },
+  {
+   "text": "Don't leave w/out me.",
+   "says": "Don't leave without me.",
+   "note": "w/out"
+  },
+  {
+   "text": "Reply w/in 5 days.",
+   "says": "Reply within five days.",
+   "note": "w/in"
+  },
+  {
+   "text": "I left early b/c it rained.",
+   "says": "I left early because it rained.",
+   "note": "new rule"
+  },
+  {
+   "text": "Running late b/c of traffic.",
+   "says": "Running late because of traffic.",
+   "note": "b/c of: because of"
+  },
+  {
+   "text": "B/c I said so.",
+   "says": "Because I said so.",
+   "note": "sentence-initial B/c; all-caps B/C is left alone"
+  },
+  {
+   "text": "Send it c/o Jane Smith.",
+   "says": "Send it care of Jane Smith.",
+   "note": "c/o before a capitalised name"
+  },
+  {
+   "text": "Jane Doe, c/o Acme Books",
+   "says": "Jane Doe, care of Acme Books",
+   "note": "address line"
+  },
+  {
+   "text": "Mail to Ana Ruiz, C/O Hotel Rex.",
+   "says": "Mail to Ana Ruiz, care of Hotel Rex.",
+   "note": "upper-case C/O after a comma"
+  },
+  {
+   "text": "Attn: Accounts Payable",
+   "says": "Attention: Accounts Payable",
+   "note": "colon kept as the pause"
+  },
+  {
+   "text": "ATTN: Front Desk",
+   "says": "Attention: Front Desk",
+   "note": "upper-case ATTN, today spelled A T T N"
+  },
+  {
+   "text": "Attn: Mr. Lee",
+   "says": "Attention: Mister Lee",
+   "note": "Attn before a title; Mr. already reads Mister"
+  },
+  {
+   "text": "Attn. Maria Lopez",
+   "says": "Attention Maria Lopez",
+   "note": "abbreviation point dropped; in the app, Apple's sentence splitter breaks after Attn. today (see review notes)"
+  },
+  {
+   "text": "Est. 1892",
+   "says": "Established eighteen ninety two",
+   "note": "est. before a bare year: established"
+  },
+  {
+   "text": "Smith & Sons, est. 1892, makes boots.",
+   "says": "Smith and Sons, established eighteen ninety two, makes boots.",
+   "note": "year before a comma"
+  },
+  {
+   "text": "EST. 1950",
+   "says": "Established nineteen fifty",
+   "note": "sign style at the start of a line; all-caps EST. takes only the year form"
+  },
+  {
+   "text": "Est. 1987 in Leeds.",
+   "says": "Established nineteen eighty seven in Leeds.",
+   "note": "year then a preposition is still established"
+  },
+  {
+   "text": "Est. delivery: Tuesday",
+   "says": "Estimated delivery: Tuesday",
+   "note": "est. before a listed noun (delivery): estimated"
+  },
+  {
+   "text": "The est. cost is $40.",
+   "says": "The estimated cost is forty dollars.",
+   "note": "lower-case est. before a listed noun (cost)"
+  },
+  {
+   "text": "Repairs: est. £2,000.",
+   "says": "Repairs: estimated two thousand pounds.",
+   "note": "est. before an amount: estimated"
+  },
+  {
+   "text": "Shipping: est. 3-5 days",
+   "says": "Shipping: estimated three to five days",
+   "note": "est. before a range"
+  },
+  {
+   "text": "Est. 1500 attendees are expected.",
+   "says": "Estimated fifteen hundred attendees are expected.",
+   "note": "a year-shaped number followed by a noun is an estimate, not a founding date"
+  },
+  {
+   "text": "The avg. score was 72.",
+   "says": "The average score was seventy two.",
+   "note": "new rule"
+  },
+  {
+   "text": "The class avg is 72.",
+   "says": "The class average is seventy two.",
+   "note": "bare avg (no period)"
+  },
+  {
+   "text": "Avg. rating: 4.5 stars",
+   "says": "Average rating: four point five stars",
+   "note": "review widget"
+  },
+  {
+   "text": "Min. 8 characters.",
+   "says": "Minimum eight characters.",
+   "note": "Min. at the start, before a number"
+  },
+  {
+   "text": "Max. 3 per customer.",
+   "says": "Maximum three per customer.",
+   "note": "must run before the lexicon marks Max (a name entry)"
+  },
+  {
+   "text": "Limit: max. 2 bags.",
+   "says": "Limit: maximum two bags.",
+   "note": "lower-case max. after a colon"
+  },
+  {
+   "text": "Enter the min. and max. values.",
+   "says": "Enter the minimum and maximum values.",
+   "note": "lower-case pair before lower-case words"
+  },
+  {
+   "text": "Bake 20 min. at 200°C.",
+   "says": "Bake twenty minutes at two hundred degrees Celsius.",
+   "note": "after a number, min. stays minutes (units rule); works today; guards against regression (its period still becomes a mid-sentence full stop, which the loose test can't see)"
+  },
+  {
+   "text": "Ready in 5 min. or less.",
+   "says": "Ready in five minutes or less.",
+   "note": "min. after a number before a lower-case word must stay minutes; works today; guards against regression"
+  },
+  {
+   "text": "It takes approx. 5 hours.",
+   "says": "It takes approximately five hours.",
+   "note": "works today; guards against regression"
+  },
+  {
+   "text": "Approx 20 people came.",
+   "says": "Approximately twenty people came.",
+   "note": "bare Approx before a number"
+  },
+  {
+   "text": "Prices are excl. delivery.",
+   "says": "Prices are excluding delivery.",
+   "note": "mirror of incl.; today garbled"
+  },
+  {
+   "text": "Misc. expenses: $40",
+   "says": "Miscellaneous expenses: forty dollars",
+   "note": "new rule"
+  },
+  {
+   "text": "The barn was built ca. 1850.",
+   "says": "The barn was built circa eighteen fifty.",
+   "note": "circa before a year; coordinate with the dates area; in the app, the sentence splitter breaks after ca. today"
+  },
+  {
+   "text": "A portrait (c. 1650) hangs here.",
+   "says": "A portrait (circa sixteen fifty) hangs here.",
+   "note": "lower-case c. only, before a year"
+  },
+  {
+   "text": "Pay by cash and/or card.",
+   "says": "Pay by cash and or card.",
+   "note": "works today; guards against regression"
+  },
+  {
+   "text": "We're open 24/7.",
+   "says": "We're open twenty four seven.",
+   "note": "works today; guards against regression; number words unhyphenated on purpose (see review notes)"
+  },
+  {
+   "text": "We need ~5 volunteers.",
+   "says": "We need about five volunteers.",
+   "note": "needs TextPrep to stop stripping ~ before a number"
+  },
+  {
+   "text": "It costs ~$5.",
+   "says": "It costs about five dollars.",
+   "note": "today the tilde is an unknown symbol"
+  },
+  {
+   "text": "It's ~ 10 km away.",
+   "says": "It's about ten kilometers away.",
+   "note": "spaced tilde"
+  },
+  {
+   "text": "~50% off today!",
+   "says": "About fifty percent off today!",
+   "note": "tilde at the start of a line"
+  },
+  {
+   "text": "It drew ~1,000 people.",
+   "says": "It drew about one thousand people.",
+   "note": "today the tilde breaks the thousands comma: read one zero zero zero"
+  },
+  {
+   "text": "Lows of ~-5°C tonight.",
+   "says": "Lows of about minus five degrees Celsius tonight.",
+   "voice": "gb",
+   "note": "tilde before a negative; British voice only (American readers also say negative five or five below)"
+  },
+  {
+   "text": "Expect ~5-10 minutes.",
+   "says": "Expect about five to ten minutes.",
+   "note": "tilde before a range"
+  },
+  {
+   "text": "Open 9~5 daily.",
+   "says": "Open nine to five daily.",
+   "note": "tilde between two numbers is a range (East Asian usage)"
+  },
+  {
+   "text": "Use a #2 pencil.",
+   "says": "Use a number two pencil.",
+   "note": "needs TextPrep to keep # before a digit (today the app reads two)"
+  },
+  {
+   "text": "A #1 New York Times bestseller.",
+   "says": "A number one New York Times bestseller.",
+   "note": "book jacket"
+  },
+  {
+   "text": "Tip #5: drink water.",
+   "says": "Tip number five: drink water.",
+   "note": "numbered list item"
+  },
+  {
+   "text": "Issue #48 is fixed.",
+   "says": "Issue number forty eight is fixed.",
+   "note": "issue tracker"
+  },
+  {
+   "text": "The # of items is low.",
+   "says": "The number of items is low.",
+   "note": "lone # before of"
+  },
+  {
+   "text": "Enter # of guests below.",
+   "says": "Enter number of guests below.",
+   "note": "# of after a key verb is still number of: the of reading runs before the key reading"
+  },
+  {
+   "text": "Press # to continue.",
+   "says": "Press pound to continue.",
+   "says_gb": "Press hash to continue.",
+   "note": "the phone key: pound in the US, hash in the UK"
+  },
+  {
+   "text": "No. #7 is next.",
+   "says": "Number seven is next.",
+   "note": "No. before # must not become number number; works today; guards against regression"
+  },
+  {
+   "text": "No. 10 Downing Street",
+   "says": "Number ten Downing Street",
+   "note": "works today; guards against regression"
+  },
+  {
+   "text": "Chanel N°5 is a classic.",
+   "says": "Chanel number five is a classic.",
+   "note": "N° and Nº are number signs; today read N five"
+  },
+  {
+   "text": "Ticket № 58 is open.",
+   "says": "Ticket number fifty eight is open.",
+   "note": "numero sign; today read no"
+  },
+  {
+   "text": "See Nos. 3 and 4 on the list.",
+   "says": "See numbers three and four on the list.",
+   "note": "existing bug: Nos. is read noz"
+  },
+  {
+   "text": "She said no. 2 days later, she called.",
+   "says": "She said no. Two days later, she called.",
+   "note": "existing false positive: lower-case no. right after said is the word (a Tokenizer.split fix, not a text rewrite; NLTokenizer does not split here)"
+  },
+  {
+   "text": "Under §12, refunds are allowed.",
+   "says": "Under section twelve, refunds are allowed.",
+   "note": "glued section sign; passes since fix3/reading"
+  },
+  {
+   "text": "See §§ 12–14.",
+   "says": "See sections twelve to fourteen.",
+   "note": "double sign is plural; passes since fix3/reading"
+  },
+  {
+   "text": "§ 2.3 applies.",
+   "says": "Section two point three applies.",
+   "note": "decimal section number; passes since fix3/reading"
+  },
+  {
+   "text": "See ¶ 4.",
+   "says": "See paragraph four.",
+   "note": "passes since fix3/reading"
+  },
+  {
+   "text": "This is the end.¶",
+   "says": "This is the end.",
+   "note": "a pilcrow not followed by a number marks a paragraph end and is silent; the current build reads it paragraph"
+  },
+  {
+   "text": "© 2024 Acme",
+   "says": "Copyright twenty twenty four Acme",
+   "note": "passes since fix3/reading (© is in Lexicon.symbols)"
+  },
+  {
+   "text": "Copyright © 2024 Acme",
+   "says": "Copyright twenty twenty four Acme",
+   "note": "no double copyright: the current build reads copyright copyright"
+  },
+  {
+   "text": "Copyright (c) 2024 Jane Doe",
+   "says": "Copyright twenty twenty four Jane Doe",
+   "note": "licence header: (c) after the word copyright is dropped"
+  },
+  {
+   "text": "© Crown copyright 2024",
+   "says": "Crown copyright twenty twenty four",
+   "note": "UK government footer: © next to the word copyright is silent; the current build reads copyright Crown copyright"
+  },
+  {
+   "text": "Photo © Jane Doe",
+   "says": "Photo copyright Jane Doe",
+   "note": "credit line; passes since fix3/reading"
+  },
+  {
+   "text": "(c) 2024 Acme",
+   "says": "Copyright twenty twenty four Acme",
+   "note": "(c) only at the start of a line, before a year and a capitalised name"
+  },
+  {
+   "text": "Acme™ makes it.",
+   "says": "Acme makes it.",
+   "note": "trademark sign is silent; the current build reads it trademark (see open questions)"
+  },
+  {
+   "text": "Kleenex® tissues",
+   "says": "Kleenex tissues",
+   "note": "registered sign is silent (moved from frozen: the current build reads it registered)"
+  },
+  {
+   "text": "Use iPhone™ daily.",
+   "says": "Use iPhone daily.",
+   "note": "after a lexicon term; the current build glues it into one word (iPhonetrademark)"
+  },
+  {
+   "text": "The rate is 5‰.",
+   "says": "The rate is five per mille.",
+   "note": "today silent"
+  },
+  {
+   "text": "It is 5 ± 2 cm.",
+   "says": "It is five plus or minus two centimeters.",
+   "note": "works today; guards against regression"
+  },
+  {
+   "text": "Accurate to ±0.5 mm.",
+   "says": "Accurate to plus or minus zero point five millimeters.",
+   "note": "glued symbol before a decimal; passes since fix3/reading"
+  },
+  {
+   "text": "It weighs ≈0.5 kg.",
+   "says": "It weighs approximately zero point five kilograms.",
+   "note": "passes since fix3/reading"
+  },
+  {
+   "text": "3 × 4 = 12",
+   "says": "three times four equals twelve",
+   "note": "with = it is multiplication, not dimensions; works today; guards against regression"
+  },
+  {
+   "text": "Apples @ $2 each.",
+   "says": "Apples at two dollars each.",
+   "note": "works today; guards against regression"
+  },
+  {
+   "text": "Cut at a 45° angle.",
+   "says": "Cut at a forty five degree angle.",
+   "note": "adjective after a or an: singular degree; coordinate with temperatures"
+  }
+ ],
+ "frozen_cases": [
+  {
+   "text": "The file is in a/b/c on disk.",
+   "note": "b/c inside a path"
+  },
+  {
+   "text": "See example.com/b/c for details.",
+   "note": "b/c inside a URL path"
+  },
+  {
+   "text": "See example.com/w/page for details.",
+   "note": "w/ inside a URL path"
+  },
+  {
+   "text": "Use Shift+W/Shift+S to move.",
+   "note": "w/ after + in a key combo is not with: w/ needs whitespace, a bracket or a quote before it"
+  },
+  {
+   "text": "Use 5% w/w glycerin.",
+   "note": "w/w (weight for weight): a single letter after the slash"
+  },
+  {
+   "text": "Their W/L record is 10-2.",
+   "note": "W/L (win/loss): a single letter after the slash"
+  },
+  {
+   "text": "Closed W/O 4512 on Monday.",
+   "note": "W/O before a number is a work order, not without"
+  },
+  {
+   "text": "Whatever, w/e.",
+   "note": "w/e left alone"
+  },
+  {
+   "text": "A b/w photo of a cat.",
+   "note": "b/w is ambiguous: left as letters"
+  },
+  {
+   "text": "The a/c is broken.",
+   "note": "a/c is ambiguous"
+  },
+  {
+   "text": "Test for hepatitis B/C today.",
+   "note": "capital B/C is not because"
+  },
+  {
+   "text": "Let x = a + b/c for now.",
+   "note": "b/c after an operator is maths"
+  },
+  {
+   "text": "The ratio b/c is small.",
+   "note": "b/c followed by is is maths"
+  },
+  {
+   "text": "Patient c/o chest pain.",
+   "note": "c/o before a lower-case word: medical pack"
+  },
+  {
+   "text": "C/O: Chest pain since Monday.",
+   "note": "C/O followed by a colon: medical pack"
+  },
+  {
+   "text": "C/I 3 PM, C/O 11 AM.",
+   "note": "hotel check-in and check-out before a time"
+  },
+  {
+   "text": "Status: N/A",
+   "note": "N/A read as the letters N A"
+  },
+  {
+   "text": "Open 24/7/365.",
+   "note": "already read twenty four seven three sixty five"
+  },
+  {
+   "text": "Plot the attn weights per head.",
+   "note": "bare lower-case attn before a lower-case word (machine learning)"
+  },
+  {
+   "text": "It starts at 9 pm EST. Doors open at 8.",
+   "note": "time zone before a full stop is not estimated"
+  },
+  {
+   "text": "Times are in EST. 2025 dates follow.",
+   "note": "time zone before a year and a noun is not established"
+  },
+  {
+   "text": "Call for a free est. today.",
+   "note": "est. as the noun estimate: not before a listed noun, year or amount"
+  },
+  {
+   "text": "The est. was too low.",
+   "note": "est. as the noun estimate"
+  },
+  {
+   "text": "I met Max. He was nice.",
+   "note": "name Max ends a sentence"
+  },
+  {
+   "text": "I met Max. 5 of us went to lunch.",
+   "note": "name Max before a number, after a word"
+  },
+  {
+   "text": "Assigned to: Max. 2 tickets are open.",
+   "note": "name Max after a colon: capitalised Max. is read maximum only at the start of a line or after ("
+  },
+  {
+   "text": "Turn it up to the max.",
+   "note": "word max"
+  },
+  {
+   "text": "The min and max values differ.",
+   "note": "bare min and max"
+  },
+  {
+   "text": "He scored 5 goals, max.",
+   "note": "max at the end"
+  },
+  {
+   "text": "Wait 5 min. Then go.",
+   "note": "minutes before a full stop"
+  },
+  {
+   "text": "It's a ten min. walk from here.",
+   "note": "min. after a number word is minutes, never minimum (if the units area later reads it minute, refreeze)"
+  },
+  {
+   "text": "Back in a few min. with news.",
+   "note": "min. after few is minutes, never minimum"
+  },
+  {
+   "text": "Hang on a min. let me check.",
+   "note": "a min. is a minute"
+  },
+  {
+   "text": "Set min=5 and max=10.",
+   "note": "code-like"
+  },
+  {
+   "text": "AVG antivirus is free.",
+   "note": "brand AVG"
+  },
+  {
+   "text": "Bring pens, paper, etc.",
+   "note": "etc. already read by the tech lexicon (its say-as uses a flap T, so it can't be a speech case)"
+  },
+  {
+   "text": "See the Human Rights Act 1998 c. 42.",
+   "note": "UK statute chapter: c. before a non-year number is not circa"
+  },
+  {
+   "text": "Run ls ~/Documents now.",
+   "note": "tilde home path (read by the path rule from fix3/reading)"
+  },
+  {
+   "text": "Set x = ~y in C.",
+   "note": "tilde in code"
+  },
+  {
+   "text": "x ~ N(0, 1)",
+   "note": "statistics tilde before a letter; reading is poor today, the point is that the about rule leaves it"
+  },
+  {
+   "text": "~~deleted~~",
+   "note": "markdown strikethrough"
+  },
+  {
+   "text": "Pin lodash to ~4.17.21 for now.",
+   "note": "semver tilde before a dotted version is not about"
+  },
+  {
+   "text": "I write C# and F# daily.",
+   "note": "tech lexicon: C sharp, F sharp"
+  },
+  {
+   "text": "Follow #blessed on Instagram.",
+   "note": "hashtag: messaging pack"
+  },
+  {
+   "text": "Follow #2020Vision for updates.",
+   "note": "hashtag that starts with digits: # before digits glued to letters is not number"
+  },
+  {
+   "text": "## Setup steps",
+   "note": "markdown heading"
+  },
+  {
+   "text": "# Getting started",
+   "note": "markdown heading with one #"
+  },
+  {
+   "text": "Use #333 for the text.",
+   "note": "CSS grey (three identical digits), not a number"
+  },
+  {
+   "text": "Set the fill to #1e90ff.",
+   "note": "hex colour; reading is poor today, the point is that the number rule leaves it"
+  },
+  {
+   "text": "Start the script with #!/bin/bash and save it.",
+   "note": "shebang; not a number"
+  },
+  {
+   "text": "Dial #31# now.",
+   "note": "keypad code: # after the digits"
+  },
+  {
+   "text": "The winner is no. 3 on the list.",
+   "note": "lower-case no. after is stays number (the word-no fix is only after said and its forms)"
+  },
+  {
+   "text": "The answer was no.",
+   "note": "word no"
+  },
+  {
+   "text": "AT&T and Verizon raised prices.",
+   "note": "lexicon"
+  },
+  {
+   "text": "R&D spending rose.",
+   "note": "lexicon"
+  },
+  {
+   "text": "Q&A at noon.",
+   "note": "letters around &"
+  },
+  {
+   "text": "salt + pepper",
+   "note": "+ between words stays plus (moved from speech cases: and is an equally natural reading, so Core doesn't decide)"
+  },
+  {
+   "text": "She got an A+ on it.",
+   "note": "grade: plus after a letter"
+  },
+  {
+   "text": "C++ is fast.",
+   "note": "lexicon: C plus plus"
+  },
+  {
+   "text": "Pick any x ≠ 0.",
+   "note": "spaced operator already read not equal to"
+  },
+  {
+   "text": "(a) 2017, (b) 2018, (c) 2019",
+   "note": "(c) as a list label is not copyright"
+  },
+  {
+   "text": "(c) 2019 sales rose by a third.",
+   "note": "(c) as a list label at the start of a line, before a year and a lower-case word"
+  },
+  {
+   "text": "Smith (R) voted no.",
+   "note": "party letter in brackets is not the registered sign"
+  },
+  {
+   "text": "Smith† died in 1990.",
+   "note": "dagger silent"
+  },
+  {
+   "text": "Acme‡ wins.",
+   "note": "double dagger silent"
+  },
+  {
+   "text": "Wait… what?",
+   "note": "ellipsis is a pause"
+  },
+  {
+   "text": "It was 30° yesterday.",
+   "note": "degrees stays plural when not after a or an"
+  }
+ ],
+ "rules": [
+  {
+   "name": "0. Let # and ~ reach the phonemizer in the app",
+   "where": "Sources/ReadAloud/TextPrep.swift, speechText(_:) (unchanged by fix3/reading)",
+   "trigger": "Today sub(\"[*#`~|•▪●◦]+\", \" \") strips every # and ~ before the phonemizer runs. Split it. Keep stripping [*`|•▪●◦]+ and any run of two or more # or ~ (\"##\", \"~~strike~~\"). Keep a single # when it's glued to a digit on either side (#1, #31#), follows a letter (C#, F#), comes before \" of\", or follows a key verb ((?i:press|hit|tap|dial|enter)\\s#). Keep a single ~ when an optional space, sign or currency and then a digit follow it, or when it sits between two digits (9~5).",
+   "reads_as": "No reading of its own. It lets rules 10 and 13 and the lexicon's C# and F# entries see their symbols. Hashtags, markdown headings, ~/paths and ~~strike~~ are still stripped.",
+   "risks": "Without the runs rule, \"Now ~~$10~~ $8\" would keep the tilde before $10 and read \"about ten dollars\". A trailing keypad # (\"#31#\") must survive, or the phonemizer reads \"number 31\". Add chunk_cases to Tests/g2p/regression.json (\"We're #1 again.\", \"I write C# daily.\", \"We need ~5 people.\", \"Dial #31# now.\", \"Now ~~$10~~ $8.\"), because --speech-test only runs the phonemizer."
+  },
+  {
+   "name": "1. Shorthand pass before the custom lexicon",
+   "where": "Sources/Phonemizer/Phonemizer.swift phonemize(): new TextNormalizer.shorthand(t) after linkLabels/foldMicroSign and before custom.mark (only when normalizes)",
+   "trigger": "Holds rules 2–5 (the slash shorthands and Attn) and 7 (min./max.).",
+   "reads_as": "Ordering requirement only.",
+   "risks": "Needed because (1) \"Max\" is a case-sensitive tech-lexicon key, so \"Max. 3 per customer\" is marked [Max](/mˈæks/) before TextNormalizer runs, and TextNormalizer skips marked spans; and (2) CustomLexicon never matches right after \"/\", so \"w/Kubernetes\" reads wkjˈubəɹnˌits unless w/ is expanded first. This pass sees raw text, before the keyboard-shortcut rule that fix3/reading added, so it must keep \"Shift+W/Shift+S\" out on its own (rule 2's left context)."
+  },
+  {
+   "name": "2. w/ family → with / without / within",
+   "where": "TextNormalizer.shorthand (rule 1)",
+   "trigger": "Left context for every form: start of text, whitespace, an opening bracket or a quote, (?<=^|[\\s(\\[{\"“‘']). This replaces the reviewed negative lookbehind (?<![\\p{L}\\p{N}/.:_@\\-]), which let \"Shift+W/Shift+S\" through as \"Shift plus with Shift\". Never after a number or % and a space ((?<![\\d%]\\s)), so \"5 W/m²\" and \"5% w/w\" stay. Then, in order: (a) ([Ww])/(out|OUT) and ([Ww])/([Oo]) → without, only when whitespace and then a letter, quote or bracket follow and the next word isn't a month or weekday name (\"W/O 4512\" is a work order, \"w/o Jan 6\" is week of). (b) ([Ww])/(in|IN) → within, before whitespace and a letter or digit. (c) Generic ([Ww])/ → with, when whitespace and then [\\p{L}\\p{N}$£€(\"“'] follow, or when it's glued to a word of two or more letters that isn't a unit (kg, km, cm, mm, m², hr, sr…). Add a space when glued. Reject the glued form when its run contains \"/\", \"=\", \"?\" or \".\" plus a letter (w/index.php).",
+   "reads_as": "\"with\", \"without\", \"within\". \"With\" when the shorthand starts a sentence or line (\"W/ love, Mia\"). \"WITH\" or \"WITHOUT\" when the next word is all capitals (two or more letters), so a shouted menu line stays shouted for unshout.",
+   "risks": "Single-letter pairs stay because the generic form needs whitespace or a word of two or more letters: w/e, w/c, w/w, W/L, W/D (frozen). URLs and paths (/w/, example.com/w/page) fail the left-context check. Watts per unit (W/kg, W/m²) are blocked by the number check and the unit list."
+  },
+  {
+   "name": "3. b/c → because",
+   "where": "TextNormalizer.shorthand (rule 1)",
+   "trigger": "Same left context as rule 2. ([bB])/c with a lower-case c, (?![\\p{L}\\p{N}/]|\\.\\p{L}). Not after an operator ([=+\\-*×÷^/<>] and an optional space before the left-context space). It must be followed by whitespace and a word other than is, are, was, were, equals, and or or, and not by \"=\" or \")\".",
+   "reads_as": "\"because\", or \"Because\" when written \"B/c\".",
+   "risks": "Maths was the gap in the reviewed trigger: \"Let x = a + b/c\" and \"The ratio b/c is small\" would have read \"because\" (both frozen now). All-caps B/C (hepatitis B/C, benefit/cost) is untouched. Paths (a/b/c, example.com/b/c) fail the left-context check."
+  },
+  {
+   "name": "4. c/o → care of",
+   "where": "TextNormalizer.shorthand (rule 1)",
+   "trigger": "Same left context as rule 2. ([Cc])/([Oo])(?=\\s+\\p{Lu}): only before a capitalised word (a name or company), never before \":\", a digit or #.",
+   "reads_as": "\"care of\" (\"Care of\" at the start of a line).",
+   "risks": "Clinical \"c/o chest pain\" and \"C/O: Chest pain\" (colon), and hotel \"C/O 11 AM\", are untouched (frozen). The remaining risk is C/O meaning check-out or change order before a capitalised word (\"C/O Time\", \"C/O Request\"), which is rare in prose."
+  },
+  {
+   "name": "5. Attn → Attention",
+   "where": "TextNormalizer.shorthand (rule 1); Tokenizer.titleContinues/runOnTitles for the sentence split",
+   "trigger": "(?<![\\p{L}\\p{N}_.])(Attn|ATTN|attn)(?:\\.(?=\\s|$)|(?=\\s*:)|(?=\\s+\\p{Lu})): with a colon or a period, or bare before a capitalised word. Also join \"Attn.\" before a capital in Tokenizer.titleContinues, because NLTokenizer splits \"Attn.\" | \"Maria Lopez\" (re-checked with a compiled probe).",
+   "reads_as": "\"Attention\". A following \":\" stays as the pause and the abbreviation point is dropped. \"ATTENTION\" when the next word is all caps.",
+   "risks": "Lower-case attn before a lower-case word (\"the attn weights\", self.attn) is untouched (frozen)."
+  },
+  {
+   "name": "6. est. → established / estimated",
+   "where": "TextNormalizer.rules, next to the abbreviations loop",
+   "trigger": "The period is required; bare EST and est are never touched. (a) Founding year: (Est|est)\\.\\s+(?:in\\s+)?(1\\d{3}|20\\d{2})(?![\\d,.]\\d), followed by the end of the text, punctuation, or one of in, by, at, on, and, as, since or from → \"established\". All-caps EST. takes only this form, only at the start of a line or after \",\", \"·\", \"|\" or \"—\" (sign style), and never after a clock time. (b) Amount: otherwise, est. before [~≈]?[-−]?[$£€¥₹₩]?\\d → \"estimated\" (\"est. 1500 attendees\", \"est. 3-5 days\", \"est. £2,000\"). (c) Noun: est. before a word on a short list (cost, costs, delivery, arrival, time, reading, total, value, price, wait, completion, date, budget, savings, population, duration, departure, shipping, tax, payment, revenue, attendance) → \"estimated\". Everything else is left alone.",
+   "reads_as": "\"established\" or \"estimated\", capitalised to match. The number stays as digits for the number reader.",
+   "risks": "The reviewed form (c) (est. before any lower-case word) read the noun estimate as \"estimated\": \"Call for a free est. today\" and \"The est. was too low\" (frozen). The list turns those into misses that read \"est\". \"Times are in EST. 2025 dates follow\" stays the time zone, because caps EST. isn't at the start of a line and the year is followed by a noun."
+  },
+  {
+   "name": "7. min. / max. → minimum / maximum",
+   "where": "TextNormalizer.shorthand (rule 1): must run before custom.mark because of the \"Max\" lexicon key",
+   "trigger": "The period is required. Never after a digit (with an optional space), and never after a number word or quantifier: a, an, one … twenty, thirty … ninety, hundred, few, several, couple, many, more, some. Lower case: (?<![\\p{L}\\p{N}_.])(min|max)\\.(?=\\s*[~≈]?[$£€¥₹₩]?\\d|\\s+\\p{Ll}). Capitalised (Min|Max)\\. takes the same lookahead, but only at the start of a line or the text, or after \"(\".",
+   "reads_as": "\"minimum\" or \"maximum\" (capitalised to match), with the period dropped.",
+   "risks": "The reviewed trigger also took a capitalised Max. after \":\" or \",\", and min. after number words. \"Assigned to: Max. 2 tickets are open\" and \"a ten min. walk\" would have become maximum and minimum (frozen, with \"a few min. with news\" and \"a min. let me check\"). The misses read \"max three\", which is still natural speech."
+  },
+  {
+   "name": "8. avg, approx, excl., misc. → words",
+   "where": "TextNormalizer.abbreviations for the forms with a period; a small rule for the bare forms",
+   "trigger": "Add (\"avg.\",\"average\"), (\"Avg.\",\"Average\"), (\"excl.\",\"excluding\"), (\"Excl.\",\"Excluding\"), (\"misc.\",\"miscellaneous\") and (\"Misc.\",\"Miscellaneous\") to `abbreviations`. Bare forms: (?<![\\p{L}\\p{N}_.])(avg|Avg)(?![\\p{L}\\p{N}_(.]) → average, and (?<![\\p{L}\\p{N}_.])(approx|Approx)(?=\\s+[~≈]?[-−]?[$£€¥₹₩]?\\d) → approximately.",
+   "reads_as": "average, excluding, miscellaneous, approximately.",
+   "risks": "AVG (the antivirus, SQL) and avg( in code are untouched. NLTokenizer splits \"excl. VAT\" before the capital, but the abbreviation still reads at the end of its chunk (the lookahead accepts $). A sentence-final \"misc.\" should keep its full stop."
+  },
+  {
+   "name": "9. ca. / c. → circa before a year",
+   "where": "TextNormalizer.rules (coordinate with the dates area); Tokenizer.titleContinues",
+   "trigger": "(?<![\\p{L}\\p{N}_.])ca\\.\\s?(?=\\d{3,4}(?![\\d,])), and lower-case only (?<![\\p{L}\\p{N}_.&])c\\.\\s?(?=(?:1\\d{3}|20\\d{2})(?![\\d,.]\\d)) → \"circa \". Join \"ca.\" or \"c.\" before a digit in Tokenizer.titleContinues, because NLTokenizer splits \"built ca.\" | \"1850.\".",
+   "reads_as": "\"circa\" followed by the year.",
+   "risks": "A capital \"C.\" (an initial) is never touched. \"c.\" before a number that isn't a year (UK statute \"1998 c. 42\") is untouched (frozen)."
+  },
+  {
+   "name": "10. ~ → about; digit~digit → to",
+   "where": "TextNormalizer.rules: the range form first, then the about form, both before the range and units rules",
+   "trigger": "Range: (?<![\\p{L}\\p{N}])(\\d{1,2}(?::\\d{2})?|\\d+)\\s?~\\s?(\\d{1,2}(?::\\d{2})?|\\d+)(?![\\d~]) → \"$1 to $2\". About: (?<![\\p{L}\\p{N}~/\\\\])~\\s?(?=[-−]?[$£€¥₹₩]?\\d)(?!\\s?\\d+\\.\\d+\\.\\d) → \"about \".",
+   "reads_as": "\"about 5\", \"about $5\", \"about 50%\", \"about 1,000\" (today the tilde breaks the thousands comma: \"one zero zero zero\"), \"about -5°C\", \"about 5-10\" (then \"5 to 10\"), and \"9~5\" → \"9 to 5\".",
+   "risks": "Semver \"~4.17.21\" was a gap in the reviewed trigger (frozen; the dotted-version lookahead skips it). ~/Documents, ~y, \"x ~ N(0,1)\" and ~~strike~~ are untouched. A bitwise ~0 in code would read \"about zero\", which is rare. Depends on rule 0 in the app."
+  },
+  {
+   "name": "11. Glued maths symbol before a decimal (already landed)",
+   "where": "No new code: fixed in fix3/reading (merged b06b926)",
+   "trigger": "None. Since the 14:59 build, \"±0.5\" and \"≈0.5\" keep \"point\".",
+   "reads_as": "\"plus or minus zero point five\".",
+   "risks": "None. The two cases stay as regression guards."
+  },
+  {
+   "name": "12. Number signs: №, N°, Nº, Nos.; no. as the word after said",
+   "where": "TextNormalizer.rules for №, N°, Nº and Nos.; Tokenizer.split (numberSign) for lower-case no.",
+   "trigger": "(?<![\\p{L}\\p{N}])(?:№|[Nn][°º])\\s?(?=\\d) → \"number \". It must run before Lexicon's compatibility mapping turns № into \"No\". (?<![\\p{L}.])(Nos|nos)\\.(?=\\s?#?\\d) → \"numbers\". Lower-case \"no.\" before a number is the word, with its full stop, only when the previous word is said, say, says, saying, answered or replied. NLTokenizer doesn't split \"said no. 2 days\", so this belongs in the tokenizer.",
+   "reads_as": "\"number 5\", \"numbers 3 and 4\", and \"She said no. Two days later…\".",
+   "risks": "The reviewed list also had was, is, were and just, which would turn \"The winner is no. 3 on the list\" into \"no. Three\" (frozen). \"40°N\" has a digit before the ° and isn't N°."
+  },
+  {
+   "name": "13. # → number (and the key)",
+   "where": "TextNormalizer.rules (depends on rule 0 in the app)",
+   "trigger": "Number: (?<![\\p{L}\\p{N}#&/;])#(?=\\d+(?:[.,]\\d+)?(?![\\p{L}\\d#*])) → \"number \". Exceptions: CSS greys (#000 to #999, three identical digits), hex colours, keypad codes (# after the digits, \"#31#\"), and a # right after \"No. \", \"Nos. \" or \"no. \". Of: (?<![\\p{L}\\p{N}#])#(?=\\s+of\\b) → \"number\". It runs before the key rule. Key: (?<=\\b(?i:press|hit|tap|dial|enter)\\s)#(?=\\s|[.,;:!?)]|$), not before \" of\" → \"pound\" (US) or \"hash\" (GB). This needs `british` passed into TextNormalizer.normalize.",
+   "reads_as": "\"number 12\", \"number of\", \"press pound\" or \"press hash\".",
+   "risks": "The reviewed trigger only checked for hex letters, so \"#2020Vision\" read \"number 2020 Vision\" (frozen now: the digits must not run into letters). \"Enter # of guests\" must read \"number of\", not \"pound of\". Hashtags, C#/F#, &#123;, #! and headings are untouched. \"Apt #4B\" is an accepted miss."
+  },
+  {
+   "name": "14. § and ¶ (landed; one fix)",
+   "where": "TextNormalizer.rules: the (§§?|¶)\\s? rule from fix3/reading",
+   "trigger": "fix3/reading already reads §, §§ and ¶, and all § cases pass. Narrow ¶: ¶¶?\\s?(?=\\d) → \"paragraph \" or \"paragraphs \". Any other ¶ → \"\", and drop a space before it.",
+   "reads_as": "\"section 12\", \"sections 12 to 14\", \"paragraph 4\". A trailing pilcrow is silent.",
+   "risks": "Today \"This is the end.¶\" reads \"…end. paragraph\" (that speech case fails)."
+  },
+  {
+   "name": "15. ©, (c), ™, ℠, ®",
+   "where": "Lexicon.symbols (fix3/reading added © → copyright, ® → registered, ™ → trademark) and TextNormalizer.rules",
+   "trigger": "(1) ™, ℠ and ® are silent anywhere: take them out of Lexicon.symbols and drop them in TextNormalizer, keeping a full stop that follows (\"Buy Acme®.\"). (2) © is silent when the word copyright is next to it on either side ((?i:copyright)\\s*© and ©\\s*(?:\\p{Lu}\\p{L}*\\s+)?(?i:copyright)); otherwise it stays \"copyright\". (3) \"Copyright (c)\" drops the \"(c)\". At the start of a line, (c) plus a year followed by the end of the line or a capitalised word → \"Copyright\".",
+   "reads_as": "\"Copyright 2024 Acme\", \"Crown copyright 2024\", \"Acme makes it\", \"Kleenex tissues\".",
+   "risks": "Readings today: \"Copyright © 2024\" → \"copyright copyright\"; \"© Crown copyright\" → \"copyright Crown copyright\"; \"iPhone™\" → one word, \"iPhonetrademark\"; \"Acme™\" → \"Acme trademark\". \"(c) 2019 sales rose…\" (a list label before a lower-case word) and \"(a) 2017, (b) 2018, (c) 2019\" stay letters (frozen). \"(R)\" is a party letter, not ®. Whether ™ and ® are silent is an open question (fix3/reading chose to say them)."
+  },
+  {
+   "name": "16. ‰ → per mille",
+   "where": "TextNormalizer.rules (next to ¢)",
+   "trigger": "(?<=\\d)\\s?‰ → \" per mille\".",
+   "reads_as": "\"5 per mille\" (the stack says pɜɹ mˈɪl). Today ‰ is silent, or an unknown symbol when spaced.",
+   "risks": "None."
+  },
+  {
+   "name": "17. Adjectival degree after a or an",
+   "where": "TextNormalizer.rules, before the temperature rule (coordinate with the units/temperatures area)",
+   "trigger": "(?<=\\b(?:a|an|A|An)\\s)(\\d+(?:\\.\\d+)?)\\s?°(?!\\s?[CFcf](?!\\p{L}))(?=\\s+\\p{Ll}) → \"$1 degree\".",
+   "reads_as": "\"a 45 degree angle\" (singular). Today it's \"forty five degrees angle\".",
+   "risks": "Limited to an article before the number, so \"It was 30° yesterday\" keeps the plural (frozen)."
+  },
+  {
+   "name": "18. etc. at the end of a sentence keeps its full stop",
+   "where": "CustomLexicon.mark (or a TextNormalizer pre-pass)",
+   "trigger": "The tech-lexicon key \"etc.\" (exact match) when followed by the end of the text, a newline, or whitespace and a capital letter.",
+   "reads_as": "The same word, followed by a real \".\" outside the mark. The current build still reads \"Bring pens, paper, etc.\" without a full stop.",
+   "risks": "None. The speech harness can't see it because it ignores punctuation, so add a lexicon_case or a check that the raw phonemes end in \".\"."
+  },
+  {
+   "name": "19. Unchanged on purpose",
+   "where": "n/a (guarded by cases)",
+   "trigger": "N/A and n/a; and/or; 24/7 and 24/7/365; & between words or letters; @; + between words, after a letter (A+) and in lexicon terms (C++, Disney+); ±, ≈, ≠, ≤, ≥ when spaced; × with =; † and ‡; …; (R); b/w; a/c; w/e; w/c; bare min and max; EST.",
+   "reads_as": "As today: \"N A\", \"and or\", \"twenty four seven\", \"and\", \"at\", \"plus\", the symbol words, silent daggers, an ellipsis pause, and letters for b/w and a/c.",
+   "risks": "None. The product calls are in open_questions."
+  }
+ ],
+ "open_questions": [
+  "Trademark signs: the reading fixes merged today (fix3/reading, b06b926) put ™ → \"trademark\" and ® → \"registered\" back into Lexicon.symbols (Aloud 1.5's readings). Core's brief and this test set say they're silent. These two choices conflict. Should \"Acme™ makes it.\" read \"Acme makes it\" (silent, recommended, because nobody reads the sign aloud) or \"Acme trademark makes it\"? © stays spoken (\"copyright\") either way. Three speech cases fail until this is settled.",
+  "Hyphenated number words: the brief writes them with hyphens (\"four ninety-nine\"), but the stack reads \"ninety-nine\" as one word (nˈIndinˌIn) while the number reader gives two (nˈIndi nˈIn). A correct reading then fails the test; the core-readings money cases fail for this reason alone. Should SpeechTest.loose fold hyphens between number words (recommended, so authors can write numbers naturally), or must every area write them unhyphenated? This set is unhyphenated. Spelled letters have the same problem (\"pee em\" in the core M&Ms case against the stack's single pˌiˈɛm).",
+  "Should \"+\" between ordinary words (\"salt + pepper\") be read \"plus\" (today) or \"and\"? I moved this case to frozen because both readings are natural. I recommend keeping \"plus\", the symbol's name.",
+  "N/A: keep the letters \"N A\" (today), or say \"not applicable\"? I recommend the letters. N/A also means \"not available\", so expanding it would be a guess.",
+  "\"Press #\": should US voices say \"pound\" and British voices \"hash\", as phone menus in each country do? I recommend yes. \"#1\" reads \"number one\" in both.",
+  "b/w: leave it as the letters \"B W\"? I recommend yes. It means both \"between\" and \"black and white\", and Core doesn't guess.",
+  "Should \"ca.\" and \"c.\" before a year be read \"circa\" in Core, or be left to a dates or history pack? I recommend Core, limited to lower case with a year straight after.",
+  "\"5‰\": read \"five per mille\" (as briefed) or the plainer \"five per thousand\"? I recommend \"per mille\"."
+ ],
+ "review_notes": [
+  "Verification: I checked every case against the shipped binary in both voices. While I was working, the binary was rebuilt at 14:59 after fix3/reading was merged (b06b926), so I re-ran everything on that build. For each case I applied the proposed rules by hand (digits kept) and compared the result with the plain-words reading using SpeechTest.loose: 0 mismatches over 179 voice runs. A script check of the hard rules found no digits, symbols, abbreviations or Roman numerals in any \"says\". I read the phonemes of every \"says\" (Kubernetes, circa, Miscellaneous, per mille, Mister, Crown copyright and hash in the British voice all come out right). 18 of the 90 speech cases pass today.",
+  "Cases that now pass because of fix3/reading: the §, §§ and ¶ 4 cases, © 2024, Photo ©, ±0.5 and ≈0.5. The reviewed rules 11 and 14 are mostly already done, and their notes say so.",
+  "New failures in the current build, each with a case: \"end.¶\" reads \"paragraph\"; \"Copyright © 2024\" reads copyright twice; \"© Crown copyright\" also reads copyright twice; \"Acme™\" reads \"trademark\"; \"Kleenex®\" reads \"registered\"; \"iPhone™\" becomes one word, \"iPhonetrademark\"; \"Buy Acme®.\" reads \"Acme registered\".",
+  "Corrected speech cases: \"BURGER W/ CHEESE\" now says \"BURGER WITH CHEESE\", so the rest of the sentence matches the text. \"See Nos. 3-4\" became \"See Nos. 3 and 4\", because a two-item range is read either \"three and four\" or \"three to four\". \"salt + pepper\" moved to frozen, because \"plus\" and \"and\" are both natural. \"Kleenex® tissues\" moved from frozen to speech, because the current build reads \"registered\". In the \"She said no.\" case, the old after-text hid that the fix belongs in the tokenizer. Notes are updated for the new build.",
+  "Removed 10 near-duplicate speech cases to keep the set close to the target size; none of them passed today, and each trigger is still covered. They were: Est. reading time, Growth of ~5%, Min. order $25, Price: ~£10, Read ¶¶ 4–6, Results (avg. 72), Room #12 (its TextPrep note moved to the #2 pencil case), Salt content 35 ‰, The #1 seed, and the old Nos. 3-4. Added 21 positives from emails, menus, chat, shop pages, licence headers and UK footers: Lunch w/ Sam @ noon, W/ love Mia, Reply w/in 5 days, Running late b/c of traffic, Jane Doe c/o Acme Books, Attn: Mr. Lee, Shipping est. 3-5 days, Avg. rating 4.5 stars, the min. and max. pair, Ready in 5 min. or less (a guard), ~50% off, ~1,000 (today read \"one zero zero zero\"), ~-5°C (British voice), A #1 New York Times bestseller, Tip #5, Enter # of guests, No. 10 Downing Street, Copyright (c) 2024, © Crown copyright 2024, Kleenex®, and Nos. 3 and 4.",
+  "Attacking the rules found 25 new near-miss frozen cases. Each one breaks a trigger as it was written. w/: Shift+W/Shift+S (+ before W/), w/w, W/L, and W/O 4512 (a work order). b/c: \"a + b/c\" and \"the ratio b/c is small\" (maths), and hepatitis B/C. c/o: \"C/O: Chest pain\" and \"C/O 11 AM\". Attn: \"attn weights\". est.: \"a free est. today\" and \"The est. was too low\" (the noun estimate), and \"in EST. 2025 dates\". max.: \"Assigned to: Max. 2 tickets\" (a name after a colon). min.: \"a ten min. walk\", \"a few min. with news\" and \"a min. let me check\". c.: \"1998 c. 42\" (a statute). ~: \"~4.17.21\" (semver). #: #2020Vision. no.: \"The winner is no. 3\". (c): \"(c) 2019 sales rose\". Also \"(R)\", A+ and \"# Getting started\". I removed 14 frozen duplicates or trivial cases. One of them, a Ctrl+W/Cmd+W case, was replaced because its reading is garbled today and would break with keyboard work.",
+  "Rule changes: rules 2–4 use a positive left context (whitespace, a bracket or a quote, or the start) instead of the old lookbehind list. w/o and w/out skip digits, months and weekdays. b/c skips maths context. est. form (c) uses a list of nouns. min. and max. skip number words and quantifiers, and the capitalised form is limited to the start of a line or after \"(\". no.-as-the-word applies only after said and its forms. # needs its digits not to run into letters, and the \"of\" reading comes before the key reading. ~ skips dotted versions. Rule 0 always strips runs of # or ~ and keeps a keypad #. © is silent next to the word copyright. A pilcrow is read only before a number.",
+  "Apple's sentence splitter: I re-checked it with my own probe (nlt/split.swift, which reads from stdin). It splits after \"Attn.\" and \"ca.\" before the next word, and after \"excl.\" before a capital (\"excl. VAT\"). It doesn't split \"said no. 2 days\", \"c. 1650\", \"est.\", \"Min.\", \"Max.\", \"avg.\" or \"Nos.\".",
+  "Spotted outside my area: (1) The British voice reads 2009 as \"two thousand nine\", but British speakers say \"two thousand and nine\" (numbers area), so I avoided 2000s years. (2) \"40°N\" reads \"forty N\" with no \"degrees\". (3) In \"20 min. at\" and \"5 min. or less\", the period after min. becomes a mid-sentence full stop (units area). (4) \"A&B Plumbing\" still reads A as the article. (5) e.g. still reads \"E G\" (the tech lexicon beats TextNormalizer). (6) TextPrep is unchanged, so the app still strips # and ~ (rule 0).",
+  "Files: everything is in /private/tmp/claude-501/-Users-claremccormack-Sites-readaloud--claude-worktrees-app-monetization-payments-2fe731/d937b965-6e6d-417c-ba43-5dde5061f672/scratchpad/shorthand-review/: cases.py (the cases plus the hand-applied after-text), check.py (re-runs the hard-rule, simulation and today checks; add -dump or -frozen to print phonemes), out.json and nlt/split.swift. The first author's files in ../shorthand-area/ are untouched. I made no edits to the repo.",
+  "Linear: no update by this subagent. The parent owns syncing FIN-889 and FIN-888."
+ ]
+}
