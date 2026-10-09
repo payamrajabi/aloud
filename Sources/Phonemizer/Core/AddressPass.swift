@@ -21,24 +21,36 @@ enum AddressPass {
     /// must not take), then route and box numbers, numbered streets, unit numbers, street types
     /// after a name, and "St"/"Ste" as Saint. Each step is one scan of the text.
     static func apply(_ text: String, british: Bool) -> String {
-        var hasDigit = false, hasCapital = false
+        var hasDigit = false, hasCapital = false, hasComma = false, hasCapitalPair = false
+        var previous: Unicode.Scalar = " "
         for c in text.unicodeScalars {
-            if c.value >= 0x30 && c.value <= 0x39 { hasDigit = true } else if Scalars.isUppercase(c) { hasCapital = true }
-            if hasDigit && hasCapital { break }
+            if c.value >= 0x30 && c.value <= 0x39 {
+                hasDigit = true
+            } else if Scalars.isUppercase(c) {
+                hasCapital = true
+                if c.value >= 0x41 && c.value <= 0x5A && previous.value >= 0x41 && previous.value <= 0x5A { hasCapitalPair = true }
+            } else if c == "," {
+                hasComma = true
+            }
+            previous = c
         }
         guard hasCapital else { return text }
+        // A state, province or territory code reads only after a comma (in capitals: "Austin,
+        // TX") or before a ZIP or postal code (digits, "٧٨٧٠١" too). Each of those scans tries
+        // every space, so they're skipped in the plain sentences that are most of what's read.
+        let codes = hasComma && hasCapitalPair || hasDigit || TextNormalizer.containsDigit(text)
         var t = text
         if hasDigit {
             t = rewrite(t, ukPostcode) { m, s, casing in readUKPostcode(m, s, &casing, british: british) }
         }
-        t = rewrite(t, usState, readUSState)
-        t = rewrite(t, apState, readAPState)
-        t = rewrite(t, province, readProvince)
+        if codes { t = rewrite(t, usState, readUSState) }
+        if t.utf8.contains(UInt8(ascii: ",")) { t = rewrite(t, apState, readAPState) }
+        if codes { t = rewrite(t, province, readProvince) }
         if hasDigit {
             t = rewrite(t, stateNameZip, readZip)
             t = rewrite(t, canadianPostcode, readCanadianPostcode)
         }
-        t = rewrite(t, australianState, readAustralianState)
+        if codes { t = rewrite(t, australianState, readAustralianState) }
         if hasDigit {
             t = rewrite(t, zipCue, readZip)
             t = rewrite(t, route, readRoute)

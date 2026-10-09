@@ -22,7 +22,9 @@ enum DateRules {
     /// off before the measures pass looks at apostrophes. Run together, the marked "Q3" and "'24"
     /// were one word; apart, they read as "Q4 '23" already does. A possessive ("Q3's") stays.
     static func splitQuarterYears(_ text: String) -> String {
-        guard text.contains("'") || text.contains("’") else { return text }
+        // An apostrophe and a digit, found without Foundation's `contains` (it cost more than
+        // the split, on every sentence).
+        guard text.unicodeScalars.contains(where: { $0 == "'" || $0 == "’" }), TextNormalizer.containsDigit(text) else { return text }
         let ns = text as NSString
         return quarterYear.stringByReplacingMatches(in: text, range: NSRange(location: 0, length: ns.length), withTemplate: "$1 ")
     }

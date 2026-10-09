@@ -16,22 +16,25 @@ enum ShorthandPass {
     /// W/ CHEESE" becomes "BURGER WITH CHEESE", still a shouted line.
     static func apply(_ text: String, british: Bool) -> String {
         var t = text
-        if t.contains("/") {
+        var cues = Cues(t)
+        if cues.slash {
             t = rewrite(t, withForms, readWith)
             t = rewrite(t, because) { m, s in s.substring(with: m.range(at: 1)) == "B" ? "Because" : "because" }
             t = rewrite(t, careOf) { m, s in
                 s.substring(with: m.range(at: 1)) == "C" && startsSentence(at: m.range.location, in: s) ? "Care of" : "care of"
             }
+            cues = Cues(t)
         }
-        if t.contains("ttn") || t.contains("TTN") {
+        if cues.attn {
             t = rewrite(t, attention) { m, s in
                 let word = s.substring(with: m.range(at: 1)) == "attn" ? "attention" : "Attention"
                 // The abbreviation point goes, unless it was also the line's full stop.
                 guard m.range(at: 2).location != NSNotFound else { return word }
                 return s.substring(from: NSMaxRange(m.range)).prefix { $0 != "\n" }.allSatisfy(\.isWhitespace) ? word + "." : word
             }
+            cues = Cues(t)
         }
-        if t.contains("in.") || t.contains("ax.") {
+        if cues.minMax {
             t = rewrite(t, minMax) { m, s in
                 let lower = m.range(at: 1).location != NSNotFound
                 let word = s.substring(with: m.range(at: lower ? 1 : 2))
@@ -39,10 +42,39 @@ enum ShorthandPass {
                 let full = word.lowercased() == "min" ? "minimum" : "maximum"
                 return lower ? full : full.capitalized
             }
+            cues = Cues(t)
         }
-        if t.contains("&") { t = rewrite(t, ampersandPlural, cased: false) { m, s in s.substring(with: m.range(at: 1)) + "'s" } }
-        if t.contains("etc.") { t = rewrite(t, etcetera, cased: false) { _, _ in "etc.." } }
+        if cues.ampersand {
+            t = rewrite(t, ampersandPlural, cased: false) { m, s in s.substring(with: m.range(at: 1)) + "'s" }
+            cues = Cues(t)
+        }
+        if cues.etc { t = rewrite(t, etcetera, cased: false) { _, _ in "etc.." } }
         return t
+    }
+
+    /// What the pass's steps need to find before they run: "/", "ttn" or "TTN" (Attn), "in." or
+    /// "ax." (min. and max.), "&" and "etc.". One pass over the UTF-8: Foundation's
+    /// `String.contains` searches Unicode-aware and cost more than the rest of the pass, on
+    /// every sentence read. All of them are ASCII, so a byte match is the same test.
+    private struct Cues {
+        var slash = false, attn = false, minMax = false, ampersand = false, etc = false
+
+        init(_ text: String) {
+            var b1: UInt8 = 0, b2: UInt8 = 0, b3: UInt8 = 0  // the three bytes before `b`
+            for b in text.utf8 {
+                switch b {
+                case UInt8(ascii: "/"): slash = true
+                case UInt8(ascii: "&"): ampersand = true
+                case UInt8(ascii: "n"): if b1 == UInt8(ascii: "t") && b2 == UInt8(ascii: "t") { attn = true }
+                case UInt8(ascii: "N"): if b1 == UInt8(ascii: "T") && b2 == UInt8(ascii: "T") { attn = true }
+                case UInt8(ascii: "."):
+                    if b2 == UInt8(ascii: "i") && b1 == UInt8(ascii: "n") || b2 == UInt8(ascii: "a") && b1 == UInt8(ascii: "x") { minMax = true }
+                    if b3 == UInt8(ascii: "e") && b2 == UInt8(ascii: "t") && b1 == UInt8(ascii: "c") { etc = true }
+                default: break
+                }
+                (b3, b2, b1) = (b2, b1, b)
+            }
+        }
     }
 
     /// Whether `head`, a sentence as Apple's splitter cut it (trimmed), ends in shorthand of this
