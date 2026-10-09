@@ -3045,9 +3045,9 @@
     },
     {
       "area" : "shorthand",
-      "gb" : "bɹˈɪŋ pˈɛnz, pˈApə, ɛtsˈɛtəɹə",
+      "gb" : "bɹˈɪŋ pˈɛnz, pˈApə, ɛtsˈɛtəɹə.",
       "text" : "Bring pens, paper, etc.",
-      "us" : "bɹˈɪŋ pˈɛnz, pˈApəɹ, ɛtsˈɛTəɹə"
+      "us" : "bɹˈɪŋ pˈɛnz, pˈApəɹ, ɛtsˈɛTəɹə."
     },
     {
       "area" : "shorthand",
@@ -8368,8 +8368,9 @@
     },
     {
       "area" : "shorthand",
-      "says" : "I ate em and ems at five pee em.",
-      "text" : "I ate M&Ms at 5 pm."
+      "says" : "I ate em and ems at five PM.",
+      "text" : "I ate M&Ms at 5 pm.",
+      "voice" : "us"
     }
   ]
 }

@@ -5008,13 +5008,13 @@
   },
   {
    "text": "Acme® is a brand.",
-   "us": "ˈækmi ɹˈɛʤəstəɹd ɪz",
-   "gb": "ˈakmi ɹˈɛʤɪstəd ɪz"
+   "us": "ˈækmi ɪz ɐ",
+   "gb": "ˈakmi ɪz ɐ"
   },
   {
    "text": "Aloud™ is great.",
-   "us": "əlˈWd tɹˈAdmˌɑɹk ɪz",
-   "gb": "əlˈWd tɹˈAdmɑːk ɪz",
+   "us": "əlˈWd ɪz ɡɹˈAt",
+   "gb": "əlˈWd ɪz ɡɹˈAt",
    "absent": "tˌiˈɛm"
   },
   {
@@ -5109,6 +5109,11 @@
    "text": "Elizabeth II's reign was long.",
    "us": "ðə sˈɛkəndz ɹˈAn",
    "gb": "ðə sˈɛkᵊndz ɹˈAn"
+  },
+  {
+   "text": "Bring pens, paper, etc. Then go.",
+   "us": "ɛtsˈɛTəɹə. ðˈɛn",
+   "gb": "ɛtsˈɛtəɹə. ðˈɛn"
   }
  ],
  "chunk_cases": [
@@ -5149,6 +5154,25 @@
    "text": "See No. 5 on the list.",
    "chunks": [
     "See No. 5 on the list."
+   ]
+  },
+  {
+   "text": "Attn. Maria Lopez",
+   "chunks": [
+    "Attn. Maria Lopez"
+   ]
+  },
+  {
+   "text": "The barn was built ca. 1850. It still stands.",
+   "chunks": [
+    "The barn was built ca. 1850.",
+    "It still stands."
+   ]
+  },
+  {
+   "text": "She said no. 2 days later, she called.",
+   "chunks": [
+    "She said no. 2 days later, she called."
    ]
   },
   {
