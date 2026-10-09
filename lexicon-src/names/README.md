@@ -5,6 +5,13 @@ This folder holds phases 1 and 2 of the names pack: a ranked list of about 100,0
 (`ledger.tsv`, `coverage.json`, `spotcheck.tsv`). No pronunciations have been researched or
 written yet; nothing here changes what the app says.
 
+**Phase 3 (research) is set up, not done.** `NAMES-GUIDE.md` is the research brief;
+`tools/research_queue.py` cuts the ledger into batches of 150 in
+`~/Library/Caches/aloud-names/research/` (outside the repository, with the tools copied there) and
+writes `queue-summary.json` (84,543 names in 565 batches; tranche 1 is ranks 1 to 10,000);
+`tools/check_names.py` checks a researched batch against the app's readings today
+(`tools/example-batch.json` holds five worked entries).
+
 **This is a source-based ranking, not a world census.** It counts names where open statistics
 exist (eight national registers covering about 571 million people, mostly in English-speaking
 countries and western Europe) and estimates the rest of the world from the given names of
