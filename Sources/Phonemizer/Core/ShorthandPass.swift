@@ -18,6 +18,12 @@ enum ShorthandPass {
         var t = text
         var cues = Cues(t)
         if cues.slash {
+            t = rewrite(t, slashWords, cased: true) { m, s in
+                let found = s.substring(with: m.range)
+                if found.lowercased().hasPrefix("c/o") { return "Class of" }
+                return slashWordReadings[found]
+            }
+            t = rewrite(t, withAfterNumber) { m, s in s.substring(with: m.range(at: 1)) == "W" ? "With" : "with" }
             t = rewrite(t, withForms, readWith)
             t = rewrite(t, because) { m, s in s.substring(with: m.range(at: 1)) == "B" ? "Because" : "because" }
             t = rewrite(t, careOf) { m, s in
@@ -49,7 +55,93 @@ enum ShorthandPass {
             cues = Cues(t)
         }
         if cues.etc { t = rewrite(t, etcetera, cased: false) { _, _ in "etc.." } }
+        if cues.comparison {
+            // "+/-" first, so its minus isn't taken for a sign ("+/- 5%", "+/-5%").
+            t = rewrite(t, plusMinus) { _, _ in "plus or minus " }
+            t = rewrite(t, comparison) { m, s in
+                let sign = s.substring(with: m.range(at: 1))
+                // "<3" on its own is a heart ("Love u <3"), not "less than three".
+                if sign == "<", s.substring(with: m.range(at: 2)) == "3", matches(heartAfter, in: s, at: NSMaxRange(m.range)) { return nil }
+                return sign == "<" ? "less than " : "more than "
+            }
+        }
+        if cues.abbreviation {
+            t = rewrite(t, exampleAbbreviations) { m, s in
+                let found = s.substring(with: m.range(at: 1))
+                let words = found.lowercased() == "e.g." ? "for example" : found.lowercased() == "i.e." ? "that is" : "package"
+                return found.first?.isUppercase == true ? words.prefix(1).uppercased() + words.dropFirst() : words
+            }
+        }
+        if cues.digit {
+            t = rewrite(t, noBeforeNumber, cased: false) { _, _ in "No," }
+            t = rewrite(t, mixedCode, cased: false) { m, s in splitCode(s.substring(with: m.range)) }
+            t = rewrite(t, retirementPlan, cased: false) { m, s in s.substring(with: m.range(at: 1)) + "(k)" }
+        }
         return t
+    }
+
+    // MARK: Words before the lexicon
+
+    /// Shorthand with a slash that the lexicon would split: "w/end", "y/y", "m/m", "q/q", and
+    /// "C/O" before a class year ("C/O 2025"). y/y and its kind become the lexicon's YoY, MoM and
+    /// QoQ, read per voice ("year over year", "year on year"). "w/e" is whatever or a week
+    /// ending, and stays (shorthand.json).
+    private static let slashWords = try! NSRegularExpression(pattern: #"(?:^|(?<=[\s(\[{"“‘']))"#
+        + #"(?:[Ww]/end|[yY]/[yY]|[mM]/[mM]|[qQ]/[qQ]|C/O(?=[ \t]+(?:'\d{2}|(?:19|20)\d{2})(?!\d)))(?![\p{L}\p{N}/])"#,
+        options: .anchorsMatchLines)
+    private static let slashWordReadings = ["w/end": "weekend", "W/end": "Weekend", "y/y": "YoY", "Y/Y": "YoY",
+                                            "m/m": "MoM", "M/M": "MoM", "q/q": "QoQ", "Q/Q": "QoQ"]
+
+    /// "w/" after an amount or a percentage, before a word: "$62.40 w/ tip", "15% w/ code". The
+    /// slash forms above skip a number and a space ("5 W/kg" is watts), but a spaced "w/" and
+    /// a word after an amount is only ever "with".
+    private static let withAfterNumber = try! NSRegularExpression(pattern: #"(?<=[\d%][ \t])([Ww])/(?=[ \t]+[\p{L}$£€(])"#)
+
+    /// "+/-" and "±" written out: "+/- 5%", "+/-5%".
+    private static let plusMinus = try! NSRegularExpression(pattern: #"(?<![\p{L}\p{N}+/])\+/[-−][ \t]?(?=[~≈]?[$£€¥₹₩]?\d|[ \t]*\d)"#)
+    /// "<" or ">" glued before a number: ">60%", "<40%", "<5 min", ">2s" (≤ and ≥ are the
+    /// lexicon's: "less than or equal to"; spaced, "a > 5" is the operator rule's). Not markup ("<3>"),
+    /// an arrow ("<-5", "->5") or an operator between two numbers ("3<5", spaced "3 < 5" is the
+    /// operator rule's).
+    private static let comparison = try! NSRegularExpression(pattern: #"(?<![\p{L}\p{N}<>=\-!])([<>])(?=[~≈]?[$£€¥₹₩]?(\d+)(?![\d]*>))"#)
+    /// After "<3", what leaves it a heart: the end, a line break, or anything but a number's unit
+    /// or a word ("<3 days" is less than three days; "Love u <3", "<3 you" are hearts).
+    private static let heartAfter = try! NSRegularExpression(pattern: #"3(?=[ \t]*(?:$|\n|[^\p{L}\p{N}\s%.,]|[!.,?][ \t]*(?:$|\n|\p{Lu}))|[ \t]+(?:you|u|ya|this|it|xx?)\b)"#,
+                                                             options: [.anchorsMatchLines])
+
+    /// "e.g." and "i.e." before a word (the tech lexicon reads "e.g." as letters), and "Pkg." for
+    /// "package". Alone ("e.g.") they stay the lexicon's.
+    private static let exampleAbbreviations = try! NSRegularExpression(pattern: #"(?<![\p{L}\p{N}_.])((?:[Ee]\.[Gg]|[Ii]\.[Ee])\.|Pkg\.|pkg\.)(?=,?[ \t]+[\p{L}\p{N}"“(])"#)
+
+    /// "No." as the word before a number it can't be numbering: a year at the start of a quote
+    /// ("he said: \"No. 2026 is the year…\"") or an amount in per cent ("\"No. 100 per cent
+    /// no\""). The tokenizer reads "No." before any number as "number"; with a comma it's the
+    /// word, and the pause stays.
+    private static let noBeforeNumber = try! NSRegularExpression(pattern:
+        #"(?:(?<=["“‘'][ \t]?)(No)\.(?=[ \t]+(?:19|20)\d\d(?![\d,.%]))|(?<![\p{L}\p{N}])(No)\.(?=[ \t]+\d+(?:\.\d+)?[ \t]*(?:%|per[ \t]?cent|percent)(?![\p{L}])))"#)
+
+    /// A code of capitals and digits with a 2 between letters ("7FHK2L", "R2D2", "H2O2"): spaced
+    /// where letters and digits meet, so the 2 stays a number. The G2P read "K2L" as "K to L",
+    /// as it should "B2B" and "P2P", which are three characters and left alone.
+    private static let mixedCode = try! NSRegularExpression(pattern: #"(?<![\p{L}\p{N}\-_./@#])(?=[\p{Lu}\d]{4,12}(?![\p{L}\p{N}]))(?=[\p{Lu}\d]*\d)[\p{Lu}\d]*\p{Lu}2\p{Lu}[\p{Lu}\d]*(?![\p{L}\p{N}\-_/@])"#)
+
+    /// "401k" as the lexicon's "401(k)", which it reads "four oh one K" (it was "four hundred one K").
+    private static let retirementPlan = try! NSRegularExpression(pattern: #"(?<![\p{L}\p{N}.,$£€])(401)[kK](?![\p{L}\p{N}])"#)
+
+    private static func splitCode(_ code: String) -> String {
+        var out = ""
+        var previous: Character?
+        for c in code {
+            if let p = previous, p.isNumber != c.isNumber { out += " " }
+            out.append(c)
+            previous = c
+        }
+        return out
+    }
+
+    /// Whether `regex` matches right at `location`, seeing the text on both sides.
+    private static func matches(_ regex: NSRegularExpression, in s: NSString, at location: Int) -> Bool {
+        regex.firstMatch(in: s as String, options: [.anchored, .withTransparentBounds], range: NSRange(location: location, length: s.length - location)) != nil
     }
 
     /// What the pass's steps need to find before they run: "/", "ttn" or "TTN" (Attn), "in." or
@@ -58,18 +150,30 @@ enum ShorthandPass {
     /// every sentence read. All of them are ASCII, so a byte match is the same test.
     private struct Cues {
         var slash = false, attn = false, minMax = false, ampersand = false, etc = false
+        /// "<", ">", "≤", "≥" or "+/".
+        var comparison = false
+        /// ".g." or ".e." (e.g., i.e.), or "kg." (Pkg.).
+        var abbreviation = false
+        var digit = false
 
         init(_ text: String) {
             var b1: UInt8 = 0, b2: UInt8 = 0, b3: UInt8 = 0  // the three bytes before `b`
             for b in text.utf8 {
                 switch b {
-                case UInt8(ascii: "/"): slash = true
+                case UInt8(ascii: "/"):
+                    slash = true
+                    if b1 == UInt8(ascii: "+") { comparison = true }
                 case UInt8(ascii: "&"): ampersand = true
+                case UInt8(ascii: "<"), UInt8(ascii: ">"): comparison = true
+                case 0xA4, 0xA5: if b1 == 0x89 && b2 == 0xE2 { comparison = true }  // ≤ ≥
                 case UInt8(ascii: "n"): if b1 == UInt8(ascii: "t") && b2 == UInt8(ascii: "t") { attn = true }
                 case UInt8(ascii: "N"): if b1 == UInt8(ascii: "T") && b2 == UInt8(ascii: "T") { attn = true }
                 case UInt8(ascii: "."):
                     if b2 == UInt8(ascii: "i") && b1 == UInt8(ascii: "n") || b2 == UInt8(ascii: "a") && b1 == UInt8(ascii: "x") { minMax = true }
                     if b3 == UInt8(ascii: "e") && b2 == UInt8(ascii: "t") && b1 == UInt8(ascii: "c") { etc = true }
+                    if b2 == UInt8(ascii: ".") && (b1 | 0x20 == UInt8(ascii: "g") || b1 | 0x20 == UInt8(ascii: "e"))
+                        || b2 == UInt8(ascii: "k") && b1 == UInt8(ascii: "g") { abbreviation = true }
+                case UInt8(ascii: "0")...UInt8(ascii: "9"): digit = true
                 default: break
                 }
                 (b3, b2, b1) = (b2, b1, b)
@@ -83,12 +187,24 @@ enum ShorthandPass {
     /// in Tests/g2p/regression.json: the speech tests phonemize whole lines and never see the split.
     static func sentenceContinues(_ head: String, into next: String) -> Bool? {
         guard head.hasSuffix("."), let first = next.first(where: { !$0.isWhitespace }) else { return nil }
-        guard let m = runOn.firstMatch(in: head, range: NSRange(location: 0, length: (head as NSString).length)) else { return nil }
+        let all = NSRange(location: 0, length: (head as NSString).length)
+        // "after Wk." + "9", "The Natl." + "Weather Service", "(feat." + "Billy Ray Cyrus)", and a
+        // list's Roman marker ("Agenda: I. Intro, II." + "Q3 results").
+        if let m = runOnLabel.firstMatch(in: head, range: all) {
+            if m.range(at: 1).location != NSNotFound { return first.isNumber ? true : nil }
+            return first.isUppercase ? true : nil
+        }
+        guard let m = runOn.firstMatch(in: head, range: all) else { return nil }
         // "Attn." before its addressee ("Maria Lopez"); "ca." or "c." before a year ("1850.").
         if m.range(at: 1).location != NSNotFound { return first.isUppercase ? true : nil }
         return first.isNumber ? true : nil
     }
 
+    /// More abbreviations Apple's splitter takes for a full stop: "Wk." before a number (group 1),
+    /// "Natl.", "Intl.", "feat." and "ft." before a name, and a list's Roman marker after a comma,
+    /// colon or semicolon.
+    private static let runOnLabel = try! NSRegularExpression(pattern:
+        #"(?:(?<![\p{L}\p{N}_.])(Wk|wk)|(?<![\p{L}\p{N}_.])(?:Natl|natl|Intl|intl|feat|Feat)|(?<=\p{L}[ \t])ft|[,:;][ \t]+(?:[IVX]{1,4}|[ivx]{1,4}))\.$"#)
     /// The abbreviations Apple's splitter takes for a full stop: Attn (group 1), and ca. and c.
     private static let runOn = try! NSRegularExpression(pattern: #"(?:(?<![\p{L}\p{N}_.])(Attn|ATTN|attn)|(?<![\p{L}\p{N}_.&])(?:ca|c))\.$"#)
 

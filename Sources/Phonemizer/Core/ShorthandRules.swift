@@ -14,12 +14,19 @@ enum ShorthandRules {
         var rules: [Rule] = []
         // "§ 4.2", "§§ 3-5", "¶ 2": the signs were silent. A pilcrow is "paragraph" only before a
         // number; elsewhere it marks the end of a paragraph and is silent ("the end.¶").
-        rules.append(Rule(#"(§§?|¶¶?(?=\s?\d))\s?|[ \t]*¶+(?!¶|\s?\d)"#) { m, s in
+        rules.append(Rule(#"(§§?|¶¶?(?=\s?\d))\s?(?:(?<=§|§\s)(\d{3})(?![\d.,]))?|[ \t]*¶+(?!¶|\s?\d)"#) { m, s in
             guard m.range(at: 1).location != NSNotFound else { return spaceBetween(m.range, in: s) }
             let sign = s.substring(with: m.range(at: 1))
             let before = m.range.location > 0 ? s.substring(with: NSRange(location: m.range.location - 1, length: 1)) : " "
             let word = ["§": "section", "§§": "sections", "¶": "paragraph", "¶¶": "paragraphs"][sign]!
-            return (before.first?.isWhitespace == false && before != "(" ? " " : "") + word + " "
+            // A three-digit section is said in pairs, as lawyers say it: "§230" is "section two
+            // thirty", "§ 101" "section one oh one".
+            var number = ""
+            if m.range(at: 2).location != NSNotFound {
+                let d = Array(s.substring(with: m.range(at: 2)))
+                number = d[1] == "0" && d[2] == "0" ? String(d) : d[1] == "0" ? "\(d[0]) oh \(d[2])" : "\(d[0]) \(d[1])\(d[2])"
+            }
+            return (before.first?.isWhitespace == false && before != "(" ? " " : "") + word + " " + number
         })
         // ™, ℠ and ® are silent: nobody reads "Acme trademark" aloud (DECISIONS 3). A full stop
         // after one stays ("Buy Acme®.").
@@ -59,8 +66,20 @@ enum ShorthandRules {
         rules.append(Rule(#"(?<![\p{L}\p{N}#])(#)(?=[ \t]+of(?![\p{L}\p{N}]))|(?<=\b(?i:"# + keyVerbs + #")[ \t])#(?=\s|[.,;:!?)]|$)|(?<![\p{L}\p{N}#])#(?=[ \t]+(?i:key|keys|button|buttons)(?![\p{L}]))"#) { m, _ in
             m.range(at: 1).location != NSNotFound ? "number" : key
         })
+        // The key again later in a list of presses: "Press 1, then 3, then #." Only in a
+        // sentence that presses or dials.
+        rules.append(Rule.withContext(#"(?<=\b(?:then|or|and)[ \t])#(?=\s|[.,;:!?)]|$)"#) { m, s, context in
+            matches(keyVerbPattern, context.sentence(around: m.range, in: s)) ? key : "#"
+        })
+        // A star key before a code ("Dial *67"), and a rating ("a 5* hotel") → "star".
+        rules.append(Rule(#"(?<=\b(?i:"# + keyVerbs + #")[ \t])\*(?=\d)"#) { _, _ in "star " })
+        rules.append(Rule(#"(?<![\p{L}\p{N}.*])(\d(?:\.\d)?)\*(?![\d*\p{L}])(?=[ \t]+\p{L})"#) { m, s in
+            s.substring(with: m.range(at: 1)) + " star"
+        })
         return rules
     }
+
+    private static let keyVerbPattern = try! NSRegularExpression(pattern: #"(?i)\b(?:press|presses|pressed|pressing|dial|dials|dialed|dialled|dialing|dialling|enter|hit|tap)\b"#)
 
     /// Nothing where a sign stood, or a space when it stood between two words or numbers
     /// ("Acme®Pro"), so they stay apart.
@@ -88,6 +107,11 @@ enum ShorthandRules {
         // "9~5", "10:00~18:00": a range, as East Asian text writes it.
         rules.append(Rule(#"(?<![\p{L}\p{N}~])(\d{1,2}(?::\d{2})?|\d+)[ \t]?~[ \t]?(\d{1,2}(?::\d{2})?|\d+)(?![\d~])"#) { m, s in
             s.substring(with: m.range(at: 1)) + " to " + s.substring(with: m.range(at: 2))
+        })
+        // "a ~2 hr drive": "about a 2 hr drive", as it's said (it was "a about").
+        rules.append(Rule(#"(?<![\p{L}\p{N}])([Aa]n?)[ \t]+~[ \t]?(?=\d)"#) { m, s in
+            let article = s.substring(with: m.range(at: 1))
+            return (article.first == "A" ? "About " : "about ") + article.lowercased() + " "
         })
         // "~5", "~ 10 km", "~-5°C", "~1,000": "about". Not a path ("~/Documents"), code ("~y"), a
         // semver range ("~4.17.21") or strikethrough ("~~"). Before money it's the money pass's.
@@ -166,6 +190,90 @@ enum ShorthandRules {
         rules.append(Rule(#"(?<![\p{L}\p{N}_.])ca\.[ \t]?(?=\d{3,4}(?![\d,]))|(?<![\p{L}\p{N}_.&])c\.[ \t]?(?=(?:1\d{3}|20\d{2})(?![\d,.]\d))"#) { _, _ in
             "circa "
         })
+        // Before a time it's "around": "Results are expected c. 2am" (the clock rules have read
+        // the time already: "c. 2 AM").
+        rules.append(Rule(#"(?<![\p{L}\p{N}_.&])c\.[ \t]?(?=\d{1,2}(?:[: ]\d{2})?[ \t](?:AM|PM|A\.M\.|P\.M\.|o'clock)(?![\p{L}]))"#) { _, _ in
+            "around "
+        })
+        // Labels before a number: "p. 12", "pp. 14-17", "Fig. 2", "Vol. 3", "Art. 5", "col. 4",
+        // "Pt. 2", "Wk. 9", "Sec. 4.2", "Ch. 3" → "page 12", "pages 14 to 17", "Figure 2"… They
+        // were letters or a made-up word ("fig", "vol", "sek"). Only before a number, or for pages
+        // a Roman numeral ("pp. i–xii"), and never after one ("30 sec. 4 more", "1 pt. cream").
+        rules.append(Rule(#"(?<![\p{L}\p{N}_.&])(?<!\d[ \t])(pp|p|Figs|figs|Fig|fig|Vols|Vol|vol|Arts|Art|art|Col|col|Pt|pt|Wk|wk|Secs|Sec|sec|Ch|ch)\.[ \t]?(?=\d|(?<=pp\.|pp\.[ \t])[ivxlcIVXLC]+(?:[–-][ivxlcIVXLC]+)?(?![\p{L}]))"#) { m, s in
+            (labels[s.substring(with: m.range(at: 1))] ?? s.substring(with: m.range(at: 1))) + " "
+        })
+        // Shorthand that is never a word: "Qty" quantity, "ppl" people, "mgr" manager, "Utd" United,
+        // "Natl." National, "intl." international, "Bros." Brothers, "Aus. Open" Australian.
+        rules.append(Rule.withContext(#"(?<![\p{L}\p{N}_.&/@])(Qty|QTY|qty|ppl|mgr|Utd|Natl|natl|Intl|intl|Bros|Aus(?=\.[ \t]+Open\b))(\.)?(?![\p{L}\p{N}_/@]|\.\p{L})"#) { m, s, context in
+            let found = s.substring(with: m.range(at: 1))
+            let dotted = m.range(at: 2).location != NSNotFound
+            // Natl, Intl, Bros and Aus need their point; the rest are whole words.
+            if !dotted, ["Natl", "natl", "Intl", "intl", "Bros", "Aus"].contains(found) { return s.substring(with: m.range) }
+            return shorthandWords[found]! + (dotted ? FullStop.kept(before: context.text(after: m.range, in: s), next: .capital) : "")
+        })
+        // "Co." after a name is a company ("Ford Motor Co. said", "& Co."), and "Co" before an
+        // Irish county the county ("A farm in Co Tyrone", "Co. Cork").
+        rules.append(Rule(#"(?<![\p{L}\p{N}_.])Co\.?(?=[ \t]+(?:"# + irishCounties + #")(?![\p{L}]))"#) { _, _ in "County" })
+        rules.append(Rule.withContext(#"(?<=\p{L}[ \t]|&[ \t])Co\.(?![\p{L}\p{N}])"#) { m, s, context in
+            // A company only after a name ("Motor", "Smith &").
+            let before = context.text(before: m.range, in: s, limit: 40)
+            let word = before.reversed().drop { $0 == " " || $0 == "\t" }.prefix { $0.isLetter || $0 == "&" }
+            guard word.last == "&" || word.last?.isUppercase == true else { return s.substring(with: m.range) }
+            return "Company" + FullStop.kept(before: context.text(after: m.range, in: s), next: .sentenceStarter)
+        })
+        // A life in brackets: "(b. 1924, d. 2024)", "(b. 8 Jan 1947)", "(r. 1837-1901)" → born,
+        // died, reigned. Only after a bracket or a comma, before a year or a date.
+        rules.append(Rule(#"(?<=[(\[]|[(\[][ \t]|,[ \t])([bdr])\.[ \t]?(?=(?:c\.|ca\.)?[ \t]?\d{3,4}(?![\d,.]\d)|\d{1,2}(?:st|nd|rd|th)?[ \t]+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)|the[ \t]\d|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\p{L}*\.?[ \t]\d)"#) { m, s in
+            ["b": "born ", "d": "died ", "r": "reigned "][s.substring(with: m.range(at: 1))]!
+        })
+        // "inc." before what a price includes: "£29.99 inc. VAT". ("Inc." after a name is the company's.)
+        rules.append(Rule.withContext(#"(?<![\p{L}\p{N}_.])inc\.(?=[ \t])"#) { m, s, context in
+            guard matches(includedAhead, context.text(after: m.range, in: s, limit: 30)) else { return s.substring(with: m.range) }
+            return "including"
+        })
+        // A timetable: "Arr. 14:05, Dep. 16:40" → "Arrives", "Departs" (the clock rule has read the time).
+        rules.append(Rule(#"(?<![\p{L}\p{N}_.])(Arr|Dep|arr|dep)\.(?=[ \t]?\d)"#) { m, s in
+            ["Arr": "Arrives", "Dep": "Departs", "arr": "arrives", "dep": "departs"][s.substring(with: m.range(at: 1))]!
+        })
+        // Featuring: "(feat. Billy Ray Cyrus)", and "ft." between a title and a name ("Despacito ft.
+        // Justin Bieber"); after a number "ft." is feet.
+        rules.append(Rule(#"(?<![\p{L}\p{N}_.])(?:([Ff])eat\.|(?<=\p{L}[ \t])ft\.)(?=[ \t]+\p{Lu})"#) { m, s in
+            m.range(at: 1).location != NSNotFound && s.substring(with: m.range(at: 1)) == "F" ? "Featuring" : "featuring"
+        })
+        // "No. of nights": "number of" (the tokenizer leaves "No." before a word as the word no).
+        rules.append(Rule(#"(?<![\p{L}\p{N}_.])([Nn])o\.(?=[ \t]+of(?![\p{L}]))"#) { m, s in
+            s.substring(with: m.range(at: 1)) == "N" ? "Number" : "number"
+        })
+        // "A/C" is air conditioning, said as the letters ("uh C" with the A as the article).
+        rules.append(Rule(#"(?<![\p{L}\p{N}/])A/C(?![\p{L}\p{N}/])"#) { _, _ in "AC" })
+        // "bc" between two words in chat, before the clause it opens: "because" ("Can't go bc I'm
+        // sick"). Not the calculator ("pipe it to bc and print", "| bc").
+        rules.append(Rule(#"(?<=\p{Ll}[ \t])bc(?=[ \t]+(?i:i|i'm|i’m|im|it|it's|it’s|its|he|she|they|we|you|u|the|my|your|there|this|that)(?![\p{L}]))"#) { _, _ in "because" })
+        // "dia." after a size: "2.5 inches dia." → "in diameter".
+        rules.append(Rule(#"(?<=\b(?:inches|inch|in|cm|mm|centimeters|millimeters|meters|feet|ft)\.?[ \t])dia\.?(?![\p{L}])"#) { _, _ in
+            "in diameter"
+        })
         return rules
+    }
+
+    /// Labels before a number, written out.
+    private static let labels = [
+        "pp": "pages", "p": "page", "Figs": "Figures", "figs": "figures", "Fig": "Figure", "fig": "figure", "Vols": "Volumes",
+        "Vol": "Volume", "vol": "volume", "Arts": "Articles", "Art": "Article", "art": "article", "Col": "Column",
+        "col": "column", "Pt": "Part", "pt": "part", "Wk": "Week", "wk": "week", "Secs": "Sections", "Sec": "Section",
+        "sec": "section", "Ch": "Chapter", "ch": "chapter",
+    ]
+    private static let shorthandWords = [
+        "Qty": "Quantity", "QTY": "QUANTITY", "qty": "quantity", "ppl": "people", "mgr": "manager",
+        "Utd": "United", "Natl": "National", "natl": "national", "Intl": "International", "intl": "international",
+        "Bros": "Brothers", "Aus": "Australian",
+    ]
+    /// The counties "Co" names before them in Ireland, and Durham in England.
+    private static let irishCounties = "Antrim|Armagh|Carlow|Cavan|Clare|Cork|Derry|Donegal|Down|Dublin|Fermanagh|Galway|Kerry|Kildare|Kilkenny|Laois|Leitrim|Limerick|Longford|Louth|Mayo|Meath|Monaghan|Offaly|Roscommon|Sligo|Tipperary|Tyrone|Waterford|Westmeath|Wexford|Wicklow|Durham"
+    /// What a price includes after "inc.".
+    private static let includedAhead = try! NSRegularExpression(pattern: #"^[ \t]+(?:VAT|vat|GST|tax|taxes|delivery|postage|P&P|p&p|shipping|tip|service|fees|breakfast)(?![\p{L}])"#)
+
+    private static func matches(_ regex: NSRegularExpression, _ text: String) -> Bool {
+        regex.firstMatch(in: text, range: NSRange(location: 0, length: (text as NSString).length)) != nil
     }
 }
