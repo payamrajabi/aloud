@@ -5157,6 +5157,66 @@
    ]
   },
   {
+   "text": "We're #1 again.",
+   "chunks": [
+    "We're #1 again."
+   ]
+  },
+  {
+   "text": "I write C# daily.",
+   "chunks": [
+    "I write C# daily."
+   ]
+  },
+  {
+   "text": "The # of items is low.",
+   "chunks": [
+    "The # of items is low."
+   ]
+  },
+  {
+   "text": "We need ~5 people.",
+   "chunks": [
+    "We need ~5 people."
+   ]
+  },
+  {
+   "text": "Dial #31# now.",
+   "chunks": [
+    "Dial #31# now."
+   ]
+  },
+  {
+   "text": "Now ~~$10~~ $8.",
+   "chunks": [
+    "Now $10 $8."
+   ]
+  },
+  {
+   "text": "Press * then 2.",
+   "chunks": [
+    "Press * then 2."
+   ]
+  },
+  {
+   "text": "Press # to finish.",
+   "chunks": [
+    "Press # to finish."
+   ]
+  },
+  {
+   "text": "## Setup steps",
+   "chunks": [
+    "Setup steps"
+   ]
+  },
+  {
+   "text": "Follow #blessed on Instagram.",
+   "chunks": [
+    "Follow blessed on Instagram."
+   ]
+  },
+  {
    "text": "Attn. Maria Lopez",
    "chunks": [
     "Attn. Maria Lopez"
