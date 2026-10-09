@@ -3930,6 +3930,756 @@
       "gb" : "sˈɛkʃᵊn fˈIv ɐ kˈʌvəz ɪt.",
       "text" : "Section 5 A covers it.",
       "us" : "sˈɛkʃən fˈIv ɐ kˈʌvəɹz ɪt."
+    },
+    {
+      "area" : "dates",
+      "gb" : "pɹˈIsɪz wɜː kˈʌt bI wˈʌn θˈɜːd lˈɑːst jˈɪə.",
+      "text" : "Prices were cut by 1/3 last year.",
+      "us" : "pɹˈIsᵻz wɜɹ kˈʌt bI wˈʌn θˈɜɹd lˈæst jˈɪɹ."
+    },
+    {
+      "area" : "dates",
+      "gb" : "mˈɪks wˈʌn hˈɑːf tə θɹˈiː kwˈɔːtəz kˈʌp ɒv wˈɔːtə.",
+      "text" : "Mix 1/2 to 3/4 cup of water.",
+      "us" : "mˈɪks wˈʌn hˈæf tə θɹˈi kwˈɔɹTəɹz kˈʌp ʌv wˈɔTəɹ."
+    },
+    {
+      "area" : "dates",
+      "gb" : "wˌiː wˈʌn θɹˈiː kwˈɔːtəz ɒv ðə sˈiːts.",
+      "text" : "We won 3/4 of the seats.",
+      "us" : "wˌi wˈʌn θɹˈi kwˈɔɹTəɹz ʌv ðə sˈits."
+    },
+    {
+      "area" : "dates",
+      "gb" : "jˈuːz ɐ θɹˈiː ˈAtθs ˈɪnʧ dɹˈɪl bˈɪt.",
+      "text" : "Use a 3/8 inch drill bit.",
+      "us" : "jˈuz ɐ θɹˈi ˈAθs ˈɪnʧ dɹˈɪl bˈɪt."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ðə ɹˈAʃɪQ wɒz θɹˈiː ˈAtθs at ði ˈɛnd.",
+      "text" : "The ratio was 3/8 at the end.",
+      "us" : "ðə ɹˈAʃiO wʌz θɹˈi ˈAθs æt ði ˈɛnd."
+    },
+    {
+      "area" : "dates",
+      "gb" : "fɹˌɒm wˈʌn hˈɑːf tə θɹˈiː kwˈɔːtəz ɒv vˈQtəz əɡɹˈiːd.",
+      "text" : "From 1/2 to 3/4 of voters agreed.",
+      "us" : "fɹˌʌm wˈʌn hˈæf tə θɹˈi kwˈɔɹTəɹz ʌv vˈOTəɹz əɡɹˈid."
+    },
+    {
+      "area" : "dates",
+      "gb" : "sˈat dˌWn bɪsˈId hɜː and smˈIld.",
+      "text" : "Sat down beside her and smiled.",
+      "us" : "sˈæt dˌWn bəsˈId hɜɹ ænd smˈIld."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ðə sˈʌn ɪz ˈWt tədˈA.",
+      "text" : "The Sun is out today.",
+      "us" : "ðə sˈʌn ɪz ˈWt tədˈA."
+    },
+    {
+      "area" : "dates",
+      "gb" : "hˈɪə kˈʌmz ðə sˈʌn.",
+      "text" : "Here comes the Sun.",
+      "us" : "hˈɪɹ kˈʌmz ðə sˈʌn."
+    },
+    {
+      "area" : "dates",
+      "gb" : "nujˈɛn ðˈuː wˈɜːks hˈɪə.",
+      "text" : "Nguyen Thu works here.",
+      "us" : "nujˈɛn ðˈu wˈɜɹks hˈɪɹ."
+    },
+    {
+      "area" : "dates",
+      "gb" : "tˈuː nujˈɛn kˈɔːld bˈak.",
+      "text" : "Tue Nguyen called back.",
+      "us" : "tˈu nujˈɛn kˈɔld bˈæk."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ˌɒn ʤˈanjʊəɹi fˈɪfθ sˈAlz wɜː ˌʌp.",
+      "text" : "On Jan 5 sales were up.",
+      "us" : "ˌɔn ʤˈænjəwˌɛɹi fˈɪfθ sˈAlz wɜɹ ˌʌp."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ðə ʤˈuːn fˈɪfθ pɹˈIməɹiz wɜː klˈQs.",
+      "text" : "The June 5 primaries were close.",
+      "us" : "ðə ʤˈun fˈɪfθ pɹˈImˌɛɹiz wɜɹ klˈOs."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ɡˈɪv ʤˈan ðə fˈIlz.",
+      "text" : "Give Jan the files.",
+      "us" : "ɡˈɪv ʤˈæn ðə fˈIlz."
+    },
+    {
+      "area" : "dates",
+      "gb" : "mˈɑːʧ ðə θˈɜːd wɒz ɐ tjˈuːzdA.",
+      "text" : "March 3 was a Tuesday.",
+      "us" : "mˈɑɹʧ θˈɜɹd wʌz ɐ tˈuzdˌA."
+    },
+    {
+      "area" : "dates",
+      "gb" : "pɹˈɪnt ðə pˈɑːt ɪn θɹˈiː dˈiː.",
+      "text" : "Print the part in 3d.",
+      "us" : "pɹˈɪnt ðə pˈɑɹt ɪn θɹˈi dˈi."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ɪn ðə θɹˈiː dˈiː mˈɒdᵊl ði ˈɑːm mˈuːvz.",
+      "text" : "In the 3d model the arm moves.",
+      "us" : "ɪn ðə θɹˈi dˈi mˈɑdᵊl ði ˈɑɹm mˈuvz."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ðə pˈWnd tɹˈAdɪd at wˈʌn pYnt tˈuː fˈIv əɡˈɛnst ðə dˈɒlə.",
+      "text" : "The pound traded at 1.25 against the dollar.",
+      "us" : "ðə pˈWnd tɹˈAdᵻd æt wˈʌn pYnt tˈu fˈIv əɡˈɛnst ðə dˈɑləɹ."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ʃˈɛːz ɹˈQz tˈuː pYnt θɹˈiː zˈɪəɹQ pəsˈɛnt.",
+      "text" : "Shares rose 2.30 percent.",
+      "us" : "ʃˈɛɹz ɹˈOz tˈu pYnt θɹˈi zˈɪɹO pəɹsˈɛnt."
+    },
+    {
+      "area" : "dates",
+      "gb" : "vˈɜːʃᵊn tˈɛn pYnt θɹˈiː zˈɪəɹQ ɪz ˈWt.",
+      "text" : "Version 10.30 is out.",
+      "us" : "vˈɜɹʒən tˈɛn pYnt θɹˈi zˈɪɹO ɪz ˈWt."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ðə ɹˈAt ɹˈQz tə wˈʌn pYnt θɹˈiː zˈɪəɹQ tədˈA.",
+      "text" : "The rate rose to 1.30 today.",
+      "us" : "ðə ɹˈAt ɹˈOz tə wˈʌn pYnt θɹˈi zˈɪɹO tədˈA."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ɡˈɪlt jˈiːldz hˈɪt fˈɔː pYnt wˈʌn fˈIv ˌɒn mˈʌndA.",
+      "text" : "Gilt yields hit 4.15 on Monday.",
+      "us" : "ɡˈɪlt jˈildz hˈɪt fˈɔɹ pYnt wˈʌn fˈIv ˌɔn mˈʌndˌA."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ˌɪts tˈuː pYnt fˈIv zˈɪəɹQ ɐ kˈiːlQ.",
+      "text" : "It's 2.50 a kilo.",
+      "us" : "ˌɪts tˈu pYnt fˈIv zˈɪɹO ɐ kˈilO."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ˈɛntə pˈɪn zˈɪəɹQ sˈɪks fˈɔː fˈIv tʊ ʌnlˈɒk.",
+      "text" : "Enter PIN 0645 to unlock.",
+      "us" : "ˈɛntəɹ pˈɪn zˈɪɹO sˈɪks fˈɔɹ fˈIv tʊ ˌʌnlˈɑk."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ˈɔːdə zˈɪəɹQ nˈIn wˈʌn zˈɪəɹQ ʃˈɪpt jˈɛstədA.",
+      "text" : "Order 0910 shipped yesterday.",
+      "us" : "ˈɔɹdəɹ zˈɪɹO nˈIn wˈʌn zˈɪɹO ʃˈɪpt jˈɛstəɹdˌA."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ˈɑːnsə tˈiː ˈɛf fɔː ˈiːʧ kwˈɛsʧᵊn.",
+      "text" : "Answer T/F for each question.",
+      "us" : "ˈænsəɹ tˈi ˈɛf fɔɹ ˈiʧ kwˈɛsʧᵊn."
+    },
+    {
+      "area" : "dates",
+      "gb" : "sˈIzɪz ˈɛs ˈɛm ˈɛl ɑː ɪn stˈɒk.",
+      "text" : "Sizes S/M/L are in stock.",
+      "us" : "sˈIzᵻz ˈɛs ˈɛm ˈɛl ɑɹ ɪn stˈɑk."
+    },
+    {
+      "area" : "dates",
+      "gb" : "mˈQn dˈuː, wˌɒt ɐ dˈA!",
+      "text" : "Mon Dieu, what a day!",
+      "us" : "mˈOn dˈu, wˌʌt ɐ dˈA!"
+    },
+    {
+      "area" : "dates",
+      "gb" : "hˌiː sˈat θɹˈiː ɪɡzˈamz.",
+      "text" : "He sat 3 exams.",
+      "us" : "hˌi sˈæt θɹˈi ɪɡzˈæmz."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ˈɛm ˈɛf ˈQnli, plˈiːz.",
+      "text" : "M/F only, please.",
+      "us" : "ˈɛm ˈɛf ˈOnli, plˈiz."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ðə wˈʌn sˈɪks ʃˈɛː wˈɛnt tʊ ˈan.",
+      "text" : "The 1/6 share went to Ann.",
+      "us" : "ðə wˈʌn sˈɪks ʃˈɛɹ wˈɛnt tʊ ˈæn."
+    },
+    {
+      "area" : "dates",
+      "gb" : "bɹˈɪŋ tˈuː θˈɜːdz ɒv ðə ɡɹˈuːp.",
+      "text" : "Bring 2/3 of the group.",
+      "us" : "bɹˈɪŋ tˈu θˈɜɹdz ʌv ðə ɡɹˈup."
+    },
+    {
+      "area" : "dates",
+      "gb" : "skˈɔː nˈIn tˈɛn ˌɒn ðə kwˈɪz.",
+      "text" : "Score 9/10 on the quiz.",
+      "us" : "skˈɔɹ nˈIn tˈɛn ˌɔn ðə kwˈɪz."
+    },
+    {
+      "area" : "units",
+      "gb" : "ðə fˈIv kˈɪləmˌiːtəz bɪtwˈiːn ðˌɛm wɒz hˈɑːd.",
+      "text" : "The 5 km between them was hard.",
+      "us" : "ðə fˈIv kəlˈɑməTəɹz bətwˈin ðˌɛm wʌz hˈɑɹd."
+    },
+    {
+      "area" : "units",
+      "gb" : "ˌI ɹˈan fˈIv kˈɪləmˌiːtəz jˈɛstədA.",
+      "text" : "I ran 5 km yesterday.",
+      "us" : "ˌI ɹˈæn fˈIv kəlˈɑməTəɹz jˈɛstəɹdˌA."
+    },
+    {
+      "area" : "units",
+      "gb" : "ˈad tˈuː kˈʌps ˈQts and θɹˈiː tˈAblspuːnz sˈiːdz.",
+      "text" : "Add 2 cups oats and 3 tbsp seeds.",
+      "us" : "ˈæd tˈu kˈʌps ˈOts ænd θɹˈi tˈAbəlspˌunz sˈidz."
+    },
+    {
+      "area" : "units",
+      "gb" : "ˈad tˈuː hˈʌndɹəd ɡɹˈamz nˈʌts tə ðə bˈQl.",
+      "text" : "Add 200 g nuts to the bowl.",
+      "us" : "ˈæd tˈu hˈʌndɹəd ɡɹˈæmz nˈʌts tə ðə bˈOl."
+    },
+    {
+      "area" : "units",
+      "gb" : "bˈI tˈuː pˈWndz pətˈAtQz.",
+      "text" : "Buy 2 lb potatoes.",
+      "us" : "bˈI tˈu pˈWndz pətˈATOz."
+    },
+    {
+      "area" : "units",
+      "gb" : "ðə tˈɛn mˈɪnɪts lˈɛft wɜː tˈɛns.",
+      "text" : "The 10 minutes left were tense.",
+      "us" : "ðə tˈɛn mˈɪnəts lˈɛft wɜɹ tˈɛns."
+    },
+    {
+      "area" : "units",
+      "gb" : "ðə lˈɑːst fˈIv kˈɪləmˌiːtəz wɜː hˈɑːd.",
+      "text" : "The last 5 km were hard.",
+      "us" : "ðə lˈæst fˈIv kəlˈɑməTəɹz wɜɹ hˈɑɹd."
+    },
+    {
+      "area" : "units",
+      "gb" : "hˌiː stˈɔːz tˈuː tˈɛɹəbIts ɒv fˈQtQz.",
+      "text" : "He stores 2 TB of photos.",
+      "us" : "hˌi stˈɔɹz tˈu tˈɛɹəbˌIts ʌv fˈOTOz."
+    },
+    {
+      "area" : "units",
+      "gb" : "wˌiː had tˈuː mˈiːtəz ɒv snˈQ.",
+      "text" : "We had 2 m of snow.",
+      "us" : "wˌi hæd tˈu mˈiTəɹz ʌv snˈO."
+    },
+    {
+      "area" : "units",
+      "gb" : "wˌiː ɑː tˈuː mˈiːtəz bɪhˈInd ðə lˈiːdə.",
+      "text" : "We are 2 m behind the leader.",
+      "us" : "wˌi ɑɹ tˈu mˈiTəɹz bəhˈInd ðə lˈidəɹ."
+    },
+    {
+      "area" : "units",
+      "gb" : "ðə twˈɛnti fˈɜːst sˈɛnʧʊɹi bɪɡˈan.",
+      "text" : "The 21st century began.",
+      "us" : "ðə twˈɛnti fˈɜɹst sˈɛnʧəɹi bəɡˈæn."
+    },
+    {
+      "area" : "units",
+      "gb" : "ɡˈAt fˌɔːtˈiːn sˈiː ɪz ˈQpᵊn.",
+      "text" : "Gate 14C is open.",
+      "us" : "ɡˈAt fˌɔɹtˈin sˈi ɪz ˈOpᵊn."
+    },
+    {
+      "area" : "units",
+      "gb" : "mˌI sˈiːt ɪz fˌɔːtˈiːn sˈiː",
+      "text" : "My seat is 14C.",
+      "us" : "mˌI sˈit ɪz fˌɔɹtˈin sˈi"
+    },
+    {
+      "area" : "units",
+      "gb" : "ðə fˈɔː kˈA tˌiːvˈiː ɪz ɡɹˈAt.",
+      "text" : "The 4K TV is great.",
+      "us" : "ðə fˈɔɹ kˈA tˌivˈi ɪz ɡɹˈAt."
+    },
+    {
+      "area" : "units",
+      "gb" : "wˌiː ɹˈan ɐ fˈIv kˈA ɹˈAs.",
+      "text" : "We ran a 5k race.",
+      "us" : "wˌi ɹˈæn ɐ fˈIv kˈA ɹˈAs."
+    },
+    {
+      "area" : "units",
+      "gb" : "ʃˌiː bˈɔːt ˈAt kˈA dɪsplˈAz.",
+      "text" : "She bought 8K displays.",
+      "us" : "ʃˌi bˈɔt ˈAt kˈA dəsplˈAz."
+    },
+    {
+      "area" : "units",
+      "gb" : "ˈad wˈʌn sˈiː ɒv ʃˈʊɡə.",
+      "text" : "Add 1 c. of sugar.",
+      "us" : "ˈæd wˈʌn sˈi ʌv ʃˈʊɡəɹ."
+    },
+    {
+      "area" : "units",
+      "gb" : "pˈA wˈʌn pYnt fˈIv pəsˈɛnt pɜː ˈanəm.",
+      "text" : "Pay 1.5% per annum.",
+      "us" : "pˈA wˈʌn pYnt fˈIv pəɹsˈɛnt pɜɹ ˈænəm."
+    },
+    {
+      "area" : "units",
+      "gb" : "ðə skˈɔː wɒz wˈʌn hˈʌndɹəd twˈɛnti ˈAt ˈAti tˈuː.",
+      "text" : "The score was 128/82.",
+      "us" : "ðə skˈɔɹ wʌz wˈʌn hˈʌndɹəd twˈɛnti ˈAt ˈATi tˈu."
+    },
+    {
+      "area" : "units",
+      "gb" : "ɹˈuːm tˈuː ˈɛl ɪz fɹˈiː.",
+      "text" : "Room 2L is free.",
+      "us" : "ɹˈum tˈu ˈɛl ɪz fɹˈi."
+    },
+    {
+      "area" : "units",
+      "gb" : "ˌɪt ɪz tˈɛn kˈɪləmˌiːtəz lˈɒŋ.",
+      "text" : "It is 10 km long.",
+      "us" : "ˌɪt ɪz tˈɛn kəlˈɑməTəɹz lˈɔŋ."
+    },
+    {
+      "area" : "units",
+      "gb" : "wˈɔːk θɹˈiː kˈɪləmˌiːtəz əwˈA fɹɒm ðə ɹˈQd.",
+      "text" : "Walk 3 km away from the road.",
+      "us" : "wˈɔk θɹˈi kəlˈɑməTəɹz əwˈA fɹʌm ðə ɹˈOd."
+    },
+    {
+      "area" : "money",
+      "gb" : "ðə fˈIv dˈɒləz kan bˈI lˈʌnʧ.",
+      "text" : "The $5 can buy lunch.",
+      "us" : "ðə fˈIv dˈɑləɹz kæn bˈI lˈʌnʧ."
+    },
+    {
+      "area" : "money",
+      "gb" : "ˌI pˈAd twˈɛnti dˈɒləz fɔː lˈʌnʧ.",
+      "text" : "I paid $20 for lunch.",
+      "us" : "ˌI pˈAd twˈɛnti dˈɑləɹz fɔɹ lˈʌnʧ."
+    },
+    {
+      "area" : "money",
+      "gb" : "k hˈɑː sˈaŋ ɪt.",
+      "text" : "Ke$ha sang it.",
+      "us" : "k hˈɑ sˈæŋ ɪt."
+    },
+    {
+      "area" : "money",
+      "gb" : "ðə vˈɛːɹɪəbᵊl ˈɛks hˈQldz ɪt.",
+      "text" : "The variable $x holds it.",
+      "us" : "ðə vˈɛɹiəbᵊl ˈɛks hˈOldz ɪt."
+    },
+    {
+      "area" : "money",
+      "gb" : "ɹˈuːm fˈɔː sˈiː ɪz ʌpstˈɛːz.",
+      "text" : "Room 4c is upstairs.",
+      "us" : "ɹˈum fˈɔɹ sˈi ɪz ˌʌpstˈɛɹz."
+    },
+    {
+      "area" : "money",
+      "gb" : "ɐ fˈIv pˈiː bˈaɡ ʧˈɑːʤ əplˈIz.",
+      "text" : "A 5p bag charge applies.",
+      "us" : "ɐ fˈIv pˈi bˈæɡ ʧˈɑɹʤ əplˈIz."
+    },
+    {
+      "area" : "money",
+      "gb" : "pɹˈIs: fˈIv dˈɒləz.",
+      "text" : "Price: $5.",
+      "us" : "pɹˈIs: fˈIv dˈɑləɹz."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "lˈʌv jˈuː θɹˈiː",
+      "text" : "Love u <3",
+      "us" : "lˈʌv jˈu θɹˈi"
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "θɹˈiː juː sˌQ mˈʌʧ",
+      "text" : "<3 you so much",
+      "us" : "θɹˈi ju sˌO mˈʌʧ"
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ˌɪf ɐ ɡɹˈAtə ðən fˈIv ðˈɛn stˈɒp.",
+      "text" : "If a > 5 then stop.",
+      "us" : "ˌɪf ɐ ɡɹˈATəɹ ðən fˈIv ðˈɛn stˈɑp."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ɹɪzˈʌlts: θɹˈiː ɡɹˈAtə ðən tˈuː.",
+      "text" : "Results: 3 > 2.",
+      "us" : "ɹəzˈʌlts: θɹˈi ɡɹˈATəɹ ðən tˈu."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "jˈuːs ˈɛks fˈIv ɪn ðə lˈuːp.",
+      "text" : "Use x<5 in the loop.",
+      "us" : "jˈus ˈɛks fˈIv ɪn ðə lˈup."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ðə bˌiː tə bˈiː mˈɑːkɪt ɪz bˈɪɡ.",
+      "text" : "The B2B market is big.",
+      "us" : "ðə bˌi tə bˈi mˈɑɹkət ɪz bˈɪɡ."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "dɹˈɪŋk ˈAʧtʊˈQ dˈAli.",
+      "text" : "Drink H2O daily.",
+      "us" : "dɹˈɪŋk ˈAʧtʊˈO dˈAli."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "bˈʊkɪŋ ɹˈɛf ˈAtəbˈiː",
+      "text" : "Booking ref A2B.",
+      "us" : "bˈʊkɪŋ ɹˈɛf ˈAtəbˈi"
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "“nˈʌmbə wˈʌn sˈiːd djˈuːk wˈʌn,” hiː sˈɛd.",
+      "text" : "\"No. 1 seed Duke won,\" he said.",
+      "us" : "“nˈʌmbəɹ wˈʌn sˈid dˈuk wˈʌn,” hi sˈɛd."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "nˈʌmbə tˈɛn dˌWnɪŋ stɹˈiːt ɪz ʃˈʌt.",
+      "text" : "No. 10 Downing Street is shut.",
+      "us" : "nˈʌmbəɹ tˈɛn dˌWnɪŋ stɹˈit ɪz ʃˈʌt."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ʧˈuːz (ɐ) twˈɛnti sˌɛvntˈiːn, (bˈiː) twˈɛnti ˌAtˈiːn ɔː (sˈiː) twˈɛnti nˌIntˈiːn.",
+      "text" : "Choose (a) 2017, (b) 2018 or (c) 2019.",
+      "us" : "ʧˈuz (ɐ) twˈɛnti sˌɛvəntˈin, (bˈi) twˈɛnti ˌAtˈin ɔɹ (sˈi) twˈɛnti nˌIntˈin."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "pˈIp ðə sˈʌm tə bˌiːsˈiː and pɹˈɪnt ɪt.",
+      "text" : "Pipe the sum to bc and print it.",
+      "us" : "pˈIp ðə sˈʌm tə bˌisˈi ænd pɹˈɪnt ɪt."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "pɹˈɛs stˈɑː tə kˈansᵊl.",
+      "text" : "Press * to cancel.",
+      "us" : "pɹˈɛs stˈɑɹ tə kˈænsᵊl."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "sˈiː ˌiːʤˈiː",
+      "text" : "See e.g.",
+      "us" : "sˈi ˌiʤˈi"
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ðə kˈQ sˈɛd nˈʌθɪŋ.",
+      "text" : "The co. said nothing.",
+      "us" : "ðə kˈO sˈɛd nˈʌθɪŋ."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "sˈɛkʃᵊn nˌIntˈiːn ˈAti θɹˈiː klˈAmz ɑː kˈɒmən.",
+      "text" : "§ 1983 claims are common.",
+      "us" : "sˈɛkʃən nˌIntˈin ˈATi θɹˈi klˈAmz ɑɹ kˈɑmən."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "plˈan bˈiː. ðˈɛn ɡˌQ.",
+      "text" : "Plan B. Then go.",
+      "us" : "plˈæn bˈi. ðˈɛn ɡˌO."
+    },
+    {
+      "area" : "titles",
+      "gb" : "lɛftˈɛnənt ɡɹˈA sˈɛd ðə jˈuːnɪt wɒz ɹˈɛdi.",
+      "text" : "Lt. Gray said the unit was ready.",
+      "us" : "lutˈɛnənt ɡɹˈA sˈɛd ðə jˈunət wʌz ɹˈɛdi."
+    },
+    {
+      "area" : "titles",
+      "gb" : "lɛftˈɛnənt ɡɹˈiːn lˈɛd ðə pətɹˈQl.",
+      "text" : "Lt. Green led the patrol.",
+      "us" : "lutˈɛnənt ɡɹˈin lˈɛd ðə pətɹˈOl."
+    },
+    {
+      "area" : "titles",
+      "gb" : "ʤˈɛnəɹəl mˈɪli spˈQk fˈɜːst.",
+      "text" : "Gen. Milley spoke first.",
+      "us" : "ʤˈɛnəɹəl mˈɪli spˈOk fˈɜɹst."
+    },
+    {
+      "area" : "titles",
+      "gb" : "wˈɪlmɪŋtən, dˈɛləwɛː ɪz kwˈIət.",
+      "text" : "Wilmington, Del. is quiet.",
+      "us" : "wˈɪlmɪŋtᵊn, dˈɛləwˌɛɹ ɪz kwˈIət."
+    },
+    {
+      "area" : "titles",
+      "gb" : "sˈiː ðə dɪə. lˈɪstɪŋ.",
+      "text" : "See the dir. listing.",
+      "us" : "sˈi ðə dɪɹ. lˈɪstɪŋ."
+    },
+    {
+      "area" : "titles",
+      "gb" : "ɹˈɛvəɹənd smˈɪθ pɹˈiːʧt.",
+      "text" : "Rev. Smith preached.",
+      "us" : "ɹˈɛvəɹənd smˈɪθ pɹˈiʧt."
+    },
+    {
+      "area" : "titles",
+      "gb" : "ˌɛsˈɑː ɡˌɑːsˈiːə lˈɛɡQ tˈɑːd.",
+      "text" : "Sr. García llegó tarde.",
+      "us" : "ˌɛsˈɑɹ ɡˌɑɹsˈiə lˈɛɡO tˈɑɹd."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "ˈɑːsk dˈɒktə smˈɪθ əbˈWt ɪt.",
+      "text" : "Ask Dr. Smith about it.",
+      "us" : "ˈæsk dˈɑktəɹ smˈɪθ əbˈWt ɪt."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "ðə dˈɒktə sˈɛd ɹˈɛst.",
+      "text" : "The Dr. said rest.",
+      "us" : "ðə dˈɑktəɹ sˈɛd ɹˈɛst."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "hˌiː sˈɔː dˈɒktə lˈiː tədˈA.",
+      "text" : "He saw Dr. Lee today.",
+      "us" : "hˌi sˈɔ dˈɑktəɹ lˈi tədˈA."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "ˈɛn smˈɪθ ɹˈQt ɪt.",
+      "text" : "N. Smith wrote it.",
+      "us" : "ˈɛn smˈɪθ ɹˈOt ɪt."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "dˈʌbᵊljuː bˈiː jˈAts ɹˈQt pˈQɪmz.",
+      "text" : "W. B. Yeats wrote poems.",
+      "us" : "dˈʌbᵊlju bˈi jˈAts ɹˈOt pˈOəmz."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "ɐn ˈiː kˈQli ˈWtbɹAk spɹˈɛd.",
+      "text" : "An E. coli outbreak spread.",
+      "us" : "ɐn ˈi kˈOli ˈWtbɹˌAk spɹˈɛd."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "pˈiːtˌiː smˈɪθ wɒz ədmˈɪtəd.",
+      "text" : "Pt Smith was admitted.",
+      "us" : "pˈitˌi smˈɪθ wʌz ədmˈɪTᵻd."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "ði ˌɛftˈi ɹɪpˈɔːtɪd ɪt.",
+      "text" : "The FT reported it.",
+      "us" : "ði ˌɛftˈi ɹəpˈɔɹTᵻd ɪt."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "ˈɑːɹˈAtɪd mˈuːviz ɑː ˈWt.",
+      "text" : "R-rated movies are out.",
+      "us" : "ˈɑɹɹˈATᵻd mˈuviz ɑɹ ˈWt."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "ðə dˈiːdA lˈandɪŋz bɪɡˈan.",
+      "text" : "The D-Day landings began.",
+      "us" : "ðə dˈidˌA lˈændɪŋz bəɡˈæn."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "tˈAk ˌI nˈInti fˈIv nˈɔːθ.",
+      "text" : "Take I-95 north.",
+      "us" : "tˈAk ˌI nˈIndi fˈIv nˈɔɹθ."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "wˌiː wˈɛnt tə mˈas ˌɪt wɒz lˈɒŋ.",
+      "text" : "We went to Mass. It was long.",
+      "us" : "wˌi wˈɛnt tə mˈæs ˌɪt wʌz lˈɔŋ."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "hˌiː stˈAd ɪn ɪnd pˈɒlɪtɪks.",
+      "text" : "He stayed in Ind. politics.",
+      "us" : "hˌi stˈAd ɪn ɪnd pˈɑlətˌɪks."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "ʧɛnˈI, tˌiːˈɛn ɪz hˈɒt.",
+      "text" : "Chennai, TN is hot.",
+      "us" : "ʧɛnˈI, tˌiˈɛn ɪz hˈɑt."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "ðə ʧˈɜːʧ ɒv sˈAnts. pˈiːtə and pˈɔːl.",
+      "text" : "The Church of Sts. Peter and Paul.",
+      "us" : "ðə ʧˈɜɹʧ ʌv sˈAnts. pˈiTəɹ ænd pˈɔl."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "ðə zˈɪp fˈIl ɪz twˈɛnti fˈɔːti ˈAt bˈIts.",
+      "text" : "The zip file is 2048 bytes.",
+      "us" : "ðə zˈɪp fˈIl ɪz twˈɛnti fˈɔɹTi ˈAt bˈIts."
+    },
+    {
+      "area" : "roman",
+      "gb" : "wˌɛn ˌI mˈɛt ʧˈɑːlz ˌI wɒz nˈɜːvəs.",
+      "text" : "When I met Charles I was nervous.",
+      "us" : "wˌɛn ˌI mˈɛt ʧˈɑɹlz ˌI wʌz nˈɜɹvəs."
+    },
+    {
+      "area" : "roman",
+      "gb" : "ʧˈɑːlz, ˌI wɒz ðˈɛː.",
+      "text" : "Charles, I was there.",
+      "us" : "ʧˈɑɹlz, ˌI wʌz ðˈɛɹ."
+    },
+    {
+      "area" : "roman",
+      "gb" : "hˈɛnɹi ðə sˈɛvnθ. hˈɛnɹi ði ˈAtθ.",
+      "text" : "Henry VII. Henry VIII.",
+      "us" : "hˈɛnɹi ðə sˈɛvənθ. hˈɛnɹi ði ˈAθ."
+    },
+    {
+      "area" : "roman",
+      "gb" : "fˈAz ˌI θˈɪŋk wˈɜːks.",
+      "text" : "Phase I think works.",
+      "us" : "fˈAz ˌI θˈɪŋk wˈɜɹks."
+    },
+    {
+      "area" : "roman",
+      "gb" : "lˈɛt ˈɛf ˈI) biː ðə vˈaljuː.",
+      "text" : "Let f(i) be the value.",
+      "us" : "lˈɛt ˈɛf ˈI) bi ðə vˈælju."
+    },
+    {
+      "area" : "roman",
+      "gb" : "lˈʌv, mˈɛːɹi ˌɛksˈɛks",
+      "text" : "Love, Mary XX",
+      "us" : "lˈʌv, mˈɛɹi ˌɛksˈɛks"
+    },
+    {
+      "area" : "phone",
+      "gb" : "ðə wˈʌn hˈʌndɹəd twˈɛlv bˈʌs wɒz lˈAt.",
+      "text" : "The 112 bus was late.",
+      "us" : "ðə wˈʌn hˈʌndɹəd twˈɛlv bˈʌs wʌz lˈAt."
+    },
+    {
+      "area" : "phone",
+      "gb" : "ɹˈuːt wˈʌn ɪlˈɛvᵊn klˈQzd.",
+      "text" : "Route 111 closed.",
+      "us" : "ɹˈut wˈʌn əlˈɛvᵊn klˈOzd."
+    },
+    {
+      "area" : "phone",
+      "gb" : "hˌiː skˈɔːd wˈʌn hˈʌndɹəd ɪlˈɛvᵊn ɹˈʌnz.",
+      "text" : "He scored 111 runs.",
+      "us" : "hˌi skˈɔɹd wˈʌn hˈʌndɹəd əlˈɛvᵊn ɹˈʌnz."
+    },
+    {
+      "area" : "phone",
+      "gb" : "ðə pˈɑːswəːd ɪz twˈɛlv θˈɜːti fˈɔː.",
+      "text" : "The password is 1234.",
+      "us" : "ðə pˈæswˌɜɹd ɪz twˈɛlv θˈɜɹTi fˈɔɹ."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "plˈA at tˈuː ˈɛks spˈiːd.",
+      "text" : "Play at 2x speed.",
+      "us" : "plˈA æt tˈu ˈɛks spˈid."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "jˈuːs θɹˈiː ˈɛks zˈuːm.",
+      "text" : "Use 3x zoom.",
+      "us" : "jˈus θɹˈi ˈɛks zˈum."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "hˌiːz sˈɪks tə sˈɛvᵊn pˈYnts bɪhˈInd.",
+      "text" : "He's 6-7 points behind.",
+      "us" : "hˌiz sˈɪks tə sˈɛvən pˈYnts bəhˈInd."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "hˌiːz sˈɪks tə fˈɔː ɪn ðə sˈɪəɹiːz.",
+      "text" : "He's 6-4 in the series.",
+      "us" : "hˌiz sˈɪks tə fˈɔɹ ɪn ðə sˈɪɹiz."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "ðə skˈɔː ɪz sˈɪks tə fˈɔː.",
+      "text" : "The score is 6-4.",
+      "us" : "ðə skˈɔɹ ɪz sˈɪks tə fˈɔɹ."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "ʃˌiːz sˈɪks tə tˈuː ðɪs sˈiːzᵊn.",
+      "text" : "She's 6-2 this season.",
+      "us" : "ʃˌiz sˈɪks tə tˈu ðɪs sˈizᵊn."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "wˈʌn wˈʌn tə tˈuː ɪn ði ˈɛnd.",
+      "text" : "Won 1-2 in the end.",
+      "us" : "wˈʌn wˈʌn tə tˈu ɪn ði ˈɛnd."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "ðə nˈIn tʊ ɪlˈɛvᵊn ɹˈAnʤ ɪz fˈIn.",
+      "text" : "The 9-11 range is fine.",
+      "us" : "ðə nˈIn tʊ əlˈɛvᵊn ɹˈAnʤ ɪz fˈIn."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "kˈɪdz ˈAʤd nˈIn tʊ ɪlˈɛvᵊn ətˈɛnd.",
+      "text" : "Kids aged 9-11 attend.",
+      "us" : "kˈɪdz ˈAʤd nˈIn tʊ əlˈɛvᵊn ətˈɛnd."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "sˈɒlv fɔː ˈɛks tˈuː.",
+      "text" : "Solve for x2.",
+      "us" : "sˈɑlv fɔɹ ˈɛks tˈu."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "fˈɔː fˈɪfθs ɒv ðə pˈI ɪz ɡˈɒn.",
+      "text" : "4/5 of the pie is gone.",
+      "us" : "fˈɔɹ fˈɪfθs ʌv ðə pˈI ɪz ɡˈɔn."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "skˈɔːd nˈIn tˈɛn ˌɒn ðə tˈɛst.",
+      "text" : "Scored 9/10 on the test.",
+      "us" : "skˈɔɹd nˈIn tˈɛn ˌɔn ðə tˈɛst."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "ˌIv tˈQld juː fˈIv ˈɛks ɔːlɹˈɛdi.",
+      "text" : "I've told you 5x already.",
+      "us" : "ˌIv tˈOld ju fˈIv ˈɛks ˌɔlɹˈɛdi."
     }
   ],
   "speech_cases" : [
