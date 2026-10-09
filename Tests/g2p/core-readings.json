@@ -4125,9 +4125,9 @@
     },
     {
       "area" : "dates",
-      "gb" : "skˈɔː nˈIn tˈɛn ˌɒn ðə kwˈɪz.",
+      "gb" : "skˈɔː nˈIn ˈWt ɒv tˈɛn ˌɒn ðə kwˈɪz.",
       "text" : "Score 9/10 on the quiz.",
-      "us" : "skˈɔɹ nˈIn tˈɛn ˌɔn ðə kwˈɪz."
+      "us" : "skˈɔɹ nˈIn ˈWt ʌv tˈɛn ˌɔn ðə kwˈɪz."
     },
     {
       "area" : "units",
@@ -4671,9 +4671,9 @@
     },
     {
       "area" : "dimensions",
-      "gb" : "skˈɔːd nˈIn tˈɛn ˌɒn ðə tˈɛst.",
+      "gb" : "skˈɔːd nˈIn ˈWt ɒv tˈɛn ˌɒn ðə tˈɛst.",
       "text" : "Scored 9/10 on the test.",
-      "us" : "skˈɔɹd nˈIn tˈɛn ˌɔn ðə tˈɛst."
+      "us" : "skˈɔɹd nˈIn ˈWt ʌv tˈɛn ˌɔn ðə tˈɛst."
     },
     {
       "area" : "dimensions",
@@ -4752,6 +4752,84 @@
       "gb" : "sˈiːnɪəz ˈQvə sˈɪksti fˈIv ɹˈId fɹˈiː.",
       "text" : "Seniors over 65 ride free.",
       "us" : "sˈinjəɹz ˈOvəɹ sˈɪksti fˈIv ɹˈId fɹˈi."
+    },
+    {
+      "area" : "dates",
+      "gb" : "kˈʌt θɹˈiː kwˈɔːtəz ɒv ðə kˈAk.",
+      "text" : "Cut 3/4 of the cake.",
+      "us" : "kˈʌt θɹˈi kwˈɔɹTəɹz ʌv ðə kˈAk."
+    },
+    {
+      "area" : "dates",
+      "gb" : "jˈuːs θɹˈiː ˈAtθs bˈQlts fɔː ðə fɹˈAm.",
+      "text" : "Use 3/8 bolts for the frame.",
+      "us" : "jˈus θɹˈi ˈAθs bˈOlts fɔɹ ðə fɹˈAm."
+    },
+    {
+      "area" : "dates",
+      "gb" : "θɹˈɛd (wˈʌn θˈɜːd): wˌI ɪt mˈatəz",
+      "text" : "Thread (1/3): why it matters",
+      "us" : "θɹˈɛd (wˈʌn θˈɜɹd): wˌI ɪt mˈæTəɹz"
+    },
+    {
+      "area" : "dates",
+      "gb" : "ɹˈiːd ɪt ɪn ðə sˈʌn. ðˈɛn kˈɔːl mˌiː.",
+      "text" : "Read it in The Sun. Then call me.",
+      "us" : "ɹˈid ɪt ɪn ðə sˈʌn. ðˈɛn kˈɔl mˌi."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ɹˈɛst ðə lˈadə tˈuː ˈɛm fɹɒm ðə wˈɔːl.",
+      "text" : "Rest the ladder 2m from the wall.",
+      "us" : "ɹˈɛst ðə lˈædəɹ tˈu ˈɛm fɹʌm ðə wˈɔl."
+    },
+    {
+      "area" : "dates",
+      "gb" : "jˈuːz ɐ tˈuː dˈiː skˈɛʧ fˈɜːst.",
+      "text" : "Use a 2d sketch first.",
+      "us" : "jˈuz ɐ tˈu dˈi skˈɛʧ fˈɜɹst."
+    },
+    {
+      "area" : "dates",
+      "gb" : "vˈɜːʃᵊn twˈɛlv zˈɪəɹQ θɹˈiː twˈɛnti fˈɔː ɪz ˈWt.",
+      "text" : "Version 12.03.24 is out.",
+      "us" : "vˈɜɹʒən twˈɛlv zˈɪɹO θɹˈi twˈɛnti fˈɔɹ ɪz ˈWt."
+    },
+    {
+      "area" : "dates",
+      "gb" : "bˈɪld tˈɛn twˈɛlv twˈɛnti fˈɪkst ɪt.",
+      "text" : "Build 10.12.20 fixed it.",
+      "us" : "bˈɪld tˈɛn twˈɛlv twˈɛnti fˈɪkst ɪt."
+    },
+    {
+      "area" : "dates",
+      "gb" : "swˈɪməz ɹˈɛst fˈIv mˈiːtəz fɹɒm ði ˈɛʤ.",
+      "text" : "Swimmers rest 5 m from the edge.",
+      "us" : "swˈɪməɹz ɹˈɛst fˈIv mˈiTəɹz fɹʌm ði ˈɛʤ."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ðə sˈɛvᵊn pYnt wˈʌn fˈIv dˈɛdlIn pˈɑːst.",
+      "text" : "The 7.15 deadline passed.",
+      "us" : "ðə sˈɛvən pYnt wˈʌn fˈIv dˈɛdlˌIn pˈæst."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ɡˈɪv ɪt θɹˈiː kwˈɔːtəz ˈɛfət.",
+      "text" : "Give it 3/4 effort.",
+      "us" : "ɡˈɪv ɪt θɹˈi kwˈɔɹTəɹz ˈɛfəɹt."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ʃˌiː sˈaŋ ˌAˈɛm ɹˈAdɪQ ʤˈɪŋɡᵊlz.",
+      "text" : "She sang AM radio jingles.",
+      "us" : "ʃˌi sˈæŋ ˌAˈɛm ɹˈAdiO ʤˈɪŋɡᵊlz."
+    },
+    {
+      "area" : "dates",
+      "gb" : "pɹˈIsɪz fˈɛl tˈuː θˈɜːdz ɪn ɐ jˈɪə.",
+      "text" : "Prices fell 2/3 in a year.",
+      "us" : "pɹˈIsᵻz fˈɛl tˈu θˈɜɹdz ɪn ɐ jˈɪɹ."
     }
   ],
   "speech_cases" : [
@@ -11470,6 +11548,306 @@
       "area" : "units",
       "says" : "We hit two billion in revenue.",
       "text" : "We hit 2B in revenue."
+    },
+    {
+      "area" : "dates",
+      "says" : "Ant and Dec twenty years on: the duo look back.",
+      "text" : "Ant and Dec 20 years on: the duo look back."
+    },
+    {
+      "area" : "dates",
+      "says" : "More than one thousand five hundred January sixth defendants were pardoned.",
+      "text" : "More than 1,500 Jan. 6 defendants were pardoned."
+    },
+    {
+      "area" : "dates",
+      "says" : "January sixth rioters stormed the Capitol.",
+      "text" : "Jan. 6 rioters stormed the Capitol."
+    },
+    {
+      "area" : "dates",
+      "says" : "Minutes of the meeting held the twelfth of March, twenty-four were approved.",
+      "text" : "Minutes of the meeting held 12.03.24 were approved.",
+      "voice" : "gb"
+    },
+    {
+      "area" : "dates",
+      "says" : "The invoice is dated the fourth of November, twenty-five.",
+      "text" : "The invoice is dated 04.11.25.",
+      "voice" : "gb"
+    },
+    {
+      "area" : "dates",
+      "says" : "Interest rates: four percent (August), three point seven five percent (November).",
+      "text" : "Interest rates: 4% (Aug.), 3.75% (Nov.)."
+    },
+    {
+      "area" : "dates",
+      "says" : "Bookmakers make Reform seven to two favourites to win the seat.",
+      "text" : "Bookmakers make Reform 7/2 favourites to win the seat.",
+      "voice" : "gb"
+    },
+    {
+      "area" : "dates",
+      "says" : "Labour are eleven to four favourites.",
+      "text" : "Labour are 11/4 favourites.",
+      "voice" : "gb"
+    },
+    {
+      "area" : "dates",
+      "says" : "Saturated Fat two grams",
+      "text" : "Sat. Fat 2g"
+    },
+    {
+      "area" : "dates",
+      "says" : "Fat nine grams, Saturated Fat two grams, Trans Fat zero grams",
+      "text" : "Fat 9g, Sat. Fat 2g, Trans Fat 0g"
+    },
+    {
+      "area" : "dates",
+      "says" : "Departs March sixteenth at nine AM.",
+      "says_gb" : "Departs the sixteenth of March at nine AM.",
+      "text" : "Departs 3/16 at 9 am."
+    },
+    {
+      "area" : "dates",
+      "says" : "Checkin: March sixteenth",
+      "says_gb" : "Checkin: the sixteenth of March",
+      "text" : "Check-in: 3/16"
+    },
+    {
+      "area" : "dates",
+      "says" : "Checkin: November fourteenth, checkout: November sixteenth",
+      "says_gb" : "Checkin: the fourteenth of November, checkout: the sixteenth of November",
+      "text" : "Check-in: 11/14, check-out: 11/16"
+    },
+    {
+      "area" : "dates",
+      "says" : "Dates: November fourteenth to November sixteenth",
+      "says_gb" : "Dates: the fourteenth of November to the sixteenth of November",
+      "text" : "Dates: 11/14–11/16"
+    },
+    {
+      "area" : "dates",
+      "says" : "Arrive April eighth, leave April twelfth.",
+      "text" : "Arrive 4/8, leave 4/12.",
+      "voice" : "us"
+    },
+    {
+      "area" : "dates",
+      "says" : "Offer ends October thirty-first.",
+      "says_gb" : "Offer ends the thirty-first of October.",
+      "text" : "Offer ends 10/31."
+    },
+    {
+      "area" : "dates",
+      "says" : "It ends September thirtieth.",
+      "says_gb" : "It ends the thirtieth of September.",
+      "text" : "It ends 9/30."
+    },
+    {
+      "area" : "dates",
+      "says" : "Pay by March sixteenth.",
+      "says_gb" : "Pay by the sixteenth of March.",
+      "text" : "Pay by 3/16."
+    },
+    {
+      "area" : "dates",
+      "says" : "Closed Sunday.",
+      "text" : "Closed Sun."
+    },
+    {
+      "area" : "dates",
+      "says" : "Sale ends Sunday at midnight.",
+      "text" : "Sale ends Sun. at midnight."
+    },
+    {
+      "area" : "dates",
+      "says" : "Open daily except Sunday.",
+      "text" : "Open daily except Sun."
+    },
+    {
+      "area" : "dates",
+      "says" : "Layover fifty-five minutes in Doha",
+      "text" : "Layover 55m in Doha"
+    },
+    {
+      "area" : "dates",
+      "says" : "Prep twenty minutes, Cook one hour",
+      "text" : "Prep 20m, Cook 1h"
+    },
+    {
+      "area" : "dates",
+      "says" : "Rest the dough ten minutes.",
+      "text" : "Rest the dough 10m."
+    },
+    {
+      "area" : "dates",
+      "says" : "Store hours nine AM to five PM",
+      "text" : "Store hours 9a-5p"
+    },
+    {
+      "area" : "dates",
+      "says" : "Brunch ten AM to two PM",
+      "text" : "Brunch 10a–2p"
+    },
+    {
+      "area" : "dates",
+      "says" : "Flight BA 117, November fourteenth, LHR to JFK",
+      "says_gb" : "Flight BA 117, the fourteenth of November, LHR to JFK",
+      "text" : "Flight BA 117, 14NOV, LHR to JFK"
+    },
+    {
+      "area" : "dates",
+      "says" : "Wakeup call at oh six hundred.",
+      "text" : "Wake-up call at 0600."
+    },
+    {
+      "area" : "dates",
+      "says" : "Start your seven day free trial.",
+      "text" : "Start your 7d free trial."
+    },
+    {
+      "area" : "dates",
+      "says" : "We offer a thirty day return window.",
+      "text" : "We offer a 30d return window."
+    },
+    {
+      "area" : "dates",
+      "says" : "Closed three of four tickets before lunch.",
+      "text" : "Closed 3/4 tickets before lunch."
+    },
+    {
+      "area" : "dates",
+      "says" : "We closed seven out of ten deals we forecast.",
+      "text" : "We closed 7/10 deals we forecast."
+    },
+    {
+      "area" : "dates",
+      "says" : "Shipped two of three features this sprint.",
+      "text" : "Shipped 2/3 features this sprint."
+    },
+    {
+      "area" : "dates",
+      "says" : "Set the review for March eighth.",
+      "says_gb" : "Set the review for the third of August.",
+      "text" : "Set the review for 3/8."
+    },
+    {
+      "area" : "dates",
+      "says" : "Holiday party is December twelfth at six thirty.",
+      "says_gb" : "Holiday party is the twelfth of December at six thirty.",
+      "text" : "Holiday party is 12/12 at 6:30."
+    },
+    {
+      "area" : "dates",
+      "says" : "The Q4 allhands is December fourth at ten AM PT.",
+      "says_gb" : "The Q4 allhands is the twelfth of April at ten AM PT.",
+      "text" : "The Q4 all-hands is 12/4 at 10am PT."
+    },
+    {
+      "area" : "dates",
+      "says" : "Review is October fourteenth at two PM.",
+      "says_gb" : "Review is the fourteenth of October at two PM.",
+      "text" : "Review is 10/14 at 2pm."
+    },
+    {
+      "area" : "dates",
+      "says" : "Set the review for November twelfth.",
+      "says_gb" : "Set the review for the eleventh of December.",
+      "text" : "Set the review for 11/12."
+    },
+    {
+      "area" : "dates",
+      "says" : "Kickoff (October fourteenth) is in the big room.",
+      "says_gb" : "Kickoff (the fourteenth of October) is in the big room.",
+      "text" : "Kickoff (10/14) is in the big room."
+    },
+    {
+      "area" : "dates",
+      "says" : "MLK Day (January nineteenth) is a company holiday.",
+      "says_gb" : "MLK Day (the nineteenth of January) is a company holiday.",
+      "text" : "MLK Day (1/19) is a company holiday."
+    },
+    {
+      "area" : "dates",
+      "says" : "Nine to ten AM PT / twelve to one PM ET works for both teams.",
+      "text" : "9–10a PT / 12–1p ET works for both teams."
+    },
+    {
+      "area" : "dates",
+      "says" : "Lunch is eleven thirty AM to one PM.",
+      "text" : "Lunch is 11:30a-1p."
+    },
+    {
+      "area" : "dates",
+      "says" : "Everything is midnight UTC in the logs.",
+      "text" : "Everything is 00:00 UTC in the logs."
+    },
+    {
+      "area" : "dates",
+      "says" : "I'll be OOO from the third to the seventh.",
+      "text" : "I'll be OOO from the 3rd-7th."
+    },
+    {
+      "area" : "dates",
+      "says" : "Take the seven fifteen from Waterloo.",
+      "text" : "Take the 7.15 from Waterloo."
+    },
+    {
+      "area" : "dates",
+      "says" : "Let's sync A.M. or P.M., your call.",
+      "text" : "Let's sync AM or PM, your call."
+    },
+    {
+      "area" : "dates",
+      "says" : "Rated the vendor eight out of ten overall.",
+      "text" : "Rated the vendor 8/10 overall."
+    },
+    {
+      "area" : "dates",
+      "says" : "Q3 OKRs: three of five done",
+      "text" : "Q3 OKRs: 3/5 done"
+    },
+    {
+      "area" : "dates",
+      "says" : "Merged four of six PRs today.",
+      "text" : "Merged 4/6 PRs today."
+    },
+    {
+      "area" : "dates",
+      "says" : "Scored four out of five on the quiz.",
+      "text" : "Scored 4/5 on the quiz."
+    },
+    {
+      "area" : "dates",
+      "says" : "Opened five of eight tickets before standup.",
+      "text" : "Opened 5/8 tickets before standup."
+    },
+    {
+      "area" : "dates",
+      "says" : "Grabbing a half day Friday.",
+      "text" : "Grabbing a 1/2 day Friday."
+    },
+    {
+      "area" : "dates",
+      "says" : "Call ran three hours twenty minutes, brutal.",
+      "text" : "Call ran 3 h 20 m, brutal."
+    },
+    {
+      "area" : "dates",
+      "says" : "About two weeks left before code freeze.",
+      "text" : "~2w left before code freeze."
+    },
+    {
+      "area" : "dates",
+      "says" : "Sprint is two weeks.",
+      "text" : "Sprint is 2w."
+    },
+    {
+      "area" : "dates",
+      "says" : "Back in five minutes, grabbing coffee.",
+      "text" : "Back in 5m, grabbing coffee."
     }
   ]
 }

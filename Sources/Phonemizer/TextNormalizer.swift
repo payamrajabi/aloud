@@ -148,6 +148,19 @@ enum TextNormalizer {
                  "anniversary", "era"],
         "1-2": ["finish", "finishes", "punch", "combo"],
     ]
+    /// A word for a rating a little before "8/10": "Rated the vendor 8/10", "Scored 4/5".
+    private static let ratingBehind = try! NSRegularExpression(pattern: #"(?i)(?<![\p{L}])(?:rated|rate|rates|rating|ratings|scored|score|scores|scoring|graded|marked)(?:[ \t]+[\p{L}'’]+){0,3}[ \t]*:?[ \t]*$"#)
+    private static func matches(_ regex: NSRegularExpression, _ text: String) -> Bool {
+        regex.firstMatch(in: text, range: NSRange(location: 0, length: (text as NSString).length)) != nil
+    }
+    /// Verbs before "3/4" and a plural that make it a share of work done: "Closed 3/4 tickets".
+    private static let doneVerbs: Set<String> = [
+        "closed", "opened", "shipped", "merged", "completed", "finished", "passed", "won", "answered", "solved", "fixed",
+        "resolved", "reviewed", "attended", "hit", "made", "landed", "sold", "approved", "signed", "cleared", "filled",
+        "delivered", "launched", "booked", "met",
+    ]
+    /// Words after "3/5" that make it a share of work done: "OKRs: 3/5 done".
+    private static let doneWords: Set<String> = ["done", "complete", "completed", "finished"]
     /// Words before "1/3" that make it one of a series: "Part 1/3", "Thread 1/3".
     private static let seriesLabels: Set<String> = [
         "part", "day", "thread", "step", "week", "episode", "chapter", "page", "slide", "session", "module", "lesson", "round",
@@ -409,6 +422,8 @@ enum TextNormalizer {
             let ampm = m.range(at: 3).location == NSNotFound ? nil : meridiemWord(m, at: 3, in: s)
             // "05:30" is "5 30": a number with a leading zero is otherwise read digit by digit.
             var out = Int(h).map(String.init) ?? h
+            // "00:00" is midnight; "zero o'clock" was no time anyone says.
+            if mm == "00", ampm == nil, Int(h) == 0 { return "midnight" }
             if mm == "00" {
                 if ampm == nil { out += (Int(h) ?? 0) > 12 ? " hundred" : " o'clock" }
             } else if mm.hasPrefix("0") {
@@ -441,29 +456,35 @@ enum TextNormalizer {
         })
         // "Jan 5" and "Feb.".
         rules += DateRules.monthDays(british: british)
-        // A share or a rating: "9/10 dentists agree", "Rated 4.5/5 stars" → "9 out of 10". Out of
-        // 5, 10 or 100, before a plural noun or with a decimal; "3/5 of" is a fraction.
-        rules.append(Rule(#"(?<![\d/.,])(\d{1,3}(?:\.\d)?)/(5|10|100)(?![\d/]|[.,]\d)"#) { m, s in
+        // A share or a rating: "9/10 dentists agree", "Rated 4.5/5 stars", "Rated the vendor 8/10
+        // overall", "Scored 4/5 on the quiz" → "9 out of 10". Out of 5, 10 or 100, before a
+        // plural noun, with a decimal or after a word for a rating; "3/5 of" is a fraction.
+        rules.append(Rule.withContext(#"(?<![\d/.,])(\d{1,3}(?:\.\d)?)/(5|10|100)(?![\d/]|[.,]\d)"#) { m, s, context in
             let whole = s.substring(with: m.range)
             let n = s.substring(with: m.range(at: 1)), d = s.substring(with: m.range(at: 2))
             guard let x = Double(n), let y = Double(d), x <= y else { return whole }
-            let next = s.substring(from: NSMaxRange(m.range)).drop { $0 == " " || $0 == "\t" }.prefix { $0.isLetter }.lowercased()
+            let next = context.text(after: m.range, in: s, limit: 30).drop { $0 == " " || $0 == "\t" }.prefix { $0.isLetter }.lowercased()
             let plural = next.count >= 3 && next.hasSuffix("s") && !["is", "was", "has", "this", "its", "us", "less", "plus"].contains(next)
                 && !next.hasSuffix("ss")
-            guard n.contains(".") || plural || next == "people" else { return whole }
+            guard n.contains(".") || plural || next == "people" || matches(ratingBehind, context.text(before: m.range, in: s, limit: 50)),
+                  next != "of" else { return whole }
             return "\(n) out of \(d)"
         })
-        // One of a series: "Part 1/3", "Day 3/5 of the offsite", "Thread 1/3:" → "1 of 3".
+        // One of a series: "Part 1/3", "Day 3/5 of the offsite", "Thread 1/3:" → "1 of 3". And a
+        // share of work done: "Closed 3/4 tickets", "Merged 4/6 PRs", "OKRs: 3/5 done".
         rules.append(Rule.withContext(#"(?<![\d/.,])(\d{1,2})/(\d{1,2})(?![\d/]|[.,]\d)"#) { m, s, context in
             let n = s.substring(with: m.range(at: 1)), d = s.substring(with: m.range(at: 2))
             guard let x = Int(n), let y = Int(d), x <= y else { return s.substring(with: m.range) }
             // The label may be a term the lexicon marked ("Thread"): read it from the context.
             let before = context.text(before: m.range, in: s, limit: 24)
-            guard before.hasSuffix(" ") || before.hasSuffix("\t"),
-                  seriesLabels.contains(String(before.dropLast().reversed().prefix { $0.isLetter }.reversed()).lowercased()) else {
-                return s.substring(with: m.range)
-            }
-            return "\(n) of \(d)"
+            let previous = String(before.dropLast().reversed().prefix { $0.isLetter }.reversed()).lowercased()
+            if before.hasSuffix(" ") || before.hasSuffix("\t"), seriesLabels.contains(previous) { return "\(n) of \(d)" }
+            guard x < y else { return s.substring(with: m.range) }
+            let next = context.text(after: m.range, in: s, limit: 30).drop { $0 == " " || $0 == "\t" }.prefix { $0.isLetter }.lowercased()
+            if doneWords.contains(next) { return "\(n) of \(d)" }
+            if before.hasSuffix(" "), doneVerbs.contains(previous), next.count >= 3, next.hasSuffix("s"), !next.hasSuffix("ss"),
+               !measureWords.contains(next) { return "\(n) of \(d)" }
+            return s.substring(with: m.range)
         })
         // Fractions after a whole number: "1 1/2 cups" → "1 and a half cups" (it was "one one
         // half"), and with a hyphen, as recipes write it: "1-1/2 cups".
@@ -475,9 +496,13 @@ enum TextNormalizer {
         // Fractions: "1/2", "3/4" and eighths or sixteenths anywhere; other denominators before a
         // measure ("7/10 of a mile", "2/5 cup"). "9/11", "24/7" and a rating ("8/10") stay.
         let fractions = ["1/2": "one half", "1/3": "one third", "2/3": "two thirds", "1/4": "one quarter", "3/4": "three quarters"]
+        let articleFractions = ["1/2": "half", "1/3": "third", "1/4": "quarter"]
         let dateWords: Set<String> = ["on", "by", "until", "till", "from", "since", "before", "after", "due", "dated", "born", "died", "starting", "ending"]
         rules.append(Rule(#"(?<![\d/])(\d{1,2})/(\d{1,3})(?![\d/]|[.,]\d)"#) { m, s in
             let whole = s.substring(with: m.range)
+            // After "a": "a 1/2 day", "a 1/4 mile" → "a half day", "a quarter mile".
+            if let words = articleFractions[whole], s.substring(to: m.range.location).hasSuffix(" a ")
+                || s.substring(to: m.range.location).lowercased() == "a " { return words }
             if let words = fractions[whole] { return words }
             guard let n = Int(s.substring(with: m.range(at: 1))), let d = Int(s.substring(with: m.range(at: 2))),
                   let words = fractionWords(n, d, mixed: false) else { return whole }
