@@ -1,1 +1,29 @@
-[]
+[
+ {
+  "word": "Pir",
+  "packs": ["names", "tech"],
+  "readings": {
+   "names": "Pir (that casing only): PEER, the Sufi title and Urdu/Persian given name (Wiktionary pir: GA /pɪɹ/)",
+   "tech": "PIR (any casing): P-I-R, passive infrared sensor / post-incident review, with its dictation fix"
+  },
+  "why": "Split by casing (FIN-906). The names entry is case-sensitive and the app tries a case-sensitive key before a case-insensitive one of the same length, so 'Pir' reads as the name while 'PIR' and 'pir' keep the acronym. Tech text writes the acronym in capitals; leaving the tech entry case-insensitive keeps its lower-case reading and dictation casing fix."
+ },
+ {
+  "word": "Gui",
+  "packs": ["names", "tech"],
+  "readings": {
+   "names": "Gui (that casing only): GHEE, the Portuguese pet form of Guilherme and the Walloon Guy (Wiktionary /ˈɡi/)",
+   "tech": "GUI (any casing): GOO-ee, graphical user interface, with its dictation fix"
+  },
+  "why": "Split by casing (FIN-906), as for Pir: 'Gui' reads as the name; 'GUI' and lower-case 'gui' (code, informal writing) keep GOO-ee and the dictation fix."
+ },
+ {
+  "word": "Sui",
+  "packs": ["names", "tech"],
+  "readings": {
+   "names": "Sui: SWAY, the Chinese given name and the Sui dynasty (Wiktionary English /sweɪ/)",
+   "tech": "Sui: SWEE, the Mysten Labs blockchain (the team's reading), with dictation rewrites (sooey, swee -> Sui)"
+  },
+  "why": "Same spelling and casing, so one reading applies to everyone, and the tech list (loaded after names.json) keeps SWEE for now. The tech entry carries the blockchain's dictation fix, which a names entry can't (names never rewrite dictation), so it can't simply be dropped. Open for Payam: switching to SWAY means changing the tech entry's reading and accepting SWAY for the blockchain."
+ }
+]

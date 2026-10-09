@@ -868,8 +868,14 @@
   }
  },
  "by_disposition": {
-  "unaudited": 99866,
-  "covered": 134
+  "corrected": 2839,
+  "already-correct": 1483,
+  "unaudited": 95186,
+  "protect-word": 319,
+  "corrected-held-back": 12,
+  "unresolved": 53,
+  "not-a-name": 4,
+  "covered": 104
  },
  "spot_check": {
   "covered-by-lexicon": {
@@ -990,6 +996,973 @@
    "names": 100000,
    "wrong_low": 45194,
    "wrong_high": 51112
+  }
+ },
+ "research": {
+  "about": "Phase 4 (assembly): the researched names (n-batches for the top ranks, p0001 for Persian names) and what the pack does with them. 'Handled' means read as intended now (already correct, or corrected and shipped), or decided on purpose (protect-word, not-a-name). Names not yet researched and names in other scripts (unsupported) are not handled.",
+  "batches": [
+   "n0001",
+   "n0002",
+   "n0003",
+   "n0004",
+   "n0005",
+   "n0006",
+   "n0007",
+   "n0008",
+   "n0009",
+   "n0010",
+   "n0011",
+   "n0012",
+   "n0013",
+   "n0014",
+   "n0015",
+   "n0016",
+   "n0017",
+   "n0018",
+   "n0019",
+   "n0020",
+   "n0021",
+   "n0022",
+   "n0023",
+   "n0024",
+   "n0025",
+   "n0026",
+   "n0027",
+   "n0028",
+   "n0029",
+   "n0030",
+   "n0031",
+   "p0001"
+  ],
+  "totals": {
+   "audited": 4726,
+   "already correct": 1484,
+   "corrected and shipped": 2854,
+   "corrected, held back": 12,
+   "unresolved": 53,
+   "protect-word": 319,
+   "not-a-name": 4,
+   "reads as intended now": 4337
+  },
+  "handled": 4661,
+  "ledger_rows": 100000,
+  "researched_not_in_ledger": 16,
+  "not yet researched": 95290,
+  "not yet researched, by bucket": {
+   "guesser-reading": 69385,
+   "dictionary-reading-needs-check": 14722,
+   "dictionary-reading-likely-right": 6367,
+   "unsupported-script": 2610,
+   "collision-word": 1809,
+   "lexicon-term-reading": 293,
+   "covered-by-lexicon": 104
+  },
+  "held back, by reason": {
+   "core-abbreviation": 2,
+   "ordinary-word": 9,
+   "place-or-brand": 1
+  },
+  "shipped but not read as written": [
+   "Sui"
+  ],
+  "by_rank_tier": {
+   "1-1000": {
+    "audited": 945,
+    "already correct": 417,
+    "corrected and shipped": 423,
+    "corrected, held back": 1,
+    "unresolved": 8,
+    "protect-word": 94,
+    "not-a-name": 2,
+    "reads as intended now": 840
+   },
+   "1001-2500": {
+    "audited": 1411,
+    "already correct": 464,
+    "corrected and shipped": 820,
+    "corrected, held back": 6,
+    "unresolved": 14,
+    "protect-word": 106,
+    "not-a-name": 1,
+    "reads as intended now": 1283
+   },
+   "2501-5000": {
+    "audited": 2294,
+    "already correct": 599,
+    "corrected and shipped": 1539,
+    "corrected, held back": 5,
+    "unresolved": 31,
+    "protect-word": 119,
+    "not-a-name": 1,
+    "reads as intended now": 2138
+   },
+   "5001+": {
+    "audited": 60,
+    "already correct": 3,
+    "corrected and shipped": 57,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 60
+   },
+   "not in the ledger": {
+    "audited": 16,
+    "already correct": 1,
+    "corrected and shipped": 15,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 16
+   }
+  },
+  "by_origin": {
+   "unknown": {
+    "audited": 1068,
+    "already correct": 299,
+    "corrected and shipped": 694,
+    "corrected, held back": 1,
+    "unresolved": 23,
+    "protect-word": 50,
+    "not-a-name": 1,
+    "reads as intended now": 993
+   },
+   "Chinese": {
+    "audited": 336,
+    "already correct": 22,
+    "corrected and shipped": 313,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 1,
+    "not-a-name": 0,
+    "reads as intended now": 335
+   },
+   "English": {
+    "audited": 199,
+    "already correct": 125,
+    "corrected and shipped": 22,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 52,
+    "not-a-name": 0,
+    "reads as intended now": 147
+   },
+   "Arabic": {
+    "audited": 181,
+    "already correct": 41,
+    "corrected and shipped": 134,
+    "corrected, held back": 0,
+    "unresolved": 2,
+    "protect-word": 2,
+    "not-a-name": 2,
+    "reads as intended now": 175
+   },
+   "Dutch": {
+    "audited": 177,
+    "already correct": 102,
+    "corrected and shipped": 57,
+    "corrected, held back": 1,
+    "unresolved": 2,
+    "protect-word": 15,
+    "not-a-name": 0,
+    "reads as intended now": 159
+   },
+   "Chinese/multiple languages": {
+    "audited": 159,
+    "already correct": 23,
+    "corrected and shipped": 123,
+    "corrected, held back": 1,
+    "unresolved": 0,
+    "protect-word": 12,
+    "not-a-name": 0,
+    "reads as intended now": 145
+   },
+   "Dutch/English": {
+    "audited": 120,
+    "already correct": 92,
+    "corrected and shipped": 2,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 26,
+    "not-a-name": 0,
+    "reads as intended now": 94
+   },
+   "Hindi": {
+    "audited": 98,
+    "already correct": 27,
+    "corrected and shipped": 65,
+    "corrected, held back": 0,
+    "unresolved": 6,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 92
+   },
+   "Italian": {
+    "audited": 91,
+    "already correct": 32,
+    "corrected and shipped": 56,
+    "corrected, held back": 1,
+    "unresolved": 0,
+    "protect-word": 1,
+    "not-a-name": 1,
+    "reads as intended now": 88
+   },
+   "Vietnamese": {
+    "audited": 88,
+    "already correct": 16,
+    "corrected and shipped": 67,
+    "corrected, held back": 1,
+    "unresolved": 3,
+    "protect-word": 1,
+    "not-a-name": 0,
+    "reads as intended now": 83
+   },
+   "Spanish": {
+    "audited": 86,
+    "already correct": 12,
+    "corrected and shipped": 71,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 3,
+    "not-a-name": 0,
+    "reads as intended now": 83
+   },
+   "French": {
+    "audited": 83,
+    "already correct": 15,
+    "corrected and shipped": 64,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 4,
+    "not-a-name": 0,
+    "reads as intended now": 79
+   },
+   "Dutch/French": {
+    "audited": 65,
+    "already correct": 23,
+    "corrected and shipped": 41,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 1,
+    "not-a-name": 0,
+    "reads as intended now": 64
+   },
+   "Turkish": {
+    "audited": 65,
+    "already correct": 4,
+    "corrected and shipped": 56,
+    "corrected, held back": 1,
+    "unresolved": 2,
+    "protect-word": 2,
+    "not-a-name": 0,
+    "reads as intended now": 60
+   },
+   "multiple languages": {
+    "audited": 61,
+    "already correct": 23,
+    "corrected and shipped": 28,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 10,
+    "not-a-name": 0,
+    "reads as intended now": 51
+   },
+   "Chinese/Korean/multiple languages": {
+    "audited": 48,
+    "already correct": 13,
+    "corrected and shipped": 12,
+    "corrected, held back": 1,
+    "unresolved": 0,
+    "protect-word": 22,
+    "not-a-name": 0,
+    "reads as intended now": 25
+   },
+   "zh": {
+    "audited": 40,
+    "already correct": 1,
+    "corrected and shipped": 39,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 40
+   },
+   "Polish": {
+    "audited": 40,
+    "already correct": 5,
+    "corrected and shipped": 34,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 1,
+    "not-a-name": 0,
+    "reads as intended now": 39
+   },
+   "Italian/Spanish": {
+    "audited": 39,
+    "already correct": 9,
+    "corrected and shipped": 29,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 1,
+    "not-a-name": 0,
+    "reads as intended now": 38
+   },
+   "Japanese": {
+    "audited": 39,
+    "already correct": 21,
+    "corrected and shipped": 18,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 39
+   },
+   "hi": {
+    "audited": 36,
+    "already correct": 5,
+    "corrected and shipped": 31,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 36
+   },
+   "Persian": {
+    "audited": 33,
+    "already correct": 1,
+    "corrected and shipped": 32,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 33
+   },
+   "en": {
+    "audited": 28,
+    "already correct": 6,
+    "corrected and shipped": 21,
+    "corrected, held back": 0,
+    "unresolved": 1,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 27
+   },
+   "Arabic/Dutch": {
+    "audited": 27,
+    "already correct": 8,
+    "corrected and shipped": 19,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 27
+   },
+   "Dutch/German": {
+    "audited": 22,
+    "already correct": 5,
+    "corrected and shipped": 15,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 2,
+    "not-a-name": 0,
+    "reads as intended now": 20
+   },
+   "German": {
+    "audited": 22,
+    "already correct": 6,
+    "corrected and shipped": 14,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 2,
+    "not-a-name": 0,
+    "reads as intended now": 20
+   },
+   "fa": {
+    "audited": 22,
+    "already correct": 1,
+    "corrected and shipped": 20,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 1,
+    "not-a-name": 0,
+    "reads as intended now": 21
+   },
+   "Dutch/English/French": {
+    "audited": 21,
+    "already correct": 13,
+    "corrected and shipped": 5,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 3,
+    "not-a-name": 0,
+    "reads as intended now": 18
+   },
+   "Portuguese": {
+    "audited": 20,
+    "already correct": 2,
+    "corrected and shipped": 18,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 20
+   },
+   "Dutch/Italian": {
+    "audited": 20,
+    "already correct": 14,
+    "corrected and shipped": 4,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 2,
+    "not-a-name": 0,
+    "reads as intended now": 18
+   },
+   "Arabic/Turkish": {
+    "audited": 16,
+    "already correct": 4,
+    "corrected and shipped": 11,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 1,
+    "not-a-name": 0,
+    "reads as intended now": 15
+   },
+   "zh-hans/zh-hant": {
+    "audited": 16,
+    "already correct": 0,
+    "corrected and shipped": 15,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 1,
+    "not-a-name": 0,
+    "reads as intended now": 15
+   },
+   "Italian/Portuguese/Spanish": {
+    "audited": 15,
+    "already correct": 5,
+    "corrected and shipped": 10,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 15
+   },
+   "Hungarian": {
+    "audited": 15,
+    "already correct": 0,
+    "corrected and shipped": 15,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 15
+   },
+   "ar": {
+    "audited": 14,
+    "already correct": 4,
+    "corrected and shipped": 10,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 14
+   },
+   "Yoruba": {
+    "audited": 14,
+    "already correct": 3,
+    "corrected and shipped": 11,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 14
+   },
+   "Slovene": {
+    "audited": 13,
+    "already correct": 2,
+    "corrected and shipped": 11,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 13
+   },
+   "vi": {
+    "audited": 13,
+    "already correct": 2,
+    "corrected and shipped": 10,
+    "corrected, held back": 0,
+    "unresolved": 1,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 12
+   },
+   "Dutch/Italian/Spanish": {
+    "audited": 12,
+    "already correct": 5,
+    "corrected and shipped": 5,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 2,
+    "not-a-name": 0,
+    "reads as intended now": 10
+   },
+   "Romanian": {
+    "audited": 12,
+    "already correct": 2,
+    "corrected and shipped": 9,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 1,
+    "not-a-name": 0,
+    "reads as intended now": 11
+   }
+  },
+  "by_language": {
+   "English": {
+    "audited": 889,
+    "already correct": 688,
+    "corrected and shipped": 49,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 152,
+    "not-a-name": 0,
+    "reads as intended now": 737
+   },
+   "Mandarin Chinese": {
+    "audited": 556,
+    "already correct": 49,
+    "corrected and shipped": 484,
+    "corrected, held back": 1,
+    "unresolved": 0,
+    "protect-word": 22,
+    "not-a-name": 0,
+    "reads as intended now": 532
+   },
+   "Hindi": {
+    "audited": 345,
+    "already correct": 107,
+    "corrected and shipped": 227,
+    "corrected, held back": 0,
+    "unresolved": 4,
+    "protect-word": 7,
+    "not-a-name": 0,
+    "reads as intended now": 334
+   },
+   "French": {
+    "audited": 270,
+    "already correct": 42,
+    "corrected and shipped": 209,
+    "corrected, held back": 2,
+    "unresolved": 1,
+    "protect-word": 16,
+    "not-a-name": 0,
+    "reads as intended now": 251
+   },
+   "Arabic": {
+    "audited": 263,
+    "already correct": 59,
+    "corrected and shipped": 197,
+    "corrected, held back": 1,
+    "unresolved": 0,
+    "protect-word": 5,
+    "not-a-name": 1,
+    "reads as intended now": 256
+   },
+   "Spanish": {
+    "audited": 241,
+    "already correct": 43,
+    "corrected and shipped": 185,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 13,
+    "not-a-name": 0,
+    "reads as intended now": 228
+   },
+   "Persian": {
+    "audited": 137,
+    "already correct": 5,
+    "corrected and shipped": 131,
+    "corrected, held back": 0,
+    "unresolved": 1,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 136
+   },
+   "Vietnamese": {
+    "audited": 112,
+    "already correct": 20,
+    "corrected and shipped": 85,
+    "corrected, held back": 1,
+    "unresolved": 4,
+    "protect-word": 2,
+    "not-a-name": 0,
+    "reads as intended now": 105
+   },
+   "Portuguese": {
+    "audited": 87,
+    "already correct": 8,
+    "corrected and shipped": 74,
+    "corrected, held back": 1,
+    "unresolved": 0,
+    "protect-word": 4,
+    "not-a-name": 0,
+    "reads as intended now": 82
+   },
+   "Italian": {
+    "audited": 85,
+    "already correct": 26,
+    "corrected and shipped": 56,
+    "corrected, held back": 2,
+    "unresolved": 0,
+    "protect-word": 1,
+    "not-a-name": 0,
+    "reads as intended now": 82
+   },
+   "German": {
+    "audited": 84,
+    "already correct": 14,
+    "corrected and shipped": 64,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 6,
+    "not-a-name": 0,
+    "reads as intended now": 78
+   },
+   "Turkish": {
+    "audited": 71,
+    "already correct": 3,
+    "corrected and shipped": 67,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 1,
+    "not-a-name": 0,
+    "reads as intended now": 70
+   },
+   "Chinese": {
+    "audited": 45,
+    "already correct": 9,
+    "corrected and shipped": 26,
+    "corrected, held back": 1,
+    "unresolved": 0,
+    "protect-word": 9,
+    "not-a-name": 0,
+    "reads as intended now": 35
+   },
+   "Urdu": {
+    "audited": 42,
+    "already correct": 6,
+    "corrected and shipped": 34,
+    "corrected, held back": 0,
+    "unresolved": 1,
+    "protect-word": 1,
+    "not-a-name": 0,
+    "reads as intended now": 40
+   },
+   "Polish": {
+    "audited": 42,
+    "already correct": 2,
+    "corrected and shipped": 40,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 42
+   },
+   "Japanese": {
+    "audited": 40,
+    "already correct": 21,
+    "corrected and shipped": 18,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 1,
+    "not-a-name": 0,
+    "reads as intended now": 39
+   },
+   "Mandarin": {
+    "audited": 38,
+    "already correct": 6,
+    "corrected and shipped": 29,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 3,
+    "not-a-name": 0,
+    "reads as intended now": 35
+   },
+   "Yoruba": {
+    "audited": 35,
+    "already correct": 3,
+    "corrected and shipped": 31,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 1,
+    "not-a-name": 0,
+    "reads as intended now": 34
+   },
+   "Hindi / Marathi": {
+    "audited": 24,
+    "already correct": 1,
+    "corrected and shipped": 22,
+    "corrected, held back": 0,
+    "unresolved": 1,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 23
+   },
+   "Russian": {
+    "audited": 21,
+    "already correct": 4,
+    "corrected and shipped": 16,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 1,
+    "not-a-name": 0,
+    "reads as intended now": 20
+   },
+   "Punjabi": {
+    "audited": 21,
+    "already correct": 7,
+    "corrected and shipped": 14,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 21
+   },
+   "Bengali": {
+    "audited": 21,
+    "already correct": 1,
+    "corrected and shipped": 19,
+    "corrected, held back": 0,
+    "unresolved": 1,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 20
+   },
+   "Indonesian": {
+    "audited": 21,
+    "already correct": 10,
+    "corrected and shipped": 11,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 21
+   },
+   "Arabic / Urdu": {
+    "audited": 19,
+    "already correct": 7,
+    "corrected and shipped": 11,
+    "corrected, held back": 0,
+    "unresolved": 1,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 18
+   },
+   "Urdu / Arabic": {
+    "audited": 18,
+    "already correct": 3,
+    "corrected and shipped": 12,
+    "corrected, held back": 0,
+    "unresolved": 3,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 15
+   },
+   "Igbo": {
+    "audited": 18,
+    "already correct": 6,
+    "corrected and shipped": 12,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 18
+   },
+   "Dutch": {
+    "audited": 17,
+    "already correct": 5,
+    "corrected and shipped": 12,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 17
+   },
+   "Hungarian": {
+    "audited": 17,
+    "already correct": 0,
+    "corrected and shipped": 17,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 17
+   },
+   "Hindi/Bengali": {
+    "audited": 16,
+    "already correct": 6,
+    "corrected and shipped": 10,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 16
+   },
+   "Hindi / Bengali": {
+    "audited": 16,
+    "already correct": 3,
+    "corrected and shipped": 11,
+    "corrected, held back": 0,
+    "unresolved": 2,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 14
+   },
+   "Spanish / Italian": {
+    "audited": 14,
+    "already correct": 6,
+    "corrected and shipped": 7,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 1,
+    "not-a-name": 0,
+    "reads as intended now": 13
+   },
+   "Hindi / Sanskrit": {
+    "audited": 14,
+    "already correct": 2,
+    "corrected and shipped": 8,
+    "corrected, held back": 1,
+    "unresolved": 1,
+    "protect-word": 2,
+    "not-a-name": 0,
+    "reads as intended now": 10
+   },
+   "Spanish/Italian": {
+    "audited": 13,
+    "already correct": 5,
+    "corrected and shipped": 8,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 13
+   },
+   "Hindi/Marathi": {
+    "audited": 12,
+    "already correct": 0,
+    "corrected and shipped": 11,
+    "corrected, held back": 0,
+    "unresolved": 1,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 11
+   },
+   "Romanian": {
+    "audited": 12,
+    "already correct": 2,
+    "corrected and shipped": 9,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 1,
+    "not-a-name": 0,
+    "reads as intended now": 11
+   },
+   "Marathi": {
+    "audited": 12,
+    "already correct": 1,
+    "corrected and shipped": 11,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 12
+   },
+   "Spanish / Portuguese": {
+    "audited": 10,
+    "already correct": 1,
+    "corrected and shipped": 9,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 10
+   },
+   "Hausa": {
+    "audited": 10,
+    "already correct": 3,
+    "corrected and shipped": 7,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 10
+   },
+   "Serbo-Croatian": {
+    "audited": 9,
+    "already correct": 0,
+    "corrected and shipped": 9,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 9
+   },
+   "Spanish/Portuguese": {
+    "audited": 8,
+    "already correct": 1,
+    "corrected and shipped": 7,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 8
+   }
+  },
+  "persian_batch": {
+   "batch": "p0001",
+   "totals": {
+    "audited": 105,
+    "already correct": 4,
+    "corrected and shipped": 101,
+    "corrected, held back": 0,
+    "unresolved": 0,
+    "protect-word": 0,
+    "not-a-name": 0,
+    "reads as intended now": 105
+   },
+   "also_in_an_n_batch": 29,
+   "readings_p0001_changed": [
+    "Farhad",
+    "Nima",
+    "Siavash",
+    "Manouchehr",
+    "Mitra",
+    "Shabnam",
+    "Shadi",
+    "Afsaneh",
+    "Bahareh"
+   ],
+   "not_in_the_ledger": [
+    "Banafsheh",
+    "Behrouz",
+    "Delaram",
+    "Fereydoun",
+    "Firouzeh",
+    "Golnar",
+    "Golnaz",
+    "Khosrow",
+    "Koorosh",
+    "Minoo",
+    "Mojdeh",
+    "Mojgan",
+    "Nooshin",
+    "Payman",
+    "Pouya",
+    "Ziba"
+   ]
   }
  }
 }

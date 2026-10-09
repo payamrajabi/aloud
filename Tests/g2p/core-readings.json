@@ -57,9 +57,9 @@
     },
     {
       "area" : "money",
-      "gb" : "k hˈɑː ɹɪlˈiːst ɐ njˈuː sˈɪŋɡᵊl.",
+      "gb" : "kˈʌhˈɑː ɹɪlˈiːst ɐ njˈuː sˈɪŋɡᵊl.",
       "text" : "Ke$ha released a new single.",
-      "us" : "k hˈɑ ɹəlˈist ɐ nˈu sˈɪŋɡᵊl."
+      "us" : "kˈʌhˈɑ ɹəlˈist ɐ nˈu sˈɪŋɡᵊl."
     },
     {
       "area" : "money",
@@ -2271,9 +2271,9 @@
     },
     {
       "area" : "addresses",
-      "gb" : "ʃˌiː sˈaŋ ʃˈuːbəts ˈɑːvA mˈaɹɪə.",
+      "gb" : "ʃˌiː sˈaŋ ʃˈuːbəts ˈɑːvA məɹˈiːə.",
       "text" : "She sang Schubert's Ave Maria.",
-      "us" : "ʃˌi sˈæŋ ʃˈubəɹts ˈɑvˌA mˈɑɹiə."
+      "us" : "ʃˌi sˈæŋ ʃˈubəɹts ˈɑvˌA məɹˈiə."
     },
     {
       "area" : "addresses",
@@ -2799,7 +2799,7 @@
     },
     {
       "area" : "titles",
-      "gb" : "ɹˈabI kˈQən and ɪmˈɑːm ˈɑːli mˈɛt fɔː tˈiː.",
+      "gb" : "ɹˈabI kˈQən and ɪmˈɑːm ɑlˈiː mˈɛt fɔː tˈiː.",
       "text" : "Rabbi Cohen and Imam Ali met for tea.",
       "us" : "ɹˈæbˌI kˈOən ænd ɪmˈɑm ɑlˈi mˈɛt fɔɹ tˈi."
     },
@@ -4275,9 +4275,9 @@
     },
     {
       "area" : "money",
-      "gb" : "k hˈɑː sˈaŋ ɪt.",
+      "gb" : "kˈʌhˈɑː sˈaŋ ɪt.",
       "text" : "Ke$ha sang it.",
-      "us" : "k hˈɑ sˈæŋ ɪt."
+      "us" : "kˈʌhˈɑ sˈæŋ ɪt."
     },
     {
       "area" : "money",
@@ -4895,7 +4895,7 @@
       "area" : "shorthand",
       "gb" : "ɹˈʌvi ˈɛs ˈQ ɹˈam kumˈɑː sˈInd ɪt.",
       "text" : "Ravi S/O Ram Kumar signed it.",
-      "us" : "ɹˈɑvi ˈɛs ˈO ɹˈæm kumˈɑɹ sˈInd ɪt."
+      "us" : "ɹˈʌvi ˈɛs ˈO ɹˈæm kumˈɑɹ sˈInd ɪt."
     },
     {
       "area" : "shorthand",

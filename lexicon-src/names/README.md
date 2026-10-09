@@ -1,11 +1,27 @@
 # People's names: candidate manifest and baseline audit (FIN-906)
 
-This folder holds phases 1 and 2 of the names pack: a ranked list of about 100,000 given names
-(`manifest.tsv`), and how Aloud reads each of them today, sorted into triage buckets
-(`ledger.tsv`, `coverage.json`, `spotcheck.tsv`). No pronunciations have been researched or
-written yet; nothing here changes what the app says.
+This folder holds the names pack's sources: a ranked list of about 100,000 given names
+(`manifest.tsv`), how Aloud read each of them before the pack, sorted into triage buckets
+(`ledger.tsv`, `coverage.json`, `spotcheck.tsv`), and the researched readings
+(`names.source.json`) that `Lexicons/names.json` ships.
 
-**Phase 3 (research) is set up, not done.** `NAMES-GUIDE.md` is the research brief;
+**Phase 4 (assembly): 4,726 names researched, 2,854 corrections shipped.** The research batches n0001 to
+n0031 (ranks 1 to 4,988) and p0001 (105 Persian names, which win over an n-batch for the same
+name) are assembled by `tools/assemble.py` into `Lexicons/names.json` (pack id `names`, always
+on, case-sensitive, pronunciation only: `dictation: never`): 2,854 corrected names. It holds back
+the corrected names that would change ordinary text (Core abbreviations: Jun, Thu; ordinary words
+that start sentences: Fanny, Axel, Dino, Tamer, Lino, Ze, Bento, Dolma, Muni; the place Port St.
+Lucie) and logs why in `names.source.json` ("dropped"), with every researched name's evidence,
+disposition, alternatives, batch and its reading before and after the pack. The ledger's
+`disposition` column and `coverage.json`'s "research" block record the outcome; `audit.py` keeps
+both when it runs again. Where a tech-list entry has a name's spelling, the name wins:
+pronunciation-only tech entries said "like the name" were removed (Hugo, Anton, Jules, Vera,
+Catalina, Ola, Sina; `names.source.json` "decisions"), acronyms split by casing (Pir/PIR,
+Gui/GUI: a case-sensitive key is tried first), and Sui keeps the tech reading for now
+(`../decisions/conflicts.json`). Tests: `Tests/g2p/regression.json` (names lexicon cases) and
+`Tests/g2p/names-negatives.json` (ordinary sentences frozen before the pack).
+
+**Phase 3 (research) continues.** `NAMES-GUIDE.md` is the research brief;
 `tools/research_queue.py` cuts the ledger into batches of 150 in
 `~/Library/Caches/aloud-names/research/` (outside the repository, with the tools copied there) and
 writes `queue-summary.json` (84,543 names in 565 batches; tranche 1 is ranks 1 to 10,000);
@@ -214,7 +230,14 @@ roughly 36,000 to 41,000 need a new reading (4,300 to 4,800 of them in the top 1
 tech-term name), plus a protection decision for the 2,104 collision words.
 
 ## Rebuild
-From the repository root:
+The pack, after new research batches are checked (`--baseline-out` only when the readings before
+the pack need recording again, with `Lexicons/names.json` moved away):
+```sh
+swift build -c release
+python3 -I lexicon-src/names/tools/assemble.py [--research ~/Library/Caches/aloud-names/research/out]
+python3 -I lexicon-src/tools/check_packs.py
+```
+The ranking and baseline audit, from the repository root:
 ```sh
 swift build -c release
 python3 -I lexicon-src/names/tools/fetch.py --cache ~/Library/Caches/aloud-names/run-$(date +%Y%m%d)

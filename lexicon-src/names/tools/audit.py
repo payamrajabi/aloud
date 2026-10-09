@@ -242,6 +242,11 @@ def main():
             web2 = {w.strip() for w in open(args.web2, encoding="utf-8", errors="replace") if w.strip() == w.strip().lower()}
         zipf = load_zipf(args.wordfreq)
         lexicons = load_lexicons()
+        # Dispositions set by the research (tools/assemble.py) survive a re-run.
+        researched = {}
+        if os.path.exists(os.path.join(NAMES, "ledger.tsv")):
+            researched = {(r["rank"], r["name"]): r["disposition"] for r in read_ledger(manifest)
+                          if r["disposition"] not in ("covered", "unaudited")}
 
         rows = []
         for m in manifest:
@@ -268,7 +273,8 @@ def main():
             row["english_usage"] = m["usage"] == "english"
             row["multiword"] = "yes" if (" " in n or "-" in n) else ""
             row["bucket"] = bucket(row)
-            row["disposition"] = "covered" if row["bucket"] == "covered-by-lexicon" else "unaudited"
+            row["disposition"] = researched.get((m["rank"], n)) or (
+                "covered" if row["bucket"] == "covered-by-lexicon" else "unaudited")
             row["sentence_differs"] = "yes" if (row["us_sentence"] != row["us"] or row["gb_sentence"] != row["gb"]) else ""
             rows.append(row)
 
@@ -358,7 +364,13 @@ def main():
         "spot_check": spot,
         "correction_estimate": estimate,
     }
-    with open(os.path.join(NAMES, "coverage.json"), "w", encoding="utf-8") as f:
+    # The research block is assemble.py's.
+    cov_path = os.path.join(NAMES, "coverage.json")
+    if os.path.exists(cov_path):
+        old = json.load(open(cov_path, encoding="utf-8"))
+        if "research" in old:
+            coverage["research"] = old["research"]
+    with open(cov_path, "w", encoding="utf-8") as f:
         json.dump(coverage, f, indent=1, ensure_ascii=False)
         f.write("\n")
     print(json.dumps({k: coverage[k] for k in ("candidates", "by_bucket", "by_bucket_top_1000", "by_source", "by_collision",
