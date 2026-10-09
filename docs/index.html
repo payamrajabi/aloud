@@ -8,7 +8,7 @@
 <link rel="canonical" href="https://aloudformac.com/">
 <meta name="description" content="Aloud is a Mac menu bar app that reads any selected text to you in a natural voice, and types what you say into any app. Both run entirely on your Mac. Try it free for 7 days, then buy it once.">
 <meta property="og:title" content="Aloud for Mac: reads to you, listens to you">
-<meta property="og:description" content="Select text and hear it. Tap a key and talk, and it types for you. Private and offline on your Mac. Free for 7 days, then yours for $9.99, once.">
+<meta property="og:description" content="Select text and hear it. Tap a key and talk, and it types for you. Private and offline on your Mac. Try it free for 7 days, then buy it once.">
 <meta property="og:image" content="https://aloudformac.com/assets/player.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
@@ -320,14 +320,12 @@
   details[open] summary::after { content: "–"; }
   details p { margin: 0; padding: 0 0 22px; color: var(--muted); font-size: 16px; max-width: 62ch; }
 
-  .price { text-align: center; background: var(--surface); border-radius: 32px; padding: clamp(32px, 6vw, 72px) clamp(20px, 5vw, 72px); box-shadow: 0 0 0 0.5px var(--line); }
-  .price h2 { font-size: clamp(34px, 5vw, 56px); line-height: 1.04; letter-spacing: -0.035em; margin: 0 0 16px; }
-  .price > p { color: var(--muted); font-size: 19px; max-width: 560px; margin: 0 auto; }
-  .price .amount { font: 700 clamp(56px, 9vw, 88px)/1 var(--font-display); letter-spacing: -0.04em; color: var(--ink); margin: 36px auto 10px; }
-  .price .amount s { font-weight: 500; font-size: 0.42em; letter-spacing: -0.02em; color: var(--muted); vertical-align: 0.9em; margin-right: 6px; }
-  .price .fine { font-size: 14px; }
-  .price .fine a { color: inherit; text-decoration: underline; }
-  .price-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 32px 0 20px; }
+  .purchase { text-align: center; background: var(--surface); border-radius: 32px; padding: clamp(32px, 6vw, 72px) clamp(20px, 5vw, 72px); box-shadow: 0 0 0 0.5px var(--line); }
+  .purchase h2 { font-size: clamp(34px, 5vw, 56px); line-height: 1.04; letter-spacing: -0.035em; margin: 0 0 16px; }
+  .purchase > p { color: var(--muted); font-size: 19px; max-width: 560px; margin: 0 auto; }
+  .purchase .fine { font-size: 14px; }
+  .purchase .fine a { color: inherit; text-decoration: underline; }
+  .cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 32px 0 20px; }
   .cta.ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
 
   .final { text-align: center; padding-block: 140px 0; }
@@ -352,9 +350,9 @@
       <a href="#keys">How it works</a>
       <a href="#private">Privacy</a>
       <a href="#install">Install</a>
-      <a href="#buy">Pricing</a>
+      <a href="#buy">Get Aloud</a>
       <a href="#faq">FAQ</a>
-      <a class="btn-sm" href="/download">Download</a>
+      <a class="btn-sm" href="/download">Try for free</a>
     </nav>
   </div>
 </header>
@@ -363,11 +361,14 @@
   <div class="wrap hero">
     <h1><span>Reads to you<span class="p-read">.</span></span><span>Listens to you<span class="p-listen">.</span></span></h1>
     <p class="lede">Aloud is a small Mac menu bar app. <b>Select any text</b> and it reads it to you in a natural voice. <b>Tap a key and talk</b>, and it types what you say into any app. Both run on your Mac, so nothing you read or say goes online.</p>
-    <a class="cta" href="/download">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0 4.5-4.5M12 15l-4.5-4.5M5 19h14"/></svg>
-      Download for Mac
-    </a>
-    <p class="meta">Free for 7 days, then $9.99 once · Apple silicon · macOS 14 or later</p>
+    <div class="cta-actions">
+      <a class="cta" href="/download">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0 4.5-4.5M12 15l-4.5-4.5M5 19h14"/></svg>
+        Try for free
+      </a>
+      <a class="cta ghost" href="/buy">Buy now</a>
+    </div>
+    <p class="meta">Free for 7 days · Apple silicon · macOS 14 or later</p>
 
     <div class="demo">
       <div class="seg" role="tablist" aria-label="Show a demo">
@@ -525,16 +526,14 @@
   </section>
 
   <section class="wrap" id="buy">
-    <div class="price">
+    <div class="purchase">
       <h2>Pay once. Keep it.</h2>
-      <p>Everything runs on your Mac, so there's nothing to charge you for every month. Try all of Aloud free for a week, then buy it once.</p>
-      <p class="amount"><s>$19</s> $9.99</p>
-      <p class="fine">Launch price · one-time purchase · all your Macs · plus local tax</p>
-      <div class="price-actions">
-        <a class="cta" href="/download">Try It Free for 7 Days</a>
-        <a class="cta ghost" href="/buy">Buy Now</a>
+      <p>Try all of Aloud free for 7 days. Buy it once to keep using it on all your Macs. No subscription.</p>
+      <div class="cta-actions">
+        <a class="cta" href="/download">Try for free</a>
+        <a class="cta ghost" href="/buy">Buy now</a>
       </div>
-      <p class="fine">Same price in US and Canadian dollars; local prices elsewhere. Bought it already? <a href="/restore">Find your license</a>.</p>
+      <p class="fine">Your price and any local tax are shown at checkout before you pay. Bought it already? <a href="/restore">Find your license</a>.</p>
     </div>
   </section>
 
@@ -545,7 +544,7 @@
         <p>The short answers.</p>
       </div>
       <div>
-        <details><summary>How much does it cost?</summary><p>Aloud is free for 7 days, with everything included. After that it's a one-time purchase: $9.99 while it's new (it'll be $19 later), plus local tax. There's no subscription and no usage limit, because the voice and transcription run on your own Mac, not on a server we pay for.</p></details>
+        <details><summary>How much does it cost?</summary><p>Aloud is free for 7 days, with everything included. After that it's a one-time purchase of $9.99 in US or Canadian dollars, plus local tax. Your local price is shown at checkout before you pay. There's no subscription or usage limit.</p></details>
         <details><summary>Can I use it on more than one Mac?</summary><p>Yes, on all your own Macs. Open the license email on the other Mac and click Unlock Aloud, or paste the license in Settings → License. Lost the email? <a href="/restore">Get it sent again</a>.</p></details>
         <details><summary>I used Aloud while it was free. Do I have to pay?</summary><p>No. If you installed Aloud before it went paid, it stays free for you, with every update.</p></details>
         <details><summary>Is anything I select or say sent to the internet?</summary><p>No. Text is turned into speech, and speech into text, on your Mac. Nothing is uploaded, and both work with Wi-Fi switched off once the voice and dictation models have downloaded.</p></details>
@@ -565,11 +564,14 @@
   <div class="wrap final">
     <img src="assets/icon.svg" alt="">
     <h2>Give your eyes<br>and hands a break.</h2>
-    <a class="cta" href="/download">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0 4.5-4.5M12 15l-4.5-4.5M5 19h14"/></svg>
-      Download for Mac
-    </a>
-    <p class="meta">Free for 7 days, then $9.99 once · Apple silicon · macOS 14 or later · 20 MB</p>
+    <div class="cta-actions">
+      <a class="cta" href="/download">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0 4.5-4.5M12 15l-4.5-4.5M5 19h14"/></svg>
+        Try for free
+      </a>
+      <a class="cta ghost" href="/buy">Buy now</a>
+    </div>
+    <p class="meta">Free for 7 days · Apple silicon · macOS 14 or later · 20 MB</p>
   </div>
 </main>
 

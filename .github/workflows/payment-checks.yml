@@ -2,15 +2,14 @@ name: Payment and licensing checks
 on:
   pull_request:
     paths:
-      - 'docs/api/**'
-      - 'docs/assets/payment-pages.mjs'
-      - 'Sources/ReadAloud/Licensing.swift'
+      - 'docs/**'
+      - 'Sources/ReadAloud/**'
       - 'Tests/**'
       - 'scripts/stripe-setup*'
       - 'scripts/license-key-check.mjs'
       - '.github/workflows/payment-checks.yml'
   push:
-    branches: [main, codex/fin-874-payment-plumbing]
+    branches: [main]
 permissions:
   contents: read
 jobs:

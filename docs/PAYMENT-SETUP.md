@@ -33,6 +33,8 @@ Sources checked October 9, 2026:
 
 All API routes default to test mode. A preview cannot run live payments even if it
 inherits a live key. Checkout checks fulfillment configuration before contacting Stripe.
+Live HTTP routes also reject an issuer whose public half differs from the fixed paid-app
+key; CI verifies that the backend guard and Swift verifier stay synchronized.
 No actual account objects, secrets, email settings or production data were changed.
 
 | Setting | Sandbox configuration | Live configuration |

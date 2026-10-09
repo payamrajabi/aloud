@@ -1,9 +1,10 @@
-import { HttpError, assertSessionMode, fail, isPaidAloud, json, licenseFor, originOf, paymentMode, stripe } from './_lib.mjs';
+import { HttpError, assertReleaseSigner, assertSessionMode, fail, isPaidAloud, json, licenseFor, originOf, paymentMode, stripe } from './_lib.mjs';
 
 export async function GET(request) {
   try {
     originOf(request);
     const mode = paymentMode();
+    assertReleaseSigner();
     const id = new URL(request.url).searchParams.get('session_id') || '';
     if (!new RegExp(`^cs_${mode}_[A-Za-z0-9]+$`).test(id)) throw new HttpError(400, 'That isn’t a checkout link for this mode.');
     const session = await stripe(`/checkout/sessions/${id}`);

@@ -5,7 +5,12 @@
 // LICENSE_SIGNING_KEY is an Ed25519 PEM; the release app has its public half.
 // Email is disabled unless ALOUD_EMAIL_ENABLED=true, RESEND_API_KEY and LICENSE_EMAIL_FROM
 // are configured. This does not authorize creating a Resend account or sending email.
-import { createHmac, createPrivateKey, sign, timingSafeEqual } from 'node:crypto';
+import { createHmac, createPrivateKey, createPublicKey, sign, timingSafeEqual } from 'node:crypto';
+
+// Must match the fixed public key in Licensing.swift. Rotation requires an
+// intentional app/backend release; request input and environment cannot override it.
+export const RELEASE_LICENSE_PUBLIC_KEY_BASE64 = 'Jloz1nv3RGWcn3FDnpYmymCeF7fku8q9H3Rqx6giMp4=';
+const RELEASE_LICENSE_PUBLIC_KEY = Buffer.from(RELEASE_LICENSE_PUBLIC_KEY_BASE64, 'base64');
 
 export const validEmail = (value) => typeof value === 'string' && Buffer.byteLength(value, 'utf8') <= 254
   && !/[\p{Cc}\p{Cf}]/u.test(value)
@@ -59,6 +64,17 @@ function signingKey() {
   } catch { throw new HttpError(503, 'License signing isn’t configured.'); }
 }
 
+/** Pure licenseFor remains usable by offline test harnesses. HTTP live fulfillment
+ * must also prove its signer can unlock the released app before accepting money.
+ */
+export function assertReleaseSigner() {
+  if (paymentMode() !== 'live') return;
+  const publicDER = createPublicKey(signingKey()).export({ format: 'der', type: 'spki' });
+  if (!publicDER.subarray(-32).equals(RELEASE_LICENSE_PUBLIC_KEY)) {
+    throw new HttpError(503, 'License signing doesn’t match the released app.');
+  }
+}
+
 export function requireEmail() {
   const from = process.env.LICENSE_EMAIL_FROM;
   const address = typeof from === 'string' ? (from.match(/^[^<>\r\n]+ <([^<>]+)>$/)?.[1] || from) : '';
@@ -68,7 +84,7 @@ export function requireEmail() {
 
 export function requireDelivery(request) {
   const origin = originOf(request);
-  stripeKey(); signingKey(); requireEmail();
+  stripeKey(); signingKey(); assertReleaseSigner(); requireEmail();
   return origin;
 }
 
@@ -162,6 +178,7 @@ export const escapeHTML = (value) => String(value).replace(/[&<>"']/g, (char) =>
  */
 export async function emailLicense(session, origin, purpose = 'purchase') {
   requireEmail();
+  assertReleaseSigner();
   if (origin !== originOf()) throw new HttpError(503, 'The payment site isn’t configured.');
   const license = licenseFor(session);
   const link = `${origin}/activate#${license}`;

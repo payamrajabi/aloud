@@ -145,6 +145,29 @@ test('live mode needs both explicit enable and production, then signs live fixtu
   assert.equal(JSON.parse(Buffer.from(licenseFor(paid).split('.')[0], 'base64url')).mode, 'live');
   assert.throws(() => licenseFor(session()));
 });
+for (const [name, invoke] of [
+  ['checkout', () => buy(request('/buy', { headers: { 'x-license-public-key': 'override' } }))],
+  ['license', () => getLicense(request('/api/license?session_id=cs_live_Fixture123&issuer=override'))],
+  ['restore', () => restore(restoreRequest())],
+  ['webhook', () => webhook(hookRequest(event({ livemode: true }, session({ livemode: true, id: 'cs_live_Fixture123',
+    metadata: { product: 'aloud', issuer: 'override' } }))))],
+]) test(`wrong live signer blocks ${name} before provider calls`, async () => {
+  Object.assign(process.env, { ALOUD_PAYMENT_MODE: 'live', ALOUD_ENABLE_LIVE_PAYMENTS: 'true',
+    VERCEL_ENV: 'production', STRIPE_SECRET_KEY: 'sk_live_fixtureOnly' });
+  assert.equal((await invoke()).status, 503);
+  assert.equal(calls.length, 0);
+});
+test('a failed Managed Payments checkout never falls back to ordinary payments', async () => {
+  mock(({ url, options }) => {
+    if (url.pathname === '/v1/prices') return Response.json({ data: [{ id: 'price_fixture', active: true,
+      type: 'one_time', product: 'aloud', lookup_key: 'aloud_launch', livemode: false, unit_amount: 999 }] });
+    assert.equal(url.pathname, '/v1/checkout/sessions');
+    assert.equal(new URLSearchParams(options.body).get('managed_payments[enabled]'), 'true');
+    return Response.json({ error: { message: 'Managed Payments not activated' } }, { status: 400 });
+  });
+  assert.equal((await buy(request('/buy'))).status, 503);
+  assert.equal(calls.length, 2);
+});
 for (const [name, change] of Object.entries({ subscription: { mode: 'subscription' }, setup: { mode: 'setup' },
   open: { status: 'open' }, expired: { status: 'expired' }, unpaid: { payment_status: 'unpaid' },
   free: { payment_status: 'no_payment_required' }, product: { metadata: { product: 'other' } },
