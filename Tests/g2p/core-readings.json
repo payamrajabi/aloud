@@ -3674,6 +3674,24 @@
       "us" : "sˈi ɪɡzˈæmpəl dˈɑt kˈɑm twˈɛnti twˈɛnti fˈɔɹ zˈɪɹO θɹˈi zˈɪɹO fˈɔɹ lˈɔnʧ fɔɹ dətˈAlz."
     },
     {
+      "area" : "dates",
+      "gb" : "ˌʌpɡɹˈAd tə vˈɜːʃᵊn tˈuː wˈʌn tˈuː zˈɪəɹQ tˈuː fˈɔː tədˈA.",
+      "text" : "Upgrade to version 2.1.2024 today.",
+      "us" : "ˈʌpɡɹˌAd tə vˈɜɹʒən tˈu wˈʌn tˈu zˈɪɹO tˈu fˈɔɹ tədˈA."
+    },
+    {
+      "area" : "dates",
+      "gb" : "wˌiː sˈQld fˈIv mˈA dˈA pˈQstəz.",
+      "text" : "We sold 5 May Day posters.",
+      "us" : "wˌi sˈOld fˈIv mˈA dˈA pˈOstəɹz."
+    },
+    {
+      "area" : "dates",
+      "gb" : "wˈAt əntˈɪl sˈʌn vˈali ˈQpᵊnz.",
+      "text" : "Wait until Sun Valley opens.",
+      "us" : "wˈAt ˌʌntˈɪl sˈʌn vˈæli ˈOpᵊnz."
+    },
+    {
       "area" : "addresses",
       "gb" : "ɪn twˈɛnti fˌɪftˈiːn ˈQʃᵊn dɹˈIv wɒz ɹipˈAvd.",
       "text" : "In 2015 Ocean Drive was repaved.",
