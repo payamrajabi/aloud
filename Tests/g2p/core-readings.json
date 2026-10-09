@@ -1190,6 +1190,30 @@
       "us" : "hˌiz sˈɪks fˈʊt tˈu."
     },
     {
+      "area" : "dimensions",
+      "gb" : "hˌiː ɪz ɐ tˈɛnˌɛks ˌɛnʤɪnˈɪə.",
+      "text" : "He is a 10x engineer.",
+      "us" : "hˌi ɪz ɐ tˈɛnˌɛks ˌɛnʤənˈɪɹ."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "ɹˈIt zˈɪəɹQ ˈɛks tˈɛn tə ðə ɹˈɛʤɪstə.",
+      "text" : "Write 0x10 to the register.",
+      "us" : "ɹˈIt zˈɪɹO ˈɛks tˈɛn tə ðə ɹˈɛʤɪstəɹ."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "wˈɜːk fˈɔː ˈɛks tˈɛn ˈWə dˈAz.",
+      "text" : "Work 4 x 10-hour days.",
+      "us" : "wˈɜɹk fˈɔɹ ˈɛks tˈɛn ˈWəɹ dˈAz."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "lˈɑːtA ˈɛks tˈuː.",
+      "text" : "Latte x2.",
+      "us" : "lˈɑtˌA ˈɛks tˈu."
+    },
+    {
       "area" : "phone",
       "gb" : "ðə nˌIntˈiːn nˈInti tə tˈuː θˈWzᵊnd dˈɛkAd wɒz kˈɑːm.",
       "text" : "The 1990-2000 decade was calm.",
@@ -5204,11 +5228,6 @@
       "area" : "dimensions",
       "says" : "Play it at two ex speed.",
       "text" : "Play it at 2x speed."
-    },
-    {
-      "area" : "dimensions",
-      "says" : "He is a ten-ex engineer.",
-      "text" : "He is a 10x engineer."
     },
     {
       "area" : "dimensions",
