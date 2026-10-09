@@ -27,6 +27,9 @@ enum SelectionReader {
         }
     }
 
+    /// The longest one-line selection read without copying it: about a long sentence.
+    static let oneSentence = 160
+
     /// One read at a time: a read that copies must not take another's copy for the
     /// clipboard to put back.
     private static let queue = DispatchQueue(label: "SelectionReader", qos: .userInitiated)
@@ -50,15 +53,18 @@ enum SelectionReader {
             guard let copied = viaCopy(selected: nil, lateCopy: &lateCopy), let text = copied.text else { return nil }
             return Selection(text: text, html: copied.html.flatMap { checked($0, text) })
         }
-        // One line has no structure to find, and Markdown carries its own: both stay on the
-        // fast path. (A list alone is usually a web page's text with its numbers, so it's
-        // copied: the page's headings and bold come with the HTML.)
+        // A sentence or so on one line has no structure to find, and Markdown carries its own:
+        // both stay on the fast path. A long single line is copied: Chromium apps (the Claude
+        // app, Chrome, Slack) give a selection across paragraphs as one line, its headings run
+        // into the text. (A list alone is usually a web page's text with its numbers, so it's
+        // copied too: the page's headings and bold come with the HTML.)
         let lines = text.split(whereSeparator: \.isNewline).filter { !$0.allSatisfy(\.isWhitespace) }
         log.info("read from \(app, privacy: .public): Accessibility gave \(text.count) characters on \(lines.count) lines")
-        guard lines.count >= 2, !NarrationMarkdown.hasMarkupBeyondLists(text),
+        let short = lines.count < 2 && text.count <= Self.oneSentence
+        guard !short, !NarrationMarkdown.hasMarkupBeyondLists(text),
               text.trimmingCharacters(in: .whitespacesAndNewlines) != current
         else {
-            log.info("not copied: \(lines.count < 2 ? "one line" : text.trimmingCharacters(in: .whitespacesAndNewlines) == current ? "already reading it" : "the text is Markdown", privacy: .public)")
+            log.info("not copied: \(short ? "one short line" : text.trimmingCharacters(in: .whitespacesAndNewlines) == current ? "already reading it" : "the text is Markdown", privacy: .public)")
             return Selection(text: text)
         }
         guard let html = viaCopy(selected: text, lateCopy: &lateCopy)?.html, let match = checked(html, text) else {
