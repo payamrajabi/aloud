@@ -5178,6 +5178,86 @@
    ]
   },
   {
+   "text": "Det. Olivia Benson took the call.",
+   "chunks": [
+    "Det. Olivia Benson took the call."
+   ]
+  },
+  {
+   "text": "The Rt. Rev. Anne Hollis preached.",
+   "chunks": [
+    "The Rt. Rev. Anne Hollis preached."
+   ]
+  },
+  {
+   "text": "Sr. Mary Joseph taught us Latin.",
+   "chunks": [
+    "Sr. Mary Joseph taught us Latin."
+   ]
+  },
+  {
+   "text": "Lts. Kim and Park were decorated.",
+   "chunks": [
+    "Lts. Kim and Park were decorated."
+   ]
+  },
+  {
+   "text": "Fr. Brown solved the case.",
+   "chunks": [
+    "Fr. Brown solved the case."
+   ]
+  },
+  {
+   "text": "Mx. Taylor replied first.",
+   "chunks": [
+    "Mx. Taylor replied first."
+   ]
+  },
+  {
+   "text": "The Hon. Jane Doe presided.",
+   "chunks": [
+    "The Hon. Jane Doe presided."
+   ]
+  },
+  {
+   "text": "Brig. Gen. Chuck Yeager broke the sound barrier.",
+   "chunks": [
+    "Brig. Gen. Chuck Yeager broke the sound barrier."
+   ]
+  },
+  {
+   "text": "Msgr. James Kelly gave the homily.",
+   "chunks": [
+    "Msgr. James Kelly gave the homily."
+   ]
+  },
+  {
+   "text": "Drs. Smith and Jones agreed.",
+   "chunks": [
+    "Drs. Smith and Jones agreed."
+   ]
+  },
+  {
+   "text": "Insp. Morse drank real ale.",
+   "chunks": [
+    "Insp. Morse drank real ale."
+   ]
+  },
+  {
+   "text": "His father was Ken Griffey Sr. He played in Seattle.",
+   "chunks": [
+    "His father was Ken Griffey Sr.",
+    "He played in Seattle."
+   ]
+  },
+  {
+   "text": "We met the Det. Then we left.",
+   "chunks": [
+    "We met the Det.",
+    "Then we left."
+   ]
+  },
+  {
    "text": "![Screenshot of the installer](docs/images/install.png)\n\nSee [the FAQ](docs/faq.md) for help.",
    "chunks": [
     "Screenshot of the installer",
