@@ -133,9 +133,19 @@ enum UnitRules {
     /// read whatever follows; a clock word after one; and the "FT" of "3,000 SQ FT". Unwrapped
     /// and left unread, "300 kWh/yr" was "three hundred kwer". PB stays the lexicon's ("2
     /// PB&J"), and so do KT and the other letters (ATM, HP) the table has only in lower case.
-    static func readsMarkedTerm(_ term: String, after plain: String) -> Bool {
+    ///
+    /// Also "bp" after a number ("cut rates by 25 bp": basis points, not "B P"), and a lower-case
+    /// "5g" the lexicon took for the network, after a nutrient or before "of" or "per" ("Sugar 5g
+    /// per bar", "5g of protein"), for the gram rule to read.
+    static func readsMarkedTerm(_ term: String, after plain: String, followedBy rest: @autoclosure () -> String = "") -> Bool {
         if clockTerms.contains(term) { return endsInNumber(plain, hyphen: false) }
         if table[term] != nil { return endsInNumber(plain, hyphen: true) }
+        if term == "bp" { return endsInNumber(plain, hyphen: false) }
+        if term.utf16.count == 2, term.hasSuffix("g"), let n = term.first?.wholeNumberValue, (2...6).contains(n) {
+            if let last = plain.unicodeScalars.last, Scalars.isLetter(last) || Scalars.isDigit(last) { return false }
+            let word = plain.reversed().drop { $0 == " " || $0 == "\t" }.prefix { $0.isLetter }
+            return UnitWords.nutrients.contains(String(word.reversed()).lowercased()) || matches(gramsAhead, rest())
+        }
         if term == "FT" {
             let ns = plain as NSString
             let start = max(0, ns.length - 24)
@@ -145,6 +155,7 @@ enum UnitRules {
     }
 
     private static let areaWordBefore = try! NSRegularExpression(pattern: #"\d\s?(?i:sq|cu)\.?\s?$"#)
+    private static let gramsAhead = try! NSRegularExpression(pattern: #"^[ \t]+(?:of|per)(?![\p{L}])"#)
 
     /// Whether `plain` ends with a number of its own ("16", "1.5", "2,000"; not the tail of "A16"
     /// or "x86", which no unit rule reads), then at most a space, or a hyphen when `hyphen`.
@@ -171,6 +182,8 @@ enum UnitRules {
         var all = gluedTable
         for (k, v) in table where !k.contains("/") { all[k] = v }
         for (k, v) in letters where k != "h" && k != "s" { all[k] = v }
+        // Points of a score or an estimate: "40 pts/sprint" (pt alone is also a pint).
+        all["pts"] = ("point", "points")
         all["mmol"] = ("millimole", "millimoles")
         all["mol"] = ("mole", "moles")
         all["μmol"] = ("micromole", "micromoles")
@@ -361,11 +374,15 @@ enum UnitRules {
             half(table[key(s.substring(with: m.range(at: 1)))]!.0)
         })
         // A vulgar fraction before a unit: "1½ tsp" → "1 and a half teaspoons"; "¼ tsp" → "one
-        // quarter teaspoon", as "¼ cup" reads.
-        rules.append(Rule(#"(?<![\d.,/])(?:(\d+)\s?)?([½⅓⅔¼¾])\s?("# + unitPattern + #")"# + unitEnd) { m, s in
+        // quarter teaspoon", as "¼ cup" reads; after "a" it's "a quarter pound burger".
+        rules.append(Rule.withContext(#"(?<![\d.,/])(?:(\d+)\s?)?("# + vulgarClass + #")\s?("# + unitPattern + #")"# + unitEnd) { m, s, context in
             let words = table[key(s.substring(with: m.range(at: 3)))]!
             let fraction = vulgarFractions[Character(s.substring(with: m.range(at: 2)))]!
             guard m.range(at: 1).location != NSNotFound else {
+                let article = ["a", "an"].contains(UnitSpot(m, number: 2, in: s, context).wordBefore?.lowercased() ?? "")
+                if article, fraction.1.hasPrefix("a ") || fraction.1.hasPrefix("an ") {
+                    return String(fraction.1.drop { $0 != " " }.dropFirst()) + " " + words.0
+                }
                 return fraction.0 == "one half" ? half(words.0) : "\(fraction.0) \(words.0)"
             }
             return "\(s.substring(with: m.range(at: 1))) and \(fraction.1) \(words.1)"
@@ -396,8 +413,31 @@ enum UnitRules {
             return "\(spot.number) \(spot.singular(unit: symbol) ? words.0 : words.1)"
         })
         rules += letterUnits
+        // A compass point after a distance: "30 km SW of the capital" → "30 kilometers southwest
+        // of", "20 mi NE of Anchorage". Spelled out, the letters were "S W".
+        rules.append(Rule(#"(?<=\d[ \t](?:kilometers|kilometer|miles|mile|meters|meter|feet|foot|yards|yard|km|mi))[ \t]+(NNE|ENE|ESE|SSE|SSW|WSW|WNW|NNW|NE|NW|SE|SW|N|S|E|W)(?=[ \t]+of(?![\p{L}]))"#) { m, s in
+            " " + s.substring(with: m.range(at: 1)).map { compassWords[$0]! }.joined(separator: " ")
+                .replacingOccurrences(of: "north east", with: "northeast").replacingOccurrences(of: "north west", with: "northwest")
+                .replacingOccurrences(of: "south east", with: "southeast").replacingOccurrences(of: "south west", with: "southwest")
+        })
         return rules
     }
+
+    private static let compassWords: [Character: String] = ["N": "north", "S": "south", "E": "east", "W": "west"]
+
+    /// Whether an m, M or B with nothing counted after it is millions or billions: a decimal for
+    /// m; in a sentence about money or people ("The UK's population hit 68.3m"), or, for m and
+    /// M, beside another count in millions ("Labour won 9.7m votes, Reform 4.1m").
+    private static func countsBare(_ letter: String, _ spot: UnitSpot) -> Bool {
+        if letter == "m", !spot.number.contains(".") { return false }
+        if spot.has(UnitWords.moneyWords) || spot.hasStem(["invest"]) { return true }
+        return letter != "B" && matches(countInMillions, spot.sentence)
+    }
+
+    /// Another count in millions in the sentence: "9.7m votes", "3 million users".
+    private static let countInMillions = try! NSRegularExpression(pattern:
+        #"(?<![\p{L}\d.,])\d+(?:[.,]\d+)?[ \t]?[mM][ \t]+(?i:"# + alternation(Array(UnitWords.countNouns.union(UnitWords.irregularPlurals)))
+            + #")(?![\p{L}])|(?<![\p{L}])millions?(?![\p{L}])"#)
 
     /// "half a teaspoon", "half an ounce", "half an hour".
     private static func half(_ unit: String) -> String {
@@ -405,10 +445,8 @@ enum UnitRules {
     }
 
     /// Vulgar fractions on their own and after a whole number, as TextNormalizer reads them.
-    private static let vulgarFractions: [Character: (String, String)] = [
-        "½": ("one half", "a half"), "⅓": ("one third", "a third"), "⅔": ("two thirds", "two thirds"),
-        "¼": ("one quarter", "a quarter"), "¾": ("three quarters", "three quarters"),
-    ]
+    private static let vulgarFractions = TextNormalizer.vulgarFractions
+    private static let vulgarClass = "[" + String(TextNormalizer.vulgarFractions.keys) + "]"
 
     private static let fractionEnd = try! NSRegularExpression(pattern: #"(?<![\d/])(?:(\d\s)?)\d{1,2}/$"#)
 
@@ -551,30 +589,56 @@ enum UnitRules {
             let noun = spot.nextWord.map { UnitWords.windNouns.contains($0) } ?? false
             return "\(spot.number) \(spot.singular || noun ? "knot" : "knots")"
         })
-        // A count in millions or thousands: "1.2m people", "70M savers", "100k members", "10K
-        // paying teams" → "1.2 million people". Only before a plural (or a word and a plural),
-        // so "2m tall", "a 5k run", "4K TV" and "the 100m final" stay. A lower-case m needs a
-        // decimal; races and screens keep k and K; "401k" is the plan.
-        rules.append(Rule.withContext(number + #"([ \t]?)([mMkK])(?![\p{L}\d'’&*+\-²³°/]|\.\p{L})"#) { m, s, context in
+        // A count in millions, billions or thousands: "1.2m people", "70M savers", "2B users",
+        // "100k members", "10K paying teams" → "1.2 million people". k and K before a plural (or
+        // a word and a plural), so "a 5k run", "4K TV" stay; races and screens keep them, and
+        // "401k" is the plan. m, M and B only before something counted in millions (`countNouns`):
+        // before other plurals they are as often a length, a size or a brand ("1.5m strips", "8.5M
+        // sneakers", "3M hooks"). A lower-case m needs a decimal. With nothing counted after it, a
+        // decimal m and an M or B are millions and billions only in a sentence about money or
+        // people ("population hit 68.3m", "We hit 2B in revenue") or beside another count in
+        // millions ("9.7m votes, Reform 4.1m and the Tories 6.8m").
+        rules.append(Rule.withContext(number + #"([ \t]?)([mMkKB])(?![\p{L}\d'’&*+\-²³°/]|\.\p{L})"#) { m, s, context in
             let whole = s.substring(with: m.range)
             let spot = UnitSpot(m, number: 1, in: s, context)
             let letter = s.substring(with: m.range(at: 3))
-            if spot.afterLabel || ["401", "403", "457"].contains(spot.number) { return whole }
-            guard var noun = spot.nextWord?.lowercased() else { return whole }
+            if ["401", "403", "457"].contains(spot.number) { return whole }
+            let glued = m.range(at: 2).length == 0
+            let next = spot.nextWord?.lowercased()
+            // A baby's size in months: "12M pajamas", "18M onesies".
+            if letter == "M", glued, ["0", "3", "6", "9", "12", "18", "24"].contains(spot.number),
+               let next, UnitWords.babyClothes.contains(next) {
+                return spot.number + " month"
+            }
+            // A length of something: "1.5m strips", "two 2.4m boards" (a meter each).
+            if letter == "m", let next, UnitWords.lengthNouns.contains(next) { return spot.number + " meter" }
+            let millions = letter == "m" || letter == "M" || letter == "B"
+            let scale = letter == "B" ? " billion" : letter.lowercased() == "m" ? " million" : " thousand"
+            guard var noun = next else {
+                return millions && countsBare(letter, spot) ? spot.number + scale : whole
+            }
             if !UnitSpot.isPlural(noun), !UnitWords.countNouns.contains(noun), UnitSpot.isNoun(noun),
                let second = firstMatch(secondWord, spot.after) {
                 noun = (spot.after as NSString).substring(with: second.range(at: 1)).lowercased()
             }
             let counted = UnitWords.countNouns.contains(noun) || UnitWords.irregularPlurals.contains(noun)
-            guard counted || UnitSpot.isPlural(noun) else { return whole }
-            switch letter {
-            // A whole number and a glued or spaced m stays as written ("2m downloads", "3 m
-            // viewers": units.json keeps "M" there); with a decimal it's a count ("1.2m people").
-            case "m": guard spot.number.contains(".") else { return whole }
-            case "k", "K": if UnitWords.raceNouns.contains(noun) || UnitWords.screenNouns.contains(noun) || spot.has(UnitWords.raceWords) { return whole }
-            default: break
+            if millions {
+                if !counted {
+                    // Nothing counted after it ("Reform 4.1m and the Tories…"); another noun is
+                    // what it measures or names ("3M hooks", "8.5M sneakers").
+                    guard let next, !UnitSpot.isNoun(next), countsBare(letter, spot) else { return whole }
+                    return spot.number + scale
+                }
+                if spot.afterLabel { return whole }
+                // A whole number and a glued or spaced m stays as written ("2m downloads", "3 m
+                // viewers": units.json keeps "M" there); with a decimal it's a count ("1.2m people").
+                if letter == "m", !spot.number.contains(".") { return whole }
+                return spot.number + scale
             }
-            return spot.number + (letter.lowercased() == "m" ? " million" : " thousand")
+            if spot.afterLabel { return whole }
+            guard counted || UnitSpot.isPlural(noun) else { return whole }
+            if UnitWords.raceNouns.contains(noun) || UnitWords.screenNouns.contains(noun) || spot.has(UnitWords.raceWords) { return whole }
+            return spot.number + scale
         })
         // pt and pts: pints of something to drink or cook with ("1 pt of cream", "1 pt. heavy
         // cream"); otherwise points, of type ("12 pt type") or of a score or a poll ("a 10-pt
@@ -610,11 +674,14 @@ enum UnitRules {
             return spot.number + " piece"
         })
         // Finance: "25bp", "50 bps" → basis points, "0.25pp" → percentage points; bps is bits per
-        // second in a sentence about a connection ("a 300 bps modem").
+        // second in a sentence about a connection ("a 300 bps modem"), and a whole number of pp
+        // is pages in a sentence about a document ("The Q2 board deck is 40 pp.").
         rules.append(Rule.withContext(number + #"[ \t]?(bps|bp|pp)(?![\p{L}\d'’&/]|\.[\p{L}\d])"#) { m, s, context in
             let spot = UnitSpot(m, number: 1, in: s, context)
             let one = TextNormalizer.isOne(spot.number)
             switch s.substring(with: m.range(at: 2)) {
+            case "pp" where !spot.number.contains(".") && spot.has(UnitWords.documentWords):
+                return spot.number + (one ? " page" : " pages")
             case "pp": return spot.number + (one ? " percentage point" : " percentage points")
             case "bps" where spot.has(UnitWords.connectionWords): return spot.number + (one ? " bit per second" : " bits per second")
             default: return spot.number + (one ? " basis point" : " basis points")
@@ -690,7 +757,9 @@ enum UnitRules {
 
     /// What a single letter after a number is called, or nil when it isn't a unit there.
     private static func letterUnit(_ letter: String, glued: Bool, _ spot: UnitSpot) -> (String, String)? {
-        if spot.afterLabel { return nil }
+        // A nutrient labels its grams without making them a name ("Carbs 30g", "Trans Fat 0g").
+        let nutrient = letter == "g" && spot.wordBefore.map { UnitWords.nutrients.contains($0.lowercased()) } == true
+        if spot.afterLabel && !nutrient { return nil }
         if letter == "W" || letter == "L" {
             if matches(dimensionAfter, spot.after) || matches(dimensionBefore, spot.before) { return nil }
             if matches(winLoss, spot.sentence) { return nil }
@@ -732,11 +801,17 @@ enum UnitRules {
             // A European clock hour ("until 18h") or a code after a capitalised word ("INT 21h").
             if let n = Double(spot.number.replacingOccurrences(of: ",", with: "")), n <= 24,
                let word = spot.wordBefore?.lowercased(), UnitWords.clockWords.contains(word) { return nil }
-            if let word = spot.wordBefore, word.count >= 2, word.allSatisfy(\.isUppercase) { return nil }
+            if let word = spot.wordBefore, word.count >= 2, word.allSatisfy(\.isUppercase), !["ETA", "ETD"].contains(word) { return nil }
         case "s":
             // Seconds spaced ("30 s") or after a decimal ("1.5s"); "the 1990s" and "her 20s" are
-            // decades. A comparison makes it a time too ("more than 2s", "under 3s").
-            if glued && !spot.number.contains(".") && !UnitWords.comparisons.contains(spot.wordBefore?.lowercased() ?? "") { return nil }
+            // decades. A comparison makes it a time too ("more than 2s", "in under 3s"), but not
+            // an age group ("Over 65s will lose…", "for under 5s").
+            if glued && !spot.number.contains(".") {
+                let words = spot.wordsBefore(2)
+                guard let word = words.first else { return nil }
+                if UnitWords.comparisons.contains(word) { break }
+                guard word == "under" || word == "over", words.count > 1, UnitWords.timedBefore.contains(words[1]) else { return nil }
+            }
         default:
             break
         }

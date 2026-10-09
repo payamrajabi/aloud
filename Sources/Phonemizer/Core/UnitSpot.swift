@@ -45,6 +45,9 @@ final class UnitSpot {
             .map { (ns.substring(with: $0.range(at: 1)), $0.range(at: 1).location) }
     }()
     var wordBefore: String? { lastWord?.word }
+    /// Up to `count` words before the number, nearest first, lower-cased; a symbol or a number
+    /// between them stops the list ("loads in under" before "3s": under, in, loads).
+    func wordsBefore(_ count: Int) -> [String] { Self.trailingWords(before, count: count) }
     /// The word right after the unit ("bulb" in "60 W bulb"), when only spaces part them.
     lazy var nextWord: String? = {
         let ns = after as NSString
@@ -79,6 +82,8 @@ final class UnitSpot {
             guard let n = Double(number.replacingOccurrences(of: ",", with: "")), n >= 100 else { return false }
             return Self.isPlural(next)
         case "oz", "floz", "ml", "mL", "L", "l": return Self.containers.contains(next.lowercased())
+        // Before the thing it powers: "9V batteries", "12 V adapters", "60W bulbs".
+        case "V", "W": return next.first?.isLowercase == true
         default: return false
         }
     }

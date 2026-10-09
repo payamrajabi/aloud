@@ -117,10 +117,14 @@ enum TextNormalizer {
     }
 
     /// Vulgar fractions, on their own ("½ cup": one half) and after a whole number ("1½ cups":
-    /// 1 and a half).
-    private static let vulgarFractions: [Character: (String, String)] = [
+    /// 1 and a half). The units rules read them before a unit.
+    static let vulgarFractions: [Character: (String, String)] = [
         "½": ("one half", "a half"), "⅓": ("one third", "a third"), "⅔": ("two thirds", "two thirds"),
         "¼": ("one quarter", "a quarter"), "¾": ("three quarters", "three quarters"),
+        "⅛": ("one eighth", "an eighth"), "⅜": ("three eighths", "three eighths"), "⅝": ("five eighths", "five eighths"),
+        "⅞": ("seven eighths", "seven eighths"), "⅕": ("one fifth", "a fifth"), "⅖": ("two fifths", "two fifths"),
+        "⅗": ("three fifths", "three fifths"), "⅘": ("four fifths", "four fifths"), "⅙": ("one sixth", "a sixth"),
+        "⅚": ("five sixths", "five sixths"),
     ]
 
     /// Operators read only between two spaced operands ("a < b", "x -> y"): "<b>", "->" in
@@ -485,7 +489,7 @@ enum TextNormalizer {
             return [8, 16, 32, 64].contains(d) || measureWords.contains(String(next)) ? words : whole
         })
         // "½ cup", "1½ cups".
-        rules.append(Rule(#"(?<![\d.,/])(?:(\d+)\s?)?([½⅓⅔¼¾])"#) { m, s in
+        rules.append(Rule(#"(?<![\d.,/])(?:(\d+)\s?)?([½⅓⅔¼¾⅛⅜⅝⅞⅕⅖⅗⅘⅙⅚])"#) { m, s in
             let words = vulgarFractions[Character(s.substring(with: m.range(at: 2)))]!
             guard m.range(at: 1).location != NSNotFound else { return words.0 }
             return s.substring(with: m.range(at: 1)) + " and " + words.1
@@ -544,7 +548,7 @@ enum TextNormalizer {
             plain += ns.substring(with: NSRange(location: last, length: m.range.location - last))
             last = NSMaxRange(m.range)
             let term = ns.substring(with: m.range(at: 1))
-            if UnitRules.readsMarkedTerm(term, after: plain) {
+            if UnitRules.readsMarkedTerm(term, after: plain, followedBy: ns.substring(with: NSRange(location: last, length: min(40, ns.length - last)))) {
                 plain += term
                 continue
             }

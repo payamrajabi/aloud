@@ -4680,6 +4680,78 @@
       "gb" : "ˌIv tˈQld juː fˈIv ˈɛks ɔːlɹˈɛdi.",
       "text" : "I've told you 5x already.",
       "us" : "ˌIv tˈOld ju fˈIv ˈɛks ˌɔlɹˈɛdi."
+    },
+    {
+      "area" : "units",
+      "gb" : "jˈuːz ɐ tˈuː bˈiː pˈɛnsᵊl fɔː ðə skˈɛʧ.",
+      "text" : "Use a 2B pencil for the sketch.",
+      "us" : "jˈuz ɐ tˈu bˈi pˈɛnsᵊl fɔɹ ðə skˈɛʧ."
+    },
+    {
+      "area" : "units",
+      "gb" : "ðə fˈɔː ˈAʧ and tˈuː bˈiː pˈɛnsᵊlz ɑː ˌɒn sˈAl.",
+      "text" : "The 4H and 2B pencils are on sale.",
+      "us" : "ðə fˈɔɹ ˈAʧ ænd tˈu bˈi pˈɛnsᵊlz ɑɹ ˌɔn sˈAl."
+    },
+    {
+      "area" : "units",
+      "gb" : "əpˈɑːtmᵊnt tˈuː bˈiː ɪz fɹˈiː fɹɒm ʤˈuːn.",
+      "text" : "Apartment 2B is free from June.",
+      "us" : "əpˈɑɹtmənt tˈu bˈi ɪz fɹˈi fɹʌm ʤˈun."
+    },
+    {
+      "area" : "units",
+      "gb" : "ðə wˈʌn pYnt fˈIv ˈɛm mˈɑːk ɪz ðə tˈɑːɡɪt.",
+      "text" : "The 1.5m mark is the target.",
+      "us" : "ðə wˈʌn pYnt fˈIv ˈɛm mˈɑɹk ɪz ðə tˈɑɹɡət."
+    },
+    {
+      "area" : "units",
+      "gb" : "swˈɪm fˈɪfti ˈɛm ðˈɛn ɹˈɛst.",
+      "text" : "Swim 50m then rest.",
+      "us" : "swˈɪm fˈɪfti ˈɛm ðˈɛn ɹˈɛst."
+    },
+    {
+      "area" : "units",
+      "gb" : "ðə sˈɜːkɪt ɹˈʌnz at fˈIv vˈQlts and tˈuː ˈamps.",
+      "text" : "The circuit runs at 5 V and 2 A.",
+      "us" : "ðə sˈɜɹkət ɹˈʌnz æt fˈIv vˈOlts ænd tˈu ˈæmps."
+    },
+    {
+      "area" : "units",
+      "gb" : "ˈad wˈʌn kwˈɔːtə pˈWnd bˈʌtə.",
+      "text" : "Add ¼ lb butter.",
+      "us" : "ˈæd wˈʌn kwˈɔɹTəɹ pˈWnd bˈʌTəɹ."
+    },
+    {
+      "area" : "units",
+      "gb" : "ðə pˈQl lˈiːd nˈaɹQd bI θɹˈiː pəsˈɛntɪʤ pˈYnts.",
+      "text" : "The poll lead narrowed by 3 pp.",
+      "us" : "ðə pˈOl lˈid nˈɛɹOd bI θɹˈi pəɹsˈɛntɪʤ pˈYnts."
+    },
+    {
+      "area" : "units",
+      "gb" : "sˈIz twˈɛlv ˈɛm fˈɪts mˈQst tˈɒdələz.",
+      "text" : "Size 12M fits most toddlers.",
+      "us" : "sˈIz twˈɛlv ˈɛm fˈɪts mˈOst tˈɑdᵊləɹz."
+    },
+    {
+      "area" : "units",
+      "gb" : "tˈɜːn lˈɛft tˈuː kˈɪləmˌiːtəz pˈɑːst ði ˈɛs bˈɛnd.",
+      "text" : "Turn left 2 km past the S bend.",
+      "us" : "tˈɜɹn lˈɛft tˈu kəlˈɑməTəɹz pˈæst ði ˈɛs bˈɛnd."
+    },
+    {
+      "area" : "units",
+      "gb" : "ʃˌiː bˈɔːt θɹˈiː ˈɛm tˈAp and tˈuː hˈʊks.",
+      "text" : "She bought 3M tape and 2 hooks.",
+      "us" : "ʃˌi bˈɔt θɹˈi ˈɛm tˈAp ænd tˈu hˈʊks."
+    },
+    {
+      "area" : "units",
+      "gb" : "sˈiːnɪəz ˈQvə sˈɪksti fˈIv ɹˈId fɹˈiː.",
+      "text" : "Seniors over 65 ride free.",
+      "us" : "sˈinjəɹz ˈOvəɹ sˈɪksti fˈIv ɹˈId fɹˈi."
     }
   ],
   "speech_cases" : [
@@ -11244,6 +11316,160 @@
       "area" : "dimensions",
       "says" : "He's six seven with a long wingspan.",
       "text" : "He's 6-7 with a long wingspan."
+    },
+    {
+      "area" : "units",
+      "says" : "Over sixty-fives will lose the winter fuel payment.",
+      "text" : "Over 65s will lose the winter fuel payment."
+    },
+    {
+      "area" : "units",
+      "says" : "Under twenty-fives make up seven percent of the electorate.",
+      "text" : "Under 25s make up 7% of the electorate."
+    },
+    {
+      "area" : "units",
+      "says" : "Free entry for under fives and over sixty-fives.",
+      "text" : "Free entry for under 5s and over 65s."
+    },
+    {
+      "area" : "units",
+      "says" : "The page loads in under three seconds.",
+      "text" : "The page loads in under 3s."
+    },
+    {
+      "area" : "units",
+      "says" : "Buy three M hooks for the dorm.",
+      "text" : "Buy 3M hooks for the dorm."
+    },
+    {
+      "area" : "units",
+      "says" : "Pick up some three M Command strips.",
+      "text" : "Pick up some 3M Command strips."
+    },
+    {
+      "area" : "units",
+      "says" : "Cut the fabric into one point five meter strips.",
+      "says_gb" : "Cut the fabric into one point five metre strips.",
+      "text" : "Cut the fabric into 1.5m strips."
+    },
+    {
+      "area" : "units",
+      "says" : "Two two point four meter boards for the shelf.",
+      "says_gb" : "Two two point four metre boards for the shelf.",
+      "text" : "Two 2.4m boards for the shelf."
+    },
+    {
+      "area" : "units",
+      "says" : "Buy two point five meter lengths of rope.",
+      "says_gb" : "Buy two point five metre lengths of rope.",
+      "text" : "Buy 2.5m lengths of rope."
+    },
+    {
+      "area" : "units",
+      "says" : "Women's eight point five M sneakers",
+      "text" : "Women's 8.5M sneakers"
+    },
+    {
+      "area" : "units",
+      "says" : "Men's ten point five M boots",
+      "text" : "Men's 10.5M boots"
+    },
+    {
+      "area" : "units",
+      "says" : "Twelve month pajamas are thirty percent off.",
+      "text" : "12M pajamas are 30% off."
+    },
+    {
+      "area" : "units",
+      "says" : "Some four point five million pensioners will be affected.",
+      "text" : "Some 4.5m pensioners will be affected."
+    },
+    {
+      "area" : "units",
+      "says" : "The UK's population hit sixty-eight point three million in mid-2023.",
+      "text" : "The UK's population hit 68.3m in mid-2023."
+    },
+    {
+      "area" : "units",
+      "says" : "Labour won nine point seven million votes, Reform four point one million and the Tories six point eight million.",
+      "text" : "Labour won 9.7m votes, Reform 4.1m and the Tories 6.8m."
+    },
+    {
+      "area" : "units",
+      "says" : "A seven point one magnitude quake struck thirty kilometers southwest of the capital.",
+      "says_gb" : "A seven point one magnitude quake struck thirty kilometres southwest of the capital.",
+      "text" : "A 7.1-magnitude quake struck 30 km SW of the capital."
+    },
+    {
+      "area" : "units",
+      "says" : "The epicenter was twenty miles northeast of Anchorage.",
+      "text" : "The epicenter was 20 mi NE of Anchorage."
+    },
+    {
+      "area" : "units",
+      "says" : "The Fed cut rates by twenty-five basis points on Wednesday.",
+      "text" : "The Fed cut rates by 25 bp on Wed."
+    },
+    {
+      "area" : "units",
+      "says" : "It has five grams of protein per bar.",
+      "text" : "It has 5g of protein per bar."
+    },
+    {
+      "area" : "units",
+      "says" : "Sugar five grams per bar",
+      "text" : "Sugar 5g per bar"
+    },
+    {
+      "area" : "units",
+      "says" : "Fat nine grams, Carbs thirty grams",
+      "text" : "Fat 9g, Carbs 30g"
+    },
+    {
+      "area" : "units",
+      "says" : "Add one eighth teaspoon cayenne.",
+      "text" : "Add ⅛ tsp cayenne."
+    },
+    {
+      "area" : "units",
+      "says" : "Add five eighths cup milk.",
+      "text" : "Add ⅝ cup milk."
+    },
+    {
+      "area" : "units",
+      "says" : "Grab nine volt batteries for the smoke alarm.",
+      "text" : "Grab 9V batteries for the smoke alarm."
+    },
+    {
+      "area" : "units",
+      "says" : "A quarter pound burger and fries.",
+      "text" : "A ¼ lb burger and fries."
+    },
+    {
+      "area" : "units",
+      "says" : "The Q2 board deck is forty pages.",
+      "text" : "The Q2 board deck is 40 pp."
+    },
+    {
+      "area" : "units",
+      "says" : "Unemployment rose zero point three percentage points to four point four percent.",
+      "text" : "Unemployment rose 0.3pp to 4.4%."
+    },
+    {
+      "area" : "units",
+      "says" : "Velocity is about forty points per sprint.",
+      "text" : "Velocity is ~40 pts/sprint."
+    },
+    {
+      "area" : "units",
+      "says" : "ETA two hours, maybe less.",
+      "text" : "ETA 2h, maybe less."
+    },
+    {
+      "area" : "units",
+      "says" : "We hit two billion in revenue.",
+      "text" : "We hit 2B in revenue."
     }
   ]
 }
