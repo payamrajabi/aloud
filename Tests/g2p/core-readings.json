@@ -2066,6 +2066,18 @@
       "us" : "ɹˈid ʧˈæptəɹ ˈɛks."
     },
     {
+      "area" : "roman",
+      "gb" : "ˌɪt wɒz ɐ mˈiːtɪŋ bɪtwˈiːn kˈɪŋ ʧˈɑːlz ðə θˈɜːd and ˌI",
+      "text" : "It was a meeting between King Charles III and I.",
+      "us" : "ˌɪt wʌz ɐ mˈiTɪŋ bətwˈin kˈɪŋ ʧˈɑɹlz ðə θˈɜɹd ænd ˌI"
+    },
+    {
+      "area" : "roman",
+      "gb" : "ʃˌiː sˈInd ðə kˈɑːd “lˈʌv, mˈɛːɹi ˈɛks”",
+      "text" : "She signed the card “Love, Mary X”",
+      "us" : "ʃˌi sˈInd ðə kˈɑɹd “lˈʌv, mˈɛɹi ˈɛks”"
+    },
+    {
       "area" : "addresses",
       "gb" : "ˈɑːsk dˈɒktə pətˈɛl əbˈWt ɪt.",
       "text" : "Ask Dr. Patel about it.",
