@@ -3680,6 +3680,24 @@
       "us" : "ɪn twˈɛnti fˌɪftˈin ˈOʃən dɹˈIv wʌz ɹipˈAvd."
     },
     {
+      "area" : "addresses",
+      "gb" : "ðə jˌuːˈɛs fˈIv hˈʌndɹəd ˈɪndɛks fˈɛl.",
+      "text" : "The US 500 index fell.",
+      "us" : "ðə jˌuˈɛs fˈIv hˈʌndɹəd ˈɪndˌɛks fˈɛl."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "ˌWə jˌuːˈɛs wˈʌn hˈʌndɹəd fˈɪfti ˌɛmplYˈiːz ɡˈɒt ɹˈAzɪz.",
+      "text" : "Our US 150 employees got raises.",
+      "us" : "ˌWəɹ jˌuˈɛs wˈʌn hˈʌndɹəd fˈɪfti ˌɛmplˌYˈiz ɡˈɑt ɹˈAzᵻz."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "ðə ɹˈiːʤᵊnt stɹˈiːt kɹˈɪsməs lˈIts ɑː ˌʌp.",
+      "text" : "The Regent St Christmas lights are up.",
+      "us" : "ðə ɹˈiʤᵊnt stɹˈit kɹˈɪsməs lˈIts ɑɹ ˌʌp."
+    },
+    {
       "area" : "negatives",
       "gb" : "plˈan ɐ ɪz fˈIn.",
       "text" : "Plan A is fine.",
