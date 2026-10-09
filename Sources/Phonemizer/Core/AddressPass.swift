@@ -40,6 +40,9 @@ enum AddressPass {
         // every space, so they're skipped in the plain sentences that are most of what's read.
         let codes = hasComma && hasCapitalPair || hasDigit || TextNormalizer.containsDigit(text)
         var t = text
+        // A listed city and its code with no comma ("Denver CO", "Atlanta GA traffic") needs
+        // only the two capitals.
+        if !codes, hasCapitalPair { t = rewrite(t, usState, readUSState) }
         if hasDigit {
             t = rewrite(t, ukPostcode) { m, s, casing in readUKPostcode(m, s, &casing, british: british) }
         }
@@ -62,6 +65,13 @@ enum AddressPass {
             t = rewrite(t, floorOrdinal, readFloorOrdinal)
         }
         t = rewrite(t, building, readBuilding)
+        if hasCapital {
+            t = rewrite(t, partyState, readPartyState)
+            t = rewrite(t, apStateAlone, readAPStateAlone)
+            t = rewrite(t, fortOrPoint, readFortOrPoint)
+            t = rewrite(t, directionInitial, readDirectionInitial)
+            t = rewrite(t, pluralType, readPluralType)
+        }
         t = rewrite(t, streetType, readStreetType)
         t = rewrite(t, typeDirection, readTypeDirection)
         t = rewrite(t, saintNoStop, readSaintNoStop)
@@ -279,8 +289,20 @@ enum AddressPass {
         if ".,;:!?)".contains(c) || c.isNewline || rest.hasPrefix("-based") { return true }
         guard c == " " || c == "\t" else { return false }
         guard let n = rest.first(where: { $0 != " " && $0 != "\t" }) else { return true }
+        // A year after it ("Austin, TX 2023 was brutal"); a ZIP is read with the code.
+        if n.isNumber { return rest.drop { $0 == " " || $0 == "\t" }.prefix(while: \.isNumber).count == 4 }
         return n.isLowercase || n.isNewline
     }
+
+    /// State codes that are English words in capitals ("OR", "IN", "OK"): never read without a
+    /// comma or a ZIP, nor on a city alone.
+    private static let englishCodes: Set<String> = ["OR", "IN", "ME", "OK", "HI", "OH"]
+    /// Nouns an "ID" and a number name: "Employee ID 48213" isn't Idaho.
+    private static let idOwners: Set<String> = [
+        "Employee", "User", "Reference", "Customer", "Order", "Account", "Student", "Member", "Patient", "Device", "Session",
+        "Ticket", "Case", "Transaction", "Product", "Item", "Badge", "Staff", "Login", "Meeting", "Tax", "Photo", "Apple",
+        "Group", "Team", "Job", "Request", "Application", "Client", "Vendor", "Supplier", "Booking", "Tracking", "Your",
+    ]
 
     /// "OK" as a word after a name: before "?" or "!" (a tag question, "Say hi to Norman, OK?")
     /// or before a comma and a pronoun ("Fine, Norman, OK, you win", "Enid, OK, let's go").
@@ -315,8 +337,14 @@ enum AddressPass {
             guard zip != nil else { return nil }
             code = code.uppercased()
         }
-        guard let name = AddressPlaces.states[code], comma || zip != nil else { return nil }
+        guard let name = AddressPlaces.states[code] else { return nil }
         guard let place = place(before: m.range.location, in: s) else { return nil }
+        // "Employee ID 48213", "Reference ID 30301": an ID, not Idaho and a ZIP.
+        if !comma, idOwners.contains(String(place.name.split(separator: " ").last ?? "")) { return nil }
+        if !comma, code == "ID", !AddressPlaces.isUSPlace(place.name, code), !place.prefixed { return nil }
+        // Without a comma or a ZIP, only a listed city and a code that isn't an English word
+        // ("Denver CO", "Atlanta GA traffic").
+        guard comma || zip != nil || (AddressPlaces.isUSPlace(place.name, code) && !englishCodes.contains(code)) else { return nil }
         let end = NSMaxRange(m.range)
         var range = m.range
         var written = name
@@ -332,7 +360,9 @@ enum AddressPass {
             if AddressPlaces.territories.contains(code) {
                 guard placeWord else { return nil }
             } else if AddressPlaces.wordLikeStates.contains(code) {
-                guard placeWord || after || based || closed else { return nil }
+                // A listed city settles a code that isn't an English word ("Chicago, IL pizza").
+                guard placeWord || after || based || closed || (!englishCodes.contains(code) && AddressPlaces.isUSPlace(place.name, code))
+                else { return nil }
             }
             if based {
                 // "a Portland, OR-based startup": "Oregon based", two words as the says reads them.
@@ -356,7 +386,7 @@ enum AddressPass {
     /// "ZIP 90210", "zip code: 02139", "My ZIP code is 90210". A bare "zip" is the verb ("zip
     /// 25000 files").
     private static let zipCue = try! NSRegularExpression(pattern:
-        #"(?<![\p{L}])(?:ZIP(?:[ \t]+[Cc]ode)?|[Zz]ip[ \t]+code|ZIP[ \t]+CODE)(?:[ \t]*[:,]|[ \t]+is)?[ \t]*(\d{5})(?:-(\d{4}))?(?![\d\p{L}])"#)
+        #"(?<![\p{L}])(?:ZIP(?:[ \t]+[Cc]ode)?|[Zz]ip[ \t]+code|ZIP[ \t]+CODE|[Zz]ip(?=[ \t]*:|[ \t]+is))(?:[ \t]*[:,]|[ \t]+is)?[ \t]*(\d{5})(?:-(\d{4}))?(?![\d\p{L}])"#)
 
     /// The ZIP (group 1) and any +4 (group 2) after a state's name or a ZIP cue; the words before
     /// it stay as written.
@@ -389,7 +419,8 @@ enum AddressPass {
         if rest.first == "," || zip || next.hasPrefix("(AP)") || next.first?.isLowercase == true {
             stop = ""
         } else if next.isEmpty || next.first?.isNewline == true || (next.count < rest.count && next.first?.isUppercase == true) {
-            if next.first?.isUppercase == true, AddressPlaces.wordLikeAPStates.contains(abbr) { return nil }
+            if next.first?.isUppercase == true, AddressPlaces.wordLikeAPStates.contains(abbr),
+               !AddressPlaces.isUSPlace(place.name, stateCodes[name] ?? "") { return nil }
             stop = "."
         } else {
             return nil
@@ -687,13 +718,17 @@ enum AddressPass {
     }
 
     /// "1585 Broadway": a number straight before Broadway is a house number.
-    private static let broadway = try! NSRegularExpression(pattern: #"(?<![\p{L}\d$#£€¥.,:/\-])(\d{1,5})[ \t]+(?=(?:Broadway|BROADWAY)(?![\p{L}\d]))"#)
+    private static let broadway = try! NSRegularExpression(pattern: #"(?<![\p{L}\d$#£€¥.,:/\-])(\d{1,5})[ \t]+(?:(NE|NW|SE|SW|N|S|E|W)\.?[ \t]+)?(?=(?:Broadway|BROADWAY)(?![\p{L}\d]))"#)
 
     private static func readBroadway(_ m: NSTextCheckingResult, _ s: NSString, _ casing: inout Casing) -> Rewrite? {
         if let previous = word(before: m.range.location, in: s)?.word.lowercased(), countWords.contains(previous) || yearWords.contains(previous) {
             return nil
         }
-        return (m.range(at: 1), casing.cased(addressNumber(s.substring(with: m.range(at: 1))), at: m.range.location))
+        var words = casing.cased(addressNumber(s.substring(with: m.range(at: 1))), at: m.range.location)
+        // "400 SW Broadway": the direction between them too.
+        guard m.range(at: 2).location != NSNotFound else { return (m.range(at: 1), words) }
+        words += " " + casing.cased(directions[s.substring(with: m.range(at: 2))]!, at: m.range(at: 2).location) + " "
+        return (m.range, words)
     }
 
     // MARK: - Units (rule G)
@@ -751,12 +786,91 @@ enum AddressPass {
         return (m.range, casing.cased("Building", at: m.range.location) + stop)
     }
 
+    // MARK: - Party and state, states on their own, forts, directions, plural types
+
+    /// A politician's party and state: "(I-Vt.)", "R-La.,", "(D-Calif.)", "D-D.C.", "R-TX" →
+    /// "independent of Vermont", "Republican of Louisiana". Only after a name's comma or a
+    /// bracket, with a state code after the dash.
+    private static let partyState = try! NSRegularExpression(pattern:
+        #"(?<=\(|\p{L},[ \t])([DRI])-("# + (AddressPlaces.apStates.keys.sorted { $0.count > $1.count }.map(NSRegularExpression.escapedPattern)
+            + ["D\\.C\\.", "Texas", "Ohio", "Utah", "Iowa", "Idaho", "Maine", "Alaska", "Hawaii"]
+            + AddressPlaces.states.keys.filter { !AddressPlaces.territories.contains($0) }.sorted()).joined(separator: "|")
+            + #")(?=[),;:]|[ \t]|\.(?!\p{L})|$)"#)
+
+    private static func readPartyState(_ m: NSTextCheckingResult, _ s: NSString, _ casing: inout Casing) -> Rewrite? {
+        let party = ["D": "Democrat", "R": "Republican", "I": "independent"][s.substring(with: m.range(at: 1))]!
+        let code = s.substring(with: m.range(at: 2))
+        let state = code == "D.C." ? "D.C." : AddressPlaces.apStates[code] ?? AddressPlaces.states[code] ?? code
+        // The abbreviation's period goes, unless it also ends the sentence.
+        let stop = code.hasSuffix(".") && FullStop.ends(before: text(after: NSMaxRange(m.range), in: s), next: .capital) ? "." : ""
+        return (m.range, casing.cased(party + " of " + state, at: m.range.location) + stop)
+    }
+
+    /// An AP state on its own after a place word: "Polls in Pa. and Mich. close", "flew from
+    /// Fla. to N.J.", "Tim Walz of Minn.". "Mass." stays (Mass is a service), and "Ind."
+    /// (independent), "Del." (a delegate) and "Ill." are left to a city before them.
+    private static let apStateAlone = try! NSRegularExpression(pattern:
+        #"(?<=\b(?:in|from|to|of|across|throughout|and|or|near|outside|across)[ \t])("#
+            + AddressPlaces.apStates.keys.filter { !["Mass.", "Ind.", "Del.", "Ill.", "Miss.", "Wash.", "Mo."].contains($0) }
+                .sorted { $0.count > $1.count }.map(NSRegularExpression.escapedPattern).joined(separator: "|")
+            + #")(?![\p{L}\d])"#)
+
+    private static func readAPStateAlone(_ m: NSTextCheckingResult, _ s: NSString, _ casing: inout Casing) -> Rewrite? {
+        let name = AddressPlaces.apStates[s.substring(with: m.range(at: 1))]!
+        let rest = text(after: NSMaxRange(m.range), in: s)
+        // The period is also the full stop before a capital or the end ("…from Fla. He said").
+        let stop = FullStop.ends(before: rest, next: .capital) ? "." : ""
+        return (m.range, casing.cased(name, at: m.range.location) + stop)
+    }
+
+    /// "Ft. Myers", "Ft. Lauderdale", "Ft Worth" → Fort; "Pt. Reyes" → Point; "Mt. Dew" is the
+    /// drink. Only before a capitalised name and never after a number ("6 ft. Tall" stays feet).
+    private static let fortOrPoint = try! NSRegularExpression(pattern: #"(?<![\p{L}\d'’.\-/])(?<!\d[ \t])(Ft|Pt|Mt)(\.)?(?=[ \t]+\p{Lu}\p{Ll})"#)
+
+    private static func readFortOrPoint(_ m: NSTextCheckingResult, _ s: NSString, _ casing: inout Casing) -> Rewrite? {
+        let abbr = s.substring(with: m.range(at: 1))
+        if abbr == "Mt" {
+            guard firstWord(text(after: NSMaxRange(m.range), in: s, limit: 12)) == "Dew" else { return nil }
+            return (m.range, casing.cased("Mountain", at: m.range.location))
+        }
+        // "Pt" with no period is a patient's chart ("Pt Smith"); Fort needs no period.
+        if abbr == "Pt", m.range(at: 2).location == NSNotFound { return nil }
+        return (m.range, casing.cased(abbr == "Ft" ? "Fort" : "Point", at: m.range.location))
+    }
+
+    /// A direction's initial before a numbered street or a street's name: "W. 44th", "N.
+    /// Charles St.", "S. Congress Ave" → West, North, South. An initial before a plain name
+    /// ("W. Smith") is a person's.
+    private static let directionInitial = try! NSRegularExpression(pattern:
+        #"(?<![\p{L}\d'’.\-])([NSEW])\.?[ \t]+(?=\d{1,3}(?:st|nd|rd|th)(?![\p{L}\d])|\p{Lu}[\p{L}'’\-]*[ \t]+(?:St|Ave|Rd|Dr|Blvd|Ln|Pkwy|Hwy|Pl|Ct|Street|Avenue|Road|Drive|Boulevard|Lane|Parkway)(?![\p{L}]))"#)
+
+    private static func readDirectionInitial(_ m: NSTextCheckingResult, _ s: NSString, _ casing: inout Casing) -> Rewrite? {
+        // An initial in a name's run ("John W. 5th"…) is left alone: only after a lower-case
+        // word, a number or punctuation.
+        if let w = word(before: m.range.location, in: s), w.word.first?.isUppercase == true, !w.word.hasSuffix(":") { return nil }
+        return (m.range, casing.cased(directions[s.substring(with: m.range(at: 1))]!, at: m.range.location) + " ")
+    }
+
+    /// Plural street types after a name or an ordinal: "7th and 14th Sts.", "5th and 6th Aves."
+    /// → Streets, Avenues. ("Sts." before a name is Saints: "Sts. Peter and Paul".)
+    private static let pluralType = try! NSRegularExpression(pattern:
+        #"(?<=(?:\d(?:st|nd|rd|th)|\p{Ll})[ \t])(Sts|Aves|Rds|Blvds)(\.)?(?![\p{L}\d])"#)
+
+    private static func readPluralType(_ m: NSTextCheckingResult, _ s: NSString, _ casing: inout Casing) -> Rewrite? {
+        let word = ["Sts": "Streets", "Aves": "Avenues", "Rds": "Roads", "Blvds": "Boulevards"][s.substring(with: m.range(at: 1))]!
+        // After a lower-case word, only where no name follows ("the Church of Sts. Peter and Paul").
+        if let w = AddressPass.word(before: m.range.location, in: s)?.word, w.first?.isLowercase == true,
+           firstWord(text(after: NSMaxRange(m.range), in: s, limit: 30))?.first?.isUppercase == true { return nil }
+        let stop = m.range(at: 2).location != NSNotFound && FullStop.ends(before: text(after: NSMaxRange(m.range), in: s), next: .capital) ? "." : ""
+        return (m.range, casing.cased(word, at: m.range.location) + stop)
+    }
+
     // MARK: - Street types after a name (rules D and E)
 
     /// "Elm Rd.", "Astor Pl.", "Pacific Coast Hwy", "Washington Sq. Park", "Mulholland Dr.":
     /// the type after a capitalised name, with no house number. "St." is read in `readStreets`.
     private static let streetType = try! NSRegularExpression(pattern:
-        #"(?<![\p{L}\d'’.])(\p{Lu}[\p{L}'’\-]*|\d{1,3}(?:st|nd|rd|th))[ \t]+(Dr|Rd|Ln|Ct|Pl|Pkwy|Hwy|Cres|Terr|Ter|Sq|Cir|Trl|Ave|Blvd)(?![\p{L}\d'’\-])(\.)?(?:[ \t]+(NE|NW|SE|SW)(?![\p{L}\d'’]))?"#)
+        #"(?<![\p{L}\d'’.])(\p{Lu}[\p{L}'’\-]*|(?<=\p{L}[ \t])(?:Jr|Sr)\.|\d{1,3}(?:st|nd|rd|th))[ \t]+(Dr|Rd|Ln|Ct|Pl|Pkwy|Hwy|Cres|Terr|Ter|Sq|Cir|Trl|Ave|Blvd)(?![\p{L}\d'’\-])(\.)?(?:[ \t]+(NE|NW|SE|SW)(?![\p{L}\d'’]))?"#)
 
     /// Words before a street's name that place it ("along Mulholland Dr.", "on Oak Dr."): with
     /// none, "Dr." is Doctor ("Our Family Dr. retired").
@@ -764,6 +878,8 @@ enum AddressPass {
         "on", "onto", "off", "along", "down", "up", "at", "to", "from", "near", "past", "via", "across", "into", "toward",
         "towards", "opposite", "behind",
     ]
+    /// Words before a name that make "Dr." after it a doctor: "Our Family Dr. retired".
+    private static let streetDeterminers: Set<String> = ["our", "my", "your", "his", "her", "their", "the", "a", "an", "this", "that"]
     private static let titleWords: Set<String> = ["Mr", "Mrs", "Ms", "Mx", "Dr", "St", "Mt", "Sen", "Gov", "Rep", "Prof", "Gen",
                                                   "Rev", "Lt", "Col", "Capt", "Sgt", "Maj", "Adm", "Hon", "Fr", "Sr", "Jr"]
     private static let areaUnits: Set<String> = ["ft", "m", "mi", "km", "in", "yd", "yds", "feet", "foot", "meters", "metres",
@@ -773,10 +889,14 @@ enum AddressPass {
         let name = s.substring(with: m.range(at: 1)), type = s.substring(with: m.range(at: 2))
         let period = m.range(at: 3).location != NSNotFound, trailing = m.range(at: 4).location != NSNotFound
         let ordinal = name.first?.isNumber == true
+        let suffix = name == "Jr." || name == "Sr."
+        // An all-capitals name only after a place word: "on MLK Dr.", "down FDR Dr.".
+        let capitals = name.count >= 2 && !name.contains(where: \.isLowercase)
+            && word(before: m.range.location, in: s).map { placePrepositions.contains($0.word.lowercased()) } == true
         if ordinal {
             // "the 9th Cir." is a court of appeals.
             guard type != "Cir" else { return nil }
-        } else {
+        } else if !suffix, !capitals {
             guard name.contains(where: \.isLowercase), !starters.contains(name), !titleWords.contains(name) else { return nil }
         }
         let rest = text(after: NSMaxRange(m.range), in: s)
@@ -800,6 +920,8 @@ enum AddressPass {
                 carriesOn = true
             } else if period, starters.contains(next) {
                 endsSentence = true
+            } else if period, type == "Dr", ["Dr", "Mr", "Mrs", "Ms"].contains(next), r.dropFirst(next.count).first == "." {
+                endsSentence = true  // "Head down Elm Dr. Dr. Shah's clinic…"
             } else {
                 return nil  // a name follows: "Dr. Lee", "Ave Maria"
             }
@@ -810,11 +932,25 @@ enum AddressPass {
             var placed = carriesOn || rest.range(of: #"^,[ \t]+\p{Lu}|^[ \t]+\d{5}(?!\d)"#, options: .regularExpression) != nil
             if !placed {
                 var location = m.range.location
-                for _ in 0..<4 {
-                    guard let w = word(before: location, in: s) else { break }
-                    if w.word.first?.isUppercase == true, !w.word.hasSuffix(".") { location = w.start; continue }
+                var opener: String?
+                for _ in 0..<5 {
+                    guard let w = word(before: location, in: s) else { opener = ""; break }
+                    if streetDeterminers.contains(w.word.lowercased()) { opener = w.word.lowercased(); break }
+                    // A name, with "Jr." in it ("Martin Luther King Jr. Dr.").
+                    if w.word.first?.isUppercase == true, !w.word.hasSuffix(".") || w.word == "Jr." || w.word == "Sr." {
+                        location = w.start
+                        continue
+                    }
                     placed = placePrepositions.contains(w.word.lowercased())
+                    opener = w.word.lowercased()
                     break
+                }
+                // A name and then a verb: "Mulholland Dr. premiered", "Mulholland Dr. is a David
+                // Lynch film". A doctor's title comes before a name, never after one, but "Our
+                // Family Dr. retired" is a doctor: a determiner before the words keeps it one.
+                if !placed, type == "Dr", period, !endsSentence, r.first?.isLowercase == true,
+                   let opener, !streetDeterminers.contains(opener) {
+                    placed = true
                 }
             }
             guard placed else { return nil }
@@ -902,6 +1038,15 @@ enum AddressPass {
         guard let first = following.first else { return nil }
         let word = firstWord(following) ?? ""
         switch last {
+        case "Ft.", "Pt.":
+            // "near Ft." + "Myers at 3 a.m.", "Pt." + "Reyes".
+            return first.isUppercase && !starters.contains(word) ? true : nil
+        case "Jr.", "Sr.":
+            // "Martin Luther King Jr." + "Dr. to the courthouse": a street named for him.
+            return following.range(of: #"^(?:Dr|Rd|Ave|Blvd|St|Ln)\.?(?:[ \t]+\p{Ll}|[ \t]*[,;]|[ \t]*$)"#, options: .regularExpression) != nil ? true : nil
+        case "N.", "S.", "E.", "W.":
+            // "on N." + "Charles St. today": a direction before a street's name.
+            return following.range(of: #"^\p{Lu}[\p{L}'’\-]*[ \t]+(?:St|Ave|Rd|Dr|Blvd|Ln|Pkwy|Hwy|Pl|Ct|Street|Avenue|Road|Drive|Boulevard|Lane|Parkway)(?![\p{L}])"#, options: .regularExpression) != nil ? true : nil
         case "Ste.", "Apt.", "Fl.", "Rm.":
             // A unit before its number ("Apt." + "4B"), and Sainte before a name ("Sault Ste." +
             // "Marie").
