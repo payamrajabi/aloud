@@ -168,6 +168,7 @@ extension TitlePass {
         "researcher", "editor", "writer", "counsel", "partner", "lecturer", "fellow", "specialist", "officer", "advisor",
         "adviser", "executive", "producer", "staff", "principal", "pastor", "minister", "chaplain", "nurse",
         "technician", "administrator", "coordinator", "recruiter", "attorney", "buyer", "planner", "strategist", "lead",
+        "chef", "cook", "pm", "pms", "tpm", "swe", "sre", "ux", "qa", "role", "roles", "position", "hire",
         "living", "center", "centre", "citizen", "citizens", "discount", "housing", "care", "high", "year", "class",
         "varsity", "team", "management",
     ]
@@ -184,5 +185,16 @@ extension TitlePass {
 
     /// Jobs that make "Assoc." Associate and "Asst." Assistant (T7).
     static let assistedJobs: Set<String> = ["Prof", "Professor", "Dean", "Director", "Dir", "Editor", "Coach", "Manager",
-                                            "Principal", "Chief", "Secretary", "Sec", "Attorney"]
+                                            "Mgr", "Principal", "Chief", "Secretary", "Sec", "Attorney"]
+    /// Titles a party ("Dem.") goes before: "Dem. Rep. Jasmine Crockett".
+    static let partyTitles: Set<String> = ["Rep", "Sen", "Gov", "Del", "Reps", "Sens", "Govs"]
+    /// What "Dem. Rep." names when it's the country: "Dem. Rep. Congo", "Dem. Rep. of the Congo".
+    static let republics: Set<String> = ["Congo", "Korea", "Timor", "Germany", "Vietnam", "Yemen", "of"]
+    /// Departments an office follows: "the Foreign Sec.", "the Treasury Sec.".
+    static let departments: Set<String> = [
+        "Foreign", "Home", "Treasury", "Defence", "Defense", "Health", "Press", "Culture", "Business", "Education",
+        "Environment", "Transport", "Transportation", "Justice", "Energy", "Labor", "Labour", "State", "Interior",
+        "Commerce", "Agriculture", "Housing", "Trade", "Work", "Northern", "Scottish", "Welsh", "Cabinet", "Party",
+        "General", "Permanent", "Private", "Shadow",
+    ]
 }

@@ -30,7 +30,9 @@ enum TitlePass {
         for m in matches where m.range.location >= last {
             guard let (end, words) = reading(Site(m, in: ns), british: british) else { continue }
             if casing == nil { casing = ShoutedCasing(text) }
-            out += ns.substring(with: NSRange(location: last, length: m.range.location - last))
+            // "Ex-Gov." is "Ex Governor": hyphenated, the reader made one word of them.
+            let ex = m.range.location > last && ns.character(at: m.range.location - 1) == 0x2D  // "-"
+            out += ns.substring(with: NSRange(location: last, length: m.range.location - last - (ex ? 1 : 0))) + (ex ? " " : "")
             out += casing!.cased(words, at: m.range.location)
             last = end
         }
@@ -52,6 +54,17 @@ enum TitlePass {
         while start > body.startIndex, body[body.index(before: start)].isLetter { start = body.index(before: start) }
         guard start < body.endIndex, start == body.startIndex || body[body.index(before: start)] != "." else { return nil }
         let title = String(body[start...])
+        // "Fmr." + "Rep. Liz Cheney" (never the end of a sentence before a capital), "Dem." +
+        // "Rep. Jasmine Crockett", "Asst." + "Mgr: Ana".
+        let following = next.drop { $0.isWhitespace }
+        if title == "Fmr" { return following.first?.isUppercase == true ? true : nil }
+        if title == "Dem" {
+            let word = following.prefix { $0.isLetter }
+            return partyTitles.contains(String(word)) && following.dropFirst(word.count).first == "." ? true : nil
+        }
+        if ["Asst", "Assoc"].contains(title) {
+            return assistedJobs.contains(String(following.prefix { $0.isLetter })) ? true : nil
+        }
         guard runOnTitles.contains(title) else { return nil }
         let word = next.drop { $0.isWhitespace }.prefix { $0.isLetter || $0 == "'" || $0 == "’" }
         guard word.first?.isUppercase == true else { return false }
@@ -76,9 +89,9 @@ enum TitlePass {
     /// hyphen or slash ("Semi-Det.", "2-Br."), and not before an apostrophe ("Sgt's").
     private static let candidates: NSRegularExpression = {
         let forms = Set(titles.keys).union(bareTitles.keys).union(pairOpeners)
-            .union(["Jr", "Jnr", "Sr", "Snr", "sr", "Esq", "Ret", "ret", "Assoc", "Asst", "atty", "ATTY", "pvt", "PVT", "lt"])
+            .union(["Jr", "Jnr", "Sr", "Snr", "sr", "Esq", "Ret", "ret", "Assoc", "Asst", "atty", "ATTY", "pvt", "PVT", "lt", "Fmr", "Dem"])
         let alternation = forms.sorted { $0.count != $1.count ? $0.count > $1.count : $0 < $1 }.joined(separator: "|")
-        return try! NSRegularExpression(pattern: #"(?<![\p{L}\p{N}_.'’/\\-])("# + alternation + #")(\.)?(?![\p{L}\p{N}_'’])"#)
+        return try! NSRegularExpression(pattern: #"(?:(?<![\p{L}\p{N}_.'’/\\-])|(?<=(?<![\p{L}\p{N}])[Ee]x-))("# + alternation + #")(\.)?(?![\p{L}\p{N}_'’])"#)
     }()
 
     private static let starters = Set(Tokenizer.sentenceStarters)
@@ -237,6 +250,24 @@ enum TitlePass {
         case "Sr", "Snr", "sr": return senior(s).map { (s.end, $0) }
         case "Assoc", "Asst": return assisted(s).map { (s.end, $0) }
         case "Esq": return esquire(s) ? (s.end, "Esquire" + s.keptStop) : nil
+        // "Fmr. Rep. Liz Cheney", "Fmr. Pres. Barack Obama", "Fmr. Address": former, whatever
+        // follows (it's never a word).
+        case "Fmr" where s.dot: return (s.end, "Former" + s.keptStop)
+        // "Dem. Rep. Jasmine Crockett", "Dem. Sen. Chris Murphy": a party before a title and a
+        // name. "Dem. Rep. Congo" is the republic, and stays.
+        case "Dem" where s.dot:
+            guard let t = s.next.first, t.dot, partyTitles.contains(t.word), s.next.count > 1, !republics.contains(s.next[1].word),
+                  name(s.next.dropFirst(), for: t.word, in: s.ns) else { return nil }
+            return (s.end, "Democratic")
+        // "the Foreign Sec.", "the 79th Treasury Sec.": an office after its department.
+        case "Sec" where s.dot:
+            if let b = s.before, b.gap > 0, b.chunk == b.word, departments.contains(b.word) { return (s.end, "Secretary" + s.keptStop) }
+        // "Col Gaddafi": a UK paper's colonel before a surname alone, then a lower-case word.
+        case "Col" where !s.dot:
+            if s.next.count > 1, s.next[0].chunk == s.next[0].word, isName(s.next[0].word), !starters.contains(s.next[0].word),
+               !(skips[a]?.contains(s.next[0].word) ?? false), s.next[1].word.first?.isLowercase == true {
+                return (s.end, "Colonel")
+            }
         case "Ret", "ret": return retired(s)
         // T14: one meaning in any case, with or without a name ("atty. fees", "Pvt. Parking Only").
         case "Atty", "atty", "ATTY": return (s.end, sameCase("attorney", as: a) + s.keptStop)
@@ -358,7 +389,8 @@ enum TitlePass {
     /// isn't a usual opener comes before it: "Dental Assoc. Director Kim" is the association's.
     private static func assisted(_ s: Site) -> String? {
         guard let t = s.next.first, assistedJobs.contains(t.word) else { return nil }
-        if let b = s.before, b.word.first?.isUppercase == true, !starters.contains(b.word) { return nil }
+        // Not after a list's comma ("Mgr: Tom, Asst. Mgr: Ana").
+        if let b = s.before, b.chunk == b.word, b.word.first?.isUppercase == true, !starters.contains(b.word) { return nil }
         return s.abbr == "Assoc" ? "Associate" : "Assistant"
     }
 
@@ -409,7 +441,8 @@ enum TitlePass {
         // The calendar header "Mo Tu We Th Fr Sa Su"; Czech or Dominican "Rep." (Republic); "2nd
         // Brig." (a brigade).
         if a == "Fr", let w = b?.word, w == "Th" || w == "Thu" { return nil }
-        if a == "Rep", let c = b?.chunk, ["Czech", "Dominican", "Slovak", "Dem."].contains(c) { return nil }
+        if a == "Rep", let c = b?.chunk, ["Czech", "Dominican", "Slovak"].contains(c) { return nil }
+        if a == "Rep", b?.chunk == "Dem.", s.next.first.map({ republics.contains($0.word) || $0.chunk == "of" }) ?? true { return nil }
         if a == "Brig", let w = b?.word, isOrdinal(w) { return nil }
         if s.dot {
             guard let title = titles[a], name(s.next[...], for: a, in: s.ns) else { return nil }

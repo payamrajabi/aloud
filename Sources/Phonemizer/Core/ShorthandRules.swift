@@ -234,18 +234,16 @@ enum ShorthandRules {
         rules.append(Rule(#"(?<![\p{L}\p{N}_.&])(?<!\d[ \t])(pp|p|Figs|figs|Fig|fig|Vols|Vol|vol|Arts|Art|art|Col|col|Pt|pt|Wk|wk|Secs|Sec|sec|Ch|ch|Pg)\.[ \t]?(?=\d|(?<=pp\.|pp\.[ \t])[ivxlcIVXLC]+(?:[–-][ivxlcIVXLC]+)?(?![\p{L}]))"#) { m, s in
             (labels[s.substring(with: m.range(at: 1))] ?? s.substring(with: m.range(at: 1))) + " "
         })
-        // Shorthand that is never a word: "Qty" quantity, "ppl" people, "mgr" manager, "Asst."
-        // assistant, "mgmt", "Mtg", "Govt", "pls", "thx", "tmrw", "Utd" United, "Natl." National,
+        // Shorthand that is never a word: "Qty" quantity, "ppl" people, "mgr" manager, "mgmt",
+        // "Mtg", "Govt", "pls", "thx", "tmrw", "Utd" United, "Natl." National,
         // "intl." international, "Bros." Brothers, "Aus. Open" Australian.
-        rules.append(Rule.withContext(#"(?<![\p{L}\p{N}_.&/@])(Qty|QTY|qty|ppl|Mgr|mgr|Asst|asst|Mgmt|mgmt|Mtgs|mtgs|Mtg|mtg|Govt|govt|Pls|pls|Plz|plz|Thx|thx|Thnx|thnx|Tmrw|tmrw|Utd|Natl|natl|Intl|intl|Bros|Aus(?=\.[ \t]+Open\b))(\.)?(?![\p{L}\p{N}_/@]|\.\p{L})"#) { m, s, context in
+        rules.append(Rule.withContext(#"(?<![\p{L}\p{N}_.&/@])(Qty|QTY|qty|ppl|Mgr|mgr|Mgmt|mgmt|Mtgs|mtgs|Mtg|mtg|Govt|govt|Pls|pls|Plz|plz|Thx|thx|Thnx|thnx|Tmrw|tmrw|Utd|Natl|natl|Intl|intl|Bros|Aus(?=\.[ \t]+Open\b))(\.)?(?![\p{L}\p{N}_/@]|\.\p{L})"#) { m, s, context in
             let found = s.substring(with: m.range(at: 1))
             let dotted = m.range(at: 2).location != NSNotFound
             // Natl, Intl, Bros and Aus need their point; the rest are whole words.
             if !dotted, ["Natl", "natl", "Intl", "intl", "Bros", "Aus"].contains(found) { return s.substring(with: m.range) }
             let after = context.text(after: m.range, in: s, limit: 40)
-            // "Asst." is also assorted ("Asst. Colors"): assistant only before a role. "Mgr."
-            // before a name stays ("Ofc. Mgr. Linda Park").
-            if found.lowercased() == "asst", !matches(roleAhead, after) { return s.substring(with: m.range) }
+            // "Mgr." before a name stays ("Ofc. Mgr. Linda Park"). ("Asst. Mgr" is the titles pass's.)
             if found == "Mgr", dotted, matches(nameAhead, after) { return s.substring(with: m.range) }
             // The older words keep a full stop before any capital ("Natl." ends "…the Natl."); the
             // rest only before a usual sentence opener ("Asst. Mgr" is one title).
@@ -331,8 +329,6 @@ enum ShorthandRules {
         return rules
     }
 
-    /// A role after "Asst.": "Asst. Mgr", "Asst. Director".
-    private static let roleAhead = try! NSRegularExpression(pattern: #"^[ \t]+(?i:mgr|manager|dir|director|prof|professor|editor|secretary|coach|principal|chief|head|supervisor|producer|treasurer|curator|to[ \t]+the)(?![\p{L}])"#)
     /// A name after a title: a capital and a lower-case letter.
     private static let nameAhead = try! NSRegularExpression(pattern: #"^[ \t]+\p{Lu}\p{Ll}"#)
     /// Shorthand whose point stays a full stop before any capital, as it always did.
@@ -346,7 +342,7 @@ enum ShorthandRules {
     ]
     private static let shorthandWords = [
         "Qty": "Quantity", "QTY": "QUANTITY", "qty": "quantity", "ppl": "people", "Mgr": "Manager", "mgr": "manager",
-        "Asst": "Assistant", "asst": "assistant", "Mgmt": "Management", "mgmt": "management", "Mtg": "Meeting",
+        "Mgmt": "Management", "mgmt": "management", "Mtg": "Meeting",
         "mtg": "meeting", "Mtgs": "Meetings", "mtgs": "meetings", "Govt": "Government", "govt": "government",
         "Pls": "Please", "pls": "please", "Plz": "Please", "plz": "please", "Thx": "Thanks", "thx": "thanks",
         "Thnx": "Thanks", "thnx": "thanks", "Tmrw": "Tomorrow", "tmrw": "tomorrow",

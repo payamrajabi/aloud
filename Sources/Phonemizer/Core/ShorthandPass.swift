@@ -74,7 +74,11 @@ enum ShorthandPass {
             cues = Cues(t)
         }
         if cues.ampersand {
-            t = rewrite(t, ampersandPlural, cased: false) { m, s in s.substring(with: m.range(at: 1)) + "'s" }
+            t = rewrite(t, ampersandPlural, cased: false) { m, s in
+                // "M's" is "muz" to the British lexicon: "M&Ems" reads "M and Ems" in both voices.
+                let pair = s.substring(with: m.range(at: 1))
+                return pair.hasSuffix("M") ? pair.dropLast() + "Ems" : pair + "'s"
+            }
             cues = Cues(t)
         }
         if cues.etc { t = rewrite(t, etcetera, cased: false) { _, _ in "etc.." } }
@@ -249,13 +253,10 @@ enum ShorthandPass {
             if m.range(at: 1).location != NSNotFound { return first.isNumber ? true : nil }
             return first.isUppercase ? true : nil
         }
-        // "See col." + "B in the tracker" (a column), "Asst." + "Mgr: Ana" (a role).
-        if let m = runOnRole.firstMatch(in: head, range: all) {
-            if m.range(at: 1).location != NSNotFound {
-                let rest = next.drop { $0.isWhitespace }
-                return first.isUppercase && rest.dropFirst().first?.isLetter != true ? true : nil
-            }
-            return roleNext.firstMatch(in: next, range: NSRange(location: 0, length: (next as NSString).length)) != nil ? true : nil
+        // "See col." + "B in the tracker": a column.
+        if runOnColumn.firstMatch(in: head, range: all) != nil {
+            let rest = next.drop { $0.isWhitespace }
+            return first.isUppercase && rest.dropFirst().first?.isLetter != true ? true : nil
         }
         guard let m = runOn.firstMatch(in: head, range: all) else { return nil }
         // "Attn." before its addressee ("Maria Lopez"); "ca." or "c." before a year ("1850.").
@@ -268,10 +269,8 @@ enum ShorthandPass {
     /// colon or semicolon.
     private static let runOnLabel = try! NSRegularExpression(pattern:
         #"(?:(?<![\p{L}\p{N}_.])(Wk|wk)|(?<![\p{L}\p{N}_.])(?:Natl|natl|Intl|intl|feat|Feat)|(?<=\p{L}[ \t])ft|[,:;][ \t]+(?:[IVX]{1,4}|[ivx]{1,4}))\.$"#)
-    /// "col." (group 1) and "Asst." at the end of a sentence as Apple's splitter cut it.
-    private static let runOnRole = try! NSRegularExpression(pattern: #"(?<![\p{L}\p{N}_.])(?:(col)|Asst|asst)\.$"#)
-    /// A role after "Asst.": "Mgr", "Director".
-    private static let roleNext = try! NSRegularExpression(pattern: #"^\s*(?i:mgr|manager|dir|director|prof|professor|editor|secretary|coach|principal|chief|head|supervisor|producer|treasurer|curator)(?![\p{L}])"#)
+    /// "col." at the end of a sentence as Apple's splitter cut it.
+    private static let runOnColumn = try! NSRegularExpression(pattern: #"(?<![\p{L}\p{N}_.])col\.$"#)
     /// The abbreviations Apple's splitter takes for a full stop: Attn (group 1), and ca. and c.
     private static let runOn = try! NSRegularExpression(pattern: #"(?:(?<![\p{L}\p{N}_.])(Attn|ATTN|attn)|(?<![\p{L}\p{N}_.&])(?:ca|c))\.$"#)
 

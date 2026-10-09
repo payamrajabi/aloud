@@ -4944,6 +4944,30 @@
       "gb" : "wˌiː hav twˈɛntiz and θˈɜːtiz ˌɒn ðə tˈiːm.",
       "text" : "We have 20s and 30s on the team.",
       "us" : "wˌi hæv twˈɛntiz ænd θˈɜɹTiz ˌɔn ðə tˈim."
+    },
+    {
+      "area" : "titles",
+      "gb" : "ˈAd ɹˈiːʧt ðə dˈɛm. ɹˈɛp kˈɒŋɡQ.",
+      "text" : "Aid reached the Dem. Rep. Congo.",
+      "us" : "ˈAd ɹˈiʧt ðə dˈɛm. ɹˈɛp kˈɑŋɡO."
+    },
+    {
+      "area" : "titles",
+      "gb" : "mˈaʤ ʃˈQəl ɹˈQt ɪt.",
+      "text" : "Maj Sjöwall wrote it.",
+      "us" : "mˈæʤ ʃˈOəl ɹˈOt ɪt."
+    },
+    {
+      "area" : "titles",
+      "gb" : "kˈɒl tˈQtᵊl: fˌɔːtˈiːn",
+      "text" : "Col Total: 14",
+      "us" : "kˈɑl tˈOTᵊl: fˌɔɹtˈin"
+    },
+    {
+      "area" : "titles",
+      "gb" : "ðə sˈɛk. sˈɛd nˈQ.",
+      "text" : "The Sec. said no.",
+      "us" : "ðə sˈɛk. sˈɛd nˈO."
     }
   ],
   "speech_cases" : [
@@ -12322,6 +12346,66 @@
       "area" : "money",
       "says" : "Rooms from forty-nine pounds per night",
       "text" : "Rooms Fr. £49 per night"
+    },
+    {
+      "area" : "titles",
+      "says" : "Former Representative Liz Cheney campaigned in Ripon, Wisconsin, on Thursday.",
+      "text" : "Fmr. Rep. Liz Cheney campaigned in Ripon, Wis., on Thursday."
+    },
+    {
+      "area" : "titles",
+      "says" : "Former President Barack Obama spoke at the rally.",
+      "text" : "Fmr. Pres. Barack Obama spoke at the rally."
+    },
+    {
+      "area" : "titles",
+      "says" : "Colonel Gaddafi was killed in Sirte in October twenty eleven.",
+      "text" : "Col Gaddafi was killed in Sirte in October 2011."
+    },
+    {
+      "area" : "titles",
+      "says" : "Lord Cameron, the Foreign Secretary, visited Kyiv on Thursday.",
+      "text" : "Lord Cameron, the Foreign Sec., visited Kyiv on Thurs."
+    },
+    {
+      "area" : "titles",
+      "says" : "She was the seventy-ninth Treasury Secretary in the job.",
+      "text" : "She was the 79th Treasury Sec. in the job."
+    },
+    {
+      "area" : "titles",
+      "says" : "Ex Governor Andrew Cuomo lost the primary by twelve points.",
+      "text" : "Ex-Gov. Andrew Cuomo lost the primary by 12 pts."
+    },
+    {
+      "area" : "titles",
+      "says" : "Ex Representative George Santos was sentenced.",
+      "text" : "Ex-Rep. George Santos was sentenced."
+    },
+    {
+      "area" : "titles",
+      "says" : "Democratic Representative Jasmine Crockett (Texas) spoke at three.",
+      "text" : "Dem. Rep. Jasmine Crockett (Texas) spoke at 3."
+    },
+    {
+      "area" : "titles",
+      "says" : "Senior Pastry Chef Ana made the cake.",
+      "text" : "Sr. Pastry Chef Ana made the cake."
+    },
+    {
+      "area" : "titles",
+      "says" : "Senior PM role is open, refer anyone good.",
+      "text" : "Sr. PM role is open, refer anyone good."
+    },
+    {
+      "area" : "titles",
+      "says" : "Grab the M and Ems.",
+      "text" : "Grab the M&Ms."
+    },
+    {
+      "area" : "titles",
+      "says" : "Former Address: twelve Elm Street.",
+      "text" : "Fmr. Address: 12 Elm St."
     }
   ]
 }
