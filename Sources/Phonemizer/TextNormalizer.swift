@@ -326,8 +326,9 @@ enum TextNormalizer {
             let host = s.substring(with: m.range(at: 1))
             return (host == "localhost" ? "local host" : host) + " colon " + s.substring(with: m.range(at: 2))
         })
-        // File paths: "src/components/App.tsx", "/usr/local/bin", "~/Downloads".
-        rules.append(Rule(#"(?<![\p{L}\d@./\\\-:~])(?:((?:~|\.{1,2})?(?:/[\w\-.]*[\w\-])+/?)|([\w\-]+(?:/[\w\-.]+)*/[\w\-.]*[\w\-]\.[A-Za-z][A-Za-z\d]{0,4}))(?![\p{L}\d/])"#) { m, s in
+        // File paths: "src/components/App.tsx", "/usr/local/bin", "~/Downloads". Not a rate after
+        // cents ("67¢/mi"), which the cents rule reads.
+        rules.append(Rule(#"(?<![\p{L}\d@./\\\-:~¢])(?:((?:~|\.{1,2})?(?:/[\w\-.]*[\w\-])+/?)|([\w\-]+(?:/[\w\-.]+)*/[\w\-.]*[\w\-]\.[A-Za-z][A-Za-z\d]{0,4}))(?![\p{L}\d/])"#) { m, s in
             // Right after a term the custom lexicon marked ("/usr", "node_modules"), a word apart.
             let joined = m.range.location == 0 || s.substring(with: NSRange(location: m.range.location - 1, length: 1)).first?.isWhitespace == false
             return (joined ? " " : "") + readPath(s.substring(with: m.range))
@@ -527,10 +528,19 @@ enum TextNormalizer {
             guard m.range(at: 1).location != NSNotFound else { return words.0 }
             return s.substring(with: m.range(at: 1)) + " and " + words.1
         })
-        // "50¢" → "50 cents".
-        rules.append(Rule(#"(?<![\p{L}\d.,])(\d+)\s?¢"#) { m, s in
+        // "50¢" → "50 cents"; "21.3¢/oz" → "21.3 cents per ounce" (it was "slash oz"); "a 5¢
+        // deposit" → "a 5 cent deposit", the amount before its noun.
+        rules.append(Rule(#"(?<![\p{L}\d.,])(\d+(?:\.\d+)?)\s?¢(?:[ \t]?/[ \t]?(\p{L}+)(?![\p{L}\d/]))?"#) { m, s in
             let n = s.substring(with: m.range(at: 1))
-            return n + (isOne(n) ? " cent" : " cents")
+            let head = s.substring(to: m.range.location)
+            let article = (head.hasSuffix(" a ") || head.hasSuffix(" an ") || ["a ", "an ", "A ", "An "].contains(head))
+                && s.substring(from: NSMaxRange(m.range)).hasPrefix(" ") && m.range(at: 2).location == NSNotFound
+            var out = n + (isOne(n) || article ? " cent" : " cents")
+            if m.range(at: 2).location != NSNotFound {
+                let unit = s.substring(with: m.range(at: 2))
+                out += " per " + (MoneyPass.perUnits[unit] ?? MoneyPass.perUnits[unit.lowercased()] ?? unit)
+            }
+            return out
         })
         // "a < b", "x -> y" (an operand can be a lexicon term, outside this span: "JOSE != José").
         let operators = spacedOperators.keys.sorted { $0.count > $1.count }.map(NSRegularExpression.escapedPattern).joined(separator: "|")

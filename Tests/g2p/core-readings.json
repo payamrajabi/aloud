@@ -801,9 +801,9 @@
     },
     {
       "area" : "units",
-      "gb" : "hˌiː wˈɔː ɐ fˌɪftˈiːn θˈWzᵊnd dˈɒləz ɡˈQld wˈɒʧ.",
+      "gb" : "hˌiː wˈɔː ɐ fˌɪftˈiːn θˈWzᵊnd dˈɒlə ɡˈQld wˈɒʧ.",
       "text" : "He wore a $15K gold watch.",
-      "us" : "hˌi wˈɔɹ ɐ fˌɪftˈin θˈWzᵊnd dˈɑləɹz ɡˈOld wˈɑʧ."
+      "us" : "hˌi wˈɔɹ ɐ fˌɪftˈin θˈWzᵊnd dˈɑləɹ ɡˈOld wˈɑʧ."
     },
     {
       "area" : "units",
@@ -4914,6 +4914,36 @@
       "gb" : "ʃˌiː bˈɔːt ɪt fɔː sˈɜːkə ˌAtˈiːn fˈɪfti pɹˈIsɪz.",
       "text" : "She bought it for c. 1850 prices.",
       "us" : "ʃˌi bˈɔt ɪt fɔɹ sˈɜɹkə ˌAtˈin fˈɪfti pɹˈIsᵻz."
+    },
+    {
+      "area" : "money",
+      "gb" : "fˈɑːðə bɹˈWn sˈɛd mˈas at nˈuːn.",
+      "text" : "Fr. Brown said Mass at noon.",
+      "us" : "fˈɑðəɹ bɹˈWn sˈɛd mˈæs æt nˈun."
+    },
+    {
+      "area" : "money",
+      "gb" : "ðə fˈIv mˈɪl plˈastɪk ʃˈiːtɪŋ ɪz θˈɪk.",
+      "text" : "The 5 mil plastic sheeting is thick.",
+      "us" : "ðə fˈIv mˈɪl plˈæstɪk ʃˈiTɪŋ ɪz θˈɪk."
+    },
+    {
+      "area" : "money",
+      "gb" : "ʃˌiː sˈaŋ ɪn ɐ dˈɒlə stˈɔː ˈad.",
+      "text" : "She sang in a $ store ad.",
+      "us" : "ʃˌi sˈæŋ ɪn ɐ dˈɑləɹ stˈɔɹ ˈæd."
+    },
+    {
+      "area" : "money",
+      "gb" : "sˈɛnd ɪt tə pˈɑːθ tə fˈIl nˈW.",
+      "text" : "Send it to path/to/file now.",
+      "us" : "sˈɛnd ɪt tə pˈæθ tə fˈIl nˈW."
+    },
+    {
+      "area" : "money",
+      "gb" : "wˌiː hav twˈɛntiz and θˈɜːtiz ˌɒn ðə tˈiːm.",
+      "text" : "We have 20s and 30s on the team.",
+      "us" : "wˌi hæv twˈɛntiz ænd θˈɜɹTiz ˌɔn ðə tˈim."
     }
   ],
   "speech_cases" : [
@@ -12147,6 +12177,151 @@
       "area" : "shorthand",
       "says" : "Needs management approval first.",
       "text" : "Needs mgmt approval first."
+    },
+    {
+      "area" : "money",
+      "says" : "The campaign's ad buy was worth two point three million dollars in Arizona alone.",
+      "text" : "The campaign's ad buy was worth $2.3 mil in Arizona alone."
+    },
+    {
+      "area" : "money",
+      "says" : "The ad cost two million dollars.",
+      "text" : "The ad cost $2 mil."
+    },
+    {
+      "area" : "money",
+      "says" : "Congress passed a one point nine trillion dollar stimulus in March twenty twenty-one.",
+      "text" : "Congress passed a $1.9 trillion stimulus in March 2021."
+    },
+    {
+      "area" : "money",
+      "says" : "It was a five billion dollar rescue.",
+      "text" : "It was a $5bn rescue."
+    },
+    {
+      "area" : "money",
+      "says" : "They announced a one point five billion pound NHS fund.",
+      "text" : "They announced a £1.5bn NHS fund."
+    },
+    {
+      "area" : "money",
+      "says" : "Reeves found a twenty-two billion pound 'black hole' in the public finances.",
+      "text" : "Reeves found a £22bn 'black hole' in the public finances."
+    },
+    {
+      "area" : "money",
+      "says" : "A five cent deposit applies to every bottle.",
+      "text" : "A 5¢ deposit applies to every bottle."
+    },
+    {
+      "area" : "money",
+      "says" : "Gas averaged three nineteen per gallon nationwide over Labor Day weekend.",
+      "text" : "Gas averaged $3.19/gal. nationwide over Labor Day weekend."
+    },
+    {
+      "area" : "money",
+      "says" : "Candy bars are ninety-nine cents today.",
+      "text" : "Candy bars are $.99 today."
+    },
+    {
+      "area" : "money",
+      "says" : "Unit price twenty-one point three cents per ounce",
+      "text" : "Unit price 21.3¢/oz"
+    },
+    {
+      "area" : "money",
+      "says" : "Mileage: one hundred forty-two miles at sixty-seven cents per mile",
+      "text" : "Mileage: 142 mi at 67¢/mi"
+    },
+    {
+      "area" : "money",
+      "says" : "Gas was sixty-seven cents per gallon",
+      "text" : "Gas was 67¢/gal"
+    },
+    {
+      "area" : "money",
+      "says" : "Mileage at sixty-seven cents per mile",
+      "text" : "Mileage at $0.67/mi"
+    },
+    {
+      "area" : "money",
+      "says" : "Eggs six forty-nine per dozen",
+      "text" : "Eggs $6.49/doz"
+    },
+    {
+      "area" : "money",
+      "says" : "Tolls: four fifty per axle",
+      "text" : "Tolls: $4.50/axle"
+    },
+    {
+      "area" : "money",
+      "says" : "A five dollar bill and two twenties.",
+      "text" : "A $5 bill and two $20s."
+    },
+    {
+      "area" : "money",
+      "says" : "Tips in fives and tens.",
+      "text" : "Tips in $5s and $10s."
+    },
+    {
+      "area" : "money",
+      "says" : "He paid with two twenties.",
+      "text" : "He paid with two $20s."
+    },
+    {
+      "area" : "money",
+      "says" : "Bring ones for the vending machine.",
+      "text" : "Bring $1s for the vending machine."
+    },
+    {
+      "area" : "money",
+      "says" : "One U S dollar equals ninety-two euro cents",
+      "text" : "1 USD = 0.92 EUR"
+    },
+    {
+      "area" : "money",
+      "says" : "The watch was one thousand two hundred fifty Swiss francs.",
+      "text" : "The watch was CHF 1'250."
+    },
+    {
+      "area" : "money",
+      "says" : "The room was two hundred dollars ish a night.",
+      "text" : "The room was $200-ish a night."
+    },
+    {
+      "area" : "money",
+      "says" : "A million dollar view from the balcony.",
+      "text" : "A $1M view from the balcony."
+    },
+    {
+      "area" : "money",
+      "says" : "Dinner was forty-five Canadian dollars a person.",
+      "text" : "Dinner was CAD $45 a person."
+    },
+    {
+      "area" : "money",
+      "says" : "Expense limit is five hundred U S dollars per trip.",
+      "text" : "Expense limit is USD 500 per trip."
+    },
+    {
+      "area" : "money",
+      "says" : "Reimbursed at seventy cents per mile.",
+      "text" : "Reimbursed at 70¢/mile."
+    },
+    {
+      "area" : "money",
+      "says" : "Earn one point per dollar",
+      "text" : "Earn 1 pt/$1"
+    },
+    {
+      "area" : "money",
+      "says" : "Flights from ninety-nine dollars each way.",
+      "text" : "Flights fr. $99 each way."
+    },
+    {
+      "area" : "money",
+      "says" : "Rooms from forty-nine pounds per night",
+      "text" : "Rooms Fr. £49 per night"
     }
   ]
 }

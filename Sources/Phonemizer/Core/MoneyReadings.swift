@@ -114,7 +114,7 @@ extension MoneyPass {
     /// Amount suffixes after a currency amount ("$40m", "£2.3bn", "₹2 crore"), as words.
     static let scaleWords: [String: String] = [
         "k": "thousand", "K": "thousand", "m": "million", "M": "million", "mn": "million", "mm": "million", "MM": "million",
-        "mln": "million", "bn": "billion", "b": "billion", "B": "billion", "bln": "billion", "tn": "trillion",
+        "mln": "million", "mil": "million", "bn": "billion", "b": "billion", "B": "billion", "bln": "billion", "tn": "trillion",
         "trn": "trillion", "T": "trillion", "thousand": "thousand", "million": "million", "billion": "billion",
         "trillion": "trillion", "lakh": "lakh", "crore": "crore",
     ]
@@ -140,7 +140,8 @@ extension MoneyPass {
 
         init(_ written: String, magnitude: String?) {
             // "1.234,56": dots between thousands and a decimal comma, read as "1,234.56".
-            var written = written
+            // "1'250": Swiss apostrophes between thousands, read as "1,250".
+            var written = written.replacingOccurrences(of: "'", with: ",")
             if let dot = written.lastIndex(of: "."), let comma = written.lastIndex(of: ","), comma > dot {
                 written = written.map { $0 == "." ? "," : $0 == "," ? "." : $0 }.reduce(into: "") { $0.append($1) }
             }
