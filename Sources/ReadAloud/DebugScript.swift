@@ -19,6 +19,7 @@ import CSherpaOnnx
 ///   --bench-lexicon [lexicon.json] [--article f.txt]    custom lexicon load and matching times (made-up 10,000 entries by default)
 ///   --correct-dictation "text" [--lexicon f.json]       what dictation would type, and why (reads lines from stdin without text)
 ///   --test-dictation Tests/dictation/regression.json    dictation corrector regression suite
+///   --test-tidy Tests/dictation/tidy.json               clean-up fallback (rule-based tidy-up) regression suite
 ///   --packs finance,medicine                            switch field packs on for any of the above (and --say, --read)
 ///   --render-phonemes "ðə kwˈɪk" [--voice v] [--out f.wav] [--raw]   synthesize exact phonemes
 ///   --clean "text" | --clean-file path [--piece-words 30]  tidy dictation text as if it arrived in pieces, print timing
@@ -244,6 +245,9 @@ enum DebugScript {
         }
         if let path = value("--test-dictation") {
             exit(DictationTest.run(path: path, lexicon: value("--lexicon"), verbose: args.contains("--verbose")))
+        }
+        if let path = value("--test-tidy") {
+            exit(DictationTest.runTidy(path: path, verbose: args.contains("--verbose")))
         }
         if args.contains("--bench-lexicon") {
             let path = value("--bench-lexicon").flatMap { $0.hasPrefix("--") ? nil : $0 }

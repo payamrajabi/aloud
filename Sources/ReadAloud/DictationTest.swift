@@ -4,6 +4,7 @@ import Phonemizer
 /// Checks for the dictation corrector (the lexicon in reverse).
 ///   --correct-dictation "text" [--lexicon file.json] [--packs finance]   print the corrected text and why each change was (not) made
 ///   --test-dictation Tests/dictation/regression.json [--lexicon file.json] [--packs finance] [--verbose]
+///   --test-tidy Tests/dictation/tidy.json [--verbose]   the clean-up model's rule-based fallback
 /// The regression file names its own fixture lexicon; `--lexicon` swaps in another.
 /// Ordinary speech in `must_not_change` is also checked against the app's own lists.
 ///
@@ -180,6 +181,51 @@ enum DictationTest {
                      1000 * times.reduce(0, +) / Double(times.count), 1000 * times.max()!))
 
         let total = doc.must_change.count + 2 * doc.must_not_change.count + heardCases.count + 1
+        print(failures == 0 ? "\nPASSED (\(total) checks)" : "\nFAILED: \(failures) of \(total) checks")
+        return failures == 0 ? 0 : 1
+    }
+
+    // MARK: - Clean-up fallback
+
+    private struct TidyDoc: Decodable {
+        struct Case: Decodable {
+            let `in`: String
+            let out: String
+        }
+        let must_change: [Case]
+        let must_not_change: [String]
+    }
+
+    /// The rule-based tidy-up the clean-up model falls back to when its reply can't be
+    /// trusted (`TranscriptCleaner.basicTidy`): its output is typed as it is.
+    ///   --test-tidy Tests/dictation/tidy.json [--verbose]
+    /// Each output must also come out unchanged from a second pass.
+    static func runTidy(path: String, verbose: Bool) -> Int32 {
+        let doc: TidyDoc
+        do {
+            doc = try JSONDecoder().decode(TidyDoc.self, from: Data(contentsOf: URL(fileURLWithPath: path)))
+        } catch {
+            print("error: \(error)")
+            return 1
+        }
+        var failures = 0
+        func check(_ input: String, want: String) {
+            let got = TranscriptCleaner.basicTidy(input)
+            let again = TranscriptCleaner.basicTidy(got)
+            let ok = got == want && again == got
+            failures += ok ? 0 : 1
+            if !ok || verbose {
+                print("  \(ok ? "✓" : "✗") \(input.debugDescription)"
+                      + (got == input ? "" : "\n      → \(got.debugDescription)")
+                      + (got == want ? "" : "\n      want \(want.debugDescription)")
+                      + (again == got ? "" : "\n      second pass changed it again: \(again.debugDescription)"))
+            }
+        }
+        print("== must change (\(doc.must_change.count)) ==")
+        for c in doc.must_change { check(c.in, want: c.out) }
+        print("\n== must not change (\(doc.must_not_change.count)) ==")
+        for text in doc.must_not_change { check(text, want: text) }
+        let total = doc.must_change.count + doc.must_not_change.count
         print(failures == 0 ? "\nPASSED (\(total) checks)" : "\nFAILED: \(failures) of \(total) checks")
         return failures == 0 ? 0 : 1
     }
