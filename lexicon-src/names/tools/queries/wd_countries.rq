@@ -1,0 +1,18 @@
+# Every country of citizenship used on a person, plus England, Wales, Scotland and Northern
+# Ireland, with its English label, ISO 3166-1 code, largest stated population, whether it is
+# a sovereign state, and its dissolution date if it no longer exists. CC0 data.
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?country (SAMPLE(?l) AS ?label) (SAMPLE(?code) AS ?iso) (MAX(?pop) AS ?population)
+  (SAMPLE(?sov) AS ?sovereign) (SAMPLE(?end) AS ?dissolved)
+WHERE {
+  { SELECT DISTINCT ?country WHERE { ?p wdt:P31 wd:Q5 ; wdt:P27 ?country } }
+  UNION { VALUES ?country { wd:Q21 wd:Q25 wd:Q22 wd:Q26 } }
+  OPTIONAL { ?country rdfs:label ?l FILTER(LANG(?l) = "en") }
+  OPTIONAL { ?country wdt:P297 ?code }
+  OPTIONAL { ?country wdt:P1082 ?pop }
+  OPTIONAL { ?country wdt:P31 ?sov FILTER(?sov = wd:Q3624078) }
+  OPTIONAL { ?country wdt:P576 ?end }
+}
+GROUP BY ?country
