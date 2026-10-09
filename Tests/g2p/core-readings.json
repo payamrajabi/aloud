@@ -4830,6 +4830,90 @@
       "gb" : "pɹˈIsɪz fˈɛl tˈuː θˈɜːdz ɪn ɐ jˈɪə.",
       "text" : "Prices fell 2/3 in a year.",
       "us" : "pɹˈIsᵻz fˈɛl tˈu θˈɜɹdz ɪn ɐ jˈɪɹ."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "smˈɪθ and kˈʌmpᵊni sˈɛd ɪt wʊd kˈʌt pɹˈIsɪz.",
+      "text" : "Smith & Co. said it would cut prices.",
+      "us" : "smˈɪθ ænd kˈʌmpᵊni sˈɛd ɪt wʊd kˈʌt pɹˈIsᵻz."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ˈakmi kˈʌmpᵊni ɹɪpˈɔːtɪd ɹˈɛkɔːd sˈAlz.",
+      "text" : "Acme Co. reported record sales.",
+      "us" : "ˈækmi kˈʌmpᵊni ɹəpˈɔɹTᵻd ɹˈɛkəɹd sˈAlz."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "nˈQ tˈuː pˈiːpᵊl ɑː əlˈIk.",
+      "text" : "No 2 people are alike.",
+      "us" : "nˈO tˈu pˈipᵊl ɑɹ əlˈIk."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "pˈɪk ɐ bˈiː dˈʌbᵊljuː fˈQtQ fɔː ðə kˈʌvə.",
+      "text" : "Pick a b/w photo for the cover.",
+      "us" : "pˈɪk ɐ bˈi dˈʌbᵊlju fˈOTO fɔɹ ðə kˈʌvəɹ."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ɐ wˈʌn tə wˈʌn ˈaspɛkt ɹˈAʃɪQ.",
+      "text" : "A 1:1 aspect ratio.",
+      "us" : "ɐ wˈʌn tə wˈʌn ˈæspˌɛkt ɹˈAʃiO."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "kˈɪm ɪz ɪn mˈɛd. skˈuːl.",
+      "text" : "Kim is in med. school.",
+      "us" : "kˈɪm ɪz ɪn mˈɛd. skˈul."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ɹˌiːɪnvˈɛnt ɪz ɪn dɪsˈɛmbə.",
+      "text" : "re:Invent is in December.",
+      "us" : "ɹˌiɪnvˈɛnt ɪz ɪn disˈɛmbəɹ."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ˌɑːˈiː: kjˈuː θɹˈiː nˈʌmbəz",
+      "text" : "RE: Q3 numbers",
+      "us" : "ˌɑɹˈi: kjˈu θɹˈi nˈʌmbəɹz"
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ˈakmi ˈɪŋk hˈIəd twˈɛnti pˈiːpᵊl.",
+      "text" : "Acme Inc. hired 20 people.",
+      "us" : "ˈækmi ˈɪŋk hˈIəɹd twˈɛnti pˈipᵊl."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ɹˈʌn kˈat sˈɪks kˈAbᵊl tə ðə dˈɛsk.",
+      "text" : "Run Cat 6 cable to the desk.",
+      "us" : "ɹˈʌn kˈæt sˈɪks kˈAbᵊl tə ðə dˈɛsk."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ɹˈʌvi ˈɛs ˈQ ɹˈam kumˈɑː sˈInd ɪt.",
+      "text" : "Ravi S/O Ram Kumar signed it.",
+      "us" : "ɹˈɑvi ˈɛs ˈO ɹˈæm kumˈɑɹ sˈInd ɪt."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ðə dˈʌbᵊljuː dˈʌbᵊljuː fˈɪɡəz ɑː ˈɪn.",
+      "text" : "The w/w figures are in.",
+      "us" : "ðə dˈʌbᵊlju dˈʌbᵊlju fˈɪɡjəɹz ɑɹ ˈɪn."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "sˈiː nˌIntˈiːn nˈInti ˈAt sˈiː fˈɔːti tˈuː fɔː dˈiːtAlz.",
+      "text" : "See 1998 c. 42 for details.",
+      "us" : "sˈi nˌIntˈin nˈIndi ˈAt sˈi fˈɔɹTi tˈu fɔɹ dətˈAlz."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ʃˌiː bˈɔːt ɪt fɔː sˈɜːkə ˌAtˈiːn fˈɪfti pɹˈIsɪz.",
+      "text" : "She bought it for c. 1850 prices.",
+      "us" : "ʃˌi bˈɔt ɪt fɔɹ sˈɜɹkə ˌAtˈin fˈɪfti pɹˈIsᵻz."
     }
   ],
   "speech_cases" : [
@@ -11848,6 +11932,221 @@
       "area" : "dates",
       "says" : "Back in five minutes, grabbing coffee.",
       "text" : "Back in 5m, grabbing coffee."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Ballots in Clark County were still being counted on Friday.",
+      "text" : "Ballots in Clark Co. were still being counted on Friday."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "The Treasury expects around four billion pounds from the levy.",
+      "text" : "The Treasury expects c.£4bn from the levy."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "A Number ten source told the Times the PM was 'furious'.",
+      "text" : "A No 10 source told the Times the PM was 'furious'."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "The plan was signed off by Number ten last week.",
+      "text" : "The plan was signed off by No 10 last week."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Aides close to Number eleven were relaxed.",
+      "text" : "Aides close to No 11 were relaxed."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "England versus Australia starts at Lord's.",
+      "text" : "England v Australia starts at Lord's."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Government sources said the plan was 'dead in the water'.",
+      "text" : "Govt sources said the plan was 'dead in the water'."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "International observers called the vote 'free but not fair'.",
+      "text" : "Intl. observers called the vote 'free but not fair'."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "The PM's spokesman said nothing regarding the winter fuel payment.",
+      "text" : "The PM's spokesman said nothing re: the winter fuel payment."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Hunter Biden, also known as 'the First Son', was pardoned on December first.",
+      "says_gb" : "Hunter Biden, also known as 'the First Son', was pardoned on December the first.",
+      "text" : "Hunter Biden, aka 'the First Son', was pardoned on Dec. 1."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Milton made landfall as a Category three storm with one hundred twenty miles per hour winds.",
+      "text" : "Milton made landfall as a Cat 3 storm with 120 mph winds."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "It grew into a Category four hurricane overnight.",
+      "text" : "It grew into a Cat. 4 hurricane overnight."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "All Cabinet ministers, including the Chancellor, were briefed.",
+      "text" : "All Cabinet ministers, inc. the Chancellor, were briefed."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Turnout was low, especially among under twenty-fives.",
+      "text" : "Turnout was low, esp. among under-25s."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Especially the new hires.",
+      "text" : "Esp. the new hires."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Free shipping with Prime, five ninety-nine without.",
+      "text" : "Free shipping w/ Prime, $5.99 w/o."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "WiFi & parking included.",
+      "text" : "Wi-Fi & parking incl."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Taxes excluded.",
+      "text" : "Taxes excl."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Prices including VAT.",
+      "text" : "Prices incl. VAT."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Prices excluding VAT.",
+      "text" : "Prices excl. VAT."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Mix on medium speed for two minutes.",
+      "text" : "Mix on med. speed for 2 min."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Add one medium onion and two large eggs.",
+      "text" : "Add 1 med. onion and 2 lg. eggs."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Gate code one two three four, pound",
+      "says_gb" : "Gate code one two three four, hash",
+      "text" : "Gate code 1234#"
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Badge number one two three four five six seven isn't working at the door.",
+      "text" : "Badge #1234567 isn't working at the door."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Moving our one on one to Thursday, sorry for the churn.",
+      "text" : "Moving our 1:1 to Thursday, sorry for the churn."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Lunch with Sam, then our one on one without laptops.",
+      "text" : "Lunch w/ Sam, then our 1:1 w/o laptops."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Week ending October twelfth timesheets are due.",
+      "says_gb" : "Week ending the tenth of December timesheets are due.",
+      "text" : "w/e 10/12 timesheets are due."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Whatever, it's fine.",
+      "text" : "w/e, it's fine."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Week commencing the thirteenth of October is half term, expect light attendance.",
+      "text" : "w/c 13 Oct is half term, expect light attendance.",
+      "voice" : "gb"
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Number one priority is hiring.",
+      "text" : "No.1 priority is hiring."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Needs manager approval before booking.",
+      "text" : "Needs Mgr. approval before booking."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Manager: Tom, Assistant Manager: Ana",
+      "text" : "Mgr: Tom, Asst. Mgr: Ana"
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Meeting moved to Thursday.",
+      "text" : "Mtg moved to Thu."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Week forty-two numbers look solid.",
+      "text" : "Wk 42 numbers look solid."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "See column B in the tracker for owners.",
+      "text" : "See col. B in the tracker for owners."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Page four has the summary.",
+      "text" : "Pg. 4 has the summary."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Please review, thanks!",
+      "text" : "Pls review, thx!"
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Can we do tomorrow?",
+      "text" : "Can we do tmrw?"
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Pick a time between two and four.",
+      "text" : "Pick a time b/w 2 and 4."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Thursday, October ninth, two to two thirty PM",
+      "says_gb" : "Thursday, October the ninth, two to two thirty PM",
+      "text" : "Thu, Oct 9 · 2:00 – 2:30pm"
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Shout out to the support team for crushing it.",
+      "text" : "S/O to the support team for crushing it."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Needs management approval first.",
+      "text" : "Needs mgmt approval first."
     }
   ]
 }

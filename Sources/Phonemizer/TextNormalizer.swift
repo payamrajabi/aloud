@@ -148,6 +148,8 @@ enum TextNormalizer {
                  "anniversary", "era"],
         "1-2": ["finish", "finishes", "punch", "combo"],
     ]
+    /// Whose "1:1" is a meeting: "our 1:1", "my weekly 1:1".
+    private static let meetingOwners: Set<String> = ["our", "my", "your", "his", "her", "their", "weekly", "biweekly", "monthly", "next", "regular", "quick"]
     /// A word for a rating a little before "8/10": "Rated the vendor 8/10", "Scored 4/5".
     private static let ratingBehind = try! NSRegularExpression(pattern: #"(?i)(?<![\p{L}])(?:rated|rate|rates|rating|ratings|scored|score|scores|scoring|graded|marked)(?:[ \t]+[\p{L}'’]+){0,3}[ \t]*:?[ \t]*$"#)
     private static func matches(_ regex: NSRegularExpression, _ text: String) -> Bool {
@@ -447,6 +449,12 @@ enum TextNormalizer {
             if a == "2", b == "1" || b == "2", before.hasSuffix(" a ") || before == "a " {
                 let after = context.text(after: m.range, in: s, limit: 30)
                 if degreeAhead.firstMatch(in: after, range: NSRange(location: 0, length: (after as NSString).length)) != nil { return "\(a) \(b)" }
+            }
+            // Someone's meeting: "Moving our 1:1 to Thursday", "my weekly 1:1" → "one on one" (the
+            // custom lexicon reads "1:1s" and "a 1:1 meeting" so). Not a ratio ("a 1:1 crop").
+            if a == "1", b == "1" {
+                let previous = String(before.reversed().drop { $0 == " " || $0 == "\t" }.prefix { $0.isLetter }.reversed()).lowercased()
+                if meetingOwners.contains(previous) { return "1 on 1" }
             }
             return a + " to " + b
         })

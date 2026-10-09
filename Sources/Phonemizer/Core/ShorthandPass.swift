@@ -23,13 +23,36 @@ enum ShorthandPass {
                 if found.lowercased().hasPrefix("c/o") { return "Class of" }
                 return slashWordReadings[found]
             }
-            t = rewrite(t, withAfterNumber) { m, s in s.substring(with: m.range(at: 1)) == "W" ? "With" : "with" }
+            t = rewrite(t, withAfterNumber) { m, s in
+                let word = m.range(at: 2).location != NSNotFound ? "without" : "with"
+                return s.substring(with: m.range(at: 1)) == "W" ? word.capitalized : word
+            }
             t = rewrite(t, withForms, readWith)
             t = rewrite(t, because) { m, s in s.substring(with: m.range(at: 1)) == "B" ? "Because" : "because" }
             t = rewrite(t, careOf) { m, s in
                 s.substring(with: m.range(at: 1)) == "C" && startsSentence(at: m.range.location, in: s) ? "Care of" : "care of"
             }
+            t = rewrite(t, settledSlashes) { m, s in
+                let found = s.substring(with: m.range)
+                let capital = found.first?.isUppercase == true && startsSentence(at: m.range.location, in: s)
+                let words: String
+                switch found.lowercased() {
+                case "w/e": words = m.range(at: 1).location != NSNotFound ? "week ending" : "whatever"
+                case "w/c": words = "week commencing"
+                case "b/w": words = "between"
+                default: words = "shout out"
+                }
+                return capital ? words.prefix(1).uppercased() + words.dropFirst() : words
+            }
+            t = rewrite(t, withoutAtEnd) { m, s in
+                s.substring(with: m.range(at: 1)) == "W" && startsSentence(at: m.range.location, in: s) ? "Without" : "without"
+            }
             cues = Cues(t)
+        }
+        if cues.intl {
+            // The lexicon reads "Intl" as a word (JavaScript's Intl); with its point before a word
+            // it's "International" ("Intl. observers").
+            t = rewrite(t, international) { _, _ in "International" }
         }
         if cues.attn {
             t = rewrite(t, attention) { m, s in
@@ -73,6 +96,13 @@ enum ShorthandPass {
             }
         }
         if cues.digit {
+            // A hurricane's category: "a Cat 3 storm", "a Cat. 4 hurricane" (the lexicon has "cat").
+            t = rewrite(t, stormCategory) { m, s in "Category " + s.substring(with: m.range(at: 1)) }
+            // A size in a recipe after its count: "2 lg. eggs", "1 sm. onion" (the lexicon has "LG").
+            t = rewrite(t, recipeSize) { m, s in
+                let found = s.substring(with: m.range(at: 1)).lowercased()
+                return found.hasPrefix("l") ? "large" : found.hasPrefix("s") ? "small" : "medium"
+            }
             t = rewrite(t, noBeforeNumber, cased: false) { _, _ in "No," }
             t = rewrite(t, mixedCode, cased: false) { m, s in splitCode(s.substring(with: m.range)) }
             t = rewrite(t, retirementPlan, cased: false) { m, s in s.substring(with: m.range(at: 1)) + "(k)" }
@@ -92,10 +122,32 @@ enum ShorthandPass {
     private static let slashWordReadings = ["w/end": "weekend", "W/end": "Weekend", "y/y": "YoY", "Y/Y": "YoY",
                                             "m/m": "MoM", "M/M": "MoM", "q/q": "QoQ", "Q/Q": "QoQ"]
 
-    /// "w/" after an amount or a percentage, before a word: "$62.40 w/ tip", "15% w/ code". The
-    /// slash forms above skip a number and a space ("5 W/kg" is watts), but a spaced "w/" and
-    /// a word after an amount is only ever "with".
-    private static let withAfterNumber = try! NSRegularExpression(pattern: #"(?<=[\d%][ \t])([Ww])/(?=[ \t]+[\p{L}$£€(])"#)
+    /// Slash shorthand where what's around it settles which it is (shorthand.json left them as
+    /// letters for want of that): "w/e" before a date is a week ending (group 1, empty) and
+    /// opening its sentence before a comma "whatever" ("w/e, it's fine"); "w/c" before a date a
+    /// week commencing; "b/w" before a number "between" ("b/w 2 and 4"; "b/w photo" stays); and
+    /// "S/O" before "to" a shout out.
+    private static let settledSlashes = try! NSRegularExpression(pattern: slashStart
+        + #"(?:[Ww]/[Ee](?=[ \t]+"# + dateAhead + #")()|(?<=^|[\n.!?][ \t])[Ww]/e(?=,)|[Ww]/[Cc](?=[ \t]+"# + dateAhead + #")|[Bb]/[Ww](?=[ \t]+\d)|[Ss]/[Oo](?=[ \t]+to(?![\p{L}])))(?![\p{L}\p{N}/])"#,
+        options: .anchorsMatchLines)
+    /// A date after "w/e" or "w/c": "10/12", "13 Oct", "Oct 13".
+    private static let dateAhead = #"(?:\d{1,2}(?:[/.]\d{1,2}|(?!\d))|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\p{L}*\.?[ \t]+\d)"#
+    /// "w/o" ending its clause, even after a price: "Free shipping w/ Prime, $5.99 w/o."
+    private static let withoutAtEnd = try! NSRegularExpression(pattern: #"(?:^|(?<=[\s(\[{"“‘']))([Ww])/[Oo](?=[.,;:!?)]|[ \t]*$)"#,
+                                                              options: .anchorsMatchLines)
+
+    /// "Intl." before a word: "Intl. observers".
+    private static let international = try! NSRegularExpression(pattern: #"(?<![\p{L}\p{N}_.])Intl\.(?=[ \t]+\p{L})"#)
+    /// "Cat 3" or "Cat. 4" before a storm.
+    private static let stormCategory = try! NSRegularExpression(pattern: #"(?<![\p{L}\p{N}])Cat\.?[ \t]?([1-5])(?=[ \t]+(?:storm|hurricane|typhoon|cyclone)s?(?![\p{L}]))"#)
+    /// "lg.", "sm." or "med." after a count and before what it sizes: "2 lg. eggs".
+    private static let recipeSize = try! NSRegularExpression(pattern: #"(?<=\d[ \t])(lg|lge|sm|med)\.(?=[ \t]+\p{Ll})"#)
+
+    /// "w/" after an amount or a percentage, before a word: "$62.40 w/ tip", "15% w/ code"; and
+    /// "w/o" (group 2) after any number ("then 1:1 w/o laptops"). The slash forms above skip a
+    /// number and a space ("5 W/kg" is watts), but a spaced "w/" and a word after an amount is
+    /// only ever "with".
+    private static let withAfterNumber = try! NSRegularExpression(pattern: #"(?<=[\d%][ \t])([Ww])/(?:(?=[ \t]+[\p{L}$£€(])|(out|OUT|[Oo])(?=[ \t]+[\p{L}"“'‘(\[]))"#)
 
     /// "+/-" and "±" written out: "+/- 5%", "+/-5%".
     private static let plusMinus = try! NSRegularExpression(pattern: #"(?<![\p{L}\p{N}+/])\+/[-−][ \t]?(?=[~≈]?[$£€¥₹₩]?\d|[ \t]*\d)"#)
@@ -150,6 +202,8 @@ enum ShorthandPass {
     /// every sentence read. All of them are ASCII, so a byte match is the same test.
     private struct Cues {
         var slash = false, attn = false, minMax = false, ampersand = false, etc = false
+        /// "Intl." (the lexicon's word).
+        var intl = false
         /// "<", ">", "≤", "≥" or "+/".
         var comparison = false
         /// ".g." or ".e." (e.g., i.e.), or "kg." (Pkg.).
@@ -171,6 +225,7 @@ enum ShorthandPass {
                 case UInt8(ascii: "."):
                     if b2 == UInt8(ascii: "i") && b1 == UInt8(ascii: "n") || b2 == UInt8(ascii: "a") && b1 == UInt8(ascii: "x") { minMax = true }
                     if b3 == UInt8(ascii: "e") && b2 == UInt8(ascii: "t") && b1 == UInt8(ascii: "c") { etc = true }
+                    if b3 == UInt8(ascii: "n") && b2 == UInt8(ascii: "t") && b1 == UInt8(ascii: "l") { intl = true }
                     if b2 == UInt8(ascii: ".") && (b1 | 0x20 == UInt8(ascii: "g") || b1 | 0x20 == UInt8(ascii: "e"))
                         || b2 == UInt8(ascii: "k") && b1 == UInt8(ascii: "g") { abbreviation = true }
                 case UInt8(ascii: "0")...UInt8(ascii: "9"): digit = true
@@ -194,6 +249,14 @@ enum ShorthandPass {
             if m.range(at: 1).location != NSNotFound { return first.isNumber ? true : nil }
             return first.isUppercase ? true : nil
         }
+        // "See col." + "B in the tracker" (a column), "Asst." + "Mgr: Ana" (a role).
+        if let m = runOnRole.firstMatch(in: head, range: all) {
+            if m.range(at: 1).location != NSNotFound {
+                let rest = next.drop { $0.isWhitespace }
+                return first.isUppercase && rest.dropFirst().first?.isLetter != true ? true : nil
+            }
+            return roleNext.firstMatch(in: next, range: NSRange(location: 0, length: (next as NSString).length)) != nil ? true : nil
+        }
         guard let m = runOn.firstMatch(in: head, range: all) else { return nil }
         // "Attn." before its addressee ("Maria Lopez"); "ca." or "c." before a year ("1850.").
         if m.range(at: 1).location != NSNotFound { return first.isUppercase ? true : nil }
@@ -205,6 +268,10 @@ enum ShorthandPass {
     /// colon or semicolon.
     private static let runOnLabel = try! NSRegularExpression(pattern:
         #"(?:(?<![\p{L}\p{N}_.])(Wk|wk)|(?<![\p{L}\p{N}_.])(?:Natl|natl|Intl|intl|feat|Feat)|(?<=\p{L}[ \t])ft|[,:;][ \t]+(?:[IVX]{1,4}|[ivx]{1,4}))\.$"#)
+    /// "col." (group 1) and "Asst." at the end of a sentence as Apple's splitter cut it.
+    private static let runOnRole = try! NSRegularExpression(pattern: #"(?<![\p{L}\p{N}_.])(?:(col)|Asst|asst)\.$"#)
+    /// A role after "Asst.": "Mgr", "Director".
+    private static let roleNext = try! NSRegularExpression(pattern: #"^\s*(?i:mgr|manager|dir|director|prof|professor|editor|secretary|coach|principal|chief|head|supervisor|producer|treasurer|curator)(?![\p{L}])"#)
     /// The abbreviations Apple's splitter takes for a full stop: Attn (group 1), and ca. and c.
     private static let runOn = try! NSRegularExpression(pattern: #"(?:(?<![\p{L}\p{N}_.])(Attn|ATTN|attn)|(?<![\p{L}\p{N}_.&])(?:ca|c))\.$"#)
 
