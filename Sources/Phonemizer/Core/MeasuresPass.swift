@@ -22,15 +22,19 @@ enum MeasuresPass {
     /// feet and inches, a hyphenated unit, "N in." before an adjective, sizes, single marks,
     /// title counts, multipliers, game multipliers.
     static func apply(_ text: String, british: Bool) -> String {
-        // Every reading here starts from a digit.
-        guard text.utf16.contains(where: { $0 >= 0x30 && $0 <= 0x39 }) else { return text }
+        // Every reading here starts from a digit or a vulgar fraction ("¼\"").
+        guard text.utf16.contains(where: { $0 >= 0x30 && $0 <= 0x39 || (0xBC...0xBE).contains($0) || (0x2153...0x215E).contains($0) })
+        else { return text }
         var s = text
         s = rewrite(s, abbreviatedHeight, readAbbreviatedHeight)
         s = rewrite(s, markedHeight, readMarkedHeight)
         s = rewrite(s, hyphenatedUnit, readHyphenatedUnit)
         s = rewrite(s, inchesBeforeAdjective, readInchesBeforeAdjective)
+        s = rewrite(s, gluedInches, readGluedInches)
+        s = rewrite(s, jeansSize) { m, s, _ in s.substring(with: m.range(at: 1)) + " W by " + s.substring(with: m.range(at: 2)) + " L" }
         s = rewrite(s, size, readSize)
         s = rewrite(s, singleMark, readSingleMark)
+        s = rewrite(s, fractionInch, readFractionInch)
         s = rewrite(s, statedHeight, readStatedHeight)
         s = rewrite(s, platinum) { m, s, _ in
             let n = s.substring(with: m.range(at: 1))
@@ -43,6 +47,7 @@ enum MeasuresPass {
         s = rewrite(s, statusClass) { m, s, _ in s.substring(with: m.range(at: 1)) + " XX" }
         s = rewrite(s, repeatCount) { m, s, _ in "times " + s.substring(with: m.range(at: 1)) }
         s = rewrite(s, gameMultiplier, readGameMultiplier)
+        s = rewrite(s, receiptCount, readReceiptCount)
         return s
     }
 
@@ -161,6 +166,18 @@ enum MeasuresPass {
         return n + (TextNormalizer.isOne(n) ? " inch" : " inches")
     }
 
+    /// "18in of snow", "a 24in monitor": "in" glued to a number is inches (it was the word
+    /// "in"), and spaced before another "in" ("10 in in parts of Texas").
+    private static let gluedInches = regex(#"(?<![\p{L}\p{N}.,])(\d+(?:\.\d+)?)(?:in|[ \t]in(?=[ \t]+in\b))(?![\p{L}\p{N}])"#)
+
+    private static func readGluedInches(_ m: NSTextCheckingResult, _ s: NSString, _ lines: inout Lines) -> String? {
+        let n = s.substring(with: m.range(at: 1))
+        return n + (isAttributive(s, m.range.location, NSMaxRange(m.range), number: n, &lines) ? " inch" : " inches")
+    }
+
+    /// A pair of jeans: "32W x 30L" → "32 W by 30 L" (the x was "ex").
+    private static let jeansSize = regex(#"(?<![\p{L}\p{N}.,])(\d{2})W[ \t]?[xX×][ \t]?(\d{2})L(?![\p{L}\p{N}])"#)
+
     // MARK: Sizes
 
     private static let number = #"\d+(?:,\d{3})*(?:\.\d+)?"#
@@ -238,10 +255,15 @@ enum MeasuresPass {
            follows(containerAfter, in: s, at: end) { return nil }
         if operands.count == 2, spaced, units.allSatisfy(\.isEmpty),
            let before = previousToken(s, before: start), scoreVerbs.contains(before.word.lowercased()) { return nil }
-        // Money: "$2 x 3", "USD 2 x 3", "2 x 5 dollars" (the money pass has read "$5").
+        // Money: "$2 x 3", "USD 2 x 3", "2 x 5 dollars" (the money pass has read "$5"), unless an
+        // "=" after the money makes it a sum on a receipt ("3 x $14 = $42": three times fourteen
+        // dollars).
         if isCurrencyBefore(s, start) { return nil }
         if units.last!.isEmpty, let w = match(wordAfter, in: s, at: end),
-           CurrencyNames.words.contains(s.substring(with: w.range(at: 1)).lowercased()) { return nil }
+           CurrencyNames.words.contains(s.substring(with: w.range(at: 1)).lowercased()) {
+            guard operands.count == 2, follows(productAfter, in: s, at: NSMaxRange(w.range)) else { return nil }
+            return operands.map(\.number).joined(separator: " times ")
+        }
         // Algebra: an x next to an operator on the line ("Factor 3x2 + 5x + 2").
         if lines.isAlgebra(at: start) { return nil }
         // An inch mark that is really a closing quote ("Type \"9 x 12\" in the box").
@@ -362,6 +384,23 @@ enum MeasuresPass {
     /// After a straight or curly single quote, the words that make it feet ("8' high"):
     /// anywhere else it's a quote, a minute or a plural ("Kane 9'", "the 80's").
     private static let afterFootMark = regex(#"[ \t]?(?:"# + adjectives + #"|away|apart|below|above)\b"#)
+    private static let wordNext = regex(#"[ \t]+\p{L}"#)
+
+    /// A vulgar fraction and an inch mark: "Roll the dough ¼\" thick" → "a quarter inch thick".
+    private static let fractionInch = regex(##"(?<![\p{L}\p{N}.,/])([½¼¾⅓⅔⅛⅜⅝⅞])(["”″])"##)
+    private static let fractionInchWords: [String: (alone: String, after: String)] = [
+        "½": ("a half", "half"), "¼": ("a quarter", "quarter"), "¾": ("three quarter", "three quarter"),
+        "⅓": ("a third", "third"), "⅔": ("two thirds", "two thirds"), "⅛": ("an eighth", "eighth"),
+        "⅜": ("three eighths", "three eighths"), "⅝": ("five eighths", "five eighths"), "⅞": ("seven eighths", "seven eighths"),
+    ]
+
+    private static func readFractionInch(_ m: NSTextCheckingResult, _ s: NSString, _ lines: inout Lines) -> String? {
+        if NSMaxRange(m.range) < s.length, isLetterOrNumber(s.character(at: NSMaxRange(m.range))) { return nil }
+        guard lines.isInchMark(at: m.range(at: 2).location), let words = fractionInchWords[s.substring(with: m.range(at: 1))] else { return nil }
+        // After a determiner the article is already there: "a ½\" bolt" is "a half inch bolt".
+        let determined = previousToken(s, before: m.range.location).map { determiners.contains($0.word.lowercased()) } == true
+        return (determined ? words.after : words.alone) + " inch"
+    }
 
     private static func readSingleMark(_ m: NSTextCheckingResult, _ s: NSString, _ lines: inout Lines) -> String? {
         let end = NSMaxRange(m.range)
@@ -372,7 +411,11 @@ enum MeasuresPass {
         case "\"", "”", "″":
             guard lines.isInchMark(at: at) else { return nil }
         case "'", "’":
-            guard follows(afterFootMark, in: s, at: end), !lines.opensSingleQuote(before: at) else { return nil }
+            // Feet before an adjective ("8' high"), or before the noun they measure after a
+            // determiner ("An 8' Christmas tree", "The 10' ceilings", "a 12' ladder").
+            let measured = previousToken(s, before: m.range.location).map { determiners.contains($0.word.lowercased()) } == true
+                && follows(wordNext, in: s, at: end)
+            guard follows(afterFootMark, in: s, at: end) || measured, !lines.opensSingleQuote(before: at) else { return nil }
         default: break
         }
         let n = s.substring(with: m.range(at: 1))
@@ -390,7 +433,8 @@ enum MeasuresPass {
     /// A count in a list of contents: "In the box: 1x charger, 2x USB cables", "• 2x pillows":
     /// the x is silent. Only after a colon, comma, semicolon, bullet, dash or the start of a
     /// line, and before a word ("2x USB-C" in a sentence keeps "ex").
-    private static let listCount = regex(#"(?:^|(?<=[:;,•·\-–][ \t])|(?<=[:;,•·][ \t]{2}))(\d{1,2})[xX×][ \t]+(?=\p{L})"#, options: .anchorsMatchLines)
+    /// Not before "the" or a comparison ("2x the fun") or "and" ("Sizes 1X, 2X and 3X").
+    private static let listCount = regex(#"(?:^|(?<=[:;,•·\-–][ \t])|(?<=[:;,•·][ \t]{2}))(\d{1,2})[xX×][ \t]+(?=\p{L})(?!(?i:the|as|and|or|more|less)\b)"#, options: .anchorsMatchLines)
     /// HTTP status classes: "5xx errors", "4XX" → "five XX".
     private static let statusClass = regex(#"(?<![\p{L}\p{N}])([1-5])(?:xx|XX)(?![\p{L}\p{N}])"#)
     /// "Repeat x2": times two, after a verb of repeating.
@@ -401,8 +445,9 @@ enum MeasuresPass {
     /// what it was", "2x face value", "won Wimbledon 8x". Payam's "2x speed" (a noun after it) and
     /// "Set it to 2x" (a player's speed) keep "ex": the noun rule above and "to"/"at" leave them.
     private static let settledMultiplier = regex(#"(?<![\p{L}\p{N}.,_@#/])(\d+(?:\.\d+)?)[xX×](?![\p{L}\p{N}])"#)
-    /// After "the": quantities and the adjectives before one ("2x the budget", "1.25x the usual rate").
-    private static let theQuantity = regex(#"\s+the\s+(?i:usual|normal|regular|standard|original|average|typical|previous|current|old|base|list|market|going|retail|asking|national|budget|fee|fees|rent|salary|pay|bill|cost|costs|rate|rates|amount|price|prices|value|limit|cap|minimum|maximum|number|size|speed)\b"#)
+    /// After "the": whatever is multiplied ("2x the budget", "1.25x the usual rate", "2x the fun",
+    /// "Earn 2x the points").
+    private static let theQuantity = regex(#"\s+the\s+\p{L}"#)
     private static let otherQuantity = regex(#"\s+(?:what\b|face\s+value\b|that\s+of\b)"#)
     /// Words before a lone multiplier that make it "times": growth and repetition, and hedges.
     private static let multiplierCues: Set<String> = [
@@ -420,12 +465,15 @@ enum MeasuresPass {
         let n = s.substring(with: m.range(at: 1))
         let end = NSMaxRange(m.range)
         if isCurrencyBefore(s, m.range.location) { return nil }
-        if follows(theQuantity, in: s, at: end) || follows(otherQuantity, in: s, at: end) { return n + " times" }
-        guard follows(afterLoneMultiplier, in: s, at: end) else { return nil }
-        // The words before it, nearest first, past a hedge ("nearly", "up to").
+        // The words before it, nearest first, past a hedge ("nearly", "up to"). A speed is set
+        // "to" or watched "at" a multiple ("I watch lectures at 2x the whole time").
         let before = window(s, before: m.range.location).lowercased()
         let words = before.split(whereSeparator: { !$0.isLetter }).suffix(4).reversed().map(String.init)
-        guard let first = words.first, !["to", "at", "set", "speed", "zoom"].contains(first) || (first == "to" && words.dropFirst().first == "up") else { return nil }
+        if let first = words.first, ["to", "at", "set", "speed", "zoom"].contains(first), !(first == "to" && words.dropFirst().first == "up") {
+            return nil
+        }
+        if follows(theQuantity, in: s, at: end) || follows(otherQuantity, in: s, at: end) { return n + " times" }
+        guard follows(afterLoneMultiplier, in: s, at: end), words.first != nil else { return nil }
         return words.prefix(3).contains(where: multiplierCues.contains) ? n + " times" : nil
     }
 
@@ -467,6 +515,17 @@ enum MeasuresPass {
         if m.range.location > 0, s.character(at: m.range.location - 1) == 0x20,
            let before = previousToken(s, before: m.range.location),
            let first = before.word.unicodeScalars.first, !Scalars.isUppercase(first) { return nil }
+        return "times " + s.substring(with: m.range(at: 1))
+    }
+
+    /// A receipt's quantity at the end of its line, after an item's name: "Latte x2", "Muffin
+    /// x1, Latte x2" → "times 2". After a lower-case word "x2" stays a variable ("Plot x1 against
+    /// x2.", "solve for x2").
+    private static let receiptCount = regex(#"(?<=\p{L}[ \t])x(\d{1,2})(?=[ \t]*(?:$|[,;]))"#, options: .anchorsMatchLines)
+
+    private static func readReceiptCount(_ m: NSTextCheckingResult, _ s: NSString, _ lines: inout Lines) -> String? {
+        guard let before = previousToken(s, before: m.range.location), let first = before.word.unicodeScalars.first,
+              Scalars.isUppercase(first), !lines.isAlgebra(at: m.range.location) else { return nil }
         return "times " + s.substring(with: m.range(at: 1))
     }
 

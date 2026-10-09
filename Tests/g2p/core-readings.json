@@ -5046,6 +5046,36 @@
       "gb" : "pˈɑːt wˈʌn tə tˈuː ɒv ðə sˈɪəɹiːz ɪz ˈWt.",
       "text" : "Part 1-2 of the series is out.",
       "us" : "pˈɑɹt wˈʌn tə tˈu ʌv ðə sˈɪɹiz ɪz ˈWt."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "ʃˌiː sˈɛd ɡˌQ ˈAt and lˈɛft.",
+      "text" : "She said 'go 8' and left.",
+      "us" : "ʃˌi sˈɛd ɡˌO ˈAt ænd lˈɛft."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "ðə vˈQt wɒz nˈIn tə zˈɪəɹQ.",
+      "text" : "The vote was 9-0.",
+      "us" : "ðə vˈOt wʌz nˈIn tə zˈɪɹO."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "nˈʌmbə fˈIv tə tˈɛn ɑː ˌɒn ðə lˈɪst.",
+      "text" : "No. 5-10 are on the list.",
+      "us" : "nˈʌmbəɹ fˈIv tə tˈɛn ɑɹ ˌɔn ðə lˈɪst."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "wˌɪə fˈIv tə θɹˈiː ˌɒn ðə sˈiːzᵊn.",
+      "text" : "We're 5-3 on the season.",
+      "us" : "wˌɪɹ fˈIv tə θɹˈi ˌɔn ðə sˈizᵊn."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "sˈɛt plˈAbak tə tˈuː ˈɛks ðə hˈQl wˈA.",
+      "text" : "Set playback to 2x the whole way.",
+      "us" : "sˈɛt plˈAbˌæk tə tˈu ˈɛks ðə hˈOl wˈA."
     }
   ],
   "speech_cases" : [
@@ -12622,6 +12652,91 @@
       "area" : "phone",
       "says" : "Call extension four four one oh for facilities.",
       "text" : "Call x4410 for facilities."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "The ruling (number twenty-three nine thirty-nine) was issued on the last day of the term.",
+      "text" : "The ruling (No. 23-939) was issued on the last day of the term."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "The Inflation Reduction Act (Public Law one seventeen one sixty-nine) passed in August twenty twenty-two.",
+      "text" : "The Inflation Reduction Act (Pub. L. 117-169) passed in Aug. 2022."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Two times the fun on weekends!",
+      "text" : "2x the fun on weekends!"
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Five times the flavor in every bite.",
+      "text" : "5x the flavor in every bite."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Sizes 1X, two X and three X",
+      "text" : "Sizes 1X, 2X and 3X"
+    },
+    {
+      "area" : "dimensions",
+      "says" : "An eight foot Christmas tree is in the lobby.",
+      "text" : "An 8' Christmas tree is in the lobby."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "A six foot folding table is free.",
+      "text" : "A 6' folding table is free."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "The ten foot ceilings feel huge.",
+      "text" : "The 10' ceilings feel huge."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Roll the dough a quarter inch thick.",
+      "text" : "Roll the dough ¼\" thick."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Earn two times the points.",
+      "text" : "Earn 2x the points."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Use one point five times the water.",
+      "text" : "Use 1.5x the water."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Latte times two",
+      "text" : "Latte x2"
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Three times fourteen dollars equals forty-two dollars",
+      "text" : "3 x $14 = $42"
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Jeans, thirty-two W by thirty L, dark wash",
+      "text" : "Jeans, 32W x 30L, dark wash"
+    },
+    {
+      "area" : "dimensions",
+      "says" : "We're two and oh this season.",
+      "text" : "We're 2-0 this season."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "The storm dumped eighteen inches of snow on Buffalo.",
+      "text" : "The storm dumped 18in of snow on Buffalo."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Up to ten inches in parts of Texas.",
+      "text" : "Up to 10 in in parts of Texas."
     }
   ]
 }

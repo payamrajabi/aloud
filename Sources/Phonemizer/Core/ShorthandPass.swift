@@ -108,6 +108,14 @@ enum ShorthandPass {
                 return found.hasPrefix("l") ? "large" : found.hasPrefix("s") ? "small" : "medium"
             }
             t = rewrite(t, noBeforeNumber, cased: false) { _, _ in "No," }
+            // A docket or a public law: "No. 23-939" → "Number twenty three nine thirty nine",
+            // "Pub. L. 117-169" → "Public Law one seventeen one sixty nine", as lawyers say them.
+            // Read as a range they were "twenty three to nine hundred thirty nine".
+            t = rewrite(t, docket) { m, s in
+                let label = s.substring(with: m.range(at: 1)).hasPrefix("Pub") ? "Public Law" : "Number"
+                return label + " " + AddressPass.addressNumber(s.substring(with: m.range(at: 2))) + " "
+                    + AddressPass.addressNumber(s.substring(with: m.range(at: 3)))
+            }
             t = rewrite(t, mixedCode, cased: false) { m, s in splitCode(s.substring(with: m.range)) }
             t = rewrite(t, retirementPlan, cased: false) { m, s in s.substring(with: m.range(at: 1)) + "(k)" }
         }
@@ -175,6 +183,9 @@ enum ShorthandPass {
     /// word, and the pause stays.
     private static let noBeforeNumber = try! NSRegularExpression(pattern:
         #"(?:(?<=["“‘'][ \t]?)(No)\.(?=[ \t]+(?:19|20)\d\d(?![\d,.%]))|(?<![\p{L}\p{N}])(No)\.(?=[ \t]+\d+(?:\.\d+)?[ \t]*(?:%|per[ \t]?cent|percent)(?![\p{L}])))"#)
+
+    /// "No. 23-939" (a second group of three or four digits) and "Pub. L. 117-169".
+    private static let docket = try! NSRegularExpression(pattern: #"(?<![\p{L}\p{N}_.])(No\.|Pub\.[ \t]?L\.)[ \t]?(\d{1,3})-(\d{3,4})(?![\d\-–]|[.,]\d)"#)
 
     /// A code of capitals and digits with a 2 between letters ("7FHK2L", "R2D2", "H2O2"): spaced
     /// where letters and digits meet, so the 2 stays a number. The G2P read "K2L" as "K to L",
@@ -253,6 +264,8 @@ enum ShorthandPass {
             if m.range(at: 1).location != NSNotFound { return first.isNumber ? true : nil }
             return first.isUppercase ? true : nil
         }
+        // "(Pub." + "L. 117-169)": a public law.
+        if head.hasSuffix("Pub."), next.drop(while: \.isWhitespace).hasPrefix("L.") { return true }
         // "See col." + "B in the tracker": a column.
         if runOnColumn.firstMatch(in: head, range: all) != nil {
             let rest = next.drop { $0.isWhitespace }

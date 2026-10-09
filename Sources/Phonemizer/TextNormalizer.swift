@@ -396,6 +396,10 @@ enum TextNormalizer {
                 return "\(hundred(a)) to \(hundred(b))"
             }
             if isSum(m.range, in: s, goingUp: y > x) { return "\(a) minus \(b)" }
+            // A record: "We're 2-0 this season" → "2 and oh".
+            if b == "0", (1...40).contains(x), s.substring(to: m.range.location).range(of: #"(?i)\b(?:we|they|you)(?:['’]re| are| were)[ \t]+$"#, options: .regularExpression) != nil {
+                return "\(a) and oh"
+            }
             let da = a.filter(\.isNumber).count, db = b.filter(\.isNumber).count
             if !(a + b).contains(where: { $0 == "," || $0 == "." }) {
                 if a == "24" && b == "7" { return whole }

@@ -717,10 +717,11 @@ enum UnitRules {
     private static let dimensionAfter = try! NSRegularExpression(pattern: #"^\s*[x×]"#)
     private static let dimensionBefore = try! NSRegularExpression(pattern: #"[x×]\s*$"#)
     /// A W-number then an L-number, with at most a D- or T-number between: a record ("10 W, 3 L",
-    /// "3W 2D 1L") or a pair of jeans ("32W 34L"). Only whole numbers next to each other, so a
-    /// kettle's "1.7 L … 3,000 W" still reads liters and watts.
+    /// "3W 2D 1L") or a pair of jeans ("32W 34L", and "32 W by 30 L" as the measures pass reads
+    /// "32W x 30L"). Only whole numbers next to each other, so a kettle's "1.7 L … 3,000 W" still
+    /// reads liters and watts.
     private static let winLoss = try! NSRegularExpression(pattern:
-        #"(?<![\p{L}\d.,])\d{1,3}\s?W(?:[\s,;/–-]+\d{1,3}\s?[DT])?[\s,;/–-]+\d{1,3}\s?L(?![\p{L}\d])"#)
+        #"(?<![\p{L}\d.,])\d{1,3}\s?W(?:[\s,;/–-]+\d{1,3}\s?[DT])?[\s,;/–-]+(?:by[ \t]+)?\d{1,3}\s?L(?![\p{L}\d])"#)
     private static let timesNumber = try! NSRegularExpression(pattern: #"^\s*[x×]\s*\d"#)
     private static let numberNext = try! NSRegularExpression(pattern: #"^\s+\d"#)
     /// A clothing size on its own ("2 L and 3 XL"), not a letter of "U.S." or "M&Ms".
