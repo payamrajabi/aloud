@@ -195,6 +195,15 @@ enum UnitRules {
             let spot = UnitSpot(m, number: 1, in: s, context)
             return "\(spot.number) \(spot.singular ? "liter" : "liters") per hundred kilometers"
         })
+        // A rate per a short unit of time after a number or "%": "1.5% per mo.", "churn
+        // 1.8%/mo" → "per month". Before file paths, which took "/mo" for one.
+        rules.append(Rule(#"(?<=[\d%])(?:[ \t]+per[ \t]+|[ \t]?/[ \t]?)(mos|mo|mths|mth|yrs|yr|wks|wk|hrs|hr|mins|min|secs|sec)(\.(?=[ \t]+\p{Ll}|,))?(?![\p{L}\d/])"#) { m, s in
+            " per " + rateUnits[s.substring(with: m.range(at: 1))]!
+        })
+        // A runner's pace: "7:30/mi" → "7:30 per mile" (the clock rule reads the time).
+        rules.append(Rule(#"(?<![\d:.])(\d{1,2}:[0-5]\d)[ \t]?/[ \t]?(mi|mile|km|k)(?![\p{L}\d/])"#) { m, s in
+            s.substring(with: m.range(at: 1)) + " per " + (s.substring(with: m.range(at: 2)).hasPrefix("m") ? "mile" : "kilometer")
+        })
         // A unit, then one or more "/unit" from the table ("5.5 mmol/L", "7GB/s", "7.8 g/cm³") or a
         // plain word ("20 ms/frame"): "5 milligrams per kilogram per day". The lexicon's "7 GB/s"
         // already reads so; glued, or after a unit it has no entry for, the slash was lost or read
@@ -311,6 +320,24 @@ enum UnitRules {
         rules.append(Rule(#"(?<![\p{L}\d.,/\-–])(\d+)-(yrs?|mos?|mths?|wks?)-(olds?)(?![\p{L}\d])"#) { m, s in
             "\(s.substring(with: m.range(at: 1))) \(ages[s.substring(with: m.range(at: 2))]!) \(s.substring(with: m.range(at: 3)))"
         })
+        // A blood pressure: "128/82 mmHg", and in a sentence about blood pressure "BP 120/80" →
+        // "1 28 over 82", as a nurse says it.
+        rules.append(Rule.withContext(#"(?<![\d/.,])(\d{2,3})/(\d{2,3})(?![\d/]|[.,]\d)([ \t]?mm[ \t]?Hg(?![\p{L}]))?"#) { m, s, context in
+            let whole = s.substring(with: m.range)
+            let unit = m.range(at: 3).location != NSNotFound
+            guard unit || matches(bloodPressure, context.sentence(around: m.range, in: s)) else { return whole }
+            let top = s.substring(with: m.range(at: 1))
+            let said = top.count == 3 && !top.hasSuffix("00") ? String(top.prefix(1)) + " " + top.dropFirst() : top
+            return said + " over " + s.substring(with: m.range(at: 2)) + (unit ? " millimeters of mercury" : "")
+        })
+        // Ages: "My 5 yo", "a 5 y/o" → "5 year old".
+        rules.append(Rule(#"(?<![\p{L}\d.,/])(\d+)[ \t]?(?:yo|y/o|y\.o\.)(?![\p{L}\d/])"#) { m, s in
+            s.substring(with: m.range(at: 1)) + " year old"
+        })
+        // A minute of a match: "in the 90th min" → "90th minute".
+        rules.append(Rule(#"(?<![\p{L}\d.,])(\d+(?:st|nd|rd|th))[ \t]mins?\.?(?![\p{L}\d])"#) { m, s in
+            s.substring(with: m.range(at: 1)) + " minute"
+        })
         // Hyphenated modifiers: "a 10-km run" → "a 10 kilometer run", "a 5-lb bag", "a 12-hr shift"
         // (they lost their number: "ten kay kay em run"). Before a noun the unit is singular, and
         // an abbreviation's period goes with it ("a 5-lb. bag"). Not before one, only a word the
@@ -324,11 +351,13 @@ enum UnitRules {
             let spot = UnitSpot(m, number: 1, in: s, context)
             if skips(symbol, spot) || (letter != nil && spot.afterLabel) { return whole }
             if spot.nextWord?.first?.isLowercase == true { return "\(spot.number) \(words.0)" }
+            // Coordinated with the next modifier: "a 5-yr, $200M extension".
+            if spot.after.hasPrefix(","), ["a", "an", "the"].contains(spot.wordBefore?.lowercased() ?? "") { return "\(spot.number) \(words.0)" }
             return letter != nil ? whole : "\(spot.number) \(spot.singular ? words.0 : words.1)"
         })
         // Half a unit: "½ tsp" and "1/2 lb" → "half a teaspoon", "half a pound" (it was "one half
         // pound", and "one half T S P").
-        rules.append(Rule(#"(?<![\d.,/])(?<!\d\s)1/2\s?("# + unitPattern + #")"# + unitEnd) { m, s in
+        rules.append(Rule(#"(?<![\d.,/\-])(?<!\d\s)1/2\s?("# + unitPattern + #")"# + unitEnd) { m, s in
             half(table[key(s.substring(with: m.range(at: 1)))]!.0)
         })
         // A vulgar fraction before a unit: "1½ tsp" → "1 and a half teaspoons"; "¼ tsp" → "one
@@ -358,12 +387,13 @@ enum UnitRules {
             if skips(symbol, spot) { return whole }
             // After a fraction it's one: "1/8 tsp" is an eighth of a teaspoon; "1 1/2 tsp" is more.
             if let mixed = fractionBefore(spot.before) { return "\(spot.number) \(mixed ? words.1 : words.0)" }
-            return "\(spot.number) \(spot.singular ? words.0 : words.1)"
+            return "\(spot.number) \(spot.singular(unit: symbol) ? words.0 : words.1)"
         })
         rules.append(Rule.withContext(#"(?<![\p{L}\d.,])(\d+(?:[.,]\d+)*)("# + alternation(gluedUnits.map(\.0)) + #")(?![\p{L}\d/])"#) { m, s, context in
-            let words = gluedTable[s.substring(with: m.range(at: 2))]!
+            let symbol = s.substring(with: m.range(at: 2))
+            let words = gluedTable[symbol]!
             let spot = UnitSpot(m, number: 1, in: s, context)
-            return "\(spot.number) \(spot.singular ? words.0 : words.1)"
+            return "\(spot.number) \(spot.singular(unit: symbol) ? words.0 : words.1)"
         })
         rules += letterUnits
         return rules
@@ -404,8 +434,33 @@ enum UnitRules {
         case "mo", "mos", "mth", "mths":
             // "Give me 1 mo, I'm on the phone": a moment.
             return spot.number == "1" && matches(momentEnd, spot.after)
+        // "650 TB deaths", "4,800 TB cases": tuberculosis, not terabytes.
+        case "TB": return spot.nextWord.map { UnitWords.diseaseNouns.contains($0.lowercased()) } == true || spot.has(UnitWords.diseaseWords)
+        // "3 gal pals": a friend, not a gallon.
+        case "gal": return spot.nextWord.map { UnitWords.galNouns.contains($0.lowercased()) } == true
         default: return false
         }
+    }
+
+    /// "2 m behind schedule", "2 m ahead of plan": a reader's "M" (months, or millions), never meters.
+    private static let behindSchedule = try! NSRegularExpression(pattern: #"^\s+(?:behind|ahead)\s+(?:of\s+)?(?:schedule|on|plan|target|budget|in)(?![\p{L}])"#)
+    /// A drink within three words after a pint, past its period ("1 pt. heavy cream").
+    private static let drinkAhead = try! NSRegularExpression(pattern: #"^\.?\s+(?:\p{L}+\s+){0,2}(?:milk|cream|water|beer|ale|lager|stout|cider|stock|broth|juice|wine)(?![\p{L}])"#, options: .caseInsensitive)
+    /// Pounds after a weight in stone: "12 st 4 lb".
+    private static let poundsAhead = try! NSRegularExpression(pattern: #"^\s+\d+\s?(?:lb|lbs|pounds?)(?![\p{L}])"#)
+    /// Another temperature written without its sign in the sentence: "-40F", "40.3C".
+    private static let markedTemperature = try! NSRegularExpression(pattern: #"(?:[-−]\d+|\d+\.\d+)[CF](?![\p{L}\d])"#)
+    /// The word after the next one: "10K paying teams".
+    private static let secondWord = try! NSRegularExpression(pattern: #"^\h+\p{L}+\h+(\p{L}+)"#)
+    /// "blood pressure" or "BP" in a sentence with a reading in it.
+    private static let bloodPressure = try! NSRegularExpression(pattern: #"(?i:blood\s+pressure)|\bBP\b"#)
+    /// A short unit of time after "per" or a slash, said in full.
+    private static let rateUnits = ["mos": "month", "mo": "month", "mths": "month", "mth": "month", "yrs": "year", "yr": "year",
+                                    "wks": "week", "wk": "week", "hrs": "hour", "hr": "hour", "mins": "minute", "min": "minute",
+                                    "secs": "second", "sec": "second"]
+
+    private static func firstMatch(_ regex: NSRegularExpression, _ text: String) -> NSTextCheckingResult? {
+        regex.firstMatch(in: text, range: NSRange(location: 0, length: (text as NSString).length))
     }
 
     private static let momentEnd = try! NSRegularExpression(pattern: #"^\s*(?:[,!]|[.?]?\s*$)"#)
@@ -436,6 +491,46 @@ enum UnitRules {
             guard spot.has(UnitWords.seaWords) else { return s.substring(with: m.range) }
             return "\(spot.number) \(spot.singular ? "nautical mile" : "nautical miles")"
         })
+        // ct is a count ("60 ct.", "a 48 ct pack", "120 ct. bottle"), or carats before a gem or
+        // gold ("1 ct diamond"). Read as letters, the lexicon made it "court".
+        rules.append(Rule.withContext(number + #"\s?ct(\.(?=\s+\p{Ll}))?(?![\p{L}\d'’&*+\-/])"#) { m, s, context in
+            let spot = UnitSpot(m, number: 1, in: s, context)
+            return spot.number + (matches(gemAfter, spot.after) ? " carat" : " count")
+        })
+        // st is stone where the sentence is about weight ("He weighs 12 st 4 lb", "Lost 2 st",
+        // "He weighed 18st"), or before pounds. Never "21st" (an ordinal), and elsewhere it was
+        // "street".
+        rules.append(Rule.withContext(number + #"(\s?)st(?![\p{L}\d'’&/]|\.[\p{L}\d])"#) { m, s, context in
+            let whole = s.substring(with: m.range)
+            let spot = UnitSpot(m, number: 1, in: s, context)
+            if m.range(at: 2).length == 0, let n = Int(spot.number), n % 10 == 1, n % 100 != 11 { return whole }
+            guard spot.has(UnitWords.weightWords) || matches(poundsAhead, spot.after) else { return whole }
+            return spot.number + " stone"
+        })
+        // ha is hectares in a sentence about land ("12,000 acres (4,856 ha)"); elsewhere it laughs.
+        rules.append(Rule.withContext(number + #"\s?ha(?![\p{L}\d'’&/]|\.\p{L})"#) { m, s, context in
+            let spot = UnitSpot(m, number: 1, in: s, context)
+            guard spot.has(UnitWords.landWords) || spot.nextWord == "of" else { return s.substring(with: m.range) }
+            return "\(spot.number) \(spot.singular ? "hectare" : "hectares")"
+        })
+        // A temperature without its degree sign: "40.3C", "-40F", "It's 72 F and sunny". The
+        // letter is also a seat, a flat or a grade ("Seat 14C", "Room 4C", "4C hair"), so only
+        // with a minus or a decimal, or in a sentence about the weather or heat, or beside another
+        // temperature ("100F in Dallas and -40F in Fairbanks"); never after a label.
+        rules.append(Rule.withContext(#"(?<![\p{L}\d.,/$£€¥₹₩])([-−]?)(\d+(?:\.\d+)?)([ \t]?)([CF])(?![\p{L}\d'’&*+\-/°]|\.\p{L})"#) { m, s, context in
+            let whole = s.substring(with: m.range)
+            let spot = UnitSpot(m, number: 2, in: s, context)
+            if spot.afterLabel { return whole }
+            let signed = m.range(at: 1).length > 0
+            let glued = m.range(at: 3).length == 0
+            var temperature = spot.has(UnitWords.temperatureWords)
+            if !temperature, glued {
+                temperature = signed || spot.number.contains(".") || matches(markedTemperature, spot.sentence)
+            }
+            guard temperature else { return whole }
+            let scale = s.substring(with: m.range(at: 4)) == "C" ? "Celsius" : "Fahrenheit"
+            return (signed ? "-" : "") + spot.number + (TextNormalizer.isOne(spot.number) ? " degree " : " degrees ") + scale
+        })
         // Carats before gold, a gem or a piece of jewellery: "18kt gold ring", "1 ct diamond"
         // ("eighteen carat"; carat and karat sound the same, and never change for more). kt, K
         // and k are gold, so only its fineness (9 to 24); with game words "10k gold" is ten
@@ -456,17 +551,76 @@ enum UnitRules {
             let noun = spot.nextWord.map { UnitWords.windNouns.contains($0) } ?? false
             return "\(spot.number) \(spot.singular || noun ? "knot" : "knots")"
         })
-        // pt: pints of something to drink or cook with ("1 pt of cream"), points of type ("12 pt
-        // type", "12pt Helvetica", or with "font" earlier). Otherwise it's letters: in a clinic
-        // "12 pt" are patients.
-        rules.append(Rule.withContext(number + #"\s?pt(\.(?=\s+\p{Ll}|,))?(?![\p{L}\d'’&/])"#) { m, s, context in
+        // A count in millions or thousands: "1.2m people", "70M savers", "100k members", "10K
+        // paying teams" → "1.2 million people". Only before a plural (or a word and a plural),
+        // so "2m tall", "a 5k run", "4K TV" and "the 100m final" stay. A lower-case m needs a
+        // decimal; races and screens keep k and K; "401k" is the plan.
+        rules.append(Rule.withContext(number + #"([ \t]?)([mMkK])(?![\p{L}\d'’&*+\-²³°/]|\.\p{L})"#) { m, s, context in
+            let whole = s.substring(with: m.range)
             let spot = UnitSpot(m, number: 1, in: s, context)
-            let next = spot.nextWord
-            if let next, UnitWords.pintWords.contains(next.lowercased()) { return "\(spot.number) \(spot.singular ? "pint" : "pints")" }
-            let font = next.map { UnitWords.pointWords.contains($0.lowercased()) || $0.first?.isUppercase == true } ?? false
-            guard font || matches(fontBefore, spot.before) else { return s.substring(with: m.range) }
-            return "\(spot.number) point"
+            let letter = s.substring(with: m.range(at: 3))
+            if spot.afterLabel || ["401", "403", "457"].contains(spot.number) { return whole }
+            guard var noun = spot.nextWord?.lowercased() else { return whole }
+            if !UnitSpot.isPlural(noun), !UnitWords.countNouns.contains(noun), UnitSpot.isNoun(noun),
+               let second = firstMatch(secondWord, spot.after) {
+                noun = (spot.after as NSString).substring(with: second.range(at: 1)).lowercased()
+            }
+            let counted = UnitWords.countNouns.contains(noun) || UnitWords.irregularPlurals.contains(noun)
+            guard counted || UnitSpot.isPlural(noun) else { return whole }
+            switch letter {
+            // A whole number and a glued or spaced m stays as written ("2m downloads", "3 m
+            // viewers": units.json keeps "M" there); with a decimal it's a count ("1.2m people").
+            case "m": guard spot.number.contains(".") else { return whole }
+            case "k", "K": if UnitWords.raceNouns.contains(noun) || UnitWords.screenNouns.contains(noun) || spot.has(UnitWords.raceWords) { return whole }
+            default: break
+            }
+            return spot.number + (letter.lowercased() == "m" ? " million" : " thousand")
         })
+        // pt and pts: pints of something to drink or cook with ("1 pt of cream", "1 pt. heavy
+        // cream"); otherwise points, of type ("12 pt type") or of a score or a poll ("a 10-pt
+        // lead", "by 18 pts", "a 3 pt story"). In a clinic "12 pt" are patients, left as letters.
+        rules.append(Rule.withContext(number + #"([ \t]|-)?(pts|pt)(\.(?=\s+\p{Ll}|,))?(?![\p{L}\d'’&/])"#) { m, s, context in
+            let spot = UnitSpot(m, number: 1, in: s, context)
+            let plural = s.substring(with: m.range(at: 3)) == "pts"
+            if spot.nextWord.map({ UnitWords.pintWords.contains($0.lowercased()) }) == true || spot.has(UnitWords.drinkWords)
+                || matches(drinkAhead, spot.after) {
+                return "\(spot.number) \(spot.singular && !plural ? "pint" : "pints")"
+            }
+            if spot.has(UnitWords.clinicWords) { return s.substring(with: m.range) }
+            return "\(spot.number) \(plural ? "points" : "point")"
+        })
+        // Recipe shorthand before an ingredient: "1 c. flour", "1 T. butter", "1 t. salt".
+        rules.append(Rule.withContext(number + #"[ \t](c|T|t)\.(?=[ \t]+\p{Ll})"#) { m, s, context in
+            let spot = UnitSpot(m, number: 1, in: s, context)
+            guard let next = spot.nextWord, UnitSpot.isNoun(next) else { return s.substring(with: m.range) }
+            let words = ["c": ("cup", "cups"), "T": ("tablespoon", "tablespoons"), "t": ("teaspoon", "teaspoons")][s.substring(with: m.range(at: 2))]!
+            return "\(spot.number) \(TextNormalizer.isOne(spot.number) ? words.0 : words.1)"
+        })
+        // pc: per cent glued to a number, as British papers write it ("29pc", "a 2pc rise"), unless
+        // a piece goes before the noun ("a 3pc suit"); spaced or hyphenated before a noun it's a
+        // piece ("8-pc chicken bucket", "8 pc nuggets"), and pcs are pieces ("40 pcs").
+        rules.append(Rule.withContext(number + #"([ \t]|-)?(pcs|pc)(?![\p{L}\d'’&/]|\.\p{L})"#) { m, s, context in
+            let whole = s.substring(with: m.range)
+            let spot = UnitSpot(m, number: 1, in: s, context)
+            let one = TextNormalizer.isOne(spot.number)
+            if s.substring(with: m.range(at: 3)) == "pcs" { return spot.number + (one ? " piece" : " pieces") }
+            let next = spot.nextWord?.lowercased()
+            if m.range(at: 2).length == 0, !(next.map(UnitWords.pieceNouns.contains) ?? false) { return spot.number + " per cent" }
+            guard let next, UnitSpot.isNoun(next) else { return whole }
+            return spot.number + " piece"
+        })
+        // Finance: "25bp", "50 bps" → basis points, "0.25pp" → percentage points; bps is bits per
+        // second in a sentence about a connection ("a 300 bps modem").
+        rules.append(Rule.withContext(number + #"[ \t]?(bps|bp|pp)(?![\p{L}\d'’&/]|\.[\p{L}\d])"#) { m, s, context in
+            let spot = UnitSpot(m, number: 1, in: s, context)
+            let one = TextNormalizer.isOne(spot.number)
+            switch s.substring(with: m.range(at: 2)) {
+            case "pp": return spot.number + (one ? " percentage point" : " percentage points")
+            case "bps" where spot.has(UnitWords.connectionWords): return spot.number + (one ? " bit per second" : " bits per second")
+            default: return spot.number + (one ? " basis point" : " basis points")
+            }
+        })
+
         // cal is calories only per serving or a day ("100 cal per serving"); "the 50 cal." is a
         // calibre. kcal is the table's.
         rules.append(Rule(number + #"\s?cal(?:/(serving|day)(?![\p{L}\d/])|(?=\s+(?:per|a\s+day)(?![\p{L}])))"#) { m, s in
@@ -520,7 +674,7 @@ enum UnitRules {
             let letter = s.substring(with: m.range(at: 3))
             let spot = UnitSpot(m, number: 1, in: s, context)
             guard let words = letterUnit(letter, glued: m.range(at: 2).length == 0, spot) else { return s.substring(with: m.range) }
-            return "\(spot.number) \(spot.singular ? words.0 : words.1)"
+            return "\(spot.number) \(spot.singular(unit: letter) ? words.0 : words.1)"
         })
         // A capital A is amps only in a sentence about electricity ("5 V at 3 A", "a 13 A fuse"):
         // otherwise it's a grade, a seat or a flat ("4 A grades", "Seat 12A", "the current tally
@@ -546,12 +700,13 @@ enum UnitRules {
         case "m":
             // Spaced, meters unless counted ("3 m viewers") or minutes ("5 m ago"). Glued, only
             // before a size word ("30m high", "2m apart"): "I'm 5m away" is minutes, "the 100m
-            // final" a race, "2m downloads" millions.
+            // final" a race, "2m downloads" millions. "2 m behind schedule" is a reader's "M".
             if glued {
                 guard next.map(UnitWords.sizeWords.contains) == true || matches(timesNumber, spot.after) else { return nil }
             } else {
                 if let next, UnitWords.notMeters.contains(next) || UnitWords.countNouns.contains(next) { return nil }
                 if spot.has(UnitWords.moneyWords) || spot.hasStem(["invest"]) { return nil }
+                if matches(behindSchedule, spot.after) { return nil }
             }
         case "g":
             // "4g in the village", "the 5g rollout": a network; "pull 9 g": g-force.
@@ -579,8 +734,9 @@ enum UnitRules {
                let word = spot.wordBefore?.lowercased(), UnitWords.clockWords.contains(word) { return nil }
             if let word = spot.wordBefore, word.count >= 2, word.allSatisfy(\.isUppercase) { return nil }
         case "s":
-            // Seconds spaced ("30 s") or after a decimal ("1.5s"); "the 1990s" and "her 20s" are decades.
-            if glued && !spot.number.contains(".") { return nil }
+            // Seconds spaced ("30 s") or after a decimal ("1.5s"); "the 1990s" and "her 20s" are
+            // decades. A comparison makes it a time too ("more than 2s", "under 3s").
+            if glued && !spot.number.contains(".") && !UnitWords.comparisons.contains(spot.wordBefore?.lowercased() ?? "") { return nil }
         default:
             break
         }
