@@ -5211,6 +5211,26 @@
    ]
   },
   {
+   "text": "She's 5 ft. 4 in. and fast.",
+   "chunks": [
+    "She's 5 ft. 4 in. and fast."
+   ]
+  },
+  {
+   "text": "He is 6 ft 2 in. He plays guard.",
+   "chunks": [
+    "He is 6 ft 2 in.",
+    "He plays guard."
+   ]
+  },
+  {
+   "text": "The room is 10 x 12 ft. It has a window.",
+   "chunks": [
+    "The room is 10 x 12 ft.",
+    "It has a window."
+   ]
+  },
+  {
    "text": "Who won? No. 1 seed Duke.",
    "chunks": [
     "Who won?",
