@@ -27,6 +27,17 @@ enum RomanNames {
         "malcolm", "david", "robert", "alfred", "edmund", "harold", "stephen", "pedro", "manuel", "sancho", "casimir",
         "sigismund", "vladimir", "matthias", "maximilian", "umberto", "emmanuel", "isabella", "isabel", "margaret",
         "margrethe", "christina", "rainier", "baudouin", "willem", "amadeus", "michael", "thomas", "daniel", "martin",
+        "cleopatra", "arsinoe", "berenice", "antiochus", "seleucus", "philippa", "matilda", "jadwiga", "henri",
+    ]
+    /// Words after a ruler's name and a lone "I" that make it the First, where the pronoun can't
+    /// follow a name without a comma ("Charles I was executed", "Peter I founded St.
+    /// Petersburg", "Queen Mary I burned…"). Only when the name opens its sentence or has a title.
+    static let regnalFollowers: Set<String> = [
+        "was", "is", "had", "has", "ruled", "reigned", "died", "founded", "married", "became", "burned", "burnt", "built",
+        "signed", "succeeded", "inherited", "invaded", "conquered", "defeated", "fought", "led", "ordered", "established",
+        "created", "granted", "issued", "introduced", "abolished", "executed", "crowned", "came", "took", "made", "sent",
+        "lost", "won", "moved", "ascended", "abdicated", "commissioned", "decreed", "expelled", "launched", "united",
+        "of", "and",
     ]
 
     /// R2-C: given names before a family name and its suffix ("Thurston Howell III", "John D.
@@ -82,15 +93,16 @@ enum RomanNames {
         for w in ["chapter", "chapters", "part", "parts", "book", "books", "volume", "volumes", "canto", "cantos", "title",
                   "titles", "article", "articles", "section", "sections", "schedule", "schedules", "annex", "appendix",
                   "table", "tables", "plate", "psalm", "psalms", "amendment", "episode", "episodes", "act", "acts",
-                  "scene", "scenes", "page", "pages", "unit", "lesson", "module", "ch.", "vol."] { k[w] = .document }
+                  "scene", "scenes", "page", "pages", "unit", "lesson", "module", "clause", "clauses", "item", "items", "ch.",
+                  "vol.", "pp.", "p."] { k[w] = .document }
         for w in ["phase", "phases", "type", "types", "stage", "stages", "class", "classes", "level", "levels", "grade",
-                  "grades", "tier", "tiers", "category", "division", "factor"] { k[w] = .grade }
+                  "grades", "tier", "tiers", "category", "division", "factor", "option", "options"] { k[w] = .grade }
         for w in ["bowl", "vatican", "apollo", "mark", "mk", "mk."] { k[w] = .event }
         return k
     }()
 
     /// Abbreviated keywords, written out before a numeral ("Ch. IV" → "Chapter four").
-    static let expansions = ["ch.": "Chapter", "vol.": "Volume", "mk": "Mark", "mk.": "Mark"]
+    static let expansions = ["ch.": "Chapter", "vol.": "Volume", "mk": "Mark", "mk.": "Mark", "pp.": "pages", "p.": "page"]
 
     /// Keywords after which a single X is ten ("Title X", "Super Bowl X"); after the others it's
     /// a letter ("Mark X on the map", "Type X").
@@ -115,7 +127,7 @@ enum RomanNames {
     /// trauma center"); anything else keeps the pronoun ("Mark I disagree", "Part I agree").
     static let followers: [String: Set<String>] = {
         let lists: [String: Set<String>] = [
-            "phase": ["trial", "trials", "study", "studies", "clinical"],
+            "phase": ["trial", "trials", "study", "studies", "clinical", "starts", "begins", "ends", "is", "was", "will", "runs"],
             "type": ["diabetes", "diabetic", "error", "errors", "collagen", "hypersensitivity", "supernova", "supernovae"],
             "stage": ["cancer", "disease", "tumor", "tumour", "breast", "lung", "colon", "colorectal", "prostate",
                       "ovarian", "cervical", "skin", "melanoma", "lymphoma", "hypertension"],
@@ -123,9 +135,16 @@ enum RomanNames {
             "level": ["trauma", "certification"],
             "grade": ["listed"],
             "schedule": ["drug", "drugs", "substance", "substances", "narcotic", "narcotics"],
+            // "Episode I was released", "Phase I starts Monday", "Option I is faster": the
+            // pronoun never follows these words without a comma.
+            "episode": ["was", "is", "came", "comes", "opened", "opens", "premiered", "premieres", "aired", "airs", "starts", "begins"],
+            "option": ["is", "was", "would", "will", "costs", "gives", "means", "requires", "works", "seems"],
             "title": ["funding", "funds", "school", "schools", "program", "programs"],
             "division": ["school", "schools", "college", "colleges", "athlete", "athletes", "football", "basketball",
                          "program", "programs", "team", "teams"],
+            // "Use the Tier I lounge", "Tier I capital".
+            "tier": ["lounge", "lounges", "status", "member", "members", "membership", "capital", "supplier", "suppliers",
+                     "city", "cities", "card", "cards", "benefits", "rewards", "support", "access", "account", "accounts"],
         ]
         var all = lists
         for (plural, singular) in ["phases": "phase", "types": "type", "stages": "stage", "classes": "class",

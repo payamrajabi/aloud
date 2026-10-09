@@ -62,8 +62,11 @@ enum DateRules {
                 guard (separator == "." ? 1900...2099 : 1000...2099).contains(year) else { return whole }
                 if separator == ".", versionWords.contains(previous) { return whole }
             } else {
-                // A two-digit year needs slashes and a zero ("03/04/24") or a date word before it.
-                guard separator == "/", year != 0,
+                // A two-digit year needs a zero ("03/04/24") or a date word before it, and slashes,
+                // or dots with every part in two digits ("held 12.03.24", as British minutes
+                // write it; not after a version word).
+                let dotted = separator == "." && a.count == 2 && b.count == 2 && !versionWords.contains(previous)
+                guard separator == "/" || dotted, year != 0,
                       a.hasPrefix("0") || b.hasPrefix("0") || dateWords.contains(previous) else { return whole }
             }
             if case .word(let next) = follower(context.text(after: m.range, in: s, limit: 40)),
@@ -72,6 +75,73 @@ enum DateRules {
             // A short year as written ("twenty-four"; "05" → "oh five"): a century would be a guess.
             let spokenYear = yearText.count == 2 && yearText.hasPrefix("0") ? "oh " + String(yearText.dropFirst()) : yearText
             return written(day: day, month: month, year: spokenYear, british: british, afterThe: previous == "the")
+        })
+        // A month and a year: "Exp. 03/2026", "Best before 05/2026" → "March 2026". A month
+        // can't be over 12 and nobody writes a fraction over a year.
+        rules.append(Rule(#"(?<![\p{L}\d_/.\-–−:#@$£€¥₹₩])(?:(Exp|EXP|exp)\.?[ \t]*:?[ \t]*)?(0?[1-9]|1[0-2])/((?:19|20)\d\d)(?![\d/]|[.,]\d)"#) { m, s in
+            let expires = m.range(at: 1).location == NSNotFound ? "" : (s.substring(with: m.range(at: 1)) == "exp" ? "expires " : "Expires ")
+            guard let month = Int(s.substring(with: m.range(at: 2))) else { return s.substring(with: m.range) }
+            return expires + CalendarNames.monthsInOrder[month - 1] + " " + s.substring(with: m.range(at: 3))
+        })
+        // Betting odds: "Reform 7/2 favourites", "an 11/4 shot" → "7 to 2". The shape is also a
+        // date or a fraction; only before a word a bookmaker uses.
+        rules.append(Rule(#"(?<![\p{L}\d_/.\-–−:#@$£€¥₹₩])(\d{1,3})/(\d{1,2})(?![\d/]|[.,]\d)(?=[ \t]+(?:favourites?|favorites?|shots?|outsiders?)(?![\p{L}]))"#) { m, s in
+            s.substring(with: m.range(at: 1)) + " to " + s.substring(with: m.range(at: 2))
+        })
+        // A month and a day with no year: "on 10/31", "due 10/24", "closed 12/24 and 12/25",
+        // "11/27-11/28", "moved to 3/8". The shape is also a fraction, a score or a rating ("3/4",
+        // "9/10", "24/7"), so it's a date only where the sentence says so: a word that goes with a
+        // date right before it, a date noun ("The deadline was 10/31"), or a second date joined to
+        // it. A common fraction ("1/2", "3/4") isn't one after "by" or "from" ("cut by 1/3"), and
+        // nothing is before a measure ("from 1/2 to 3/4 cup", "1/3 of the vote"). In a range, a
+        // part over 12 in either date settles the order of both ("12/24 – 1/2").
+        rules.append(Rule.withContext(#"(?<![\p{L}\d_/.\-–−:#@$£€¥₹₩])(\d{1,2})/(\d{1,2})(?![\d/]|[.,]\d|\.\p{L})(?:([ \t]?[-–][ \t]?|[ \t](?:to|and|or|through|thru|until|till)[ \t])(\d{1,2})/(\d{1,2})(?![\d/]|[.,]\d|\.\p{L}))?"#) { m, s, context in
+            let whole = s.substring(with: m.range)
+            func number(_ i: Int) -> Int? { m.range(at: i).location == NSNotFound ? nil : Int(s.substring(with: m.range(at: i))) }
+            guard let a = number(1), let b = number(2) else { return whole }
+            let second = number(4).flatMap { c in number(5).map { (c, $0) } }
+            // Names, not dates: "9/11", "7/7", "24/7", "50/50".
+            if second == nil, namedSlashes.contains("\(a)/\(b)") { return whole }
+            if case .word(let w) = follower(context.text(after: m.range, in: s, limit: 40)), fractionMeasures.contains(w.lowercased()) {
+                return whole
+            }
+            let before = context.text(before: m.range, in: s, limit: 60)
+            let after = context.text(after: m.range, in: s, limit: 40)
+            let previous = previousWord(before).word.lowercased()
+            let fractions = isFractionShaped(a, b) || second.map { isFractionShaped($0.0, $0.1) } == true
+            // A share before what it counts ("Closed 3/4 tickets", "Shipped 2/3 features"), unless
+            // a word that only goes with a date says otherwise ("week ending 10/12 timesheets").
+            if second == nil, a < b, case .word(let w) = follower(after), isPluralNoun(w.lowercased()),
+               !slashDateCues.contains(previous) { return whole }
+            let common = [2, 3, 4].contains(b) && a < b
+            var cued = (slashDateCues.contains(previous) || slashDateVerbs.contains(previous))
+                && !(common && ["by", "from"].contains(previous))
+            if !cued, previous == "to" || previous == "for" {
+                let rest = before.reversed().drop { $0 == " " || $0 == "\t" }.drop { $0.isLetter }
+                let word = previousWord(String(rest.reversed())).word.lowercased()
+                cued = moveVerbs.contains(word) || scheduleWords.contains(word)
+            }
+            if !cued { cued = matches(dateNounBehind, before) || matches(dateLabelBehind, before) }
+            // A time after it: "Departs 3/16 at 9 am", "Holiday party is 12/12 at 6:30".
+            if !cued { cued = matches(timeAhead, after) }
+            // On its own in brackets, where it can't be part of a series ("(1/3)"): "Kickoff
+            // (10/14) is in the big room", "MLK Day (1/19)".
+            if !cued, second == nil, b > 12 || a > b, before.last == "(", after.first == ")" { cued = true }
+            // Two dates joined, one at least no fraction: "11/14–11/16".
+            if !cued, let (c, d) = second, !(isFractionShaped(a, b) && isFractionShaped(c, d)) { cued = true }
+            guard cued else { return whole }
+            // The order: a part over 12 settles it; otherwise the voice does.
+            let parts = [(a, b)] + (second.map { [$0] } ?? [])
+            let dayFirst = parts.contains { $0.0 > 12 } ? true : parts.contains { $0.1 > 12 } ? false : british
+            var dates: [String] = []
+            for (x, y) in parts {
+                let (day, month) = dayFirst ? (x, y) : (y, x)
+                guard isDate(day: day, month: month) else { return whole }
+                dates.append(written(day: day, month: month, year: nil, british: british, afterThe: dates.isEmpty && previous == "the"))
+            }
+            guard dates.count == 2 else { return dates[0] }
+            let joiner = s.substring(with: m.range(at: 3)).trimmingCharacters(in: .whitespaces)
+            return dates[0] + " " + (joiner == "-" || joiner == "–" ? "to" : joiner) + " " + dates[1]
         })
         return rules
     }
@@ -82,6 +152,16 @@ enum DateRules {
     /// "~", the unit range rule, units' h, m and s, clock and ratio.
     static func durations(british: Bool) -> [Rule] {
         var rules: [Rule] = []
+        // A time zone's offset: "(UTC-08:00)", "GMT-5", "UTC+05:30" → "UTC minus 8", "plus 5 30".
+        // The clock rule took "-08:00" for eight o'clock and the minus was lost. Only right
+        // after UTC or GMT (a term the lexicon may have marked).
+        rules.append(Rule.withContext(#"(?<!\d)[ \t]?([+\-−])(\d{1,2})(?::?([0-5]\d))?(?![\d:\p{L}]|[.,]\d)"#) { m, s, context in
+            let before = context.text(before: m.range, in: s, limit: 8)
+            guard before.hasSuffix("UTC") || before.hasSuffix("GMT") else { return s.substring(with: m.range) }
+            let sign = s.substring(with: m.range(at: 1)) == "+" ? "+" : "-"
+            let minutes = m.range(at: 3).location == NSNotFound ? nil : s.substring(with: m.range(at: 3))
+            return " " + offsetWords(sign: sign, hours: s.substring(with: m.range(at: 2)), minutes: minutes)
+        })
         // H:MM:SS. A clock time after "at" or "@", after a date, before am/pm or a time zone,
         // from 13 hours, or as a log stamp (opening a line, or in brackets): "at 14:32:07" →
         // "14:32 and 7 seconds" (the clock rule reads the rest). Otherwise a duration, with zero
@@ -115,11 +195,41 @@ enum DateRules {
             let unit = agoUnits[s.substring(with: m.range(at: 2))]!
             return n + " " + (TextNormalizer.isOne(n) ? unit : unit + "s")
         })
-        // "1h 30m", "2h30m", "1h 30m 15s", "2d 4h": two or three parts in falling order, at least
-        // one with a one-letter unit, each after the first in range (under 60, hours under 24
-        // after days). Lower case only ("4H and 2B" are pencils), and a sprint ("100m 10s") isn't
-        // a time. Read without "and", as the units are written.
-        let part = #"(\d+)(d|hrs|hr|h|mins|min|m|secs|sec|s)"#
+        // "Out 3d next week", "older than 30d": days, where a word for a stretch of time comes
+        // before the number or after it. Elsewhere "3d" and "2d" are dimensions ("a 3d model",
+        // "3d printing"), which the words around them never are.
+        rules.append(Rule.withContext(#"(?<![\p{L}\d.,$£€¥₹₩])(\d{1,3})d(?![\p{L}\d'’\-])"#) { m, s, context in
+            let whole = s.substring(with: m.range)
+            let previous = previousWord(context.text(before: m.range, in: s)).word.lowercased()
+            var days = dayCountCues.contains(previous)
+            if case .word(let w) = follower(context.text(after: m.range, in: s, limit: 40)) {
+                if dimensionNouns.contains(w.lowercased()) { return whole }
+                days = days || dayCountFollowers.contains(w.lowercased())
+            }
+            let n = s.substring(with: m.range(at: 1))
+            // Before the stretch it names, one day long: "your 7d free trial", "a 30d return window".
+            if !days, dayDeterminers.contains(previous), matches(dayNounAhead, context.text(after: m.range, in: s, limit: 40)) {
+                return n + " day"
+            }
+            guard days else { return whole }
+            return n + (n == "1" ? " day" : " days")
+        })
+        // Weeks the same way: "~2w left", "Sprint is 2w", "every 2w". A capital W is watts.
+        rules.append(Rule.withContext(#"(?<![\p{L}\d.,$£€¥₹₩])(\d{1,2})w(?![\p{L}\d'’\-])"#) { m, s, context in
+            let whole = s.substring(with: m.range)
+            let before = context.text(before: m.range, in: s)
+            let previous = previousWord(before).word.lowercased()
+            var weeks = dayCountCues.contains(previous) || ["is", "are", "was", "in"].contains(previous) || before.last == "~" || before.last == "≈"
+            if !weeks, case .word(let w) = follower(context.text(after: m.range, in: s, limit: 40)) { weeks = dayCountFollowers.contains(w.lowercased()) }
+            guard weeks else { return whole }
+            let n = s.substring(with: m.range(at: 1))
+            return n + (n == "1" ? " week" : " weeks")
+        })
+        // "1h 30m", "2h30m", "1h 30m 15s", "2d 4h", "3 h 20 m": two or three parts in falling
+        // order, at least one with a one-letter unit, each after the first in range (under 60,
+        // hours under 24 after days). Lower case only ("4H and 2B" are pencils), and a sprint
+        // ("100m 10s") isn't a time. Read without "and", as the units are written.
+        let part = #"(\d+) ?(d|hrs|hr|h|mins|min|m|secs|sec|s)"#
         rules.append(Rule(#"(?<![\p{L}\d.,:])"# + part + " ?" + part + "(?: ?" + part + #")?(?![\p{L}\d])"#) { m, s in
             let whole = s.substring(with: m.range)
             var parts: [(value: Int, unit: String)] = []
@@ -138,6 +248,24 @@ enum DateRules {
                 return "\(p.value) " + (p.value == 1 ? unit : unit + "s")
             }.joined(separator: " ")
         })
+        // A wait or a step of a recipe in minutes or hours, with the word for it before the number
+        // in its clause: "Layover 55m in Doha", "Prep 20m, Cook 1h", "Rest the dough 10m", "Back
+        // in 5m". Elsewhere "55m" is as often meters ("Swim 50m").
+        rules.append(Rule.withContext(#"(?<![\p{L}\d.,$£€¥₹₩])(\d{1,3})(m|h|min|hr)(?![\p{L}\d'’\-/])"#) { m, s, context in
+            let whole = s.substring(with: m.range)
+            let before = context.text(before: m.range, in: s, limit: 60)
+            let clause = before.reversed().prefix { !",.;!?()\n".contains($0) }
+            let words = String(clause.reversed()).lowercased().split { !$0.isLetter }.map(String.init)
+            let back = words.count >= 2 && words.last == "in" && backInWords.contains(words[words.count - 2])
+            guard back || words.contains(where: waitWords.contains) else { return whole }
+            // A place or a size after it is meters ("Rest the ladder 2m from the wall").
+            if case .word(let w) = follower(context.text(after: m.range, in: s, limit: 40)), placeWords.contains(w.lowercased()) {
+                return whole
+            }
+            let n = s.substring(with: m.range(at: 1))
+            let unit = s.substring(with: m.range(at: 2)).hasPrefix("m") ? "minute" : "hour"
+            return n + " " + (n == "1" ? unit : unit + "s")
+        })
         return rules
     }
 
@@ -149,11 +277,147 @@ enum DateRules {
     /// meridiem and fractions.
     static func calendarDates(british: Bool) -> [Rule] {
         var rules: [Rule] = []
+        // ISO stamps: "2025-10-01T14:30:00Z" → "October 1st, 2025, at 14:30 UTC" (the clock rule
+        // reads the time; seconds go, as people say a stamp). An offset after it is read too.
+        rules.append(Rule.withContext(#"(?<![\p{L}\d\-–−./:])(\d{4})-(\d{2})-(\d{2})T([01]\d|2[0-3]):([0-5]\d)(?::[0-5]\d(?:\.\d+)?)?(Z|[+\-−](\d{2}):?(\d{2}))?(?![\p{L}\d])"#) { m, s, context in
+            let whole = s.substring(with: m.range)
+            guard let month = Int(s.substring(with: m.range(at: 2))), let day = Int(s.substring(with: m.range(at: 3))),
+                  isDate(day: day, month: month) else { return whole }
+            let afterThe = previousWord(context.text(before: m.range, in: s)).word.lowercased() == "the"
+            var out = written(day: day, month: month, year: s.substring(with: m.range(at: 1)), british: british, afterThe: afterThe)
+                + ", at " + s.substring(with: m.range(at: 4)) + ":" + s.substring(with: m.range(at: 5))
+            if m.range(at: 6).location != NSNotFound {
+                let zone = s.substring(with: m.range(at: 6))
+                out += zone == "Z" ? " UTC" : " UTC " + offsetWords(sign: String(zone.prefix(1)), hours: s.substring(with: m.range(at: 7)),
+                                                                   minutes: s.substring(with: m.range(at: 8)))
+            }
+            return out
+        })
         // ISO dates: "2024-03-15" → "March 15th, 2024" (GB: "the 15th of March, 2024").
         rules.append(Rule.withContext(#"(?<![\p{L}\d\-–−./:])(\d{4})-(\d{2})-(\d{2})(?![\p{L}\d\-–]|[.,:/]\d)"#) { m, s, context in
             let year = s.substring(with: m.range(at: 1))
             guard let month = Int(s.substring(with: m.range(at: 2))), let day = Int(s.substring(with: m.range(at: 3))),
                   (1...12).contains(month), (1...31).contains(day) else { return s.substring(with: m.range) }
+            let afterThe = previousWord(context.text(before: m.range, in: s)).word.lowercased() == "the"
+            return written(day: day, month: month, year: year, british: british, afterThe: afterThe)
+        })
+
+        // Times written with a dot, as British text writes them: "at 18.30", "07.45 BST", "the
+        // 2.30 at Kempton" → "18:30" for the clock rule. The shape is also a decimal, so only
+        // where the sentence says it's a time: a time zone, "hrs" or "sharp" after it, a clock
+        // word right before it ("checkout 11.00", "until 17.30"), or "at" or "from" with whole
+        // minutes in fives ("at 10.30", not "trading at 1.27"; "rose to 1.30 today" stays). Never
+        // before a unit, a price word or "per" ("at 2.50 a kilo").
+        rules.append(Rule.withContext(#"(?<![\p{L}\d.,:$£€¥₹₩])([01]?\d|2[0-3])\.([0-5]\d)(?![\d%]|[.,]\d)"#) { m, s, context in
+            let whole = s.substring(with: m.range)
+            guard let minutes = Int(s.substring(with: m.range(at: 2))) else { return whole }
+            let after = context.text(after: m.range, in: s, limit: 40)
+            let before = context.text(before: m.range, in: s, limit: 60)
+            let previous = previousWord(before).word.lowercased()
+            var time = false
+            switch follower(after) {
+            case .word(let w):
+                if timeZones.contains(w) || dottedTimeFollowers.contains(w.lowercased()) { time = true }
+                if notTimeFollowers.contains(w.lowercased()) { return whole }
+            case .end, .mark: break
+            default: return whole
+            }
+            if !time { time = dottedTimeCues.contains(previous) }
+            if !time, ["at", "from", "until", "till", "and", "to"].contains(previous) {
+                time = minutes % 5 == 0 && (previous == "at" || previous == "from" || matches(clockBehind, before))
+            }
+            // A race card or a train: "the 2.30 at Kempton", "the 7.15 from Waterloo".
+            if !time, previous == "the", matches(raceAhead, after) { time = true }
+            return time ? s.substring(with: m.range(at: 1)) + ":" + s.substring(with: m.range(at: 2)) : whole
+        })
+        // A 24-hour time with its leading zero: "at 0645", "0700 hrs", "Kickoff 0930 sharp" → "oh
+        // 6 45", "oh 7 hundred". Read digit by digit it was "zero six four five"; "1030" and "1600
+        // hrs" the number reader already reads. Only with a clock word before or after it, since
+        // the shape is also a PIN, a code or a part number.
+        rules.append(Rule.withContext(#"(?<![\p{L}\d.,:/\-$£€¥₹₩#])0(\d)([0-5]\d)(?![\d,:/\-]|\.\d)"#) { m, s, context in
+            let whole = s.substring(with: m.range)
+            let previous = previousWord(context.text(before: m.range, in: s)).word.lowercased()
+            var cued = militaryCues.contains(previous)
+            if !cued, case .word(let w) = follower(context.text(after: m.range, in: s, limit: 40)) {
+                cued = militaryFollowers.contains(w.lowercased()) || timeZones.contains(w)
+            }
+            guard cued else { return whole }
+            let hour = s.substring(with: m.range(at: 1)), mm = s.substring(with: m.range(at: 2))
+            return (hour == "0" ? "zero zero" : "oh " + hour) + (mm == "00" ? " hundred" : mm.hasPrefix("0") ? " oh " + mm.dropFirst() : " " + mm)
+        })
+        // A range of hours with a glued "a" or "p" on its second end, and maybe its first: "9a-5p",
+        // "Brunch 10a–2p", "9–10a PT", "11:30a-1p" → "9 AM to 5 PM", "9 to 10 AM". The dash was a
+        // pause and the second letter was left as it was.
+        rules.append(Rule(#"(?<![\p{L}\d.,:$£€¥₹₩])(\d{1,2})(:[0-5]\d)?([ap])?[ \t]?[-–][ \t]?(\d{1,2})(:[0-5]\d)?([ap])(?![\p{L}\d'’])"#) { m, s in
+            func group(_ i: Int) -> String { m.range(at: i).location == NSNotFound ? "" : s.substring(with: m.range(at: i)) }
+            guard let from = Int(group(1)), let to = Int(group(4)), (1...12).contains(from), (1...12).contains(to) else {
+                return s.substring(with: m.range)
+            }
+            func meridiem(_ letter: String) -> String { letter.isEmpty ? "" : letter == "a" ? " AM" : " PM" }
+            return "\(from)\(group(2))\(meridiem(group(3))) to \(to)\(group(5))\(meridiem(group(6)))"
+        })
+        // "7:30a", "6:45p" → "7:30 AM", "6:45 PM"; a bare hour only after a clock word ("at 12p",
+        // "Doors 7p / Show 8p", "moved to 3p"), since "50p" and "a 5p bag" are pence.
+        rules.append(Rule.withContext(#"(?<![\p{L}\d.,:$£€¥₹₩])(\d{1,2})(:[0-5]\d)?([ap])(?![\p{L}\d'’])"#) { m, s, context in
+            let whole = s.substring(with: m.range)
+            guard let hour = Int(s.substring(with: m.range(at: 1))), (1...12).contains(hour) else { return whole }
+            if m.range(at: 2).location == NSNotFound {
+                let before = context.text(before: m.range, in: s)
+                let previous = previousWord(before).word.lowercased()
+                var cued = CalendarNames.clockCues.contains(previous)
+                if !cued, previous == "to" {
+                    let rest = before.reversed().drop { $0 == " " || $0 == "\t" }.drop { $0.isLetter }
+                    cued = moveVerbs.contains(previousWord(String(rest.reversed())).word.lowercased())
+                }
+                guard cued else { return whole }
+                if case .word(let w) = follower(context.text(after: m.range, in: s, limit: 40)), penceFollowers.contains(w.lowercased()) {
+                    return whole
+                }
+            }
+            let minutes = m.range(at: 2).location == NSNotFound ? "" : s.substring(with: m.range(at: 2))
+            return "\(hour)\(minutes) " + (s.substring(with: m.range(at: 3)) == "a" ? "AM" : "PM")
+        })
+        // "noon–2", "10–noon", "1–1½ hours": a range with a word or a fraction at one end, which
+        // the range rule doesn't read ("noon, two", "one, one and a half").
+        rules.append(Rule(#"(?<![\p{L}\d])(noon|midnight)[ \t]?[-–][ \t]?(?=\d{1,2}(?![\d:]|[.,]\d))"#) { m, s in
+            s.substring(with: m.range(at: 1)) + " to "
+        })
+        rules.append(Rule(#"(?<![\p{L}\d.,/:])(\d{1,2}(?::[0-5]\d)?)[ \t]?[-–][ \t]?(?=(?:noon|midnight)(?![\p{L}]))"#) { m, s in
+            s.substring(with: m.range(at: 1)) + " to "
+        })
+        rules.append(Rule(#"(?<![\p{L}\d.,/])(\d+)[ \t]?[-–][ \t]?(?=\d+[ \t]?[½⅓⅔¼¾])"#) { m, s in
+            s.substring(with: m.range(at: 1)) + " to "
+        })
+        // "Aug. 1-Sept. 8" → "Aug. 1 to Sept. 8": two written dates joined by a dash, before the
+        // day rule reads each and the dash was lost.
+        rules.append(Rule(#"(?<![\p{L}\-])((?:"# + monthPattern + #")\.?[ \t]\d{1,2}(?:st|nd|rd|th)?)[ \t]?[-–][ \t]?(?=(?:"# + monthPattern + #")\.?[ \t]\d{1,2}(?![\d:]))"#) { m, s in
+            s.substring(with: m.range(at: 1)) + " to "
+        })
+
+        // "Sat. Fat 2g" on a food label is saturated fat, not Saturday.
+        rules.append(Rule(#"(?<![\p{L}\d\-])(Sat|SAT|sat)\.?(?=[ \t]+(?:Fat|FAT|fat)(?![\p{L}]))"#) { m, s in
+            let token = s.substring(with: m.range(at: 1))
+            return token == "SAT" ? "SATURATED" : token == "sat" ? "saturated" : "Saturated"
+        })
+        // "AM" beside "PM" is the time of day ("AM or PM", "AM/PM"); on its own the reader took
+        // it for the word "am".
+        rules.append(Rule(#"(?<![\p{L}\d.])AM(?=[ \t]*(?:or|and|to|/)[ \t]*PM(?![\p{L}]))|(?<=PM[ \t]{0,2}(?:or|and|to|/)[ \t]{0,2})AM(?![\p{L}.])"#) { _, _ in "A.M." })
+        // A range of ordinal days: "from the 3rd-7th" → "from the 3rd to the 7th".
+        rules.append(Rule.withContext(#"(?<![\p{L}\d.,])(\d{1,2})(st|nd|rd|th)[ \t]?[-–][ \t]?(\d{1,2})(st|nd|rd|th)(?![\p{L}\d])"#) { m, s, context in
+            guard let a = Int(s.substring(with: m.range(at: 1))), let b = Int(s.substring(with: m.range(at: 3))),
+                  a < b, b <= 31 else { return s.substring(with: m.range) }
+            let the = previousWord(context.text(before: m.range, in: s)).word.lowercased() == "the" ? "the " : ""
+            return s.substring(with: m.range(at: 1)) + s.substring(with: m.range(at: 2)) + " to " + the
+                + s.substring(with: m.range(at: 3)) + s.substring(with: m.range(at: 4))
+        })
+        // A day and a month glued in capitals, as an airline itinerary writes them: "14NOV",
+        // "03JAN25" → "the 14th of November" (US "November 14th").
+        rules.append(Rule.withContext(#"(?<![\p{L}\d])(\d{1,2})(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)(\d{4}|\d{2})?(?![\p{L}\d])"#) { m, s, context in
+            guard let day = Int(s.substring(with: m.range(at: 1))),
+                  let month = monthNumber(s.substring(with: m.range(at: 2)).capitalized), isDate(day: day, month: month) else {
+                return s.substring(with: m.range)
+            }
+            let year = m.range(at: 3).location == NSNotFound ? nil : s.substring(with: m.range(at: 3))
             let afterThe = previousWord(context.text(before: m.range, in: s)).word.lowercased() == "the"
             return written(day: day, month: month, year: year, british: british, afterThe: afterThe)
         })
@@ -200,8 +464,9 @@ enum DateRules {
             return weekdayName(token) + (m.range(at: 2).location != NSNotFound ? "," : "")
         })
         // A day before a yearless D/D makes it a date ("Tue 3/5 at noon" → "Tuesday, March 5th",
-        // GB "Tuesday, the 3rd of May"), when a time, a time word or the end follows it. Elsewhere
-        // a D/D stays a fraction or a number ("Early closing Wed 1/2 day").
+        // GB "Tuesday, the 3rd of May"). A D/D that reads as a fraction too ("Early closing Wed
+        // 1/2 day") needs a time, a time word or the end after it; any other is a date whatever
+        // follows ("Thu 10/16 works", "Tue 10/14 in Rm 4B").
         rules.append(Rule.withContext(#"(?<![\p{L}\-])("# + weekdayNames + "|" + day + #")\.?(,)?[ \t](\d{1,2})/(\d{1,2})(?![\d/]|[.,]\d)"#) { m, s, context in
             let whole = s.substring(with: m.range)
             let token = s.substring(with: m.range(at: 1))
@@ -213,7 +478,7 @@ enum DateRules {
             case .word(let w) where shortDateFollowers.contains(w): break
             case .other where after.drop(while: { $0 == " " || $0 == "\t" }).first == "@": break
             case .digit where clockAhead.firstMatch(in: after, range: NSRange(location: 0, length: (after as NSString).length)) != nil: break
-            default: return whole
+            default: if isFractionShaped(x, y) { return whole }
             }
             guard let (dayOfMonth, month) = dayAndMonth(x, y, british: british) else { return whole }
             return weekdayName(token) + ", " + written(day: dayOfMonth, month: month, year: nil, british: british, afterThe: false)
@@ -257,6 +522,90 @@ enum DateRules {
             }
             return timeWord + " " + weekdayName(token)
         })
+        // "Thu", "Tue" and "Weds" aren't words either, only names ("Nguyen Thu", "Tue Nguyen"): a
+        // day unless a name is next to it ("See you Thu!", "Thu works for me", "the Weds meeting").
+        // With a period, the next rule reads them.
+        rules.append(Rule.withContext(#"(?<![\p{L}\d\-])(Thu|Tue|Weds)(?![\p{L}\d.]|-\p{L})"#) { m, s, context in
+            let whole = s.substring(with: m.range)
+            let (word, opens) = previousWord(context.text(before: m.range, in: s))
+            // After a name ("Nguyen Thu works here"), even one opening the sentence.
+            if word.first?.isUppercase == true, !opens || !sentenceStarters.contains(word) { return whole }
+            // After a time word the rule above has decided ("After Thu spoke" is a name).
+            if dayTimeWords.contains(word.lowercased()) { return whole }
+            if case .word(let w) = follower(context.text(after: m.range, in: s, limit: 40)), w.first?.isUppercase == true,
+               !CalendarNames.timeWords.contains(w) { return whole }
+            return weekdayName(s.substring(with: m.range(at: 1)))
+        })
+        // With its period a short day is a day, wherever it stands ("scheduled for Wed., was
+        // delayed", "Sat. night is the gala", "The Mon. sync"): none of the words takes one
+        // mid-sentence. Not after a name ("Nguyen Thu."), and "Sun." only after punctuation or a
+        // time word ("1:15 a.m. Sun. after"), never "the Sun." or "a hot Sun.". The period stays
+        // when it also ends the sentence.
+        rules.append(Rule.withContext(#"(?<![\p{L}\d\-])(Mon|Tue|Wed|Thu|Thur|Sat|Sun)\.(?![\p{L}\d])"#) { m, s, context in
+            let whole = s.substring(with: m.range)
+            let token = s.substring(with: m.range(at: 1))
+            let (word, opens) = previousWord(context.text(before: m.range, in: s))
+            if word.first?.isUppercase == true, !opens { return whole }
+            if token == "Sun", !word.isEmpty, !sunTimeWords.contains(word.lowercased()), !sunPeriodWords.contains(word.lowercased()) { return whole }
+            // After "the" or "a" only before the noun it names ("The Mon. sync", "on a Mon. this
+            // year"): "along the Thur." is the river.
+            let after = context.text(after: m.range, in: s)
+            if ["the", "a"].contains(word.lowercased()) {
+                guard token != "Thur", case .word(let w) = follower(after), w.first?.isLowercase == true else { return whole }
+            }
+            return weekdayName(token) + FullStop.kept(before: after, next: .capitalNotTimeWord)
+        })
+        // Without a period "Mon", "Wed", "Sat" and "Sun" are also words and names ("Sat down",
+        // "Wed in June", "the Sun is out"), so a day only where nothing else fits: in Title case,
+        // not after "the", "a" or a name, and before the end, a number or a word that goes with a
+        // day ("See you Sat!", "Two tix for Sat night", "Mon was rough", "back Mon the 27th").
+        // "Sun" needs punctuation or a time word before it as well ("Sat 9-1, Sun closed").
+        rules.append(Rule.withContext(#"(?<![\p{L}\d\-])(Mon|Wed|Sat|Sun)(?![\p{L}\d.'’]|-\p{L})"#) { m, s, context in
+            let whole = s.substring(with: m.range)
+            let token = s.substring(with: m.range(at: 1))
+            let (word, opens) = previousWord(context.text(before: m.range, in: s))
+            if ["the", "a", "an"].contains(word.lowercased()) || (word.first?.isUppercase == true && !opens) { return whole }
+            let after = context.text(after: m.range, in: s, limit: 40)
+            if token == "Sun" {
+                guard word.isEmpty || sunTimeWords.contains(word.lowercased()) else { return whole }
+                switch follower(after) {
+                case .digit: break
+                case .word(let w) where sunFollowers.contains(w): break
+                default: return whole
+                }
+                return weekdayName(token)
+            }
+            switch follower(after) {
+            case .end, .mark: break
+            // A time or opening hours after it ("Sat 9-1", "Mon 10am"), not a count ("Sat 3
+            // exams") or a fraction ("Wed 1/2 day").
+            case .digit where matches(hoursAhead, after): break
+            case .word(let w) where dayFollowers.contains(w): break
+            case .word("the") where matches(ordinalAhead, after): break
+            default: return whole
+            }
+            return weekdayName(token)
+        })
+        // Days as single letters: "M/W/F" → "Monday, Wednesday and Friday", "T/Th"; "M–F 9–5" →
+        // "Monday to Friday". In week order only, and a pair of single letters ("M/F", "W/L") is
+        // something else; a dash range needs a time after it or a word for opening hours before.
+        rules.append(Rule.withContext(#"(?<![\p{L}\d/\-–])(Th|Tu|Sa|Su|[MTWFS])(?:/(Th|Tu|Sa|Su|[MTWFS])){1,6}(?![\p{L}\d/])"#) { m, s, context in
+            let whole = s.substring(with: m.range)
+            let letters = whole.split(separator: "/").map(String.init)
+            let days = letters.compactMap { dayLetters[$0] }
+            guard days.count == letters.count, zip(days, days.dropFirst()).allSatisfy({ $0.0 < $0.1 }),
+                  days.count >= 3 || letters.contains(where: { $0.count == 2 }) else { return whole }
+            let names = days.map { CalendarNames.weekdaysInOrder[$0] }
+            return names.dropLast().joined(separator: ", ") + " and " + names.last!
+        })
+        rules.append(Rule.withContext(#"(?<![\p{L}\d/\-–])(Th|Tu|Sa|Su|[MTWFS])[ \t]?[-–][ \t]?(Th|Tu|Sa|Su|[MTWFS])(?![\p{L}\d/\-–])"#) { m, s, context in
+            let whole = s.substring(with: m.range)
+            guard let first = dayLetters[s.substring(with: m.range(at: 1))], let last = dayLetters[s.substring(with: m.range(at: 2))],
+                  first < last else { return whole }
+            let previous = previousWord(context.text(before: m.range, in: s)).word.lowercased()
+            if case .digit = follower(context.text(after: m.range, in: s, limit: 40)) {} else if !openingWords.contains(previous) { return whole }
+            return CalendarNames.weekdaysInOrder[first] + " to " + CalendarNames.weekdaysInOrder[last]
+        })
 
         // Day-first written dates: "5 March", "5th March 2024", "1 Dec.", "5–7 March" → "the 5th
         // of March, 2024", "the 5th to the 7th of March". Both voices. A year, punctuation, the
@@ -264,7 +613,7 @@ enum DateRules {
         // month-named noun stays ("We ran 3 March events", "5 May Day posters"), and so does a
         // number after a numeral noun ("Track 4 March to the Scaffold"). When the month's period
         // is also the full stop ("1 Dec."), the sentence keeps it.
-        rules.append(Rule.withContext(#"(?<![\p{L}\d.,:/$£€¥₹₩])(\d{1,2})(st|nd|rd|th)?(?:[-–](\d{1,2})(st|nd|rd|th)?)?[ \t]("# + monthPattern + #")(\.)?(?![\p{L}\d\-])(?:,?[ \t]((?:1\d|20)\d\d)(?![\d\p{L}]))?"#) { m, s, context in
+        rules.append(Rule.withContext(#"(?<![\p{L}\d.,:/$£€¥₹₩])(\d{1,2})(st|nd|rd|th)?(?:[-–](\d{1,2})(st|nd|rd|th)?)?[ \t]("# + monthPattern + #")(\.)?(?![\p{L}\d\-])(?:,?[ \t]((?:1\d|20)\d\d(?![\d\p{L}])|\d{3,4}(?=[ \t]?(?:BC|BCE|AD|CE)(?![\p{L}]))))?"#) { m, s, context in
             let whole = s.substring(with: m.range)
             guard let first = Int(s.substring(with: m.range(at: 1))), let month = monthNumber(s.substring(with: m.range(at: 5))) else { return whole }
             let last = m.range(at: 3).location == NSNotFound ? nil : Int(s.substring(with: m.range(at: 3)))
@@ -282,6 +631,8 @@ enum DateRules {
                     switch follower(after) {
                     case .end, .mark: break
                     case .word(let w) where functionWords.contains(w): break
+                    // A dash and another date: "Mon 13 Oct – Fri 17 Oct".
+                    case .other where matches(dateDashAhead, after): break
                     default: return whole
                     }
                 }
@@ -289,7 +640,7 @@ enum DateRules {
             var out = (previous.lowercased() == "the" ? "" : "the ") + "\(first)\(ordinalSuffix(first))"
             if let last { out += " to the \(last)\(ordinalSuffix(last))" }
             out += " of " + CalendarNames.monthsInOrder[month - 1]
-            if hasYear { out += ", " + s.substring(with: m.range(at: 7)) }
+            if hasYear { out += ", " + spokenYear(s.substring(with: m.range(at: 7))) }
             return out + period
         })
         // Month-first day ranges: "March 5–7" → "March 5th to 7th" (GB "March the 5th to the
@@ -321,7 +672,9 @@ enum DateRules {
             guard let from = Int(group(1)), let to = Int(group(4)), (1...12).contains(from), (1...12).contains(to) else {
                 return s.substring(with: m.range)
             }
-            return group(1) + group(2) + group(3) + " to " + group(4) + group(5)
+            // "2:00 – 2:30pm" is "2 to 2:30pm": without its own am or pm, "2:00" was "two o'clock".
+            let minutes = group(3).isEmpty && group(2) == ":00" ? "" : group(2)
+            return group(1) + minutes + group(3) + " to " + group(4) + group(5)
         })
         // Centuries: "18th c." → "18th century", "19th cent.", "18th-c." → "18th-century". A
         // capital "C." only after "the" ("the 17th C."): "5th C" is also a class section.
@@ -351,13 +704,14 @@ enum DateRules {
         // count or a score after a month stays a number: "In March 2 people left", "in May 3-1"
         // (Ranges made it "3 to 1"), "May 2 of us join?".
         let monthNames = "Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sept|Sep|Oct|Nov|Dec|January|February|March|April|June|July|August|September|October|November|December"
-        rules.append(Rule.withContext(#"\b("# + monthNames + #")\.?\s+(\d{1,2})(st|nd|rd|th)?(?![\d:])\b"#) { m, s, context in
+        rules.append(Rule.withContext(#"\b("# + monthNames + #")(\.)?\s+(\d{1,2})(st|nd|rd|th)?(?![\d:])\b"#) { m, s, context in
             let whole = s.substring(with: m.range)
-            let ordinal = m.range(at: 3).location != NSNotFound
+            let ordinal = m.range(at: 4).location != NSNotFound
             if ordinal && !british { return whole }
             let name = s.substring(with: m.range(at: 1))
             let month = CalendarNames.months[name.lowercased()] ?? name
-            let day = Int(s.substring(with: m.range(at: 2))) ?? 0
+            let day = Int(s.substring(with: m.range(at: 3))) ?? 0
+            let period = m.range(at: 2).location != NSNotFound
             let before = context.text(before: m.range, in: s)
             let after = context.text(after: m.range, in: s, limit: 40)
             if !ordinal {
@@ -367,19 +721,34 @@ enum DateRules {
                 if countAhead.firstMatch(in: after, range: range) != nil { return whole }
                 if let score = scoreAhead.firstMatch(in: after, range: range),
                    let other = Int((after as NSString).substring(with: score.range(at: 1))), other < day { return whole }
+                // A month that is also a name or a verb, before a count of something: "Give Jan 10
+                // minutes", "May 3 people join?", "Thousands March 3 Miles". Not after a word that
+                // goes with a date ("on March 3 voters…", "the June 5 primaries"), nor with its
+                // period ("Jan. 6 rioters", "More than 1,500 Jan. 6 defendants").
+                if countingMonths.contains(name), !period, case .word(let w) = follower(after), isPluralNoun(w.lowercased()),
+                   !monthCountGuards.contains(previous.lowercased()) { return whole }
+                // Any month before a stretch of time is a count: "Ant and Dec 20 years on".
+                if !period, case .word(let w) = follower(after), stretchNouns.contains(w.lowercased()) { return whole }
             }
-            let suffix = ordinal ? s.substring(with: m.range(at: 3)) : ordinalSuffix(day)
+            let suffix = ordinal ? s.substring(with: m.range(at: 4)) : ordinalSuffix(day)
             guard british else { return "\(month) \(day)\(suffix)" }
             if standsAlone(before: before, after: after) { return "\(month) the \(day)\(suffix)" }
             return ordinal ? whole : "\(month) \(day)\(suffix)"
         })
         // "Feb." on its own → "February", keeping the period when it also ends the sentence
-        // ("…is due 24 Dec." lost its final fall).
-        rules.append(Rule.withContext(#"\b(Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sept|Sep|Oct|Nov|Dec)\.(?=\s|$)"#) { m, s, context in
+        // ("…is due 24 Dec." lost its final fall); also in brackets or a list ("4% (Aug.), 3.75%
+        // (Nov.)").
+        rules.append(Rule.withContext(#"\b(Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sept|Sep|Oct|Nov|Dec)\.(?=[\s)\],;]|$)"#) { m, s, context in
             let name = s.substring(with: m.range(at: 1))
             return (CalendarNames.months[name.lowercased()] ?? name)
                 + FullStop.kept(before: context.text(after: m.range, in: s), next: .capitalNotTimeWord)
         })
+        // "Sept" without its period is never a word: "in Sept, the highest…".
+        rules.append(Rule(#"(?<![\p{L}\-])Sept(?![\p{L}\d.\-])"#) { _, _ in "September" })
+        // A dash between two dates, as the rules above wrote them, is "to": "the 13th of October –
+        // Friday the 17th of October", "Friday, December 5th – Sunday, December 7th, 2025".
+        rules.append(Rule(#"(?<=\d(?:st|nd|rd|th)|of[ \t](?:"# + CalendarNames.monthsInOrder.joined(separator: "|") + #")|\b(?:1\d|20)\d\d)[ \t]*[-–—][ \t]*(?=(?:"#
+                          + weekdayNames + "|" + CalendarNames.monthsInOrder.joined(separator: "|") + #")(?![\p{L}])|the[ \t]\d)"#) { _, _ in " to " })
         return rules
     }
 
@@ -457,6 +826,13 @@ enum DateRules {
         return "\(name) \(day)\(ordinalSuffix(day))" + tail
     }
 
+    /// A year as written, but a three-digit one ("753 BC") as people say it: "7 53", "7 oh 5".
+    private static func spokenYear(_ year: String) -> String {
+        guard year.count == 3, !year.hasSuffix("00") else { return year }
+        let d = Array(year)
+        return d[1] == "0" ? "\(d[0]) oh \(d[2])" : "\(d[0]) \(d[1])\(d[2])"
+    }
+
     private static func ordinalSuffix(_ day: Int) -> String {
         (11...13).contains(day % 100) ? "th" : [1: "st", 2: "nd", 3: "rd"][day % 10] ?? "th"
     }
@@ -529,9 +905,183 @@ enum DateRules {
     /// The Roman pass keeps its own list.
     private static let numeralNouns: Set<String> = ["track", "chapter", "part", "section", "page", "room", "item", "step", "episode", "platform", "gate"]
     private static let monthIdioms: Set<String> = ["romance", "relationship", "marriage", "couple", "affair"]
+    /// Months that are also names or verbs ("Jan", "May", "March"), so a number after them may
+    /// count something.
+    private static let countingMonths: Set<String> = ["Jan", "April", "May", "June", "March"]
+    /// Words before such a month that make it a date even before a plural ("on March 3 voters
+    /// went", "the June 5 primaries").
+    private static let monthCountGuards: Set<String> = [
+        "on", "by", "until", "till", "from", "since", "before", "after", "through", "of", "the", "this", "last", "next", "every",
+        "each", "early", "late", "mid", "starting", "ending", "due", "dated", "effective", "in",
+    ]
+    /// Stretches of time a number before them counts ("Dec 20 years on", "Jan 10 minutes").
+    private static let stretchNouns: Set<String> = [
+        "years", "months", "weeks", "days", "hours", "minutes", "seconds", "decades", "centuries", "nights", "times",
+    ]
+    /// Plural nouns that don't end in "s".
+    private static let irregularPlurals: Set<String> = ["people", "children", "men", "women", "feet", "teeth", "mice", "geese", "staff", "folks"]
+    /// Words that end in "s" without being a plural noun.
+    private static let notPlurals: Set<String> = [
+        "is", "was", "has", "does", "this", "its", "his", "hers", "ours", "yours", "theirs", "always", "sometimes",
+        "perhaps", "towards", "besides", "plus", "minus", "less", "unless", "thus", "us", "yes", "as", "news", "whereas",
+        "afterwards", "nevertheless", "across", "ago",
+    ]
+
+    /// Whether `word` (lower case) is a plural noun as far as its letters tell: "minutes",
+    /// "slides", "people"; not "is", "this" or "across".
+    private static func isPluralNoun(_ word: String) -> Bool {
+        if irregularPlurals.contains(word) { return true }
+        guard word.count >= 3, word.hasSuffix("s"), !word.hasSuffix("ss"), !word.hasSuffix("us"), !word.hasSuffix("is"),
+              !word.hasSuffix("'s"), !word.hasSuffix("’s") else { return false }
+        return !notPlurals.contains(word)
+    }
+
+    /// Words after a dotted number that make it a time ("07.45 BST", "at 10.30 tomorrow").
+    private static let dottedTimeFollowers: Set<String> = ["hrs", "hours", "h", "sharp", "local", "onwards", "onward"]
+    /// Words after a dotted number that make it a number, whatever came before ("at 2.50 a kilo").
+    private static let notTimeFollowers: Set<String> = [
+        "per", "a", "an", "each", "percent", "points", "pts", "times", "x", "euros", "dollars", "pounds", "pence", "kg", "kilo",
+        "kilos", "km", "m", "miles", "metres", "meters", "seconds", "secs", "litres", "liters", "goals", "runs", "inches", "cm",
+        "mm", "ft", "lb", "lbs", "oz", "grams", "g", "million", "billion", "thousand", "against", "versus", "vs",
+    ]
+    /// Words right before a dotted number that make it a time ("checkout 11.00", "Doors 19.30").
+    private static let dottedTimeCues: Set<String> = [
+        "checkout", "doors", "departs", "departure", "depart", "departing", "arrives", "arrival", "arrive", "arriving", "kickoff",
+        "curfew", "opens", "closes", "leaves", "starts", "begins", "ends", "until", "till", "before", "after",
+    ]
+    /// A time just before "and" or "to": "from 9.30 to 10.30", "between 9:30 and 10.30".
+    private static let clockBehind = try! NSRegularExpression(pattern: #"\d{1,2}[.:][0-5]\d[ \t]+(?:to|and|until|till)[ \t]*$"#)
+    /// "at" and a place after a race's time, "from" or "to" after a train's: "the 2.30 at
+    /// Kempton", "the 7.15 from Waterloo".
+    private static let raceAhead = try! NSRegularExpression(pattern: #"^[ \t]+(?:at|from|to)[ \t]+\p{Lu}"#)
+    /// Words before a 24-hour "0645" that make it a time.
+    private static let militaryCues: Set<String> = [
+        "at", "by", "until", "till", "from", "before", "after", "departs", "departed", "departing", "departure", "arrives",
+        "arrived", "arriving", "arrival", "landed", "lands", "leaves", "kickoff", "reveille", "takeoff", "eta", "etd",
+    ]
+    /// Words after a 24-hour "0645" that make it a time ("0700 hrs", "0930 sharp").
+    private static let militaryFollowers: Set<String> = ["hrs", "hours", "hr", "h", "local", "sharp", "zulu"]
+    /// Words after "12p" that make it pence, even after a clock word ("at 5p each").
+    private static let penceFollowers: Set<String> = [
+        "each", "per", "a", "an", "off", "coin", "coins", "piece", "pieces", "bag", "bags", "charge", "more", "less", "cheaper",
+        "extra", "rise", "fall", "increase", "cut", "stamp", "stamps", "tax", "levy",
+    ]
+
+    /// A time zone's offset as said: "minus 8", "plus 5 30" (UTC−08:00, +05:30).
+    private static func offsetWords(sign: String, hours: String, minutes: String?) -> String {
+        let h = Int(hours).map(String.init) ?? hours
+        let mm = minutes.flatMap { $0 == "00" || $0.isEmpty ? nil : $0 }
+        return (sign == "+" ? "plus " : "minus ") + h + (mm.map { " " + $0 } ?? "")
+    }
+
+    /// A determiner before "7d" that, with a stretch after it, makes it one: "your 7d free trial".
+    private static let dayDeterminers: Set<String> = ["a", "an", "the", "your", "our", "my", "this", "their", "his", "her"]
+    /// What a number of days or weeks before it names, within two words: "7d free trial", "30d
+    /// return window".
+    private static let dayNounAhead = try! NSRegularExpression(pattern: #"^[ \t]+(?:[\p{L}\-]+[ \t]+){0,2}(?:trial|window|notice|streak|pass|trip|forecast|cancellation|refund|guarantee|challenge|detox|cleanse|fast|rental|hire|stay|holiday|vacation|cruise|course|program|programme|wait)(?![\p{L}])"#)
+    /// Words for a wait or a step of a recipe that make a glued m or h after them in their clause
+    /// minutes or hours ("Layover 55m", "Rest the dough 10m").
+    private static let waitWords: Set<String> = [
+        "layover", "layovers", "cook", "cooking", "prep", "rest", "resting", "bake", "baking", "simmer", "roast", "chill",
+        "marinate", "proof", "steep", "wait", "waiting", "eta", "etd", "duration", "runtime", "nap", "break", "commute",
+        "delay", "delayed", "connection", "stopover",
+    ]
+    /// Words after a glued m that make it a length, whatever came before ("2m from the wall").
+    private static let placeWords: Set<String> = [
+        "from", "away", "apart", "of", "off", "behind", "ahead", "above", "below", "under", "over", "into", "onto", "inside",
+        "outside", "down", "up", "high", "long", "tall", "wide", "deep", "thick", "across", "underwater",
+    ]
+    /// Words before "in" that make "in 5m" a wait: "Back in 5m", "ready in 20m".
+    private static let backInWords: Set<String> = ["back", "ready", "done", "there", "home", "out", "free", "up", "on"]
+    /// Words before "3d" that make it days ("Out 3d", "older than 30d", "every 2d").
+    private static let dayCountCues: Set<String> = [
+        "out", "off", "for", "every", "last", "past", "within", "over", "than", "after", "about", "around", "only", "just",
+        "first", "next", "another",
+    ]
+    /// Words after "3d" that make it days ("3d next week", "2d left").
+    private static let dayCountFollowers: Set<String> = ["next", "left", "later", "remaining", "early", "late", "old", "notice", "ago", "streak", "trial", "window", "off"]
+    /// Words after "3d" that make it a dimension, whatever came before ("in 3d printing").
+    private static let dimensionNouns: Set<String> = [
+        "printing", "printer", "printers", "printed", "print", "prints", "model", "models", "modeling", "modelling", "glasses",
+        "movie", "movies", "film", "films", "effect", "effects", "graphics", "scan", "scanner", "scans", "view", "space", "render",
+        "rendering", "art", "animation", "game", "games", "shape", "shapes", "object", "objects", "image", "images", "plot",
+        "array", "arrays", "vector", "matrix", "grid", "world", "design", "designs", "geometry", "audio", "sound", "puzzle",
+    ]
+
+    /// Single-letter days, Monday first: "M/W/F", "T/Th", "M–F".
+    private static let dayLetters: [String: Int] = ["M": 0, "T": 1, "Tu": 1, "W": 2, "Th": 3, "F": 4, "S": 5, "Sa": 5, "Su": 6]
+    /// Words before a dash between two day letters that make it opening hours ("Open M–F").
+    private static let openingWords: Set<String> = ["open", "opens", "hours", "closed", "available", "daily", "weekdays", "staffed", "from"]
+    /// Words after "Mon", "Wed" or "Sat" with no period that make it the day.
+    private static let dayFollowers: Set<String> = [
+        "night", "morning", "afternoon", "evening", "at", "and", "or", "to", "through", "thru", "is", "was", "works", "will",
+        "would", "closed", "open", "only", "off", "too", "again", "then", "instead", "from", "until", "till", "before", "after",
+    ]
+    /// Words after "Sun" that make it the day ("Sat 9-1, Sun closed").
+    private static let sunFollowers: Set<String> = [
+        "closed", "open", "only", "off", "night", "morning", "afternoon", "evening", "at", "and", "to", "through", "thru",
+    ]
+    /// A time or opening hours after a day: "9-1", "10:30", "10am", "9 a.m.", "9." at the end.
+    private static let hoursAhead = try! NSRegularExpression(pattern: #"^[ \t]+\d{1,2}(?:[:\-–][ \t]?\d|[ \t]?[AaPp]\.?[ \t]?[Mm](?![\p{L}])|[ \t]*(?:$|[,;)!?]|\.(?!\d)))"#)
+    private static let sentenceStarters = Set(Tokenizer.sentenceStarters)
+    /// The time words the rule for "on Wed" reads after.
+    private static let dayTimeWords: Set<String> = ["on", "by", "until", "till", "til", "from", "every", "next", "last", "this", "before", "after", "since", "each"]
+    /// "the 27th" after a day: "back Mon the 27th".
+    private static let ordinalAhead = try! NSRegularExpression(pattern: #"^[ \t]+the[ \t]+\d{1,2}(?:st|nd|rd|th)(?![\p{L}\d])"#)
+    /// Words before a D/D with no year that make it a date ("on 10/31", "due 10/24", "week
+    /// ending 10/12"), whatever follows.
+    private static let slashDateCues: Set<String> = [
+        "on", "by", "until", "till", "til", "through", "thru", "from", "since", "before", "after", "due", "dated", "starting",
+        "ending", "effective", "expires", "expiring", "valid", "born", "died", "deadline",
+    ]
+    /// Verbs right before a D/D with no year that make it a date, unless a plural noun follows
+    /// ("closed 12/24", "Leaving 6/15, back 6/22", "Offer ends 10/31"; but "Closed 3/4 tickets"
+    /// is a share).
+    private static let slashDateVerbs: Set<String> = [
+        "closed", "leaving", "back", "returning", "posted", "updated", "shipped", "delivered", "departs", "depart",
+        "departing", "arrive", "arrives", "arriving", "leave", "leaves", "return", "returns", "ends", "end", "ended",
+        "starts", "begins", "opens", "reopens", "held", "launches", "launching",
+    ]
+    /// Events and plans before "for" or "to" that make a D/D after them a date ("Set the review
+    /// for 11/12", "booked for 3/8").
+    private static let scheduleWords: Set<String> = [
+        "review", "meeting", "call", "sync", "appointment", "interview", "party", "event", "launch", "demo", "kickoff",
+        "standup", "session", "lunch", "dinner", "flight", "trip", "booking", "reservation", "deadline", "release", "set",
+        "scheduled", "booked", "planned", "slated", "it",
+    ]
+    /// A label for a date just before a D/D: "Check-in: 3/16", "Dates: 11/14–11/16".
+    private static let dateLabelBehind = try! NSRegularExpression(pattern: #"(?i)(?<![\p{L}])(?:check-?in|check-?out|dates?|when|arrival|departure|deadline)[ \t]*:[ \t]*$"#)
+    /// A time right after a D/D: "at 9 am", "at 6:30", "@ 10".
+    private static let timeAhead = try! NSRegularExpression(pattern: #"^[ \t]+(?:at[ \t]+|@[ \t]*)\d"#)
+    /// Slashed numbers that name something: "on 9/11" is the attacks, not September 11th.
+    private static let namedSlashes: Set<String> = ["9/11", "7/7", "24/7", "50/50"]
+    /// Verbs before "to" or "for" that make a D/D after them a date ("Moved to 3/8").
+    private static let moveVerbs: Set<String> = ["moved", "move", "pushed", "push", "postponed", "rescheduled", "delayed", "changed", "bumped", "brought"]
+    /// A date noun and a verb right before a D/D: "The deadline was 10/31", "Last day is 31/12".
+    private static let dateNounBehind = try! NSRegularExpression(pattern: #"(?i)(?<![\p{L}])(?:day|date|deadline|birthday|anniversary)[ \t]+(?:is|was|will[ \t]+be|falls[ \t]+on)[ \t]*$"#)
+    /// Words after a D/D that make it a fraction of something: "1/2 cup", "3/4 in", "1/3 of".
+    private static let fractionMeasures: Set<String> = [
+        "of", "cup", "cups", "c", "tsp", "tbsp", "teaspoon", "teaspoons", "tablespoon", "tablespoons", "oz", "ounce", "ounces",
+        "lb", "lbs", "pound", "pounds", "inch", "inches", "in", "ft", "foot", "feet", "mile", "miles", "mi", "gallon",
+        "gallons", "pint", "pints", "quart", "quarts", "liter", "liters", "litre", "litres", "kg", "g", "mm", "cm", "m", "km",
+        "yard", "yards", "acre", "acres", "hour", "hours", "stick", "sticks", "share", "shares", "point", "points",
+    ]
+
+    /// Whether n/d reads as a fraction as easily as a date: halves, thirds and quarters, and odd
+    /// eighths and sixteenths ("Wed 1/2 day", "3/8 inch"). "10/16" is no one's fraction.
+    private static func isFractionShaped(_ n: Int, _ d: Int) -> Bool {
+        n < d && ([2, 3, 4].contains(d) || [8, 16, 32, 64].contains(d) && n % 2 == 1)
+    }
+
+    private static func matches(_ regex: NSRegularExpression, _ text: String) -> Bool {
+        regex.firstMatch(in: text, range: NSRange(location: 0, length: (text as NSString).length)) != nil
+    }
     /// What can follow a weekday and a D/D that is a date: a time or a time word.
     private static let shortDateFollowers: Set<String> = ["at", "from", "to", "until", "and", "or"]
     private static let afterTimeWordFollowers: Set<String> = ["at", "morning", "afternoon", "evening", "night", "and", "or", "to", "through"]
+    /// Words "Sun." with its period can follow as a day, as opening hours write it ("Closed
+    /// Sun.", "Sale ends Sun. at midnight", "Open daily except Sun.").
+    private static let sunPeriodWords: Set<String> = ["closed", "ends", "ending", "except", "open", "opens", "starts", "starting"]
     /// The time words "Sun" can follow as a day: not "from Sun", "by Sun" (the company).
     private static let sunTimeWords: Set<String> = ["on", "every", "next", "last", "this", "until", "till", "each"]
     private static let agoUnits = ["s": "second", "m": "minute", "h": "hour", "d": "day", "w": "week", "wk": "week", "wks": "week",
@@ -545,6 +1095,8 @@ enum DateRules {
         "JST", "KST", "AEST", "AEDT", "ET", "CT", "MT", "PT", "Z", "Eastern", "Pacific", "Central", "Mountain", "Atlantic",
     ]
 
+    /// A dash and another date after a date: "– Fri 17 Oct", "- 7 March".
+    private static let dateDashAhead = try! NSRegularExpression(pattern: #"^[ \t]*[-–—][ \t]*(?:\d|"# + weekdayNames + "|" + weekdayAbbreviations + "|" + monthPattern + ")")
     private static let clockAhead = try! NSRegularExpression(pattern: #"^[ \t]*\d{1,2}(?::\d{2}|[ \t]?[AaPp]\.?[ \t]?[Mm](?![\p{L}]))"#)
     private static let yearAhead = try! NSRegularExpression(pattern: #"^,[ \t]*\d{4}(?!\d)"#)
     private static let countAhead = try! NSRegularExpression(pattern: #"^[ \t]+of[ \t]+(?:us|them|you)(?![\p{L}])"#)

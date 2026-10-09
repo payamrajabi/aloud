@@ -114,7 +114,7 @@ extension MoneyPass {
     /// Amount suffixes after a currency amount ("$40m", "£2.3bn", "₹2 crore"), as words.
     static let scaleWords: [String: String] = [
         "k": "thousand", "K": "thousand", "m": "million", "M": "million", "mn": "million", "mm": "million", "MM": "million",
-        "mln": "million", "bn": "billion", "b": "billion", "B": "billion", "bln": "billion", "tn": "trillion",
+        "mln": "million", "mil": "million", "bn": "billion", "b": "billion", "B": "billion", "bln": "billion", "tn": "trillion",
         "trn": "trillion", "T": "trillion", "thousand": "thousand", "million": "million", "billion": "billion",
         "trillion": "trillion", "lakh": "lakh", "crore": "crore",
     ]
@@ -139,6 +139,12 @@ extension MoneyPass {
         let separated: Bool
 
         init(_ written: String, magnitude: String?) {
+            // "1.234,56": dots between thousands and a decimal comma, read as "1,234.56".
+            // "1'250": Swiss apostrophes between thousands, read as "1,250".
+            var written = written.replacingOccurrences(of: "'", with: ",")
+            if let dot = written.lastIndex(of: "."), let comma = written.lastIndex(of: ","), comma > dot {
+                written = written.map { $0 == "." ? "," : $0 == "," ? "." : $0 }.reduce(into: "") { $0.append($1) }
+            }
             let groups = written.split(separator: ".", maxSplits: 1, omittingEmptySubsequences: false)
             let commaGroups = groups[0].split(separator: ",", omittingEmptySubsequences: false)
             if groups.count == 1, commaGroups.count == 2, commaGroups[1].count == 2 {
@@ -203,7 +209,8 @@ extension MoneyPass {
         if a.isWhole {
             return Reading(number: a.whole.isEmpty ? "0" : a.whole, currency: country + unit(a.units), kind: .whole)
         }
-        if let f = a.fraction, f.count == 2, !c.decimal, let units = a.units, let cents = Int(f) {
+        // One decimal in money is tens of cents: "$10.5" is ten fifty.
+        if let f = a.fraction.map({ $0.count == 1 ? $0 + "0" : $0 }), f.count == 2, !c.decimal, let units = a.units, let cents = Int(f) {
             if units == 0, let sub = c.sub {
                 // "$0.73": cents only, with the country after them ("ninety-nine cents Canadian").
                 return Reading(number: String(cents), currency: (singular || cents == 1 ? sub.one : sub.many)

@@ -1,4 +1,5 @@
 import Foundation
+import os
 
 /// A selection's structure (headings, lists, quotes, tables, emphasis), read from the
 /// app's HTML, from Markdown, or guessed from plain text. `NarrationPlanner` turns it
@@ -72,6 +73,13 @@ enum NarrationFormat: String {
     case markdown, html, plain, auto
 }
 
+/// What each read found, as counts and kinds, never the text, so a read that sounds wrong
+/// can be traced afterwards:
+/// `/usr/bin/log show --last 10m --predicate 'subsystem == "co.payamrajabi.readaloud" AND category == "reading"'`
+enum ReadingLog {
+    static let logger = Logger(subsystem: "co.payamrajabi.readaloud", category: "reading")
+}
+
 extension NarrationDoc {
     /// `TextPrep.normalizeCharacters`, with the Unicode line and paragraph separators (a
     /// Cocoa text view's ⌃↩ and ⌥↩ breaks) and NEL as line breaks: 1.6.0's paragraph and
@@ -100,8 +108,16 @@ extension NarrationDoc {
         case .html: return NarrationHTML.parse(html ?? raw) ?? NarrationDoc()
         case .plain: return NarrationPlain.parse(raw)
         case .auto:
-            if let html, let doc = NarrationHTML.parse(html) { return doc }
-            return detect(raw) == .markdown ? NarrationMarkdown.parse(raw) : NarrationPlain.parse(raw)
+            if let html {
+                if let doc = NarrationHTML.parse(html) {
+                    ReadingLog.logger.info("structure from the app's HTML")
+                    return doc
+                }
+                ReadingLog.logger.info("the app's HTML had nothing usable")
+            }
+            let markdown = detect(raw) == .markdown
+            ReadingLog.logger.info("structure from the text, read as \(markdown ? "Markdown" : "plain text", privacy: .public)")
+            return markdown ? NarrationMarkdown.parse(raw) : NarrationPlain.parse(raw)
         }
     }
 }

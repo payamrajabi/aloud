@@ -183,6 +183,7 @@ private struct Reader {
         let prev = words(before: r.location, count: 5)
         if let letter { return subStage(numeral, value, letter, r, prev) }
         let upper = numeral.first!.isUppercase
+        if let end = listMarker(numeral, value, r) { return end }
         if upper, let end = year(numeral, value, r) { return end }
         if upper, let end = worldWar(numeral, value, r, prev) { return end }
         if let end = actScene(value, r, prev) { return end }
@@ -196,6 +197,68 @@ private struct Reader {
         if let end = sequel(numeral, value, r, prev) { return end }
         if let end = subtitle(numeral, value, r, prev) { return end }
         return heading(numeral, value, r)
+    }
+
+    /// A list's markers: "I. Intro, II. Q3 results, III. Hiring", "(i) budget, (ii) hiring", "i)
+    /// eggs ii) milk", "i. Open the lid; ii. Insert…" → "one", "two", "three". Only in a
+    /// sequence: the marker before or after it in the same style must be there too, so a lone
+    /// "I." or "(i)" stays.
+    private mutating func listMarker(_ numeral: String, _ value: Int, _ r: NSRange) -> Int? {
+        guard value <= 20, numeral.count <= 5 else { return nil }
+        let start = r.location, end = NSMaxRange(r)
+        let open = start > 0 && s.character(at: start - 1) == 0x28  // (
+        guard end < s.length else { return nil }
+        let close = s.character(at: end)
+        let style: (String, String)
+        if close == 0x29 {  // )
+            style = (open ? "(" : "", ")")
+        } else if close == 0x2E, !open, end + 1 < s.length, isSpace(s.character(at: end + 1)) {
+            // "I. Intro": a marker opens the text, a line or a clause.
+            var p = start
+            while p > 0, isSpace(s.character(at: p - 1)) { p -= 1 }
+            guard p == 0 || ":;,\n\r".utf16.contains(s.character(at: p - 1)) || p < start && isLetter(s.character(at: p - 1)) else { return nil }
+            var q = end + 1
+            while q < s.length, isSpace(s.character(at: q)) { q += 1 }
+            guard q < s.length, isLetter(s.character(at: q)) else { return nil }
+            style = ("", ".")
+        } else {
+            return nil
+        }
+        // Not inside a word's brackets after a letter ("word(s)", "f(i)").
+        if style.0.isEmpty, start > 0, isLetterOrDigit(s.character(at: start - 1)) { return nil }
+        let upper = numeral.first!.isUppercase
+        func marker(_ v: Int) -> String {
+            let n = Self.romanNumeral(v)
+            return style.0 + (upper ? n : n.lowercased()) + style.1
+        }
+        // The list runs up from one: "two" needs a "one" and its own predecessor before it; "one"
+        // needs a "two" after it. ("Henry VII. Henry VIII." has no "I.")
+        let before = s.substring(with: NSRange(location: max(0, start - 400), length: start - max(0, start - 400)))
+        let after = s.substring(with: NSRange(location: end, length: min(400, s.length - end)))
+        func has(_ v: Int, in text: String) -> Bool {
+            text.range(of: #"(?<![\p{L}\p{N}])"# + NSRegularExpression.escapedPattern(for: marker(v)), options: .regularExpression) != nil
+        }
+        guard value == 1 ? has(2, in: after) : has(value - 1, in: before) && (value == 2 || has(1, in: before)) else { return nil }
+        write(SpokenNumbers.cardinal(value), over: r)
+        return end
+    }
+
+    /// The numeral for 1 to 39, in capitals.
+    private static func romanNumeral(_ n: Int) -> String {
+        var n = n, out = ""
+        for (v, s) in [(10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I")] {
+            while n >= v { out += s; n -= v }
+        }
+        return out
+    }
+
+    /// Whether the word starting at `location` opens its sentence.
+    private func opensSentence(at location: Int) -> Bool {
+        var p = location
+        while p > 0, isSpace(s.character(at: p - 1)) { p -= 1 }
+        guard p > 0 else { return true }
+        let c = s.character(at: p - 1)
+        return isNewline(c) || c == 0x2E || c == 0x21 || c == 0x3F || c == 0x3A || c == 0x22 || c == 0x201C
     }
 
     /// R11: a year in numerals ("Copyright MCMLXXXIV", "The cornerstone reads MDCCLXXVI"): four
@@ -341,7 +404,11 @@ private struct Reader {
         if numeral == "VI", title == "st." || title == "saint", ["thomas", "john", "croix"].contains(nearest.lower) { return nil }
         if single {
             if numeral == "I" {
-                guard iGate(after: NSMaxRange(r), followers: nil, bareName: title == nil) else { return nil }
+                // "Queen Mary I burned…", "Charles I was executed": a title, or a ruler's name
+                // opening its sentence, then a verb no "I" takes without a comma.
+                let opening = title != nil || opensSentence(at: nearest.range.location)
+                let settled = opening && RomanNames.regnalFollowers.contains(next)
+                guard settled || iGate(after: NSMaxRange(r), followers: nil, bareName: title == nil) else { return nil }
             } else {
                 if numeral == "X", nearest.lower == "malcolm" { return nil }
                 guard letterEndsName(after: NSMaxRange(r), x: numeral == "X", titled: title != nil) else { return nil }
@@ -445,7 +512,7 @@ private struct Reader {
         var key = w.lower
         if w.gap == ". " || w.gap == ".\u{00A0}" {
             key += "."
-            guard key == "ch." || key == "vol." || key == "mk." else { return nil }
+            guard key == "ch." || key == "vol." || key == "mk." || key == "pp." || key == "p." else { return nil }
         } else if w.gap != " " && w.gap != "\u{00A0}" {
             return nil
         }
@@ -478,6 +545,8 @@ private struct Reader {
             }
         }
         switch kind {
+        // Front matter is paged in lower-case numerals from i: "pp. i–xii", "p. iv".
+        case .document where key == "pp." || key == "p.": return value <= 39
         case .document: return (numeral.count >= 2 && value <= 39) || numeral == "v"
         case .grade: return numeral == "ii" || numeral == "iii" || numeral == "iv"
         case .event, .ruler: return false

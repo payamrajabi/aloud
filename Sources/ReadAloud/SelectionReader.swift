@@ -1,4 +1,5 @@
 import AppKit
+import os
 import ApplicationServices
 
 /// A selection's text, and the app's HTML for it when Aloud copied the selection to read
@@ -26,6 +27,9 @@ enum SelectionReader {
         }
     }
 
+    /// The longest one-line selection read without copying it: about a long sentence.
+    static let oneSentence = 160
+
     /// One read at a time: a read that copies must not take another's copy for the
     /// clipboard to put back.
     private static let queue = DispatchQueue(label: "SelectionReader", qos: .userInitiated)
@@ -42,19 +46,49 @@ enum SelectionReader {
     }
 
     private static func capture(current: String, lateCopy: inout (() -> Void)?) -> Selection? {
+        let log = ReadingLog.logger
+        let app = NSWorkspace.shared.frontmostApplication?.bundleIdentifier ?? "unknown app"
         guard let text = viaAccessibility() else {
+            log.info("read from \(app, privacy: .public): Accessibility gave no text, copying")
             guard let copied = viaCopy(selected: nil, lateCopy: &lateCopy), let text = copied.text else { return nil }
-            return Selection(text: text, html: copied.html.flatMap { matches($0, text) ? $0 : nil })
+            return Selection(text: text, html: copied.html.flatMap { checked($0, text) })
         }
-        // One line has no structure to find, and Markdown carries its own: both stay on the
-        // fast path. (A list alone is usually a web page's text with its numbers, so it's
-        // copied: the page's headings and bold come with the HTML.)
+        // A sentence or so on one line has no structure to find, and Markdown carries its own:
+        // both stay on the fast path. A long single line is copied: Chromium apps (the Claude
+        // app, Chrome, Slack) give a selection across paragraphs as one line, its headings run
+        // into the text. (A list alone is usually a web page's text with its numbers, so it's
+        // copied too: the page's headings and bold come with the HTML.)
         let lines = text.split(whereSeparator: \.isNewline).filter { !$0.allSatisfy(\.isWhitespace) }
-        guard lines.count >= 2, !NarrationMarkdown.hasMarkupBeyondLists(text),
-              text.trimmingCharacters(in: .whitespacesAndNewlines) != current,
-              let html = viaCopy(selected: text, lateCopy: &lateCopy)?.html, matches(html, text)
-        else { return Selection(text: text) }
-        return Selection(text: text, html: html)
+        log.info("read from \(app, privacy: .public): Accessibility gave \(text.count) characters on \(lines.count) lines")
+        let short = lines.count < 2 && text.count <= Self.oneSentence
+        guard !short, !NarrationMarkdown.hasMarkupBeyondLists(text),
+              text.trimmingCharacters(in: .whitespacesAndNewlines) != current
+        else {
+            log.info("not copied: \(short ? "one short line" : text.trimmingCharacters(in: .whitespacesAndNewlines) == current ? "already reading it" : "the text is Markdown", privacy: .public)")
+            return Selection(text: text)
+        }
+        guard let html = viaCopy(selected: text, lateCopy: &lateCopy)?.html, let match = checked(html, text) else {
+            return Selection(text: text)
+        }
+        return Selection(text: text, html: match)
+    }
+
+    /// The HTML if it shows the selection, logging which and what tags it holds.
+    private static func checked(_ html: String, _ text: String) -> String? {
+        let ok = matches(html, text)
+        ReadingLog.logger.info("the app's HTML \(ok ? "matches" : "does NOT match", privacy: .public) the selection; tags: \(tagCounts(html), privacy: .public)")
+        return ok ? html : nil
+    }
+
+    /// "h1 1, h2 3, p 12, li 4…": the block tags that carry structure, counted.
+    private static func tagCounts(_ html: String) -> String {
+        var counts: [String: Int] = [:]
+        let re = try! NSRegularExpression(pattern: #"<(h[1-6]|p|li|div|br|pre|blockquote|table|strong|b|em)\b"#, options: .caseInsensitive)
+        for m in re.matches(in: html, range: NSRange(html.startIndex..., in: html)) {
+            counts[(html as NSString).substring(with: m.range(at: 1)).lowercased(), default: 0] += 1
+        }
+        let pre = html.range(of: "white-space: *pre", options: [.regularExpression, .caseInsensitive]) != nil ? ", white-space pre" : ""
+        return counts.sorted { $0.key < $1.key }.map { "\($0.key) \($0.value)" }.joined(separator: ", ") + pre
     }
 
     private static func viaAccessibility() -> String? {
@@ -92,6 +126,7 @@ enum SelectionReader {
             if pasteboard.changeCount != before { copied = true; break }
         }
         guard copied else {
+            ReadingLog.logger.info("copy: nothing arrived within 0.5 s")
             if let selected {
                 lateCopy = {
                     for _ in 0..<100 {   // ~3 s
@@ -109,6 +144,8 @@ enum SelectionReader {
         usleep(30_000)
         let text = pasteboard.string(forType: .string)
         let html = pasteboard.string(forType: .html)
+        let types = (pasteboard.types ?? []).map(\.rawValue).joined(separator: " ")
+        ReadingLog.logger.info("copy: \(text?.count ?? 0) characters of text, \(html?.count ?? 0) of HTML; types \(types, privacy: .public)")
         restore(pasteboard, saved)
         return (text, html)
     }

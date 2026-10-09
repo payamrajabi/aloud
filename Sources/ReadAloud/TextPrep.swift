@@ -215,6 +215,9 @@ enum TextPrep {
         sub("!?\\[([^\\]]*)\\]\\([^)]*\\)", "$1")  // markdown links and images: just the label
         sub("https?://\\S+", "link")
         sub("\\[\\d+(,\\s*\\d+)*\\]", "")      // citation markers like [12]
+        // Formatting tags shown as text (a viewer that escapes Markdown's inline HTML) were read
+        // "you thirty seconds slash you". Placeholders ("<your-token>") read well and stay.
+        sub("(?i)</?(u|b|i|s|em|strong|del|ins|strike|mark|sup|sub|small|kbd|code|span)\\s*>|<br\\s*/?>", "")
         if lineStart { sub("^(\\s*>)+", " ") }  // a markdown quote ("a > b" is read)
         sub("[`|•▪●◦]+", " ")                 // markdown and bullet symbols
         t = markupSigns(t)                    // and "*", "#", "~", except where they're read

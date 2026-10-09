@@ -28,8 +28,62 @@ enum PhonePass {
         guard text.utf16.contains(where: { (0x30...0x39).contains($0) || $0 == 0x2A }) else { return text }
         var t = text
         for reading in readings { t = reading.apply(to: t) }
+        t = readMeetingIDs(t, british: british)
+        if t.utf16.contains(0x2D) { t = labelledID.apply(to: t) }
         return t
     }
+
+    /// A meeting's ID or passcode, or a PIN, digit by digit in its groups: "Meeting ID: 845 1234
+    /// 5678", "Zoom: 834 2219 4410", "Passcode: 902114", "PIN 4471", "Phone conference ID: 812 345
+    /// 678#" (the "#" is the key: "pound", or "hash" in the British voice). Read as values they were
+    /// "eight hundred forty five, twelve thirty four".
+    private static let meetingID = try! NSRegularExpression(pattern:
+        #"(?<![\p{L}])((?i:meeting|conference|webinar|participant|access|attendee)[ \t]+(?i:ID|code|number)|Passcode|passcode|PASSCODE|PIN|Pin|Zoom|Webex)([ \t]*[:#]?[ \t]*)(\d{3,}(?:[ \x{00A0}\-]\d{2,})*)(#?)(?![\d\p{L}])"#)
+
+    private static func readMeetingIDs(_ text: String, british: Bool) -> String {
+        // An I, a P, a Z or a W: the first or second letter of every label above.
+        guard text.utf16.contains(where: { $0 == 0x49 || $0 == 0x69 || $0 == 0x50 || $0 == 0x70 || $0 == 0x5A || $0 == 0x57 }) else { return text }
+        let ns = text as NSString
+        let matches = meetingID.matches(in: text, range: NSRange(location: 0, length: ns.length))
+        guard !matches.isEmpty else { return text }
+        var casing: ShoutedCasing?
+        var out = "", last = 0
+        for m in matches {
+            let groups = ns.substring(with: m.range(at: 3)).split(whereSeparator: { !$0.isNumber }).map(String.init)
+            // A PIN's 0 is "zero", as the number reader says a PIN with a leading 0 ("PIN 0645").
+            let zero = ns.substring(with: m.range(at: 1)).uppercased() == "PIN" ? "zero" : "oh"
+            var words = groups.map { groupWords($0, zero: zero) }.joined(separator: ", ")
+            if m.range(at: 4).length > 0 { words += british ? " hash" : " pound" }
+            if casing == nil { casing = ShoutedCasing(text) }
+            out += ns.substring(with: NSRange(location: last, length: m.range(at: 3).location - last)) + casing!.cased(words, at: m.range(at: 3).location)
+            last = NSMaxRange(m.range)
+        }
+        return out + ns.substring(from: last)
+    }
+
+    /// A number in dashed groups after what it identifies: "Account 1234-5678-9012", "The ISBN is
+    /// 978-0-13-468599-1", "Amazon order 112-4455667-8899021", "Error code 500-1023". Three
+    /// groups or more (an ISBN's last may be X) are read digit by digit, a pause between groups;
+    /// two short groups after a code keep their numbers with the pause ("five hundred, ten
+    /// twenty three"). Run together, the groups were one long blur of numbers.
+    private static let labelledID = Reading(
+        #"(?<![\p{L}])((?i:account|acct|order|isbn|issn|code|ref|reference|confirmation|tracking|invoice|serial|sku|part|case|ticket|policy|member|card|claim|booking|receipt|transaction|error)(?:[ \t]+(?i:no\.?|number|#))?(?:[ \t]+(?:is|was))?[ \t]*[:#]?[ \t]*)(\d{1,7}(?:-\d{1,7}){1,5}(?:-[\dX])?)(?![\d\p{L}]|-\d)"#
+    ) { m, s in
+        let label = s.substring(with: m.range(at: 1))
+        let groups = s.substring(with: m.range(at: 2)).split(separator: "-").map(String.init)
+        if groups.count == 2 {
+            // "Error code 500-1023", "Ref 12-3456": two groups only after a code's own label.
+            guard groups.allSatisfy({ $0.count <= 4 }) else { return label + groups.map(groupWords).joined(separator: ", ") }
+            let key = label.lowercased().trimmingCharacters(in: CharacterSet.letters.inverted)
+            guard shortIDLabels.contains(where: { key.hasPrefix($0) }) else { return nil }
+            return label + groups.joined(separator: ", ")
+        }
+        return label + groups.map { $0 == "X" ? "X" : groupWords($0) }.joined(separator: ", ")
+    }
+    /// Labels after which two short dashed groups are a code, not a range ("Order 2-3 items",
+    /// "Ticket 1-10" are ranges). A part number and a SKU keep their reading ("Part number
+    /// 1234-5678").
+    private static let shortIDLabels = ["code", "error", "ref", "invoice", "serial", "confirmation", "policy", "claim", "isbn", "issn"]
 
     /// fix3/reading's phone rule (a leading 0 or "+") is the pass's trunk-0 and "+" readings now.
     /// It read dates, 24-hour times and lotto lists as phone numbers ("01-02-2024", "0700-1500")
@@ -153,7 +207,8 @@ enum PhonePass {
         let rest = s.substring(with: m.range(at: 4)).split(whereSeparator: { !$0.isASCII || !$0.isNumber }).map(String.init)
         let groups = [s.substring(with: m.range(at: 3))] + rest
         let total = first.count + groups.reduce(0) { $0 + $1.count }
-        guard (10...11).contains(total) || (total == 9 && groups.count >= 2) else { return nil }
+        // Childline's "0800 1111" is the one short freephone number.
+        guard (10...11).contains(total) || (total == 9 && groups.count >= 2) || (first == "0800" && total == 8) else { return nil }
         // Freephone "0800" is "oh eight hundred", as Britons say it.
         let head = first == "0800" ? "oh eight hundred" : SpokenNumbers.digits(first)
         return ([head] + groups.map(groupWords)).joined(separator: ", ") + extensionWords(m, 5, s)
@@ -174,14 +229,18 @@ enum PhonePass {
     /// Seven-digit local numbers, "555-0199" and "555 0199", only straight after a cue ("Call me
     /// at", "My number is"): order and part numbers share the shape. Two round numbers are a
     /// range ("Call between 250-1000").
-    private static let local = Reading(start + #"([2-9]\d\d)(?:[\-‐‑‒–]|[ \x{00A0}])(\d{4})"# + tail + end) { m, s in
-        let a = s.substring(with: m.range(at: 1)), b = s.substring(with: m.range(at: 2))
+    private static let local = Reading(start + #"([2-9]\d\d)([\-‐‑‒–.]|[ \x{00A0}])(\d{4})"# + tail + end) { m, s in
+        let a = s.substring(with: m.range(at: 1)), b = s.substring(with: m.range(at: 3))
         guard !(a.hasSuffix("0") && b.hasSuffix("0")) else { return nil }
         // Not the end of a longer number that wasn't read ("1234 5678", "21 555 0199").
         let before = text(before: m.range, in: s, limit: 2)
         if before.count == 2, before.last!.isWhitespace || isDash(String(before.last!)), before.first!.isNumber { return nil }
-        guard hasLocalCue(before: m.range, in: s) else { return nil }
-        return SpokenNumbers.digits(a) + ", " + SpokenNumbers.digits(b) + extensionWords(m, 3, s)
+        // 555 is the numbers' fiction prefix (and "555.0134" its dotted form), and an extension
+        // after the number settles it too ("Front desk 555-0123, ext. 4").
+        let dotted = s.substring(with: m.range(at: 2)) == "."
+        let settled = a == "555" || (!dotted && m.range(at: 5).location != NSNotFound)
+        guard settled || (!dotted && hasLocalCue(before: m.range, in: s)) else { return nil }
+        return SpokenNumbers.digits(a) + ", " + SpokenNumbers.digits(b) + extensionWords(m, 4, s)
     }
 
     /// A toll-free prefix named as a kind of number: "a 1-800 number", "an 888 number". "We
@@ -224,10 +283,11 @@ enum PhonePass {
         s.substring(with: m.range(at: 1)) + "extension " + extensionNumber(s.substring(with: m.range(at: 2)))
     }
 
-    /// "Dial x4567": "x" and digits are an extension only after "dial" ("call x86 code", "call
-    /// x264" are an architecture and a codec), and never a term the tech lexicon has.
+    /// "Dial x4567", "Call x4410 for facilities": "x" and digits are an extension only after
+    /// "dial" or "call", and never a term the tech lexicon has ("call x86 code", "call x264" are
+    /// an architecture and a codec).
     private static let dialledExtension = Reading(
-        #"\b((?i:dial|dials|dialed|dialled|dialing|dialling)\s+)[xX](\d{2,6})"# + end
+        #"\b((?i:dial|dials|dialed|dialled|dialing|dialling|call|calls|called|calling|ring|phone)\s+)[xX](\d{2,6})"# + end
     ) { m, s in
         let digits = s.substring(with: m.range(at: 2))
         guard !lexiconXTerms.contains(digits) else { return nil }
@@ -270,7 +330,12 @@ enum PhonePass {
         let tier = number == "911" || number == "999" ? 1 : number == "112" || number == "000" ? 2 : 3
         let after = s.substring(from: NSMaxRange(m.range))
         let dialled = matches(serviceCue, before: m.range, in: s) && followsServiceNumber(after, tier: tier)
-        guard dialled || isNamedService(number, before: m.range, after: after, in: s) else { return nil }
+        // A service named before it ("NHS 111", "TTY 711", "the emergency number is 112"), or a
+        // second number in a list after one ("dial 111, not 999").
+        let named = matches(serviceName, before: m.range, in: s)
+            || matches(numberIsCue, before: m.range, in: s) && followsServiceNumber(after, tier: 1)
+            || matches(serviceListCue, before: m.range, in: s)
+        guard dialled || named || isNamedService(number, before: m.range, after: after, in: s) else { return nil }
         return number == "000" ? "triple zero" : SpokenNumbers.digits(number)
     }
 
@@ -361,7 +426,7 @@ enum PhonePass {
     /// straight before it: a label ("Phone:", "Tel:"), "number (is)", "No.", a verb ("Call",
     /// "Ring me on"), or "at"/"on" up to three words after one ("Call the office at").
     private static let localCue = try! NSRegularExpression(
-        pattern: #"(?:\b(?:phone|tel|telephone|cell|mobile|fax|home|work|office|direct|main)\s?:|\bnumber(?:\s+is|\s?:)?|\bno\.|\b(?:"#
+        pattern: #"(?:\b(?:phone|tel|telephone|cell|mobile|fax|home|work|office|direct|main|line|desk)\s?:|\bnumber(?:\s+(?:is|was)|\s?[:,])?|\bno\.|\b(?:"#
             + dialVerbs + #")(?:\s+(?:me|us|him|her|them|you))?|\b(?:"# + dialVerbs + #")(?:\s+[\p{L}'’]+){0,3}\s+(?:at|on))\s*$"#,
         options: .caseInsensitive)
     /// More cues for Australian 1800 numbers: "Freecall 1800…", "free on 1800…".
@@ -370,6 +435,14 @@ enum PhonePass {
     /// words and "on" ("call police on 101").
     private static let serviceCue = try! NSRegularExpression(
         pattern: #"\b(?:call|calls|called|calling|dial|dials|dialed|dialled|dialing|dialling|ring|rings|rang|ringing|phone|phoned|phoning|text|texted|texting)(?:\s+or\s+(?:call|text|dial))?(?:(?:\s+[\p{L}'’]+){1,2}\s+on)?\s+$"#,
+        options: .caseInsensitive)
+    /// A service before its number: "NHS 111", "TTY 711", "TDD 711".
+    private static let serviceName = try! NSRegularExpression(pattern: #"\b(?:NHS|TTY|TDD|TTD|Textphone|textphone)\s+$"#)
+    /// "The emergency number is 112", "the number to call is 999".
+    private static let numberIsCue = try! NSRegularExpression(pattern: #"\b(?:emergency|police|ambulance|fire|crisis|helpline)\s+(?:number|line)\s+(?:is|was)\s+$"#, options: .caseInsensitive)
+    /// A second service number after a dialled one: "dial 111, not 999", "call 999 or 112".
+    private static let serviceListCue = try! NSRegularExpression(
+        pattern: #"\b(?:call|dial|ring|phone|text)\s+(?:911|999|112|000|111|101|988|211|311|411|511|611|711|811),?\s+(?:not|or|and)\s+$"#,
         options: .caseInsensitive)
     private static let determinerEnd = try! NSRegularExpression(
         pattern: #"\b(?:a|an|the|this|that|these|those|my|your|our|their|his|her|its)\s+$"#, options: .caseInsensitive)
@@ -433,9 +506,11 @@ enum PhonePass {
 
     /// A written group digit by digit; a six-digit block is said as two threes ("nine oh oh, one
     /// two three").
-    private static func groupWords(_ digits: String) -> String {
-        guard digits.count == 6 else { return SpokenNumbers.digits(digits) }
-        return SpokenNumbers.digits(digits.prefix(3)) + ", " + SpokenNumbers.digits(digits.suffix(3))
+    private static func groupWords(_ digits: String) -> String { groupWords(digits, zero: "oh") }
+
+    private static func groupWords(_ digits: String, zero: String) -> String {
+        guard digits.count == 6 else { return SpokenNumbers.digits(digits, zero: zero) }
+        return SpokenNumbers.digits(digits.prefix(3), zero: zero) + ", " + SpokenNumbers.digits(digits.suffix(3), zero: zero)
     }
 
     /// ", extension twenty three" for an extension tail whose marker is group `i` and digits

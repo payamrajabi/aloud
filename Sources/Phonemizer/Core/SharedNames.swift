@@ -9,6 +9,14 @@ enum CalendarNames {
                          "oct": "October", "nov": "November", "dec": "December"]
     static let monthsInOrder = ["January", "February", "March", "April", "May", "June", "July", "August",
                                 "September", "October", "November", "December"]
+    static let weekdaysInOrder = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+    /// Words right before a bare hour that make a glued "p" or "a" after it the time of day
+    /// ("at 12p", "Doors 7p"): anywhere else "50p" is pence.
+    static let clockCues: Set<String> = [
+        "at", "from", "until", "till", "til", "by", "before", "after", "doors", "show", "starts", "start", "kickoff", "lunch",
+        "dinner", "open", "opens", "close", "closes", "pickup", "ends",
+    ]
 
     /// Capitalised words that name a day, a month or a time zone: after an abbreviation's
     /// period they continue the sentence ("9 a.m. Monday", "1 Dec. Tuesday") rather than start one.

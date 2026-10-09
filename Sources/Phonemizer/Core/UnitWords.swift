@@ -12,8 +12,37 @@ enum UnitWords {
     static let countNouns: Set<String> = [
         "people", "users", "viewers", "customers", "subscribers", "followers", "members", "residents", "voters", "votes",
         "visitors", "downloads", "views", "streams", "copies", "units", "jobs", "homes", "households", "years",
-        "barrels", "dollars", "pounds", "euros",
+        "barrels", "dollars", "pounds", "euros", "savers", "fans", "listeners", "readers", "students", "workers", "employees",
+        "passengers", "tickets", "subscriptions", "accounts", "players", "patients", "cases", "deaths", "doses", "tonnes",
+        "tons", "trees", "steps", "likes", "plays", "installs", "orders", "transactions", "messages", "emails", "visits",
+        "shares", "devices", "cars", "vehicles", "books", "songs", "albums", "apps", "migrants", "refugees", "children",
+        "pensioners", "claimants", "motorists", "tourists", "adults", "citizens", "immigrants", "taxpayers", "borrowers",
+        "homeowners", "renters", "tenants", "drivers", "smokers", "consumers", "shoppers", "families", "britons",
+        "americans", "babies", "animals", "birds", "items", "parcels", "packages", "calls", "applications", "claims",
+        "signatures", "reviews", "teams", "companies", "businesses", "firms", "properties", "beds", "vaccines", "tests",
     ]
+    /// What a decimal "m" measures before it, said "meter": "1.5m strips", "two 2.4m boards".
+    /// Anything else stays as written: before most plurals "m" is as often millions ("4.5m
+    /// pensioners"), and "3M hooks" is a brand.
+    static let lengthNouns: Set<String> = [
+        "strip", "strips", "board", "boards", "length", "lengths", "plank", "planks", "beam", "beams", "pole", "poles",
+        "post", "posts", "rail", "rails", "pipe", "pipes", "cable", "cables", "rope", "ropes", "hose", "hoses", "roll",
+        "rolls", "batten", "battens", "rod", "rods", "ladder", "ladders",
+    ]
+    /// A baby's clothes, whose sizes count months: "12M pajamas", "18M onesies".
+    static let babyClothes: Set<String> = [
+        "pajamas", "pyjamas", "onesie", "onesies", "bodysuit", "bodysuits", "romper", "rompers", "sleeper", "sleepers",
+        "sleepsuit", "sleepsuits", "babygrow", "babygrows", "outfit", "outfits", "clothes", "leggings",
+    ]
+    /// Plurals without an "s": "1.2m people".
+    static let irregularPlurals: Set<String> = ["people", "children", "men", "women", "staff", "folks"]
+    /// After k or K, a race or a screen, not thousands: "5k runs", "8K displays".
+    static let raceNouns: Set<String> = ["run", "runs", "race", "races", "runner", "runners", "walk", "walks", "swim", "swims"]
+    static let raceWords: Set<String> = ["marathon", "jog", "jogging", "parkrun", "running", "race"]
+    static let screenNouns: Set<String> = [
+        "displays", "monitors", "screens", "tvs", "televisions", "videos", "cameras", "panels", "projectors", "resolutions",
+    ]
+
     /// A sentence about money or people counts its m in millions ("raised 5 m").
     static let moneyWords: Set<String> = [
         "raised", "revenue", "funding", "budget", "sales", "profit", "valuation", "worth", "deal", "debt", "population",
@@ -23,6 +52,80 @@ enum UnitWords {
     static let sizeWords: Set<String> = [
         "tall", "high", "long", "deep", "wide", "thick", "apart", "across", "below", "above", "underwater",
     ]
+
+    /// Before a unit, words that make a number with a letter after it a measurement: "more
+    /// than 2s", "about 3s".
+    static let comparisons: Set<String> = ["than", "about", "around", "nearly", "almost", "within"]
+    /// "under" and "over" only after one of these ("loads in under 3s", "a time of just over
+    /// 9s"): "Over 65s will lose…" and "for under 5s" are age groups.
+    static let timedBefore: Set<String> = [
+        "in", "just", "only", "of", "took", "takes", "take", "taking", "lasted", "lasts", "ran", "runs", "finished", "loads",
+        "loaded", "clocked", "timed",
+    ]
+
+    // MARK: Stone, hectares and temperatures
+
+    /// A sentence about weight, where st is stone: "He weighs 12 st", "Lost 2 st".
+    static let weightWords: Set<String> = [
+        "weigh", "weighs", "weighed", "weighing", "weight", "weights", "lost", "lose", "losing", "loses", "gained", "gain",
+        "gaining", "gains", "heavier", "lighter", "diet", "dieting", "scales", "slimming", "overweight", "obese", "bmi",
+    ]
+    /// A sentence about land, where ha is hectares.
+    static let landWords: Set<String> = [
+        "acres", "acre", "hectares", "land", "forest", "forests", "farm", "farms", "farmland", "burned", "burnt", "wildfire",
+        "wildfires", "fire", "fires", "estate", "park", "reserve", "plantation", "plantations", "plot", "crops", "vineyard",
+        "woodland", "deforestation", "cleared",
+    ]
+    /// A sentence about heat or the weather, where a C or F after a number is a temperature.
+    static let temperatureWords: Set<String> = [
+        "temperature", "temperatures", "temp", "temps", "degrees", "heat", "heatwave", "hot", "hotter", "hottest", "cold",
+        "colder", "coldest", "cool", "cooler", "warm", "warmer", "warmest", "freezing", "frost", "chilly", "mild", "weather",
+        "forecast", "highs", "lows", "sunny", "cloudy", "rain", "snow", "humid", "humidity", "oven", "preheat", "fever",
+        "thermometer", "scorching", "sweltering",
+    ]
+
+    /// Words before a glued g that make it grams, though they label it ("Carbs 30g", "Trans Fat
+    /// 0g"), and that make a "5g" the lexicon took for the network grams ("Sugar 5g per bar").
+    static let nutrients: Set<String> = [
+        "fat", "fats", "carbs", "carb", "carbohydrate", "carbohydrates", "protein", "proteins", "sugar", "sugars", "fiber",
+        "fibre", "salt", "sodium", "saturates", "saturated", "sat", "trans", "starch", "alcohol", "net",
+    ]
+
+    // MARK: pt, pc, bp, pp
+
+    /// A sentence about a drink or cooking, where pt is pints: "1 pt. heavy cream".
+    static let drinkWords: Set<String> = ["milk", "cream", "water", "beer", "ale", "lager", "stout", "cider", "stock", "broth", "juice", "wine"]
+    /// A sentence in a clinic, where "12 pt" are patients.
+    static let clinicWords: Set<String> = ["patient", "patients", "clinic", "ward", "wards", "nurse", "nurses", "hospital", "admitted", "admissions"]
+    /// After a glued "pc", a piece rather than per cent: "a 3pc suit".
+    static let pieceNouns: Set<String> = [
+        "set", "sets", "suit", "suits", "kit", "kits", "bucket", "buckets", "nuggets", "meal", "meals", "sectional", "dining",
+        "cookware", "tool", "luggage", "puzzle", "bedroom", "patio", "knife", "pan",
+    ]
+    /// A sentence about a connection, where bps is bits per second.
+    static let connectionWords: Set<String> = [
+        "modem", "baud", "connection", "bandwidth", "download", "upload", "network", "link", "internet", "wifi", "transfer", "serial",
+    ]
+    /// A sentence about a document, where pp are pages: "The Q2 board deck is 40 pp.".
+    static let documentWords: Set<String> = [
+        "deck", "decks", "report", "reports", "book", "books", "document", "documents", "paper", "papers", "pages", "page",
+        "chapter", "chapters", "pdf", "slides", "appendix", "manuscript", "thesis", "dissertation", "hardcover", "hardback",
+        "paperback", "booklet", "brochure", "manual", "handbook", "volume", "journal", "proposal", "draft", "memo", "essay",
+        "pamphlet", "dossier", "brief", "printout",
+    ]
+
+    // MARK: TB and gal
+
+    /// "650 TB deaths": nouns after TB that make it tuberculosis.
+    static let diseaseNouns: Set<String> = [
+        "deaths", "death", "cases", "case", "patients", "patient", "infections", "infection", "rates", "rate", "drugs", "drug",
+        "treatment", "treatments", "vaccine", "vaccines", "test", "tests", "testing", "screening", "clinic", "clinics",
+        "outbreak", "outbreaks", "incidence", "notifications", "diagnoses", "programme", "program", "sufferers", "burden",
+    ]
+    /// Words in TB's sentence that make it tuberculosis.
+    static let diseaseWords: Set<String> = ["tuberculosis", "disease", "infected", "diagnosed", "hiv", "malaria", "epidemic"]
+    /// "3 gal pals": nouns after "gal" that make it a friend.
+    static let galNouns: Set<String> = ["pal", "pals", "friend", "friends", "squad", "gang", "crew"]
 
     // MARK: g
 
