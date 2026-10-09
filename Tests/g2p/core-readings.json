@@ -3099,9 +3099,9 @@
     },
     {
       "area" : "shorthand",
-      "gb" : "bɹˈɪŋ pˈɛnz, pˈApə, ɛtsˈɛtəɹə",
+      "gb" : "bɹˈɪŋ pˈɛnz, pˈApə, ɛtsˈɛtəɹə.",
       "text" : "Bring pens, paper, etc.",
-      "us" : "bɹˈɪŋ pˈɛnz, pˈApəɹ, ɛtsˈɛTəɹə"
+      "us" : "bɹˈɪŋ pˈɛnz, pˈApəɹ, ɛtsˈɛTəɹə."
     },
     {
       "area" : "shorthand",
@@ -3288,6 +3288,24 @@
       "gb" : "ˌɪt wɒz θˈɜːti dɪɡɹˈiːz jˈɛstədA.",
       "text" : "It was 30° yesterday.",
       "us" : "ˌɪt wʌz θˈɜɹTi dəɡɹˈiz jˈɛstəɹdˌA."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ðə flˈat haz dˈʌbᵊljuː dˈiː hˈʊkˌʌps.",
+      "text" : "The flat has W/D hookups.",
+      "us" : "ðə flˈæt hæz dˈʌbᵊlju dˈi hˈʊkˌʌps."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ʧˈuːz ɐ, bˈiː sˈiː, ɔː dˈiː.",
+      "text" : "Choose a, b/c, or d.",
+      "us" : "ʧˈuz ɐ, bˈi sˈi, ɔɹ dˈi."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "wˌiː pˈakt tˈɛnts, stˈQvz, ɛtsˈɛtəɹə and lˈɛft ˈɜːli.",
+      "text" : "We packed tents, stoves, etc. and left early.",
+      "us" : "wˌi pˈækt tˈɛnts, stˈOvz, ɛtsˈɛTəɹə ænd lˈɛft ˈɜɹli."
     },
     {
       "area" : "dates",
@@ -8422,8 +8440,9 @@
     },
     {
       "area" : "shorthand",
-      "says" : "I ate em and ems at five pee em.",
-      "text" : "I ate M&Ms at 5 pm."
+      "says" : "I ate em and ems at five PM.",
+      "text" : "I ate M&Ms at 5 pm.",
+      "voice" : "us"
     }
   ]
 }

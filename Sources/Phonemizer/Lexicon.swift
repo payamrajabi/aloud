@@ -26,8 +26,10 @@ final class Lexicon {
                           "≤": "less than or equal to", "≥": "greater than or equal to", "→": "to",
                           "←": "left arrow", "↑": "up arrow", "↓": "down arrow", "−": "minus",
                           // Signs and Greek letters 1.5 spoke and 1.6 dropped. "Ω" after a number is
-                          // "ohms" (TextNormalizer); "§" and "¶" are read there too.
-                          "©": "copyright", "®": "registered", "™": "trademark", "π": "pi", "∞": "infinity",
+                          // "ohms" (TextNormalizer); "§" and "¶" are read there too. ™, ℠ and ® aren't
+                          // here: nobody reads "Acme trademark" aloud, so the normalizer drops them
+                          // (ShorthandRules.signs), as it drops a "©" next to the word copyright.
+                          "©": "copyright", "π": "pi", "∞": "infinity",
                           "√": "square root of", "∑": "sum of", "Ω": "omega", "Δ": "delta", "α": "alpha", "β": "beta",
                           "γ": "gamma", "δ": "delta", "ε": "epsilon", "θ": "theta", "λ": "lambda", "μ": "mu",
                           "σ": "sigma", "Σ": "sigma", "τ": "tau", "φ": "phi", "ω": "omega"]

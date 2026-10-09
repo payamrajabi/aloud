@@ -216,9 +216,55 @@ enum TextPrep {
         sub("https?://\\S+", "link")
         sub("\\[\\d+(,\\s*\\d+)*\\]", "")      // citation markers like [12]
         if lineStart { sub("^(\\s*>)+", " ") }  // a markdown quote ("a > b" is read)
-        sub("[*#`~|•▪●◦]+", " ")              // markdown and bullet symbols
+        sub("[`|•▪●◦]+", " ")                 // markdown and bullet symbols
+        t = markupSigns(t)                    // and "*", "#", "~", except where they're read
         sub("\\s+", " ")
         return t
+    }
+
+    private static let signRuns = try! NSRegularExpression(pattern: #"[*#~]+"#)
+    private static let aboutNumber = try! NSRegularExpression(pattern: #"^[ \t]?[-−+]?[$£€¥₹₩]?\d"#)
+    private static let numberOf = try! NSRegularExpression(pattern: #"^[ \t]+of(?![\p{L}\p{N}])"#)
+    private static let keyVerbs: Set<String> = ["press", "presses", "pressed", "pressing", "hit", "tap", "enter", "dial"]
+    private static let keyNouns: Set<String> = ["key", "keys", "button", "buttons"]
+
+    /// "*", "#" and "~" are markup (bold, headings, hashtags, strikethrough, "~/paths") and read
+    /// as a space, except where the phonemizer reads them (FIN-889): "#" against a digit ("#1",
+    /// "#31#") or after a letter ("C#"), "# of", "~" before a number ("~5", "~ 10 km", "9~5"), and
+    /// a keypad "*" or "#" on its own after a key verb or before "key" or "button" ("Press * then
+    /// 2"). A run of two or more ("**", "##", "~~") is always markup.
+    private static func markupSigns(_ t: String) -> String {
+        let ns = t as NSString
+        let matches = signRuns.matches(in: t, range: NSRange(location: 0, length: ns.length))
+        guard !matches.isEmpty else { return t }
+        var out = "", last = 0
+        for m in matches {
+            out += ns.substring(with: NSRange(location: last, length: m.range.location - last))
+            out += isRead(m.range, in: ns) ? ns.substring(with: m.range) : " "
+            last = NSMaxRange(m.range)
+        }
+        return out + ns.substring(from: last)
+    }
+
+    /// Whether the single sign at `range` is one the phonemizer reads.
+    private static func isRead(_ range: NSRange, in s: NSString) -> Bool {
+        guard range.length == 1 else { return false }
+        let start = max(0, range.location - 24), end = min(s.length, NSMaxRange(range) + 24)
+        let before = s.substring(with: NSRange(location: start, length: range.location - start))
+        let after = s.substring(with: NSRange(location: NSMaxRange(range), length: end - NSMaxRange(range)))
+        let sign = s.substring(with: range)
+        let rest = NSRange(location: 0, length: (after as NSString).length)
+        if sign == "~" { return aboutNumber.firstMatch(in: after, range: rest) != nil }
+        let previous = before.last, next = after.first
+        if sign == "#", previous?.isNumber == true || next?.isNumber == true || previous?.isLetter == true
+            || numberOf.firstMatch(in: after, range: rest) != nil {
+            return true
+        }
+        // A key on its own: "Press * then 2.", "Press # to finish.", "the # key".
+        guard previous.map(\.isWhitespace) ?? true, next.map({ $0.isWhitespace || ".,;:!?)".contains($0) }) ?? true else { return false }
+        let wordBefore = String(before.reversed().drop { $0 == " " || $0 == "\t" }.prefix { $0.isLetter }.reversed())
+        let wordAfter = String(after.drop { $0 == " " || $0 == "\t" }.prefix { $0.isLetter })
+        return keyVerbs.contains(wordBefore.lowercased()) || keyNouns.contains(wordAfter.lowercased())
     }
 
     static func hasWords(_ s: String) -> Bool {
