@@ -11,6 +11,17 @@ changing it to `aloud_regular` does not require an app release.
 `api/buy.mjs` sends `managed_payments[enabled]=true` with `mode=payment`.
 It does not implement a standard-Checkout fallback or infer merchant-of-record
 coverage from `automatic_tax`. Stripe failures keep checkout unavailable.
+Every Stripe request pins `2026-04-22.dahlia`, which documents the returned
+`managed_payments.enabled` field. Checkout rejects a missing/false returned field
+before redirecting. Fulfillment retrieves the canonical Session and its line items
+from Stripe rather than accepting the event's metadata as purchase proof. Exactly
+one item of quantity one must match an explicitly approved immutable price ID,
+the configured Aloud product, payment mode, one-time price and amounts/currency.
+Archived approved prices remain eligible for restoration. An older ordinary
+Checkout purchase is not treated as a verified Managed Payments purchase.
+The approved test endpoint must use the same API version; no account-wide version
+upgrade is proposed. Actual provider behavior still needs sandbox acceptance.
+[Stripe's Managed Payments API addition](https://docs.stripe.com/changelog/dahlia/2026-04-22/managed-payments)
 
 On October 9, the existing account's Managed Payments settings showed **Get started**
 and a 3.5% add-on fee. Activation and terms acceptance were not performed. The
@@ -48,8 +59,10 @@ No actual account objects, secrets, email settings or production data were chang
 | `LICENSE_SIGNING_KEY` | isolated Ed25519 test PEM | approved issuer matching release public key |
 | `ALOUD_EMAIL_ENABLED` | explicit `true` after approval | explicit `true` after approval |
 | `RESEND_API_KEY` / `LICENSE_EMAIL_FROM` | approved provider/sender and test recipient | verified sender and delivery account |
+| `ALOUD_TEST_EMAIL_ALLOWLIST` | explicit comma-separated exact approved addresses; proposed single address `payam.rajabi@gmail.com` | not used; live still needs its separate enablement gates |
 | `ALOUD_STRIPE_PRODUCT_ID` | `aloud`, or approved existing product ID | same selected product ID |
 | `ALOUD_PRICE_LOOKUP_KEY` | `aloud_launch` | approved launch/regular lookup |
+| `ALOUD_APPROVED_PRICE_IDS` | exact actual `price_…` IDs approved after inspecting the test product/prices | separately approved live IDs, retaining historical approved IDs |
 | `SUPPORT_EMAIL` | defaults to `payam.rajabi@gmail.com` | confirmed support address |
 | `ALOUD_RESTORE_PROTECTION_READY` | absent/false until approved sandbox protection is active and verified | absent/false until separately approved production protection is active and verified |
 
@@ -58,7 +71,8 @@ or chat. This branch does not authorize new accounts, subscriptions, access cred
 financial agreements or live enablement. Preserve test/live signing isolation.
 
 Use a separate restricted key for each environment. The runtime calls only
-`GET /v1/prices`, `POST /v1/checkout/sessions`, and Checkout Session GETs, so its
+Prices GETs, Checkout Session GETs (including line items), and Checkout Session
+POSTs for creation and purchase-email attempt/acceptance metadata, so its
 minimum proposed scope is **Checkout Sessions: Write** (includes Read) and
 **Prices: Read**, with all other resources None. Products, prices and webhook
 endpoints are configured in the Dashboard, so the runtime needs no write permission
@@ -68,6 +82,18 @@ to Write; any additional Managed Payments permission dependency must be establis
 in an approved sandbox test and reviewed rather than granting broad access.
 No actual restricted key or permissions were created or changed.
 [Stripe restricted API keys and permission mapping](https://docs.stripe.com/keys/restricted-api-keys)
+
+The test recipient allowlist is required before checkout is enabled and enforced
+again before every purchase/restore email and purchase-email metadata write. There
+is no wildcard, implicit support-address fallback, request override, CC or BCC.
+Other test buyers can receive a browser license but cannot trigger email to an
+unapproved address. The verified connected Gmail mailbox is
+`payam.rajabi@gmail.com`; this does not establish Resend account ownership.
+Use `Aloud <onboarding@resend.dev>` only after confirming that Resend's associated
+account address is that same mailbox and Payam approves delivery. Otherwise obtain
+an approved existing verified sender and exact recipient; do not create an account
+or change email DNS under this proposal.
+[Resend's default-domain recipient restriction](https://resend.com/docs/knowledge-base/403-error-resend-dev-domain)
 
 The optional read-only `--check` inspector also accepts `rk_test_…`. Its separate
 inspection credential must allow its GETs to `/v1/account`, Prices and Webhook
@@ -83,7 +109,9 @@ webhook URL. It performs GET requests only and never prints keys or webhook secr
 
 Register `/api/webhook` for `checkout.session.completed` and
 `checkout.session.async_payment_succeeded` in the same mode as checkout. Set the product's
-eligible tax code and one-time prices. Do not create duplicates if these objects exist.
+eligible tax code and one-time prices. Use endpoint API version `2026-04-22.dahlia`.
+Do not create duplicates if these objects exist. Record the actual approved price IDs
+in `ALOUD_APPROVED_PRICE_IDS`; moving a lookup key does not implicitly approve a new ID.
 
 ## Verification before live enablement
 
@@ -112,8 +140,16 @@ After approved sandbox configuration:
    and tax withheld in Stripe's transaction details.
 3. Confirm paid success yields a test license, pending/cancelled/unpaid flows do not,
    signed webhook delivery reaches only the approved test recipient, and retries of
-   both success event types do not duplicate the purchase email within 24 hours.
-4. Restore that purchase by email and confirm no unrelated buyer's license is sent.
+   both success event types do not duplicate the purchase email, including a replay
+   after 24 hours once Stripe's provider-acceptance marker exists. Verify attempt
+   and acceptance metadata writes with the restricted runtime key. An old attempt
+   without an acceptance marker must stop for manual reconciliation.
+4. Complete the restore protection plan below first: with readiness absent, prove
+   deployed request enforcement and restore's pre-provider 503; set readiness only
+   after the approved active rule is verified. Then restore the purchase by email
+   and confirm no unrelated buyer's license is sent.
+   Restore verifies at most 100 eligible purchase candidates, skips ineligible
+   ordinary/other-price history, and keeps the public lookup/email result generic.
 5. Check app shortcut/pill/player/dictation trial gates and activation UI in an
    isolated test environment. Do not replace the installed app or share its settings.
 6. Verify the live issuer's public key matches the release's embedded key, then build,
@@ -121,9 +157,6 @@ After approved sandbox configuration:
    normal process. Confirm legacy free users stay free before enabling sales.
    `node scripts/license-key-check.mjs` checks an already approved issuer supplied
    through `LICENSE_SIGNING_KEY`; it creates no key and prints only match/mismatch.
-7. Follow the restore protection plan below. The restore endpoint defaults to 503
-   without its explicit readiness attestation, before any Stripe lookup or email.
-   No new paid storage service is required or configured by this branch.
 
 Identity verification, Managed Payments terms/approval, secure configuration approvals
 and final live enablement belong to Payam. Engineering completes the sandbox and release
@@ -188,10 +221,29 @@ Official schema/behavior references checked October 9, 2026:
 
 ## Delivery limits
 
-Resend purchase idempotency is scoped to the checkout session and deduplicates for
-24 hours. It is not durable beyond that window. Restore keys use hourly buckets, so
-cross-boundary retries can send again. Keep sender/origin/template/signing settings
-stable while retries are pending to avoid provider payload conflicts. Failed delivery
-returns a retryable webhook response. Restore intentionally hides lookup/delivery outcomes
-from the requester. Offline licenses cannot be remotely revoked after refunds.
+Resend's session-scoped purchase idempotency lasts 24 hours. The webhook also writes
+`aloud_email_attempt_at` (Unix seconds) to the canonical Stripe Session before the
+first send, then `aloud_email_accepted=v1` after Resend accepts it. These two metadata
+writes are the only proposed additional persistent runtime mutations. An acceptance
+marker suppresses later automatic sends indefinitely; it establishes provider
+acceptance, not inbox delivery. Invalid markers, or an unacknowledged attempt at least
+23 hours old, return 503 for manual reconciliation. This deliberately stops even
+when the first attempt may never have reached Resend. It does not promise exactly-once
+delivery across an ambiguous provider failure. The operator must inspect the specific
+Session and Resend record before any explicitly approved retry or marker repair.
+Stripe can cache an executed POST failure under its idempotency key; a cached
+marker-write failure can therefore stay blocked and need operator repair rather
+than recover automatically on a retry. Do not remove/change a key to force a send.
+
+Keep sender/origin/template/signing settings stable while retries are pending to
+avoid idempotency payload conflicts. Failures inside the retry window return a
+retryable webhook response. Restore keys use hourly buckets, so cross-boundary
+manual restore requests can send again. Restore intentionally hides lookup/email
+outcomes from the requester. These limits are separate from request throttling.
+
+Refund eligibility is unresolved: a paid Checkout Session does not prove that the
+charge is unrefunded, and current restoration can reissue after a refund. No refund
+read permission or new refund event subscription is included. Payam must choose the
+refund/reissue policy before launch; engineering then implements the approved control.
+Already issued offline licenses cannot be remotely revoked.
 [Resend idempotency](https://resend.com/docs/dashboard/emails/idempotency-keys)

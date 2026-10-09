@@ -2,12 +2,13 @@ import { pathToFileURL } from 'node:url';
 
 export const setupPlan = {
   mode: 'test',
+  apiVersion: '2026-04-22.dahlia',
   product: { id: 'aloud', name: 'Aloud', tax_code: 'txcd_10202000' },
   prices: [
     { lookup_key: 'aloud_launch', usd: 999, cad: 999 },
     { lookup_key: 'aloud_regular', usd: 1900, cad: 1900, eur: 1900, gbp: 1700, aud: 2900 },
   ],
-  webhook: { path: '/api/webhook', events: ['checkout.session.completed', 'checkout.session.async_payment_succeeded'] },
+  webhook: { path: '/api/webhook', apiVersion: '2026-04-22.dahlia', events: ['checkout.session.completed', 'checkout.session.async_payment_succeeded'] },
   ownerSteps: [
     'Complete physical-ID verification and obtain Managed Payments approval.',
     'Approve separate test-only credentials and a license signing key/public-key pair.',
@@ -28,7 +29,7 @@ export async function inspectTestAccount({ key, siteOrigin, fetcher = fetch }) {
   }
   async function get(path) {
     const response = await fetcher(`https://api.stripe.com/v1${path}`, {
-      method: 'GET', headers: { Authorization: `Bearer ${key}`, 'Stripe-Version': '2025-09-30.clover' },
+      method: 'GET', headers: { Authorization: `Bearer ${key}`, 'Stripe-Version': setupPlan.apiVersion },
       signal: AbortSignal.timeout(10000),
     });
     if (!response.ok) throw new Error(`Stripe read failed (${response.status}); no setup was changed.`);
@@ -64,7 +65,8 @@ export async function inspectTestAccount({ key, siteOrigin, fetcher = fetch }) {
       productIsAloud: p.product === 'aloud' || p.product?.id === 'aloud',
     })),
     webhookConfigured: siteOrigin ? hooks.some(h => {
-      try { return h.url === siteOrigin + '/api/webhook' && h.status === 'enabled' && setupPlan.webhook.events.every(e => h.enabled_events?.includes(e) || h.enabled_events?.includes('*')); }
+      try { return h.url === siteOrigin + '/api/webhook' && h.status === 'enabled'
+        && h.api_version === setupPlan.apiVersion && setupPlan.webhook.events.every(e => h.enabled_events?.includes(e) || h.enabled_events?.includes('*')); }
       catch { return false; }
     }) : null,
     webhookOriginRequired: !siteOrigin,

@@ -6,6 +6,7 @@
 // Email is disabled unless ALOUD_EMAIL_ENABLED=true, RESEND_API_KEY and LICENSE_EMAIL_FROM
 // are configured. This does not authorize creating a Resend account or sending email.
 import { createHmac, createPrivateKey, createPublicKey, sign, timingSafeEqual } from 'node:crypto';
+export const STRIPE_API_VERSION = '2026-04-22.dahlia';
 
 // Must match the fixed public key in Licensing.swift. Rotation requires an
 // intentional app/backend release; request input and environment cannot override it.
@@ -81,6 +82,29 @@ export function requireEmail() {
   const address = typeof from === 'string' ? (from.match(/^[^<>\r\n]+ <([^<>]+)>$/)?.[1] || from) : '';
   if (process.env.ALOUD_EMAIL_ENABLED !== 'true' || !process.env.RESEND_API_KEY
     || !validEmail(address)) throw new HttpError(503, 'License email isn’t configured.');
+  if (paymentMode() === 'test') testEmailRecipients();
+}
+
+/** No implicit sandbox recipient, wildcard, or request-controlled override. */
+function testEmailRecipients() {
+  const configured = process.env.ALOUD_TEST_EMAIL_ALLOWLIST;
+  if (typeof configured !== 'string' || Buffer.byteLength(configured, 'utf8') > 8192
+    || /[\p{Cc}\p{Cf}]/u.test(configured)) {
+    throw new HttpError(503, 'Sandbox email recipients aren’t configured.');
+  }
+  const addresses = configured.split(',').map(address => address.trim());
+  if (!addresses.length || addresses.length > 20
+    || addresses.some(address => !validEmail(address) || address.includes('*'))) {
+    throw new HttpError(503, 'Sandbox email recipients aren’t configured.');
+  }
+  return new Set(addresses.map(address => address.toLowerCase()));
+}
+
+export function requireEmailRecipient(email) {
+  if (!validEmail(email)) throw new HttpError(400, 'License email recipient is invalid.');
+  if (paymentMode() === 'test' && !testEmailRecipients().has(email.toLowerCase())) {
+    throw new HttpError(403, 'Sandbox email recipient is not approved.');
+  }
 }
 
 export function requireDelivery(request) {
@@ -108,15 +132,16 @@ function formEncode(params, prefix, out = new URLSearchParams()) {
   return out;
 }
 
-export async function stripe(path, { method = 'GET', params } = {}) {
+export async function stripe(path, { method = 'GET', params, idempotencyKey } = {}) {
   const key = stripeKey();
   const query = params ? formEncode(params) : null;
   let res, data;
   try {
     res = await fetch(`https://api.stripe.com/v1${path}${method === 'GET' && query ? `?${query}` : ''}`, {
       method,
-      headers: { Authorization: `Bearer ${key}`, 'Stripe-Version': '2025-09-30.clover',
-        ...(method === 'GET' ? {} : { 'Content-Type': 'application/x-www-form-urlencoded' }) },
+      headers: { Authorization: `Bearer ${key}`, 'Stripe-Version': STRIPE_API_VERSION,
+        ...(method === 'GET' ? {} : { 'Content-Type': 'application/x-www-form-urlencoded',
+          ...(idempotencyKey ? { 'Idempotency-Key': idempotencyKey } : {}) }) },
       body: method === 'GET' ? undefined : query,
       signal: AbortSignal.timeout(15_000),
     });
@@ -142,6 +167,70 @@ export function isPaidAloud(session) {
     && validEmail(session.customer_details?.email)
     && Number.isSafeInteger(session.created) && session.created > 0
     && session.created <= Math.floor(Date.now() / 1000) + 300;
+}
+
+/** Explicit immutable price IDs preserve approved historical purchases even after
+ * a lookup key moves or a price is archived. No configured IDs means no sales.
+ */
+export function approvedPurchasePolicy() {
+  const raw = process.env.ALOUD_APPROVED_PRICE_IDS;
+  const prices = typeof raw === 'string' ? raw.split(',').map(id => id.trim()) : [];
+  if (!prices.length || prices.some(id => !/^price_[A-Za-z0-9]+$/.test(id))) {
+    throw new HttpError(503, 'Approved Aloud prices aren’t configured.');
+  }
+  return { product: process.env.ALOUD_STRIPE_PRODUCT_ID || 'aloud', prices: new Set(prices) };
+}
+
+/** The returned field is documented in 2026-04-22.dahlia. Never infer coverage
+ * from metadata, taxes, Link usage, or our enabled:true creation request alone.
+ */
+export function assertManagedPayments(session) {
+  if (session?.managed_payments?.enabled !== true) {
+    throw new HttpError(503, 'Managed Payments coverage couldn’t be verified.');
+  }
+}
+
+/** Call only with a session read from Stripe using this deployment's scoped key.
+ * The signed event and mutable product metadata are insufficient purchase proof.
+ */
+export async function verifyPurchase(session) {
+  const policy = approvedPurchasePolicy();
+  if (!isPaidAloud(session)) throw new HttpError(404, 'No completed Aloud purchase found.');
+  if (session.managed_payments?.enabled !== true) throw new HttpError(404, 'No approved Managed Payments purchase found.');
+  const lines = await stripe(`/checkout/sessions/${session.id}/line_items`, { params: { limit: 2 } });
+  const item = lines?.data?.[0];
+  const priceId = typeof item?.price === 'string' ? item.price : item?.price?.id;
+  if (lines?.object !== 'list' || lines.has_more !== false || !Array.isArray(lines.data)
+    || lines.data.length !== 1 || item.object !== 'item' || item.quantity !== 1
+    || !policy.prices.has(priceId)) throw new HttpError(404, 'No approved Aloud purchase found.');
+  const price = await stripe(`/prices/${priceId}`, { params: { expand: ['currency_options'] } });
+  const currency = session.currency;
+  const amount = price?.currency === currency ? price.unit_amount : price?.currency_options?.[currency]?.unit_amount;
+  if (price?.object !== 'price' || price.id !== priceId || price.type !== 'one_time'
+    || price.recurring != null || price.custom_unit_amount != null || price.transform_quantity != null
+    || price.billing_scheme !== 'per_unit' || (price.product?.id || price.product) !== policy.product
+    || price.livemode !== (paymentMode() === 'live')
+    || !/^[a-z]{3}$/.test(currency || '') || item.currency !== currency
+    || !Number.isSafeInteger(amount) || amount <= 0
+    || !Number.isSafeInteger(item.amount_subtotal) || item.amount_subtotal !== amount
+    || !Number.isSafeInteger(item.amount_total) || item.amount_total <= 0
+    || !Number.isSafeInteger(session.amount_subtotal) || session.amount_subtotal !== item.amount_subtotal
+    || !Number.isSafeInteger(session.amount_total) || session.amount_total !== item.amount_total) {
+    throw new HttpError(404, 'No approved Aloud purchase found.');
+  }
+  return session;
+}
+
+export async function retrievePurchase(id) {
+  const mode = paymentMode();
+  if (typeof id !== 'string' || !new RegExp(`^cs_${mode}_[A-Za-z0-9]+$`).test(id)) {
+    throw new HttpError(400, 'That isn’t a checkout link for this mode.');
+  }
+  approvedPurchasePolicy();
+  const session = await stripe(`/checkout/sessions/${id}`);
+  assertSessionMode(session);
+  if (session.id !== id) throw new HttpError(404, 'No completed Aloud purchase found.');
+  return verifyPurchase(session);
 }
 
 export function licenseFor(session) {
@@ -174,14 +263,15 @@ export const escapeHTML = (value) => String(value).replace(/[&<>"']/g, (char) =>
   ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 
 /** Resend deduplicates identical keys for 24h, including across cold starts.
- * Purchase keys belong to the session, not the event. Later replays can email again:
- * this is not durable deduplication after 24h. Restore allows one new send per hour.
+ * Purchase keys belong to the session, not the event; webhook.mjs adds durable
+ * attempt/acceptance markers. Restore allows one new send per hour.
  */
 export async function emailLicense(session, origin, purpose = 'purchase') {
   requireEmail();
   assertReleaseSigner();
   if (origin !== originOf()) throw new HttpError(503, 'The payment site isn’t configured.');
   const license = licenseFor(session);
+  requireEmailRecipient(session.customer_details.email);
   const link = `${origin}/activate#${license}`;
   const text = ['Thanks for buying Aloud!', '', `Unlock Aloud on this Mac: ${link}`, '',
     'Or open Aloud Settings → License → Enter License… and paste:', '', license, '',
