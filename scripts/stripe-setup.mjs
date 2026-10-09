@@ -17,8 +17,13 @@ export const setupPlan = {
   ],
 };
 
-export async function inspectTestAccount({ key, fetcher = fetch }) {
+export async function inspectTestAccount({ key, siteOrigin, fetcher = fetch }) {
   if (!/^sk_test_[A-Za-z0-9]+$/.test(key || '')) throw new Error('Use an authorized Stripe test secret key; live keys are rejected.');
+  if (siteOrigin) {
+    let url;
+    try { url = new URL(siteOrigin); } catch { throw new Error('Use an exact HTTPS SITE_ORIGIN.'); }
+    if (url.protocol !== 'https:' || url.origin !== siteOrigin || url.username || url.password) throw new Error('Use an exact HTTPS SITE_ORIGIN.');
+  }
   async function get(path) {
     const response = await fetcher(`https://api.stripe.com/v1${path}`, {
       method: 'GET', headers: { Authorization: `Bearer ${key}`, 'Stripe-Version': '2025-09-30.clover' },
@@ -56,10 +61,11 @@ export async function inspectTestAccount({ key, fetcher = fetch }) {
       lookupKey: p.lookup_key, currency: p.currency, amount: p.unit_amount, type: p.type,
       productIsAloud: p.product === 'aloud' || p.product?.id === 'aloud',
     })),
-    webhookConfigured: hooks.some(h => {
-      try { return new URL(h.url).pathname === '/api/webhook' && h.status === 'enabled' && setupPlan.webhook.events.every(e => h.enabled_events?.includes(e)); }
+    webhookConfigured: siteOrigin ? hooks.some(h => {
+      try { return h.url === siteOrigin + '/api/webhook' && h.status === 'enabled' && setupPlan.webhook.events.every(e => h.enabled_events?.includes(e) || h.enabled_events?.includes('*')); }
       catch { return false; }
-    }),
+    }) : null,
+    webhookOriginRequired: !siteOrigin,
   };
 }
 
@@ -67,7 +73,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   const action = process.argv[2] || '--plan';
   try {
     if (action === '--plan') console.log(JSON.stringify(setupPlan, null, 2));
-    else if (action === '--check') console.log(JSON.stringify(await inspectTestAccount({ key: process.env.STRIPE_SECRET_KEY }), null, 2));
+    else if (action === '--check') console.log(JSON.stringify(await inspectTestAccount({ key: process.env.STRIPE_SECRET_KEY, siteOrigin: process.env.SITE_ORIGIN }), null, 2));
     else throw new Error('Use --plan (offline) or --check (read-only test account). This script cannot create credentials or activate billing.');
   } catch (error) { console.error(error.message); process.exitCode = 1; }
 }

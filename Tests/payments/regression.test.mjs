@@ -155,6 +155,13 @@ for (const [name, change] of Object.entries({ subscription: { mode: 'subscriptio
   test(`cannot sign ${name} session`, () => { assert.equal(isPaidAloud(session(change)), false); assert.throws(() => licenseFor(session(change))); });
 }
 test('email byte limit matches app verifier', () => { assert.equal(validEmail(`${'é'.repeat(125)}@example.test`), false); });
+for (const char of ['\u007f', '\u0085', '\u009f', '\u200b']) {
+  test(`email control/format U+${char.codePointAt(0).toString(16)} cannot produce an unusable app license`, () => {
+    const email = `buy${char}er@example.test`;
+    assert.equal(validEmail(email), false);
+    assert.throws(() => licenseFor(session({ customer_details: { email } })));
+  });
+}
 test('live session URL is rejected in default test before Stripe', async () => {
   assert.equal((await getLicense(request('/api/license?session_id=cs_live_Fixture123'))).status, 400); assert.equal(calls.length, 0);
 });

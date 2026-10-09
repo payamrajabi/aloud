@@ -1,0 +1,33 @@
+name: Payment and licensing checks
+on:
+  pull_request:
+    paths:
+      - 'docs/api/**'
+      - 'docs/assets/payment-pages.mjs'
+      - 'Sources/ReadAloud/Licensing.swift'
+      - 'Tests/**'
+      - 'scripts/stripe-setup*'
+      - 'scripts/license-key-check.mjs'
+      - '.github/workflows/payment-checks.yml'
+  push:
+    branches: [main, codex/fin-874-payment-plumbing]
+permissions:
+  contents: read
+jobs:
+  offline-checks:
+    runs-on: macos-15
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Offline payment, browser and setup checks
+        run: node --test Tests/payments/regression.test.mjs Tests/setup/*.test.mjs
+      - name: JavaScript issuer to Swift CryptoKit licensing checks
+        run: bash Tests/licensing/run.sh
+      - name: Offline setup plan
+        run: node scripts/stripe-setup.mjs --plan

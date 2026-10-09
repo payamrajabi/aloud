@@ -341,6 +341,12 @@ final class PlayerModel: ObservableObject {
     // MARK: - Playback internals
 
     private func startPlayback(at index: Int, fraction: Double) {
+        // Scrubbing, voice changes and audio-route callbacks also restart playback here.
+        // Passive callbacks stop quietly; explicit read/play/jump actions offer the purchase UI.
+        guard Licensing.shared.isUnlocked else {
+            pause()
+            return
+        }
         defer { notify() }
         outputWasBuiltIn = AudioDevices.preferredDevice(.output)?.isBuiltIn ?? false
         token += 1

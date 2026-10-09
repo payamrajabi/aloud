@@ -8,6 +8,7 @@
 import { createHmac, createPrivateKey, sign, timingSafeEqual } from 'node:crypto';
 
 export const validEmail = (value) => typeof value === 'string' && Buffer.byteLength(value, 'utf8') <= 254
+  && !/[\p{Cc}\p{Cf}]/u.test(value)
   && /^[^@\s<>\x00-\x1f]+@[^@\s<>\x00-\x1f]+\.[^@\s<>\x00-\x1f]+$/.test(value);
 export const SUPPORT_EMAIL = validEmail(process.env.SUPPORT_EMAIL)
   ? process.env.SUPPORT_EMAIL : 'payam.rajabi@gmail.com';

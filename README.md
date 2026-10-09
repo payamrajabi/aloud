@@ -150,8 +150,11 @@ The landing page lives in `docs/` and is served at https://aloudformac.com by Ve
 
 Aloud is free for 7 days from first launch, then a one-time purchase (people who
 installed it while it was free keep it free; `Licensing.earlyUsersFree`). Stripe
-Managed Payments sells it, so Stripe is the merchant of record and handles sales tax
-and VAT worldwide.
+Managed Payments is the intended merchant-of-record integration. Checkout explicitly
+requests `managed_payments[enabled]=true`; it never falls back to standard Checkout.
+Stripe handles sales tax, VAT and GST compliance in its supported countries (80+),
+not every country worldwide. Account activation, terms acceptance and product
+eligibility must be verified before sales. See [payment setup](docs/PAYMENT-SETUP.md).
 
 - **Buying:** the app's Buy Aloud… opens https://aloudformac.com/buy (`docs/api/buy.mjs`),
   which starts a Stripe Checkout for the price named by `ALOUD_PRICE_LOOKUP_KEY`
@@ -164,11 +167,14 @@ and VAT worldwide.
 - **Licenses** are the purchase details signed with Ed25519, checked offline by
   `Licensing.swift` against the public key built into the app. Nothing is stored on
   a server: the same purchase always produces the same license. The private key is
-  `~/.config/aloud/license-signing-key.pem` on Payam's Mac and `LICENSE_SIGNING_KEY` on
-  Vercel. Back it up: without it, no new license can unlock existing installs.
-- **Setup:** `STRIPE_SECRET_KEY=sk_… ./scripts/stripe-setup.sh` creates the product,
-  both prices (USD, CAD, EUR, GBP, AUD) and the webhook. The Vercel settings it needs
-  are listed at the top of `docs/api/_lib.mjs`.
+  `LICENSE_SIGNING_KEY` on Vercel; its correspondence to the app's public key has not
+  been verified by this branch. Preserve and securely back up the approved issuer key:
+  replacing it would prevent new licenses from unlocking existing installs.
+- **Setup:** `./scripts/stripe-setup.sh --plan` prints the offline plan. `--check`
+  inspects an already authorized test account using GET requests only. The script
+  cannot create credentials, products, prices or webhooks, or enable live payments.
+  The required settings and real sandbox acceptance steps are in
+  [PAYMENT-SETUP.md](docs/PAYMENT-SETUP.md).
 
 ## License
 

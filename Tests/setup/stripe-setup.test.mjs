@@ -9,7 +9,7 @@ test('live or missing credentials fail before any request', async () => {
 });
 test('inspector is GET-only, paginates and reports no private account data or webhook secret', async () => {
   const urls = [];
-  const result = await inspectTestAccount({ key: 'sk_test_example', fetcher: async (url, init) => {
+  const result = await inspectTestAccount({ key: 'sk_test_example', siteOrigin:'https://example.test', fetcher: async (url, init) => {
     assert.equal(init.method, 'GET'); urls.push(url);
     if (url.endsWith('/account')) return Response.json({ id: 'private-account', email: 'private@example.test', charges_enabled: true,
       payouts_enabled: false, requirements: { currently_due: ['individual.verification.document'] }, capabilities: { card_payments: 'active' } });

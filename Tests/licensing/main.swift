@@ -77,7 +77,9 @@ for (elapsed, expected) in [(0.0, 7), (86_399.0, 7), (86_400.0, 6), (6 * 86_400.
 }
 check(LicensePolicy.status(license: nil, trial: fresh, now: start.addingTimeInterval(7 * 86_400)) == .expired, "expires at exactly 7 elapsed days")
 check(LicensePolicy.status(license: nil, trial: fresh, now: start.addingTimeInterval(9 * 86_400)) == .expired, "remains expired")
-check(LicensePolicy.status(license: nil, trial: fresh, now: start.addingTimeInterval(-100)) == .trial(daysLeft: 7), "clock rollback does not add days beyond the original week")
+check(LicensePolicy.status(license: nil, trial: fresh, now: start.addingTimeInterval(-100)) == .expired, "clock rollback fails closed instead of extending the trial")
+let futureTrial = LicensePolicy.Trial(started: start.addingTimeInterval(365 * 86_400), earlyUser: false)
+check(LicensePolicy.status(license: nil, trial: futureTrial, now: start) == .expired, "trial marker one year ahead cannot grant another week")
 check(LicensePolicy.status(license: live, trial: fresh, now: start.addingTimeInterval(100 * 86_400)) == .licensed(email: "buyer+test@example.com"), "license unlocks expired trial offline")
 check(LicensePolicy.status(license: nil, trial: fresh, now: start.addingTimeInterval(100 * 86_400)) == .expired, "removing license does not restart trial")
 check(LicensePolicy.status(license: live, trial: LicensePolicy.Trial(started: start, earlyUser: true), now: start) == .licensed(email: "buyer+test@example.com"), "licensed status precedes legacy status")

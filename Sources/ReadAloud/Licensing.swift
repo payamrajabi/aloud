@@ -38,8 +38,9 @@ enum LicensePolicy {
     static func status(license: License?, trial: Trial, now: Date, earlyUsersFree: Bool = true) -> Status {
         if let license { return .licensed(email: license.email) }
         if earlyUsersFree, trial.earlyUser { return .earlyUser }
-        guard let start = trial.started else { return .expired }
-        let elapsed = max(0, now.timeIntervalSince(start))
+        // A future marker must not extend the trial until that date plus another week.
+        guard let start = trial.started, start <= now else { return .expired }
+        let elapsed = now.timeIntervalSince(start)
         guard elapsed < Double(trialDays) * 86_400 else { return .expired }
         return .trial(daysLeft: trialDays - Int(elapsed / 86_400))
     }
