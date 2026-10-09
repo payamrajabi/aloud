@@ -208,9 +208,10 @@ public enum Tokenizer {
     private static let streetPrepositions: Set<String> = ["on", "down", "along", "onto", "off", "up", "at", "near",
                                                           "via", "across", "past", "into"]
     /// Names that "St." (Saint) follows in a place: "near Mount St. Helens", "at Port St. Lucie".
-    private static let placePrefixes: Set<String> = ["Mount", "Mt", "Port", "Fort", "Ft", "Lake", "Cape", "Point", "Pointe",
-                                                     "Isle", "Bay", "Grand", "Sault", "Little", "Great", "East", "West",
-                                                     "North", "South", "New", "Old", "Upper", "Lower", "Rue", "Ste"]
+    /// The address pass reads "St" with no period by them too ("Mount St Helens").
+    static let placePrefixes: Set<String> = ["Mount", "Mt", "Port", "Fort", "Ft", "Lake", "Cape", "Point", "Pointe",
+                                             "Isle", "Bay", "Grand", "Sault", "Little", "Great", "East", "West",
+                                             "North", "South", "New", "Old", "Upper", "Lower", "Rue", "Ste"]
 
     /// Titles a sentence splitter can take for a full stop.
     private static let runOnTitles = titles.union(["Dr.", "Mr.", "Mrs.", "Ms.", "Mt."])

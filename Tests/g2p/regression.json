@@ -4891,8 +4891,8 @@
   },
   {
    "text": "Cambridge, MA 02139",
-   "us": "zˈɪɹO tˈu wˈʌn θɹˈi nˈIn",
-   "gb": "zˈɪəɹQ tˈuː wˈʌn θɹˈiː nˈIn"
+   "us": "mˌæsəʧˈusəts ˈO tˈu wˈʌn θɹˈi nˈIn",
+   "gb": "mˌasəʧˈuːsɪts ˈQ tˈuː wˈʌn θɹˈiː nˈIn"
   },
   {
    "text": "Meet at 05:30 tomorrow.",
@@ -5248,6 +5248,37 @@
    "text": "He lives at Port St. Lucie now.",
    "chunks": [
     "He lives at Port St. Lucie now."
+   ]
+  },
+  {
+   "text": "Send it to 12 Elm Rd. Suite 3, Austin.",
+   "chunks": [
+    "Send it to 12 Elm Rd. Suite 3, Austin."
+   ]
+  },
+  {
+   "text": "Ring Apt. 4B when you arrive.",
+   "chunks": [
+    "Ring Apt. 4B when you arrive."
+   ]
+  },
+  {
+   "text": "We stayed in Sault Ste. Marie last week.",
+   "chunks": [
+    "We stayed in Sault Ste. Marie last week."
+   ]
+  },
+  {
+   "text": "The White House is at 1600 Pennsylvania Ave. NW in Washington.",
+   "chunks": [
+    "The White House is at 1600 Pennsylvania Ave. NW in Washington."
+   ]
+  },
+  {
+   "text": "Turn left on Elm Rd. Then go straight.",
+   "chunks": [
+    "Turn left on Elm Rd.",
+    "Then go straight."
    ]
   },
   {
