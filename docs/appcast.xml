@@ -6,6 +6,24 @@
     <description>Updates for Aloud</description>
     <language>en</language>
     <item>
+      <title>Aloud 1.6.2</title>
+      <pubDate>Fri, 09 Oct 2026 05:46:56 GMT</pubDate>
+      <sparkle:version>111</sparkle:version>
+      <sparkle:shortVersionString>1.6.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>Dictation is now reliable even right after Aloud opens: if your Mac is slow to get the microphone ready, dictation no longer stops partway or says it heard nothing.</p>]]></description>
+      <enclosure url="https://aloudformac.com/releases/v1.6.2/Aloud.dmg" length="19906343" type="application/octet-stream" sparkle:edSignature="F9QrVge81SD9JR+EJoxidRevqJlAbxISlkkUILUvyKqyUJ3LCMhIFd2luLNXzCPFDnCS5auYrdKAbRFVR0VcCA=="/>
+    </item>
+    <item>
+      <title>Aloud 1.6.1</title>
+      <pubDate>Fri, 09 Oct 2026 05:29:39 GMT</pubDate>
+      <sparkle:version>109</sparkle:version>
+      <sparkle:shortVersionString>1.6.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>Fixes dictation sometimes recording nothing, especially while Aloud was reading: the microphone now recovers by itself, and if it ever can't hear you, Aloud tells you straight away instead of after you've finished talking. When you stop dictating, reading picks up where it paused.</p>]]></description>
+      <enclosure url="https://aloudformac.com/releases/v1.6.1/Aloud.dmg" length="19992567" type="application/octet-stream" sparkle:edSignature="vFDS9DS5vX9DI0wHXqJIBZU20q0OVGjNdRNyo2cRLp/dlnWW4xbsQsAonoJUC+7qMmxpl8PFKdIxGG4VJcluAg=="/>
+    </item>
+    <item>
       <title>Aloud 1.6.0</title>
       <pubDate>Thu, 08 Oct 2026 17:46:02 GMT</pubDate>
       <sparkle:version>107</sparkle:version>

@@ -20,6 +20,9 @@ import CSherpaOnnx
 ///   --clean "text" | --clean-file path [--piece-words 30]  tidy dictation text as if it arrived in pieces, print timing
 ///   --test-gestures                                     check modifier tap / double-tap / hold detection and exit
 ///   --slow-pill                                         play the on-screen pill's changes ten times slower
+///   --no-paste                                          print what dictation would type instead of typing it
+///   --dead-mic                                          drop all microphone audio (dictation should give up and say so)
+///   --slow-mic-setup                                    make the microphone's background setup take 15 s longer
 ///   READALOUD_MODELS_DIR=/some/folder                   use a different models folder (test fresh installs)
 ///   --script "2:seek=30;4:pause;5:play;8:open;9:snapshot=/tmp/p.png;10:quit"
 enum DebugScript {
@@ -333,6 +336,7 @@ enum DebugScript {
             app.menuNeedsUpdate(menu)
             print(menu.items.map { $0.isSeparatorItem ? "—" : $0.title }.joined(separator: " | "))
         case "dictate": app.dictationController.toggle()
+        case "killmic": app.dictationController.debugStopMicrophone()
         case "hud":  // hud=armed, recording, transcribing, downloading, message, longmessage, finding, reading, hint or idle
             let states: [String: DictationController.State] = [
                 "armed": .recording, "recording": .recording, "transcribing": .transcribing, "downloading": .downloading(0.42),
@@ -407,8 +411,38 @@ enum DebugScript {
         case "devices":
             for d in AudioDevices.scan() { print("   \(d.hasInput ? "in " : "   ")\(d.hasOutput ? "out" : "   ")  \(d.name)  [\(d.uid)]") }
             print("   preferred output: \(AudioDevices.preferredDevice(.output)?.name ?? "none"), input: \(AudioDevices.preferredDevice(.input)?.name ?? "none")")
+        case "miccheck":  // miccheck=N: record 2 s N times, as dictation does; miccheck=N:kill also stops the engine mid-way
+            micCheckRecorder.prepare { micCheck(trials: Int(arg.split(separator: ":").first ?? "") ?? 10, action: arg, model: model) }
         case "quit": NSApp.terminate(nil)
         default: print("unknown action \(action)")
+        }
+    }
+
+    /// Starts the microphone the way dictation does (pausing reading first, resuming after) and
+    /// reports how much of each 2-second recording actually arrived.
+    private static let micCheckRecorder = Recorder()  // one for the whole run, like the app's
+    private static func micCheck(trials: Int, action: String, model: PlayerModel, done: Int = 0, failed: Int = 0) {
+        guard done < trials else {
+            print("   miccheck: \(failed) of \(trials) recordings lost the microphone"); fflush(stdout)
+            return
+        }
+        let resume = model.isPlaying
+        if resume { model.pause() }
+        let recorder = micCheckRecorder
+        do { try recorder.start() } catch { print("   miccheck \(done + 1): couldn't start: \(error)") }
+        // miccheck=N:kill also stops the engine behind the recorder's back halfway through.
+        if action.hasSuffix(":kill") {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { recorder.debugStopEngine() }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + (action.hasSuffix(":kill") ? 4 : 2)) {
+            let seconds = Double(recorder.stop().count) / Double(ParakeetEngine.sampleRate)
+            let lost = seconds < (action.hasSuffix(":kill") ? 2.0 : 1.5)
+            print(String(format: "   miccheck %d: %.2fs captured, %d restarts%@", done + 1, seconds, recorder.totalRestarts,
+                         lost ? "  << LOST" : "")); fflush(stdout)
+            if resume { model.play() }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                micCheck(trials: trials, action: action, model: model, done: done + 1, failed: failed + (lost ? 1 : 0))
+            }
         }
     }
 

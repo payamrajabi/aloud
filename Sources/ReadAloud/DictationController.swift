@@ -55,6 +55,7 @@ final class DictationController: ObservableObject {
     init(player: PlayerModel) {
         self.player = player
         recorder.onLevel = { [weak self] in self?.level = $0 }
+        recorder.onFailure = { [weak self] in self?.microphoneLost() }
         shortcuts.onDictate = { [weak self] provisional in self?.startFromShortcut(provisional: provisional) }
         shortcuts.onConfirm = { [weak self] in self?.confirm() }
         shortcuts.onRetract = { [weak self] in self?.retract() }
@@ -82,6 +83,11 @@ final class DictationController: ObservableObject {
         }
         if ParakeetEngine.isInstalled {
             queue.async { _ = self.loadEngine() }
+            // Have the microphone ready before the first dictation (only when access is already granted:
+            // making it checks, and launch is no time to ask).
+            if AVCaptureDevice.authorizationStatus(for: .audio) == .authorized {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [recorder] in recorder.prepare() }
+            }
         } else {
             // Fetch the dictation model quietly soon after first launch so it's
             // ready by the time someone tries it (unless they removed it in Settings).
@@ -185,7 +191,10 @@ final class DictationController: ObservableObject {
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .audio) { granted in
                 DispatchQueue.main.async {
-                    if granted { self.show("Microphone ready. \(Self.dictateInstruction) to dictate.") }
+                    if granted {
+                        self.show("Microphone ready. \(Self.dictateInstruction) to dictate.")
+                        self.recorder.prepare()
+                    }
                     else { self.show("Aloud needs microphone access to dictate.") }
                 }
             }
@@ -249,20 +258,34 @@ final class DictationController: ObservableObject {
         resumeReading()
     }
 
-    private func finish() {
+    /// The microphone stopped sending audio and couldn't be restarted: stop now, keeping what was
+    /// heard, rather than let you carry on talking into nothing.
+    private func microphoneLost() {
+        guard state == .recording else { return }
+        finish(micLost: true)
+    }
+
+    private func finish(micLost: Bool = false) {
         isProvisional = false
         if Self.dryRun { print("   dictation: stop and transcribe"); fflush(stdout); state = .idle; return }
         pollTimer?.invalidate()
         let samples = recorder.stop()
+        if DebugScript.args.contains("--trace") {
+            print(String(format: "   dictation: %.2fs of audio from a %.1fs recording", Double(samples.count) / 16_000, Date().timeIntervalSince(startedAt)))
+        }
         cleaner.willFinish()
-        NSSound(named: "Pop")?.play()
-        guard samples.count > ParakeetEngine.sampleRate / 3 else {  // under ~0.3 s: nothing said
+        NSSound(named: micLost ? "Funk" : "Pop")?.play()
+        // Back to what was being read straight away; the text is typed when it's ready.
+        resumeReading()
+        guard samples.count > ParakeetEngine.sampleRate / 3 else {  // under ~0.3 s of audio
             streamer.reset()
             cleaner.cancel()
             state = .idle
-            resumeReading()
+            // A quick tap is nothing said; a longer recording without audio means the microphone failed, so say so.
+            if micLost || Date().timeIntervalSince(startedAt) > 1 { show(Self.noAudioMessage) }
             return
         }
+        afterTyping = micLost ? "The microphone stopped partway, so Aloud typed what it heard until then." : nil
         state = .transcribing
         let started = Date()
         let seconds = Double(samples.count) / 16_000
@@ -289,6 +312,9 @@ final class DictationController: ObservableObject {
     }
 
     private static let cleanupTimeout: TimeInterval = 6
+    static let noAudioMessage = "Aloud didn't get any sound from the microphone, so nothing was typed. Try again."
+    /// A message to show once the text is typed.
+    private var afterTyping: String?
 
     /// `heard` is Parakeet's transcript; `tidied` the clean-up model's version, when it ran.
     private func deliver(heard raw: String, tidied: String?, audioSeconds: Double, took: Double) {
@@ -297,9 +323,10 @@ final class DictationController: ObservableObject {
             print(String(format: "   dictation: %.1fs recording, text ready %.2fs after stopping: %@", audioSeconds, took, tidied ?? raw))
         }
         state = .idle
-        resumeReading()
+        let note = afterTyping
+        afterTyping = nil
         guard let result = Self.result(heard: raw, tidied: tidied, fixTerms: Self.fixesTechTerms) else {
-            show("Didn't catch that.")
+            show(note == nil ? "Didn't catch that." : "The microphone stopped before Aloud caught anything.")
             return
         }
         if trace, result.typed != (tidied ?? raw).trimmingCharacters(in: .whitespacesAndNewlines) {
@@ -308,6 +335,7 @@ final class DictationController: ObservableObject {
         lastTranscript = result.typed
         lastHeard = result.heard
         insert(result.typed)
+        if let note { show(note) }
     }
 
     /// What gets typed (the tidied text if the clean-up model ran, then tech terms fixed)
@@ -341,6 +369,7 @@ final class DictationController: ObservableObject {
 
     /// Pastes into the focused app, then puts your clipboard back.
     private func insert(_ text: String) {
+        if DebugScript.args.contains("--no-paste") { print("   dictation: would type: \(text)"); fflush(stdout); return }
         let pasteboard = NSPasteboard.general
         let saved = SelectionReader.snapshot(pasteboard)
         pasteboard.clearContents()
@@ -487,6 +516,9 @@ final class DictationController: ObservableObject {
         level = 0.75
         startedAt = Date().addingTimeInterval(-7)
     }
+
+    /// Stops the microphone's engine behind the recorder's back, the way macOS sometimes does.
+    func debugStopMicrophone() { recorder.debugStopEngine() }
 
     func debugTranscribe(_ samples: [Float]) -> String {
         loadEngine()?.transcribe(samples) ?? ""
