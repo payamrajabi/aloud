@@ -4387,12 +4387,12 @@
   {
    "text": "On 2024-03-15 we met.",
    "us": "mˈɑɹʧ fˌɪftˈinθ, twˈɛnti twˈɛnti fˈɔɹ",
-   "gb": "mˈɑːʧ fˌɪftˈiːnθ, twˈɛnti twˈɛnti fˈɔː"
+   "gb": "ðə fˌɪftˈiːnθ ɒv mˈɑːʧ, twˈɛnti twˈɛnti fˈɔː"
   },
   {
    "text": "Call 1-800-555-1234 now.",
-   "us": "kˈɔl wˌʌnˌAt",
-   "gb": "kˈɔːl wˌʌnˌAt",
+   "us": "kˈɔl wˈʌn ˈAt hˈʌndɹəd, fˈIv fˈIv fˈIv, wˈʌn tˈu θɹˈi fˈɔɹ nˈW",
+   "gb": "kˈɔːl wˈʌn ˈAt hˈʌndɹəd, fˈIv fˈIv fˈIv, wˈʌn tˈuː θɹˈiː fˈɔː nˈW",
    "absent": "tə"
   },
   {
@@ -4539,14 +4539,14 @@
   },
   {
    "text": "Call me at 555-1234 tomorrow.",
-   "us": "kˈɔl mˌi æt fˈIv hˈʌndɹəd",
-   "gb": "kˈɔːl mˌiː at fˈIv hˈʌndɹəd",
+   "us": "kˈɔl mˌi æt fˈIv fˈIv fˈIv, wˈʌn tˈu θɹˈi fˈɔɹ",
+   "gb": "kˈɔːl mˌiː at fˈIv fˈIv fˈIv, wˈʌn tˈuː θɹˈiː fˈɔː",
    "absent": "tə tw"
   },
   {
    "text": "My number is 867-5309.",
-   "us": "ˈAt hˈʌndɹəd sˈɪksti",
-   "gb": "ˈAt hˈʌndɹəd sˈɪksti",
+   "us": "ˈAt sˈɪks sˈɛvən, fˈIv θɹˈi ˈO nˈIn",
+   "gb": "ˈAt sˈɪks sˈɛvᵊn, fˈIv θɹˈiː ˈQ nˈIn",
    "absent": " tə "
   },
   {
@@ -4881,8 +4881,9 @@
   },
   {
    "text": "Call me on 07700 900123.",
-   "us": "zˈɪɹO sˈɛvən sˈɛvən zˈɪɹO zˈɪɹO, nˈIn zˈɪɹO zˈɪɹO wˈʌn tˈu θɹˈi",
-   "gb": "zˈɪəɹQ sˈɛvᵊn sˈɛvᵊn zˈɪəɹQ zˈɪəɹQ, nˈIn zˈɪəɹQ zˈɪəɹQ wˈʌn tˈuː θɹˈiː"
+   "us": "ˈO sˈɛvən sˈɛvən ˈO ˈO, nˈIn ˈO ˈO, wˈʌn tˈu θɹˈi",
+   "gb": "ˈQ sˈɛvᵊn sˈɛvᵊn ˈQ ˈQ, nˈIn ˈQ ˈQ, wˈʌn tˈuː θɹˈiː",
+   "absent": "zˈɪ"
   },
   {
    "text": "Agent 007 is back.",
@@ -4891,8 +4892,8 @@
   },
   {
    "text": "Cambridge, MA 02139",
-   "us": "zˈɪɹO tˈu wˈʌn θɹˈi nˈIn",
-   "gb": "zˈɪəɹQ tˈuː wˈʌn θɹˈiː nˈIn"
+   "us": "mˌæsəʧˈusəts ˈO tˈu wˈʌn θɹˈi nˈIn",
+   "gb": "mˌasəʧˈuːsɪts ˈQ tˈuː wˈʌn θɹˈiː nˈIn"
   },
   {
    "text": "Meet at 05:30 tomorrow.",
@@ -4907,18 +4908,18 @@
   },
   {
    "text": "It costs $9.99/month.",
-   "us": "nˈIn dˈɑləɹz ænd nˈIndi nˈIn sˈɛnts pɜɹ mˈʌnθ",
-   "gb": "nˈIn dˈɒləz and nˈInti nˈIn sˈɛnts pɜː mˈʌnθ"
+   "us": "nˈIn nˈIndi nˈIn ɐ mˈʌnθ",
+   "gb": "nˈIn nˈInti nˈIn ɐ mˈʌnθ"
   },
   {
    "text": "I earn $15/hour.",
-   "us": "fˌɪftˈin dˈɑləɹz pɜɹ ˈWəɹ",
-   "gb": "fˌɪftˈiːn dˈɒləz pɜː ˈWə"
+   "us": "fˌɪftˈin dˈɑləɹz ɐn ˈWəɹ",
+   "gb": "fˌɪftˈiːn dˈɒləz ɐn ˈWə"
   },
   {
    "text": "It costs $10-$20.",
-   "us": "tˈɛn dˈɑləɹz tə twˈɛnti dˈɑləɹz",
-   "gb": "tˈɛn dˈɒləz tə twˈɛnti dˈɒləz"
+   "us": "tˈɛn tə twˈɛnti dˈɑləɹz",
+   "gb": "tˈɛn tə twˈɛnti dˈɒləz"
   },
   {
    "text": "It costs $1.5-$2.5 million.",
@@ -5008,13 +5009,13 @@
   },
   {
    "text": "Acme® is a brand.",
-   "us": "ˈækmi ɹˈɛʤəstəɹd ɪz",
-   "gb": "ˈakmi ɹˈɛʤɪstəd ɪz"
+   "us": "ˈækmi ɪz ɐ",
+   "gb": "ˈakmi ɪz ɐ"
   },
   {
    "text": "Aloud™ is great.",
-   "us": "əlˈWd tɹˈAdmˌɑɹk ɪz",
-   "gb": "əlˈWd tɹˈAdmɑːk ɪz",
+   "us": "əlˈWd ɪz ɡɹˈAt",
+   "gb": "əlˈWd ɪz ɡɹˈAt",
    "absent": "tˌiˈɛm"
   },
   {
@@ -5109,6 +5110,11 @@
    "text": "Elizabeth II's reign was long.",
    "us": "ðə sˈɛkəndz ɹˈAn",
    "gb": "ðə sˈɛkᵊndz ɹˈAn"
+  },
+  {
+   "text": "Bring pens, paper, etc. Then go.",
+   "us": "ɛtsˈɛTəɹə. ðˈɛn",
+   "gb": "ɛtsˈɛtəɹə. ðˈɛn"
   }
  ],
  "chunk_cases": [
@@ -5152,6 +5158,85 @@
    ]
   },
   {
+   "text": "We're #1 again.",
+   "chunks": [
+    "We're #1 again."
+   ]
+  },
+  {
+   "text": "I write C# daily.",
+   "chunks": [
+    "I write C# daily."
+   ]
+  },
+  {
+   "text": "The # of items is low.",
+   "chunks": [
+    "The # of items is low."
+   ]
+  },
+  {
+   "text": "We need ~5 people.",
+   "chunks": [
+    "We need ~5 people."
+   ]
+  },
+  {
+   "text": "Dial #31# now.",
+   "chunks": [
+    "Dial #31# now."
+   ]
+  },
+  {
+   "text": "Now ~~$10~~ $8.",
+   "chunks": [
+    "Now $8."
+   ]
+  },
+  {
+   "text": "Press * then 2.",
+   "chunks": [
+    "Press * then 2."
+   ]
+  },
+  {
+   "text": "Press # to finish.",
+   "chunks": [
+    "Press # to finish."
+   ]
+  },
+  {
+   "text": "## Setup steps",
+   "chunks": [
+    "Setup steps."
+   ]
+  },
+  {
+   "text": "Follow #blessed on Instagram.",
+   "chunks": [
+    "Follow blessed on Instagram."
+   ]
+  },
+  {
+   "text": "Attn. Maria Lopez",
+   "chunks": [
+    "Attn. Maria Lopez"
+   ]
+  },
+  {
+   "text": "The barn was built ca. 1850. It still stands.",
+   "chunks": [
+    "The barn was built ca. 1850.",
+    "It still stands."
+   ]
+  },
+  {
+   "text": "She said no. 2 days later, she called.",
+   "chunks": [
+    "She said no. 2 days later, she called."
+   ]
+  },
+  {
    "text": "We hiked Mount St. Helens last year.",
    "chunks": [
     "We hiked Mount St. Helens last year."
@@ -5178,16 +5263,97 @@
    ]
   },
   {
+   "text": "Det. Olivia Benson took the call.",
+   "chunks": [
+    "Det. Olivia Benson took the call."
+   ]
+  },
+  {
+   "text": "The Rt. Rev. Anne Hollis preached.",
+   "chunks": [
+    "The Rt. Rev. Anne Hollis preached."
+   ]
+  },
+  {
+   "text": "Sr. Mary Joseph taught us Latin.",
+   "chunks": [
+    "Sr. Mary Joseph taught us Latin."
+   ]
+  },
+  {
+   "text": "Lts. Kim and Park were decorated.",
+   "chunks": [
+    "Lts. Kim and Park were decorated."
+   ]
+  },
+  {
+   "text": "Fr. Brown solved the case.",
+   "chunks": [
+    "Fr. Brown solved the case."
+   ]
+  },
+  {
+   "text": "Mx. Taylor replied first.",
+   "chunks": [
+    "Mx. Taylor replied first."
+   ]
+  },
+  {
+   "text": "The Hon. Jane Doe presided.",
+   "chunks": [
+    "The Hon. Jane Doe presided."
+   ]
+  },
+  {
+   "text": "Brig. Gen. Chuck Yeager broke the sound barrier.",
+   "chunks": [
+    "Brig. Gen. Chuck Yeager broke the sound barrier."
+   ]
+  },
+  {
+   "text": "Msgr. James Kelly gave the homily.",
+   "chunks": [
+    "Msgr. James Kelly gave the homily."
+   ]
+  },
+  {
+   "text": "Drs. Smith and Jones agreed.",
+   "chunks": [
+    "Drs. Smith and Jones agreed."
+   ]
+  },
+  {
+   "text": "Insp. Morse drank real ale.",
+   "chunks": [
+    "Insp. Morse drank real ale."
+   ]
+  },
+  {
+   "text": "His father was Ken Griffey Sr. He played in Seattle.",
+   "chunks": [
+    "His father was Ken Griffey Sr.",
+    "He played in Seattle."
+   ]
+  },
+  {
+   "text": "We met the Det. Then we left.",
+   "chunks": [
+    "We met the Det.",
+    "Then we left."
+   ]
+  },
+  {
    "text": "![Screenshot of the installer](docs/images/install.png)\n\nSee [the FAQ](docs/faq.md) for help.",
    "chunks": [
-    "Screenshot of the installer",
+    "Image: Screenshot of the installer.",
     "See the FAQ for help."
    ]
   },
   {
    "text": "Here is a picture: ![A cat. Very cute!](cat.png) Nice.",
    "chunks": [
-    "Here is a picture: A cat. Very cute! Nice."
+    "Here is a picture: Image: A cat. Very cute!",
+    "Nice."
    ]
   },
   {
@@ -5207,7 +5373,27 @@
   {
    "text": "![Screenshot showing the installer window, with the Continue button highlighted in blue](docs/images/install-step-two.png)",
    "chunks": [
-    "Screenshot showing the installer window, with the Continue button highlighted in blue"
+    "Image: Screenshot showing the installer window, with the Continue button highlighted in blue."
+   ]
+  },
+  {
+   "text": "She's 5 ft. 4 in. and fast.",
+   "chunks": [
+    "She's 5 ft. 4 in. and fast."
+   ]
+  },
+  {
+   "text": "He is 6 ft 2 in. He plays guard.",
+   "chunks": [
+    "He is 6 ft 2 in.",
+    "He plays guard."
+   ]
+  },
+  {
+   "text": "The room is 10 x 12 ft. It has a window.",
+   "chunks": [
+    "The room is 10 x 12 ft.",
+    "It has a window."
    ]
   },
   {
@@ -5215,6 +5401,41 @@
    "chunks": [
     "Who won?",
     "No. 1 seed Duke."
+   ]
+  },
+  {
+   "text": "Call 416-555-0199 ext. 23 today. Ask for Sam.",
+   "chunks": [
+    "Call 416-555-0199 ext. 23 today.",
+    "Ask for Sam."
+   ]
+  },
+  {
+   "text": "Call 1.800.555.0199 for help. Ask for Sam.",
+   "chunks": [
+    "Call 1.800.555.0199 for help.",
+    "Ask for Sam."
+   ]
+  },
+  {
+   "text": "Call +44 (0)20 7946 0958 today. Ask for Sam.",
+   "chunks": [
+    "Call +44 (0)20 7946 0958 today.",
+    "Ask for Sam."
+   ]
+  },
+  {
+   "text": "Ring me on 07700 900 123. Text HOME to 741741 now.",
+   "chunks": [
+    "Ring me on 07700 900 123.",
+    "Text HOME to 741741 now."
+   ]
+  },
+  {
+   "text": "Call 416.555.0199 today. Dial x4567 for sales.",
+   "chunks": [
+    "Call 416.555.0199 today.",
+    "Dial x4567 for sales."
    ]
   },
   {
@@ -5248,6 +5469,37 @@
    "text": "He lives at Port St. Lucie now.",
    "chunks": [
     "He lives at Port St. Lucie now."
+   ]
+  },
+  {
+   "text": "Send it to 12 Elm Rd. Suite 3, Austin.",
+   "chunks": [
+    "Send it to 12 Elm Rd. Suite 3, Austin."
+   ]
+  },
+  {
+   "text": "Ring Apt. 4B when you arrive.",
+   "chunks": [
+    "Ring Apt. 4B when you arrive."
+   ]
+  },
+  {
+   "text": "We stayed in Sault Ste. Marie last week.",
+   "chunks": [
+    "We stayed in Sault Ste. Marie last week."
+   ]
+  },
+  {
+   "text": "The White House is at 1600 Pennsylvania Ave. NW in Washington.",
+   "chunks": [
+    "The White House is at 1600 Pennsylvania Ave. NW in Washington."
+   ]
+  },
+  {
+   "text": "Turn left on Elm Rd. Then go straight.",
+   "chunks": [
+    "Turn left on Elm Rd.",
+    "Then go straight."
    ]
   },
   {

@@ -38,7 +38,9 @@ public final class Phonemizer {
     /// (or replaced by `unknown`).
     public func phonemize(_ text: String, unknown: String = "") -> String {
         var t = text
+        var stresses: [String] = []
         if normalizes {
+            (t, stresses) = Self.holdStress(t)
             // Links lose their paths before any pass looks at slashes or digits.
             t = Self.foldMicroSign(TextNormalizer.linkLabels(t))
             // The Core passes that read whole expressions before the custom lexicon marks terms
@@ -60,6 +62,7 @@ public final class Phonemizer {
             t = RomanPass.apply(t, british: british)
             t = unshout(t)
             t = TextNormalizer.normalize(t, skippingMarkedSpans: custom != nil, british: british)
+            t = Self.restoreStress(t, stresses)
         }
         return g2p.phonemize(t, unk: unknown).trimmingCharacters(in: .whitespaces)
     }
@@ -103,6 +106,7 @@ public final class Phonemizer {
     }
 
     private static let marked = try! NSRegularExpression(pattern: #"\[([^\]]+)\]\(/[^)]*/\)"#)
+
     private static let capsWord = try! NSRegularExpression(pattern: #"(?<![\p{L}\p{N}'’])\p{Lu}[\p{Lu}'’]*\p{Lu}(?![\p{L}\p{N}])"#)
     private static let twoCapitals = try! NSRegularExpression(pattern: #"\p{Lu}\p{Lu}"#)
 
@@ -204,5 +208,60 @@ public final class Phonemizer {
         var k = j
         while k >= 0, Scalars.isLetter(s[k]) { k -= 1 }
         return String(String.UnicodeScalarView(s[(k + 1)...j])) == "THE"
+    }
+
+    // MARK: - Stress links
+
+    private static let open = "\u{E010}", close = "\u{E011}"
+    private static let stressLink = try! NSRegularExpression(pattern: #"\[([^\[\]]+)\]\((\+(?:\d+|0\.5))\)"#)
+    private static let heldStress = try! NSRegularExpression(pattern: "\(open)([^\(open)\(close)]*)\(close)")
+
+    /// The player writes emphasis as misaki's raised-stress link ("[very](+1)"), which
+    /// `linkLabels` would read as a plain label and the custom lexicon and normalizer would
+    /// write inside. Its words are set between private-use marks until those steps are done.
+    /// Only "+" links count: any other link target, "(-1)" included, is still just a label.
+    private static func holdStress(_ text: String) -> (String, [String]) {
+        let ns = text as NSString
+        var out = "", stresses: [String] = []
+        var last = 0
+        for m in stressLink.matches(in: text, range: NSRange(location: 0, length: ns.length)) {
+            out += ns.substring(with: NSRange(location: last, length: m.range.location - last))
+            out += open + ns.substring(with: m.range(at: 1)) + close
+            stresses.append(ns.substring(with: m.range(at: 2)))
+            last = NSMaxRange(m.range)
+        }
+        return (stresses.isEmpty ? text : out + ns.substring(from: last), stresses)
+    }
+
+    /// The held words as stress links again. A term the custom lexicon marked inside keeps
+    /// its fixed pronunciation (links don't nest); the words around it get the stress.
+    private static func restoreStress(_ text: String, _ stresses: [String]) -> String {
+        guard !stresses.isEmpty else { return text }
+        let ns = text as NSString
+        let matches = heldStress.matches(in: text, range: NSRange(location: 0, length: ns.length))
+        guard matches.count == stresses.count else {
+            return text.replacingOccurrences(of: open, with: "").replacingOccurrences(of: close, with: "")
+        }
+        func link(_ s: String, _ stress: String) -> String {
+            guard let first = s.firstIndex(where: { $0.isLetter || $0.isNumber }),
+                  let last = s.lastIndex(where: { !$0.isWhitespace }) else { return s }
+            return String(s[..<first]) + "[" + s[first...last] + "](\(stress))" + s[s.index(after: last)...]
+        }
+        var out = ""
+        var last = 0
+        for (m, stress) in zip(matches, stresses) {
+            out += ns.substring(with: NSRange(location: last, length: m.range.location - last))
+            let inner = ns.substring(with: m.range(at: 1))
+            let ins = inner as NSString
+            var cursor = 0
+            for mark in marked.matches(in: inner, range: NSRange(location: 0, length: ins.length)) {
+                out += link(ins.substring(with: NSRange(location: cursor, length: mark.range.location - cursor)), stress)
+                out += ins.substring(with: mark.range)
+                cursor = NSMaxRange(mark.range)
+            }
+            out += link(ins.substring(from: cursor), stress)
+            last = NSMaxRange(m.range)
+        }
+        return out + ns.substring(from: last)
     }
 }

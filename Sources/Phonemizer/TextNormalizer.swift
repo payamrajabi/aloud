@@ -17,13 +17,18 @@ enum TextNormalizer {
     struct Rule {
         let regex: NSRegularExpression
         let replace: (NSTextCheckingResult, NSString, RuleContext) -> String
+        /// Every match needs a decimal digit in the text (`DigitPattern`), so `apply` skips the
+        /// rule on text without one. Most sentences have none, and most rules (dates, units,
+        /// clock times, ranges) need one.
+        let needsDigit: Bool
         init(_ pattern: String, options: NSRegularExpression.Options = [], _ replace: @escaping (NSTextCheckingResult, NSString) -> String) {
-            regex = try! NSRegularExpression(pattern: pattern, options: options)
-            self.replace = { m, s, _ in replace(m, s) }
+            self.init(regex: try! NSRegularExpression(pattern: pattern, options: options)) { m, s, _ in replace(m, s) }
         }
         private init(regex: NSRegularExpression, replace: @escaping (NSTextCheckingResult, NSString, RuleContext) -> String) {
             self.regex = regex
             self.replace = replace
+            needsDigit = regex.options.isDisjoint(with: [.allowCommentsAndWhitespace, .ignoreMetacharacters])
+                && DigitPattern.needsDigit(regex.pattern)
         }
         static func withContext(_ pattern: String, options: NSRegularExpression.Options = [],
                                 _ replace: @escaping (NSTextCheckingResult, NSString, RuleContext) -> String) -> Rule {
@@ -505,10 +510,19 @@ enum TextNormalizer {
     static func apply(_ rules: [Rule], to text: String, in context: RuleContext? = nil) -> String {
         let context = context ?? RuleContext(text)
         var s = text
+        // Each regex costs about half a microsecond even where it can't match, and the list runs
+        // once per stretch between the lexicon's marks: a rule that needs a digit is skipped
+        // without one. Checked again after a rule rewrites the text.
+        var hasDigit: Bool?
         for rule in rules {
+            if rule.needsDigit {
+                if hasDigit == nil { hasDigit = containsDigit(s) }
+                if hasDigit == false { continue }
+            }
             let ns = s as NSString
             let matches = rule.regex.matches(in: s, range: NSRange(location: 0, length: ns.length))
             guard !matches.isEmpty else { continue }
+            hasDigit = nil
             var out = ""
             var last = 0
             for m in matches {
@@ -520,5 +534,150 @@ enum TextNormalizer {
             s = out
         }
         return s
+    }
+
+    /// Whether `text` has a decimal digit, as ICU's `\d` means it (Unicode Nd: "٣" too).
+    static func containsDigit(_ text: String) -> Bool {
+        var other = false
+        for b in text.utf8 {
+            if b &- UInt8(ascii: "0") < 10 { return true }
+            if b >= 0x80 { other = true }
+        }
+        return other && text.unicodeScalars.contains { $0.value >= 0x80 && $0.properties.generalCategory == .decimalNumber }
+    }
+}
+
+/// Reads a regex pattern well enough to tell that every match needs a decimal digit: a `\d` or
+/// a digit that isn't optional, in the match or in a lookahead or lookbehind that must hold (on
+/// the text the rule runs on, which is all a lookaround can see). Alternatives must all need
+/// one. Anything it doesn't follow (classes, `\p{N}`, backreferences, `\Q`) counts as no
+/// digit: where it can't tell, the rule runs.
+enum DigitPattern {
+    static func needsDigit(_ pattern: String) -> Bool {
+        var scan = Scan(Array(pattern.unicodeScalars))
+        let needs = scan.alternatives()
+        return needs && scan.ok && scan.i == scan.p.count
+    }
+
+    private struct Scan {
+        let p: [Unicode.Scalar]
+        var i = 0
+        var ok = true
+        init(_ p: [Unicode.Scalar]) { self.p = p }
+
+        var current: Unicode.Scalar? { i < p.count ? p[i] : nil }
+
+        /// Alternatives up to a ")" or the end: whether every one needs a digit.
+        mutating func alternatives() -> Bool {
+            var all = sequence()
+            while ok, current == "|" {
+                i += 1
+                all = sequence() && all
+            }
+            return all
+        }
+
+        /// Items up to "|", ")" or the end: whether one that must match needs a digit.
+        mutating func sequence() -> Bool {
+            var needs = false
+            while ok, let c = current, c != "|", c != ")" {
+                let digit = item()
+                if quantifierAllowsNone() == false && digit { needs = true }
+            }
+            return needs
+        }
+
+        /// One atom; whether it needs a digit.
+        mutating func item() -> Bool {
+            guard let c = current else { ok = false; return false }
+            i += 1
+            switch c {
+            case "\\":
+                guard let e = current else { ok = false; return false }
+                i += 1
+                switch e {
+                case "d": return true
+                case "p", "P", "N", "x":
+                    if current == "{" { skip(past: "}") } else if e == "x" { i += 2 }
+                case "u": i += 4
+                case "U": i += 8
+                case "Q": ok = false
+                default: break
+                }
+                return false
+            case "[":
+                skipClass()
+                return false
+            case "(":
+                return group()
+            default:
+                return c.value &- 0x30 < 10
+            }
+        }
+
+        /// A group after its "(": lookarounds, flags, named and plain groups.
+        mutating func group() -> Bool {
+            var counts = true
+            if current == "?" {
+                i += 1
+                switch current {
+                case "<":
+                    i += 1
+                    if current == "!" { i += 1; counts = false } else if current == "=" { i += 1 } else { skip(past: ">") }
+                case "!": i += 1; counts = false
+                case "=", ":", ">": i += 1
+                case "#": skip(past: ")"); return false
+                default:
+                    // Flags: "(?i)" on its own, or "(?i:...)".
+                    while let f = current, f.properties.isAlphabetic || f == "-" { i += 1 }
+                    if current == ")" { i += 1; return false }
+                    guard current == ":" else { ok = false; return false }
+                    i += 1
+                }
+            }
+            let needs = alternatives()
+            guard current == ")" else { ok = false; return false }
+            i += 1
+            return counts && needs
+        }
+
+        /// Reads the quantifier after an atom, if any: whether it lets the atom match nothing.
+        mutating func quantifierAllowsNone() -> Bool {
+            guard let q = current else { return false }
+            var none = false
+            switch q {
+            case "?", "*": i += 1; none = true
+            case "+": i += 1
+            case "{":
+                i += 1
+                var least = 0
+                while let d = current, d.value &- 0x30 < 10 { least = least * 10 + Int(d.value - 0x30); i += 1 }
+                skip(past: "}")
+                none = least == 0
+            default: return false
+            }
+            if current == "?" || current == "+" { i += 1 }  // lazy or possessive
+            return none
+        }
+
+        /// A character class after its "[", nested sets and escapes included.
+        mutating func skipClass() {
+            if current == "^" { i += 1 }
+            if current == "]" { i += 1 }  // a "]" first is itself
+            var depth = 1
+            while let c = current {
+                i += 1
+                if c == "\\" { i += 1 } else if c == "[" { depth += 1 } else if c == "]" { depth -= 1; if depth == 0 { return } }
+            }
+            ok = false
+        }
+
+        mutating func skip(past end: Unicode.Scalar) {
+            while let c = current {
+                i += 1
+                if c == end { return }
+            }
+            ok = false
+        }
     }
 }

@@ -23,10 +23,12 @@ enum CalendarNames {
 /// "$2 x 3 = $6"), and by the time it runs the money pass has already written "5 dollars".
 enum CurrencyNames {
     /// The signs the money pass reads before or after an amount.
-    static let symbols: Set<Character> = ["$", "£", "€", "¥", "₹", "₩", "¢"]
+    static let symbols: Set<Character> = ["$", "£", "€", "¥", "₹", "₩", "¢", "₽", "₺", "₪", "₱", "₫", "₦", "฿", "₴", "₡", "₿"]
     /// The words the money pass and the lexicon write after an amount, singular and plural.
     static let words: Set<String> = [
         "dollar", "dollars", "cent", "cents", "pound", "pounds", "pence", "penny", "euro", "euros", "yen", "sen",
-        "rupee", "rupees", "paisa", "paise", "won", "jeon",
+        "rupee", "rupees", "paisa", "paise", "won", "jeon", "yuan", "franc", "francs", "krona", "kronor", "krone",
+        "kroner", "peso", "pesos", "real", "reais", "rand", "ruble", "rubles", "lira", "shekel", "shekels", "zloty",
+        "zlotys", "baht", "dong", "naira", "hryvnia", "hryvnias", "colón", "colones", "bitcoin", "lakh", "crore",
     ]
 }

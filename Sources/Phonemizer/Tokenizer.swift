@@ -71,7 +71,7 @@ public enum Tokenizer {
             }
             if exceptions.contains(String(s)) {
                 let t = String(s)
-                if numberSign.contains(t) ? numberFollows(s) && !answersQuestion(s) : titles.contains(t) ? !endsSentence(s) : true { break }
+                if numberSign.contains(t) ? numberFollows(s) && !answersQuestion(s) && !saysNo(s) : titles.contains(t) ? !endsSentence(s) : true { break }
             }
             if let n = prefixLength(s) {
                 prefixes.append(s.prefix(n)); s = s.dropFirst(n); continue
@@ -88,6 +88,16 @@ public enum Tokenizer {
     /// end of a sentence ("The answer was no.") it's the word no and a full stop; kept whole,
     /// the gold lexicon would read it "number".
     static let numberSign: Set<String> = ["No.", "no.", "Nos."]
+
+    /// Whether lower-case "no." at `s` is the word someone said, with its full stop ("She said
+    /// no. 2 days later…"): Apple's splitter keeps it in one sentence with the number after it.
+    /// Only after a verb of saying; "The winner is no. 3" is a number.
+    private static func saysNo(_ s: Substring) -> Bool {
+        guard s == "no." else { return false }
+        let before = s.base[..<s.startIndex].reversed().drop { $0.isWhitespace }.prefix { $0.isLetter }
+        return sayingVerbs.contains(String(before.reversed()).lowercased())
+    }
+    private static let sayingVerbs: Set<String> = ["said", "say", "says", "saying", "answered", "replied"]
 
     /// Whether the next non-space character after `s` in the text is a digit or "#".
     private static func numberFollows(_ s: Substring) -> Bool {
@@ -208,9 +218,10 @@ public enum Tokenizer {
     private static let streetPrepositions: Set<String> = ["on", "down", "along", "onto", "off", "up", "at", "near",
                                                           "via", "across", "past", "into"]
     /// Names that "St." (Saint) follows in a place: "near Mount St. Helens", "at Port St. Lucie".
-    private static let placePrefixes: Set<String> = ["Mount", "Mt", "Port", "Fort", "Ft", "Lake", "Cape", "Point", "Pointe",
-                                                     "Isle", "Bay", "Grand", "Sault", "Little", "Great", "East", "West",
-                                                     "North", "South", "New", "Old", "Upper", "Lower", "Rue", "Ste"]
+    /// The address pass reads "St" with no period by them too ("Mount St Helens").
+    static let placePrefixes: Set<String> = ["Mount", "Mt", "Port", "Fort", "Ft", "Lake", "Cape", "Point", "Pointe",
+                                             "Isle", "Bay", "Grand", "Sault", "Little", "Great", "East", "West",
+                                             "North", "South", "New", "Old", "Upper", "Lower", "Rue", "Ste"]
 
     /// Titles a sentence splitter can take for a full stop.
     private static let runOnTitles = titles.union(["Dr.", "Mr.", "Mrs.", "Ms.", "Mt."])

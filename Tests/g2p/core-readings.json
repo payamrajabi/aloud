@@ -356,6 +356,24 @@
       "us" : "ði ˈɛs ən pˈi fˈIv hˈʌndɹəd ɹˈOz tˈu pəɹsˈɛnt tədˈA."
     },
     {
+      "area" : "money",
+      "gb" : "tˈIp ˈiːkwᵊlz sˈʌm bˈiː tˈuː : bˈiː tˈɛn) ɪn ðə sˈɛl.",
+      "text" : "Type =SUM($B$2:$B$10) in the cell.",
+      "us" : "tˈIp ˈikwᵊlz sˈʌm bˈi tˈu : bˈi tˈɛn) ɪn ðə sˈɛl."
+    },
+    {
+      "area" : "money",
+      "gb" : "ˌʌpɡɹˈAd tʊ ˈɑː fˈɔː pYnt θɹˈiː tədˈA.",
+      "text" : "Upgrade to R 4.3 today.",
+      "us" : "ˈʌpɡɹˌAd tʊ ˈɑɹ fˈɔɹ pYnt θɹˈi tədˈA."
+    },
+    {
+      "area" : "money",
+      "gb" : "wˌiː pˈAd θɹˈiː kˈad dɹˈɑːftəz ðɪs wˈiːk.",
+      "text" : "We paid 3 CAD drafters this week.",
+      "us" : "wˌi pˈAd θɹˈi kˈæd dɹˈæftəɹz ðɪs wˈik."
+    },
+    {
       "area" : "units",
       "gb" : "wˌiː wˈɛnt wɪð plˈan ɐ, ðˈɛn plˈan bˈiː.",
       "text" : "We went with Plan A, then Plan B.",
@@ -836,6 +854,42 @@
       "us" : "ði ˈɛm θɹˈi wʌz klˈOzd nˌɪɹ ʤˈʌŋkʃən fˈɔɹ."
     },
     {
+      "area" : "units",
+      "gb" : "ðˌA wˈɛnt tˈɛn dˈʌbᵊljuː, θɹˈiː ˈɛl ðɪs sˈiːzᵊn.",
+      "text" : "They went 10 W, 3 L this season.",
+      "us" : "ðˌA wˈɛnt tˈɛn dˈʌbᵊlju, θɹˈi ˈɛl ðɪs sˈizᵊn."
+    },
+    {
+      "area" : "units",
+      "gb" : "ˌI fˈɑːmd tˈɛn kˈA ɡˈQld ɪn ðə ɹˈAd.",
+      "text" : "I farmed 10k gold in the raid.",
+      "us" : "ˌI fˈɑɹmd tˈɛn kˈA ɡˈOld ɪn ðə ɹˈAd."
+    },
+    {
+      "area" : "units",
+      "gb" : "wˌiː hav θɹˈiː ˈɛm lˈɛft ˌɒn ðə klˈɒk.",
+      "text" : "We have 3 m left on the clock.",
+      "us" : "wˌi hæv θɹˈi ˈɛm lˈɛft ˌɔn ðə klˈɑk."
+    },
+    {
+      "area" : "units",
+      "gb" : "tˈAk ɹˈuːt nˈIn dˈʌbᵊljuː nˈɔːθ tə ðə bɹˈɪʤ.",
+      "text" : "Take Route 9-W north to the bridge.",
+      "us" : "tˈAk ɹˈut nˈIn dˈʌbᵊlju nˈɔɹθ tə ðə bɹˈɪʤ."
+    },
+    {
+      "area" : "units",
+      "gb" : "wˌiː plˈAd tˈuː vˈiː tˈuː at ðə pˈɑːk.",
+      "text" : "We played 2 V 2 at the park.",
+      "us" : "wˌi plˈAd tˈu vˈi tˈu æt ðə pˈɑɹk."
+    },
+    {
+      "area" : "units",
+      "gb" : "plˈʌɡ ðə lˈamp ˈɪntuː ˈWtlɛt fˈɔː ˈA",
+      "text" : "Plug the lamp into outlet 4 A.",
+      "us" : "plˈʌɡ ðə lˈæmp ˈɪntu ˈWtlˌɛt fˈɔɹ ˈA"
+    },
+    {
       "area" : "dimensions",
       "gb" : "sˈɒlv tˈuː ˈɛks plˈʌs θɹˈiː ˈiːkwᵊlz sˈɛvᵊn.",
       "text" : "Solve 2x + 3 = 7.",
@@ -1190,6 +1244,36 @@
       "us" : "hˌiz sˈɪks fˈʊt tˈu."
     },
     {
+      "area" : "dimensions",
+      "gb" : "hˌiː ɪz ɐ tˈɛnˌɛks ˌɛnʤɪnˈɪə.",
+      "text" : "He is a 10x engineer.",
+      "us" : "hˌi ɪz ɐ tˈɛnˌɛks ˌɛnʤənˈɪɹ."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "ɹˈIt zˈɪəɹQ ˈɛks tˈɛn tə ðə ɹˈɛʤɪstə.",
+      "text" : "Write 0x10 to the register.",
+      "us" : "ɹˈIt zˈɪɹO ˈɛks tˈɛn tə ðə ɹˈɛʤɪstəɹ."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "wˈɜːk fˈɔː ˈɛks tˈɛn ˈWə dˈAz.",
+      "text" : "Work 4 x 10-hour days.",
+      "us" : "wˈɜɹk fˈɔɹ ˈɛks tˈɛn ˈWəɹ dˈAz."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "lˈɑːtA ˈɛks tˈuː.",
+      "text" : "Latte x2.",
+      "us" : "lˈɑtˌA ˈɛks tˈu."
+    },
+    {
+      "area" : "dimensions",
+      "gb" : "ðˈɛn ˈɛks tˈuː plˈʌs θɹˈiː ˈɛks tˈuː ˈiːkwᵊlz fˈɔː.",
+      "text" : "Then x2 + 3x2 = 4.",
+      "us" : "ðˈɛn ˈɛks tˈu plˈʌs θɹˈi ˈɛks tˈu ˈikwᵊlz fˈɔɹ."
+    },
+    {
       "area" : "phone",
       "gb" : "ðə nˌIntˈiːn nˈInti tə tˈuː θˈWzᵊnd dˈɛkAd wɒz kˈɑːm.",
       "text" : "The 1990-2000 decade was calm.",
@@ -1538,6 +1622,24 @@
       "us" : "pɹˈɛs ˈɛntəɹ tə kəntˈɪnju."
     },
     {
+      "area" : "phone",
+      "gb" : "hˌiː kˈɔːld nˈIn hˈʌndɹəd nˈInti nˈIn tˈImz.",
+      "text" : "He called 999 times.",
+      "us" : "hˌi kˈɔld nˈIn hˈʌndɹəd nˈIndi nˈIn tˈImz."
+    },
+    {
+      "area" : "phone",
+      "gb" : "kˈɔːl tˈuː hˈʌndɹəd fˈɪfti tə wˈʌn θˈWzᵊnd pˈiːpᵊl ɐ dˈA.",
+      "text" : "Call 250-1000 people a day.",
+      "us" : "kˈɔl tˈu hˈʌndɹəd fˈɪfti tə wˈʌn θˈWzᵊnd pˈipᵊl ɐ dˈA."
+    },
+    {
+      "area" : "phone",
+      "gb" : "ˌWə ˈAt hˈʌndɹəd stˈɑːf ˈɑːnsəd kˈɔːlz.",
+      "text" : "Our 800 staff answered calls.",
+      "us" : "ˌWəɹ ˈAt hˈʌndɹəd stˈæf ˈænsəɹd kˈɔlz."
+    },
+    {
       "area" : "roman",
       "gb" : "ˌI ɐm hˈɪə.",
       "text" : "I am here.",
@@ -1563,15 +1665,15 @@
     },
     {
       "area" : "roman",
-      "gb" : "ˈɑːftə mˈiːtɪŋ kwˈiːn ɪlˈɪzəbəθ ðə fˈɜːst kɹˈId.",
+      "gb" : "ˈɑːftə mˈiːtɪŋ kwˈiːn ɪlˈɪzəbəθ ˌI kɹˈId.",
       "text" : "After meeting Queen Elizabeth I cried.",
-      "us" : "ˈæftəɹ mˈiTɪŋ kwˈin əlˈɪzəbəθ ðə fˈɜɹst kɹˈId."
+      "us" : "ˈæftəɹ mˈiTɪŋ kwˈin əlˈɪzəbəθ ˌI kɹˈId."
     },
     {
       "area" : "roman",
-      "gb" : "lˈIk pɹˈɪns hˈaɹi ðə fˈɜːst mˈuːvd tə kˌalɪfˈɔːnɪə.",
+      "gb" : "lˈIk pɹˈɪns hˈaɹi ˌI mˈuːvd tə kˌalɪfˈɔːnɪə.",
       "text" : "Like Prince Harry I moved to California.",
-      "us" : "lˈIk pɹˈɪns hˈɛɹi ðə fˈɜɹst mˈuvd tə kˌæləfˈɔɹnjə."
+      "us" : "lˈIk pɹˈɪns hˈɛɹi ˌI mˈuvd tə kˌæləfˈɔɹnjə."
     },
     {
       "area" : "roman",
@@ -1587,9 +1689,9 @@
     },
     {
       "area" : "roman",
-      "gb" : "ðə pˈɑːt wˈʌn plˈAd ɪn hˈɪstəɹi",
+      "gb" : "ðə pˈɑːt ˌI plˈAd ɪn hˈɪstəɹi",
       "text" : "The Part I Played in History",
-      "us" : "ðə pˈɑɹt wˈʌn plˈAd ɪn hˈɪstəɹi"
+      "us" : "ðə pˈɑɹt ˌI plˈAd ɪn hˈɪstəɹi"
     },
     {
       "area" : "roman",
@@ -1599,21 +1701,21 @@
     },
     {
       "area" : "roman",
-      "gb" : "ˌat ðə sˈuːpə bˈQl wˈʌn kɹˈId.",
+      "gb" : "ˌat ðə sˈuːpə bˈQl ˌI kɹˈId.",
       "text" : "At the Super Bowl I cried.",
-      "us" : "ˌæt ðə sˈupəɹ bˈOl wˈʌn kɹˈId."
+      "us" : "ˌæt ðə sˈupəɹ bˈOl ˌI kɹˈId."
     },
     {
       "area" : "roman",
-      "gb" : "ɪn tˈɜːmɪnᵊl wˈʌn tˈIpt ðə kəmˈɑːnd.",
+      "gb" : "ɪn tˈɜːmɪnᵊl ˌI tˈIpt ðə kəmˈɑːnd.",
       "text" : "In Terminal I typed the command.",
-      "us" : "ɪn tˈɜɹmənəl wˈʌn tˈIpt ðə kəmˈænd."
+      "us" : "ɪn tˈɜɹmənəl ˌI tˈIpt ðə kəmˈænd."
     },
     {
       "area" : "roman",
-      "gb" : "mˈɑːk wˈʌn dˌɪsəɡɹˈiː wɪð juː.",
+      "gb" : "mˈɑːk ˌI dˌɪsəɡɹˈiː wɪð juː.",
       "text" : "Mark I disagree with you.",
-      "us" : "mˈɑɹk wˈʌn dˌɪsəɡɹˈi wɪð ju."
+      "us" : "mˈɑɹk ˌI dˌɪsəɡɹˈi wɪð ju."
     },
     {
       "area" : "roman",
@@ -1623,9 +1725,9 @@
     },
     {
       "area" : "roman",
-      "gb" : "tˈIp wˈʌn tʊ ɪnsˈɜːt tˈɛkst at ðə stˈɑːt ɒv ðə lˈIn.",
+      "gb" : "tˈIp ˌI tʊ ɪnsˈɜːt tˈɛkst at ðə stˈɑːt ɒv ðə lˈIn.",
       "text" : "Type I to insert text at the start of the line.",
-      "us" : "tˈIp wˈʌn tʊ ɪnsˈɜɹt tˈɛkst æt ðə stˈɑɹt ʌv ðə lˈIn."
+      "us" : "tˈIp ˌI tʊ ɪnsˈɜɹt tˈɛkst æt ðə stˈɑɹt ʌv ðə lˈIn."
     },
     {
       "area" : "roman",
@@ -1635,9 +1737,9 @@
     },
     {
       "area" : "roman",
-      "gb" : "djˈʊəɹɪŋ ðə wˈɜːld wˈɔː wˈʌn sˈɜːvd ɪn fɹˈɑːns.",
+      "gb" : "djˈʊəɹɪŋ ðə wˈɜːld wˈɔː ˌI sˈɜːvd ɪn fɹˈɑːns.",
       "text" : "During the World War I served in France.",
-      "us" : "dˈʊɹɪŋ ðə wˈɜɹld wˈɔɹ wˈʌn sˈɜɹvd ɪn fɹˈæns."
+      "us" : "dˈʊɹɪŋ ðə wˈɜɹld wˈɔɹ ˌI sˈɜɹvd ɪn fɹˈæns."
     },
     {
       "area" : "roman",
@@ -1647,15 +1749,15 @@
     },
     {
       "area" : "roman",
-      "gb" : "sˈɪəɹiːz wˈʌn sˈAvɪŋz bˈɒndz ɑː pˈɒpjʊlə əɡˈɛn.",
+      "gb" : "sˈɪəɹiːz ˌI sˈAvɪŋz bˈɒndz ɑː pˈɒpjʊlə əɡˈɛn.",
       "text" : "Series I savings bonds are popular again.",
-      "us" : "sˈɪɹiz wˈʌn sˈAvɪŋz bˈɑndz ɑɹ pˈɑpjələɹ əɡˈɛn."
+      "us" : "sˈɪɹiz ˌI sˈAvɪŋz bˈɑndz ɑɹ pˈɑpjələɹ əɡˈɛn."
     },
     {
       "area" : "roman",
-      "gb" : "plˈiːz bɹˈɪŋ jɔː fˈɔːm wˈʌn nˈIn dˈɒkjʊmᵊnts.",
+      "gb" : "plˈiːz bɹˈɪŋ jɔː fˈɔːm ˌI nˈIn dˈɒkjʊmᵊnts.",
       "text" : "Please bring your Form I-9 documents.",
-      "us" : "plˈiz bɹˈɪŋ jʊɹ fˈɔɹm wˈʌn nˈIn dˈɑkjəmənts."
+      "us" : "plˈiz bɹˈɪŋ jʊɹ fˈɔɹm ˌI nˈIn dˈɑkjəmənts."
     },
     {
       "area" : "roman",
@@ -1689,9 +1791,9 @@
     },
     {
       "area" : "roman",
-      "gb" : "ʤˈɛn fˈIv ɪz ɐ spˈɪnˌɒf ɒv ðə bˈYz.",
+      "gb" : "ʤˈɛn vˈiː ɪz ɐ spˈɪnˌɒf ɒv ðə bˈYz.",
       "text" : "Gen V is a spin-off of The Boys.",
-      "us" : "ʤˈɛn fˈIv ɪz ɐ spˈɪnˌɔf ʌv ðə bˈYz."
+      "us" : "ʤˈɛn vˈi ɪz ɐ spˈɪnˌɔf ʌv ðə bˈYz."
     },
     {
       "area" : "roman",
@@ -1761,15 +1863,15 @@
     },
     {
       "area" : "roman",
-      "gb" : "pˈɑːk ɪn lˈɒt fˈɪfti nˌɪə ði əɹˈiːnə.",
+      "gb" : "pˈɑːk ɪn lˈɒt ˈɛl nˌɪə ði əɹˈiːnə.",
       "text" : "Park in Lot L near the arena.",
-      "us" : "pˈɑɹk ɪn lˈɑt fˈɪfti nˌɪɹ ði əɹˈinə."
+      "us" : "pˈɑɹk ɪn lˈɑt ˈɛl nˌɪɹ ði əɹˈinə."
     },
     {
       "area" : "roman",
-      "gb" : "ˌWə sˈiːts ɑː ɪn sˈɛkʃᵊn fˈɪfti.",
+      "gb" : "ˌWə sˈiːts ɑː ɪn sˈɛkʃᵊn ˈɛl.",
       "text" : "Our seats are in Section L.",
-      "us" : "ˌWəɹ sˈits ɑɹ ɪn sˈɛkʃən fˈɪfti."
+      "us" : "ˌWəɹ sˈits ɑɹ ɪn sˈɛkʃən ˈɛl."
     },
     {
       "area" : "roman",
@@ -1779,33 +1881,33 @@
     },
     {
       "area" : "roman",
-      "gb" : "hˈɛnɹi ðə fˈɪfθ. pˈɔː fˈWndɪd ðə fˈɜːm.",
+      "gb" : "hˈɛnɹi vˈiː pˈɔː fˈWndɪd ðə fˈɜːm.",
       "text" : "Henry V. Poor founded the firm.",
-      "us" : "hˈɛnɹi ðə fˈɪfθ. pˈʊɹ fˈWndᵻd ðə fˈɜɹm."
+      "us" : "hˈɛnɹi vˈi pˈʊɹ fˈWndᵻd ðə fˈɜɹm."
     },
     {
       "area" : "roman",
-      "gb" : "ʤˈɒn ðə fˈɪfθ. lˈɪndzi wɒz mˈɛː ɒv njˈuː jˈɔːk.",
+      "gb" : "ʤˈɒn vˈiː lˈɪndzi wɒz mˈɛː ɒv njˈuː jˈɔːk.",
       "text" : "John V. Lindsay was mayor of New York.",
-      "us" : "ʤˈɑn ðə fˈɪfθ. lˈɪndzi wʌz mˈAəɹ ʌv nˈu jˈɔɹk."
+      "us" : "ʤˈɑn vˈi lˈɪndzi wʌz mˈAəɹ ʌv nˈu jˈɔɹk."
     },
     {
       "area" : "roman",
-      "gb" : "hˈɛnɹi ðə fˈɪftiɪθ. stˈɪmsən ɹˈan ðə wˈɔː dɪpˈɑːtmᵊnt.",
+      "gb" : "hˈɛnɹi ˈɛl stˈɪmsən ɹˈan ðə wˈɔː dɪpˈɑːtmᵊnt.",
       "text" : "Henry L. Stimson ran the War Department.",
-      "us" : "hˈɛnɹi ðə fˈɪftiəθ. stˈɪmsən ɹˈæn ðə wˈɔɹ dəpˈɑɹtmənt."
+      "us" : "hˈɛnɹi ˈɛl stˈɪmsən ɹˈæn ðə wˈɔɹ dəpˈɑɹtmənt."
     },
     {
       "area" : "roman",
-      "gb" : "ʤˈɒn ðə fˈɪftiɪθ smˈɪθ sˈInd ðə fˈɔːm.",
+      "gb" : "ʤˈɒn ˈɛl smˈɪθ sˈInd ðə fˈɔːm.",
       "text" : "John L Smith signed the form.",
-      "us" : "ʤˈɑn ðə fˈɪftiəθ smˈɪθ sˈInd ðə fˈɔɹm."
+      "us" : "ʤˈɑn ˈɛl smˈɪθ sˈInd ðə fˈɔɹm."
     },
     {
       "area" : "roman",
-      "gb" : "kˈɒntakt mˈɛːɹi ðə fˈɪfθ ʤˈQnz fɔː dˈiːtAlz.",
+      "gb" : "kˈɒntakt mˈɛːɹi vˈiː ʤˈQnz fɔː dˈiːtAlz.",
       "text" : "Contact Mary V Jones for details.",
-      "us" : "kˈɑntækt mˈɛɹi ðə fˈɪfθ ʤˈOnz fɔɹ dətˈAlz."
+      "us" : "kˈɑntækt mˈɛɹi vˈi ʤˈOnz fɔɹ dətˈAlz."
     },
     {
       "area" : "roman",
@@ -1869,15 +1971,15 @@
     },
     {
       "area" : "roman",
-      "gb" : "pˈiːtˌiː fˈɔː ˈaksɛs wɒz lˈɒst ˌQvənˈIt.",
+      "gb" : "pˈiːtˌiː ˌIvˈiː ˈaksɛs wɒz lˈɒst ˌQvənˈIt.",
       "text" : "Pt IV access was lost overnight.",
-      "us" : "pˈitˌi fˈɔɹ ˈæksˌɛs wʌz lˈɔst ˌOvəɹnˈIt."
+      "us" : "pˈitˌi ˌIvˈi ˈæksˌɛs wʌz lˈɔst ˌOvəɹnˈIt."
     },
     {
       "area" : "roman",
-      "gb" : "ˌWə ˈɒfɪs ɪz ɪn ʃˈɑːlət ˈaməli, sˈAnt tˈɒməs ðə sˈɪksθ.",
+      "gb" : "ˌWə ˈɒfɪs ɪz ɪn ʃˈɑːlət ˈaməli, sˈAnt tˈɒməs vˌiːˈI.",
       "text" : "Our office is in Charlotte Amalie, St. Thomas VI.",
-      "us" : "ˌWəɹ ˈɔfəs ɪz ɪn ʃˈɑɹlət ˈæməli, sˈAnt tˈɑməs ðə sˈɪksθ."
+      "us" : "ˌWəɹ ˈɔfəs ɪz ɪn ʃˈɑɹlət ˈæməli, sˈAnt tˈɑməs vˌiˈI."
     },
     {
       "area" : "roman",
@@ -1887,21 +1989,21 @@
     },
     {
       "area" : "roman",
-      "gb" : "ɡˈɪv sˌɛftɹiˈaksən fˈɔː dˈAli.",
+      "gb" : "ɡˈɪv sˌɛftɹiˈaksən ˌIvˈiː dˈAli.",
       "text" : "Give Ceftriaxone IV daily.",
-      "us" : "ɡˈɪv sˌɛftɹiˈæksən fˈɔɹ dˈAli."
+      "us" : "ɡˈɪv sˌɛftɹiˈæksən ˌIvˈi dˈAli."
     },
     {
       "area" : "roman",
-      "gb" : "ðə nˈɜːs ɡˈAv zˈQfɹˌan fˈɔː fɔː nˈɔːzɪə.",
+      "gb" : "ðə nˈɜːs ɡˈAv zˈQfɹˌan ˌIvˈiː fɔː nˈɔːzɪə.",
       "text" : "The nurse gave Zofran IV for nausea.",
-      "us" : "ðə nˈɜɹs ɡˈAv zˈOfɹˌæn fˈɔɹ fɔɹ nˈɔziə."
+      "us" : "ðə nˈɜɹs ɡˈAv zˈOfɹˌæn ˌIvˈi fɔɹ nˈɔziə."
     },
     {
       "area" : "roman",
-      "gb" : "plˈiːz ɡˈɪv ʤˈɒn ðə fˈɔːθ flˈuːɪdz bɪfˈɔː nˈuːn.",
+      "gb" : "plˈiːz ɡˈɪv ʤˈɒn ˌIvˈiː flˈuːɪdz bɪfˈɔː nˈuːn.",
       "text" : "Please give John IV fluids before noon.",
-      "us" : "plˈiz ɡˈɪv ʤˈɑn ðə fˈɔɹθ flˈuɪdz bəfˈɔɹ nˈun."
+      "us" : "plˈiz ɡˈɪv ʤˈɑn ˌIvˈi flˈuɪdz bəfˈɔɹ nˈun."
     },
     {
       "area" : "roman",
@@ -1917,9 +2019,9 @@
     },
     {
       "area" : "roman",
-      "gb" : "ðə sˈuːbəɹu fˌɪftˈiːn ɪz ɐ smˈɔːl kɹˈɒsQvə.",
+      "gb" : "ðə sˈuːbəɹu ˌɛksvˈiː ɪz ɐ smˈɔːl kɹˈɒsQvə.",
       "text" : "The Subaru XV is a small crossover.",
-      "us" : "ðə sˈubəɹu fˌɪftˈin ɪz ɐ smˈɔl kɹˈɔsˌOvəɹ."
+      "us" : "ðə sˈubəɹu ˌɛksvˈi ɪz ɐ smˈɔl kɹˈɔsˌOvəɹ."
     },
     {
       "area" : "roman",
@@ -2046,6 +2148,36 @@
       "gb" : "ʧˈaptə wˈʌn stˈɑːts slˈQli.",
       "text" : "Chapter One starts slowly.",
       "us" : "ʧˈæptəɹ wˈʌn stˈɑɹts slˈOli."
+    },
+    {
+      "area" : "roman",
+      "gb" : "dˌʌbᵊljuːdˈʌbᵊljuː ˌI θˈɪŋk sˌQ.",
+      "text" : "WW I think so.",
+      "us" : "dˌʌbᵊljudˈʌbᵊlju ˌI θˈɪŋk sˌO."
+    },
+    {
+      "area" : "roman",
+      "gb" : "ˌI mˈɛt hˈɛnɹi. ˌI lˈIkt hˌɪm.",
+      "text" : "I met Henry. I liked him.",
+      "us" : "ˌI mˈɛt hˈɛnɹi. ˌI lˈIkt hˌɪm."
+    },
+    {
+      "area" : "roman",
+      "gb" : "ɹˈiːd ʧˈaptə ˈɛks.",
+      "text" : "Read chapter x.",
+      "us" : "ɹˈid ʧˈæptəɹ ˈɛks."
+    },
+    {
+      "area" : "roman",
+      "gb" : "ˌɪt wɒz ɐ mˈiːtɪŋ bɪtwˈiːn kˈɪŋ ʧˈɑːlz ðə θˈɜːd and ˌI",
+      "text" : "It was a meeting between King Charles III and I.",
+      "us" : "ˌɪt wʌz ɐ mˈiTɪŋ bətwˈin kˈɪŋ ʧˈɑɹlz ðə θˈɜɹd ænd ˌI"
+    },
+    {
+      "area" : "roman",
+      "gb" : "ʃˌiː sˈInd ðə kˈɑːd “lˈʌv, mˈɛːɹi ˈɛks”",
+      "text" : "She signed the card “Love, Mary X”",
+      "us" : "ʃˌi sˈInd ðə kˈɑɹd “lˈʌv, mˈɛɹi ˈɛks”"
     },
     {
       "area" : "addresses",
@@ -2547,15 +2679,15 @@
     },
     {
       "area" : "titles",
-      "gb" : "nˈQt ði ˈɪnsp. dˈAt ˌɒn ðə fˈɔːm.",
+      "gb" : "nˈQt ði ɪnspˈɛkʃᵊn dˈAt ˌɒn ðə fˈɔːm.",
       "text" : "Note the Insp. Date on the form.",
-      "us" : "nˈOt ði ˈɪnsp. dˈAt ˌɔn ðə fˈɔɹm."
+      "us" : "nˈOt ði ɪnspˈɛkʃən dˈAt ˌɔn ðə fˈɔɹm."
     },
     {
       "area" : "titles",
-      "gb" : "sˈId ɒv f. fɹˈIz, plˈiːz.",
+      "gb" : "sˈId ɒv fɹˈɛnʧ fɹˈIz, plˈiːz.",
       "text" : "Side of Fr. Fries, please.",
-      "us" : "sˈId ʌv fɹ. fɹˈIz, plˈiz."
+      "us" : "sˈId ʌv fɹˈɛnʧ fɹˈIz, plˈiz."
     },
     {
       "area" : "titles",
@@ -2703,9 +2835,9 @@
     },
     {
       "area" : "titles",
-      "gb" : "ˈɛksɹˈA ɒv ðə lˈɪmɪt. nˈiː wɒz nˈɔːmᵊl.",
+      "gb" : "ˈɛksɹˈA ɒv ði ˈɛl tˈiː nˈiː wɒz nˈɔːmᵊl.",
       "text" : "X-ray of the Lt. Knee was normal.",
-      "us" : "ˈɛksɹˈA ʌv ðə lˈɪmɪt. nˈi wʌz nˈɔɹmᵊl."
+      "us" : "ˈɛksɹˈA ʌv ði ˈɛl tˈi nˈi wʌz nˈɔɹmᵊl."
     },
     {
       "area" : "titles",
@@ -2757,21 +2889,21 @@
     },
     {
       "area" : "titles",
-      "gb" : "sˈɛk. dɪpˈɒzɪt ɪz djˈuː at sˈInɪŋ.",
+      "gb" : "sɪkjˈʊəɹɪti dɪpˈɒzɪt ɪz djˈuː at sˈInɪŋ.",
       "text" : "Sec. Deposit is due at signing.",
-      "us" : "sˈɛk. dəpˈɑzət ɪz dˈu æt sˈInɪŋ."
+      "us" : "səkjˈʊɹəTi dəpˈɑzət ɪz dˈu æt sˈInɪŋ."
     },
     {
       "area" : "titles",
-      "gb" : "ʧˈɛk ði ˈɪnsp. ɹɪzˈʌlts bɪfˈɔː juː sˈIn.",
+      "gb" : "ʧˈɛk ði ɪnspˈɛkʃᵊn ɹɪzˈʌlts bɪfˈɔː juː sˈIn.",
       "text" : "Check the Insp. results before you sign.",
-      "us" : "ʧˈɛk ði ˈɪnsp. ɹəzˈʌlts bəfˈɔɹ ju sˈIn."
+      "us" : "ʧˈɛk ði ɪnspˈɛkʃən ɹəzˈʌlts bəfˈɔɹ ju sˈIn."
     },
     {
       "area" : "titles",
-      "gb" : "ɡˌɛt ðə lˈɪmɪt. vˈɜːʃᵊn ɪf jɔː ʃˈɔːt ˌɒn spˈAs.",
+      "gb" : "ɡˌɛt ði ˈɛl tˈiː vˈɜːʃᵊn ɪf jɔː ʃˈɔːt ˌɒn spˈAs.",
       "text" : "Get the Lt. version if you're short on space.",
-      "us" : "ɡˌɛt ðə lˈɪmɪt. vˈɜɹʒən ɪf jʊɹ ʃˈɔɹt ˌɔn spˈAs."
+      "us" : "ɡˌɛt ði ˈɛl tˈi vˈɜɹʒən ɪf jʊɹ ʃˈɔɹt ˌɔn spˈAs."
     },
     {
       "area" : "titles",
@@ -2832,6 +2964,24 @@
       "gb" : "ʤˈɛn ˈAˌI tˈuːlz ɑː ˈɛvɹɪwɛː.",
       "text" : "Gen AI tools are everywhere.",
       "us" : "ʤˈɛn ˈAˌI tˈulz ɑɹ ˈɛvɹiwˌɛɹ."
+    },
+    {
+      "area" : "titles",
+      "gb" : "kˈʌ, sˈiːnjə, bˈɑː and ɹˈɑː ɑː ˈalkəlIn ˈɜːθ mˈɛtᵊlz.",
+      "text" : "Ca, Sr, Ba and Ra are alkaline earth metals.",
+      "us" : "kˈʌ, sˈinjəɹ, bˈɑ ænd ɹˈɑ ɑɹ ˈælkəlˌIn ˈɜɹθ mˈɛTᵊlz."
+    },
+    {
+      "area" : "titles",
+      "gb" : "ɹˈiːd ˌWə ɹˈɛt. pˈɒlɪsi fˈɜːst.",
+      "text" : "Read our Ret. Policy first.",
+      "us" : "ɹˈid ˌWəɹ ɹˈɛt. pˈɑləsi fˈɜɹst."
+    },
+    {
+      "area" : "titles",
+      "gb" : "ˈast. kˈʌləz sˈQld sˈɛpəɹətli.",
+      "text" : "Asst. Colors sold separately.",
+      "us" : "ˈæst. kˈʌləɹz sˈOld sˈɛpəɹətli."
     },
     {
       "area" : "shorthand",
@@ -3045,9 +3195,9 @@
     },
     {
       "area" : "shorthand",
-      "gb" : "bɹˈɪŋ pˈɛnz, pˈApə, ɛtsˈɛtəɹə",
+      "gb" : "bɹˈɪŋ pˈɛnz, pˈApə, ɛtsˈɛtəɹə.",
       "text" : "Bring pens, paper, etc.",
-      "us" : "bɹˈɪŋ pˈɛnz, pˈApəɹ, ɛtsˈɛTəɹə"
+      "us" : "bɹˈɪŋ pˈɛnz, pˈApəɹ, ɛtsˈɛTəɹə."
     },
     {
       "area" : "shorthand",
@@ -3234,6 +3384,24 @@
       "gb" : "ˌɪt wɒz θˈɜːti dɪɡɹˈiːz jˈɛstədA.",
       "text" : "It was 30° yesterday.",
       "us" : "ˌɪt wʌz θˈɜɹTi dəɡɹˈiz jˈɛstəɹdˌA."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ðə flˈat haz dˈʌbᵊljuː dˈiː hˈʊkˌʌps.",
+      "text" : "The flat has W/D hookups.",
+      "us" : "ðə flˈæt hæz dˈʌbᵊlju dˈi hˈʊkˌʌps."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "ʧˈuːz ɐ, bˈiː sˈiː, ɔː dˈiː.",
+      "text" : "Choose a, b/c, or d.",
+      "us" : "ʧˈuz ɐ, bˈi sˈi, ɔɹ dˈi."
+    },
+    {
+      "area" : "shorthand",
+      "gb" : "wˌiː pˈakt tˈɛnts, stˈQvz, ɛtsˈɛtəɹə and lˈɛft ˈɜːli.",
+      "text" : "We packed tents, stoves, etc. and left early.",
+      "us" : "wˌi pˈækt tˈɛnts, stˈOvz, ɛtsˈɛTəɹə ænd lˈɛft ˈɜɹli."
     },
     {
       "area" : "dates",
@@ -3674,10 +3842,64 @@
       "us" : "sˈi ɪɡzˈæmpəl dˈɑt kˈɑm twˈɛnti twˈɛnti fˈɔɹ zˈɪɹO θɹˈi zˈɪɹO fˈɔɹ lˈɔnʧ fɔɹ dətˈAlz."
     },
     {
+      "area" : "dates",
+      "gb" : "ˌʌpɡɹˈAd tə vˈɜːʃᵊn tˈuː wˈʌn tˈuː zˈɪəɹQ tˈuː fˈɔː tədˈA.",
+      "text" : "Upgrade to version 2.1.2024 today.",
+      "us" : "ˈʌpɡɹˌAd tə vˈɜɹʒən tˈu wˈʌn tˈu zˈɪɹO tˈu fˈɔɹ tədˈA."
+    },
+    {
+      "area" : "dates",
+      "gb" : "wˌiː sˈQld fˈIv mˈA dˈA pˈQstəz.",
+      "text" : "We sold 5 May Day posters.",
+      "us" : "wˌi sˈOld fˈIv mˈA dˈA pˈOstəɹz."
+    },
+    {
+      "area" : "dates",
+      "gb" : "wˈAt əntˈɪl sˈʌn vˈali ˈQpᵊnz.",
+      "text" : "Wait until Sun Valley opens.",
+      "us" : "wˈAt ˌʌntˈɪl sˈʌn vˈæli ˈOpᵊnz."
+    },
+    {
+      "area" : "dates",
+      "gb" : "sˈat nˈIn θˈɜːti ɪn ðə hˈɔːl.",
+      "text" : "SAT 9:30 in the hall.",
+      "us" : "sˈæt nˈIn θˈɜɹTi ɪn ðə hˈɔl."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ðə sˈʌn tˈɛn ˌAˈɛm ɪdˈɪʃᵊn ɪz ˈWt.",
+      "text" : "The Sun 10am edition is out.",
+      "us" : "ðə sˈʌn tˈɛn ˌAˈɛm ədˈɪʃən ɪz ˈWt."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ʧˈaptə θɹˈiː mˈɑːʧ ɒv ðə pˈɛŋɡwɪnz.",
+      "text" : "Chapter 3 March of the Penguins.",
+      "us" : "ʧˈæptəɹ θɹˈi mˈɑɹʧ ʌv ðə pˈɛŋɡwᵊnz."
+    },
+    {
       "area" : "addresses",
       "gb" : "ɪn twˈɛnti fˌɪftˈiːn ˈQʃᵊn dɹˈIv wɒz ɹipˈAvd.",
       "text" : "In 2015 Ocean Drive was repaved.",
       "us" : "ɪn twˈɛnti fˌɪftˈin ˈOʃən dɹˈIv wʌz ɹipˈAvd."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "ðə jˌuːˈɛs fˈIv hˈʌndɹəd ˈɪndɛks fˈɛl.",
+      "text" : "The US 500 index fell.",
+      "us" : "ðə jˌuˈɛs fˈIv hˈʌndɹəd ˈɪndˌɛks fˈɛl."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "ˌWə jˌuːˈɛs wˈʌn hˈʌndɹəd fˈɪfti ˌɛmplYˈiːz ɡˈɒt ɹˈAzɪz.",
+      "text" : "Our US 150 employees got raises.",
+      "us" : "ˌWəɹ jˌuˈɛs wˈʌn hˈʌndɹəd fˈɪfti ˌɛmplˌYˈiz ɡˈɑt ɹˈAzᵻz."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "ðə ɹˈiːʤᵊnt stɹˈiːt kɹˈɪsməs lˈIts ɑː ˌʌp.",
+      "text" : "The Regent St Christmas lights are up.",
+      "us" : "ðə ɹˈiʤᵊnt stɹˈit kɹˈɪsməs lˈIts ɑɹ ˌʌp."
     },
     {
       "area" : "negatives",
@@ -5207,11 +5429,6 @@
     },
     {
       "area" : "dimensions",
-      "says" : "He is a ten-ex engineer.",
-      "text" : "He is a 10x engineer."
-    },
-    {
-      "area" : "dimensions",
       "says" : "Play at one point five ex.",
       "text" : "Play at 1.5x."
     },
@@ -5938,11 +6155,6 @@
     },
     {
       "area" : "roman",
-      "says" : "Saudi-backed Liv Golf signed him.",
-      "text" : "Saudi-backed LIV Golf signed him."
-    },
-    {
-      "area" : "roman",
       "says" : "Star Wars: Episode four came first.",
       "text" : "Star Wars: Episode IV came first."
     },
@@ -6093,9 +6305,8 @@
     },
     {
       "area" : "roman",
-      "says" : "Read Moby-Dick, Chapter one hundred thirty-five.",
-      "says_gb" : "Read Moby-Dick, Chapter one hundred and thirty-five.",
-      "text" : "Read Moby-Dick, Chapter CXXXV."
+      "says" : "The novel ends with Chapter one hundred thirty-five.",
+      "text" : "The novel ends with Chapter CXXXV."
     },
     {
       "area" : "roman",
@@ -6214,8 +6425,8 @@
     },
     {
       "area" : "roman",
-      "says" : "Stage three-A cancer has spread to the lymph nodes.",
-      "text" : "Stage IIIA cancer has spread to the lymph nodes."
+      "says" : "Stage three-B cancer has spread to the lymph nodes.",
+      "text" : "Stage IIIB cancer has spread to the lymph nodes."
     },
     {
       "area" : "roman",
@@ -6250,7 +6461,6 @@
     {
       "area" : "roman",
       "says" : "copyright two thousand six Acme Films",
-      "says_gb" : "copyright two thousand and six Acme Films",
       "text" : "© MMVI Acme Films"
     },
     {
@@ -7987,7 +8197,7 @@
     },
     {
       "area" : "dates",
-      "says" : "Open Monday to Saturday, ten ay em to six pee em.",
+      "says" : "Open Monday to Saturday, ten AM to six PM.",
       "text" : "Open Mon–Sat, 10am–6pm."
     },
     {
@@ -8250,7 +8460,6 @@
     {
       "area" : "dates",
       "says" : "Since two thousand five, sales have doubled.",
-      "says_gb" : "Since two thousand and five, sales have doubled.",
       "text" : "Since 2005, sales have doubled."
     },
     {
@@ -8314,6 +8523,11 @@
       "text" : "He fought in WWII."
     },
     {
+      "area" : "roman",
+      "not_says" : "Stage three A cancer has spread to the lymph nodes.",
+      "text" : "Stage IIIA cancer has spread to the lymph nodes."
+    },
+    {
       "area" : "addresses",
       "says" : "Turn left on Oak Drive near the park.",
       "text" : "Turn left on Oak Dr. near the park."
@@ -8350,8 +8564,9 @@
     },
     {
       "area" : "shorthand",
-      "says" : "I ate em and ems at five pee em.",
-      "text" : "I ate M&Ms at 5 pm."
+      "says" : "I ate em and ems at five PM.",
+      "text" : "I ate M&Ms at 5 pm.",
+      "voice" : "us"
     }
   ]
 }

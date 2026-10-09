@@ -26,8 +26,10 @@ final class Lexicon {
                           "≤": "less than or equal to", "≥": "greater than or equal to", "→": "to",
                           "←": "left arrow", "↑": "up arrow", "↓": "down arrow", "−": "minus",
                           // Signs and Greek letters 1.5 spoke and 1.6 dropped. "Ω" after a number is
-                          // "ohms" (TextNormalizer); "§" and "¶" are read there too.
-                          "©": "copyright", "®": "registered", "™": "trademark", "π": "pi", "∞": "infinity",
+                          // "ohms" (TextNormalizer); "§" and "¶" are read there too. ™, ℠ and ® aren't
+                          // here: nobody reads "Acme trademark" aloud, so the normalizer drops them
+                          // (ShorthandRules.signs), as it drops a "©" next to the word copyright.
+                          "©": "copyright", "π": "pi", "∞": "infinity",
                           "√": "square root of", "∑": "sum of", "Ω": "omega", "Δ": "delta", "α": "alpha", "β": "beta",
                           "γ": "gamma", "δ": "delta", "ε": "epsilon", "θ": "theta", "λ": "lambda", "μ": "mu",
                           "σ": "sigma", "Σ": "sigma", "τ": "tau", "φ": "phi", "ω": "omega"]
@@ -142,6 +144,10 @@ final class Lexicon {
     func isShoutedWord(_ token: String) -> Bool {
         guard token.count > 1, token.contains(where: { "AEIOUY".contains($0) }) else { return false }
         let lower = token.pyLower.replacingOccurrences(of: "’", with: "'")
+        // A Roman numeral no rule read ("XVIII" with no "CHAPTER" before it) is spelled, as it
+        // is in mixed case: lower-cased, it was a made-up word (ɛksvˈii). One that is also a
+        // word stays a word ("MIX", "DIV"). (Core readings R14, FIN-889.)
+        if golds[lower] == nil, RomanPass.isNumeral(token) { return false }
         if let upper = golds[token] {
             guard golds[lower] != nil, !Self.shoutedAcronyms.contains(token) else { return false }
             if token.count == 2 { return Self.shoutedPairs.contains(token) }
