@@ -3692,6 +3692,24 @@
       "us" : "wˈAt ˌʌntˈɪl sˈʌn vˈæli ˈOpᵊnz."
     },
     {
+      "area" : "dates",
+      "gb" : "sˈat nˈIn θˈɜːti ɪn ðə hˈɔːl.",
+      "text" : "SAT 9:30 in the hall.",
+      "us" : "sˈæt nˈIn θˈɜɹTi ɪn ðə hˈɔl."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ðə sˈʌn tˈɛn ˌAˈɛm ɪdˈɪʃᵊn ɪz ˈWt.",
+      "text" : "The Sun 10am edition is out.",
+      "us" : "ðə sˈʌn tˈɛn ˌAˈɛm ədˈɪʃən ɪz ˈWt."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ʧˈaptə θɹˈiː mˈɑːʧ ɒv ðə pˈɛŋɡwɪnz.",
+      "text" : "Chapter 3 March of the Penguins.",
+      "us" : "ʧˈæptəɹ θɹˈi mˈɑɹʧ ʌv ðə pˈɛŋɡwᵊnz."
+    },
+    {
       "area" : "addresses",
       "gb" : "ɪn twˈɛnti fˌɪftˈiːn ˈQʃᵊn dɹˈIv wɒz ɹipˈAvd.",
       "text" : "In 2015 Ocean Drive was repaved.",
