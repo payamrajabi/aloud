@@ -167,16 +167,12 @@
       "display": "Heat the water. Rinse the filter.\nAdd the grounds. Start the timer."
     },
     {
-      "name": "md: a soft break and <br> are spaces inside one paragraph",
+      "name": "md: a hard wrap and <br> are spaces inside one paragraph",
       "format": "markdown",
-      "input": "Grind the beans.\nHeat the water.<br>Pour slowly.",
+      "input": "Grind the beans and\nheat the water.<br>Pour slowly.",
       "chunks": [
         {
-          "speech": "Grind the beans.",
-          "pause": 0.25
-        },
-        {
-          "speech": "Heat the water.",
+          "speech": "Grind the beans and heat the water.",
           "pause": 0.25
         },
         {
@@ -184,7 +180,7 @@
           "pause": 0.5
         }
       ],
-      "display": "Grind the beans. Heat the water. Pour slowly."
+      "display": "Grind the beans and heat the water. Pour slowly."
     },
     {
       "name": "md: unordered list between paragraphs",
@@ -1456,7 +1452,7 @@
       ]
     },
     {
-      "name": "plain: lettered items are a list with no spoken number",
+      "name": "plain: lettered items are a list with each letter read",
       "format": "plain",
       "input": "Pick one:\nA) Light roast\nB) Dark roast",
       "chunks": [
@@ -1465,11 +1461,11 @@
           "pause": 0.45
         },
         {
-          "speech": "Light roast.",
+          "speech": "A, Light roast.",
           "pause": 0.4
         },
         {
-          "speech": "Dark roast.",
+          "speech": "B, Dark roast.",
           "pause": 0.5
         }
       ]

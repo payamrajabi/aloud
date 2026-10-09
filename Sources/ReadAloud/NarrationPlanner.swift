@@ -105,6 +105,12 @@ enum NarrationPlanner {
                 pieces[last].speech = fullStop(pieces[last].speech, replacing: ":;,")
             case .listItem(let ordered, let number, _):
                 if ordered, let number { pieces[0].speech = "\(number). " + pieces[0].speech }
+                // Answer letters are read, so "The answer is B." still makes sense. A comma, as
+                // "A." reads as an abbreviation and runs into the option ("ˈA vˈinəs"). Not i, v
+                // or x: in a list those are roman numerals, shown but not read.
+                else if let letter = p.block.marker, letter.range(of: #"^[A-HJ-UWYZa-hj-uwyz][.)]$"#, options: .regularExpression) != nil {
+                    pieces[0].speech = letter.prefix(1).uppercased() + ", " + pieces[0].speech
+                }
                 if !TextPrep.endsWith(pieces[last].speech, ".!?…:;") { pieces[last].speech = fullStop(pieces[last].speech, replacing: ",") }
             case .tableRow:
                 pieces[last].speech = fullStop(pieces[last].speech, replacing: ":;,")

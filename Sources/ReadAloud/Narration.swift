@@ -58,7 +58,7 @@ struct NarrationBlock: Equatable {
     /// A paragraph that ends with ":" and introduces a list (the planner also works it out).
     var leadIn = false
     /// A list item's marker when it isn't a bullet or a spoken number: a letter ("b)"), a
-    /// roman numeral, a task box (☐ ☑). Shown, never read.
+    /// roman numeral, a task box (☐ ☑). Shown; only a letter is also read.
     var marker: String?
 
     var text: String { runs.map(\.text).joined() }
@@ -73,6 +73,16 @@ enum NarrationFormat: String {
 }
 
 extension NarrationDoc {
+    /// `TextPrep.normalizeCharacters`, with the Unicode line and paragraph separators (a
+    /// Cocoa text view's ⌃↩ and ⌥↩ breaks) and NEL as line breaks: 1.6.0's paragraph and
+    /// sentence splitting broke at them, and the parsers split lines at "\n" only.
+    static func normalize(_ raw: String) -> String {
+        TextPrep.normalizeCharacters(raw)
+            .replacingOccurrences(of: "\u{2028}", with: "\n")
+            .replacingOccurrences(of: "\u{2029}", with: "\n")
+            .replacingOccurrences(of: "\u{0085}", with: "\n")
+    }
+
     /// Whether text without HTML is read as Markdown or as plain text. List markers alone
     /// are usually text copied from a page ("Brew" / "1. Heat the water…" / "The whole
     /// pour…", one block a line): Markdown would run those lines together, and the plain

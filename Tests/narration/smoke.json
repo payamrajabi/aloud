@@ -694,7 +694,7 @@
    "display": "Run this.\nswift build\nThen open it."
   },
   {
-   "name": "html: Google Docs sub-lists don't use up their list's numbers; letters are shown, not read",
+   "name": "html: Google Docs sub-lists don't use up their list's numbers; letters are read like numbers",
    "format": "html",
    "input": "<meta charset=\"utf-8\"><b style=\"font-weight:normal;\" id=\"docs-internal-guid-1\"><ol style=\"margin-top:0;margin-bottom:0;padding-inline-start:48px;\"><li dir=\"ltr\" style=\"list-style-type:decimal;font-size:11pt;\" aria-level=\"1\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\" role=\"presentation\"><span style=\"font-size:11pt;font-weight:400;\">Prepare the room</span></p></li><ol style=\"margin-top:0;margin-bottom:0;padding-inline-start:48px;\"><li dir=\"ltr\" style=\"list-style-type:lower-alpha;font-size:11pt;\" aria-level=\"2\"><p dir=\"ltr\" role=\"presentation\"><span style=\"font-weight:400;\">Move the chairs</span></p></li><li dir=\"ltr\" style=\"list-style-type:lower-alpha;font-size:11pt;\" aria-level=\"2\"><p dir=\"ltr\" role=\"presentation\"><span style=\"font-weight:400;\">Test the projector</span></p></li></ol><li dir=\"ltr\" style=\"list-style-type:decimal;font-size:11pt;\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\"><span style=\"font-weight:400;\">Greet the guests</span></p></li></ol></b>",
    "chunks": [
@@ -703,11 +703,11 @@
      "pause": 0.4
     },
     {
-     "speech": "Move the chairs.",
+     "speech": "A, Move the chairs.",
      "pause": 0.4
     },
     {
-     "speech": "Test the projector.",
+     "speech": "B, Test the projector.",
      "pause": 0.4
     },
     {
@@ -727,11 +727,11 @@
      "pause": 0.4
     },
     {
-     "speech": "Move the chairs.",
+     "speech": "A, Move the chairs.",
      "pause": 0.4
     },
     {
-     "speech": "Test the projector.",
+     "speech": "B, Test the projector.",
      "pause": 0.4
     },
     {
@@ -853,7 +853,7 @@
      "pause": 0.4
     },
     {
-     "speech": "Check the date.",
+     "speech": "A, Check the date.",
      "pause": 0.75
     },
     {
@@ -1003,7 +1003,7 @@
    ]
   },
   {
-   "name": "plain and html: lettered and roman items show their marker and aren't numbered aloud",
+   "name": "plain and html: lettered and roman items show their marker and only letters are read",
    "format": "plain",
    "input": "Which is the capital of France?\na) Berlin\nb) Paris",
    "chunks": [
@@ -1012,27 +1012,27 @@
      "pause": 0.75
     },
     {
-     "speech": "Berlin.",
+     "speech": "A, Berlin.",
      "pause": 0.4
     },
     {
-     "speech": "Paris.",
+     "speech": "B, Paris.",
      "pause": 0.5
     }
    ],
    "display": "Which is the capital of France?\na) Berlin\nb) Paris"
   },
   {
-   "name": "html: <ol type> letters and list-style roman numerals are shown, not read",
+   "name": "html: <ol type> letters are read, list-style roman numerals are only shown",
    "format": "html",
    "input": "<ol type='A' start='3'><li>Third</li><li>Fourth</li></ol><p>Then:</p><ol style='list-style-type: lower-roman'><li>One</li><li>Two</li></ol>",
    "chunks": [
     {
-     "speech": "Third.",
+     "speech": "C, Third.",
      "pause": 0.4
     },
     {
-     "speech": "Fourth.",
+     "speech": "D, Fourth.",
      "pause": 0.75
     },
     {
@@ -1065,6 +1065,582 @@
     }
    ],
    "display": "☐ Buy beans\n☑ Grind them"
+  },
+  {
+   "name": "plain: a --- separator in an email stays plain",
+   "format": "auto",
+   "input": "Hi all,\nThe offsite is confirmed for the 14th.\nPlease book your travel by Friday.\n---\nJordan Blake\nOperations",
+   "chunks": [
+    {
+     "speech": "Hi all,",
+     "pause": 0.75
+    },
+    {
+     "speech": "The offsite is confirmed for the 14th.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Please book your travel by Friday.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Jordan Blake",
+     "pause": 0.75
+    },
+    {
+     "speech": "Operations",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a dash line between notes isn't a setext heading",
+   "format": "auto",
+   "input": "Groceries\nEggs, spinach, oat milk\n----------\nErrands\nReturn library books\nPick up the dry cleaning",
+   "chunks": [
+    {
+     "speech": "Groceries",
+     "pause": 0.75
+    },
+    {
+     "speech": "Eggs, spinach, oat milk",
+     "pause": 0.75
+    },
+    {
+     "speech": "Errands",
+     "pause": 0.75
+    },
+    {
+     "speech": "Return library books",
+     "pause": 0.75
+    },
+    {
+     "speech": "Pick up the dry cleaning",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a -- signature line and a quoted reply",
+   "format": "auto",
+   "input": "Yes, I can cover the Friday shift.\nJordan Blake\n--\nSent from my phone\n\n> Can anyone swap with me this Friday?\n> I need to leave early for a flight.",
+   "chunks": [
+    {
+     "speech": "Yes, I can cover the Friday shift.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Jordan Blake",
+     "pause": 0.75
+    },
+    {
+     "speech": "Sent from my phone",
+     "pause": 0.75
+    },
+    {
+     "speech": "Can anyone swap with me this Friday?",
+     "pause": 0.75,
+     "speed": 0.95
+    },
+    {
+     "speech": "I need to leave early for a flight.",
+     "pause": 0.5,
+     "speed": 0.95
+    }
+   ]
+  },
+  {
+   "name": "md: <placeholders> are kept in speech",
+   "format": "auto",
+   "input": "## Setup\n\nReplace <your-token> with the key from your dashboard, then run the app.\nKeep <project-name> short and lowercase.",
+   "chunks": [
+    {
+     "speech": "Setup.",
+     "pause": 0.7,
+     "speed": 0.92
+    },
+    {
+     "speech": "Replace <your-token> with the key from your dashboard, then run the app.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Keep <project-name> short and lowercase.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: CLI usage with <placeholders> and a code span",
+   "format": "auto",
+   "input": "Usage: deploy <env> <region>\nExample: `deploy staging eu-west`\nThe <env> argument must match a folder under config.",
+   "chunks": [
+    {
+     "speech": "Usage: deploy <env> <region>",
+     "pause": 0.75
+    },
+    {
+     "speech": "Example: deploy staging eu-west",
+     "pause": 0.75
+    },
+    {
+     "speech": "The <env> argument must match a folder under config.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: initials aren't list markers",
+   "format": "auto",
+   "input": "Panel members:\nJ. Okafor\nM. Lindqvist\nR. Patel",
+   "chunks": [
+    {
+     "speech": "Panel members:",
+     "pause": 0.75
+    },
+    {
+     "speech": "J.",
+     "pause": 0.25
+    },
+    {
+     "speech": "Okafor",
+     "pause": 0.75
+    },
+    {
+     "speech": "M. Lindqvist",
+     "pause": 0.75
+    },
+    {
+     "speech": "R.",
+     "pause": 0.25
+    },
+    {
+     "speech": "Patel",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: quiz options read their letters",
+   "format": "auto",
+   "input": "Which planet has the shortest year?\nA. Venus\nB. Mercury\nC. Mars\nThe answer is B.",
+   "chunks": [
+    {
+     "speech": "Which planet has the shortest year?",
+     "pause": 0.75
+    },
+    {
+     "speech": "A, Venus.",
+     "pause": 0.4
+    },
+    {
+     "speech": "B, Mercury.",
+     "pause": 0.4
+    },
+    {
+     "speech": "C, Mars.",
+     "pause": 0.75
+    },
+    {
+     "speech": "The answer is B.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a chat log with one code span keeps its lines",
+   "format": "auto",
+   "input": "Sam Ortiz\nCan you run `make test` before you push?\nPriya Raman\nSure, running it now\nAll tests pass\nMerging in five minutes",
+   "chunks": [
+    {
+     "speech": "Sam Ortiz",
+     "pause": 0.75
+    },
+    {
+     "speech": "Can you run make test before you push?",
+     "pause": 0.75
+    },
+    {
+     "speech": "Priya Raman",
+     "pause": 0.75
+    },
+    {
+     "speech": "Sure, running it now",
+     "pause": 0.75
+    },
+    {
+     "speech": "All tests pass",
+     "pause": 0.75
+    },
+    {
+     "speech": "Merging in five minutes",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: '>50%' isn't a quote",
+   "format": "auto",
+   "input": "Survey highlights\n>50% of respondents use the app daily\n3 in 4 would recommend it\nMost requests were for dark mode",
+   "chunks": [
+    {
+     "speech": "Survey highlights",
+     "pause": 0.75
+    },
+    {
+     "speech": "50% of respondents use the app daily",
+     "pause": 0.75
+    },
+    {
+     "speech": "3 in 4 would recommend it",
+     "pause": 0.75
+    },
+    {
+     "speech": "Most requests were for dark mode",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a bold reminder in a short email",
+   "format": "auto",
+   "input": "Hi team,\n**Reminder:** timesheets are due today.\nThanks\nSam",
+   "chunks": [
+    {
+     "speech": "Hi team,",
+     "pause": 0.75
+    },
+    {
+     "speech": "Reminder:",
+     "pause": 0.3
+    },
+    {
+     "speech": "timesheets are due today.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Thanks",
+     "pause": 0.75
+    },
+    {
+     "speech": "Sam",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: +---+ bordered text tables aren't Markdown tables",
+   "format": "auto",
+   "input": "+--------+-----+\n| item   | qty |\n+--------+-----+\n| pens   |   4 |\n| paper  |   2 |\n+--------+-----+\n2 rows in set (0.00 sec)",
+   "chunks": [
+    {
+     "speech": "item qty",
+     "pause": 0.75
+    },
+    {
+     "speech": "pens 4",
+     "pause": 0.75
+    },
+    {
+     "speech": "paper 2",
+     "pause": 0.75
+    },
+    {
+     "speech": "2 rows in set (0.00 sec)",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: shell comments aren't headings",
+   "format": "auto",
+   "input": "# Install the dependencies\nnpm install\n# Run the test suite\nnpm test",
+   "chunks": [
+    {
+     "speech": "Install the dependencies npm install",
+     "pause": 0.75
+    },
+    {
+     "speech": "Run the test suite npm test",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: '# of seats' isn't a heading",
+   "format": "auto",
+   "input": "Venue options\n# of seats: 120 at the library, 80 at the hall\nParking is free at both after 6 pm.",
+   "chunks": [
+    {
+     "speech": "Venue options",
+     "pause": 0.75
+    },
+    {
+     "speech": "of seats: 120 at the library, 80 at the hall",
+     "pause": 0.75
+    },
+    {
+     "speech": "Parking is free at both after 6 pm.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: speaker names in a chat log aren't headings",
+   "format": "auto",
+   "input": "Sam Ortiz\nThe nightly build finished without errors.\nPriya Raman\nGreat, I'll tag the release after lunch.\nSam Ortiz\nI also updated the deploy checklist in the wiki.",
+   "chunks": [
+    {
+     "speech": "Sam Ortiz",
+     "pause": 0.75
+    },
+    {
+     "speech": "The nightly build finished without errors.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Priya Raman",
+     "pause": 0.75
+    },
+    {
+     "speech": "Great, I'll tag the release after lunch.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Sam Ortiz",
+     "pause": 0.75
+    },
+    {
+     "speech": "I also updated the deploy checklist in the wiki.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: transcript speaker labels aren't headings",
+   "format": "auto",
+   "input": "INTERVIEWER\nTell me about your first commission.\nMARA QUINN\nIt was a dining table for a family of eight, and I had three weeks.\nINTERVIEWER\nThat sounds like a lot of pressure.",
+   "chunks": [
+    {
+     "speech": "INTERVIEWER",
+     "pause": 0.75
+    },
+    {
+     "speech": "Tell me about your first commission.",
+     "pause": 0.75
+    },
+    {
+     "speech": "MARA QUINN",
+     "pause": 0.75
+    },
+    {
+     "speech": "It was a dining table for a family of eight, and I had three weeks.",
+     "pause": 0.75
+    },
+    {
+     "speech": "INTERVIEWER",
+     "pause": 0.75
+    },
+    {
+     "speech": "That sounds like a lot of pressure.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: an email signature isn't a heading",
+   "format": "auto",
+   "input": "Hi Marcus,\n\nThe signed contract is attached. Let me know if anything looks off.\n\nTalk soon,\n\nPriya Raman\nHead of Partnerships | Fernhill Labs\nThis email and any files sent with it are confidential and meant only for the person named above.",
+   "chunks": [
+    {
+     "speech": "Hi Marcus,",
+     "pause": 0.75
+    },
+    {
+     "speech": "The signed contract is attached.",
+     "pause": 0.25
+    },
+    {
+     "speech": "Let me know if anything looks off.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Talk soon,",
+     "pause": 0.75
+    },
+    {
+     "speech": "Priya Raman",
+     "pause": 0.75
+    },
+    {
+     "speech": "Head of Partnerships Fernhill Labs",
+     "pause": 0.75
+    },
+    {
+     "speech": "This email and any files sent with it are confidential and meant only for the person named above.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: an address isn't a heading",
+   "format": "auto",
+   "input": "Please send the signed form to:\nFernhill Labs\n42 Harbor Street, Portland, OR 97201\nWe will process it within five business days.",
+   "chunks": [
+    {
+     "speech": "Please send the signed form to:",
+     "pause": 0.75
+    },
+    {
+     "speech": "Fernhill Labs",
+     "pause": 0.75
+    },
+    {
+     "speech": "42 Harbor Street, Portland, OR 97201",
+     "pause": 0.75
+    },
+    {
+     "speech": "We will process it within five business days.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a title-case wrapped line isn't a heading",
+   "format": "auto",
+   "input": "Rates have not changed since 2019.\nMembers of the Riverside Water Authority\nBoard voted on Monday to raise them by six percent.\nThe increase takes effect in July.",
+   "chunks": [
+    {
+     "speech": "Rates have not changed since 2019.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Members of the Riverside Water Authority",
+     "pause": 0.75
+    },
+    {
+     "speech": "Board voted on Monday to raise them by six percent.",
+     "pause": 0.75
+    },
+    {
+     "speech": "The increase takes effect in July.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: wrapped list items continue on the next line",
+   "format": "auto",
+   "input": "Action items:\n- Ask Priya to send the revised\n  Q3 budget to finance by Friday\n- Book the large room for the\n  October planning session",
+   "chunks": [
+    {
+     "speech": "Action items:",
+     "pause": 0.45
+    },
+    {
+     "speech": "Ask Priya to send the revised Q3 budget to finance by Friday.",
+     "pause": 0.4
+    },
+    {
+     "speech": "Book the large room for the October planning session.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: wrapped numbered steps continue",
+   "format": "auto",
+   "input": "1. Open Settings and choose\n   Privacy & Security.\n2. Scroll to the bottom and click\n   Advanced.",
+   "chunks": [
+    {
+     "speech": "1. Open Settings and choose Privacy & Security.",
+     "pause": 0.4
+    },
+    {
+     "speech": "2. Scroll to the bottom and click Advanced.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a tab doesn't stop a hard-wrap join",
+   "format": "auto",
+   "input": "Figure 3.\tAverage nightly sleep by shift type, measured over\ntwo weeks in each of the three hospitals.",
+   "chunks": [
+    {
+     "speech": "Figure 3.",
+     "pause": 0.25
+    },
+    {
+     "speech": "Average nightly sleep by shift type, measured over two weeks in each of the three hospitals.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: U+2028 line separators split lines",
+   "format": "auto",
+   "input": "The first draft is done. Next Steps We will send it to the board for comments by Friday.",
+   "chunks": [
+    {
+     "speech": "The first draft is done.",
+     "pause": 1.2
+    },
+    {
+     "speech": "Next Steps.",
+     "pause": 0.7,
+     "speed": 0.92
+    },
+    {
+     "speech": "We will send it to the board for comments by Friday.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a byline and date aren't headings",
+   "format": "auto",
+   "input": "By Dana Whitfield\nMarch 4, 2026\nThe Harbor District council voted on Tuesday to extend evening ferry service.\nOfficials expect the change to start in May.",
+   "chunks": [
+    {
+     "speech": "By Dana Whitfield",
+     "pause": 0.75
+    },
+    {
+     "speech": "March 4, 2026",
+     "pause": 0.75
+    },
+    {
+     "speech": "The Harbor District council voted on Tuesday to extend evening ferry service.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Officials expect the change to start in May.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a byline under a headline isn't a heading",
+   "format": "auto",
+   "input": "Council Extends Evening Ferry Service\nBy Dana Whitfield\nThe Harbor District council voted on Tuesday to extend evening ferry service. Officials expect the change to start in May.",
+   "chunks": [
+    {
+     "speech": "Council Extends Evening Ferry Service",
+     "pause": 0.75
+    },
+    {
+     "speech": "By Dana Whitfield",
+     "pause": 0.75
+    },
+    {
+     "speech": "The Harbor District council voted on Tuesday to extend evening ferry service.",
+     "pause": 0.25
+    },
+    {
+     "speech": "Officials expect the change to start in May.",
+     "pause": 0.5
+    }
+   ]
   }
  ]
 }
