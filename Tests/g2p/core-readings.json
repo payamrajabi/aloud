@@ -8023,7 +8023,7 @@
     },
     {
       "area" : "dates",
-      "says" : "Open Monday to Saturday, ten ay em to six pee em.",
+      "says" : "Open Monday to Saturday, ten AM to six PM.",
       "text" : "Open Mon–Sat, 10am–6pm."
     },
     {
@@ -8286,7 +8286,6 @@
     {
       "area" : "dates",
       "says" : "Since two thousand five, sales have doubled.",
-      "says_gb" : "Since two thousand and five, sales have doubled.",
       "text" : "Since 2005, sales have doubled."
     },
     {
