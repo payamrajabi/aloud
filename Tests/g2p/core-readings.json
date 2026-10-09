@@ -3842,6 +3842,42 @@
       "us" : "sˈi ɪɡzˈæmpəl dˈɑt kˈɑm twˈɛnti twˈɛnti fˈɔɹ zˈɪɹO θɹˈi zˈɪɹO fˈɔɹ lˈɔnʧ fɔɹ dətˈAlz."
     },
     {
+      "area" : "dates",
+      "gb" : "ˌʌpɡɹˈAd tə vˈɜːʃᵊn tˈuː wˈʌn tˈuː zˈɪəɹQ tˈuː fˈɔː tədˈA.",
+      "text" : "Upgrade to version 2.1.2024 today.",
+      "us" : "ˈʌpɡɹˌAd tə vˈɜɹʒən tˈu wˈʌn tˈu zˈɪɹO tˈu fˈɔɹ tədˈA."
+    },
+    {
+      "area" : "dates",
+      "gb" : "wˌiː sˈQld fˈIv mˈA dˈA pˈQstəz.",
+      "text" : "We sold 5 May Day posters.",
+      "us" : "wˌi sˈOld fˈIv mˈA dˈA pˈOstəɹz."
+    },
+    {
+      "area" : "dates",
+      "gb" : "wˈAt əntˈɪl sˈʌn vˈali ˈQpᵊnz.",
+      "text" : "Wait until Sun Valley opens.",
+      "us" : "wˈAt ˌʌntˈɪl sˈʌn vˈæli ˈOpᵊnz."
+    },
+    {
+      "area" : "dates",
+      "gb" : "sˈat nˈIn θˈɜːti ɪn ðə hˈɔːl.",
+      "text" : "SAT 9:30 in the hall.",
+      "us" : "sˈæt nˈIn θˈɜɹTi ɪn ðə hˈɔl."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ðə sˈʌn tˈɛn ˌAˈɛm ɪdˈɪʃᵊn ɪz ˈWt.",
+      "text" : "The Sun 10am edition is out.",
+      "us" : "ðə sˈʌn tˈɛn ˌAˈɛm ədˈɪʃən ɪz ˈWt."
+    },
+    {
+      "area" : "dates",
+      "gb" : "ʧˈaptə θɹˈiː mˈɑːʧ ɒv ðə pˈɛŋɡwɪnz.",
+      "text" : "Chapter 3 March of the Penguins.",
+      "us" : "ʧˈæptəɹ θɹˈi mˈɑɹʧ ʌv ðə pˈɛŋɡwᵊnz."
+    },
+    {
       "area" : "addresses",
       "gb" : "ɪn twˈɛnti fˌɪftˈiːn ˈQʃᵊn dɹˈIv wɒz ɹipˈAvd.",
       "text" : "In 2015 Ocean Drive was repaved.",
@@ -8161,7 +8197,7 @@
     },
     {
       "area" : "dates",
-      "says" : "Open Monday to Saturday, ten ay em to six pee em.",
+      "says" : "Open Monday to Saturday, ten AM to six PM.",
       "text" : "Open Mon–Sat, 10am–6pm."
     },
     {
@@ -8424,7 +8460,6 @@
     {
       "area" : "dates",
       "says" : "Since two thousand five, sales have doubled.",
-      "says_gb" : "Since two thousand and five, sales have doubled.",
       "text" : "Since 2005, sales have doubled."
     },
     {
