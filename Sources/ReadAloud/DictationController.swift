@@ -146,6 +146,11 @@ final class DictationController: ObservableObject {
             begin(pushToTalk: false)
         }
         guard isProvisional, state == .recording else { return }
+        guard Licensing.shared.isUnlocked else {
+            cancel(quietly: true)
+            _ = Licensing.shared.allowUse()
+            return
+        }
         isProvisional = false
         if Self.dryRun { print("   dictation: confirmed"); fflush(stdout) } else { NSSound(named: "Tink")?.play() }
     }
@@ -211,6 +216,12 @@ final class DictationController: ObservableObject {
 
     /// `provisional`: the start sound waits until it's confirmed, so a double-tap to read stays silent.
     private func startRecording(pushToTalk: Bool, provisional: Bool = false) {
+        // The default single-tap path comes here without begin(). Don't capture audio on an
+        // expired trial, and leave the purchase prompt until a provisional tap is confirmed.
+        guard provisional ? Licensing.shared.isUnlocked : Licensing.shared.allowUse() else {
+            if provisional { startWhenConfirmed = true }
+            return
+        }
         isProvisional = provisional
         if Self.dryRun {
             print("   dictation: start (\(pushToTalk ? "hold to talk" : provisional ? "provisional" : "tap to toggle"))"); fflush(stdout)

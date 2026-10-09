@@ -22,7 +22,7 @@ import CSherpaOnnx
 ///   --dead-mic                                          drop all microphone audio (dictation should give up and say so)
 ///   --slow-mic-setup                                    make the microphone's background setup take 15 s longer
 ///   --check-license KEY                                 check a license or activation link and exit
-///   ALOUD_TRIAL_START=2026-10-01                        pretend the free trial started then
+///   ALOUD_TRIAL_START=2026-10-01                        DEBUG builds only: pretend the trial started then
 ///   READALOUD_MODELS_DIR=/some/folder                   use a different models folder (test fresh installs)
 ///   --script "2:seek=30;4:pause;5:play;8:open;9:snapshot=/tmp/p.png;10:quit"
 enum DebugScript {
@@ -59,6 +59,16 @@ enum DebugScript {
 
     /// Synthesis benchmark that runs before the app starts.
     static func runCommandLineIfNeeded() {
+        #if !DEBUG
+        // Command-line reading and transcription obey the same entitlement as the UI.
+        // Pure regression/inspection modes remain usable without an installed app.
+        let paidModes = ["--say", "--say-file", "--render-phonemes", "--transcribe", "--clean", "--clean-file",
+                         "--stream-sim", "--mic-sim"]
+        if paidModes.contains(where: args.contains), !Licensing.shared.isUnlocked {
+            print("Your Aloud free trial has ended. Enter your license in Settings or visit \(Licensing.buyURL.absoluteString).")
+            exit(1)
+        }
+        #endif
         if args.contains("--test-gestures") { exit(testGestures() ? 0 : 1) }
         if let key = value("--check-license") {
             // Checks a license (or activation link) against the built-in public key, without storing it.
@@ -362,8 +372,12 @@ enum DebugScript {
             }
         case "settings": app.showSettings()
         case "license":  // license=KEY (or an activation link) stores it; license= removes it
+            #if DEBUG
             if arg.isEmpty { Licensing.shared.removeLicense() } else { Licensing.shared.activate(arg) }
             print("   license: \(Licensing.shared.status)")
+            #else
+            print("   license: scripted activation is available only in debug builds")
+            #endif
         case "cleanupdownload": app.dictationController.downloadCleanupModel()  // with --trace, prints when it's done
         case "settingsshot":
             // Forms don't draw into cached bitmaps, so capture the window from the screen.

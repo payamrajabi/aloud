@@ -175,6 +175,7 @@ final class PlayerModel: ObservableObject {
     // MARK: - Session
 
     func load(_ raw: String) {
+        guard Licensing.shared.allowUse() else { return }
         stop()
         let cleaned = TextPrep.clean(raw)
         let allChunks = TextPrep.chunks(for: cleaned)
@@ -240,6 +241,7 @@ final class PlayerModel: ObservableObject {
 
     func play() {
         guard hasSession, !isPlaying else { return }
+        guard Licensing.shared.allowUse() else { return }
         if isAtEnd { resumePoint = (0, 0) }  // finished: start over
         if !KokoroEngine.isModelInstalled {
             message = nil
@@ -287,6 +289,7 @@ final class PlayerModel: ObservableObject {
     /// Jumps to the start of a sentence and plays from there.
     func jump(to index: Int) {
         guard hasSession else { return }
+        guard Licensing.shared.allowUse() else { return }
         let i = min(max(index, 0), chunks.count - 1)
         isPlaying = true
         startPlayback(at: i, fraction: 0)

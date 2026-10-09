@@ -1,17 +1,17 @@
-// /api/license?session_id=cs_…: the thank-you page swaps a finished Checkout for the license,
-// so the app unlocks straight away without waiting for the email.
-import { HttpError, fail, isPaidAloud, json, licenseFor, stripe } from './_lib.mjs';
+import { HttpError, assertSessionMode, fail, isPaidAloud, json, licenseFor, originOf, paymentMode, stripe } from './_lib.mjs';
 
 export async function GET(request) {
   try {
+    originOf(request);
+    const mode = paymentMode();
     const id = new URL(request.url).searchParams.get('session_id') || '';
-    if (!/^cs_(test|live)_[A-Za-z0-9]+$/.test(id)) throw new HttpError(400, 'That isn’t a checkout link.');
+    if (!new RegExp(`^cs_${mode}_[A-Za-z0-9]+$`).test(id)) throw new HttpError(400, 'That isn’t a checkout link for this mode.');
     const session = await stripe(`/checkout/sessions/${id}`);
-    if (session.metadata?.product !== 'aloud') throw new HttpError(404, 'No Aloud purchase found.');
-    // Bank transfers and the like finish later; the page asks again, and the email follows when it's paid.
-    if (!isPaidAloud(session)) return json({ pending: true }, 202);
-    return json({ license: licenseFor(session), email: session.customer_details?.email || '' });
-  } catch (error) {
-    return fail(error);
-  }
+    assertSessionMode(session);
+    if (session.id !== id || session.metadata?.product !== 'aloud' || session.mode !== 'payment'
+      || session.status !== 'complete') throw new HttpError(404, 'No completed Aloud purchase found.');
+    if (session.payment_status === 'unpaid') return json({ pending: true, mode }, 202);
+    if (!isPaidAloud(session)) throw new HttpError(404, 'No completed Aloud purchase found.');
+    return json({ license: licenseFor(session), email: session.customer_details.email, mode });
+  } catch (error) { return fail(error); }
 }

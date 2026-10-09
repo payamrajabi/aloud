@@ -40,18 +40,9 @@
   </div>
   <p id="missing" hidden>This link is missing its license. Open the link from your purchase email again, or <a href="/restore">get it sent again</a>.</p>
 </main>
-<script>
-  // The license travels after the # so it never reaches a server log.
-  const license = location.hash.slice(1);
-  if (/^[\w-]+\.[\w-]+$/.test(license)) {
-    const link = "aloud://activate?license=" + license;
-    document.getElementById("open").href = link;
-    document.getElementById("key").textContent = license;
-    document.getElementById("ready").hidden = false;
-    location.href = link;
-  } else {
-    document.getElementById("missing").hidden = false;
-  }
+<script type="module">
+  import { initActivationPage } from './assets/payment-pages.mjs';
+  initActivationPage({ document, location, history });
 </script>
 </body>
 </html>

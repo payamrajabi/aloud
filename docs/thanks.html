@@ -36,41 +36,22 @@
     <p>This only takes a moment.</p>
   </div>
   <div id="done" hidden>
-    <h1>Thanks for buying Aloud!</h1>
-    <p>Aloud should unlock by itself. If it doesn’t, click the button.</p>
+    <h1 id="title">Thanks for buying Aloud!</h1>
+    <p id="instructions">Aloud should unlock by itself. If it doesn’t, click the button.</p>
     <p><a class="btn" id="open" href="#">Unlock Aloud</a></p>
-    <p class="small">Your license works on all your Macs. We’ve emailed it to <b id="email"></b> too. Keep that email to unlock Aloud on a new Mac.</p>
+    <p class="small" id="delivery">Your license works on all your Macs. Save the copy below. A backup email is sent separately to <b id="email"></b>; if it doesn’t arrive, use <a href="/restore">Find your license</a> or contact support.</p>
     <p class="key" id="key"></p>
-    <p class="small">Don’t have Aloud on this Mac? <a href="/download">Download it</a>, open it, then click Unlock Aloud again.</p>
+    <p class="small" id="download-tip">Don’t have Aloud on this Mac? <a href="/download">Download it</a>, open it, then click Unlock Aloud again.</p>
   </div>
   <div id="problem" hidden>
     <h1>We couldn’t confirm your purchase</h1>
     <p id="reason"></p>
-    <p class="small">If you were charged, your license is on its way by email. Or write to <a href="mailto:payam.rajabi@gmail.com">payam.rajabi@gmail.com</a> and we’ll sort it out.</p>
+    <p class="small">If your bank shows a charge, try <a href="/restore">Find your license</a> or write to <a href="mailto:payam.rajabi@gmail.com">payam.rajabi@gmail.com</a>. Please don’t pay again while we check.</p>
   </div>
 </main>
-<script>
-  const show = (id) => ["waiting", "done", "problem"].forEach((s) => (document.getElementById(s).hidden = s !== id));
-  const sessionId = new URLSearchParams(location.search).get("session_id");
-  let tries = 0;
-  async function check() {
-    try {
-      const res = await fetch("/api/license?session_id=" + encodeURIComponent(sessionId || ""));
-      const data = await res.json();
-      if (res.status === 202 && tries++ < 20) return setTimeout(check, 3000);
-      if (!res.ok || !data.license) throw new Error(data.error || "Your payment is still being processed.");
-      const link = "aloud://activate?license=" + data.license;
-      document.getElementById("open").href = link;
-      document.getElementById("key").textContent = data.license;
-      document.getElementById("email").textContent = data.email || "you";
-      show("done");
-      location.href = link;  // opens Aloud, which unlocks itself
-    } catch (error) {
-      document.getElementById("reason").textContent = error.message;
-      show("problem");
-    }
-  }
-  check();
+<script type="module">
+  import { initThanksPage } from './assets/payment-pages.mjs';
+  initThanksPage({ document, location, history });
 </script>
 </body>
 </html>
