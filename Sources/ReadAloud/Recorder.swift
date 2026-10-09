@@ -19,8 +19,10 @@ final class Recorder {
     private var observer: NSObjectProtocol?
     private var watchdog: Timer?
     private var isRecording = false
-    private var isBuilding = false
-    private var buildStarted: TimeInterval = 0
+    /// When the engine being made in the background was started, while one is.
+    private var buildStarted: TimeInterval?
+    /// Called once that engine is ready.
+    private var buildWaiters: [() -> Void] = []
     /// Restarts since audio last arrived.
     private var restarts = 0
     /// Restarts during this recording.
@@ -42,6 +44,8 @@ final class Recorder {
     private let trace = DebugScript.args.contains("--trace")
     /// `--dead-mic`: drop everything the microphone sends, to test giving up on it.
     private static let deadMic = DebugScript.args.contains("--dead-mic")
+    /// `--slow-mic-setup`: making the engine in the background takes 15 s more, as it can on a busy Mac.
+    private static let slowSetup = DebugScript.args.contains("--slow-mic-setup")
     /// Restarts and failures also go to the system log (Console, subsystem co.payamrajabi.readaloud),
     /// so a microphone that misbehaves on someone's Mac can be diagnosed afterwards.
     private static let logger = Logger(subsystem: "co.payamrajabi.readaloud", category: "recorder")
@@ -74,16 +78,19 @@ final class Recorder {
     /// Only call it once microphone access is granted: making the engine checks for it.
     func prepare(then completion: (() -> Void)? = nil) {
         if engine != nil { completion?(); return }
-        guard !isBuilding else { return }
-        isBuilding = true
+        if let completion { buildWaiters.append(completion) }
+        guard buildStarted == nil else { return }  // already on its way
         buildStarted = Self.now
         let device = AudioDevices.preferredDevice(.input)?.id
         DispatchQueue.global(qos: .userInitiated).async {
+            if Self.slowSetup { sleep(15) }
             let engine = Self.makeEngine(device: device)
             DispatchQueue.main.async {
-                self.isBuilding = false
+                self.buildStarted = nil
                 if self.engine == nil { self.adopt(engine) }  // a recording that couldn't wait made its own
-                completion?()
+                let waiters = self.buildWaiters
+                self.buildWaiters = []
+                waiters.forEach { $0() }
             }
         }
     }
@@ -150,9 +157,11 @@ final class Recorder {
     /// Twice a second while recording: restart a microphone that has stopped sending audio.
     private func checkAudio() {
         guard isRecording else { return }
-        if isBuilding {
-            if Self.now - buildStarted > Self.buildLimit { giveUp("making a new engine didn't finish") }
-            return
+        // Only a recording left without an engine waits for the one being made, and not for long.
+        // (One being made at launch doesn't matter to a recording that made its own.)
+        if engine == nil {
+            if let started = buildStarted, Self.now - max(started, restartedAt) < Self.buildLimit { return }
+            return giveUp("making a new engine didn't finish")
         }
         lock.lock()
         let heard = lastAudio
