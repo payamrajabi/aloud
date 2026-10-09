@@ -6,13 +6,14 @@ import { GET as buy } from '../../docs/api/buy.mjs';
 import { GET as getLicense } from '../../docs/api/license.mjs';
 import { POST as webhook } from '../../docs/api/webhook.mjs';
 import { POST as restore } from '../../docs/api/restore.mjs';
-import { licenseFor, isPaidAloud, fail, paymentMode, validEmail } from '../../docs/api/_lib.mjs';
+import { licenseFor, isPaidAloud, fail, paymentMode, requireStripeMode, validEmail } from '../../docs/api/_lib.mjs';
 
 const SITE = 'https://payments.example.test';
 const WEBHOOK_SECRET = 'whsec_fixtureOnly';
 const ENV = ['ALOUD_PAYMENT_MODE', 'ALOUD_ENABLE_LIVE_PAYMENTS', 'VERCEL_ENV', 'STRIPE_SECRET_KEY',
   'STRIPE_WEBHOOK_SECRET', 'SITE_ORIGIN', 'LICENSE_SIGNING_KEY', 'ALOUD_EMAIL_ENABLED',
-  'RESEND_API_KEY', 'LICENSE_EMAIL_FROM', 'ALOUD_PRICE_LOOKUP_KEY', 'ALOUD_STRIPE_PRODUCT_ID'];
+  'RESEND_API_KEY', 'LICENSE_EMAIL_FROM', 'ALOUD_PRICE_LOOKUP_KEY', 'ALOUD_STRIPE_PRODUCT_ID',
+  'ALOUD_RESTORE_PROTECTION_READY'];
 const originalFetch = globalThis.fetch;
 const originalError = console.error;
 const originalNow = Date.now;
@@ -23,7 +24,8 @@ beforeEach(() => {
   keypair = generateKeyPairSync('ed25519');
   Object.assign(process.env, { STRIPE_SECRET_KEY: 'sk_test_fixtureOnly', STRIPE_WEBHOOK_SECRET: WEBHOOK_SECRET,
     SITE_ORIGIN: SITE, LICENSE_SIGNING_KEY: keypair.privateKey.export({ format: 'pem', type: 'pkcs8' }),
-    ALOUD_EMAIL_ENABLED: 'true', RESEND_API_KEY: 're_fixtureOnly', LICENSE_EMAIL_FROM: 'Aloud <license@example.test>' });
+    ALOUD_EMAIL_ENABLED: 'true', RESEND_API_KEY: 're_fixtureOnly', LICENSE_EMAIL_FROM: 'Aloud <license@example.test>',
+    ALOUD_RESTORE_PROTECTION_READY: 'true' }); // All provider calls below are mocked.
   calls = []; logs = [];
   console.error = (...args) => logs.push(args.join(' '));
   globalThis.fetch = async (...args) => { calls.push(args); throw new Error('Unexpected mocked provider call'); };
@@ -77,6 +79,31 @@ function checkoutMock(priceChanges = {}, sessionChanges = {}) {
       url: 'https://checkout.stripe.com/c/pay/cs_test_Fixture123', ...sessionChanges }));
   });
 }
+
+for (const mode of ['test', 'live']) {
+  for (const kind of ['sk', 'rk']) test(`${kind} ${mode} key is accepted only in its configured mode`, () => {
+    Object.assign(process.env, { ALOUD_PAYMENT_MODE: mode, ALOUD_ENABLE_LIVE_PAYMENTS: 'true',
+      VERCEL_ENV: 'production', STRIPE_SECRET_KEY: `${kind}_${mode}_fixtureOnly` });
+    assert.equal(requireStripeMode(), mode);
+    process.env.ALOUD_PAYMENT_MODE = mode === 'test' ? 'live' : 'test';
+    assert.throws(() => requireStripeMode());
+    assert.equal(calls.length, 0);
+  });
+}
+for (const key of ['rk_live_fixtureOnly', 'pk_test_fixtureOnly', 'sk_org_fixtureOnly',
+  'rk_test_', 'rk_test_fixtureOnly\n', 'rk_test_fixtureOnly extra', 'rk_test_fixture_Only']) {
+  test(`invalid/wrong-mode runtime credential is rejected: ${JSON.stringify(key)}`, async () => {
+    process.env.STRIPE_SECRET_KEY = key;
+    assert.equal((await buy(request('/buy'))).status, 503);
+    assert.equal(calls.length, 0);
+  });
+}
+test('restricted test checkout forwards only the authorized restricted key to mocked Stripe', async () => {
+  process.env.STRIPE_SECRET_KEY = 'rk_test_fixtureOnly'; checkoutMock();
+  assert.equal((await buy(request('/buy'))).status, 303);
+  assert.equal(calls.length, 2);
+  assert.ok(calls.every(call => call.options.headers.Authorization === 'Bearer rk_test_fixtureOnly'));
+});
 
 for (const [name, env] of [
   ['live key in default test mode', { STRIPE_SECRET_KEY: 'sk_live_fixtureOnly' }],
@@ -278,6 +305,34 @@ test('delivery timeout or concurrent conflict remains retryable with same key/bo
   assert.equal((await webhook(hookRequest(event()))).status, 200); assert.deepEqual(logs, []);
 });
 
+for (const value of [undefined, '', 'false', 'TRUE', '1']) {
+  test(`restore protection defaults closed without exact operator attestation: ${String(value)}`, async () => {
+    if (value === undefined) delete process.env.ALOUD_RESTORE_PROTECTION_READY;
+    else process.env.ALOUD_RESTORE_PROTECTION_READY = value;
+    const res = await restore(restoreRequest());
+    assert.equal(res.status, 503); assert.equal(calls.length, 0);
+    assert.match((await res.json()).error, /Contact support/);
+    assert.deepEqual(logs, []);
+  });
+}
+test('request headers, query and form cannot enable restore protection', async () => {
+  delete process.env.ALOUD_RESTORE_PROTECTION_READY;
+  const res = await restore(request('/api/restore?ALOUD_RESTORE_PROTECTION_READY=true', { method: 'POST',
+    headers: { 'x-aloud-restore-protection-ready': 'true', 'ALOUD_RESTORE_PROTECTION_READY': 'true' },
+    body: new URLSearchParams({ email: 'buyer@example.test', ALOUD_RESTORE_PROTECTION_READY: 'true' }) }));
+  assert.equal(res.status, 503); assert.equal(calls.length, 0);
+});
+test('restore protection attestation does not enable live mode or affect checkout', async () => {
+  delete process.env.ALOUD_RESTORE_PROTECTION_READY;
+  checkoutMock();
+  assert.equal((await buy(request('/buy'))).status, 303);
+  assert.equal(calls.length, 2);
+  process.env.ALOUD_RESTORE_PROTECTION_READY = 'true';
+  process.env.STRIPE_SECRET_KEY = 'rk_live_fixtureOnly';
+  calls.length = 0;
+  assert.equal((await restore(restoreRequest())).status, 503);
+  assert.equal(calls.length, 0);
+});
 test('restore filters email and paginates beyond 20 historical purchases', async () => {
   Date.now = () => 1_791_547_200_000;
   const old = Array.from({ length: 25 }, (_, i) => session({ id: `cs_test_Old${i}`, metadata: { product: 'other' } }));

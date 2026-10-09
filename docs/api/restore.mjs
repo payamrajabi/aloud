@@ -2,6 +2,11 @@ import { HttpError, emailLicense, fail, isPaidAloud, json, requireDelivery, stri
 
 export async function POST(request) {
   try {
+    // Operator attestation after approved platform protection is verified, not proof
+    // that a WAF rule is active. Request headers/body cannot opt into provider calls.
+    if (process.env.ALOUD_RESTORE_PROTECTION_READY !== 'true') {
+      throw new HttpError(503, 'License recovery isn’t available yet. Contact support for help.');
+    }
     const origin = requireDelivery(request);
     const form = await request.formData().catch(() => null);
     const email = String(form?.get('email') || '').trim();

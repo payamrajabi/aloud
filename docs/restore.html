@@ -36,7 +36,7 @@
     <p>Enter the email address you bought Aloud with, and we’ll send your license there.</p>
     <input type="email" name="email" required autocomplete="email" placeholder="you@example.com" aria-label="Email address">
     <button class="btn" type="submit">Email My License</button>
-    <p class="small error" id="error" hidden></p>
+    <p class="small error" id="error" role="status" aria-live="polite" hidden></p>
   </form>
   <div id="sent" hidden>
     <p>If that address bought Aloud, its license is on its way. Check your inbox, and your spam folder just in case.</p>
@@ -45,19 +45,38 @@
 </main>
 <script>
   const form = document.getElementById("form"), error = document.getElementById("error");
+  let retryAt = 0;
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const button = form.querySelector("button");
+    if (button.disabled || Date.now() < retryAt) return;
     button.disabled = true;
     error.hidden = true;
     try {
       const res = await fetch("/api/restore", { method: "POST", body: new FormData(form) });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Something went wrong.");
+      // The platform may return an HTML 429 before the API handler runs.
+      if (res.status === 429) {
+        const header = res.headers.get("Retry-After");
+        const seconds = header && /^\d+$/.test(header) ? Number(header)
+          : Math.ceil((Date.parse(header) - Date.now()) / 1000);
+        const wait = Number.isFinite(seconds) && seconds >= 0 && seconds <= 86400
+          ? Math.max(1, seconds) : 600;
+        retryAt = Date.now() + wait * 1000;
+        const minutes = Math.ceil(wait / 60);
+        error.textContent = `Too many license requests. Please wait ${minutes} ${minutes === 1 ? "minute" : "minutes"}, then try again.`;
+        error.hidden = false;
+        setTimeout(() => {
+          button.disabled = false;
+          error.textContent = "You can try again now.";
+        }, wait * 1000);
+        return; // Re-enable the form later; never automatically resend.
+      }
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || data.sent !== true) throw new Error(data.error || "License recovery is temporarily unavailable. Please try again later or contact support.");
       form.hidden = true;
       document.getElementById("sent").hidden = false;
     } catch (e) {
-      error.textContent = e.message + " Please try again.";
+      error.textContent = e.message;
       error.hidden = false;
       button.disabled = false;
     }

@@ -157,7 +157,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
 
     /// `pausing`: the same (or no) selection pauses a playing session. Modifier taps only ever start or resume.
     func readSelection(pausing: Bool = true) {
-        guard Licensing.shared.allowUse() else { return }
+        let licensing = Licensing.shared
+        // An expired trial still permits stopping audio already in progress.
+        if pausing, model.isPlaying, !licensing.isUnlocked {
+            model.pause()
+            self.pill?.reader.show(.controls)
+            return
+        }
+        guard licensing.allowUse() else { return }
         guard SelectionReader.isTrusted else {
             model.message = "Aloud needs Accessibility access to read your selection. Turn it on in System Settings → Privacy & Security → Accessibility, then try again."
             showPlayer()

@@ -177,6 +177,12 @@ private struct LicenseSection: View {
             }
         }
         .onAppear { licensing.refresh() }
+        .onReceive(Timer.publish(every: 60, on: .main, in: .common).autoconnect()) { _ in
+            licensing.refresh()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
+            licensing.refresh()
+        }
     }
 
     private var isUnlockedForGood: Bool {

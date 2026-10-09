@@ -3,9 +3,21 @@ import assert from 'node:assert/strict';
 import { inspectTestAccount, setupPlan } from '../../scripts/stripe-setup.mjs';
 
 test('live or missing credentials fail before any request', async () => {
-  for (const key of [undefined, 'sk_live_example', 'not-a-key']) {
+  for (const key of [undefined, 'sk_live_example', 'rk_live_example', 'pk_test_example',
+    'sk_org_example', 'rk_test_', 'rk_test_example\n', 'rk_test_example extra', 'not-a-key']) {
     await assert.rejects(inspectTestAccount({ key, fetcher: () => assert.fail('network was called') }));
   }
+});
+test('restricted sandbox inspector remains GET-only with separate read-only permissions', async () => {
+  const paths = [];
+  const result = await inspectTestAccount({ key: 'rk_test_example', fetcher: async (url, init) => {
+    assert.equal(init.method, 'GET');
+    assert.equal(init.headers.Authorization, 'Bearer rk_test_example');
+    paths.push(new URL(url).pathname);
+    return Response.json(url.endsWith('/account') ? {} : { data: [], has_more: false });
+  } });
+  assert.equal(result.changesMade, false);
+  assert.deepEqual(paths.sort(), ['/v1/account', '/v1/prices', '/v1/webhook_endpoints']);
 });
 test('inspector is GET-only, paginates and reports no private account data or webhook secret', async () => {
   const urls = [];

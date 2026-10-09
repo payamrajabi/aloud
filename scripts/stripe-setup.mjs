@@ -18,7 +18,9 @@ export const setupPlan = {
 };
 
 export async function inspectTestAccount({ key, siteOrigin, fetcher = fetch }) {
-  if (!/^sk_test_[A-Za-z0-9]+$/.test(key || '')) throw new Error('Use an authorized Stripe test secret key; live keys are rejected.');
+  if (typeof key !== 'string' || key !== key.trim() || !/^(?:sk|rk)_test_[A-Za-z0-9]+$/.test(key)) {
+    throw new Error('Use an authorized Stripe test restricted or secret key; live keys are rejected.');
+  }
   if (siteOrigin) {
     let url;
     try { url = new URL(siteOrigin); } catch { throw new Error('Use an exact HTTPS SITE_ORIGIN.'); }

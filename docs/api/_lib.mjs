@@ -32,7 +32,8 @@ export function paymentMode() {
 
 function stripeKey() {
   const key = process.env.STRIPE_SECRET_KEY;
-  if (typeof key !== 'string' || !key.startsWith(`sk_${paymentMode()}_`) || key.length < 12) {
+  if (typeof key !== 'string' || key !== key.trim()
+    || !new RegExp(`^(?:sk|rk)_${paymentMode()}_[A-Za-z0-9]+$`).test(key) || key.length < 12) {
     throw new HttpError(503, 'Payments aren’t configured for this mode.');
   }
   return key;
