@@ -67,6 +67,9 @@ enum AddressPass {
         t = rewrite(t, building, readBuilding)
         if hasCapital {
             t = rewrite(t, partyState, readPartyState)
+            t = rewrite(t, apStateBeforeOffice) { m, s, casing in
+                (m.range, casing.cased(AddressPlaces.apStates[s.substring(with: m.range(at: 1))]!, at: m.range.location))
+            }
             t = rewrite(t, apStateAlone, readAPStateAlone)
             t = rewrite(t, fortOrPoint, readFortOrPoint)
             t = rewrite(t, directionInitial, readDirectionInitial)
@@ -360,9 +363,11 @@ enum AddressPass {
             if AddressPlaces.territories.contains(code) {
                 guard placeWord else { return nil }
             } else if AddressPlaces.wordLikeStates.contains(code) {
-                // A listed city settles a code that isn't an English word ("Chicago, IL pizza").
-                guard placeWord || after || based || closed || (!englishCodes.contains(code) && AddressPlaces.isUSPlace(place.name, code))
-                else { return nil }
+                // A listed city settles a code that isn't an English word ("Chicago, IL pizza"), and
+                // one that is after its comma before punctuation or a lower-case word ("Portland,
+                // OR or Portland, ME?"; "Portland, OR Seattle" has a capital next).
+                let listed = AddressPlaces.isUSPlace(place.name, code)
+                guard placeWord || after || based || closed || listed && (!englishCodes.contains(code) || comma) else { return nil }
             }
             if based {
                 // "a Portland, OR-based startup": "Oregon based", two words as the says reads them.
@@ -411,7 +416,9 @@ enum AddressPass {
         let next = rest.drop { $0 == " " || $0 == "\t" }
         let zip = next.prefix(while: \.isNumber).count == 5 && next.dropFirst(5).first?.isNumber != true
         if AddressPlaces.wordLikeAPStates.contains(abbr) {
-            guard zip || AddressPlaces.isUSPlace(place.name, stateCodes[name] ?? "") else { return nil }
+            // A second comma and a lower-case word settle it too: "Mt. Vernon, Va., hosted".
+            let aside = rest.hasPrefix(", ") && rest.dropFirst(2).first?.isLowercase == true
+            guard zip || aside || AddressPlaces.isUSPlace(place.name, stateCodes[name] ?? "") else { return nil }
         }
         // Its period: dropped before a comma, a ZIP, "(AP)" or a lower-case word; the full stop at
         // the end, and before a capital.
@@ -486,12 +493,12 @@ enum AddressPass {
         }
         guard AddressPlaces.australianStates[code] != nil || AddressPlaces.australianLetterStates.contains(code),
               let place = place(before: m.range.location, in: s) else { return nil }
-        // ACT, NT, SA and WA are said as letters, as written.
+        // ACT, NT, SA and WA are said as letters ("Perth, WA 6000": "W A", not "wah").
         let name = AddressPlaces.australianStates[code].map { casing.cased($0, at: m.range(at: 2).location) }
         var words = (comma ? "," : "") + " "
         if let postcode {
             let n = Int(postcode) ?? 0
-            words += (name ?? s.substring(with: m.range(at: 2))) + " "
+            words += (name ?? spelled(code)) + " "
                 + casing.cased(n % 1000 == 0 ? SpokenNumbers.cardinal(n) : SpokenNumbers.digits(postcode), at: m.range(at: 3).location)
         } else {
             // With no postcode: "Melbourne, VIC." at the end of a sentence or before punctuation.
@@ -542,7 +549,7 @@ enum AddressPass {
     // MARK: - Routes and boxes (rules H and G)
 
     private static let route = try! NSRegularExpression(pattern:
-        #"(?<![\p{L}\d])(US|U\.S\.|Hwy\.?|HWY|Highway|HIGHWAY|Route|ROUTE|Rte\.?|RTE|SR|State Route|Interstate)[ \t]+(\d{1,3})(?![\d\p{L}%]|[.,]\d)"#)
+        #"(?<![\p{L}\d])(US|U\.S\.|Hwy\.?|HWY|Highway|HIGHWAY|Route|ROUTE|Rte\.?|RTE|Rt\.?|SR|State Route|Interstate)[ \t]+(\d{1,3})(?![\d\p{L}%]|[.,]\d)"#)
     private static let routeFollowers: Set<String> = ["exit", "freeway", "highway", "bridge", "north", "south", "east", "west",
                                                       "northbound", "southbound", "eastbound", "westbound", "N", "S", "E", "W",
                                                       "North", "South", "East", "West", "NB", "SB", "EB", "WB"]
@@ -565,7 +572,7 @@ enum AddressPass {
             return nil
         }
         let names = ["Hwy": "Highway", "Hwy.": "Highway", "HWY": "Highway", "Rte": "Route", "Rte.": "Route", "RTE": "Route",
-                     "US": "U S", "U.S.": "U S"]
+                     "Rt": "Route", "Rt.": "Route", "US": "U S", "U.S.": "U S"]
         if keyword == "US" || keyword == "U.S." {
             // "US" is also the country, and a count can follow it: "Our US 150 employees", "the
             // US 500 index". Before a plain noun it's a route only with no determiner in front;
@@ -576,7 +583,7 @@ enum AddressPass {
                 return nil
             }
         }
-        guard digits.count == 3 || ["Hwy", "Hwy.", "HWY", "Rte", "Rte.", "RTE"].contains(keyword) else { return nil }
+        guard digits.count == 3 || ["Hwy", "Hwy.", "HWY", "Rte", "Rte.", "RTE", "Rt", "Rt."].contains(keyword) else { return nil }
         let number = digits.count == 3 ? addressNumber(digits) : digits
         let word = names[keyword].map { casing.cased($0, at: m.range.location) } ?? keyword
         return (m.range, word + " " + casing.cased(number, at: m.range(at: 2).location))
@@ -743,8 +750,9 @@ enum AddressPass {
         let keyword = s.substring(with: m.range(at: 1))
         let title = keyword.prefix(1) + keyword.dropFirst().lowercased()
         guard let name = unitWords[String(title)] else { return nil }
-        if title == "Fl" {
-            // "Miami, Fl 33101" is Florida: a code after "City, ", never a floor.
+        if title == "Fl", m.range(at: 3).location == NSNotFound {
+            // "Pensacola, Fl. A storm…" is Florida: a code after "City, ". With a number it's a
+            // floor ("Suite 400, Fl. 4"); a ZIP is too long to be one.
             let before = text(before: m.range.location, in: s, limit: 3)
             if before.hasSuffix(", ") { return nil }
         }
@@ -810,13 +818,27 @@ enum AddressPass {
     /// Fla. to N.J.", "Tim Walz of Minn.". "Mass." stays (Mass is a service), and "Ind."
     /// (independent), "Del." (a delegate) and "Ill." are left to a city before them.
     private static let apStateAlone = try! NSRegularExpression(pattern:
-        #"(?<=\b(?:in|from|to|of|across|throughout|and|or|near|outside|across)[ \t])("#
-            + AddressPlaces.apStates.keys.filter { !["Mass.", "Ind.", "Del.", "Ill.", "Miss.", "Wash.", "Mo."].contains($0) }
+        #"(?:(?<=\b(?:in|from|to|of|across|throughout|and|or|near|outside|across|like|as|including|vs|versus)[ \t])|(?<=\be\.g\.[ \t])|(?<=\.,[ \t]))("#
+            + AddressPlaces.apStates.keys.filter { !wordLikeAlone.contains($0) }
                 .sorted { $0.count > $1.count }.map(NSRegularExpression.escapedPattern).joined(separator: "|")
-            + #")(?![\p{L}\d])"#)
+            + #")(?![\p{L}\d])"#
+            // "Mass.", "Ill.", "Miss." and "Wash.": after "in", "across" or "throughout" and before a
+            // lower-case word ("Voter turnout in Mass. reached 70%"). "Ind." stays ("in Ind.
+            // politics" is independent), and so do "Del." and "Mo.".
+            + #"|(?<=\b(?:in|across|throughout)[ \t])(Mass\.|Ill\.|Miss\.|Wash\.)(?=[ \t]+\p{Ll})"#
+            // A dotted state is never a word: "The N.H. primary", "N.J. Transit".
+            + #"|(?<![\p{L}\d.])(N\.H\.|N\.J\.|N\.M\.|N\.C\.|N\.D\.|R\.I\.|S\.C\.|S\.D\.|W\.Va\.)(?=[ \t]+\p{Ll})"#)
+    /// AP states that are also words or names, read alone only where the words around settle it.
+    private static let wordLikeAlone: Set<String> = ["Mass.", "Ind.", "Del.", "Ill.", "Miss.", "Wash.", "Mo."]
+    /// An AP state before an office, its people or its politics: "Minn. Gov. Tim Walz", "Ill. Gov.
+    /// JB Pritzker", "Mass. voters". (The titles pass reads "Gov." next.)
+    private static let apStateBeforeOffice = try! NSRegularExpression(pattern:
+        #"(?<![\p{L}\d.\-])("# + AddressPlaces.apStates.keys.sorted { $0.count > $1.count }.map(NSRegularExpression.escapedPattern).joined(separator: "|")
+            + #")(?=[ \t]+(?:(?:Gov|Sen|Rep|Lt|Atty|AG)\.|(?:Governor|Senator|Senators|Democrats|Republicans|Democratic|Republican|GOP|voters|lawmakers|legislators|officials|residents|Legislature|legislature|House|Senate|Supreme)(?![\p{L}])))"#)
 
     private static func readAPStateAlone(_ m: NSTextCheckingResult, _ s: NSString, _ casing: inout Casing) -> Rewrite? {
-        let name = AddressPlaces.apStates[s.substring(with: m.range(at: 1))]!
+        let found = (1...m.numberOfRanges - 1).lazy.map { m.range(at: $0) }.first { $0.location != NSNotFound }!
+        let name = AddressPlaces.apStates[s.substring(with: found)]!
         let rest = text(after: NSMaxRange(m.range), in: s)
         // The period is also the full stop before a capital or the end ("…from Fla. He said").
         let stop = FullStop.ends(before: rest, next: .capital) ? "." : ""
@@ -1060,6 +1082,9 @@ enum AddressPass {
             // A state in AP style, before the rest of its sentence ("Salem, Ore." + "said…").
             guard AddressPlaces.apStates[String(last)] != nil else { return nil }
             if first.isLowercase || following.hasPrefix("(AP)") { return true }
+            // "picked Minn." + "Gov. Tim Walz", "Ill." + "Gov. JB Pritzker".
+            // (The splitter may cut after "Gov." as well.)
+            if following.range(of: #"^(?:Gov|Sen|Rep|Lt|Atty)\.(?:[ \t]+\p{Lu}|\s*$)"#, options: .regularExpression) != nil { return true }
             return nil
         }
     }
@@ -1068,6 +1093,10 @@ enum AddressPass {
     /// always were, near the end of the rules ("Ave." is Avenue anywhere, "Mt." Mount).
     static func abbreviationRules(british: Bool) -> [Rule] {
         var rules: [Rule] = []
+        // "Ave. price per night": an average before what's measured, not an avenue.
+        rules.append(Rule(#"(?<![\p{L}.])(Ave|ave)\.(?=[ \t]+(?:price|prices|cost|costs|rate|rates|temp|temperature|speed|time|score|age|salary|wait|rating|spend|value|daily|monthly|weekly|annual)(?![\p{L}]))"#) { m, s in
+            s.substring(with: m.range(at: 1)) == "Ave" ? "Average" : "average"
+        })
         for (abbr, full) in abbreviations {
             rules.append(Rule("(?<![\\p{L}.])" + NSRegularExpression.escapedPattern(for: abbr) + "(?=\\s|$|[,;:)])") { _, _ in full })
         }

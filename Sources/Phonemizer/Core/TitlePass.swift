@@ -487,6 +487,9 @@ enum TitlePass {
         if first.dot, chainTitles.contains(first.word) { return true }
         if abbr == "Sgt", isOrdinal(first.chunk) { return i + 1 < tokens.endIndex && tokens[i + 1].word == "Class" }
         while i < tokens.endIndex, tokens[i].isInitials { i += 1 }
+        // Initials written without their points before a surname: "Gov. JB Pritzker".
+        if i == tokens.startIndex, i + 1 < tokens.endIndex, tokens[i].chunk == tokens[i].word, (2...3).contains(tokens[i].word.count),
+           tokens[i].word.allSatisfy({ $0.isUppercase }), isName(tokens[i + 1].word) { i += 1 }
         guard i < tokens.endIndex else { return false }
         let t = tokens[i]
         guard isName(t.word), !starters.contains(t.word.replacingOccurrences(of: "’", with: "'")),

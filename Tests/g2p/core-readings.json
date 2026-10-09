@@ -4968,6 +4968,36 @@
       "gb" : "ðə sˈɛk. sˈɛd nˈQ.",
       "text" : "The Sec. said no.",
       "us" : "ðə sˈɛk. sˈɛd nˈO."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "wˌiː wˈɛnt tə mˈas ðˈɛn wiː ˈAt.",
+      "text" : "We went to Mass. Then we ate.",
+      "us" : "wˌi wˈɛnt tə mˈæs ðˈɛn wi ˈAt."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "pˌɛnsəkˈQlə, fl. ɐ stˈɔːm hˈɪt.",
+      "text" : "Pensacola, Fl. A storm hit.",
+      "us" : "pˌɛnsəkˈOlə, fl. ɐ stˈɔɹm hˈɪt."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "ɹˈɛp ˌAˌQsˈiː spˈQk at ðə ɹˈali.",
+      "text" : "Rep. AOC spoke at the rally.",
+      "us" : "ɹˈɛp ˌAˌOsˈi spˈOk æt ðə ɹˈæli."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "ʃˌiː wɒz ɪn dˈɛl tɹˈafɪk kˈɔːt.",
+      "text" : "She was in Del. traffic court.",
+      "us" : "ʃˌi wʌz ɪn dˈɛl tɹˈæfɪk kˈɔɹt."
+    },
+    {
+      "area" : "addresses",
+      "gb" : "tˈAk ðə ɹˈIt ˈɒnəɹəbᵊl mˈɛmbəz wˈɜːd.",
+      "text" : "Take the Rt. Hon. member's word.",
+      "us" : "tˈAk ðə ɹˈIt ˈɑnəɹəbᵊl mˈɛmbəɹz wˈɜɹd."
     }
   ],
   "speech_cases" : [
@@ -12406,6 +12436,77 @@
       "area" : "titles",
       "says" : "Former Address: twelve Elm Street.",
       "text" : "Fmr. Address: 12 Elm St."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Kamala Harris picked Minnesota Governor Tim Walz as her running mate.",
+      "text" : "Kamala Harris picked Minn. Gov. Tim Walz as her running mate."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Voter turnout in Massachusetts reached seventy percent for the first time.",
+      "text" : "Voter turnout in Mass. reached 70% for the first time."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Illinois Governor JB Pritzker called the raids illegal.",
+      "text" : "Ill. Gov. JB Pritzker called the raids illegal."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Mount Vernon, Virginia, hosted the summit for the second year running.",
+      "text" : "Mt. Vernon, Va., hosted the summit for the 2nd year running."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Swing states (for example Pennsylvania, Georgia) decided it.",
+      "text" : "Swing states (e.g. Pa., Ga.) decided it."
+    },
+    {
+      "area" : "addresses",
+      "says" : "The New Hampshire primary is on January twenty-third.",
+      "says_gb" : "The New Hampshire primary is on January the twenty-third.",
+      "text" : "The N.H. primary is on Jan. 23."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Perth, W ay six thousand",
+      "text" : "Perth, WA 6000"
+    },
+    {
+      "area" : "addresses",
+      "says" : "Seattle, Washington or Portland, Oregon?",
+      "text" : "Seattle, WA or Portland, OR?"
+    },
+    {
+      "area" : "addresses",
+      "says" : "Bend, Oregon or Boise, Idaho?",
+      "text" : "Bend, OR or Boise, ID?"
+    },
+    {
+      "area" : "addresses",
+      "says" : "Portland, Oregon or Portland, Maine?",
+      "text" : "Portland, OR or Portland, ME?"
+    },
+    {
+      "area" : "addresses",
+      "says" : "Take Route nine north to the inn.",
+      "text" : "Take Rt. 9 north to the inn."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Suite four hundred, floor four",
+      "text" : "Suite 400, Fl. 4"
+    },
+    {
+      "area" : "addresses",
+      "says" : "Average price per night: one hundred forty dollars",
+      "text" : "Ave. price per night: $140"
+    },
+    {
+      "area" : "addresses",
+      "says" : "Office is at three fifty Fifth Avenue, floor fifty-nine, New York, New York one oh one one eight.",
+      "text" : "Office is at 350 5th Ave, Fl 59, New York, NY 10118."
     }
   ]
 }
