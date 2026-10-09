@@ -1538,6 +1538,24 @@
       "us" : "pɹˈɛs ˈɛntəɹ tə kəntˈɪnju."
     },
     {
+      "area" : "phone",
+      "gb" : "hˌiː kˈɔːld nˈIn hˈʌndɹəd nˈInti nˈIn tˈImz.",
+      "text" : "He called 999 times.",
+      "us" : "hˌi kˈɔld nˈIn hˈʌndɹəd nˈIndi nˈIn tˈImz."
+    },
+    {
+      "area" : "phone",
+      "gb" : "kˈɔːl tˈuː hˈʌndɹəd fˈɪfti tə wˈʌn θˈWzᵊnd pˈiːpᵊl ɐ dˈA.",
+      "text" : "Call 250-1000 people a day.",
+      "us" : "kˈɔl tˈu hˈʌndɹəd fˈɪfti tə wˈʌn θˈWzᵊnd pˈipᵊl ɐ dˈA."
+    },
+    {
+      "area" : "phone",
+      "gb" : "ˌWə ˈAt hˈʌndɹəd stˈɑːf ˈɑːnsəd kˈɔːlz.",
+      "text" : "Our 800 staff answered calls.",
+      "us" : "ˌWəɹ ˈAt hˈʌndɹəd stˈæf ˈænsəɹd kˈɔlz."
+    },
+    {
       "area" : "roman",
       "gb" : "ˌI ɐm hˈɪə.",
       "text" : "I am here.",
