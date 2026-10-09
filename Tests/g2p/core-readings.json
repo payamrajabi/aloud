@@ -9317,6 +9317,1923 @@
       "says" : "I ate em and ems at five PM.",
       "text" : "I ate M&Ms at 5 pm.",
       "voice" : "us"
+    },
+    {
+      "area" : "money",
+      "says" : "Tickets to the inauguration were reselling for one thousand dollars or more.",
+      "text" : "Tickets to the inauguration were reselling for $1,000+."
+    },
+    {
+      "area" : "money",
+      "says" : "Free shipping on orders of thirty five dollars or more",
+      "text" : "Free shipping on orders of $35+"
+    },
+    {
+      "area" : "money",
+      "says" : "Take five dollars off orders of twenty five dollars or more.",
+      "text" : "Take $5 off orders of $25+."
+    },
+    {
+      "area" : "money",
+      "says" : "They got two thousand dollar checks.",
+      "text" : "They got $2,000 checks."
+    },
+    {
+      "area" : "money",
+      "says" : "The sixty four thousand dollar question is whether he will run.",
+      "text" : "The $64,000 question is whether he will run."
+    },
+    {
+      "area" : "money",
+      "says" : "The sixty four thousand dollar Question was a hit on CBS in nineteen fifty five.",
+      "text" : "The $64,000 Question was a hit on CBS in 1955."
+    },
+    {
+      "area" : "money",
+      "says" : "The second Circuit upheld the eighty three point three million dollar verdict.",
+      "text" : "The 2nd Circuit upheld the $83.3M verdict."
+    },
+    {
+      "area" : "money",
+      "says" : "The Treasury faces a twenty two billion pound black hole, the Chancellor said.",
+      "text" : "The Treasury faces a £22bn black hole, the Chancellor said."
+    },
+    {
+      "area" : "money",
+      "says" : "He signed a five year, two hundred million dollar extension with the Dodgers.",
+      "text" : "He signed a 5-yr, $200M extension with the Dodgers."
+    },
+    {
+      "area" : "money",
+      "says" : "He signed a four year, one hundred twenty million dollar contract.",
+      "text" : "He signed a 4-year, $120M contract."
+    },
+    {
+      "area" : "money",
+      "says" : "The ninety nine dollar fare sold out in an hour.",
+      "text" : "The $99 fare sold out in an hour."
+    },
+    {
+      "area" : "money",
+      "says" : "The five dollar footlong is gone forever.",
+      "text" : "The $5 footlong is gone forever."
+    },
+    {
+      "area" : "money",
+      "says" : "Is the ninety nine cent song deal still on?",
+      "text" : "Is the $0.99 song deal still on?"
+    },
+    {
+      "area" : "money",
+      "says" : "I spent forty dollars two days ago.",
+      "text" : "I spent $40 two days ago."
+    },
+    {
+      "area" : "money",
+      "says" : "Tickets were twelve dollars ten years ago.",
+      "text" : "Tickets were $12 ten years ago."
+    },
+    {
+      "area" : "money",
+      "says" : "The taxi was thirty five dollars one way.",
+      "text" : "The taxi was $35 one way."
+    },
+    {
+      "area" : "money",
+      "says" : "Fares from fifty nine dollars, one way.",
+      "text" : "Fares from $59, one way."
+    },
+    {
+      "area" : "money",
+      "says" : "Limit ten dollars, two per customer.",
+      "text" : "Limit $10, two per customer."
+    },
+    {
+      "area" : "money",
+      "says" : "Actuals are forty three thousand two hundred ten dollars (ninety six percent) so far.",
+      "text" : "Actuals are $43,210 (96%) so far."
+    },
+    {
+      "area" : "money",
+      "says" : "We spent five hundred dollars (fifty percent) of the budget.",
+      "text" : "We spent $500 (50%) of the budget."
+    },
+    {
+      "area" : "money",
+      "says" : "Spent one thousand two hundred dollars (forty percent of plan).",
+      "text" : "Spent $1,200 (40% of plan)."
+    },
+    {
+      "area" : "money",
+      "says" : "Pay twelve euros ninety nine now.",
+      "text" : "Pay €12,99 now."
+    },
+    {
+      "area" : "money",
+      "says" : "Order total: twenty seven euros fifty",
+      "text" : "Order total: €27,50"
+    },
+    {
+      "area" : "money",
+      "says" : "Beer was three euros fifty in Berlin.",
+      "text" : "Beer was €3,50 in Berlin."
+    },
+    {
+      "area" : "money",
+      "says" : "Dinner was forty seven euros eighty for three of us.",
+      "text" : "Dinner was €47,80 for three of us."
+    },
+    {
+      "area" : "money",
+      "says" : "Paid one thousand two hundred thirty four euros fifty six for the flights.",
+      "text" : "Paid €1.234,56 for the flights."
+    },
+    {
+      "area" : "money",
+      "says" : "Brent crude rose to eighty five dollars per barrel on Monday.",
+      "text" : "Brent crude rose to $85/bbl on Monday."
+    },
+    {
+      "area" : "money",
+      "says" : "Coffee is three dollars per cup.",
+      "text" : "Coffee is $3/cup."
+    },
+    {
+      "area" : "money",
+      "says" : "Fees: twenty five dollars per stay.",
+      "text" : "Fees: $25/stay."
+    },
+    {
+      "area" : "money",
+      "says" : "Rate: ninety five pounds per room per night.",
+      "text" : "Rate: £95/room/night."
+    },
+    {
+      "area" : "money",
+      "says" : "Trail mix, two dollars each.",
+      "text" : "Trail mix, $2/ea."
+    },
+    {
+      "area" : "money",
+      "says" : "Tickets are eighty dollars each.",
+      "text" : "Tickets are $80/ea."
+    },
+    {
+      "area" : "money",
+      "says" : "Breakfast is twelve dollars per person.",
+      "text" : "Breakfast is $12/pp."
+    },
+    {
+      "area" : "money",
+      "says" : "Rooms from one hundred twenty nine dollars a night.",
+      "text" : "Rooms from $129/nt."
+    },
+    {
+      "area" : "money",
+      "says" : "Cost: about forty dollars per person.",
+      "text" : "Cost: ~$40 pp."
+    },
+    {
+      "area" : "money",
+      "says" : "Dinner is forty dollars per person, drinks extra.",
+      "text" : "Dinner is $40 pp, drinks extra."
+    },
+    {
+      "area" : "money",
+      "says" : "Coasters two fifty each.",
+      "text" : "Coasters $2.50 ea."
+    },
+    {
+      "area" : "money",
+      "says" : "Socks are three fifty each or three for nine dollars.",
+      "text" : "Socks are $3.50 ea. or 3 for $9."
+    },
+    {
+      "area" : "money",
+      "says" : "Average rents in London rose to two thousand two hundred fifty pounds per calendar month.",
+      "text" : "Average rents in London rose to £2,250 pcm."
+    },
+    {
+      "area" : "money",
+      "says" : "It costs five dollars at the market stall.",
+      "text" : "It costs 5$ at the market stall."
+    },
+    {
+      "area" : "money",
+      "says" : "I spent like five dollars on that.",
+      "text" : "I spent like 5$ on that."
+    },
+    {
+      "area" : "money",
+      "says" : "The ticket says five dollars but the sign says five dollars.",
+      "text" : "The ticket says 5$ but the sign says $5."
+    },
+    {
+      "area" : "money",
+      "says" : "Is that in dollars or euros?",
+      "text" : "Is that in $ or €?"
+    },
+    {
+      "area" : "money",
+      "says" : "The pound is weak right now.",
+      "text" : "The £ is weak right now."
+    },
+    {
+      "area" : "money",
+      "says" : "The dollar sign is on the four key.",
+      "text" : "The $ sign is on the 4 key."
+    },
+    {
+      "area" : "money",
+      "says" : "Shirts are two for twenty five dollars this week.",
+      "text" : "Shirts are 2/$25 this week."
+    },
+    {
+      "area" : "money",
+      "says" : "Avocados three for four dollars this week only.",
+      "text" : "Avocados 3/$4 this week only."
+    },
+    {
+      "area" : "money",
+      "says" : "That's ten fifty per person.",
+      "text" : "That's $10.5 per person."
+    },
+    {
+      "area" : "money",
+      "says" : "Fifty pound deposit, refundable.",
+      "text" : "GBP 50 deposit, refundable."
+    },
+    {
+      "area" : "money",
+      "says" : "Bananas are fifty cents each at the market.",
+      "text" : "Bananas are 50c each at the market."
+    },
+    {
+      "area" : "money",
+      "says" : "Everything in the bin is ninety nine cents!",
+      "text" : "Everything in the bin is 99c!"
+    },
+    {
+      "area" : "money",
+      "says" : "Got it for like twelve dollars ish.",
+      "text" : "Got it for like $12ish."
+    },
+    {
+      "area" : "money",
+      "says" : "Quantity three at four ninety nine",
+      "text" : "Qty 3 x $4.99"
+    },
+    {
+      "area" : "money",
+      "says" : "Bonus pool is two point five thousand pounds per head.",
+      "text" : "Bonus pool is £2.5k per head."
+    },
+    {
+      "area" : "units",
+      "says" : "There were six hundred fifty TB deaths in the region last year.",
+      "text" : "There were 650 TB deaths in the region last year."
+    },
+    {
+      "area" : "units",
+      "says" : "Some four thousand eight hundred TB cases were recorded in England last year.",
+      "text" : "Some 4,800 TB cases were recorded in England last year."
+    },
+    {
+      "area" : "units",
+      "says" : "A one hundred fifty five millimeter shell landed three kilometers from the border crossing.",
+      "text" : "A 155mm shell landed 3 km from the border crossing."
+    },
+    {
+      "area" : "units",
+      "says" : "A nine millimeter pistol was found.",
+      "text" : "A 9mm pistol was found."
+    },
+    {
+      "area" : "units",
+      "says" : "Buy thirty five millimeter film for the trip.",
+      "text" : "Buy 35mm film for the trip."
+    },
+    {
+      "area" : "units",
+      "says" : "Love my fifty millimeter f/1.8 lens.",
+      "text" : "Love my 50mm f/1.8 lens."
+    },
+    {
+      "area" : "units",
+      "says" : "Israel received two thousand pound bombs from the US in twenty twenty four.",
+      "text" : "Israel received 2,000lb bombs from the US in 2024."
+    },
+    {
+      "area" : "units",
+      "says" : "A two thousand square foot home in Austin now costs five hundred fifty thousand dollars.",
+      "text" : "A 2,000 sq ft home in Austin now costs $550,000."
+    },
+    {
+      "area" : "units",
+      "says" : "The two thousand square foot office on fifth is ours from November.",
+      "text" : "The 2,000 sq ft office on 5th is ours from Nov."
+    },
+    {
+      "area" : "units",
+      "says" : "Fill the five gallon bucket halfway.",
+      "text" : "Fill the 5 gal bucket halfway."
+    },
+    {
+      "area" : "units",
+      "says" : "Took my two year old to the zoo.",
+      "text" : "Took my 2 yr old to the zoo."
+    },
+    {
+      "area" : "units",
+      "says" : "This sixty five watt charger is tiny.",
+      "text" : "This 65W charger is tiny."
+    },
+    {
+      "area" : "units",
+      "says" : "It's about a two hour drive.",
+      "text" : "It's a ~2 hr drive."
+    },
+    {
+      "area" : "units",
+      "says" : "Our five year plan assumes thirty percent growth.",
+      "text" : "Our 5 yr plan assumes 30% growth."
+    },
+    {
+      "area" : "units",
+      "says" : "A ten year lease.",
+      "text" : "A 10 yr lease."
+    },
+    {
+      "area" : "units",
+      "says" : "A two year contract.",
+      "text" : "A 2 yr contract."
+    },
+    {
+      "area" : "units",
+      "says" : "Your six month review is due, please book thirty minutes with your manager.",
+      "text" : "Your 6mo review is due, please book 30 mins with your mgr."
+    },
+    {
+      "area" : "units",
+      "says" : "Includes a six foot USB-C cable and a twenty watt adapter.",
+      "text" : "Includes a 6 ft USB-C cable and a 20W adapter."
+    },
+    {
+      "area" : "units",
+      "says" : "Use a six foot HDMI cable.",
+      "text" : "Use a 6 ft HDMI cable."
+    },
+    {
+      "area" : "units",
+      "says" : "Plug in the twelve volt DC adapter.",
+      "text" : "Plug in the 12 V DC adapter."
+    },
+    {
+      "area" : "units",
+      "says" : "A case of twelve twelve ounce cans costs eight ninety nine.",
+      "text" : "A case of twelve 12 oz cans costs $8.99."
+    },
+    {
+      "area" : "units",
+      "says" : "The three second rule applies.",
+      "text" : "The 3 s rule applies."
+    },
+    {
+      "area" : "units",
+      "says" : "That's a less than five minute fix, I promise.",
+      "text" : "That's a <5 min fix, I promise."
+    },
+    {
+      "area" : "units",
+      "says" : "Booked a spa day for three gal pals.",
+      "text" : "Booked a spa day for 3 gal pals."
+    },
+    {
+      "area" : "units",
+      "says" : "Use code two L at checkout.",
+      "text" : "Use code 2L at checkout."
+    },
+    {
+      "area" : "units",
+      "says" : "We're two m behind schedule.",
+      "text" : "We're 2 m behind schedule."
+    },
+    {
+      "area" : "units",
+      "says" : "We're two m behind on the hiring plan.",
+      "text" : "We're 2 m behind on the hiring plan."
+    },
+    {
+      "area" : "units",
+      "says" : "Vitamin D3 gummies, sixty count.",
+      "text" : "Vitamin D3 gummies, 60 ct."
+    },
+    {
+      "area" : "units",
+      "says" : "Bought the forty eight count pack at Costco.",
+      "text" : "Bought the 48 ct pack at Costco."
+    },
+    {
+      "area" : "units",
+      "says" : "Vitamins, ninety count bottle",
+      "text" : "Vitamins, 90 ct bottle"
+    },
+    {
+      "area" : "units",
+      "says" : "Paper plates, fifty count.",
+      "text" : "Paper plates, 50 ct."
+    },
+    {
+      "area" : "units",
+      "says" : "Pods, twenty four count box.",
+      "text" : "Pods, 24 ct box."
+    },
+    {
+      "area" : "units",
+      "says" : "Vitamins, one hundred twenty count bottle.",
+      "text" : "Vitamins, 120 ct. bottle."
+    },
+    {
+      "area" : "units",
+      "says" : "He weighed eighteen stone when he entered the Commons.",
+      "text" : "He weighed 18st when he entered the Commons."
+    },
+    {
+      "area" : "units",
+      "says" : "Lost two stone since January!",
+      "text" : "Lost 2 st since January!"
+    },
+    {
+      "area" : "units",
+      "says" : "He weighs twelve stone four pounds.",
+      "text" : "He weighs 12 st 4 lb."
+    },
+    {
+      "area" : "units",
+      "says" : "She has lost two stone.",
+      "text" : "She has lost 2 st."
+    },
+    {
+      "area" : "units",
+      "says" : "Your weight today was eleven stone seven pounds.",
+      "text" : "Your weight today was 11 st 7 lb."
+    },
+    {
+      "area" : "units",
+      "says" : "The wildfire has burned twelve thousand acres (four thousand eight hundred fifty six hectares) since Saturday.",
+      "text" : "The wildfire has burned 12,000 acres (4,856 ha) since Saturday."
+    },
+    {
+      "area" : "units",
+      "says" : "Temperatures hit forty point three degrees Celsius in Coningsby, Lincolnshire, a UK record.",
+      "text" : "Temperatures hit 40.3C in Coningsby, Lincolnshire, a UK record."
+    },
+    {
+      "area" : "units",
+      "says" : "It was one hundred degrees Fahrenheit in Dallas and minus forty degrees Fahrenheit in Fairbanks.",
+      "text" : "It was 100F in Dallas and -40F in Fairbanks."
+    },
+    {
+      "area" : "units",
+      "says" : "It's seventy two degrees Fahrenheit and sunny here.",
+      "text" : "It's 72 F and sunny here."
+    },
+    {
+      "area" : "units",
+      "says" : "Kane scored in the ninetieth minute to win it.",
+      "text" : "Kane scored in the 90th min to win it."
+    },
+    {
+      "area" : "units",
+      "says" : "Some one point two million people are on NHS waiting lists for more than a year.",
+      "text" : "Some 1.2m people are on NHS waiting lists for more than a year."
+    },
+    {
+      "area" : "units",
+      "says" : "The 401(k) rule change could affect seventy million savers.",
+      "text" : "The 401(k) rule change could affect 70M savers."
+    },
+    {
+      "area" : "units",
+      "says" : "Labour has lost one hundred thousand members since twenty twenty four.",
+      "text" : "Labour has lost 100k members since 2024."
+    },
+    {
+      "area" : "units",
+      "says" : "The game sold three point two million copies in its first week.",
+      "text" : "The game sold 3.2m copies in its first week."
+    },
+    {
+      "area" : "units",
+      "says" : "Tetris has sold five hundred twenty million copies across all platforms.",
+      "text" : "Tetris has sold 520M copies across all platforms."
+    },
+    {
+      "area" : "units",
+      "says" : "Super Mario Brothers sold forty million copies on the NES.",
+      "text" : "Super Mario Bros. sold 40M copies on the NES."
+    },
+    {
+      "area" : "units",
+      "says" : "We crossed one million users and ten thousand paying teams this week.",
+      "text" : "We crossed 1M users and 10K paying teams this week."
+    },
+    {
+      "area" : "units",
+      "says" : "Two point five million downloads and about three thousand reviews.",
+      "text" : "2.5M downloads and ~3k reviews."
+    },
+    {
+      "area" : "units",
+      "says" : "We hit one million views!",
+      "text" : "We hit 1M views!"
+    },
+    {
+      "area" : "units",
+      "says" : "Inflation rose three point eight percent YoY in August, the ONS said.",
+      "text" : "Inflation rose 3.8% y/y in August, the ONS said."
+    },
+    {
+      "area" : "units",
+      "says" : "The Bank of England cut rates by twenty five basis points to four percent.",
+      "text" : "The Bank of England cut rates by 25bp to 4%."
+    },
+    {
+      "area" : "units",
+      "says" : "Interest rates rose zero point two five percentage points to four point five percent.",
+      "text" : "Interest rates rose 0.25pp to 4.5%."
+    },
+    {
+      "area" : "units",
+      "says" : "Reform UK now polls at twenty nine per cent, ahead of Labour on twenty one per cent.",
+      "text" : "Reform UK now polls at 29pc, ahead of Labour on 21pc."
+    },
+    {
+      "area" : "units",
+      "says" : "Eight piece chicken bucket, nineteen ninety nine.",
+      "text" : "8-pc chicken bucket, $19.99."
+    },
+    {
+      "area" : "units",
+      "says" : "Ordered the eight piece nuggets.",
+      "text" : "Ordered the 8 pc nuggets."
+    },
+    {
+      "area" : "units",
+      "says" : "Includes approximately forty pieces.",
+      "text" : "Includes approx. 40 pcs."
+    },
+    {
+      "area" : "units",
+      "says" : "Labour's ten point lead has vanished.",
+      "text" : "Labour's 10-pt lead has vanished."
+    },
+    {
+      "area" : "units",
+      "says" : "Gen Z voters broke for Democrats by eighteen points, the exit poll showed.",
+      "text" : "Gen Z voters broke for Democrats by 18 pts, the exit poll showed."
+    },
+    {
+      "area" : "units",
+      "says" : "That ticket is a three point story, maybe five points if QA finds anything.",
+      "text" : "That ticket is a 3 pt story, maybe 5 pts if QA finds anything."
+    },
+    {
+      "area" : "units",
+      "says" : "We are up three points QoQ.",
+      "text" : "We are up 3 pts QoQ."
+    },
+    {
+      "area" : "units",
+      "says" : "We are two points behind.",
+      "text" : "We are 2 pts behind."
+    },
+    {
+      "area" : "units",
+      "says" : "We lost by one point in overtime.",
+      "text" : "We lost by 1 pt in overtime."
+    },
+    {
+      "area" : "units",
+      "says" : "Kobe scored eighty one points versus Toronto on January twenty second, two thousand six.",
+      "says_gb" : "Kobe scored eighty one points versus Toronto on January the twenty second, two thousand six.",
+      "text" : "Kobe scored 81 pts vs. Toronto on Jan. 22, 2006."
+    },
+    {
+      "area" : "units",
+      "says" : "They sat three points back of first place after Week nine.",
+      "text" : "They sat 3 pts back of 1st place after Wk. 9."
+    },
+    {
+      "area" : "units",
+      "says" : "Earn five hundred points per stay.",
+      "text" : "Earn 500 pts per stay."
+    },
+    {
+      "area" : "units",
+      "says" : "One pint heavy cream",
+      "text" : "1 pt. heavy cream"
+    },
+    {
+      "area" : "units",
+      "says" : "Mix in one cup flour.",
+      "text" : "Mix in 1 c. flour."
+    },
+    {
+      "area" : "units",
+      "says" : "One tablespoon butter and one teaspoon salt.",
+      "text" : "1 T. butter and 1 t. salt."
+    },
+    {
+      "area" : "units",
+      "says" : "MRR eighty four thousand dollars (+six percent MoM), churn one point eight percent per month.",
+      "text" : "MRR $84K (+6% MoM), churn 1.8%/mo."
+    },
+    {
+      "area" : "units",
+      "says" : "Interest accrues at one point five percent per month.",
+      "text" : "Interest accrues at 1.5% per mo."
+    },
+    {
+      "area" : "units",
+      "says" : "Response times are more than two seconds on the search page.",
+      "text" : "Response times are >2s on the search page."
+    },
+    {
+      "area" : "units",
+      "says" : "Pace was seven thirty per mile on the charity run.",
+      "text" : "Pace was 7:30/mi on the charity run."
+    },
+    {
+      "area" : "units",
+      "says" : "Your blood pressure was one twenty eight over eighty two millimeters of mercury.",
+      "text" : "Your blood pressure was 128/82 mmHg."
+    },
+    {
+      "area" : "units",
+      "says" : "Cut the board to three quarters of an inch thick.",
+      "text" : "Cut the board to 3/4 in. thick."
+    },
+    {
+      "area" : "units",
+      "says" : "My five year old is obsessed with dinosaurs.",
+      "text" : "My 5 yo is obsessed with dinosaurs."
+    },
+    {
+      "area" : "units",
+      "says" : "She's a five year old with opinions.",
+      "text" : "She's a 5 y/o with opinions."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Republicans outraised Democrats nearly two times in the final quarter.",
+      "text" : "Republicans outraised Democrats nearly 2x in the final quarter."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Revenue grew one point five times, headcount only one point two times.",
+      "text" : "Revenue grew 1.5x, headcount only 1.2x."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "We grew three point five times YoY.",
+      "text" : "We grew 3.5x YoY."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "The latency is one point five times what it was last week.",
+      "text" : "The latency is 1.5x what it was last week."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Ask for one point two five times the usual rate.",
+      "text" : "Ask for 1.25x the usual rate."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Costs went up one point three times.",
+      "text" : "Costs went up 1.3x."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "That's two times the budget we agreed on.",
+      "text" : "That's 2x the budget we agreed on."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Retry up to three times, then page someone.",
+      "text" : "Retry up to 3x, then page someone."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Damages are capped at the greater of five hundred dollars or two times the fee.",
+      "text" : "Damages are capped at the greater of $500 or 2x the fee."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Tickets went for two times face value, like four hundred dollars each.",
+      "text" : "Tickets went for 2x face value, like $400 each."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Roger Federer won Wimbledon eight times between two thousand three and twenty seventeen.",
+      "text" : "Roger Federer won Wimbledon 8x between 2003 and 2017."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Hamilton is a seven time world champion.",
+      "text" : "Hamilton is a 7x world champion."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "He is a three time Pro Bowler.",
+      "text" : "He is a 3x Pro Bowler."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "He's a two time founder.",
+      "text" : "He's a 2x founder."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "The album went double platinum within a year.",
+      "text" : "The album went 2x platinum within a year."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "In the box: one charger, two USB cables, one manual.",
+      "text" : "In the box: 1x charger, 2x USB cables, 1x manual."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Retry on five XX errors, but not on four XX.",
+      "text" : "Retry on 5xx errors, but not on 4xx."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Repeat times two for the second coat.",
+      "text" : "Repeat x2 for the second coat."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "A six foot four defender, he was capped forty seven times.",
+      "text" : "A 6 ft 4 in defender, he was capped 47 times."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Add one and a half cups flour.",
+      "text" : "Add 1-1/2 cups flour."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Some nine out of ten councils in England now face a funding gap.",
+      "text" : "Some 9/10 councils in England now face a funding gap."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Nine out of ten dentists agree.",
+      "text" : "9/10 dentists agree."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Rated four point five out of five stars by two thousand three hundred guests.",
+      "text" : "Rated 4.5/5 stars by 2,300 guests."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Part one of three of the security training is live.",
+      "text" : "Part 1/3 of the security training is live."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Day three of five of the offsite.",
+      "text" : "Day 3/5 of the offsite."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Thread one of three:",
+      "text" : "Thread 1/3:"
+    },
+    {
+      "area" : "dimensions",
+      "says" : "Mercedes celebrated a one two finish in Monza.",
+      "text" : "Mercedes celebrated a 1-2 finish in Monza."
+    },
+    {
+      "area" : "dimensions",
+      "says" : "That one two punch of songs at the end!",
+      "text" : "That 1-2 punch of songs at the end!"
+    },
+    {
+      "area" : "phone",
+      "says" : "NHS one one one handled a record two point two million calls in December.",
+      "text" : "NHS 111 handled a record 2.2 million calls in December."
+    },
+    {
+      "area" : "phone",
+      "says" : "In the UK dial one one one, not nine nine nine, if it is not urgent.",
+      "text" : "In the UK dial 111, not 999, if it is not urgent."
+    },
+    {
+      "area" : "phone",
+      "says" : "In Europe the emergency number is one one two.",
+      "text" : "In Europe the emergency number is 112."
+    },
+    {
+      "area" : "phone",
+      "says" : "Deaf or hard of hearing? Call TTY seven one one.",
+      "text" : "Deaf or hard of hearing? Call TTY 711."
+    },
+    {
+      "area" : "phone",
+      "says" : "The NHS one one one line is open twenty four seven.",
+      "text" : "The NHS 111 line is open 24/7.",
+      "voice" : "gb"
+    },
+    {
+      "area" : "phone",
+      "says" : "Jenny's number, eight six seven, five three oh nine, became a hit in nineteen eighty one.",
+      "text" : "Jenny's number, 867-5309, became a hit in 1981."
+    },
+    {
+      "area" : "phone",
+      "says" : "The Ghostbusters number was five five five, two three six eight.",
+      "text" : "The Ghostbusters number was 555-2368."
+    },
+    {
+      "area" : "phone",
+      "says" : "His number was five five five, oh one three four.",
+      "text" : "His number was 555-0134."
+    },
+    {
+      "area" : "phone",
+      "says" : "Pizza place is five five five, oh one three four if you're hungry.",
+      "text" : "Pizza place is 555.0134 if you're hungry."
+    },
+    {
+      "area" : "phone",
+      "says" : "Front desk five five five, oh one two three, extension four",
+      "text" : "Front desk 555-0123, ext. 4"
+    },
+    {
+      "area" : "phone",
+      "says" : "Pharmacy line: five five five, oh one two three extension two.",
+      "text" : "Pharmacy line: 555-0123 ext 2."
+    },
+    {
+      "area" : "phone",
+      "says" : "Call: plus one, six four six, five five eight, eight six five six, Meeting ID: eight four five, one two three four, five six seven eight, Passcode: nine oh two one one four.",
+      "text" : "Call: +1 646 558 8656, Meeting ID: 845 1234 5678, Passcode: 902114."
+    },
+    {
+      "area" : "phone",
+      "says" : "Phone conference ID: eight one two, three four five, six seven eight pound",
+      "says_gb" : "Phone conference ID: eight one two, three four five, six seven eight hash",
+      "text" : "Phone conference ID: 812 345 678#"
+    },
+    {
+      "area" : "phone",
+      "says" : "Ring Childline free on oh eight hundred, one one one one.",
+      "text" : "Ring Childline free on 0800 1111.",
+      "voice" : "gb"
+    },
+    {
+      "area" : "roman",
+      "says" : "Queen Mary the First burned nearly three hundred Protestants.",
+      "text" : "Queen Mary I burned nearly 300 Protestants."
+    },
+    {
+      "area" : "roman",
+      "says" : "Charles the First was executed outside the Banqueting House in sixteen forty nine.",
+      "text" : "Charles I was executed outside the Banqueting House in 1649."
+    },
+    {
+      "area" : "roman",
+      "says" : "Edward the First was known as Longshanks.",
+      "text" : "Edward I was known as Longshanks."
+    },
+    {
+      "area" : "roman",
+      "says" : "Peter the First founded Saint Petersburg in seventeen oh three.",
+      "text" : "Peter I founded St. Petersburg in 1703."
+    },
+    {
+      "area" : "roman",
+      "says" : "Star Wars: Episode one was released in May nineteen ninety nine.",
+      "text" : "Star Wars: Episode I was released in May 1999."
+    },
+    {
+      "area" : "roman",
+      "says" : "Cleopatra the Seventh was the last ruler of Ptolemaic Egypt.",
+      "text" : "Cleopatra VII was the last ruler of Ptolemaic Egypt."
+    },
+    {
+      "area" : "roman",
+      "says" : "Phase one starts Monday, Phase two in March.",
+      "text" : "Phase I starts Monday, Phase II in March."
+    },
+    {
+      "area" : "roman",
+      "says" : "Option two is cheaper, Option one is faster.",
+      "text" : "Option II is cheaper, Option I is faster."
+    },
+    {
+      "area" : "roman",
+      "says" : "Phase one is done.",
+      "text" : "Phase I is done."
+    },
+    {
+      "area" : "roman",
+      "says" : "Agenda: one. Intro, two. Q3 results, three. Hiring.",
+      "text" : "Agenda: I. Intro, II. Q3 results, III. Hiring."
+    },
+    {
+      "area" : "roman",
+      "says" : "Agenda: one. Welcome two. Updates three. Q&A",
+      "text" : "Agenda: I. Welcome II. Updates III. Q&A"
+    },
+    {
+      "area" : "roman",
+      "says" : "Items: (one) budget, (two) hiring, (three) roadmap",
+      "text" : "Items: (i) budget, (ii) hiring, (iii) roadmap"
+    },
+    {
+      "area" : "roman",
+      "says" : "The tenant must (one) pay rent, (two) keep the unit clean, and (three) allow repairs.",
+      "text" : "The tenant must (i) pay rent, (ii) keep the unit clean, and (iii) allow repairs."
+    },
+    {
+      "area" : "roman",
+      "says" : "Need: one) eggs two) milk three) bread",
+      "text" : "Need: i) eggs ii) milk iii) bread"
+    },
+    {
+      "area" : "roman",
+      "says" : "Pick option two or three.",
+      "text" : "Pick option ii or iii."
+    },
+    {
+      "area" : "roman",
+      "says" : "See pages one to twelve for the maps.",
+      "text" : "See pp. i–xii for the maps."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Supporters marched down Martin Luther King Junior Drive to the courthouse.",
+      "text" : "Supporters marched down Martin Luther King Jr. Dr. to the courthouse."
+    },
+    {
+      "area" : "addresses",
+      "says" : "The march ended on MLK Drive near the capitol.",
+      "text" : "The march ended on MLK Dr. near the capitol."
+    },
+    {
+      "area" : "addresses",
+      "says" : "David Lynch's Mulholland Drive premiered at Cannes in two thousand one.",
+      "text" : "David Lynch's Mulholland Dr. premiered at Cannes in 2001."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Mulholland Drive is a David Lynch film.",
+      "text" : "Mulholland Dr. is a David Lynch film."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Head down Elm Drive. Doctor Shah's clinic is on the right.",
+      "text" : "Head down Elm Dr. Dr. Shah's clinic is on the right."
+    },
+    {
+      "area" : "addresses",
+      "says" : "The Smithsonian sits on the National Mall between seventh and fourteenth Streets.",
+      "text" : "The Smithsonian sits on the National Mall between 7th and 14th Sts."
+    },
+    {
+      "area" : "addresses",
+      "says" : "The parade turned at West forty fourth and West forty fifth Streets.",
+      "text" : "The parade turned at W. 44th and W. 45th Sts."
+    },
+    {
+      "area" : "addresses",
+      "says" : "The march went down fifth and sixth Avenues before ending at Union Square.",
+      "text" : "The march went down 5th and 6th Aves. before ending at Union Sq."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Senator Bernie Sanders (independent of Vermont) called the one point seven trillion dollar package \"a down payment, not a cure.\"",
+      "text" : "Sen. Bernie Sanders (I-Vt.) called the $1.7 trillion package \"a down payment, not a cure.\""
+    },
+    {
+      "area" : "addresses",
+      "says" : "The Speaker, Mike Johnson, Republican of Louisiana, said the House would vote Wednesday.",
+      "text" : "The Speaker, Mike Johnson, R-La., said the House would vote Wed."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Representative Marjorie Taylor Greene, Republican of Georgia, called the deal \"a betrayal.\"",
+      "text" : "Rep. Marjorie Taylor Greene, R-Ga., called the deal \"a betrayal.\""
+    },
+    {
+      "area" : "addresses",
+      "says" : "Representative Ro Khanna (Democrat of California) is weighing a run for president.",
+      "text" : "Rep. Ro Khanna (D-Calif.) is weighing a run for president."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Polls in Pennsylvania and Michigan close at eight PM.",
+      "text" : "Polls in Pa. and Mich. close at 8 p.m."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Trump flew from Florida to New Jersey for the weekend.",
+      "text" : "Trump flew from Fla. to N.J. for the weekend."
+    },
+    {
+      "area" : "addresses",
+      "says" : "He lives in Boston, Massachusetts. His wife does too.",
+      "text" : "He lives in Boston, Mass. His wife does too."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Governor Tim Walz of Minnesota picked up the endorsement.",
+      "text" : "Gov. Tim Walz of Minn. picked up the endorsement."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Voters in New Hampshire head to the polls on January twenty third.",
+      "says_gb" : "Voters in New Hampshire head to the polls on January the twenty third.",
+      "text" : "Voters in N.H. head to the polls on Jan. 23."
+    },
+    {
+      "area" : "addresses",
+      "says" : "The hurricane made landfall near Fort Myers at three AM.",
+      "text" : "The hurricane made landfall near Ft. Myers at 3 a.m."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Our Fort Lauderdale hotel is on the beach.",
+      "text" : "Our Ft. Lauderdale hotel is on the beach."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Fort Lauderdale team is out for the hurricane.",
+      "text" : "Ft. Lauderdale team is out for the hurricane."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Fort Sumter fell on April thirteenth, eighteen sixty one.",
+      "says_gb" : "Fort Sumter fell on April the thirteenth, eighteen sixty one.",
+      "text" : "Ft. Sumter fell on April 13, 1861."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Fort Lauderdale hosted spring training.",
+      "text" : "Ft. Lauderdale hosted spring training."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Flying into Fort Lauderdale tonight.",
+      "text" : "Flying into Ft. Lauderdale tonight."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Fort Worth, Texas is about thirty miles west of Dallas.",
+      "text" : "Ft. Worth, TX is about 30 mi west of Dallas."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Chugged a Mountain Dew and regretted it.",
+      "text" : "Chugged a Mt. Dew and regretted it."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Ship to Ana Ruiz care of Hotel Lucia, four hundred Southwest Broadway, Portland, Oregon nine seven two oh five.",
+      "text" : "Ship to Ana Ruiz c/o Hotel Lucia, 400 SW Broadway, Portland, OR 97205."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Food trucks on South Congress Avenue are elite.",
+      "text" : "Food trucks on S. Congress Ave are elite."
+    },
+    {
+      "area" : "addresses",
+      "says" : "The bar on North Charles Street is closed.",
+      "text" : "The bar on N. Charles St. is closed."
+    },
+    {
+      "area" : "addresses",
+      "says" : "My cousin lives in Denver Colorado.",
+      "text" : "My cousin lives in Denver CO."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Atlanta Georgia traffic is worse than LA.",
+      "text" : "Atlanta GA traffic is worse than LA."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Chicago, Illinois pizza is the best.",
+      "text" : "Chicago, IL pizza is the best."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Austin, Texas twenty twenty three was brutal.",
+      "text" : "Austin, TX 2023 was brutal."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Our zip is nine oh two one oh, one two three four.",
+      "text" : "Our zip is 90210-1234."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Employee ID forty eight thousand two hundred thirteen is locked out of Okta.",
+      "text" : "Employee ID 48213 is locked out of Okta."
+    },
+    {
+      "area" : "addresses",
+      "says" : "User ID ten thousand one was deactivated.",
+      "text" : "User ID 10001 was deactivated."
+    },
+    {
+      "area" : "addresses",
+      "says" : "Reference ID thirty thousand three hundred one",
+      "text" : "Reference ID 30301"
+    },
+    {
+      "area" : "addresses",
+      "says" : "Employee ID eighty three thousand seven hundred two",
+      "text" : "Employee ID 83702"
+    },
+    {
+      "area" : "titles",
+      "says" : "Form W four (revised December twenty twenty four)",
+      "text" : "Form W-4 (Rev. December 2024)"
+    },
+    {
+      "area" : "titles",
+      "says" : "See Form nine hundred forty one (revised March twenty twenty four).",
+      "text" : "See Form 941 (Rev. March 2024)."
+    },
+    {
+      "area" : "titles",
+      "says" : "Light Gray sweater, thirty nine dollars.",
+      "text" : "Lt. Gray sweater, $39."
+    },
+    {
+      "area" : "titles",
+      "says" : "Light gray is the new background color for the dashboard.",
+      "text" : "Lt. gray is the new background color for the dashboard."
+    },
+    {
+      "area" : "titles",
+      "says" : "Navy light Gray stripe scarf.",
+      "text" : "Navy/Lt. Gray stripe scarf."
+    },
+    {
+      "area" : "titles",
+      "says" : "Secretary of State Marco Rubio landed in Kyiv on Saturday.",
+      "text" : "Sec. of State Marco Rubio landed in Kyiv on Sat."
+    },
+    {
+      "area" : "titles",
+      "says" : "Delegate Eleanor Holmes Norton, Democrat of D.C., introduced the statehood bill again on Thursday.",
+      "text" : "Del. Eleanor Holmes Norton, D-D.C., introduced the statehood bill again on Thurs."
+    },
+    {
+      "area" : "titles",
+      "says" : "A Senior White House adviser confirmed the call.",
+      "text" : "A Sr. White House adviser confirmed the call."
+    },
+    {
+      "area" : "titles",
+      "says" : "The office of the Director of National Intelligence declined to comment.",
+      "text" : "The office of the Dir. of National Intelligence declined to comment."
+    },
+    {
+      "area" : "titles",
+      "says" : "General admission tickets, forty five dollars.",
+      "text" : "Gen. admission tickets, $45."
+    },
+    {
+      "area" : "titles",
+      "says" : "Professor X founded his school in Westchester, NY.",
+      "text" : "Prof. X founded his school in Westchester, NY."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Asked if he would quit, he said: \"No. Twenty twenty six is the year we deliver.\"",
+      "text" : "Asked if he would quit, he said: \"No. 2026 is the year we deliver.\""
+    },
+    {
+      "area" : "shorthand",
+      "says" : "\"No. One hundred per cent no,\" she said when asked about a second referendum.",
+      "text" : "\"No. 100 per cent no,\" she said when asked about a second referendum."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Turnout was more than sixty percent in three of the four swing counties.",
+      "text" : "Turnout was >60% in 3 of the 4 swing counties."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Support for the measure stood at less than forty percent, down from fifty two percent.",
+      "text" : "Support for the measure stood at <40%, down from 52%."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Arrive plus or minus ten minutes of your slot.",
+      "text" : "Arrive +/- 10 min of your slot."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "We expect plus or minus five percent variance.",
+      "text" : "We expect +/- 5% variance."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Results are within plus or minus three points.",
+      "text" : "Results are within +/- 3 pts."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Results are within plus or minus five percent.",
+      "text" : "Results are within +/-5%."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Ford Motor Company said it would cut four thousand jobs in Europe.",
+      "text" : "Ford Motor Co. said it would cut 4,000 jobs in Europe."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "A farm in County Tyrone was searched by police on Tuesday.",
+      "text" : "A farm in Co Tyrone was searched by police on Tuesday."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "The report, pages fourteen to seventeen, details the failures.",
+      "text" : "The report, pp. 14-17, details the failures."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "See page twelve of the handbook, and pages thirty to thirty four for travel.",
+      "text" : "See p. 12 of the handbook, and pp. 30-34 for travel."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "See Figure two and pages ten to twelve.",
+      "text" : "See Fig. 2 and pp. 10-12."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Results are expected around two AM on Friday.",
+      "text" : "Results are expected c. 2am on Friday."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Under Section three of the Act, ministers must consult first.",
+      "text" : "Under Sec. 3 of the Act, ministers must consult first."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Per Section four of the lease, no pets.",
+      "text" : "Per Sec. 4 of the lease, no pets."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "See Section four point two for the wiring diagram.",
+      "text" : "See Sec. 4.2 for the wiring diagram."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "The court cited section two thirty of the Communications Decency Act.",
+      "text" : "The court cited §230 of the Communications Decency Act."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Jimmy Carter (born nineteen twenty four, died twenty twenty four) was president.",
+      "text" : "Jimmy Carter (b. 1924, d. 2024) was president."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Shakespeare (born fifteen sixty four, died sixteen sixteen) wrote thirty nine plays.",
+      "text" : "Shakespeare (b. 1564, d. 1616) wrote 39 plays."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Queen Victoria (reigned eighteen thirty seven to nineteen oh one) had nine children.",
+      "text" : "Queen Victoria (r. 1837-1901) had nine children."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "David Bowie (born the eighth of January, nineteen forty seven) grew up in Brixton.",
+      "text" : "David Bowie (b. 8 Jan 1947) grew up in Brixton."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "The National Weather Service issued a tornado warning.",
+      "text" : "The Natl. Weather Service issued a tornado warning."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Arrive two hours early for international flights.",
+      "text" : "Arrive 2 hrs. early for intl. flights."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Have a good weekend!",
+      "text" : "Have a good w/end!"
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Lunch for four was sixty two forty with tip.",
+      "text" : "Lunch for 4 was $62.40 w/ tip."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Saved fifteen percent with code SAVE15.",
+      "text" : "Saved 15% w/ code SAVE15."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Tea was two pounds twenty with milk.",
+      "text" : "Tea was £2.20 w/ milk."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Twenty nine pounds ninety nine including VAT",
+      "text" : "£29.99 inc. VAT"
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Number of nights: three",
+      "text" : "No. of nights: 3"
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Table for two people at eight.",
+      "text" : "Table for 2 ppl at 8."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Quantity: two",
+      "text" : "Qty: 2"
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Part two of the walking tour starts at the cathedral.",
+      "text" : "Pt. 2 of the walking tour starts at the cathedral."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Story time part two coming soon",
+      "text" : "Story time pt. 2 coming soon"
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Kill Bill Part two was released six months later.",
+      "text" : "Kill Bill Pt. 2 was released six months later."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Kill Bill: Volume two opened on April sixteenth, two thousand four.",
+      "says_gb" : "Kill Bill: Volume two opened on April the sixteenth, two thousand four.",
+      "text" : "Kill Bill: Vol. 2 opened on April 16, 2004."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Volume three, number two (Spring twenty twenty four)",
+      "text" : "Vol. 3, No. 2 (Spring 2024)"
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Article five of the lease covers repairs.",
+      "text" : "Art. 5 of the lease covers repairs."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "See column four in the tracker for owner names.",
+      "text" : "See col. 4 in the tracker for owner names."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Warner Brothers released Casablanca in November nineteen forty two.",
+      "text" : "Warner Bros. released Casablanca in Nov. 1942."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Despacito featuring Justin Bieber topped the charts in twenty seventeen.",
+      "text" : "Despacito ft. Justin Bieber topped the charts in 2017."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "New single featuring Doja Cat drops Friday.",
+      "text" : "New single ft. Doja Cat drops Friday."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Old Town Road (featuring Billy Ray Cyrus) spent nineteen weeks at number one.",
+      "text" : "Old Town Road (feat. Billy Ray Cyrus) spent 19 weeks at No. 1."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Man United beat Liverpool two to one at Old Trafford.",
+      "text" : "Man Utd beat Liverpool 2-1 at Old Trafford."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Serena won her twenty third Slam at the twenty seventeen Australian Open.",
+      "text" : "Serena won her 23rd Slam at the 2017 Aus. Open."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "All rooms have AC and a mini fridge.",
+      "text" : "All rooms have A/C and a mini fridge."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Red fruits, for example cherries, are best.",
+      "text" : "Red fruits, e.g. cherries, are best."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Class of twenty twenty five, we made it!!",
+      "text" : "C/O 2025, we made it!!"
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Stayed at a five star hotel for once.",
+      "text" : "Stayed at a 5* hotel for once."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Dial star sixty seven before the number to hide it.",
+      "text" : "Dial *67 before the number to hide it."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Press one, then three, then pound.",
+      "says_gb" : "Press one, then three, then hash.",
+      "text" : "Press 1, then 3, then #."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Arrives fourteen oh five, departs sixteen forty.",
+      "text" : "Arr. 14:05, Dep. 16:40."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Package of three; approximately two point five inches in diameter.",
+      "text" : "Pkg. of 3; approx. 2.5 in. dia."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Can't go because I'm sick.",
+      "text" : "Can't go bc I'm sick."
+    },
+    {
+      "area" : "shorthand",
+      "says" : "Maxed out my 401(k) this year.",
+      "text" : "Maxed out my 401k this year."
+    },
+    {
+      "area" : "dates",
+      "says" : "Thousands March three Miles To Demand Ceasefire",
+      "text" : "Thousands March 3 Miles To Demand Ceasefire"
+    },
+    {
+      "area" : "dates",
+      "says" : "Give Jan ten minutes to finish her update before we start.",
+      "text" : "Give Jan 10 minutes to finish her update before we start."
+    },
+    {
+      "area" : "dates",
+      "says" : "I owe Jan two slides before the board meeting.",
+      "text" : "I owe Jan 2 slides before the board meeting."
+    },
+    {
+      "area" : "dates",
+      "says" : "Ask Jan two questions max.",
+      "text" : "Ask Jan 2 questions max."
+    },
+    {
+      "area" : "dates",
+      "says" : "Tell Jan three things.",
+      "text" : "Tell Jan 3 things."
+    },
+    {
+      "area" : "dates",
+      "says" : "May three people from my team join the pilot?",
+      "text" : "May 3 people from my team join the pilot?"
+    },
+    {
+      "area" : "dates",
+      "says" : "May four people join?",
+      "text" : "May 4 people join?"
+    },
+    {
+      "area" : "dates",
+      "says" : "She graduated with a two one from Durham in twenty ten.",
+      "text" : "She graduated with a 2:1 from Durham in 2010."
+    },
+    {
+      "area" : "dates",
+      "says" : "The nine eleven attacks led to the creation of the DHS.",
+      "text" : "The 9-11 attacks led to the creation of the DHS."
+    },
+    {
+      "area" : "dates",
+      "says" : "Matthew five nine is read at the service.",
+      "text" : "Matthew 5:9 is read at the service."
+    },
+    {
+      "area" : "dates",
+      "says" : "Genesis one one opens the book.",
+      "text" : "Genesis 1:1 opens the book."
+    },
+    {
+      "area" : "dates",
+      "says" : "Psalm twenty three four got me through it.",
+      "text" : "Psalm 23:4 got me through it."
+    },
+    {
+      "area" : "dates",
+      "says" : "The vote, scheduled for Wednesday, was delayed.",
+      "text" : "The vote, scheduled for Wed., was delayed."
+    },
+    {
+      "area" : "dates",
+      "says" : "The Senate adjourned at one fifteen AM Sunday after a twenty seven hour session.",
+      "text" : "The Senate adjourned at 1:15 a.m. Sun. after a 27-hr session."
+    },
+    {
+      "area" : "dates",
+      "says" : "Saturday night is the gala.",
+      "text" : "Sat. night is the gala."
+    },
+    {
+      "area" : "dates",
+      "says" : "Wednesday at noon is the city tour.",
+      "text" : "Wed. at noon is the city tour."
+    },
+    {
+      "area" : "dates",
+      "says" : "Pickup is Monday morning at the hotel.",
+      "text" : "Pickup is Mon. morning at the hotel."
+    },
+    {
+      "area" : "dates",
+      "says" : "The Monday sync is moved to Tuesday.",
+      "text" : "The Mon. sync is moved to Tue."
+    },
+    {
+      "area" : "dates",
+      "says" : "Thursday works for me, Friday does not.",
+      "text" : "Thu works for me, Fri does not."
+    },
+    {
+      "area" : "dates",
+      "says" : "I'm back Monday the twenty seventh.",
+      "text" : "I'm back Mon the 27th."
+    },
+    {
+      "area" : "dates",
+      "says" : "See you Thursday!",
+      "text" : "See you Thu!"
+    },
+    {
+      "area" : "dates",
+      "says" : "The Wednesday meeting is cancelled.",
+      "text" : "The Weds meeting is cancelled."
+    },
+    {
+      "area" : "dates",
+      "says" : "The second Test at Lord's starts Thursday.",
+      "text" : "The 2nd Test at Lord's starts Thu."
+    },
+    {
+      "area" : "dates",
+      "says" : "See you Saturday!",
+      "text" : "See you Sat!"
+    },
+    {
+      "area" : "dates",
+      "says" : "Two tix for Saturday night.",
+      "text" : "Two tix for Sat night."
+    },
+    {
+      "area" : "dates",
+      "says" : "Monday was rough, Tuesday was worse.",
+      "text" : "Mon was rough, Tues was worse."
+    },
+    {
+      "area" : "dates",
+      "says" : "Open Saturday ten to two.",
+      "text" : "Open Sat. 10-2."
+    },
+    {
+      "area" : "dates",
+      "says" : "Open ten AM to two PM Saturday.",
+      "text" : "Open 10am-2pm Sat."
+    },
+    {
+      "area" : "dates",
+      "says" : "Hours: Saturday nine to one, Sunday closed.",
+      "text" : "Hours: Sat 9-1, Sun closed."
+    },
+    {
+      "area" : "dates",
+      "says" : "Your MRI is scheduled for Monday at eight AM.",
+      "text" : "Your MRI is scheduled for Mon. at 8 am."
+    },
+    {
+      "area" : "dates",
+      "says" : "Saint Patrick's Day falls on a Monday this year.",
+      "text" : "St. Patrick's Day falls on a Mon. this year."
+    },
+    {
+      "area" : "dates",
+      "says" : "We meet Monday, Wednesday and Friday at eight forty five.",
+      "text" : "We meet M/W/F at 8:45."
+    },
+    {
+      "area" : "dates",
+      "says" : "Open Monday to Friday nine to five.",
+      "text" : "Open M–F 9–5."
+    },
+    {
+      "area" : "dates",
+      "says" : "The deficit was twenty point four billion pounds in September, the highest for the month since twenty twenty.",
+      "text" : "The deficit was £20.4bn in Sept, the highest for the month since 2020."
+    },
+    {
+      "area" : "dates",
+      "says" : "Let us meet on Tuesday, October fourteenth in Room four B.",
+      "says_gb" : "Let us meet on Tuesday, the fourteenth of October in Room four B.",
+      "text" : "Let us meet on Tue 10/14 in Rm 4B."
+    },
+    {
+      "area" : "dates",
+      "says" : "Thursday, October sixteenth works.",
+      "says_gb" : "Thursday, the sixteenth of October works.",
+      "text" : "Thu 10/16 works."
+    },
+    {
+      "area" : "dates",
+      "says" : "Monday, October twentieth is a holiday.",
+      "says_gb" : "Monday, the twentieth of October is a holiday.",
+      "text" : "Mon 10/20 is a holiday."
+    },
+    {
+      "area" : "dates",
+      "says" : "The rally on January twentieth is expected to draw two hundred fifty thousand people.",
+      "says_gb" : "The rally on the twentieth of January is expected to draw two hundred fifty thousand people.",
+      "text" : "The rally on 1/20 is expected to draw 250K people."
+    },
+    {
+      "area" : "dates",
+      "says" : "He's due in court on December first.",
+      "says_gb" : "He's due in court on the twelfth of January.",
+      "text" : "He's due in court on 12/1."
+    },
+    {
+      "area" : "dates",
+      "says" : "The deadline was October thirty first at five PM Pacific time.",
+      "says_gb" : "The deadline was the thirty first of October at five PM Pacific time.",
+      "text" : "The deadline was 10/31 at 5 p.m. Pacific time."
+    },
+    {
+      "area" : "dates",
+      "says" : "Due date moved from October thirty first to November seventh, sorry folks.",
+      "says_gb" : "Due date moved from the thirty first of October to the seventh of November, sorry folks.",
+      "text" : "Due date moved from 10/31 to 11/7, sorry folks."
+    },
+    {
+      "area" : "dates",
+      "says" : "Offer valid through December thirty first.",
+      "says_gb" : "Offer valid through the thirty first of December.",
+      "text" : "Offer valid through 12/31."
+    },
+    {
+      "area" : "dates",
+      "says" : "Timesheets due October twenty fourth by noon.",
+      "says_gb" : "Timesheets due the twenty fourth of October by noon.",
+      "text" : "Timesheets due 10/24 by noon."
+    },
+    {
+      "area" : "dates",
+      "says" : "Office closed November twenty seventh to November twenty eighth.",
+      "says_gb" : "Office closed the twenty seventh of November to the twenty eighth of November.",
+      "text" : "Office closed 11/27-11/28."
+    },
+    {
+      "area" : "dates",
+      "says" : "Sprint forty two (October sixth to October seventeenth)",
+      "text" : "Sprint 42 (10/6–10/17)",
+      "voice" : "us"
+    },
+    {
+      "area" : "dates",
+      "says" : "Starting February first we bill monthly.",
+      "says_gb" : "Starting the second of January we bill monthly.",
+      "text" : "Starting 2/1 we bill monthly."
+    },
+    {
+      "area" : "dates",
+      "says" : "Moved to March eighth.",
+      "says_gb" : "Moved to the third of August.",
+      "text" : "Moved to 3/8."
+    },
+    {
+      "area" : "dates",
+      "says" : "See y'all on October thirty first for the party!",
+      "text" : "See y'all on 10/31 for the party!",
+      "voice" : "us"
+    },
+    {
+      "area" : "dates",
+      "says" : "Leaving June fifteenth, back June twenty second.",
+      "text" : "Leaving 6/15, back 6/22.",
+      "voice" : "us"
+    },
+    {
+      "area" : "dates",
+      "says" : "Party on the thirty first of October!",
+      "text" : "Party on 31/10!",
+      "voice" : "gb"
+    },
+    {
+      "area" : "dates",
+      "says" : "Last day is the thirty first of December, don't forget.",
+      "text" : "Last day is 31/12, don't forget.",
+      "voice" : "gb"
+    },
+    {
+      "area" : "dates",
+      "says" : "The clinic is closed December twenty fourth and December twenty fifth.",
+      "says_gb" : "The clinic is closed the twenty fourth of December and the twenty fifth of December.",
+      "text" : "The clinic is closed 12/24 and 12/25."
+    },
+    {
+      "area" : "dates",
+      "says" : "Your next dose is due on November third.",
+      "says_gb" : "Your next dose is due on the eleventh of March.",
+      "text" : "Your next dose is due on 11/03."
+    },
+    {
+      "area" : "dates",
+      "says" : "Closed December twenty fourth to January second for the holidays.",
+      "text" : "Closed 12/24 – 1/2 for the holidays.",
+      "voice" : "us"
+    },
+    {
+      "area" : "dates",
+      "says" : "Expires March twenty twenty six",
+      "text" : "Exp. 03/2026"
+    },
+    {
+      "area" : "dates",
+      "says" : "Best before May twenty twenty six.",
+      "text" : "Best before 05/2026."
+    },
+    {
+      "area" : "dates",
+      "says" : "Last updated: October first, twenty twenty five, at fourteen thirty UTC.",
+      "text" : "Last updated: 2025-10-01T14:30:00Z.",
+      "voice" : "us"
+    },
+    {
+      "area" : "dates",
+      "says" : "The House is out from August first to September eighth.",
+      "says_gb" : "The House is out from August the first to September the eighth.",
+      "text" : "The House is out from Aug. 1-Sept. 8."
+    },
+    {
+      "area" : "dates",
+      "says" : "Monday the thirteenth of October to Friday the seventeenth of October",
+      "text" : "Mon 13 Oct – Fri 17 Oct"
+    },
+    {
+      "area" : "dates",
+      "says" : "Your stay: Friday, December fifth to Sunday, December seventh, twenty twenty five.",
+      "says_gb" : "Your stay: Friday, December the fifth to Sunday, December the seventh, twenty twenty five.",
+      "text" : "Your stay: Fri, Dec 5 – Sun, Dec 7, 2025."
+    },
+    {
+      "area" : "dates",
+      "says" : "Rome was founded, legend says, on the twenty first of April, seven fifty three BC.",
+      "text" : "Rome was founded, legend says, on 21 April 753 BC."
+    },
+    {
+      "area" : "dates",
+      "says" : "Last modified on Thursday the ninth of October, twenty twenty six seven forty five BST",
+      "text" : "Last modified on Thu 9 Oct 2026 07.45 BST"
+    },
+    {
+      "area" : "dates",
+      "says" : "Doors open at eighteen thirty and close at twenty two hundred.",
+      "text" : "Doors open at 18.30 and close at 22.00."
+    },
+    {
+      "area" : "dates",
+      "says" : "The tour starts at nine thirty.",
+      "text" : "The tour starts at 9.30."
+    },
+    {
+      "area" : "dates",
+      "says" : "Check in at fourteen hundred, checkout eleven o'clock.",
+      "text" : "Check in at 14.00, checkout 11.00."
+    },
+    {
+      "area" : "dates",
+      "says" : "The meeting is at ten thirty tomorrow.",
+      "text" : "The meeting is at 10.30 tomorrow."
+    },
+    {
+      "area" : "dates",
+      "says" : "Lunch at twelve fifteen, then back at one.",
+      "text" : "Lunch at 12.15, then back at 1."
+    },
+    {
+      "area" : "dates",
+      "says" : "He backed the favourite in the two thirty at Kempton.",
+      "text" : "He backed the favourite in the 2.30 at Kempton."
+    },
+    {
+      "area" : "dates",
+      "says" : "The plane departed at oh six forty five and landed at oh nine ten local time.",
+      "text" : "The plane departed at 0645 and landed at 0910 local time."
+    },
+    {
+      "area" : "dates",
+      "says" : "The shuttle leaves at oh seven hundred hours.",
+      "text" : "The shuttle leaves at 0700 hrs."
+    },
+    {
+      "area" : "dates",
+      "says" : "Kickoff oh nine thirty sharp in the big room.",
+      "text" : "Kickoff 0930 sharp in the big room."
+    },
+    {
+      "area" : "dates",
+      "says" : "Pickup window: ten hundred to fourteen hundred.",
+      "text" : "Pickup window: 10:00-14:00."
+    },
+    {
+      "area" : "dates",
+      "says" : "Lunch noon to two, dinner five to ten.",
+      "text" : "Lunch noon–2, dinner 5–10."
+    },
+    {
+      "area" : "dates",
+      "says" : "Simmer for one to one and a half hours.",
+      "text" : "Simmer for 1–1½ hours."
+    },
+    {
+      "area" : "dates",
+      "says" : "Lunch at twelve PM, standup moved to three PM.",
+      "text" : "Lunch at 12p, standup moved to 3p."
+    },
+    {
+      "area" : "dates",
+      "says" : "Carpool at seven thirty AM.",
+      "text" : "Carpool at 7:30a."
+    },
+    {
+      "area" : "dates",
+      "says" : "The flight lands at six forty five PM.",
+      "text" : "The flight lands at 6:45p."
+    },
+    {
+      "area" : "dates",
+      "says" : "Doors seven PM / Show eight PM.",
+      "text" : "Doors 7p / Show 8p."
+    },
+    {
+      "area" : "dates",
+      "says" : "When: Tuesday, October fourteenth, twenty twenty five two PM to two thirty PM (UTC minus eight) Pacific Time (US & Canada).",
+      "says_gb" : "When: Tuesday, October the fourteenth, twenty twenty five two PM to two thirty PM (UTC minus eight) Pacific Time (US & Canada).",
+      "text" : "When: Tuesday, October 14, 2025 2:00 PM-2:30 PM (UTC-08:00) Pacific Time (US & Canada)."
+    },
+    {
+      "area" : "dates",
+      "says" : "Times are shown in GMT minus five.",
+      "text" : "Times are shown in GMT-5."
+    },
+    {
+      "area" : "dates",
+      "says" : "Out three days next week for a wedding.",
+      "text" : "Out 3d next week for a wedding."
+    },
+    {
+      "area" : "dates",
+      "says" : "I'll be out two days next week.",
+      "text" : "I'll be out 2d next week."
+    },
+    {
+      "area" : "dates",
+      "says" : "Logs older than thirty days are deleted automatically.",
+      "text" : "Logs older than 30d are deleted automatically."
     }
   ]
 }
