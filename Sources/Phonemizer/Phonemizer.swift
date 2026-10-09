@@ -38,12 +38,28 @@ public final class Phonemizer {
     /// (or replaced by `unknown`).
     public func phonemize(_ text: String, unknown: String = "") -> String {
         var t = text
-        if normalizes { t = Self.foldMicroSign(TextNormalizer.linkLabels(t)) }
+        if normalizes {
+            // Links lose their paths before any pass looks at slashes or digits.
+            t = Self.foldMicroSign(TextNormalizer.linkLabels(t))
+            // The Core passes that read whole expressions before the custom lexicon marks terms
+            // inside them ("CAD", "+1", "Room", "Max", "10x"), in cross.json's rule_order (steps
+            // 2 to 8): each sees what the one before wrote.
+            t = DateRules.splitQuarterYears(t)
+            t = MoneyPass.apply(t, british: british)
+            t = PhonePass.apply(t, british: british)
+            t = AddressPass.apply(t, british: british)
+            t = TitlePass.apply(t, british: british)
+            t = ShorthandPass.apply(t, british: british)
+            t = MeasuresPass.apply(t, british: british)
+        }
         // Hand-written terms first, on the raw text; then normalize everything else.
         if let custom { t = custom.mark(t.precomposedStringWithCanonicalMapping, british: british) }
         if normalizes {
+            // Roman numerals read with the marks in view ("Apollo XI") and before unshout, while
+            // a numeral in a shouted sentence is still in capitals.
+            t = RomanPass.apply(t, british: british)
             t = unshout(t)
-            t = TextNormalizer.normalize(t, skippingMarkedSpans: custom != nil)
+            t = TextNormalizer.normalize(t, skippingMarkedSpans: custom != nil, british: british)
         }
         return g2p.phonemize(t, unk: unknown).trimmingCharacters(in: .whitespaces)
     }

@@ -225,6 +225,12 @@ public enum Tokenizer {
     /// the sentence.
     public static func titleContinues(_ sentence: String, into next: String) -> Bool {
         let head = sentence.trimmingCharacters(in: .whitespacesAndNewlines)
+        // The Core areas' own abbreviations ("Det.", "Rd.", "N.Y.", "Attn.", "ca." before a
+        // year), each decided in its area's file; nil from all three leaves it to the rules here.
+        if let decided = TitlePass.sentenceContinues(head, into: next) ?? AddressPass.sentenceContinues(head, into: next)
+            ?? ShorthandPass.sentenceContinues(head, into: next) {
+            return decided
+        }
         guard let r = head.range(of: #"(?<![\p{L}.])\p{L}+\.$"#, options: .regularExpression) else { return false }
         let title = String(head[r])
         let following = next.drop { $0.isWhitespace }
