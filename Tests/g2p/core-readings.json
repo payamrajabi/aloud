@@ -5016,6 +5016,36 @@
       "gb" : "klˈɔːz ˌI əɡɹˈiː wɪð ɪz ðə lˈɑːst wˈʌn.",
       "text" : "Clause I agree with is the last one.",
       "us" : "klˈɔz ˌI əɡɹˈi wɪð ɪz ðə lˈæst wˈʌn."
+    },
+    {
+      "area" : "phone",
+      "gb" : "ˈɔːdə tˈuː tə θɹˈiː ˈItɪmz pɜː pˈɜːsᵊn.",
+      "text" : "Order 2-3 items per person.",
+      "us" : "ˈɔɹdəɹ tˈu tə θɹˈi ˈITəmz pɜɹ pˈɜɹsᵊn."
+    },
+    {
+      "area" : "phone",
+      "gb" : "ðə pˈɪn fˈɔːti fˈɔː sˈɛvnti wˈʌn bɹˈQk ˈɒf.",
+      "text" : "The pin 4471 broke off.",
+      "us" : "ðə pˈɪn fˈɔɹTi fˈɔɹ sˈɛvənti wˈʌn bɹˈOk ˈɔf."
+    },
+    {
+      "area" : "phone",
+      "gb" : "tˈɪkɪt wˈʌn tə tˈɛn ɑː sˈQld ˈWt.",
+      "text" : "Ticket 1-10 are sold out.",
+      "us" : "tˈɪkət wˈʌn tə tˈɛn ɑɹ sˈOld ˈWt."
+    },
+    {
+      "area" : "phone",
+      "gb" : "kˈɔːl ˈɛks ˈAti sˈɪks kˈQd fɹɒm sˈiː.",
+      "text" : "Call x86 code from C.",
+      "us" : "kˈɔl ˈɛks ˈATi sˈɪks kˈOd fɹʌm sˈi."
+    },
+    {
+      "area" : "phone",
+      "gb" : "pˈɑːt wˈʌn tə tˈuː ɒv ðə sˈɪəɹiːz ɪz ˈWt.",
+      "text" : "Part 1-2 of the series is out.",
+      "us" : "pˈɑɹt wˈʌn tə tˈu ʌv ðə sˈɪɹiz ɪz ˈWt."
     }
   ],
   "speech_cases" : [
@@ -12545,6 +12575,53 @@
       "area" : "roman",
       "says" : "Next up: item four on the agenda.",
       "text" : "Next up: item IV on the agenda."
+    },
+    {
+      "area" : "phone",
+      "says" : "Join by phone (US) plus one two five two, five five five, oh one four three PIN: three one two, five five four, nine one seven, pound",
+      "says_gb" : "Join by phone (US) plus one two five two, five five five, oh one four three PIN: three one two, five five four, nine one seven, hash",
+      "text" : "Join by phone (US) +1 252-555-0143 PIN: 312 554 917#"
+    },
+    {
+      "area" : "phone",
+      "says" : "To dial in, use plus one six four six, five five eight, eight six five six, PIN four eight two, nine one three, pound",
+      "says_gb" : "To dial in, use plus one six four six, five five eight, eight six five six, PIN four eight two, nine one three, hash",
+      "text" : "To dial in, use +1 646 558 8656, PIN 482 913#"
+    },
+    {
+      "area" : "phone",
+      "says" : "PIN four four seven one for the door.",
+      "text" : "PIN 4471 for the door."
+    },
+    {
+      "area" : "phone",
+      "says" : "Zoom: eight three four, two two one nine, four four one oh, Passcode: five five nine, two oh one",
+      "text" : "Zoom: 834 2219 4410, Passcode: 559201"
+    },
+    {
+      "area" : "phone",
+      "says" : "Account one two three four, five six seven eight, nine oh one two is the wrong one.",
+      "text" : "Account 1234-5678-9012 is the wrong one."
+    },
+    {
+      "area" : "phone",
+      "says" : "The ISBN is nine seven eight, oh, one three, four six eight, five nine nine, one.",
+      "text" : "The ISBN is 978-0-13-468599-1."
+    },
+    {
+      "area" : "phone",
+      "says" : "Error code five hundred, ten twenty three keeps coming back.",
+      "text" : "Error code 500-1023 keeps coming back."
+    },
+    {
+      "area" : "phone",
+      "says" : "Amazon order one one two, four four five five six six seven, eight eight nine nine oh two one shipped.",
+      "text" : "Amazon order 112-4455667-8899021 shipped."
+    },
+    {
+      "area" : "phone",
+      "says" : "Call extension four four one oh for facilities.",
+      "text" : "Call x4410 for facilities."
     }
   ]
 }

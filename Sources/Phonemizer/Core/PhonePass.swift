@@ -29,18 +29,20 @@ enum PhonePass {
         var t = text
         for reading in readings { t = reading.apply(to: t) }
         t = readMeetingIDs(t, british: british)
+        if t.utf16.contains(0x2D) { t = labelledID.apply(to: t) }
         return t
     }
 
-    /// A meeting's ID or passcode, digit by digit in its groups: "Meeting ID: 845 1234 5678",
-    /// "Passcode: 902114", "Phone conference ID: 812 345 678#" (the "#" is the key: "pound", or
-    /// "hash" in the British voice). Read as values they were "eight hundred forty five, twelve
-    /// thirty four".
+    /// A meeting's ID or passcode, or a PIN, digit by digit in its groups: "Meeting ID: 845 1234
+    /// 5678", "Zoom: 834 2219 4410", "Passcode: 902114", "PIN 4471", "Phone conference ID: 812 345
+    /// 678#" (the "#" is the key: "pound", or "hash" in the British voice). Read as values they were
+    /// "eight hundred forty five, twelve thirty four".
     private static let meetingID = try! NSRegularExpression(pattern:
-        #"(?<![\p{L}])((?i:meeting|conference|webinar|participant|access|attendee)[ \t]+(?i:ID|code|number)|Passcode|passcode|PASSCODE)([ \t]*[:#]?[ \t]*)(\d{3,}(?:[ \x{00A0}\-]\d{2,})*)(#?)(?![\d\p{L}])"#)
+        #"(?<![\p{L}])((?i:meeting|conference|webinar|participant|access|attendee)[ \t]+(?i:ID|code|number)|Passcode|passcode|PASSCODE|PIN|Pin|Zoom|Webex)([ \t]*[:#]?[ \t]*)(\d{3,}(?:[ \x{00A0}\-]\d{2,})*)(#?)(?![\d\p{L}])"#)
 
     private static func readMeetingIDs(_ text: String, british: Bool) -> String {
-        guard text.utf16.contains(where: { $0 == 0x49 || $0 == 0x69 || $0 == 0x50 || $0 == 0x70 }) else { return text }
+        // An I, a P, a Z or a W: the first or second letter of every label above.
+        guard text.utf16.contains(where: { $0 == 0x49 || $0 == 0x69 || $0 == 0x50 || $0 == 0x70 || $0 == 0x5A || $0 == 0x57 }) else { return text }
         let ns = text as NSString
         let matches = meetingID.matches(in: text, range: NSRange(location: 0, length: ns.length))
         guard !matches.isEmpty else { return text }
@@ -48,7 +50,9 @@ enum PhonePass {
         var out = "", last = 0
         for m in matches {
             let groups = ns.substring(with: m.range(at: 3)).split(whereSeparator: { !$0.isNumber }).map(String.init)
-            var words = groups.map(groupWords).joined(separator: ", ")
+            // A PIN's 0 is "zero", as the number reader says a PIN with a leading 0 ("PIN 0645").
+            let zero = ns.substring(with: m.range(at: 1)).uppercased() == "PIN" ? "zero" : "oh"
+            var words = groups.map { groupWords($0, zero: zero) }.joined(separator: ", ")
             if m.range(at: 4).length > 0 { words += british ? " hash" : " pound" }
             if casing == nil { casing = ShoutedCasing(text) }
             out += ns.substring(with: NSRange(location: last, length: m.range(at: 3).location - last)) + casing!.cased(words, at: m.range(at: 3).location)
@@ -56,6 +60,30 @@ enum PhonePass {
         }
         return out + ns.substring(from: last)
     }
+
+    /// A number in dashed groups after what it identifies: "Account 1234-5678-9012", "The ISBN is
+    /// 978-0-13-468599-1", "Amazon order 112-4455667-8899021", "Error code 500-1023". Three
+    /// groups or more (an ISBN's last may be X) are read digit by digit, a pause between groups;
+    /// two short groups after a code keep their numbers with the pause ("five hundred, ten
+    /// twenty three"). Run together, the groups were one long blur of numbers.
+    private static let labelledID = Reading(
+        #"(?<![\p{L}])((?i:account|acct|order|isbn|issn|code|ref|reference|confirmation|tracking|invoice|serial|sku|part|case|ticket|policy|member|card|claim|booking|receipt|transaction|error)(?:[ \t]+(?i:no\.?|number|#))?(?:[ \t]+(?:is|was))?[ \t]*[:#]?[ \t]*)(\d{1,7}(?:-\d{1,7}){1,5}(?:-[\dX])?)(?![\d\p{L}]|-\d)"#
+    ) { m, s in
+        let label = s.substring(with: m.range(at: 1))
+        let groups = s.substring(with: m.range(at: 2)).split(separator: "-").map(String.init)
+        if groups.count == 2 {
+            // "Error code 500-1023", "Ref 12-3456": two groups only after a code's own label.
+            guard groups.allSatisfy({ $0.count <= 4 }) else { return label + groups.map(groupWords).joined(separator: ", ") }
+            let key = label.lowercased().trimmingCharacters(in: CharacterSet.letters.inverted)
+            guard shortIDLabels.contains(where: { key.hasPrefix($0) }) else { return nil }
+            return label + groups.joined(separator: ", ")
+        }
+        return label + groups.map { $0 == "X" ? "X" : groupWords($0) }.joined(separator: ", ")
+    }
+    /// Labels after which two short dashed groups are a code, not a range ("Order 2-3 items",
+    /// "Ticket 1-10" are ranges). A part number and a SKU keep their reading ("Part number
+    /// 1234-5678").
+    private static let shortIDLabels = ["code", "error", "ref", "invoice", "serial", "confirmation", "policy", "claim", "isbn", "issn"]
 
     /// fix3/reading's phone rule (a leading 0 or "+") is the pass's trunk-0 and "+" readings now.
     /// It read dates, 24-hour times and lotto lists as phone numbers ("01-02-2024", "0700-1500")
@@ -255,10 +283,11 @@ enum PhonePass {
         s.substring(with: m.range(at: 1)) + "extension " + extensionNumber(s.substring(with: m.range(at: 2)))
     }
 
-    /// "Dial x4567": "x" and digits are an extension only after "dial" ("call x86 code", "call
-    /// x264" are an architecture and a codec), and never a term the tech lexicon has.
+    /// "Dial x4567", "Call x4410 for facilities": "x" and digits are an extension only after
+    /// "dial" or "call", and never a term the tech lexicon has ("call x86 code", "call x264" are
+    /// an architecture and a codec).
     private static let dialledExtension = Reading(
-        #"\b((?i:dial|dials|dialed|dialled|dialing|dialling)\s+)[xX](\d{2,6})"# + end
+        #"\b((?i:dial|dials|dialed|dialled|dialing|dialling|call|calls|called|calling|ring|phone)\s+)[xX](\d{2,6})"# + end
     ) { m, s in
         let digits = s.substring(with: m.range(at: 2))
         guard !lexiconXTerms.contains(digits) else { return nil }
@@ -477,9 +506,11 @@ enum PhonePass {
 
     /// A written group digit by digit; a six-digit block is said as two threes ("nine oh oh, one
     /// two three").
-    private static func groupWords(_ digits: String) -> String {
-        guard digits.count == 6 else { return SpokenNumbers.digits(digits) }
-        return SpokenNumbers.digits(digits.prefix(3)) + ", " + SpokenNumbers.digits(digits.suffix(3))
+    private static func groupWords(_ digits: String) -> String { groupWords(digits, zero: "oh") }
+
+    private static func groupWords(_ digits: String, zero: String) -> String {
+        guard digits.count == 6 else { return SpokenNumbers.digits(digits, zero: zero) }
+        return SpokenNumbers.digits(digits.prefix(3), zero: zero) + ", " + SpokenNumbers.digits(digits.suffix(3), zero: zero)
     }
 
     /// ", extension twenty three" for an extension tail whose marker is group `i` and digits
