@@ -9,21 +9,17 @@ enum NarrationMarkdown {
     }
     private static let heading = regex(#"^#{1,6}\s+\S"#)
     private static let quote = regex(#"^\s{0,3}>"#)
-    private static let listLine = regex(#"^\s*([-*+]|\d{1,3}[.)])\s+\S"#)
     private static let fenceLine = regex(#"^\s{0,3}(```|~~~)"#)
     private static let tableLine = regex(#"^\s*\|.*\|\s*$"#)
     private static let ruleLine = regex(#"^\s{0,3}(-{3,}|\*{3,}|_{3,})\s*$"#)
-    /// **x**, __x y__ (not a Python name like __init__), ~~x~~, `x`, [x](y), ![x](y).
-    private static let inline = regex(#"\*\*\S(?:[^\n]*?\S)?\*\*|__[^_\s][^_\n]*\s[^_\n]*[^_\s]__|~~\S(?:[^\n]*?\S)?~~|`[^`\n]+`|!?\[[^\]\n]*\]\([^)\s]+(?:\s+"[^"\n]*")?\)"#)
+    /// **x**, __x y__ (not a Python name like __init__), ~~x~~, `x`, [x](y), ![x](y). The
+    /// space inside __x y__ is the first one after the opening word: "__main__.py" and a
+    /// long line after it took seconds when any split of the line could be tried.
+    private static let inline = regex(#"\*\*\S(?:[^\n]*?\S)?\*\*|__[^_\s][^_\s]*\s[^_\n]*?[^_\s]__|~~\S(?:[^\n]*?\S)?~~|`[^`\n]+`|!?\[[^\]\n]*\]\([^)\s]+(?:\s+"[^"\n]*")?\)"#)
 
-    /// Whether text is Markdown rather than prose, chat or email. A lone "*", a #hashtag,
-    /// snake_case or one "-" line isn't enough.
-    static func looksLikeMarkdown(_ s: String) -> Bool {
-        // One list line counts only with another signal, which is enough on its own.
-        hasMarkupBeyondLists(s) || listLine.numberOfMatches(in: s, range: NSRange(location: 0, length: (s as NSString).length)) >= 2
-    }
-
-    /// Markdown other than list markers: headings, quotes, fences, rules, tables, inline marks.
+    /// Markdown other than list markers: headings, quotes, fences, rules, tables, inline
+    /// marks. This is what makes text Markdown rather than prose, chat or email; a lone
+    /// "*", a #hashtag, snake_case or list lines aren't enough.
     static func hasMarkupBeyondLists(_ s: String) -> Bool {
         let all = NSRange(location: 0, length: (s as NSString).length)
         func has(_ re: NSRegularExpression) -> Bool { re.firstMatch(in: s, range: all) != nil }
@@ -55,7 +51,7 @@ enum NarrationMarkdown {
             if inline.contains(.blockHTML) {
                 // An HTML block ("<div align=center>…</div>"): read like copied HTML.
                 openKey = nil
-                if let doc = NarrationHTML.parse(text) { blocks += doc.blocks }
+                blocks += NarrationHTML.blocks(text) ?? []
                 continue
             }
             let (key, cell, kind, quoteDepth) = describe(run.presentationIntent, fenced: fenced, seenItems: &seenItems, htmlKey: &htmlKey)
@@ -131,35 +127,31 @@ enum NarrationMarkdown {
     private static let tag = try! NSRegularExpression(pattern: #"^<(/?)([A-Za-z][A-Za-z0-9-]*)([^>]*)>$"#)
     private static let alt = try! NSRegularExpression(pattern: #"\balt\s*=\s*(?:"([^"]*)"|'([^']*)')"#, options: [.caseInsensitive])
 
-    /// An inline HTML tag: <u>/<ins> underline, <s>/<del>/<strike> strike through, <b> and
-    /// <i> as Markdown's, <br> a space, <img alt> an image. Any other tag is dropped.
+    /// An inline HTML tag: the styles of `RunStyles(tag:)` (<u> underline, <s> strike through,
+    /// <b> and <i> as Markdown's…), <br> a space, <img alt> an image. Any other tag is dropped.
     private static func applyTag(_ html: String, to styles: inout RunStyles) -> NarrationRun? {
         let ns = html as NSString
         guard let m = tag.firstMatch(in: html, range: NSRange(location: 0, length: ns.length)) else { return nil }
         let closing = m.range(at: 1).length > 0
         let name = ns.substring(with: m.range(at: 2)).lowercased()
-        let style: RunStyles
         switch name {
-        case "u", "ins": style = .underline
-        case "s", "del", "strike": style = .strike
-        case "b", "strong": style = .bold
-        case "i", "em": style = .italic
-        case "code", "kbd", "samp": style = .code
         case "br": return NarrationRun(text: " ", styles: styles)
         case "img":
             let attrs = ns.substring(with: m.range(at: 3))
             guard let a = alt.firstMatch(in: attrs, range: NSRange(location: 0, length: (attrs as NSString).length)) else { return nil }
             let text = (attrs as NSString).substring(with: a.range(at: 1).location != NSNotFound ? a.range(at: 1) : a.range(at: 2))
             return NarrationRun(text: text, styles: styles.union(.image))
-        default: return nil
+        default: break
         }
+        guard let style = RunStyles(tag: name) else { return nil }
         if closing { styles.remove(style) } else if !html.hasSuffix("/>") { styles.insert(style) }
         return nil
     }
 
     // MARK: - Before parsing
 
-    private static let frontMatter = try! NSRegularExpression(pattern: #"\A---[ \t]*\n[\s\S]*?\n(?:---|\.\.\.)[ \t]*(?:\n|\z)"#)
+    /// YAML front matter: "key:" lines from the first one on, closed by "---" or "...".
+    private static let frontMatter = try! NSRegularExpression(pattern: #"\A---[ \t]*\n(?=[A-Za-z_][\w-]*[ \t]*:)[\s\S]*?\n(?:---|\.\.\.)[ \t]*(?:\n|\z)"#)
     private static let comment = try! NSRegularExpression(pattern: #"<!--[\s\S]*?-->"#)
     private static let footnoteDefinition = try! NSRegularExpression(pattern: #"^(\s{0,3})\[\^[^\]\s]+\]:[ \t]*"#)
     private static let codeSpan = try! NSRegularExpression(pattern: #"(`+)[\s\S]*?\1"#)
@@ -169,7 +161,13 @@ enum NarrationMarkdown {
     /// Removes YAML front matter, HTML comments and footnote markers, and escapes Python
     /// names ("__init__", which CommonMark makes a bold "init"), outside code.
     private static func prepare(_ text: String) -> String {
-        var s = replace(frontMatter, in: text, with: "")
+        var s = text
+        // A selection that starts at a rule ("---", "## Part two", …, "---") isn't front
+        // matter: that has no blank lines.
+        if let m = frontMatter.firstMatch(in: s, range: NSRange(location: 0, length: (s as NSString).length)),
+           (s as NSString).substring(with: m.range).range(of: #"\n[ \t]*\n"#, options: .regularExpression) == nil {
+            s = (s as NSString).replacingCharacters(in: m.range, with: "")
+        }
         s = replace(comment, in: s, with: "")
         var inFence = false
         var lines: [String] = []

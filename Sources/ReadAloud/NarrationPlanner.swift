@@ -4,6 +4,9 @@ import Foundation
 struct DisplayStyle: Equatable {
     enum Kind: Equatable {
         case heading(Int), quote(Int), listItem(Int), code, strike, bold, italic, underline, link
+        /// A list item's bullet, number or box, outside the chunk ranges (read, if at all,
+        /// with the item's first sentence).
+        case listMarker
     }
     var range: NSRange
     var kind: Kind
@@ -25,6 +28,7 @@ enum NarrationPlanner {
         var styles: RunStyles
         var separator = false       // between table cells
         var stressable = false      // a short emphasis, read with extra stress
+        var standsAlone = false     // an image read "Image: …", not as words of its sentence
     }
 
     private struct Placed {
@@ -45,11 +49,12 @@ enum NarrationPlanner {
         let display = NSMutableString()
         var styles: [DisplayStyle] = []
         var placed: [Placed] = []
-        for block in doc.blocks {
+        for var block in doc.blocks {
+            unbox(&block)
             guard let (body, localRuns) = layout(block) else { continue }
             if display.length > 0 { display.append("\n") }
             let lineStart = display.length
-            display.append(prefix(block.kind))
+            display.append(prefix(block))
             let contentStart = display.length
             display.append(body)
             let line = NSRange(location: lineStart, length: display.length - lineStart)
@@ -64,7 +69,10 @@ enum NarrationPlanner {
 
             switch block.kind {
             case .heading(let level): styles.append(DisplayStyle(range: content, kind: .heading(level)))
-            case .listItem(_, _, let depth): styles.append(DisplayStyle(range: line, kind: .listItem(depth)))
+            case .listItem(_, _, let depth):
+                styles.append(DisplayStyle(range: line, kind: .listItem(depth)))
+                styles.append(DisplayStyle(range: NSRange(location: lineStart + 4 * depth, length: contentStart - lineStart - 4 * depth),
+                                           kind: .listMarker))
             case .code: styles.append(DisplayStyle(range: content, kind: .code))
             default: break
             }
@@ -96,11 +104,8 @@ enum NarrationPlanner {
             case .heading:
                 pieces[last].speech = fullStop(pieces[last].speech, replacing: ":;,")
             case .listItem(let ordered, let number, _):
-                // A task list's box ("- [x] Grind them") is shown, not read ("ex, grind them").
-                let unboxed = pieces[0].speech.replacingOccurrences(of: #"^\[[ xX]\]\s*"#, with: "", options: .regularExpression)
-                if TextPrep.hasWords(unboxed) { pieces[0].speech = unboxed }
                 if ordered, let number { pieces[0].speech = "\(number). " + pieces[0].speech }
-                if !endsWith(pieces[last].speech, ".!?…:;") { pieces[last].speech = fullStop(pieces[last].speech, replacing: ",") }
+                if !TextPrep.endsWith(pieces[last].speech, ".!?…:;") { pieces[last].speech = fullStop(pieces[last].speech, replacing: ",") }
             case .tableRow:
                 pieces[last].speech = fullStop(pieces[last].speech, replacing: ":;,")
             default: break
@@ -112,13 +117,44 @@ enum NarrationPlanner {
         return NarrationPlan(displayText: display as String, styles: styles, chunks: chunks)
     }
 
+    /// The chunks the voice can read (English, `KokoroEngine.canRead`), as the player plays
+    /// them. A chunk left out hands its pause to the one before: the paragraph before a
+    /// heading still ends with the heading's pause when its last sentence was in Chinese.
+    static func readable(_ chunks: [Chunk]) -> [Chunk] {
+        var kept: [Chunk] = []
+        for chunk in chunks {
+            if KokoroEngine.canRead(chunk.speech) {
+                kept.append(chunk)
+            } else if let previous = kept.last, chunk.pauseAfter > previous.pauseAfter {
+                kept[kept.count - 1] = Chunk(range: previous.range, speech: previous.speech, pauseAfter: chunk.pauseAfter,
+                                             speed: previous.speed)
+            }
+        }
+        return kept
+    }
+
     // MARK: - Display
 
-    private static func prefix(_ kind: NarrationBlock.Kind) -> String {
-        guard case .listItem(let ordered, let number, let depth) = kind else { return "" }
+    private static func prefix(_ block: NarrationBlock) -> String {
+        guard case .listItem(let ordered, let number, let depth) = block.kind else { return "" }
         let indent = String(repeating: " ", count: 4 * depth)
-        if ordered, let number { return indent + "\(number). " }
-        return indent + "• "
+        let spoken = ordered ? number.map { "\($0). " } ?? "" : ""
+        if let marker = block.marker { return indent + spoken + marker + " " }   // "2. ☑ "
+        return indent + (spoken.isEmpty ? "• " : spoken)
+    }
+
+    /// A task list's box ("- [x] Grind them", text to every reader but GitHub's HTML) is
+    /// shown as ☐ or ☑ in front of the item, never read ("ex, grind them").
+    private static func unbox(_ block: inout NarrationBlock) {
+        guard case .listItem = block.kind, block.marker == nil,
+              let k = block.runs.firstIndex(where: { !$0.text.allSatisfy(\.isWhitespace) }),
+              block.runs[k].styles.isDisjoint(with: [.code, .link, .image]),
+              let box = block.runs[k].text.range(of: #"^\s*\[[ xX]\](\s+|$)"#, options: .regularExpression) else { return }
+        var unboxed = block
+        unboxed.runs[k].text.removeSubrange(box)
+        guard TextPrep.hasWords(unboxed.text) else { return }   // "- [x]" alone is left as it is
+        unboxed.marker = block.runs[k].text[box].contains { $0 == "x" || $0 == "X" } ? "☑" : "☐"
+        block = unboxed
     }
 
     /// A block's display text and its runs (ranges local to it), with whitespace collapsed
@@ -173,6 +209,9 @@ enum NarrationPlanner {
             body.deleteCharacters(in: runs.removeLast().range)
         }
         guard body.length > 0 else { return nil }
+        for k in runs.indices where runs[k].styles.contains(.image) {
+            runs[k].standsAlone = imageStandsAlone(k, runs, in: body)
+        }
 
         // A short emphasis (four words at most) is stressed; emphasis over the whole block,
         // or a heading, is left as it is.
@@ -197,6 +236,28 @@ enum NarrationPlanner {
         return (body as String, runs)
     }
 
+    /// An image is read on its own ("Image: A chart of sales.") when it stands between
+    /// sentences or with nothing but other images; inside a sentence ("Click [the gear icon]
+    /// and choose Settings") its alt text is read as words of the sentence.
+    private static func imageStandsAlone(_ k: Int, _ runs: [PlacedRun], in body: NSString) -> Bool {
+        func text(_ step: Int) -> String? {   // the nearest text before or after it, in its cell
+            var j = k + step
+            while runs.indices.contains(j), !runs[j].separator {
+                let t = body.substring(with: runs[j].range).trimmingCharacters(in: .whitespaces)
+                if !t.isEmpty, runs[j].styles.isDisjoint(with: [.image, .strike]) { return t }
+                j += step
+            }
+            return nil
+        }
+        let before = text(-1).map { TextPrep.endsWith($0, ".!?…:") } ?? true
+        let after = text(1).map { t -> Bool in
+            // A new sentence starts with a capital or a number, not "and…" or ",".
+            guard let c = t.first(where: { $0.isLetter || $0.isNumber || ",.;:!?)".contains($0) }) else { return true }
+            return c.isUppercase || c.isNumber
+        } ?? true
+        return before && after
+    }
+
     // MARK: - Chunks
 
     /// Links and images: a sentence is never cut inside one.
@@ -210,7 +271,7 @@ enum NarrationPlanner {
             return []
         case .tableRow:
             // One chunk per row, unless it's too long for one.
-            let ranges = p.content.length > TextPrep.maxChunkLength ? TextPrep.split(p.content, in: ns, protected: []) : [p.content]
+            let ranges = p.content.length > TextPrep.maxChunkLength ? TextPrep.split(p.content, in: ns, protected: protectedSpans(p)) : [p.content]
             return ranges.compactMap { r in
                 let range = TextPrep.trim(r, in: ns)
                 let speech = speech(range, p, in: ns, stress: true)
@@ -219,10 +280,11 @@ enum NarrationPlanner {
         default:
             break
         }
-        // An image ends its sentence, and a bold label ("Note:") is a chunk of its own.
+        // An image read on its own ends its sentence, and a bold label ("Note:") is a chunk of
+        // its own.
         let label = labelEnd(p, in: ns)
         let contentEnd = NSMaxRange(p.content)
-        var cuts = Set(p.runs.filter { $0.styles.contains(.image) }.map { NSMaxRange($0.range) })
+        var cuts = Set(p.runs.filter { $0.standsAlone && TextPrep.hasWords(ns.substring(with: $0.range)) }.map { NSMaxRange($0.range) })
         if let label { cuts.insert(label) }
         let protected = protectedSpans(p)
         var result: [Piece] = []
@@ -254,16 +316,13 @@ enum NarrationPlanner {
         return end
     }
 
-    /// The opening split (`TextPrep.openingCut`), once, on the first chunk of the whole plan.
+    /// The opening split (`TextPrep.openingHalves`), once, on the first chunk of the whole plan.
     private static func splitOpening(_ spoken: inout [(index: Int, pieces: [Piece])], _ placed: [Placed], in ns: NSString) {
         guard let first = spoken.first else { return }
         let p = placed[first.index]
         if case .tableRow = p.block.kind { return }
         let piece = first.pieces[0]
-        guard let cut = TextPrep.openingCut(piece.range, in: ns, protected: protectedSpans(p)) else { return }
-        let r = piece.range
-        let a = TextPrep.trim(NSRange(location: r.location, length: cut - r.location), in: ns)
-        let b = TextPrep.trim(NSRange(location: cut, length: NSMaxRange(r) - cut), in: ns)
+        guard let (a, b) = TextPrep.openingHalves(piece.range, in: ns, protected: protectedSpans(p)) else { return }
         let speechA = speech(a, p, in: ns, stress: true)
         let speechB = speech(b, p, in: ns, stress: true)
         guard TextPrep.hasWords(speechA), TextPrep.hasWords(speechB) else { return }
@@ -271,18 +330,22 @@ enum NarrationPlanner {
                                                        Piece(range: b, speech: speechB, pauseAfter: piece.pauseAfter)])
     }
 
-    /// What the voice says for `range` of a block: struck text left out, an image as
-    /// "Image: " and its alt text, table cells joined with commas, a short emphasis as
-    /// misaki's stress link "[words](+1)".
+    /// What the voice says for `range` of a block: struck text left out, an image on its
+    /// own as "Image: " and its alt text, table cells joined with commas, a short emphasis
+    /// as misaki's stress link "[words](+1)".
     private static func speech(_ range: NSRange, _ p: Placed, in ns: NSString, stress: Bool) -> String {
         var out = ""
         var pending = ""
         var pendingStress = false
         var newCell = false
+        // Only the start of a line can hold a quote marker (plain text's "> On Monday…").
+        var tableRow = false
+        if case .tableRow = p.block.kind { tableRow = true }
+        let lineStart = range.location == p.content.location && !tableRow
         func flush() {
             guard !pending.isEmpty else { return }
             // The cleanup first: its link-stripping would eat the stress link.
-            let cleaned = TextPrep.speechCleanup(pending)
+            let cleaned = TextPrep.speechCleanup(pending, lineStart: lineStart && out.isEmpty)
             out += pendingStress ? stressed(cleaned) : cleaned
             pending = ""
         }
@@ -296,19 +359,21 @@ enum NarrationPlanner {
             }
             if newCell {
                 // "Total:" and "12" read "Total: 12", not "Total:, 12".
-                if TextPrep.hasWords(out) { out += endsWith(out.trimmingCharacters(in: .whitespaces), ".!?…:;,") ? " " : ", " }
+                if TextPrep.hasWords(out) { out += TextPrep.endsWith(out.trimmingCharacters(in: .whitespaces), ".!?…:;,") ? " " : ", " }
                 newCell = false
             }
             if run.styles.contains(.strike) {
                 flush()
                 out += " "
-            } else if run.styles.contains(.image) {
+            } else if run.standsAlone {
                 flush()
+                // Once, by the piece that holds its start (a long table row may be cut in it).
+                guard NSLocationInRange(run.range.location, range) else { continue }
                 var alt = TextPrep.speechText(ns.substring(with: run.range))
                 guard TextPrep.hasWords(alt) else { out += " "; continue }
-                if !endsWith(alt, ".!?…") { alt += "." }
+                if !TextPrep.endsWith(alt, ".!?…") { alt += "." }
                 out += " Image: \(alt) "
-            } else {
+            } else {   // text, or an image inside its sentence
                 let s = stress && run.stressable
                 if s != pendingStress { flush(); pendingStress = s }
                 pending += ns.substring(with: r)
@@ -330,16 +395,9 @@ enum NarrationPlanner {
         return String(s[..<first]) + "[" + core + "](+1)" + s[s.index(after: last)...]
     }
 
-    /// Whether `s` ends with one of `marks`, looking past closing quotes and brackets.
-    private static func endsWith(_ s: String, _ marks: String) -> Bool {
-        let closing: Set<Character> = ["\"", "'", "”", "’", ")", "]", "»"]
-        guard let last = s.last(where: { !closing.contains($0) }) else { return false }
-        return marks.contains(last)
-    }
-
     /// `s` ending a sentence: a trailing mark in `replacing` becomes ".", else "." is added.
     private static func fullStop(_ s: String, replacing: String) -> String {
-        if endsWith(s, ".!?…") { return s }
+        if TextPrep.endsWith(s, ".!?…") { return s }
         if let last = s.last, replacing.contains(last) { return String(s.dropLast()) + "." }
         return s + "."
     }
@@ -390,8 +448,4 @@ enum NarrationPlanner {
         case .rule: return 1.6
         }
     }
-}
-
-private extension Array {
-    subscript(safe i: Int) -> Element? { indices.contains(i) ? self[i] : nil }
 }

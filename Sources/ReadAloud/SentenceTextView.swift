@@ -59,12 +59,13 @@ struct SentenceTextView: NSViewRepresentable {
         c.highlighted = current
         let full = NSRange(location: 0, length: storage.length)
         let r = current < ranges.count && NSMaxRange(ranges[current]) <= storage.length ? ranges[current] : nil
+        let shown = r.map { Self.withListMarker($0, styles) }
         storage.beginEditing()
         storage.removeAttribute(.backgroundColor, range: full)
         // Text already read is dimmed; the current sentence is highlighted.
-        Self.color(storage, styles, readUpTo: r?.location ?? 0)
-        if let r {
-            storage.addAttribute(.backgroundColor, value: NSColor.controlAccentColor.withAlphaComponent(0.22), range: r)
+        Self.color(storage, styles, readUpTo: shown?.location ?? 0)
+        if let shown {
+            storage.addAttribute(.backgroundColor, value: NSColor.controlAccentColor.withAlphaComponent(0.22), range: shown)
         }
         storage.endEditing()
         if let r { scrollToCenter(r, in: textView) }
@@ -111,13 +112,12 @@ struct SentenceTextView: NSViewRepresentable {
                     $0.headIndent += 16 * CGFloat(depth)
                     $0.firstLineHeadIndent += 16 * CGFloat(depth)
                 }
-            case .listItem:
+            case .listMarker:
                 // Wrapped lines hang under the item's text, not under its bullet or number.
-                let line = ns.substring(with: style.range) as NSString
-                let prefix = line.range(of: "^ *\\S+ ", options: .regularExpression)
-                guard prefix.location != NSNotFound else { break }
-                let width = line.substring(with: prefix).size(withAttributes: [.font: body]).width
-                adjustParagraph(style.range) { $0.headIndent += width }
+                var start = 0, end = 0
+                ns.getLineStart(&start, end: nil, contentsEnd: &end, for: style.range)
+                let prefix = ns.substring(with: NSRange(location: start, length: NSMaxRange(style.range) - start))
+                adjustParagraph(NSRange(location: start, length: end - start)) { $0.headIndent += prefix.size(withAttributes: [.font: body]).width }
             default:
                 break
             }
@@ -133,6 +133,13 @@ struct SentenceTextView: NSViewRepresentable {
             }
         }
         return s
+    }
+
+    /// A list item's first sentence with its bullet or number, which the chunk ranges leave
+    /// out: it's read with the sentence, so it isn't dimmed before it.
+    private static func withListMarker(_ r: NSRange, _ styles: [DisplayStyle]) -> NSRange {
+        guard let marker = styles.first(where: { $0.kind == .listMarker && NSMaxRange($0.range) == r.location }) else { return r }
+        return NSUnionRange(marker.range, r)
     }
 
     /// Text colors, with everything before `end` dimmed as read. Quotes are a shade lighter
@@ -194,8 +201,4 @@ final class ClickableTextView: NSTextView {
     override func resetCursorRects() {
         addCursorRect(visibleRect, cursor: .pointingHand)
     }
-}
-
-private extension Array {
-    subscript(safe i: Int) -> Element? { indices.contains(i) ? self[i] : nil }
 }

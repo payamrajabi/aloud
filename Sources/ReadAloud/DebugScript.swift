@@ -273,7 +273,7 @@ enum DebugScript {
             chunks = NarrationPlanner.plan(NarrationDoc.parse(text, format: format)).chunks
         }
         // As the player: sentences the voice can't read (other scripts) are left out.
-        chunks = chunks.filter { KokoroEngine.canRead($0.speech) }
+        chunks = NarrationPlanner.readable(chunks)
         do {
             print("model: \(KokoroEngine.modelDirectory.path)")
             var t0 = Date()

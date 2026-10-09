@@ -10,7 +10,7 @@ enum NarrationPlain {
         var raw: String
         var text: String           // without its list marker
         var blankBefore: Bool      // the start of the text counts
-        var item: (ordered: Bool, number: Int?, lettered: Bool)?
+        var item: (ordered: Bool, number: Int?, letter: String?)?   // letter: "b)", shown not read
         var indent: Int            // leading spaces (a tab is 4)
         var cells: [String]        // split at tabs, when there are two or more
     }
@@ -22,11 +22,12 @@ enum NarrationPlain {
             let text = collapse(rawLine)
             guard !text.isEmpty else { blank = true; continue }
             // A single line break followed by a lowercase letter is a hard wrap (PDFs,
-            // emails), unless that line is a lettered list item ("b) …").
-            if !blank, let first = text.unicodeScalars.first, ("a"..."z").contains(first), !isLettered(text), !lines.isEmpty {
+            // emails), unless that line is a lettered list item ("b) …") or a table row
+            // ("verbose\tfalse").
+            if !blank, let first = text.unicodeScalars.first, ("a"..."z").contains(first), !isLettered(text),
+               !rawLine.contains("\t"), lines.last?.cells.isEmpty == true {
                 lines[lines.count - 1].raw += " " + text
                 lines[lines.count - 1].text += " " + text
-                lines[lines.count - 1].cells = []
                 continue
             }
             let (item, body) = listItem(text)
@@ -37,8 +38,8 @@ enum NarrationPlain {
             blank = false
         }
         // A letter is a list marker only beside another one: "A. Lincoln wrote it." is a sentence.
-        for i in lines.indices where lines[i].item?.lettered == true {
-            if ![i - 1, i + 1].contains(where: { lines.indices.contains($0) && lines[$0].item?.lettered == true }) {
+        for i in lines.indices where lines[i].item?.letter != nil {
+            if ![i - 1, i + 1].contains(where: { lines.indices.contains($0) && lines[$0].item?.letter != nil }) {
                 lines[i].item = nil
                 lines[i].text = lines[i].raw
             }
@@ -57,6 +58,7 @@ enum NarrationPlain {
                 while let last = indents.last, line.indent < last { indents.removeLast() }
                 if indents.last.map({ line.indent > $0 }) ?? true { indents.append(line.indent) }
                 block.kind = .listItem(ordered: item.ordered, number: item.number, depth: indents.count - 1)
+                block.marker = item.letter
             } else {
                 indents = []
                 if !line.cells.isEmpty {
@@ -68,8 +70,6 @@ enum NarrationPlain {
                 } else if headings.contains(i) {
                     // With more than one, the first is the title.
                     block.kind = .heading(level: headings.count > 1 && i == headings[0] ? 1 : 2)
-                } else if line.text.hasSuffix(":"), i + 1 < lines.count, lines[i + 1].item != nil {
-                    block.leadIn = true
                 }
             }
             blocks.append(block)
@@ -89,17 +89,17 @@ enum NarrationPlain {
         lettered.firstMatch(in: line, range: NSRange(location: 0, length: (line as NSString).length)) != nil
     }
 
-    private static func listItem(_ line: String) -> ((ordered: Bool, number: Int?, lettered: Bool)?, String) {
+    private static func listItem(_ line: String) -> ((ordered: Bool, number: Int?, letter: String?)?, String) {
         let ns = line as NSString
         let all = NSRange(location: 0, length: ns.length)
         if let m = unordered.firstMatch(in: line, range: all) {
-            return ((false, nil, false), ns.substring(from: NSMaxRange(m.range)))
+            return ((false, nil, nil), ns.substring(from: NSMaxRange(m.range)))
         }
         if let m = numbered.firstMatch(in: line, range: all) {
-            return ((true, Int(ns.substring(with: m.range(at: 1))), false), ns.substring(from: NSMaxRange(m.range)))
+            return ((true, Int(ns.substring(with: m.range(at: 1))), nil), ns.substring(from: NSMaxRange(m.range)))
         }
         if let m = lettered.firstMatch(in: line, range: all) {
-            return ((true, nil, true), ns.substring(from: NSMaxRange(m.range)))
+            return ((true, nil, ns.substring(with: NSRange(location: 0, length: 2))), ns.substring(from: NSMaxRange(m.range)))
         }
         return (nil, line)
     }
@@ -132,11 +132,11 @@ enum NarrationPlain {
             let previous = lines[i - 1]
             // After a question or an exclamation, a short line is an answer ("Where are
             // you?" / "Home").
-            return previous.item != nil || !previous.cells.isEmpty || endsSentence(previous.raw, with: ".…:")
+            return previous.item != nil || !previous.cells.isEmpty || TextPrep.endsWith(previous.raw, ".…:")
         }
         let conversation = lines.indices.contains { i in
             candidate[i] && startsSection(i) && i + 1 < lines.count && lines[i + 1].item == nil
-                && endsSentence(lines[i + 1].raw, with: "?!")
+                && TextPrep.endsWith(lines[i + 1].raw, "?!")
         }
         guard !conversation else { return [] }
         func leadsBody(_ i: Int) -> Bool {
@@ -144,7 +144,7 @@ enum NarrationPlain {
             let words = lines[i].raw.split(separator: " ").count
             let next = lines[i + 1].text
             let nextWords = next.split(separator: " ").count
-            return (endsSentence(next) && nextWords > words) || (nextWords >= 8 && nextWords >= 2 * words)
+            return (TextPrep.endsWith(next, ".!?…:") && nextWords > words) || (nextWords >= 8 && nextWords >= 2 * words)
         }
         return lines.indices.filter { i in
             guard candidate[i] else { return false }
@@ -177,11 +177,5 @@ enum NarrationPlain {
             guard w.first?.isLetter == true else { return true }
             return w.contains(where: \.isUppercase) || minorWords.contains(w.lowercased())
         }
-    }
-
-    private static func endsSentence(_ s: String, with marks: String = ".!?…:") -> Bool {
-        let closing: Set<Character> = ["\"", "'", "”", "’", ")", "]"]
-        guard let last = s.last(where: { !closing.contains($0) }) else { return false }
-        return marks.contains(last)
     }
 }

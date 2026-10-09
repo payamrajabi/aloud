@@ -191,7 +191,7 @@ final class PlayerModel: ObservableObject {
         // The voices only speak English: skip the sentences mostly in other scripts, and if
         // that's all of them, say so rather than play silence. Deciding it here, before a
         // session starts, lets a shortcut read open the player to show the message.
-        let newChunks = allChunks.filter { KokoroEngine.canRead($0.speech) }
+        let newChunks = NarrationPlanner.readable(allChunks)
         guard !newChunks.isEmpty else {
             message = Self.notEnglishMessage
             return

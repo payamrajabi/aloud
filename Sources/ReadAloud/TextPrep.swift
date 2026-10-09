@@ -115,10 +115,7 @@ enum TextPrep {
     /// words off at a natural break so the first audio arrives in about half a second.
     private static func splitOpening(_ chunks: inout [Chunk], in ns: NSString) {
         guard let first = chunks.first,
-              let cut = openingCut(first.range, in: ns, protected: markupSpans(in: ns, range: first.range)) else { return }
-        let r = first.range
-        let a = trim(NSRange(location: r.location, length: cut - r.location), in: ns)
-        let b = trim(NSRange(location: cut, length: NSMaxRange(r) - cut), in: ns)
+              let (a, b) = openingHalves(first.range, in: ns, protected: markupSpans(in: ns, range: first.range)) else { return }
         let speechA = speechText(ns.substring(with: a))
         let speechB = speechText(ns.substring(with: b))
         guard hasWords(speechA), hasWords(speechB) else { return }
@@ -126,9 +123,17 @@ enum TextPrep {
         chunks.insert(Chunk(range: b, speech: speechB, pauseAfter: first.pauseAfter), at: 1)
     }
 
+    /// A first chunk longer than 90 characters as its opening words and the rest, trimmed
+    /// (`openingCut`). Nil to leave it whole.
+    static func openingHalves(_ r: NSRange, in ns: NSString, protected: [NSRange]) -> (NSRange, NSRange)? {
+        guard let cut = openingCut(r, in: ns, protected: protected) else { return nil }
+        return (trim(NSRange(location: r.location, length: cut - r.location), in: ns),
+                trim(NSRange(location: cut, length: NSMaxRange(r) - cut), in: ns))
+    }
+
     /// Where to split a first chunk longer than 90 characters: after its opening words, at a
     /// comma, dash or space, never inside a `protected` span. Nil to leave it whole.
-    static func openingCut(_ r: NSRange, in ns: NSString, protected: [NSRange]) -> Int? {
+    private static func openingCut(_ r: NSRange, in ns: NSString, protected: [NSRange]) -> Int? {
         guard r.length > 90 else { return nil }
         let search = NSRange(location: r.location + 25, length: min(60, r.length - 45))
         var cut = Int.max
@@ -200,7 +205,9 @@ enum TextPrep {
     }
 
     /// `speechText` without the trim, for pieces of a sentence that are joined afterwards.
-    static func speechCleanup(_ s: String) -> String {
+    /// `lineStart`: `s` starts a line, where a ">" is a quote marker; inside a sentence
+    /// ("**count** > 5") it's read.
+    static func speechCleanup(_ s: String, lineStart: Bool = true) -> String {
         var t = s
         func sub(_ pattern: String, _ template: String) {
             t = t.replacingOccurrences(of: pattern, with: template, options: .regularExpression)
@@ -208,7 +215,7 @@ enum TextPrep {
         sub("!?\\[([^\\]]*)\\]\\([^)]*\\)", "$1")  // markdown links and images: just the label
         sub("https?://\\S+", "link")
         sub("\\[\\d+(,\\s*\\d+)*\\]", "")      // citation markers like [12]
-        sub("^(\\s*>)+", " ")                 // a markdown quote ("a > b" is read)
+        if lineStart { sub("^(\\s*>)+", " ") }  // a markdown quote ("a > b" is read)
         sub("[*#`~|•▪●◦]+", " ")              // markdown and bullet symbols
         sub("\\s+", " ")
         return t
@@ -216,5 +223,12 @@ enum TextPrep {
 
     static func hasWords(_ s: String) -> Bool {
         s.unicodeScalars.contains { CharacterSet.alphanumerics.contains($0) }
+    }
+
+    /// Whether `s` ends with one of `marks`, looking past closing quotes and brackets.
+    static func endsWith(_ s: String, _ marks: String) -> Bool {
+        let closing: Set<Character> = ["\"", "'", "”", "’", ")", "]", "»"]
+        guard let last = s.last(where: { !closing.contains($0) }) else { return false }
+        return marks.contains(last)
     }
 }

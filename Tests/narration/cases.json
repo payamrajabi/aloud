@@ -1,5 +1,5 @@
 {
-  "about": "Narration test suite for FIN-886 (structure-aware narration). Run with `.build/debug/ReadAloud --test-narration Tests/narration/cases.json [--verbose]`. Each case parses `input` as `format` (markdown | html | plain | auto, where auto is the detection PlayerModel uses without html), plans it, and compares the spoken chunks: `speech` exactly, `speed` within 0.001 (omitted = 1), `pause` within 0.005 or `pauseMin`/`pauseMax` (omitted = not checked), and the chunk count. `display` (optional) is the exact display text; `detect` (optional) is the expected auto-detected format. Written from the spec alone: pauses follow its table with max() between blocks (paragraph after 0.75, so a paragraph before a list is 0.75; the 0.6 list and quote entries show after an h3/h4), 0.25 between sentences, 0.5 after the last chunk. A pause after the last row of a table that is followed by something else is left unchecked (the spec doesn't define it); the gap after a splitOpening piece may be anything from 0.02 (today) to 0.08 (pieces of one sentence). Plain-text guards must stay paragraphs: no headings or lists in emails, chat, poems, addresses, URLs or numbered sentences.",
+  "about": "Narration test suite for FIN-886 (structure-aware narration). Run with `.build/debug/ReadAloud --test-narration Tests/narration/cases.json [--verbose]`. Each case parses `input` as `format` (markdown | html | plain | auto, where auto is the detection PlayerModel uses without html), plans it, and compares the spoken chunks: `speech` exactly, `speed` within 0.001 (omitted = 1), `pause` within 0.005 or `pauseMin`/`pauseMax` (omitted = not checked), and the chunk count. `display` (optional) is the exact display text; `detect` (optional) is the expected auto-detected format; `html` (optional) is the app's HTML beside `input`, read as the player reads them. Written from the spec alone: pauses follow its table with max() between blocks (paragraph after 0.75, so a paragraph before a list is 0.75; the 0.6 list and quote entries show after an h3/h4), 0.25 between sentences, 0.5 after the last chunk. A pause after the last row of a table that is followed by something else is left unchecked (the spec doesn't define it); the gap after a splitOpening piece may be anything from 0.02 (today) to 0.08 (pieces of one sentence). Plain-text guards must stay paragraphs: no headings or lists in emails, chat, poems, addresses, URLs or numbered sentences.",
   "cases": [
     {
       "name": "md: h1 then body",
@@ -1944,10 +1944,10 @@
       ]
     },
     {
-      "name": "auto: two bullet lines are markdown",
+      "name": "auto: two bullet lines are plain (list markers alone are read one line a block)",
       "format": "auto",
       "input": "- Kettle\n- Scale",
-      "detect": "markdown",
+      "detect": "plain",
       "chunks": [
         {
           "speech": "Kettle.",
@@ -2033,6 +2033,48 @@
       "chunks": [
         {
           "speech": "Call brew now.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: an image inside a sentence is read as words of it (no \"Image:\", no sentence break)",
+      "format": "markdown",
+      "input": "Click ![the gear icon](gear.png) and choose Settings.",
+      "chunks": [
+        {
+          "speech": "Click the gear icon and choose Settings.",
+          "pause": 0.5
+        }
+      ],
+      "display": "Click the gear icon and choose Settings."
+    },
+    {
+      "name": "html: an image inside a sentence is read as words of it",
+      "format": "html",
+      "input": "<p>Press <img src=\"enter.png\" alt=\"the Enter key\"> to continue.</p>",
+      "chunks": [
+        {
+          "speech": "Press the Enter key to continue.",
+          "pause": 0.5
+        }
+      ]
+    },
+    {
+      "name": "md: an image between sentences is read on its own",
+      "format": "markdown",
+      "input": "Here is the result. ![A chart of sales](chart.png) As you can see, it grew.",
+      "chunks": [
+        {
+          "speech": "Here is the result.",
+          "pause": 0.25
+        },
+        {
+          "speech": "Image: A chart of sales.",
+          "pause": 0.25
+        },
+        {
+          "speech": "As you can see, it grew.",
           "pause": 0.5
         }
       ]

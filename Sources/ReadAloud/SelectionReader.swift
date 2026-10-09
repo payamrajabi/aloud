@@ -26,18 +26,24 @@ enum SelectionReader {
         }
     }
 
+    /// One read at a time: a read that copies must not take another's copy for the
+    /// clipboard to put back.
+    private static let queue = DispatchQueue(label: "SelectionReader", qos: .userInitiated)
+
     /// `current`: the text already being read. Selecting it again only pauses or resumes,
     /// so it isn't copied again for its HTML.
     static func read(current: String = "", completion: @escaping (Selection?) -> Void) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            let selection = capture(current: current.trimmingCharacters(in: .whitespacesAndNewlines))
+        queue.async {
+            var lateCopy: (() -> Void)?
+            let selection = capture(current: current.trimmingCharacters(in: .whitespacesAndNewlines), lateCopy: &lateCopy)
             DispatchQueue.main.async { completion(selection) }
+            lateCopy?()   // reading starts meanwhile; the next read waits for it
         }
     }
 
-    private static func capture(current: String) -> Selection? {
+    private static func capture(current: String, lateCopy: inout (() -> Void)?) -> Selection? {
         guard let text = viaAccessibility() else {
-            guard let copied = viaCopy(), let text = copied.text else { return nil }
+            guard let copied = viaCopy(selected: nil, lateCopy: &lateCopy), let text = copied.text else { return nil }
             return Selection(text: text, html: copied.html.flatMap { matches($0, text) ? $0 : nil })
         }
         // One line has no structure to find, and Markdown carries its own: both stay on the
@@ -46,7 +52,7 @@ enum SelectionReader {
         let lines = text.split(whereSeparator: \.isNewline).filter { !$0.allSatisfy(\.isWhitespace) }
         guard lines.count >= 2, !NarrationMarkdown.hasMarkupBeyondLists(text),
               text.trimmingCharacters(in: .whitespacesAndNewlines) != current,
-              let html = viaCopy()?.html, matches(html, text)
+              let html = viaCopy(selected: text, lateCopy: &lateCopy)?.html, matches(html, text)
         else { return Selection(text: text) }
         return Selection(text: text, html: html)
     }
@@ -68,7 +74,10 @@ enum SelectionReader {
     }
 
     /// The selection as the app copies it: its plain text and, when it offers one, its HTML.
-    private static func viaCopy() -> (text: String?, html: String?)? {
+    /// `selected`: the text Accessibility read, when there is one. The app is then only slow
+    /// if nothing arrives in time (a whole long page can take it a second): `lateCopy` waits
+    /// for its copy and puts the clipboard back.
+    private static func viaCopy(selected: String?, lateCopy: inout (() -> Void)?) -> (text: String?, html: String?)? {
         let pasteboard = NSPasteboard.general
         let saved = snapshot(pasteboard)
         let before = pasteboard.changeCount
@@ -82,7 +91,21 @@ enum SelectionReader {
             usleep(20_000)
             if pasteboard.changeCount != before { copied = true; break }
         }
-        guard copied else { return nil }  // nothing selected; clipboard untouched
+        guard copied else {
+            if let selected {
+                lateCopy = {
+                    for _ in 0..<100 {   // ~3 s
+                        usleep(30_000)
+                        guard pasteboard.changeCount != before else { continue }
+                        usleep(30_000)
+                        // Ours, not something copied since: put back what was there.
+                        if let late = pasteboard.string(forType: .string), matches(late, selected) { restore(pasteboard, saved) }
+                        return
+                    }
+                }
+            }
+            return nil  // nothing selected; clipboard untouched
+        }
         usleep(30_000)
         let text = pasteboard.string(forType: .string)
         let html = pasteboard.string(forType: .html)

@@ -10,6 +10,7 @@ enum NarrationTest {
         let name: String
         let format: String?     // markdown | html | plain | auto (default)
         let input: String
+        let html: String?       // the app's HTML beside the selected text (`input`), as the player gets them
         let chunks: [Want]?
         let display: String?
         let detect: String?     // what `auto` should pick
@@ -37,7 +38,8 @@ enum NarrationTest {
                 failures += 1
                 continue
             }
-            let plan = NarrationPlanner.plan(NarrationDoc.parse(c.input, format: format))
+            var plan = NarrationPlanner.plan(NarrationDoc.parse(c.input, html: c.html, format: format))
+            plan.chunks = NarrationPlanner.readable(plan.chunks)   // as the player plays them
             var problems: [String] = []
             // Every case: the highlight needs chunk ranges in order, inside the display text.
             let length = (plan.displayText as NSString).length

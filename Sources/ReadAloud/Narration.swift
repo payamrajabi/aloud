@@ -17,6 +17,22 @@ struct RunStyles: OptionSet, Hashable {
     static let emphasis: RunStyles = [.bold, .italic, .underline]
 }
 
+extension RunStyles {
+    /// The style an inline HTML tag gives its text, for copied HTML and Markdown's inline
+    /// tags alike. Nil for a tag that doesn't style text.
+    init?(tag: String) {
+        switch tag {
+        case "b", "strong": self = .bold
+        case "i", "em": self = .italic
+        case "u", "ins": self = .underline
+        case "s", "strike", "del": self = .strike
+        case "code", "kbd", "samp", "tt": self = .code
+        case "a": self = .link
+        default: return nil
+        }
+    }
+}
+
 struct NarrationRun: Equatable {
     var text: String
     var styles: RunStyles = []
@@ -41,6 +57,9 @@ struct NarrationBlock: Equatable {
     var runs: [NarrationRun] = []
     /// A paragraph that ends with ":" and introduces a list (the planner also works it out).
     var leadIn = false
+    /// A list item's marker when it isn't a bullet or a spoken number: a letter ("b)"), a
+    /// roman numeral, a task box (☐ ☑). Shown, never read.
+    var marker: String?
 
     var text: String { runs.map(\.text).joined() }
 }
@@ -54,9 +73,12 @@ enum NarrationFormat: String {
 }
 
 extension NarrationDoc {
-    /// Whether text without HTML is Markdown (`looksLikeMarkdown`) or plain.
+    /// Whether text without HTML is read as Markdown or as plain text. List markers alone
+    /// are usually text copied from a page ("Brew" / "1. Heat the water…" / "The whole
+    /// pour…", one block a line): Markdown would run those lines together, and the plain
+    /// reader takes the same markers and keeps each line.
     static func detect(_ raw: String) -> NarrationFormat {
-        NarrationMarkdown.looksLikeMarkdown(raw) ? .markdown : .plain
+        NarrationMarkdown.hasMarkupBeyondLists(raw) ? .markdown : .plain
     }
 
     /// The app's HTML when it parses, else Markdown when the text looks like it, else plain
@@ -69,10 +91,11 @@ extension NarrationDoc {
         case .plain: return NarrationPlain.parse(raw)
         case .auto:
             if let html, let doc = NarrationHTML.parse(html) { return doc }
-            // List markers alone are usually text copied from a page ("Brew" / "1. Heat the
-            // water…" / "The whole pour…", one block a line). Markdown would run those lines
-            // together; the plain reader takes the same markers and keeps each line.
-            return NarrationMarkdown.hasMarkupBeyondLists(raw) ? NarrationMarkdown.parse(raw) : NarrationPlain.parse(raw)
+            return detect(raw) == .markdown ? NarrationMarkdown.parse(raw) : NarrationPlain.parse(raw)
         }
     }
+}
+
+extension Array {
+    subscript(safe i: Int) -> Element? { indices.contains(i) ? self[i] : nil }
 }
