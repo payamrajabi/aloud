@@ -854,6 +854,24 @@
       "us" : "wˌi hæv θɹˈi ˈɛm lˈɛft ˌɔn ðə klˈɑk."
     },
     {
+      "area" : "units",
+      "gb" : "tˈAk ɹˈuːt nˈIn dˈʌbᵊljuː nˈɔːθ tə ðə bɹˈɪʤ.",
+      "text" : "Take Route 9-W north to the bridge.",
+      "us" : "tˈAk ɹˈut nˈIn dˈʌbᵊlju nˈɔɹθ tə ðə bɹˈɪʤ."
+    },
+    {
+      "area" : "units",
+      "gb" : "wˌiː plˈAd tˈuː vˈiː tˈuː at ðə pˈɑːk.",
+      "text" : "We played 2 V 2 at the park.",
+      "us" : "wˌi plˈAd tˈu vˈi tˈu æt ðə pˈɑɹk."
+    },
+    {
+      "area" : "units",
+      "gb" : "plˈʌɡ ðə lˈamp ˈɪntuː ˈWtlɛt fˈɔː ˈA",
+      "text" : "Plug the lamp into outlet 4 A.",
+      "us" : "plˈʌɡ ðə lˈæmp ˈɪntu ˈWtlˌɛt fˈɔɹ ˈA"
+    },
+    {
       "area" : "dimensions",
       "gb" : "sˈɒlv tˈuː ˈɛks plˈʌs θɹˈiː ˈiːkwᵊlz sˈɛvᵊn.",
       "text" : "Solve 2x + 3 = 7.",
