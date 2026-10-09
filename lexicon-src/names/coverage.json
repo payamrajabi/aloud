@@ -38,8 +38,8 @@
  },
  "by_source": {
   "guesser": 68707,
-  "cmudict": 14218,
-  "gold": 6794,
+  "cmudict": 14217,
+  "gold": 6795,
   "none": 2593,
   "cmudict+gold": 2078,
   "gold+cmudict": 1938,

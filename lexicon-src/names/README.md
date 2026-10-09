@@ -158,7 +158,7 @@ Each name gets the first that applies:
    "JEE-zus").
 7. `dictionary-reading-likely-right`: read from a dictionary, `usage` english.
 
-## Baseline (2026-10-09, branch `claude/names-pack`)
+## Baseline (2026-10-09, branch `claude/names-pack` with the FIN-889 Core readings merged)
 
 | bucket | names | top 1,000 | top 10,000 | multiword | spot check: right / wrong / unsure of 30 |
 |---|---:|---:|---:|---:|---|
