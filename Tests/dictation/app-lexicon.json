@@ -17,6 +17,7 @@
     "We moved everything to Kubernetes last spring, but this weekend was all about family: my sister drove up from the coast with her kids, we cooked a huge breakfast, went down to the river, and my nephew jason caught his very first fish.",
     "My brother still writes TypeScript for a living, though these days he spends most evenings in the garden, fixing up the old shed, feeding the chickens and talking to the neighbours, and every autumn he makes a batch of home brew for the whole street.",
     "Check the API, then we can all go for a long walk and parse the jason.",
-    "Write the sequel, then we can all go for a long walk and push to GitHub."
+    "Write the sequel, then we can all go for a long walk and push to GitHub.",
+    "Payam said the build broke after the Python upgrade, so Shirin rolled it back."
   ]
 }
