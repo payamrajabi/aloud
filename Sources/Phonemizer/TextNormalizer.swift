@@ -137,6 +137,30 @@ enum TextNormalizer {
 
     static func isOne(_ n: String) -> Bool { n == "1" || n == "-1" }
 
+    /// Number pairs with a dash that name something before these words: "the 9-11 attacks", "a
+    /// 1-2 finish". Read as the pair, not a range.
+    private static let namedPairs: [String: Set<String>] = [
+        "9-11": ["attacks", "attack", "commission", "memorial", "hijackers", "terrorists", "victims", "responders", "museum",
+                 "anniversary", "era"],
+        "1-2": ["finish", "finishes", "punch", "combo"],
+    ]
+    /// Words before "1/3" that make it one of a series: "Part 1/3", "Thread 1/3".
+    private static let seriesLabels: Set<String> = [
+        "part", "day", "thread", "step", "week", "episode", "chapter", "page", "slide", "session", "module", "lesson", "round",
+        "game", "video", "issue", "question", "problem", "item", "note", "tweet", "post",
+    ]
+    /// Books of the Bible a chapter and verse follow ("Psalm 23:4", "Genesis 1:1").
+    private static let bibleBooks: Set<String> = [
+        "Genesis", "Exodus", "Leviticus", "Numbers", "Deuteronomy", "Joshua", "Judges", "Ruth", "Samuel", "Kings",
+        "Chronicles", "Ezra", "Nehemiah", "Esther", "Job", "Psalm", "Psalms", "Proverbs", "Ecclesiastes", "Isaiah", "Jeremiah",
+        "Lamentations", "Ezekiel", "Daniel", "Hosea", "Joel", "Amos", "Obadiah", "Jonah", "Micah", "Nahum", "Habakkuk",
+        "Zephaniah", "Haggai", "Zechariah", "Malachi", "Matthew", "Mark", "Luke", "John", "Acts", "Romans", "Corinthians",
+        "Galatians", "Ephesians", "Philippians", "Colossians", "Thessalonians", "Timothy", "Titus", "Philemon", "Hebrews",
+        "James", "Peter", "Jude", "Revelation", "Revelations",
+    ]
+    /// What follows a British degree class ("a 2:1 from Durham", "a 2:2 in history").
+    private static let degreeAhead = try! NSRegularExpression(pattern: #"^[ \t]+(?:from|in|degree|honours|at)(?![\p{L}])"#)
+
     /// "AM" or "PM" for a time written "9 am", "9 AM." or "5pm", leaving a period after it to end
     /// the sentence: written as "A.M." it took the full stop with it, and the sentence lost its
     /// final fall ("…at 9 AM. Bring…"). "A.M." for "9 a.m.", unless that period is also the
@@ -339,8 +363,18 @@ enum TextNormalizer {
             let whole = s.substring(with: m.range)
             let leadingZero = [a, b].contains { $0.count > 1 && $0.hasPrefix("0") && !$0.hasPrefix("0.") && !$0.contains(":") }
             if leadingZero { return whole }
+            // Names, not ranges: "the 9-11 attacks", "a 1-2 finish", "that 1-2 punch".
+            let next = s.substring(from: NSMaxRange(m.range)).drop { $0 == " " }.prefix { $0.isLetter }.lowercased()
+            if let nouns = namedPairs[a + "-" + b], nouns.contains(next) { return "\(a) \(b)" }
             func value(_ n: String) -> Double? { Double(n.replacingOccurrences(of: ",", with: "")) }
-            guard let x = value(a), let y = value(b) else { return "\(a) to \(b)" }  // clock times
+            guard let x = value(a), let y = value(b) else {
+                // Clock times. On a 24-hour clock both ends are hundreds ("10:00-14:00": ten hundred
+                // to fourteen hundred), not "ten o'clock to fourteen hundred".
+                let hours = [a, b].map { Int($0.prefix { $0 != ":" }) ?? 0 }
+                guard hours.contains(where: { $0 > 12 }) else { return "\(a) to \(b)" }
+                func hundred(_ t: String) -> String { t.hasSuffix(":00") ? (Int(t.dropLast(3)).map(String.init) ?? t) + " hundred" : t }
+                return "\(hundred(a)) to \(hundred(b))"
+            }
             if isSum(m.range, in: s, goingUp: y > x) { return "\(a) minus \(b)" }
             let da = a.filter(\.isNumber).count, db = b.filter(\.isNumber).count
             if !(a + b).contains(where: { $0 == "," || $0 == "." }) {
@@ -381,9 +415,21 @@ enum TextNormalizer {
             if let ampm { out += " " + ampm }
             return out
         })
-        // Ratios: "1:1", "16:9" (a single digit after the colon can't be a clock time).
-        rules.append(Rule(#"(?<![\d:])(\d{1,3}):(\d)(?![\d:])"#) { m, s in
-            s.substring(with: m.range(at: 1)) + " to " + s.substring(with: m.range(at: 2))
+        // Ratios: "1:1", "16:9" (a single digit after the colon can't be a clock time). Not a
+        // verse after a book of the Bible ("Psalm 23:4" is "twenty-three four"), or a British
+        // degree ("a 2:1 from Durham" is "a two one").
+        rules.append(Rule.withContext(#"(?<![\d:])(\d{1,3}):(\d)(?![\d:])"#) { m, s, context in
+            let a = s.substring(with: m.range(at: 1)), b = s.substring(with: m.range(at: 2))
+            let before = context.text(before: m.range, in: s, limit: 40)
+            let book = before.reversed().drop { $0 == " " }
+            if !book.isEmpty, book.count < before.count, bibleBooks.contains(String(book.prefix { $0.isLetter }.reversed())) {
+                return "\(a) \(b)"
+            }
+            if a == "2", b == "1" || b == "2", before.hasSuffix(" a ") || before == "a " {
+                let after = context.text(after: m.range, in: s, limit: 30)
+                if degreeAhead.firstMatch(in: after, range: NSRange(location: 0, length: (after as NSString).length)) != nil { return "\(a) \(b)" }
+            }
+            return a + " to " + b
         })
         // "5pm", "5 p.m."
         rules.append(Rule(#"(?<![\d:.,])(\d{1,2})\s?"# + meridiem) { m, s in
@@ -391,8 +437,33 @@ enum TextNormalizer {
         })
         // "Jan 5" and "Feb.".
         rules += DateRules.monthDays(british: british)
-        // Fractions after a whole number: "1 1/2 cups" → "1 and a half cups" (it was "one one half").
-        rules.append(Rule(#"(?<![\d/.,])(\d+) (\d{1,2})/(\d{1,3})(?![\d/]|[.,]\d)"#) { m, s in
+        // A share or a rating: "9/10 dentists agree", "Rated 4.5/5 stars" → "9 out of 10". Out of
+        // 5, 10 or 100, before a plural noun or with a decimal; "3/5 of" is a fraction.
+        rules.append(Rule(#"(?<![\d/.,])(\d{1,3}(?:\.\d)?)/(5|10|100)(?![\d/]|[.,]\d)"#) { m, s in
+            let whole = s.substring(with: m.range)
+            let n = s.substring(with: m.range(at: 1)), d = s.substring(with: m.range(at: 2))
+            guard let x = Double(n), let y = Double(d), x <= y else { return whole }
+            let next = s.substring(from: NSMaxRange(m.range)).drop { $0 == " " || $0 == "\t" }.prefix { $0.isLetter }.lowercased()
+            let plural = next.count >= 3 && next.hasSuffix("s") && !["is", "was", "has", "this", "its", "us", "less", "plus"].contains(next)
+                && !next.hasSuffix("ss")
+            guard n.contains(".") || plural || next == "people" else { return whole }
+            return "\(n) out of \(d)"
+        })
+        // One of a series: "Part 1/3", "Day 3/5 of the offsite", "Thread 1/3:" → "1 of 3".
+        rules.append(Rule.withContext(#"(?<![\d/.,])(\d{1,2})/(\d{1,2})(?![\d/]|[.,]\d)"#) { m, s, context in
+            let n = s.substring(with: m.range(at: 1)), d = s.substring(with: m.range(at: 2))
+            guard let x = Int(n), let y = Int(d), x <= y else { return s.substring(with: m.range) }
+            // The label may be a term the lexicon marked ("Thread"): read it from the context.
+            let before = context.text(before: m.range, in: s, limit: 24)
+            guard before.hasSuffix(" ") || before.hasSuffix("\t"),
+                  seriesLabels.contains(String(before.dropLast().reversed().prefix { $0.isLetter }.reversed()).lowercased()) else {
+                return s.substring(with: m.range)
+            }
+            return "\(n) of \(d)"
+        })
+        // Fractions after a whole number: "1 1/2 cups" → "1 and a half cups" (it was "one one
+        // half"), and with a hyphen, as recipes write it: "1-1/2 cups".
+        rules.append(Rule(#"(?<![\d/.,\-])(\d+)[ \-](\d{1,2})/(\d{1,3})(?![\d/]|[.,]\d)"#) { m, s in
             guard let n = Int(s.substring(with: m.range(at: 2))), let d = Int(s.substring(with: m.range(at: 3))),
                   let words = fractionWords(n, d, mixed: true) else { return s.substring(with: m.range) }
             return "\(s.substring(with: m.range(at: 1))) and \(words)"

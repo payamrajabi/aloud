@@ -31,8 +31,17 @@ enum MeasuresPass {
         s = rewrite(s, inchesBeforeAdjective, readInchesBeforeAdjective)
         s = rewrite(s, size, readSize)
         s = rewrite(s, singleMark, readSingleMark)
+        s = rewrite(s, statedHeight, readStatedHeight)
+        s = rewrite(s, platinum) { m, s, _ in
+            let n = s.substring(with: m.range(at: 1))
+            return ["2": "double", "3": "triple", "4": "quadruple"][n] ?? n + " times"
+        }
         s = rewrite(s, titleCount) { m, s, _ in s.substring(with: m.range(at: 1)) + " time" }
         s = rewrite(s, multiplier) { m, s, _ in s.substring(with: m.range(at: 1)) + " times" }
+        s = rewrite(s, listCount) { m, s, _ in s.substring(with: m.range(at: 1)) + " " }
+        s = rewrite(s, settledMultiplier, readSettledMultiplier)
+        s = rewrite(s, statusClass) { m, s, _ in s.substring(with: m.range(at: 1)) + " XX" }
+        s = rewrite(s, repeatCount) { m, s, _ in "times " + s.substring(with: m.range(at: 1)) }
         s = rewrite(s, gameMultiplier, readGameMultiplier)
         return s
     }
@@ -95,6 +104,8 @@ enum MeasuresPass {
         // Glued ("2in") it's always inches.
         guard inch.first == " " || inch.first == "\t" else { return height }
         if endsPhrase(s, at: end) || follows(afterSpacedIn, in: s, at: end) { return height }
+        // After a determiner the height describes the noun after it: "A 6 ft 4 in centre-back".
+        if let before = previousToken(s, before: m.range.location), determiners.contains(before.word.lowercased()) { return height }
         return height + inch
     }
 
@@ -145,6 +156,8 @@ enum MeasuresPass {
 
     private static func readInchesBeforeAdjective(_ m: NSTextCheckingResult, _ s: NSString, _ lines: inout Lines) -> String? {
         let n = s.substring(with: m.range(at: 1))
+        // A fraction's denominator ("3/4 in. thick"): "three quarters of an inch thick".
+        if m.range.location > 0, s.character(at: m.range.location - 1) == 0x2F { return n + " of an inch" }
         return n + (TextNormalizer.isOne(n) ? " inch" : " inches")
     }
 
@@ -371,7 +384,59 @@ enum MeasuresPass {
 
     /// "3x champion", "4x Grammy winner", "2X Super Bowl MVP": a closed list of titles, so "3x
     /// player" keeps "ex".
-    private static let titleCount = regex(#"(?<![\p{L}\p{N}.,_@#/])(\d{1,2})[xX](?=\s+(?:\p{Lu}[\w-]*\s+){0,2}(?i:champions?|champ|winners?|medall?ist|Olympian|All-Star|MVP|finalist|nominee|laureate)\b)"#)
+    private static let titleCount = regex(#"(?<![\p{L}\p{N}.,_@#/])(\d{1,2})[xX](?=\s+(?:(?!(?i:more|less|fewer|as|the|than|a|an)\b)\p{L}[\w-]*\s+){0,2}(?i:champions?|champ|winners?|medall?ists?|Olympians?|All-Stars?|MVP|finalists?|nominees?|laureates?|Bowlers?|All-Pros?|All-Americans?|founders?|entrepreneurs?|winners?)\b)"#)
+    /// "2x platinum", "3x gold": a record's certification, "double platinum", "triple gold".
+    private static let platinum = regex(#"(?<![\p{L}\p{N}.,_@#/])(\d{1,2})[xX](?=\s+(?i:platinum|diamond|gold|silver)\b)"#)
+    /// A count in a list of contents: "In the box: 1x charger, 2x USB cables", "• 2x pillows":
+    /// the x is silent. Only after a colon, comma, semicolon, bullet, dash or the start of a
+    /// line, and before a word ("2x USB-C" in a sentence keeps "ex").
+    private static let listCount = regex(#"(?:^|(?<=[:;,•·\-–][ \t])|(?<=[:;,•·][ \t]{2}))(\d{1,2})[xX×][ \t]+(?=\p{L})"#, options: .anchorsMatchLines)
+    /// HTTP status classes: "5xx errors", "4XX" → "five XX".
+    private static let statusClass = regex(#"(?<![\p{L}\p{N}])([1-5])(?:xx|XX)(?![\p{L}\p{N}])"#)
+    /// "Repeat x2": times two, after a verb of repeating.
+    private static let repeatCount = regex(#"(?<=\b(?i:repeat|repeats|repeated|do|does|did)[ \t])x(\d{1,2})(?![\p{L}\p{N}])"#)
+
+    /// A multiplier the sentence settles as "times" though no comparison follows it: "Revenue
+    /// grew 1.5x", "outraised Democrats nearly 2x", "Retry up to 3x", "2x the budget", "1.5x
+    /// what it was", "2x face value", "won Wimbledon 8x". Payam's "2x speed" (a noun after it) and
+    /// "Set it to 2x" (a player's speed) keep "ex": the noun rule above and "to"/"at" leave them.
+    private static let settledMultiplier = regex(#"(?<![\p{L}\p{N}.,_@#/])(\d+(?:\.\d+)?)[xX×](?![\p{L}\p{N}])"#)
+    /// After "the": quantities and the adjectives before one ("2x the budget", "1.25x the usual rate").
+    private static let theQuantity = regex(#"\s+the\s+(?i:usual|normal|regular|standard|original|average|typical|previous|current|old|base|list|market|going|retail|asking|national|budget|fee|fees|rent|salary|pay|bill|cost|costs|rate|rates|amount|price|prices|value|limit|cap|minimum|maximum|number|size|speed)\b"#)
+    private static let otherQuantity = regex(#"\s+(?:what\b|face\s+value\b|that\s+of\b)"#)
+    /// Words before a lone multiplier that make it "times": growth and repetition, and hedges.
+    private static let multiplierCues: Set<String> = [
+        "grew", "grow", "grows", "growing", "rose", "risen", "rise", "rises", "increased", "increase", "increases", "jumped",
+        "climbed", "surged", "soared", "expanded", "multiplied", "outraised", "outspent", "outsold", "outperformed",
+        "outpaced", "outnumbered", "outgrew", "won", "wins", "retry", "retried", "repeated", "tried", "called", "told",
+        "asked", "visited", "happened", "ran", "nearly", "almost", "roughly", "approximately", "only", "up", "about",
+        "around", "over",
+    ]
+    /// What may follow a lone multiplier read as "times": the end, punctuation, a little word
+    /// or an acronym ("YoY").
+    private static let afterLoneMultiplier = regex(#"(?:\s*$|\s*[.,;:!?)]|\s+(?:in|between|since|than|this|last|then|and|or|from|before|after|during|year|YoY|QoQ|MoM|over)\b)"#)
+
+    private static func readSettledMultiplier(_ m: NSTextCheckingResult, _ s: NSString, _ lines: inout Lines) -> String? {
+        let n = s.substring(with: m.range(at: 1))
+        let end = NSMaxRange(m.range)
+        if isCurrencyBefore(s, m.range.location) { return nil }
+        if follows(theQuantity, in: s, at: end) || follows(otherQuantity, in: s, at: end) { return n + " times" }
+        guard follows(afterLoneMultiplier, in: s, at: end) else { return nil }
+        // The words before it, nearest first, past a hedge ("nearly", "up to").
+        let before = window(s, before: m.range.location).lowercased()
+        let words = before.split(whereSeparator: { !$0.isLetter }).suffix(4).reversed().map(String.init)
+        guard let first = words.first, !["to", "at", "set", "speed", "zoom"].contains(first) || (first == "to" && words.dropFirst().first == "up") else { return nil }
+        return words.prefix(3).contains(where: multiplierCues.contains) ? n + " times" : nil
+    }
+
+    /// A basketball player's height with a dash: "Durant is listed at 6-10", "He's 6-7 with a
+    /// 7-foot wingspan" → "6 10". Only after a word that states a height, and before the end, a
+    /// comma or "and", "with", "tall".
+    private static let statedHeight = regex(#"(?<=\b(?i:listed at|stands|standing|measures|measuring|he's|she's|he is|she is)[ \t])([4-7])-(\d|1[01])(?=[ \t]*(?:$|[,.;)]|(?:and|with|tall)\b))"#)
+
+    private static func readStatedHeight(_ m: NSTextCheckingResult, _ s: NSString, _ lines: inout Lines) -> String? {
+        s.substring(with: m.range(at: 1)) + " " + s.substring(with: m.range(at: 2))
+    }
 
     /// "3x faster", "10x more", "3x as much", "4X the price", "3x over.", "3x a week", "2x daily",
     /// "3x in a row", "3x/week": x is "times" only before a comparison or a frequency. Before a
