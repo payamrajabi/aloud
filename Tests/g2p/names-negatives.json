@@ -1,0 +1,560 @@
+{
+  "about" : "Names pack must-not-change set (FIN-906): ordinary sentences whose capitalised words are also given names. Frozen before Lexicons/names.json was added; every reading must stay the same. .build/release/ReadAloud --speech-test Tests/g2p/names-negatives.json",
+  "frozen_cases" : [
+    {
+      "area" : "protect-word",
+      "gb" : "wˌɪl juː kˈʌm?",
+      "text" : "Will you come?",
+      "us" : "wˌɪl ju kˈʌm?"
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "wˌɪl ɪt ɹˈAn tʊmˈɒɹQ?",
+      "text" : "Will it rain tomorrow?",
+      "us" : "wˌɪl ɪt ɹˈAn təmˈɑɹO?"
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "mˈA ˌI hˈɛlp?",
+      "text" : "May I help?",
+      "us" : "mˈA ˌI hˈɛlp?"
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "mˈA ðə bˈɛst tˈiːm wˈɪn.",
+      "text" : "May the best team win.",
+      "us" : "mˈA ðə bˈɛst tˈim wˈɪn."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ɹˈQz pˈɛtᵊlz fˈɛl.",
+      "text" : "Rose petals fell.",
+      "us" : "ɹˈOz pˈɛTᵊlz fˈɛl."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ɡɹˈAs pˈɪəɹɪəd ˈɛndz tədˈA.",
+      "text" : "Grace period ends today.",
+      "us" : "ɡɹˈAs pˈɪɹiəd ˈɛndz tədˈA."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "mˈɑːk mI wˈɜːdz.",
+      "text" : "Mark my words.",
+      "us" : "mˈɑɹk mI wˈɜɹdz."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "hˈQp ðɪs hˈɛlps.",
+      "text" : "Hope this helps.",
+      "us" : "hˈOp ðɪs hˈɛlps."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "bˈɪl mˌiː lˈAtə.",
+      "text" : "Bill me later.",
+      "us" : "bˈɪl mˌi lˈATəɹ."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "kˌan juː hˈɪə mˌiː?",
+      "text" : "Can you hear me?",
+      "us" : "kˌæn ju hˈɪɹ mˌi?"
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "kˌan ˈQpᵊnəz ɑː ʧˈiːp.",
+      "text" : "Can openers are cheap.",
+      "us" : "kˌæn ˈOpᵊnəɹz ɑɹ ʧˈip."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "sˈʌni dˈAz ɑː kˈʌmɪŋ.",
+      "text" : "Sunny days are coming.",
+      "us" : "sˈʌni dˈAz ɑɹ kˈʌmɪŋ."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ʤˈAd ˈɪəɹɪŋz sˈuːt hˌɜː.",
+      "text" : "Jade earrings suit her.",
+      "us" : "ʤˈAd ˈɪɹɹˌɪŋz sˈut hˌɜɹ."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "pˈat ðə dˈɒɡ ʤˈɛntli.",
+      "text" : "Pat the dog gently.",
+      "us" : "pˈæt ðə dˈɔɡ ʤˈɛntli."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ˈɑːt klˈɑːs stˈɑːts at nˈIn.",
+      "text" : "Art class starts at nine.",
+      "us" : "ˈɑɹt klˈæs stˈɑɹts æt nˈIn."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ˈIɹɪs skˈanz ɑː fˈɑːst.",
+      "text" : "Iris scans are fast.",
+      "us" : "ˈIɹəs skˈænz ɑɹ fˈæst."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "lˈɪli pˈadz flˈQt.",
+      "text" : "Lily pads float.",
+      "us" : "lˈɪli pˈædz flˈOt."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "dˈAzi ʧˈAnz ɑː ˈiːzi tə mˌAk.",
+      "text" : "Daisy chains are easy to make.",
+      "us" : "dˈAzi ʧˈAnz ɑɹ ˈizi tə mˌAk."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "vˈIəlɪt lˈIt ɪz ʃˈɔːt.",
+      "text" : "Violet light is short.",
+      "us" : "vˈIᵊlət lˈIt ɪz ʃˈɔɹt."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "hˈɒli bˈɛɹiz ɑː ɹˈɛd.",
+      "text" : "Holly berries are red.",
+      "us" : "hˈɑli bˈɛɹiz ɑɹ ɹˈɛd."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ˈIvi kˈʌvəd ðə wˈɔːl.",
+      "text" : "Ivy covered the wall.",
+      "us" : "ˈIvi kˈʌvəɹd ðə wˈɔl."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "sˈʌmə bɹˈAk ɪz ˈQvə.",
+      "text" : "Summer break is over.",
+      "us" : "sˈʌməɹ bɹˈAk ɪz ˈOvəɹ."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ˈɔːtəm lˈiːvz ɑː fˈɔːlɪŋ.",
+      "text" : "Autumn leaves are falling.",
+      "us" : "ˈɔTəm lˈivz ɑɹ fˈɔlɪŋ."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "dˈɔːn bɹˈQk ˈQvə ðə hˈɪlz.",
+      "text" : "Dawn broke over the hills.",
+      "us" : "dˈɔn bɹˈOk ˈOvəɹ ðə hˈɪlz."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "fˈAθ mˈuːvz mˈWntɪnz.",
+      "text" : "Faith moves mountains.",
+      "us" : "fˈAθ mˈuvz mˈWntᵊnz."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ʤˈY fˈɪld ðə ɹˈuːm.",
+      "text" : "Joy filled the room.",
+      "us" : "ʤˈY fˈɪld ðə ɹˈum."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ˈambə əlˈɜːts wˈɛnt ˈWt.",
+      "text" : "Amber alerts went out.",
+      "us" : "ˈæmbəɹ əlˈɜɹts wˈɛnt ˈWt."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ɹˈuːbi slˈɪpəz ɑː Ikˈɒnɪk.",
+      "text" : "Ruby slippers are iconic.",
+      "us" : "ɹˈubi slˈɪpəɹz ɑɹ Ikˈɑnɪk."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "kɹˈɪstᵊl klˈɪə wˈɔːtə.",
+      "text" : "Crystal clear water.",
+      "us" : "kɹˈɪstᵊl klˈɪɹ wˈɔTəɹ."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "fɹˈaŋk tˈɔːk hˈɛlps.",
+      "text" : "Frank talk helps.",
+      "us" : "fɹˈæŋk tˈɔk hˈɛlps."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ɹˈɪʧ pˈiːpᵊl pˈA mˈɔː.",
+      "text" : "Rich people pay more.",
+      "us" : "ɹˈɪʧ pˈipᵊl pˈA mˈɔɹ."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ʤˈiːn θˈɛɹəpi wˈɜːks.",
+      "text" : "Gene therapy works.",
+      "us" : "ʤˈin θˈɛɹəpi wˈɜɹks."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "sˈandi bˈiːʧɪz ɑː nˈIs.",
+      "text" : "Sandy beaches are nice.",
+      "us" : "sˈændi bˈiʧᵻz ɑɹ nˈIs."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ɹˈʌsti nˈAlz ɑː dˈAnʤəɹəs.",
+      "text" : "Rusty nails are dangerous.",
+      "us" : "ɹˈʌsti nˈAlz ɑɹ dˈAnʤəɹəs."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "mˈIlz əwˈA fɹɒm hˈQm.",
+      "text" : "Miles away from home.",
+      "us" : "mˈIlz əwˈA fɹʌm hˈOm."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "hˈʌntə ɡɹˈiːn ɪz ɐ kˈʌlə.",
+      "text" : "Hunter green is a colour.",
+      "us" : "hˈʌntəɹ ɡɹˈin ɪz ɐ kˈʌləɹ."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ʧˈAs ðə dɹˈiːm.",
+      "text" : "Chase the dream.",
+      "us" : "ʧˈAs ðə dɹˈim."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "pˈɛni pˈɪnʧɪŋ nˈɛvə ˈɛndz.",
+      "text" : "Penny pinching never ends.",
+      "us" : "pˈɛni pˈɪnʧɪŋ nˈɛvəɹ ˈɛndz."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "dɹˈuː ɐ pˈɪkʧə ɒv ɐ kˈat.",
+      "text" : "Drew a picture of a cat.",
+      "us" : "dɹˈu ɐ pˈɪkʧəɹ ʌv ɐ kˈæt."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "sˈuː ðˌɛm fɔː dˈamɪʤɪz.",
+      "text" : "Sue them for damages.",
+      "us" : "sˈu ðˌɛm fɔɹ dˈæmɪʤᵻz."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ɹˈɒb ɐ bˈaŋk? nˈɛvə.",
+      "text" : "Rob a bank? Never.",
+      "us" : "ɹˈɑb ɐ bˈæŋk? nˈɛvəɹ."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ɹˈA tɹˈAsɪŋ lˈʊks ɡɹˈAt.",
+      "text" : "Ray tracing looks great.",
+      "us" : "ɹˈA tɹˈAsɪŋ lˈʊks ɡɹˈAt."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ˈɒlɪv ˈYl ɪz hˈɛlθi.",
+      "text" : "Olive oil is healthy.",
+      "us" : "ˈɑləv ˈYl ɪz hˈɛlθi."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ʤˈɪnʤə tˈiː hˈɛlps.",
+      "text" : "Ginger tea helps.",
+      "us" : "ʤˈɪnʤəɹ tˈi hˈɛlps."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "bˈazᵊl lˈiːvz smˈɛl nˈIs.",
+      "text" : "Basil leaves smell nice.",
+      "us" : "bˈæzᵊl lˈivz smˈɛl nˈIs."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "pˈɜːl nˈɛklɪsɪz ɑː klˈasɪk.",
+      "text" : "Pearl necklaces are classic.",
+      "us" : "pˈɜɹl nˈɛkləsᵻz ɑɹ klˈæsɪk."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ʧˈɛɹi blˈɒsəmz blˈuːm ˈɪn ˈApɹɪl.",
+      "text" : "Cherry blossoms bloom in April.",
+      "us" : "ʧˈɛɹi blˈɑsəmz blˈum ˈɪn ˈApɹəl."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "kˈandi kˈAnz ɑː swˈiːt.",
+      "text" : "Candy canes are sweet.",
+      "us" : "kˈændi kˈAnz ɑɹ swˈit."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "kɹˈɪsʧᵊn vˈaljuːz mˈatə tə hˌɪm.",
+      "text" : "Christian values matter to him.",
+      "us" : "kɹˈɪsʧən vˈæljuz mˈæTəɹ tə hˌɪm."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ˈɔːɡəst hˈiːt ɪz bɹˈuːtᵊl.",
+      "text" : "August heat is brutal.",
+      "us" : "ˈɔɡəst hˈit ɪz bɹˈuTᵊl."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ʤˈiːzəs wˈɛpt.",
+      "text" : "Jesus wept.",
+      "us" : "ʤˈizəs wˈɛpt."
+    },
+    {
+      "area" : "protect-word",
+      "gb" : "ˈɪzɹAᵊl sˈInd ðə dˈiːl.",
+      "text" : "Israel signed the deal.",
+      "us" : "ˈɪzɹiəl sˈInd ðə dˈil."
+    },
+    {
+      "area" : "opener",
+      "gb" : "sˌQ wˌɒt hˈapᵊnd nˈɛkst?",
+      "text" : "So what happened next?",
+      "us" : "sˌO wˌʌt hˈæpənd nˈɛkst?"
+    },
+    {
+      "area" : "opener",
+      "gb" : "dˈuː ɪt nˈW.",
+      "text" : "Do it now.",
+      "us" : "dˈu ɪt nˈW."
+    },
+    {
+      "area" : "opener",
+      "gb" : "ɪn tˈIm, ɪt wɪl hˈiːl.",
+      "text" : "In time, it will heal.",
+      "us" : "ɪn tˈIm, ɪt wɪl hˈil."
+    },
+    {
+      "area" : "opener",
+      "gb" : "ˈQ nˈQ, nˌɒt əɡˈɛn!",
+      "text" : "Oh no, not again!",
+      "us" : "ˈO nˈO, nˌɑt əɡˈɛn!"
+    },
+    {
+      "area" : "opener",
+      "gb" : "ɐn ˈapᵊl ɐ dˈA kˈiːps ðə dˈɒktə əwˈA.",
+      "text" : "An apple a day keeps the doctor away.",
+      "us" : "ɐn ˈæpᵊl ɐ dˈA kˈips ðə dˈɑktəɹ əwˈA."
+    },
+    {
+      "area" : "opener",
+      "gb" : "hˈɑː, vˈɛɹi fˈʌni.",
+      "text" : "Ha, very funny.",
+      "us" : "hˈɑ, vˈɛɹi fˈʌni."
+    },
+    {
+      "area" : "opener",
+      "gb" : "tə biː fˈɛː, ɪt wɒz lˈAt.",
+      "text" : "To be fair, it was late.",
+      "us" : "tə bi fˈɛɹ, ɪt wʌz lˈAt."
+    },
+    {
+      "area" : "opener",
+      "gb" : "mˌI tˈɜːn tə dɹˈIv.",
+      "text" : "My turn to drive.",
+      "us" : "mˌI tˈɜɹn tə dɹˈIv."
+    },
+    {
+      "area" : "opener",
+      "gb" : "jˈɛs, wiː kˈan.",
+      "text" : "Yes, we can.",
+      "us" : "jˈɛs, wi kˈæn."
+    },
+    {
+      "area" : "opener",
+      "gb" : "nˈQ, θˈaŋk juː.",
+      "text" : "No, thank you.",
+      "us" : "nˈO, θˈæŋk ju."
+    },
+    {
+      "area" : "opener",
+      "gb" : "ˈQkˌA, lˈɛts ɡˌQ.",
+      "text" : "Ok, let's go.",
+      "us" : "ˈOkˌA, lˈɛts ɡˌO."
+    },
+    {
+      "area" : "opener",
+      "gb" : "jˌiː ˈQldi ʃˈɒp.",
+      "text" : "Ye olde shoppe.",
+      "us" : "jˌi ˈOldi ʃˈɑp."
+    },
+    {
+      "area" : "opener",
+      "gb" : "jˈuː ɪz ɐ sˈɜːnAm tˈuː, bˌʌt jˈQ ɪz ʤˈʌst həlˈQ.",
+      "text" : "Yu is a surname too, but Yo is just hello.",
+      "us" : "jˈu ɪz ɐ sˈɜɹnˌAm tˈu, bˌʌt jˈO ɪz ʤˈʌst həlˈO."
+    },
+    {
+      "area" : "core-abbrev",
+      "gb" : "ʤˈuːn fˈɪfθ wˈɜːks fɔː mˌiː.",
+      "text" : "Jun 5 works for me.",
+      "us" : "ʤˈun fˈɪfθ wˈɜɹks fɔɹ mˌi."
+    },
+    {
+      "area" : "core-abbrev",
+      "gb" : "ðə lˈɔːnʧ mˈuːvd tə ʤˈuːn ðə twˈɛlfθ, twˈɛnti twˈɛnti fˈIv.",
+      "text" : "The launch moved to Jun 12, 2025.",
+      "us" : "ðə lˈɔnʧ mˈuvd tə ʤˈun twˈɛlfθ, twˈɛnti twˈɛnti fˈIv."
+    },
+    {
+      "area" : "core-abbrev",
+      "gb" : "θˈɜːzdA θɹˈiː pˌiːˈɛm ɪz fˈIn.",
+      "text" : "Thu 3pm is fine.",
+      "us" : "θˈɜɹzdˌA θɹˈi pˌiˈɛm ɪz fˈIn."
+    },
+    {
+      "area" : "core-abbrev",
+      "gb" : "sˈiː juː θˈɜːzdA at nˈuːn.",
+      "text" : "See you Thu at noon.",
+      "us" : "sˈi ju θˈɜɹzdˌA æt nˈun."
+    },
+    {
+      "area" : "core-abbrev",
+      "gb" : "ʤˈanjʊəɹi ðə θˈɜːd ɪz ɐ mˈʌndA.",
+      "text" : "Jan 3 is a Monday.",
+      "us" : "ʤˈænjəwˌɛɹi θˈɜɹd ɪz ɐ mˈʌndˌA."
+    },
+    {
+      "area" : "core-abbrev",
+      "gb" : "mˈɑːʧ ðə fˌɔːtˈiːnθ ɪz pˈI dˈA.",
+      "text" : "Mar 14 is Pi Day.",
+      "us" : "mˈɑɹʧ fˌɔɹtˈinθ ɪz pˈI dˈA."
+    },
+    {
+      "area" : "dropped-word",
+      "gb" : "fˈani pˈaks ɑː bˈak.",
+      "text" : "Fanny packs are back.",
+      "us" : "fˈæni pˈæks ɑɹ bˈæk."
+    },
+    {
+      "area" : "dropped-word",
+      "gb" : "dˈInQ fˈakts fɔː kˈɪdz.",
+      "text" : "Dino facts for kids.",
+      "us" : "dˈInO fˈækts fɔɹ kˈɪdz."
+    },
+    {
+      "area" : "dropped-word",
+      "gb" : "tˈAmə ˈanɪmᵊlz lˈIv lˈɒŋɡə.",
+      "text" : "Tamer animals live longer.",
+      "us" : "tˈAməɹ ˈænəmᵊlz lˈIv lˈɔŋɡəɹ."
+    },
+    {
+      "area" : "dropped-word",
+      "gb" : "ˈaksᵊl ʤˈʌmps ɑː hˈɑːd tə lˈand.",
+      "text" : "Axel jumps are hard to land.",
+      "us" : "ˈæksᵊl ʤˈʌmps ɑɹ hˈɑɹd tə lˈænd."
+    },
+    {
+      "area" : "dropped-word",
+      "gb" : "ʃˌiː lˈandɪd ɐ tɹˈɪpᵊl ˈaksᵊl.",
+      "text" : "She landed a triple Axel.",
+      "us" : "ʃˌi lˈændᵻd ɐ tɹˈɪpᵊl ˈæksᵊl."
+    },
+    {
+      "area" : "dropped-word",
+      "gb" : "bˈɛntQ bˈɒksɪz ɑː ʧˈiːp.",
+      "text" : "Bento boxes are cheap.",
+      "us" : "bˈɛntˌO bˈɑksᵻz ɑɹ ʧˈip."
+    },
+    {
+      "area" : "dropped-word",
+      "gb" : "dˈɒlmə ɪz ɐ stˈʌft dˈɪʃ.",
+      "text" : "Dolma is a stuffed dish.",
+      "us" : "dˈɑlmə ɪz ɐ stˈʌft dˈɪʃ."
+    },
+    {
+      "area" : "dropped-word",
+      "gb" : "lˈInQ pɹˈɪnts lˈʊk ɡɹˈAt.",
+      "text" : "Lino prints look great.",
+      "us" : "lˈInO pɹˈɪnts lˈʊk ɡɹˈAt."
+    },
+    {
+      "area" : "dropped-word",
+      "gb" : "zˈiː sˈɛd həlˈQ.",
+      "text" : "Ze said hello.",
+      "us" : "zˈi sˈɛd həlˈO."
+    },
+    {
+      "area" : "tech",
+      "gb" : "pˌiːˌIˈɑː sˈɛnsəz dɪtˈɛkt mˈQʃᵊn.",
+      "text" : "PIR sensors detect motion.",
+      "us" : "pˌiˌIˈɑɹ sˈɛnsəɹz dətˈɛkt mˈOʃən."
+    },
+    {
+      "area" : "tech",
+      "gb" : "ðə ɡˈuːi ɪz slˈQ.",
+      "text" : "The GUI is slow.",
+      "us" : "ðə ɡˈui ɪz slˈO."
+    },
+    {
+      "area" : "tech",
+      "gb" : "ɹˈIt ɐ ɡˈuːi ɪn pˈIθən.",
+      "text" : "Write a gui in Python.",
+      "us" : "ɹˈIt ɐ ɡˈui ɪn pˈIθɑn."
+    },
+    {
+      "area" : "tech",
+      "gb" : "ʤˈɪn and tˈɒnɪk, plˈiːz.",
+      "text" : "Gin and tonic, please.",
+      "us" : "ʤˈɪn ænd tˈɑnɪk, plˈiz."
+    },
+    {
+      "area" : "tech",
+      "gb" : "fˈI mˈɒdᵊlz ɑː smˈɔːl.",
+      "text" : "Phi models are small.",
+      "us" : "fˈI mˈɑdᵊlz ɑɹ smˈɔl."
+    },
+    {
+      "area" : "tech",
+      "gb" : "ˌAdˌʌbᵊljuːˈɛs bˈɪlz wˈɛnt ˌʌp.",
+      "text" : "AWS bills went up.",
+      "us" : "ˌAdˌʌbᵊljuˈɛs bˈɪlz wˈɛnt ˌʌp."
+    },
+    {
+      "area" : "tech",
+      "gb" : "ˌɛmˌAjˈu ɡɹˈuː lˈɑːst mˈʌnθ.",
+      "text" : "MAU grew last month.",
+      "us" : "ˌɛmˌAjˈu ɡɹˈu lˈæst mˈʌnθ."
+    },
+    {
+      "area" : "tech",
+      "gb" : "klˈɔːd ɹˈQt ðə kˈQd.",
+      "text" : "Claude wrote the code.",
+      "us" : "klˈɔd ɹˈOt ðə kˈOd."
+    },
+    {
+      "area" : "case",
+      "gb" : "wɪl juː kˈʌm?",
+      "text" : "WILL YOU COME?",
+      "us" : "wɪl ju kˈʌm?"
+    },
+    {
+      "area" : "case",
+      "gb" : "mˈA ˌI hˈɛlp juː?",
+      "text" : "MAY I HELP YOU?",
+      "us" : "mˈA ˌI hˈɛlp ju?"
+    },
+    {
+      "area" : "case",
+      "gb" : "ɐ lˈIən tˈAmə and ɐ ɹˈQz ɡˈɑːdᵊn.",
+      "text" : "a lion tamer and a rose garden.",
+      "us" : "ɐ lˈIən tˈAməɹ ænd ɐ ɹˈOz ɡˈɑɹdən."
+    },
+    {
+      "area" : "case",
+      "gb" : "ðə nˈAdɪə ɒv hɪz kəɹˈɪə.",
+      "text" : "the nadir of his career.",
+      "us" : "ðə nˈAdəɹ ʌv hɪz kəɹˈɪɹ."
+    }
+  ],
+  "speech_cases" : [
+
+  ]
+}
