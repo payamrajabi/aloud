@@ -36,7 +36,9 @@ import Foundation
 /// a pack-only entry ("BID" read B-I-D) is there only while its pack is, and then in place
 /// of the general entry with its spelling. Two keys of the same length that both match
 /// differ only in case rules ("=BID" and "~bid"); then your own entry is tried first, then
-/// a pack's, then a general one, so the precedence holds across case rules too.
+/// a pack's, then a general one, so the precedence holds across case rules too. Between
+/// two general entries the case-sensitive one is tried first: it reads its own casing and
+/// the other reads the rest (the names pack's "Pir" and the tech list's "PIR").
 public final class CustomLexicon {
     struct Entry {
         let key: String
@@ -147,11 +149,17 @@ public final class CustomLexicon {
                                      rank: e.isUser ? 2 : e.isPackOnly ? 1 : 0))
         }
         // The old expression tried keys longest first (in characters), then alphabetically.
-        // Between keys of one length, yours come first, then a pack's (see above).
+        // Between keys of one length, yours come first, then a pack's (see above); then a
+        // case-sensitive key before one that matches any casing, so the narrower key reads
+        // its own casing whatever the alphabet says (the names pack's "Pir" before the tech
+        // list's "PIR", which still reads "PIR" and "pir").
         let lengths = idx.entries.map { $0.key.count }, ranks = idx.entries.map(\.rank)
+        let narrow = idx.entries.map(\.caseSensitive)
         let order = idx.entries.indices.sorted {
             if lengths[$0] != lengths[$1] { return lengths[$0] > lengths[$1] }
-            return ranks[$0] != ranks[$1] ? ranks[$0] > ranks[$1] : idx.entries[$0].key < idx.entries[$1].key
+            if ranks[$0] != ranks[$1] { return ranks[$0] > ranks[$1] }
+            if narrow[$0] != narrow[$1] { return narrow[$0] }
+            return idx.entries[$0].key < idx.entries[$1].key
         }
         idx.entries = order.map { idx.entries[$0] }
         for (i, e) in idx.entries.enumerated() {

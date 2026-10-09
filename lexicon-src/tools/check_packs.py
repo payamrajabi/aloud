@@ -18,9 +18,12 @@ ERROR when
     wait for a pack);
   - a file would be the "user" pack (that id is the person's own folder);
   - conflicts.json isn't an array of well-formed decisions.
-WARN when a listed clash is between general entries only (the field's reading should be
-pack_only, or the later file silently wins for everyone), or a listed decision no longer
-matches any clash. NOTE when a spelling is repeated with the same reading: of two general
+WARN when a listed clash is between general entries with one match rule (the field's
+reading should be pack_only, or the later file silently wins for everyone), or a listed
+decision no longer matches any clash. A listed clash between general entries with
+different match rules is a NOTE: the case-sensitive entry reads its own casing (the app
+tries it first among keys of one length) and the case-insensitive one every other casing.
+NOTE when a spelling is repeated with the same reading: of two general
 copies the app keeps only the later file's, its dictation fields and `evidence` (and so
 the pack its context counts for) included.
 No third-party modules: plain python3."""
@@ -155,9 +158,23 @@ def main():
                 continue
             decision["used"] = True
             if not any(it["pack_only"] for it in g):
-                last = max(g, key=lambda x: order[x["pack"]])
-                warns.append(f"{g[0]['word']}: listed, but no side is pack_only, so {last['pack']}'s reading wins "
-                             f"for everyone; mark the field's entry pack_only ({shown})")
+                # One spelling under one match rule: the later file replaces the earlier for
+                # everyone. Different match rules split the text instead: a case-sensitive
+                # entry reads its own casing (the app tries it first) and a case-insensitive
+                # one every other casing ("=Pir" in names, "~pir" in tech).
+                same = defaultdict(list)
+                for it in g:
+                    same[spelling(it["word"], it["match"])].append(it)
+                shadowed = [v for v in same.values() if len({it["pack"] for it in v}) > 1 and len({it["us"] for it in v}) > 1]
+                if shadowed:
+                    for v in shadowed:
+                        last = max(v, key=lambda x: order[x["pack"]])
+                        warns.append(f"{v[0]['word']}: listed, but no side is pack_only, so {last['pack']}'s reading wins "
+                                     f"for everyone; mark the field's entry pack_only ({shown})")
+                else:
+                    split = "; ".join(f"{it['pack']} reads " + (f"\"{it['word']}\"" if case_sensitive(it["match"]) else "any other casing")
+                                      for it in sorted(g, key=lambda x: (not case_sensitive(x["match"]), order[x["pack"]])))
+                    notes.append(f"{g[0]['word']}: listed; split by casing: {split} ({shown})")
     for d in decisions:
         if not d["used"]:
             warns.append(f"conflicts.json [{d['index']}] {d['word']}: no longer matches a clash in {', '.join(sorted(d['packs']))}")
