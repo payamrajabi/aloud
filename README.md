@@ -216,5 +216,6 @@ echo "Siobhan's K8s cluster" | .build/debug/ReadAloud --phonemize [--gb]    # wh
 READALOUD_MODELS_DIR=/tmp/models .build/debug/ReadAloud --download-voice   # test the first-launch download
 .build/debug/ReadAloud --test-gestures                                     # tap / double-tap / hold detection
 .build/debug/ReadAloud --clean-file ramble.txt --trace                     # tidy raw dictation text, time the wait after "stop"
+.build/debug/ReadAloud --test-tidy Tests/dictation/tidy.json               # clean-up's rule-based fallback (no model needed)
 .build/debug/ReadAloud --script "1:settings;3:settingsshot=/tmp/s.png;4:quit"  # screenshot the Settings window
 ```
