@@ -4391,8 +4391,8 @@
   },
   {
    "text": "Call 1-800-555-1234 now.",
-   "us": "kˈɔl wˌʌnˌAt",
-   "gb": "kˈɔːl wˌʌnˌAt",
+   "us": "kˈɔl wˈʌn ˈAt hˈʌndɹəd, fˈIv fˈIv fˈIv, wˈʌn tˈu θɹˈi fˈɔɹ nˈW",
+   "gb": "kˈɔːl wˈʌn ˈAt hˈʌndɹəd, fˈIv fˈIv fˈIv, wˈʌn tˈuː θɹˈiː fˈɔː nˈW",
    "absent": "tə"
   },
   {
@@ -4539,14 +4539,14 @@
   },
   {
    "text": "Call me at 555-1234 tomorrow.",
-   "us": "kˈɔl mˌi æt fˈIv hˈʌndɹəd",
-   "gb": "kˈɔːl mˌiː at fˈIv hˈʌndɹəd",
+   "us": "kˈɔl mˌi æt fˈIv fˈIv fˈIv, wˈʌn tˈu θɹˈi fˈɔɹ",
+   "gb": "kˈɔːl mˌiː at fˈIv fˈIv fˈIv, wˈʌn tˈuː θɹˈiː fˈɔː",
    "absent": "tə tw"
   },
   {
    "text": "My number is 867-5309.",
-   "us": "ˈAt hˈʌndɹəd sˈɪksti",
-   "gb": "ˈAt hˈʌndɹəd sˈɪksti",
+   "us": "ˈAt sˈɪks sˈɛvən, fˈIv θɹˈi ˈO nˈIn",
+   "gb": "ˈAt sˈɪks sˈɛvᵊn, fˈIv θɹˈiː ˈQ nˈIn",
    "absent": " tə "
   },
   {
@@ -4881,8 +4881,9 @@
   },
   {
    "text": "Call me on 07700 900123.",
-   "us": "zˈɪɹO sˈɛvən sˈɛvən zˈɪɹO zˈɪɹO, nˈIn zˈɪɹO zˈɪɹO wˈʌn tˈu θɹˈi",
-   "gb": "zˈɪəɹQ sˈɛvᵊn sˈɛvᵊn zˈɪəɹQ zˈɪəɹQ, nˈIn zˈɪəɹQ zˈɪəɹQ wˈʌn tˈuː θɹˈiː"
+   "us": "ˈO sˈɛvən sˈɛvən ˈO ˈO, nˈIn ˈO ˈO, wˈʌn tˈu θɹˈi",
+   "gb": "ˈQ sˈɛvᵊn sˈɛvᵊn ˈQ ˈQ, nˈIn ˈQ ˈQ, wˈʌn tˈuː θɹˈiː",
+   "absent": "zˈɪ"
   },
   {
    "text": "Agent 007 is back.",
@@ -5215,6 +5216,41 @@
    "chunks": [
     "Who won?",
     "No. 1 seed Duke."
+   ]
+  },
+  {
+   "text": "Call 416-555-0199 ext. 23 today. Ask for Sam.",
+   "chunks": [
+    "Call 416-555-0199 ext. 23 today.",
+    "Ask for Sam."
+   ]
+  },
+  {
+   "text": "Call 1.800.555.0199 for help. Ask for Sam.",
+   "chunks": [
+    "Call 1.800.555.0199 for help.",
+    "Ask for Sam."
+   ]
+  },
+  {
+   "text": "Call +44 (0)20 7946 0958 today. Ask for Sam.",
+   "chunks": [
+    "Call +44 (0)20 7946 0958 today.",
+    "Ask for Sam."
+   ]
+  },
+  {
+   "text": "Ring me on 07700 900 123. Text HOME to 741741 now.",
+   "chunks": [
+    "Ring me on 07700 900 123.",
+    "Text HOME to 741741 now."
+   ]
+  },
+  {
+   "text": "Call 416.555.0199 today. Dial x4567 for sales.",
+   "chunks": [
+    "Call 416.555.0199 today.",
+    "Dial x4567 for sales."
    ]
   },
   {
