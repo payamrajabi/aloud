@@ -29,7 +29,7 @@ enum LexiconBench {
         }
 
         let article = articlePath.flatMap { try? String(contentsOfFile: $0, encoding: .utf8) } ?? sampleArticle
-        let sentences = TextPrep.chunks(for: TextPrep.clean(article)).map(\.speech)
+        let sentences = TextPrep.legacyChunks(for: TextPrep.clean(article)).map(\.speech)
         let words = article.split { $0.isWhitespace }.count
 
         // Loading: read the files, then index them for reading (best of 5, so the file

@@ -80,7 +80,8 @@ This decision does not block mock tests or preparation of the test configuration
 ## Merge and release effect
 
 Vercel's latest Production deployment is built automatically from GitHub `main`
-`910680e`, with `aloudformac.com`/`www` production domains. Merging PR #1 would
+`17475b2` (the existing narration work, integrated into this draft), with
+`aloudformac.com`/`www` production domains. Merging PR #1 would
 automatically deploy the changed homepage and payment routes to that live site.
 With no configuration, checkout remains unavailable (503); the new Buy CTA would
 therefore lead to an unavailable purchase flow. Keep the draft unmerged until

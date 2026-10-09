@@ -174,9 +174,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
         let pill = self.pill?.reader
         pill?.show(.finding)
         // Reads in the background, with controls in the on-screen pill; the player only opens from the menu bar icon.
-        SelectionReader.read { [weak self] text in
+        SelectionReader.read(current: model.sourceText) { [weak self] read in
             guard let self else { return }
-            let selection = text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            let selection = read?.text.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
             let current = self.model.sourceText.trimmingCharacters(in: .whitespacesAndNewlines)
             if !selection.isEmpty && !(selection == current && self.model.hasSession) {
                 // The voice was removed (or never finished downloading): ask before fetching 355 MB.
@@ -185,7 +185,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
                     pill?.show(.hidden)
                     return
                 }
-                self.model.load(selection)
+                self.model.load(selection, html: read?.html)
                 pill?.show(self.model.hasSession ? .controls : .hint(self.model.message ?? "There's nothing to read in that selection."))
                 // Show the voice's download progress when reading has to wait for it.
                 if self.model.isDownloadingVoice { self.showPlayer() }
