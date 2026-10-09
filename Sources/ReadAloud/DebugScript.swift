@@ -20,6 +20,7 @@ import CSherpaOnnx
 ///   --slow-pill                                         play the on-screen pill's changes ten times slower
 ///   --no-paste                                          print what dictation would type instead of typing it
 ///   --dead-mic                                          drop all microphone audio (dictation should give up and say so)
+///   --slow-mic-setup                                    make the microphone's background setup take 15 s longer
 ///   READALOUD_MODELS_DIR=/some/folder                   use a different models folder (test fresh installs)
 ///   --script "2:seek=30;4:pause;5:play;8:open;9:snapshot=/tmp/p.png;10:quit"
 enum DebugScript {
