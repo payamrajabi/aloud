@@ -500,7 +500,9 @@ enum MoneyPass {
     }
 
     /// Whether what follows a code after an amount lets it be the currency: the end, closing
-    /// punctuation, a word from `codeFollowers`, or a per-unit price ("CAD/month").
+    /// punctuation, a word from `codeFollowers`, a money noun ("$4.99 CAD fee", "$15 CAD
+    /// deposit": a code that is also a word never comes before one), or a per-unit price
+    /// ("CAD/month").
     private static func codeEnds(at i: Int, in s: NSString) -> Bool {
         guard let c = character(at: i, in: s) else { return true }
         if c.isNewline || ".,;:!?)]\"'”’".contains(c) { return true }
@@ -515,7 +517,8 @@ enum MoneyPass {
             word.append(c)
             j += c.utf16.count
         }
-        return codeFollowers.contains(word.lowercased())
+        let w = word.lowercased()
+        return codeFollowers.contains(w) || attributiveNouns.contains(w) || currencyNotes.contains(w)
     }
 
     /// The word just before `i`, past spaces, lower-cased; nil after punctuation.
