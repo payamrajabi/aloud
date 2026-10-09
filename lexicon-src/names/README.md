@@ -119,19 +119,24 @@ registers where it occurs, then up to three Wikidata countries with the most bea
 `evidence` (raw counts per register, `US=` births since 1925 and so on, and Wikidata bearers by
 country, `wd=IR:19,...`; `pool` is the pooled small states).
 
-**`ledger.tsv`**: one row per candidate with today's readings and the triage:
+**`ledger.tsv`**: one row per candidate (same ranks as the manifest) with today's readings, from
+`ReadAloud --phonemize --explain` (US) and `--gb`, and the triage:
 `rank`, `name`; `us`, `gb` (the name on its own); `us_sentence`, `gb_sentence` (the name's
-phonemes inside "I met NAME yesterday."); `sentence_differs`; `source` and `source_sentence`
-(what read it: `lexicon`, `gold`, `cmudict`, `guesser`, `letters`, `none`, joined with `+` for
-names of several words); `lexicon` (which list covers it: `irish-names`, `tech`); `collision`
-(`word` when the gold dictionary and Webster's both have the lower-case spelling as an ordinary
-word: Rose, Will, Grace; `gold-only` when only the gold dictionary does: john); `word_freq`
-(common / uncommon / rare, for collisions; wordfreq lower-cases, so a popular name inflates its
-word's figure); `script`; `usage`; `origin`; `multiword` (spaces or hyphens); `bucket`;
-`disposition` (`covered` or `unaudited`).
+phonemes inside "I met NAME yesterday.", left empty when they match the name on its own);
+`sentence_differs`; `source` and `source_sentence` (what read it: `lexicon`, `gold`, `cmudict`,
+`guesser` (mini-bart), `letters` (spelled out), `none`, joined with `+` for names of several
+words; `source_sentence` empty when the same); `lexicon` (the custom list whose entry reads it:
+`irish-names`; `tech` for a person or a product the tech list says is "said like the name";
+`tech:term` for any other tech entry, such as an acronym); `collision` (`word` when the gold
+dictionary and Webster's both have the lower-case spelling as an ordinary word: Rose, Will,
+Grace; `gold-only` when only the gold dictionary does: john); `word_freq` (common / uncommon /
+rare, for collisions; wordfreq lower-cases, so a popular name inflates its word's figure);
+`script` (Unicode script of its letters); `usage` (from the manifest); `multiword` (spaces or
+hyphens); `bucket`; `disposition` (`covered` or `unaudited`).
 
-**`coverage.json`**: totals by bucket (all, top 1,000, top 10,000), by source, collision,
-script, first country and origin, and the spot-check results per bucket.
+**`coverage.json`**: totals by bucket (all, top 1,000, top 10,000, multiword), by source,
+collision, script, first country and origin; the spot-check results per bucket; and a rough
+correction estimate (each bucket's spot-check wrong rate times its size).
 
 **`spotcheck.tsv`**: 30 names per bucket drawn with a fixed seed (906), each with a verdict
 (`right`, `wrong`, `unsure`) and a note.
@@ -140,16 +145,66 @@ script, first country and origin, and the spot-check results per bucket.
 
 ## Triage buckets (`tools/audit.py`)
 Each name gets the first that applies:
-1. `covered-by-lexicon`: a custom list already reads it (`irish-names`, or a person in the tech
-   list). Disposition `covered`.
-2. `unsupported-script`: not Latin script, or the voice reads nothing for it today.
-3. `collision-word`: also an ordinary English word (`collision` = `word`). A fix must never change
+1. `covered-by-lexicon`: a custom list reads it on purpose (`irish-names`, or a tech-list person or
+   product "said like the name"). Disposition `covered`.
+2. `lexicon-term-reading`: a tech-list entry made for a term reads it (`tech:term`): Pir is spelled
+   P-I-R and Mau M-A-U because the tech list's case-insensitive acronyms match the name.
+3. `unsupported-script`: not Latin script, or the voice reads nothing for it today.
+4. `collision-word`: also an ordinary English word (`collision` = `word`). A fix must never change
    the word in everyday prose: case-sensitive and probably `pack_only`.
-4. `guesser-reading`: some part read by the mini-bart guesser. Needs research.
-5. `dictionary-reading-needs-check`: read from the gold dictionary or CMUdict, `usage` other: the
+5. `guesser-reading`: some part read by the mini-bart guesser. Needs research.
+6. `dictionary-reading-needs-check`: read from the gold dictionary or CMUdict, `usage` other: the
    dictionary may have anglicised it in a way its bearers don't (Jean as "jeen", Jesus as
    "JEE-zus").
-6. `dictionary-reading-likely-right`: read from a dictionary, `usage` english.
+7. `dictionary-reading-likely-right`: read from a dictionary, `usage` english.
+
+## Baseline (2026-10-09, branch `claude/names-pack`)
+
+| bucket | names | top 1,000 | top 10,000 | multiword | spot check: right / wrong / unsure of 30 |
+|---|---:|---:|---:|---:|---|
+| covered-by-lexicon | 134 | 16 | 38 | 1 | 25 / 3 / 2 |
+| lexicon-term-reading | 316 | 6 | 52 | 0 | 25 / 4 / 1 |
+| unsupported-script | 2,610 | 49 | 579 | 11 | 0 / 30 / 0 (reads nothing) |
+| collision-word | 2,104 | 87 | 459 | 0 | 22 / 5 / 3 |
+| guesser-reading | 71,452 | 186 | 5,076 | 8,902 | 14 / 14 / 2 |
+| dictionary-reading-needs-check | 16,457 | 489 | 2,816 | 10,189 | 16 / 14 / 0 |
+| dictionary-reading-likely-right | 6,927 | 167 | 980 | 491 | 21 / 5 / 4 |
+
+The verdicts in `spotcheck.tsv` are one reviewer's judgement (Claude's, from general knowledge,
+without listening), against the reading the pack wants: how bearers say it, anglicised the way
+English speakers who know them do. 30 names give a rate to within about ±15 points.
+
+What the numbers say:
+- **The guesser reads 71% of the names, and gets about half of those wrong.** That bucket is
+  most of the work, and every name in it needs a look because the right and wrong halves can't
+  be told apart without research.
+- **"Needs check" is about a coin toss, "likely right" about 70-80% right.** The usage split
+  works, but the dictionaries still miss English-usage names (Pearse read "purse", Maggi
+  "MAJ-ee", Karun "kuh-ROON").
+- **Most multiword names are compounds of names already on the list** (INE's "MARIA CARMEN",
+  "Julio Cesar"): of their 19,582 in the three reading buckets, only 309 contain a word that
+  isn't itself a single-word candidate. A pack needs entries per word, not per compound.
+- **The tech list already overrides some names.** Its case-insensitive acronym entries spell
+  names out (Pir, Mau, Aws), and some product readings don't suit the people (Gin read as the
+  drink, Thanos the Marvel way, Phi as the Greek letter for a Vietnamese name). The names pack
+  will need `conflicts.json` decisions or case-sensitive tech entries for these.
+- **A name that is also a function word loses its stress in a sentence**: "I met Will
+  yesterday" reads Will like the auxiliary verb (wˌɪl), and the same for Can, My, In, Ye, To,
+  and Korean names that start In-, A- or I- (A-ra reads "uh-ra"). 50 names read differently in
+  the carrier sentence; most are of this kind, and a few change their vowel because the
+  dictionary reads the word by part of speech (Pasty, Renos, Alard).
+- **Payam** (the required example) reads pˈAəm, "PAY-um", from the guesser, US and GB alike;
+  the Persian name is "pah-YAHM". **Mohammed** (the control) reads mOhˈæmɪd, "moh-HAM-id",
+  from CMUdict: an accepted English reading. Muhammad and Muḥammad read mOhˈɑməd from gold;
+  Mohamed and Mohammad mOhˈɑmɛd from CMUdict.
+
+**Size of the correction work**, from the spot-check rates: about 45,000 to 51,000 of the
+100,000 rows read wrong today, most of them guesser readings. Counting the 80,406 single-word
+names only (compounds reuse them): 62,550 guesser readings, 6,268 needs-check, 6,436
+likely-right, 2,104 collision words, 2,599 non-Latin names and 449 lexicon readings, of which
+roughly 36,000 to 41,000 need a new reading (4,300 to 4,800 of them in the top 10,000). About
+72,000 single-word names need someone to look at them (every guesser, needs-check, non-Latin and
+tech-term name), plus a protection decision for the 2,104 collision words.
 
 ## Rebuild
 From the repository root:
@@ -162,7 +217,9 @@ python3 -I lexicon-src/names/tools/audit.py --wordfreq PATH/TO/wordfreq/data/lar
 Downloads are untrusted data: keep the cache outside the repository and run python with `-I`.
 `rank.py` is deterministic: the same cache gives a byte-identical manifest, so compare the
 `sources.lock.json` checksums first. A new fetch gives slightly different Wikidata answers (the
-endpoint follows Wikidata live) and new register editions add years. `audit.py --sample 30
---seed 906` draws the spot-check sample again; verdicts already in `spotcheck.tsv` for names
-still drawn are kept. Tools are plain python3 (3.9+), standard library only; `fetch.py` needs
+endpoint follows Wikidata live) and new register editions add years. `audit.py` takes about six
+minutes (two processes over 200,000 lines each) and gives the same ledger for the same manifest
+and app build; `--sample 30 --seed 906` draws the spot-check sample again (each bucket seeded on
+its own; verdicts already in `spotcheck.tsv` for names still drawn are kept), and
+`--coverage-only` rebuilds `coverage.json` from the ledger after verdicts are edited. Tools are plain python3 (3.9+), standard library only; `fetch.py` needs
 network access, the others don't.

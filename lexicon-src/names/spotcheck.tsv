@@ -1,0 +1,211 @@
+bucket	rank	name	us	gb	us_sentence	source	origin	verdict	note
+covered-by-lexicon	103	Grace	ɡɹˈAs	ɡɹˈAs	ɡɹˈAs	lexicon	Dutch/English	right	
+covered-by-lexicon	454	Jasmine	ʤˈæzmən	ʤˈazmɪn	ʤˈæzmən	lexicon	Dutch/English/French/Italian/Swedish	right	
+covered-by-lexicon	488	Julia	ʤˈuljə	ʤˈuːlɪə	ʤˈuljə	lexicon	Dutch/English/French/German/Latin/+3	right	
+covered-by-lexicon	843	Roland	ɹˈOlənd	ɹˈQlənd	ɹˈOlənd	lexicon	Dutch/French/German/Polish	right	
+covered-by-lexicon	2166	Kali	kˈɑli	kˈɑːli	kˈɑli	lexicon	multiple languages	right	KAH-lee
+covered-by-lexicon	2359	Georgia	ʤˈɔɹʤə	ʤˈɔːʤə	ʤˈɔɹʤə	lexicon	English/Greek/Latin	right	
+covered-by-lexicon	3255	Phi	fˈI	fˈI	fˈI	lexicon	Vietnamese	wrong	tech entry (Greek letter) says FYE; the Vietnamese name is FEE
+covered-by-lexicon	4659	Gemma	ʤˈɛmə	ʤˈɛmə	ʤˈɛmə	lexicon	Latin	right	
+covered-by-lexicon	11485	Ciaran	kˈiɹən	kˈɪəɹən	kˈiɹən	lexicon		right	KEER-un
+covered-by-lexicon	12064	Eero	ˈɪɹO	ˈɪəɹQ	ˈɪɹO	lexicon	Estonian/Finnish	unsure	EER-oh; Finnish Eero is closer to AIR-oh
+covered-by-lexicon	12208	Sinead	ʃɪnˈAd	ʃɪnˈAd	ʃɪnˈAd	lexicon	English	right	shin-AYD
+covered-by-lexicon	13510	Thanos	θˈænɑs	θˈanɒs	θˈænɑs	lexicon	Greek	wrong	Marvel THAN-oss; the Greek name is THAH-noss
+covered-by-lexicon	17291	Cassandre	kəsˈɑndɹə	kəsˈɒndɹə	kəsˈɑndɹə	lexicon	fr	right	anglicised French
+covered-by-lexicon	19776	Eoghan	ˈOən	ˈQən	ˈOən	lexicon	en	right	OH-un
+covered-by-lexicon	20676	Padraig	pˈɔdɹɪɡ	pˈɔːdɹɪɡ	pˈɔdɹɪɡ	lexicon		right	PAW-drig
+covered-by-lexicon	21682	Lorcan	lˈɔɹkən	lˈɔːkən	lˈɔɹkən	lexicon	en	right	
+covered-by-lexicon	21731	Fedora	fədˈɔɹə	fɪdˈɔːɹə	fədˈɔɹə	lexicon	Italian	right	feh-DOR-uh
+covered-by-lexicon	24663	Solana	sOlˈɑnə	sQlˈɑːnə	sOlˈɑnə	lexicon		right	so-LAH-nuh
+covered-by-lexicon	25062	Sequoia	səkwˈYə	sɪkwˈYə	səkwˈYə	lexicon		right	
+covered-by-lexicon	26760	Diarmuid	dˈɪɹmɪd	dˈɪəmɪd	dˈɪɹmɪd	lexicon		right	DEER-mid
+covered-by-lexicon	27921	Gin	ʤˈɪn	ʤˈɪn	ʤˈɪn	lexicon	Japanese	wrong	tech entry says JIN (the drink); the Japanese name Gin is GEEN
+covered-by-lexicon	29193	Oisín	əʃˈin	ɒʃˈiːn	əʃˈin	lexicon	Irish	right	uh-SHEEN
+covered-by-lexicon	32541	Éabha	ˈAvə	ˈAvə	ˈAvə	lexicon	Irish	right	AY-vuh
+covered-by-lexicon	36612	Fiachra	fˈiəkɹə	fˈiːəkɹə	fˈiəkɹə	lexicon		right	FEE-uh-kruh
+covered-by-lexicon	39324	Andela	ændˈɛlə	andˈɛlə	ændˈɛlə	lexicon		unsure	company reading an-DEL-uh; Serbo-Croatian Anđela is AN-jeh-la
+covered-by-lexicon	43957	Kong	kˈɔŋ	kˈɒŋ	kˈɔŋ	lexicon	Chinese/Korean/multiple languages	right	
+covered-by-lexicon	49701	Áine	ˈɔnjə	ˈɔːnjə	ˈɔnjə	lexicon	Irish	right	AWN-yuh
+covered-by-lexicon	64739	Ríona	ɹˈinə	ɹˈiːnə	ɹˈinə	lexicon		right	REE-nuh
+covered-by-lexicon	66884	Aodhán	ˈAdən	ˈAdən	ˈAdən	lexicon	Irish	right	AY-dun
+covered-by-lexicon	99658	Clíona	klˈinə	klˈiːnə	klˈinə	lexicon		right	KLEE-nuh
+lexicon-term-reading	1394	Ada	ˈAdə	ˈAdə	ˈAdə	lexicon	Dutch/Italian/Latvian/Polish/Turkish	right	English AY-duh; Turkish/Italian Ada is AH-da
+lexicon-term-reading	1737	Gui	ɡˈui	ɡˈuːi	ɡˈui	lexicon	Chinese/multiple languages	wrong	read GOO-ee (GUI); the name is GHEE (Portuguese) or GWAY (Chinese)
+lexicon-term-reading	5826	Athena	əθˈinə	əθˈiːnə	əθˈinə	lexicon	English/Greek/Icelandic/Swedish	right	
+lexicon-term-reading	9650	Sony	sˈOni	sˈQni	sˈOni	lexicon		right	
+lexicon-term-reading	11199	Pino	pˈinO	pˈiːnQ	pˈinO	lexicon	Italian/Spanish	right	
+lexicon-term-reading	11720	Kia	kˈiə	kˈiːə	kˈiə	lexicon	multiple languages	right	
+lexicon-term-reading	11744	Sofi	sˈOfˌI	sˈQfˌI	sˈOfˌI	lexicon	Greek	wrong	read SOH-fye; the name is SOH-fee
+lexicon-term-reading	15178	Kit	kˈɪt	kˈɪt	kˈɪt	lexicon	English	right	
+lexicon-term-reading	19751	Kata	kˈɑTə	kˈɑːtə	kˈɑTə	lexicon	Finnish/Hungarian	right	
+lexicon-term-reading	22349	Orin	ˈɔɹɪn	ˈɒɹɪn	ˈɔɹɪn	lexicon		right	
+lexicon-term-reading	24089	Lua	lˈuə	lˈuːə	lˈuə	lexicon		right	LOO-uh
+lexicon-term-reading	24104	Joi	ʤˈY	ʤˈY	ʤˈY	lexicon	English	right	JOY
+lexicon-term-reading	29065	Spring	spɹˈɪŋ	spɹˈɪŋ	spɹˈɪŋ	lexicon	en	right	
+lexicon-term-reading	32779	Lark	lˈɑɹk	lˈɑːk	lˈɑɹk	lexicon	English	right	
+lexicon-term-reading	33037	Cypress	sˈIpɹəs	sˈIpɹɪs	sˈIpɹəs	lexicon	en	right	
+lexicon-term-reading	36224	Redmond	ɹˈɛdmənd	ɹˈɛdmənd	ɹˈɛdmənd	lexicon		right	
+lexicon-term-reading	36458	Django	ʤˈæŋɡO	ʤˈaŋɡQ	ʤˈæŋɡO	lexicon		right	
+lexicon-term-reading	38217	Netty	nˈɛTi	nˈɛti	nˈɛTi	lexicon		right	
+lexicon-term-reading	44597	Aws	ˌAdˌʌbᵊljuˈɛs	ˌAdˌʌbᵊljuːˈɛs	ˌAdˌʌbᵊljuˈɛs	lexicon		wrong	spelled A-W-S; the Arabic name Aws is OWSS
+lexicon-term-reading	46560	Ideo	ˈIdiˌO	ˈIdiˌQ	ˈIdiˌO	lexicon		unsure	read EYE-dee-oh (the design firm)
+lexicon-term-reading	48054	Quill	kwˈɪl	kwˈɪl	kwˈɪl	lexicon		right	
+lexicon-term-reading	48850	Harvest	hˈɑɹvəst	hˈɑːvɪst	hˈɑɹvəst	lexicon	en	right	
+lexicon-term-reading	49088	Brave	bɹˈAv	bɹˈAv	bɹˈAv	lexicon		right	
+lexicon-term-reading	49654	Kick	kˈɪk	kˈɪk	kˈɪk	lexicon	mis	right	
+lexicon-term-reading	50614	Cline	klˈIn	klˈIn	klˈIn	lexicon		right	KLINE
+lexicon-term-reading	61177	Mau	ˌɛmˌAjˈu	ˌɛmˌAjˈu	ˌɛmˌAjˈu	lexicon		wrong	spelled M-A-U; the name is MOW
+lexicon-term-reading	77315	Retina	ɹˈɛtᵊnə	ɹˈɛtᵊnə	ɹˈɛtᵊnə	lexicon		right	
+lexicon-term-reading	80116	Pie	pˈI	pˈI	pˈI	lexicon		right	
+lexicon-term-reading	83960	Bash	bˈæʃ	bˈaʃ	bˈæʃ	lexicon		right	
+lexicon-term-reading	90896	Forrester	fˈɔɹəstəɹ	fˈɒɹɪstə	fˈɔɹəstəɹ	lexicon	English	right	
+unsupported-script	3741	翼	❓	❓	❓	none	Chinese/Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	5236	Андрэй	❓	❓	❓	none	Belarusian	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	6497	さくら	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	8889	凛	❓	❓	❓	none	ja	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	11434	Зоран	❓	❓	❓	none	Macedonian	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	15142	隆彦	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	15924	Даніла	❓	❓	❓	none	Belarusian	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	16477	有紀	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	17536	とものぶ	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	17556	進	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	18028	宏文	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	20197	清一	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	24439	徳五郎	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	25717	信長	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	25761	眞琴	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	25795	龍太郎	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	27307	Радко	❓	❓	❓	none	Bulgarian/Macedonian/Serbian	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	27781	Еремей	❓	❓	❓	none	Russian	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	28169	つるよ	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	28239	旬	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	28257	浩樹	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	31876	誠太郎	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	35795	かねみつ	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	35803	きよあき	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	35856	のぶ	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	35874	やすしげ	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	35889	七帆	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	35915	博恵	❓	❓	❓	none	ja	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	36016	未空	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+unsupported-script	36031	浩弥	❓	❓	❓	none	Japanese	wrong	reads nothing (❓): the voice skips the name
+collision-word	172	Roger	ɹˈɑʤəɹ	ɹˈɒʤə	ɹˈɑʤəɹ	gold	Catalan/Dutch/English/French/Polish	right	
+collision-word	593	Da	dˌə	dˌə	dˌə	gold	Chinese/Korean/multiple languages	wrong	reduced to 'duh'; the Chinese/Korean name is DAH
+collision-word	1391	Lewis	lˈuəs	lˈuːɪs	lˈuəs	gold	English	right	
+collision-word	2306	Mason	mˈAsᵊn	mˈAsᵊn	mˈAsᵊn	gold	English	right	
+collision-word	3827	Pan	pˈæn	pˈan	pˈæn	gold	Chinese/Korean	wrong	English 'pan'; the Chinese name Pan is PAHN
+collision-word	4022	Lance	lˈæns	lˈɑːns	lˈæns	gold	English	right	
+collision-word	4045	Peace	pˈis	pˈiːs	pˈis	gold		right	
+collision-word	6340	Ado	ədˈu	ədˈuː	ədˈu	gold	Amis/Estonian	wrong	read uh-DOO (much ado); the Estonian name is AH-doh
+collision-word	12263	Pagan	pˈAɡᵊn	pˈAɡᵊn	pˈAɡᵊn	gold		right	PAY-gun
+collision-word	13952	Beryl	bˈɛɹəl	bˈɛɹɪl	bˈɛɹəl	gold	English	right	
+collision-word	15286	Ad	ˈæd	ˈad	ˈæd	gold		wrong	English 'ad'; the Dutch name Ad is AHT
+collision-word	16677	Dusty	dˈʌsti	dˈʌsti	dˈʌsti	gold		right	
+collision-word	16679	Dag	dˈæɡ	dˈaɡ	dˈæɡ	gold	Icelandic	wrong	English 'dag'; the Scandinavian name is DAHG
+collision-word	19606	Selva	sˈɛlvə	sˈɛlvə	sˈɛlvə	gold	Latvian	right	
+collision-word	29333	Jihad	ʤəhˈɑd	ʤɪhˈad	ʤəhˈɑd	gold		right	jih-HAHD
+collision-word	40513	Ravin	ɹˈævᵊn	ɹˈavɪn	ɹˈævᵊn	gold		unsure	read RAV-un
+collision-word	41026	Pax	pˈæks	pˈaks	pˈæks	gold		right	
+collision-word	49271	Oriel	ˈɔɹiəl	ˈɔːɹɪəl	ˈɔɹiəl	gold	Latin	right	
+collision-word	58485	Oasis	OˈAsɪs	QˈAsɪs	OˈAsɪs	gold		right	
+collision-word	61959	Gracious	ɡɹˈAʃəs	ɡɹˈAʃəs	ɡɹˈAʃəs	gold		right	
+collision-word	72719	Sender	sˈɛndəɹ	sˈɛndə	sˈɛndəɹ	gold		right	
+collision-word	73346	Wood	wˈʊd	wˈʊd	wˈʊd	gold	en	right	
+collision-word	80324	Serai	səɹˈI	sɪɹˈI	səɹˈI	gold		unsure	read suh-RYE
+collision-word	80467	Dilly	dˈɪli	dˈɪli	dˈɪli	gold		right	
+collision-word	84747	Zee	zˈi	zˈiː	zˈi	gold		right	
+collision-word	85168	Greatness	ɡɹˈAtnəs	ɡɹˈAtnɪs	ɡɹˈAtnəs	gold		right	
+collision-word	94411	Crash	kɹˈæʃ	kɹˈaʃ	kɹˈæʃ	gold		right	
+collision-word	96543	Lateen	lətˈin	lətˈiːn	lətˈin	gold		unsure	rare as a name
+collision-word	98358	Malachite	mˈæləkˌIt	mˈaləkIt	mˈæləkˌIt	gold		right	
+collision-word	99403	Relic	ɹˈɛlɪk	ɹˈɛlɪk	ɹˈɛlɪk	gold		right	
+guesser-reading	5105	Margaretha	mˌɑɹɡəɹˈɛθə	mˌɑːɡəɹˈɛθə	mˌɑɹɡəɹˈɛθə	guesser	Dutch	wrong	read mar-guh-RETH-uh; Dutch/German mar-ga-RAY-ta, th = t
+guesser-reading	9921	Margarito	mɑɹɡɑɹˈitO	mɑːɡɑɹˈiːtQ	mɑɹɡɑɹˈitO	guesser		right	
+guesser-reading	16305	Kapitolina	kˈæpɪtəlˌinə	kˈapɪtəlˌiːnə	kˈæpɪtəlˌinə	guesser	Russian	wrong	stress on KAP; Russian ka-pi-ta-LEE-na
+guesser-reading	18368	Khouma	kˈumə	kˈuːmə	kˈumə	guesser		right	KOO-ma
+guesser-reading	19334	Balbino	bɑlbˈinO	bɒlbˈiːnQ	bɑlbˈinO	guesser	Italian	right	
+guesser-reading	23429	Byeong-dae	bˈIˌɔŋdˌA	bˈIˌɔːŋdˌA	bˈIˌɔŋdˌA	guesser	Korean	wrong	read BYE-ong-day; Korean BYUNG-deh
+guesser-reading	26318	Hong-seon	hˈɔŋsˌiən	hˈɔːŋsˌiːən	hˈɔŋsˌiən	guesser	Korean	wrong	read hong-SEE-un; Korean HONG-sun
+guesser-reading	29115	Betzabé	bɛtzˈɑbA	bɛtzˈɒbA	bɛtzˈɑbA	guesser		wrong	stress on ZAH; Spanish bet-sa-BEH
+guesser-reading	31434	Mikan	mˈikən	mˈiːkən	mˈikən	guesser	Japanese	right	MEE-kun
+guesser-reading	37456	Ann-Charlotte	ˈænʧˌɑɹlət	ˈanʧˌɑːlət	ˈænʧˌɑɹlət	guesser	Swedish	wrong	ch read as in church; ann-shar-LOT
+guesser-reading	38112	Abdulahi	ɑbdulˈɑhi	ɒbdulˈɒhi	ɑbdulˈɑhi	guesser		right	
+guesser-reading	44572	Denee	dɪnˈi	dɪnˈiː	dɪnˈi	guesser		wrong	read dih-NEE; usually duh-NAY
+guesser-reading	45677	Falaq	fˈælˌæk	fˈalˌak	fˈælˌæk	guesser		right	
+guesser-reading	49808	Nayade	nˌIˈɑd	nˌIˈɒd	nˌIˈɑd	guesser		wrong	read nye-AHD; Spanish NAH-ya-deh
+guesser-reading	55343	Shakai	ʃəkˈI	ʃəkˈI	ʃəkˈI	guesser		unsure	rare
+guesser-reading	55745	Karisha	kˈæɹɪʃə	kˈaɹɪʃə	kˈæɹɪʃə	guesser		wrong	read KAR-i-shuh; usually kuh-REE-shuh
+guesser-reading	62898	Bobbi-Jo	bˈɑbiʤˌO	bˈɒbiʤˌQ	bˈɑbiʤˌO	guesser		right	
+guesser-reading	64389	Davinci	dəvˈɪnʧi	dəvˈɪnʧi	dəvˈɪnʧi	guesser		right	
+guesser-reading	64836	Kynadi	kɪnˈɑdi	kɪnˈɒdi	kɪnˈɑdi	guesser		wrong	read kih-NAH-dee; usually KIN-uh-dee
+guesser-reading	68807	Hayfa	hˈAfə	hˈAfə	hˈAfə	guesser		right	HAY-fuh
+guesser-reading	73246	Mayukha	mIˈukə	mIˈuːkə	mIˈukə	guesser		unsure	read my-OO-kuh
+guesser-reading	75117	Carlei	kˈɑɹli	kˈɑːli	kˈɑɹli	guesser		right	KAR-lee
+guesser-reading	79230	Abdelmjid	ˌæbdˈɛlmʤɪd	ˌabdˈɛlmʤɪd	ˌæbdˈɛlmʤɪd	guesser		wrong	read ab-DEL-mjid; ab-del-MJEED
+guesser-reading	80077	Hélina	hˈɛlɪnə	hˈɛlɪnə	hˈɛlɪnə	guesser		wrong	read HEL-i-nuh; French ay-lee-NA
+guesser-reading	87770	Lakeyshia	lˈAkiə	lˈAkiə	lˈAkiə	guesser		wrong	read LAY-kee-uh; luh-KEE-shuh
+guesser-reading	88360	Elahni	ˈɛlɑni	ˈɛlɒni	ˈɛlɑni	guesser		wrong	read EL-ah-nee; eh-LAH-nee
+guesser-reading	90659	Soumayyah	sumˈIə	sumˈIə	sumˈIə	guesser		right	soo-MY-uh
+guesser-reading	90959	Zyian	zˈIən	zˈIən	zˈIən	guesser		right	
+guesser-reading	91819	Taiyari	tˌIjˈɑɹi	tˌIjˈɑɹi	tˌIjˈɑɹi	guesser		right	
+guesser-reading	98097	Amorina	ɑmɔɹˈinə	ɒmɔɹˈiːnə	ɑmɔɹˈinə	guesser		right	
+dictionary-reading-needs-check	3167	Rico	ɹˈikO	ɹˈiːkQ	ɹˈikO	gold	Dutch	right	
+dictionary-reading-needs-check	3483	Agnès	ˈæɡnɪs	ˈaɡnɪs	ˈæɡnɪs	cmudict	Catalan/French	wrong	read AG-nis; French ahn-YESS
+dictionary-reading-needs-check	4683	Yuri	jˈʊɹi	jˈʊɹi	jˈʊɹi	gold	Atayal/Dutch/Italian/Japanese/Seediq	right	
+dictionary-reading-needs-check	6739	Wilfrid	wˈɪlfɹɪd	wˈɪlfɹɪd	wˈɪlfɹɪd	cmudict		right	
+dictionary-reading-needs-check	9425	Juan Ramón	wˈɑn ɹəmˈOn	wˈɒn ɹəmˈQn	wˈɑn ɹəmˈOn	cmudict	es	right	anglicised
+dictionary-reading-needs-check	10690	Poul	pˈul	pˈuːl	pˈul	cmudict	Danish	wrong	read POOL; Danish POWL
+dictionary-reading-needs-check	18143	Julio Cesar	ʤˈuliO sˈizəɹ	ʤˈuːliQ sˈiːzə	ʤˈuliO sˈizəɹ	cmudict		wrong	read JOO-lee-oh SEE-zer; Spanish HOO-lyo SEH-sar
+dictionary-reading-needs-check	39808	Jácome	ʤəkˈOm	ʤəkˈQm	ʤəkˈOm	cmudict	Portuguese	wrong	read juh-KOHM; Portuguese ZHAH-ko-mee
+dictionary-reading-needs-check	40140	Sergio Andres	sˈɜɹʤiO ˈɑndɹAz	sˈɜːʤiQ ˈɒndɹAz	sˈɜɹʤiO ˈɑndɹAz	cmudict		wrong	Andres stressed on AHN; Spanish ahn-DRESS
+dictionary-reading-needs-check	49492	Elvíra	ɛlvˈIɹə	ɛlvˈIɹə	ɛlvˈIɹə	cmudict	Czech/Icelandic	wrong	read el-VYE-ruh; Czech EL-vee-ra
+dictionary-reading-needs-check	50081	Matejka	mətˈAkə	mətˈAkə	mətˈAkə	cmudict		wrong	read muh-TAY-kuh; Czech MAH-tey-ka
+dictionary-reading-needs-check	53008	Sinaï	sˈInI	sˈInI	sˈInI	gold		wrong	read SYE-nye; French see-na-EE
+dictionary-reading-needs-check	57189	Joao Carlos	ʤˈOO kˈɑɹlOs	ʤˈQQ kˈɑːlQs	ʤˈOO kˈɑɹlOs	cmudict		wrong	Joao read JOH-oh; Portuguese ZHWOW
+dictionary-reading-needs-check	63732	Jose Patricio	hˌOzˈA pətɹˈɪsiO	hˌQzˈA pətɹˈɪsiQ	hˌOzˈA pətɹˈɪsiO	cmudict		wrong	Patricio read puh-TRISS-ee-oh; pa-TREE-syo
+dictionary-reading-needs-check	72569	Antonio Valentin	æntˈOniO vɑlAntˈin	antˈQniQ vɒlAntˈiːn	æntˈOniO vɑlAntˈin	cmudict		right	anglicised
+dictionary-reading-needs-check	72691	Cristina Gabriela	kɹɪstˈinə ɡɑbɹiˈɛlə	kɹɪstˈiːnə ɡɒbɹiˈɛlə	kɹɪstˈinə ɡɑbɹiˈɛlə	cmudict		right	
+dictionary-reading-needs-check	73317	Maria Joao	mˈɑɹiə ʤˈOO	mˈaɹɪə ʤˈQQ	mˈɑɹiə ʤˈOO	gold+cmudict		wrong	Joao read JOH-oh; ZHWOW
+dictionary-reading-needs-check	77787	Aaron Daniel	ˈɛɹən dˈænjəl	ˈɛːɹən dˈanjəl	ˈɛɹən dˈænjəl	gold		right	
+dictionary-reading-needs-check	82213	Peter William	pˈiTəɹ wˈɪljəm	pˈiːtə wˈɪljəm	pˈiTəɹ wˈɪljəm	gold		right	
+dictionary-reading-needs-check	88999	Jessica Gabriela	ʤˈɛsɪkə ɡɑbɹiˈɛlə	ʤˈɛsɪkə ɡɒbɹiˈɛlə	ʤˈɛsɪkə ɡɑbɹiˈɛlə	cmudict		right	
+dictionary-reading-needs-check	89042	Rosa Liliana	ɹˈOzə lˌɪliˈænə	ɹˈQzə lˌɪliˈanə	ɹˈOzə lˌɪliˈænə	gold+cmudict		right	
+dictionary-reading-needs-check	89733	Liam Samuel	lˈiəm sˈæmjəwəl	lˈiːəm sˈamjʊəl	lˈiəm sˈæmjəwəl	gold		right	
+dictionary-reading-needs-check	92081	Jonathan Joel	ʤˈɑnəθən ʤˈOᵊl	ʤˈɒnəθᵊn ʤˈQəl	ʤˈɑnəθən ʤˈOᵊl	gold		right	
+dictionary-reading-needs-check	93979	Maria Portal	mˈɑɹiə pˈɔɹTᵊl	mˈaɹɪə pˈɔːtᵊl	mˈɑɹiə pˈɔɹTᵊl	gold		wrong	Portal read POR-tl; Spanish por-TAHL
+dictionary-reading-needs-check	93988	Miguel Mariano	mɪɡˈɛl mˌɛɹiˈɑnO	mɪɡˈɛl mˌɛɹiˈɒnQ	mɪɡˈɛl mˌɛɹiˈɑnO	cmudict		right	
+dictionary-reading-needs-check	94318	Nancy Liliana	nˈænsi lˌɪliˈænə	nˈansi lˌɪliˈanə	nˈænsi lˌɪliˈænə	gold+cmudict		right	
+dictionary-reading-needs-check	95944	Manuel Serafin	mɑnwˈɛl sˈɛɹəfɪn	mɒnwˈɛl sˈɛɹəfɪn	mɑnwˈɛl sˈɛɹəfɪn	cmudict		wrong	Serafin read SER-uh-fin; seh-ra-FEEN
+dictionary-reading-needs-check	98998	Angela Concepcion	ˈænʤələ kənsˌɛpsiˈOn	ˈanʤələ kənsˌɛpsiˈQn	ˈænʤələ kənsˌɛpsiˈOn	cmudict		wrong	Angela read AN-juh-luh; Spanish AHN-heh-la
+dictionary-reading-needs-check	99500	Daniel Fabian	dˈænjəl fˈAbiən	dˈanjəl fˈAbɪən	dˈænjəl fˈAbiən	gold		right	
+dictionary-reading-needs-check	99623	Silvia Daniela	sˈɪlviə dænjˈɛlə	sˈɪlviə danjˈɛlə	sˈɪlviə dænjˈɛlə	cmudict		right	
+dictionary-reading-likely-right	3368	Ross	ɹˈɑs	ɹˈɒs	ɹˈɑs	cmudict	English	right	
+dictionary-reading-likely-right	4082	Genevieve	ʤˈɛnəvˌiv	ʤˈɛnəvˌiːv	ʤˈɛnəvˌiv	cmudict	English	right	
+dictionary-reading-likely-right	8369	Noreen	nəɹˈin	nəɹˈiːn	nəɹˈin	cmudict	Irish	right	
+dictionary-reading-likely-right	16026	Eben	ˈɛbən	ˈɛbən	ˈɛbən	cmudict		right	
+dictionary-reading-likely-right	16029	Jewell	ʤˈuɪl	ʤˈuːɪl	ʤˈuɪl	cmudict	English	right	
+dictionary-reading-likely-right	17913	Keziah	kəzˈiə	kəzˈiːə	kəzˈiə	cmudict		unsure	read kuh-ZEE-uh; often kuh-ZYE-uh
+dictionary-reading-likely-right	22200	Ellena	ɛlˈɛnə	ɛlˈɛnə	ɛlˈɛnə	cmudict	Latvian	unsure	read el-EN-uh; often eh-LAY-nuh
+dictionary-reading-likely-right	22395	Axton	ˈækstən	ˈakstən	ˈækstən	cmudict		right	
+dictionary-reading-likely-right	29299	Vonnie	vˈɑni	vˈɒni	vˈɑni	cmudict		right	
+dictionary-reading-likely-right	32258	Elvie	ˈɛlvi	ˈɛlvi	ˈɛlvi	cmudict		right	
+dictionary-reading-likely-right	41003	Pearse	pˈɜɹs	pˈɜːs	pˈɜɹs	cmudict	en	wrong	read PURSE; the Irish name is PEERSS
+dictionary-reading-likely-right	41254	Ahren	ˈɑɹən	ˈɑɹən	ˈɑɹən	cmudict		unsure	read AR-un; often AIR-un
+dictionary-reading-likely-right	42765	Maggi	mˈæʤi	mˈaʤi	mˈæʤi	cmudict	Icelandic	wrong	read MAJ-ee; the name is MAG-ee
+dictionary-reading-likely-right	43202	Bucky	bˈʌki	bˈʌki	bˈʌki	cmudict	en	right	
+dictionary-reading-likely-right	45124	Gardiner	ɡˈɑɹdnəɹ	ɡˈɑːdnə	ɡˈɑɹdnəɹ	cmudict	English	right	
+dictionary-reading-likely-right	45695	Lysandra	lˌIsˈændɹə	lˌIsˈandɹə	lˌIsˈændɹə	cmudict	multiple languages	right	
+dictionary-reading-likely-right	46664	Kimble	kˈɪmbəl	kˈɪmbəl	kˈɪmbəl	cmudict		right	
+dictionary-reading-likely-right	49408	Bobbette	bˈɑbˌɛt	bˈɒbˌɛt	bˈɑbˌɛt	cmudict		wrong	stressed BOB-et; bah-BET
+dictionary-reading-likely-right	49806	River-Rose	ɹˈɪvəɹɹˌOz	ɹˌɪvəɹˈQz	ɹˈɪvəɹɹˌOz	gold		right	
+dictionary-reading-likely-right	50553	Bern	bˈɜɹn	bˈɜːn	bˈɜɹn	cmudict	English	right	
+dictionary-reading-likely-right	53424	Taylor-James	tˌAləɹʤˈAmz	tˈAləʤˌAmz	tˌAləɹʤˈAmz	gold		right	
+dictionary-reading-likely-right	54656	Fraizer	fɹˈAʒəɹ	fɹˈAʒə	fɹˈAʒəɹ	cmudict		right	
+dictionary-reading-likely-right	59867	Connelly	kˈɑnəli	kˈɒnəli	kˈɑnəli	cmudict		right	
+dictionary-reading-likely-right	63838	Utah	jˈutˌɔ	jˈuːtɔː	jˈutˌɔ	gold		right	
+dictionary-reading-likely-right	69702	Chon	ʧˈɑn	ʧˈɒn	ʧˈɑn	cmudict	Korean	unsure	read CHAHN; Spanish nickname CHOHN, Korean CHUN
+dictionary-reading-likely-right	70825	Karun	kəɹˈun	kəɹˈuːn	kəɹˈun	cmudict		wrong	read kuh-ROON; Indian KAH-run
+dictionary-reading-likely-right	72030	Labella	ləbˈɛlə	ləbˈɛlə	ləbˈɛlə	cmudict		right	
+dictionary-reading-likely-right	79620	Kasmira	kəsmˈIɹə	kəsmˈIɹə	kəsmˈIɹə	cmudict		wrong	read kuz-MYE-ruh; kaz-MEER-uh
+dictionary-reading-likely-right	83974	Haston	hˈæstən	hˈastən	hˈæstən	cmudict		right	
+dictionary-reading-likely-right	93294	Eriksen	ˈɛɹɪksən	ˈɛɹɪksən	ˈɛɹɪksən	cmudict		right	

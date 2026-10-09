@@ -1,0 +1,995 @@
+{
+ "candidates": 100000,
+ "by_bucket": {
+  "covered-by-lexicon": 134,
+  "lexicon-term-reading": 316,
+  "unsupported-script": 2610,
+  "collision-word": 2104,
+  "guesser-reading": 71452,
+  "dictionary-reading-needs-check": 16457,
+  "dictionary-reading-likely-right": 6927
+ },
+ "by_bucket_top_1000": {
+  "covered-by-lexicon": 16,
+  "lexicon-term-reading": 6,
+  "unsupported-script": 49,
+  "collision-word": 87,
+  "guesser-reading": 186,
+  "dictionary-reading-needs-check": 489,
+  "dictionary-reading-likely-right": 167
+ },
+ "by_bucket_top_10000": {
+  "covered-by-lexicon": 38,
+  "lexicon-term-reading": 52,
+  "unsupported-script": 579,
+  "collision-word": 459,
+  "guesser-reading": 5076,
+  "dictionary-reading-needs-check": 2816,
+  "dictionary-reading-likely-right": 980
+ },
+ "by_bucket_multiword": {
+  "covered-by-lexicon": 1,
+  "lexicon-term-reading": 0,
+  "unsupported-script": 11,
+  "collision-word": 0,
+  "guesser-reading": 8902,
+  "dictionary-reading-needs-check": 10189,
+  "dictionary-reading-likely-right": 491
+ },
+ "by_source": {
+  "guesser": 68707,
+  "cmudict": 14218,
+  "gold": 6794,
+  "none": 2593,
+  "cmudict+gold": 2078,
+  "gold+cmudict": 1938,
+  "gold+guesser": 788,
+  "cmudict+guesser": 787,
+  "guesser+cmudict": 552,
+  "lexicon": 497,
+  "guesser+gold": 438,
+  "lexicon+gold": 119,
+  "gold+lexicon": 101,
+  "guesser+lexicon": 100,
+  "lexicon+cmudict": 89,
+  "cmudict+lexicon": 83,
+  "lexicon+guesser": 81,
+  "gold+letters": 23,
+  "gold+cmudict+guesser": 5,
+  "gold+guesser+cmudict": 2,
+  "cmudict+letters+lexicon": 1,
+  "cmudict+none": 1,
+  "guesser+letters": 1,
+  "guesser+letters+lexicon": 1,
+  "guesser+gold+cmudict": 1,
+  "none+guesser": 1,
+  "cmudict+gold+guesser": 1
+ },
+ "by_collision": {
+  "none": 97296,
+  "gold-only": 456,
+  "word": 2248
+ },
+ "collision_word_frequency": {
+  "common": 702,
+  "rare": 655,
+  "uncommon": 878,
+  "unknown": 13
+ },
+ "sentence_reading_differs": 50,
+ "by_script": {
+  "latin": 97390,
+  "cjk": 1081,
+  "hiragana": 728,
+  "cyrillic": 559,
+  "greek": 66,
+  "arabic": 48,
+  "hangul": 41,
+  "hebrew": 32,
+  "armenian": 16,
+  "georgian": 13,
+  "latin/modifier": 10,
+  "cjk/hiragana": 6,
+  "cyrillic/latin": 4,
+  "cjk/ideographic": 3,
+  "arabic/latin": 1,
+  "thai": 1,
+  "hebrew/latin": 1
+ },
+ "by_first_country": {
+  "US": {
+   "names": 51915,
+   "buckets": {
+    "dictionary-reading-needs-check": 3417,
+    "dictionary-reading-likely-right": 6279,
+    "collision-word": 1843,
+    "guesser-reading": 39987,
+    "covered-by-lexicon": 110,
+    "lexicon-term-reading": 279
+   }
+  },
+  "ES": {
+   "names": 14335,
+   "buckets": {
+    "guesser-reading": 5047,
+    "collision-word": 35,
+    "dictionary-reading-needs-check": 9248,
+    "lexicon-term-reading": 4,
+    "covered-by-lexicon": 1
+   }
+  },
+  "FR": {
+   "names": 7194,
+   "buckets": {
+    "guesser-reading": 6267,
+    "dictionary-reading-needs-check": 863,
+    "lexicon-term-reading": 8,
+    "collision-word": 56
+   }
+  },
+  "GB-EAW": {
+   "names": 4605,
+   "buckets": {
+    "guesser-reading": 3903,
+    "dictionary-reading-needs-check": 103,
+    "collision-word": 26,
+    "lexicon-term-reading": 3,
+    "dictionary-reading-likely-right": 565,
+    "covered-by-lexicon": 5
+   }
+  },
+  "KR": {
+   "names": 3989,
+   "buckets": {
+    "guesser-reading": 3480,
+    "unsupported-script": 40,
+    "dictionary-reading-needs-check": 469
+   }
+  },
+  "JP": {
+   "names": 3572,
+   "buckets": {
+    "unsupported-script": 1799,
+    "guesser-reading": 1681,
+    "dictionary-reading-needs-check": 87,
+    "covered-by-lexicon": 1,
+    "collision-word": 3,
+    "lexicon-term-reading": 1
+   }
+  },
+  "NL": {
+   "names": 1011,
+   "buckets": {
+    "dictionary-reading-needs-check": 132,
+    "guesser-reading": 855,
+    "collision-word": 21,
+    "lexicon-term-reading": 2,
+    "unsupported-script": 1
+   }
+  },
+  "DE": {
+   "names": 989,
+   "buckets": {
+    "dictionary-reading-needs-check": 221,
+    "guesser-reading": 757,
+    "unsupported-script": 2,
+    "collision-word": 8,
+    "lexicon-term-reading": 1
+   }
+  },
+  "TR": {
+   "names": 826,
+   "buckets": {
+    "unsupported-script": 6,
+    "guesser-reading": 779,
+    "dictionary-reading-needs-check": 40,
+    "collision-word": 1
+   }
+  },
+  "CA": {
+   "names": 787,
+   "buckets": {
+    "dictionary-reading-needs-check": 38,
+    "guesser-reading": 690,
+    "collision-word": 8,
+    "dictionary-reading-likely-right": 51
+   }
+  },
+  "FI": {
+   "names": 626,
+   "buckets": {
+    "guesser-reading": 593,
+    "dictionary-reading-needs-check": 25,
+    "collision-word": 6,
+    "lexicon-term-reading": 2
+   }
+  },
+  "BR": {
+   "names": 597,
+   "buckets": {
+    "dictionary-reading-needs-check": 214,
+    "guesser-reading": 379,
+    "collision-word": 3,
+    "lexicon-term-reading": 1
+   }
+  },
+  "IT": {
+   "names": 582,
+   "buckets": {
+    "guesser-reading": 427,
+    "dictionary-reading-needs-check": 145,
+    "collision-word": 9,
+    "lexicon-term-reading": 1
+   }
+  },
+  "SE": {
+   "names": 434,
+   "buckets": {
+    "guesser-reading": 337,
+    "unsupported-script": 1,
+    "dictionary-reading-needs-check": 89,
+    "collision-word": 5,
+    "lexicon-term-reading": 2
+   }
+  },
+  "NO": {
+   "names": 406,
+   "buckets": {
+    "dictionary-reading-needs-check": 42,
+    "guesser-reading": 356,
+    "collision-word": 7,
+    "lexicon-term-reading": 1
+   }
+  },
+  "EE": {
+   "names": 401,
+   "buckets": {
+    "collision-word": 6,
+    "guesser-reading": 352,
+    "dictionary-reading-needs-check": 39,
+    "lexicon-term-reading": 3,
+    "unsupported-script": 1
+   }
+  },
+  "HU": {
+   "names": 374,
+   "buckets": {
+    "dictionary-reading-needs-check": 130,
+    "guesser-reading": 243,
+    "collision-word": 1
+   }
+  },
+  "unknown": {
+   "names": 359,
+   "buckets": {
+    "guesser-reading": 330,
+    "dictionary-reading-needs-check": 17,
+    "unsupported-script": 9,
+    "collision-word": 2,
+    "lexicon-term-reading": 1
+   }
+  },
+  "IS": {
+   "names": 348,
+   "buckets": {
+    "dictionary-reading-needs-check": 50,
+    "guesser-reading": 297,
+    "collision-word": 1
+   }
+  },
+  "CN": {
+   "names": 309,
+   "buckets": {
+    "unsupported-script": 19,
+    "guesser-reading": 196,
+    "dictionary-reading-needs-check": 93,
+    "lexicon-term-reading": 1
+   }
+  },
+  "Kingdom of Denmark": {
+   "names": 288,
+   "buckets": {
+    "guesser-reading": 236,
+    "dictionary-reading-needs-check": 47,
+    "collision-word": 4,
+    "lexicon-term-reading": 1
+   }
+  },
+  "SI": {
+   "names": 286,
+   "buckets": {
+    "guesser-reading": 253,
+    "dictionary-reading-needs-check": 29,
+    "collision-word": 3,
+    "lexicon-term-reading": 1
+   }
+  },
+  "RU": {
+   "names": 279,
+   "buckets": {
+    "unsupported-script": 197,
+    "guesser-reading": 77,
+    "dictionary-reading-needs-check": 3,
+    "collision-word": 2
+   }
+  },
+  "IN": {
+   "names": 278,
+   "buckets": {
+    "guesser-reading": 254,
+    "dictionary-reading-needs-check": 20,
+    "collision-word": 4
+   }
+  },
+  "LV": {
+   "names": 275,
+   "buckets": {
+    "dictionary-reading-needs-check": 49,
+    "guesser-reading": 223,
+    "collision-word": 3
+   }
+  },
+  "PL": {
+   "names": 262,
+   "buckets": {
+    "guesser-reading": 245,
+    "dictionary-reading-needs-check": 13,
+    "unsupported-script": 4
+   }
+  },
+  "IE": {
+   "names": 246,
+   "buckets": {
+    "dictionary-reading-needs-check": 59,
+    "guesser-reading": 142,
+    "covered-by-lexicon": 16,
+    "dictionary-reading-likely-right": 28,
+    "collision-word": 1
+   }
+  },
+  "LT": {
+   "names": 245,
+   "buckets": {
+    "dictionary-reading-needs-check": 15,
+    "guesser-reading": 229,
+    "unsupported-script": 1
+   }
+  },
+  "GR": {
+   "names": 219,
+   "buckets": {
+    "unsupported-script": 61,
+    "guesser-reading": 142,
+    "dictionary-reading-needs-check": 16
+   }
+  },
+  "BG": {
+   "names": 208,
+   "buckets": {
+    "unsupported-script": 169,
+    "guesser-reading": 36,
+    "dictionary-reading-needs-check": 3
+   }
+  },
+  "CZ": {
+   "names": 176,
+   "buckets": {
+    "dictionary-reading-needs-check": 42,
+    "guesser-reading": 132,
+    "unsupported-script": 2
+   }
+  },
+  "IL": {
+   "names": 170,
+   "buckets": {
+    "guesser-reading": 123,
+    "unsupported-script": 34,
+    "dictionary-reading-needs-check": 13
+   }
+  },
+  "NG": {
+   "names": 167,
+   "buckets": {
+    "unsupported-script": 1,
+    "guesser-reading": 152,
+    "collision-word": 7,
+    "dictionary-reading-needs-check": 7
+   }
+  },
+  "IR": {
+   "names": 166,
+   "buckets": {
+    "unsupported-script": 11,
+    "guesser-reading": 149,
+    "dictionary-reading-needs-check": 6
+   }
+  },
+  "BE": {
+   "names": 166,
+   "buckets": {
+    "guesser-reading": 152,
+    "dictionary-reading-needs-check": 12,
+    "collision-word": 2
+   }
+  },
+  "AL": {
+   "names": 159,
+   "buckets": {
+    "dictionary-reading-needs-check": 12,
+    "guesser-reading": 146,
+    "collision-word": 1
+   }
+  },
+  "ID": {
+   "names": 149,
+   "buckets": {
+    "guesser-reading": 133,
+    "dictionary-reading-needs-check": 11,
+    "unsupported-script": 1,
+    "collision-word": 3,
+    "lexicon-term-reading": 1
+   }
+  },
+  "AR": {
+   "names": 145,
+   "buckets": {
+    "dictionary-reading-needs-check": 93,
+    "guesser-reading": 51,
+    "collision-word": 1
+   }
+  },
+  "NZ": {
+   "names": 143,
+   "buckets": {
+    "dictionary-reading-needs-check": 41,
+    "guesser-reading": 93,
+    "collision-word": 8,
+    "lexicon-term-reading": 1
+   }
+  },
+  "PE": {
+   "names": 135,
+   "buckets": {
+    "dictionary-reading-needs-check": 56,
+    "guesser-reading": 76,
+    "collision-word": 2,
+    "covered-by-lexicon": 1
+   }
+  }
+ },
+ "by_origin": {
+  "unknown": {
+   "names": 66457,
+   "buckets": {
+    "dictionary-reading-needs-check": 10876,
+    "guesser-reading": 49755,
+    "collision-word": 1137,
+    "unsupported-script": 19,
+    "dictionary-reading-likely-right": 4456,
+    "lexicon-term-reading": 168,
+    "covered-by-lexicon": 46
+   }
+  },
+  "Korean": {
+   "names": 4055,
+   "buckets": {
+    "collision-word": 20,
+    "dictionary-reading-needs-check": 486,
+    "guesser-reading": 3486,
+    "unsupported-script": 41,
+    "dictionary-reading-likely-right": 21,
+    "lexicon-term-reading": 1
+   }
+  },
+  "Japanese": {
+   "names": 3999,
+   "buckets": {
+    "dictionary-reading-needs-check": 169,
+    "unsupported-script": 1756,
+    "guesser-reading": 2049,
+    "collision-word": 10,
+    "lexicon-term-reading": 4,
+    "dictionary-reading-likely-right": 8,
+    "covered-by-lexicon": 3
+   }
+  },
+  "English": {
+   "names": 2023,
+   "buckets": {
+    "dictionary-reading-likely-right": 800,
+    "dictionary-reading-needs-check": 239,
+    "collision-word": 263,
+    "guesser-reading": 678,
+    "covered-by-lexicon": 6,
+    "lexicon-term-reading": 37
+   }
+  },
+  "Turkish": {
+   "names": 1374,
+   "buckets": {
+    "dictionary-reading-needs-check": 88,
+    "collision-word": 19,
+    "guesser-reading": 1260,
+    "unsupported-script": 1,
+    "dictionary-reading-likely-right": 5,
+    "lexicon-term-reading": 1
+   }
+  },
+  "Italian": {
+   "names": 1229,
+   "buckets": {
+    "dictionary-reading-needs-check": 375,
+    "guesser-reading": 764,
+    "dictionary-reading-likely-right": 53,
+    "collision-word": 24,
+    "lexicon-term-reading": 10,
+    "covered-by-lexicon": 3
+   }
+  },
+  "en": {
+   "names": 1157,
+   "buckets": {
+    "guesser-reading": 636,
+    "dictionary-reading-needs-check": 60,
+    "collision-word": 84,
+    "dictionary-reading-likely-right": 352,
+    "covered-by-lexicon": 10,
+    "lexicon-term-reading": 15
+   }
+  },
+  "Dutch": {
+   "names": 1104,
+   "buckets": {
+    "collision-word": 41,
+    "dictionary-reading-needs-check": 217,
+    "guesser-reading": 702,
+    "dictionary-reading-likely-right": 140,
+    "lexicon-term-reading": 3,
+    "covered-by-lexicon": 1
+   }
+  },
+  "Spanish": {
+   "names": 755,
+   "buckets": {
+    "dictionary-reading-needs-check": 425,
+    "guesser-reading": 302,
+    "lexicon-term-reading": 2,
+    "dictionary-reading-likely-right": 20,
+    "collision-word": 6
+   }
+  },
+  "Arabic": {
+   "names": 678,
+   "buckets": {
+    "dictionary-reading-needs-check": 117,
+    "unsupported-script": 33,
+    "guesser-reading": 508,
+    "collision-word": 8,
+    "dictionary-reading-likely-right": 10,
+    "lexicon-term-reading": 2
+   }
+  },
+  "multiple languages": {
+   "names": 674,
+   "buckets": {
+    "collision-word": 52,
+    "dictionary-reading-likely-right": 109,
+    "dictionary-reading-needs-check": 96,
+    "guesser-reading": 401,
+    "covered-by-lexicon": 3,
+    "unsupported-script": 6,
+    "lexicon-term-reading": 7
+   }
+  },
+  "French": {
+   "names": 648,
+   "buckets": {
+    "dictionary-reading-needs-check": 181,
+    "guesser-reading": 427,
+    "collision-word": 15,
+    "dictionary-reading-likely-right": 23,
+    "covered-by-lexicon": 1,
+    "lexicon-term-reading": 1
+   }
+  },
+  "Finnish": {
+   "names": 576,
+   "buckets": {
+    "dictionary-reading-needs-check": 32,
+    "guesser-reading": 516,
+    "collision-word": 11,
+    "dictionary-reading-likely-right": 16,
+    "lexicon-term-reading": 1
+   }
+  },
+  "Icelandic": {
+   "names": 523,
+   "buckets": {
+    "dictionary-reading-likely-right": 24,
+    "dictionary-reading-needs-check": 93,
+    "collision-word": 7,
+    "guesser-reading": 396,
+    "lexicon-term-reading": 2,
+    "covered-by-lexicon": 1
+   }
+  },
+  "German": {
+   "names": 522,
+   "buckets": {
+    "dictionary-reading-needs-check": 183,
+    "collision-word": 7,
+    "guesser-reading": 306,
+    "lexicon-term-reading": 2,
+    "dictionary-reading-likely-right": 24
+   }
+  },
+  "Polish": {
+   "names": 476,
+   "buckets": {
+    "dictionary-reading-needs-check": 53,
+    "guesser-reading": 403,
+    "collision-word": 4,
+    "dictionary-reading-likely-right": 16
+   }
+  },
+  "Chinese": {
+   "names": 471,
+   "buckets": {
+    "unsupported-script": 13,
+    "guesser-reading": 364,
+    "dictionary-reading-needs-check": 91,
+    "collision-word": 2,
+    "dictionary-reading-likely-right": 1
+   }
+  },
+  "Latvian": {
+   "names": 436,
+   "buckets": {
+    "dictionary-reading-likely-right": 24,
+    "dictionary-reading-needs-check": 69,
+    "guesser-reading": 334,
+    "lexicon-term-reading": 1,
+    "collision-word": 8
+   }
+  },
+  "Estonian": {
+   "names": 433,
+   "buckets": {
+    "dictionary-reading-needs-check": 43,
+    "guesser-reading": 358,
+    "dictionary-reading-likely-right": 17,
+    "collision-word": 12,
+    "lexicon-term-reading": 3
+   }
+  },
+  "Greek": {
+   "names": 358,
+   "buckets": {
+    "dictionary-reading-needs-check": 46,
+    "dictionary-reading-likely-right": 9,
+    "unsupported-script": 57,
+    "collision-word": 2,
+    "guesser-reading": 242,
+    "lexicon-term-reading": 1,
+    "covered-by-lexicon": 1
+   }
+  },
+  "Portuguese": {
+   "names": 320,
+   "buckets": {
+    "dictionary-reading-needs-check": 151,
+    "guesser-reading": 166,
+    "lexicon-term-reading": 2,
+    "dictionary-reading-likely-right": 1
+   }
+  },
+  "Hungarian": {
+   "names": 318,
+   "buckets": {
+    "dictionary-reading-needs-check": 102,
+    "guesser-reading": 212,
+    "dictionary-reading-likely-right": 2,
+    "collision-word": 2
+   }
+  },
+  "Lithuanian": {
+   "names": 306,
+   "buckets": {
+    "guesser-reading": 285,
+    "dictionary-reading-needs-check": 18,
+    "dictionary-reading-likely-right": 2,
+    "collision-word": 1
+   }
+  },
+  "Slovene": {
+   "names": 275,
+   "buckets": {
+    "dictionary-reading-needs-check": 34,
+    "guesser-reading": 226,
+    "dictionary-reading-likely-right": 11,
+    "collision-word": 4
+   }
+  },
+  "fr": {
+   "names": 274,
+   "buckets": {
+    "lexicon-term-reading": 2,
+    "guesser-reading": 217,
+    "dictionary-reading-needs-check": 37,
+    "collision-word": 6,
+    "covered-by-lexicon": 1,
+    "dictionary-reading-likely-right": 11
+   }
+  },
+  "Hebrew": {
+   "names": 217,
+   "buckets": {
+    "dictionary-reading-needs-check": 31,
+    "dictionary-reading-likely-right": 14,
+    "guesser-reading": 148,
+    "unsupported-script": 21,
+    "collision-word": 3
+   }
+  },
+  "Romanian": {
+   "names": 214,
+   "buckets": {
+    "guesser-reading": 179,
+    "collision-word": 4,
+    "dictionary-reading-needs-check": 30,
+    "dictionary-reading-likely-right": 1
+   }
+  },
+  "Swedish": {
+   "names": 212,
+   "buckets": {
+    "dictionary-reading-needs-check": 54,
+    "guesser-reading": 139,
+    "unsupported-script": 1,
+    "collision-word": 8,
+    "dictionary-reading-likely-right": 7,
+    "lexicon-term-reading": 3
+   }
+  },
+  "Catalan": {
+   "names": 206,
+   "buckets": {
+    "dictionary-reading-needs-check": 66,
+    "guesser-reading": 135,
+    "dictionary-reading-likely-right": 2,
+    "collision-word": 3
+   }
+  },
+  "Chinese/multiple languages": {
+   "names": 192,
+   "buckets": {
+    "collision-word": 11,
+    "dictionary-reading-needs-check": 68,
+    "guesser-reading": 106,
+    "lexicon-term-reading": 3,
+    "dictionary-reading-likely-right": 4
+   }
+  },
+  "ar": {
+   "names": 180,
+   "buckets": {
+    "guesser-reading": 153,
+    "dictionary-reading-needs-check": 17,
+    "unsupported-script": 4,
+    "collision-word": 3,
+    "dictionary-reading-likely-right": 3
+   }
+  },
+  "it": {
+   "names": 171,
+   "buckets": {
+    "dictionary-reading-needs-check": 65,
+    "guesser-reading": 102,
+    "dictionary-reading-likely-right": 4
+   }
+  },
+  "Czech": {
+   "names": 155,
+   "buckets": {
+    "dictionary-reading-needs-check": 39,
+    "guesser-reading": 113,
+    "collision-word": 1,
+    "lexicon-term-reading": 1,
+    "dictionary-reading-likely-right": 1
+   }
+  },
+  "Bulgarian": {
+   "names": 155,
+   "buckets": {
+    "unsupported-script": 119,
+    "guesser-reading": 33,
+    "dictionary-reading-likely-right": 1,
+    "collision-word": 1,
+    "dictionary-reading-needs-check": 1
+   }
+  },
+  "Dutch/English": {
+   "names": 154,
+   "buckets": {
+    "dictionary-reading-likely-right": 91,
+    "collision-word": 29,
+    "covered-by-lexicon": 3,
+    "dictionary-reading-needs-check": 20,
+    "lexicon-term-reading": 5,
+    "guesser-reading": 6
+   }
+  },
+  "he": {
+   "names": 143,
+   "buckets": {
+    "dictionary-reading-needs-check": 17,
+    "guesser-reading": 107,
+    "collision-word": 3,
+    "unsupported-script": 10,
+    "dictionary-reading-likely-right": 5,
+    "lexicon-term-reading": 1
+   }
+  },
+  "Hindi": {
+   "names": 139,
+   "buckets": {
+    "dictionary-reading-needs-check": 15,
+    "guesser-reading": 121,
+    "collision-word": 1,
+    "dictionary-reading-likely-right": 2
+   }
+  },
+  "Bangla": {
+   "names": 138,
+   "buckets": {
+    "guesser-reading": 121,
+    "dictionary-reading-needs-check": 6,
+    "dictionary-reading-likely-right": 8,
+    "collision-word": 2,
+    "lexicon-term-reading": 1
+   }
+  },
+  "Ukrainian": {
+   "names": 134,
+   "buckets": {
+    "unsupported-script": 80,
+    "dictionary-reading-needs-check": 2,
+    "guesser-reading": 52
+   }
+  },
+  "es": {
+   "names": 129,
+   "buckets": {
+    "dictionary-reading-needs-check": 40,
+    "guesser-reading": 80,
+    "dictionary-reading-likely-right": 7,
+    "collision-word": 2
+   }
+  }
+ },
+ "by_disposition": {
+  "unaudited": 99866,
+  "covered": 134
+ },
+ "spot_check": {
+  "covered-by-lexicon": {
+   "assumption": "today's reading is right (a person chose it, for this name)",
+   "expect": "right",
+   "sampled": 30,
+   "right": 25,
+   "wrong": 3,
+   "unsure": 2,
+   "right_rate": 0.83,
+   "wrong_rate": 0.1,
+   "assumption_holds": 0.83
+  },
+  "lexicon-term-reading": {
+   "assumption": "a tech term's reading, made for the term, not the name: needs a check",
+   "expect": "wrong",
+   "sampled": 30,
+   "right": 25,
+   "wrong": 4,
+   "unsure": 1,
+   "right_rate": 0.83,
+   "wrong_rate": 0.13,
+   "assumption_holds": 0.13
+  },
+  "unsupported-script": {
+   "assumption": "the voice says nothing for it today",
+   "expect": "wrong",
+   "sampled": 30,
+   "right": 0,
+   "wrong": 30,
+   "unsure": 0,
+   "right_rate": 0.0,
+   "wrong_rate": 1.0,
+   "assumption_holds": 1.0
+  },
+  "collision-word": {
+   "assumption": "today's reading is the ordinary word's, and the name sounds like the word (so the fix is protection, not correction)",
+   "expect": "right",
+   "sampled": 30,
+   "right": 22,
+   "wrong": 5,
+   "unsure": 3,
+   "right_rate": 0.73,
+   "wrong_rate": 0.17,
+   "assumption_holds": 0.73
+  },
+  "guesser-reading": {
+   "assumption": "a guess: needs research",
+   "expect": "wrong",
+   "sampled": 30,
+   "right": 14,
+   "wrong": 14,
+   "unsure": 2,
+   "right_rate": 0.47,
+   "wrong_rate": 0.47,
+   "assumption_holds": 0.47
+  },
+  "dictionary-reading-needs-check": {
+   "assumption": "a dictionary reading that may be anglicised: needs a check",
+   "expect": "wrong",
+   "sampled": 30,
+   "right": 16,
+   "wrong": 14,
+   "unsure": 0,
+   "right_rate": 0.53,
+   "wrong_rate": 0.47,
+   "assumption_holds": 0.47
+  },
+  "dictionary-reading-likely-right": {
+   "assumption": "an English-usage name read from a dictionary: likely right",
+   "expect": "right",
+   "sampled": 30,
+   "right": 21,
+   "wrong": 5,
+   "unsure": 4,
+   "right_rate": 0.7,
+   "wrong_rate": 0.17,
+   "assumption_holds": 0.7
+  }
+ },
+ "correction_estimate": {
+  "covered-by-lexicon": {
+   "names": 134,
+   "wrong_low": 13,
+   "wrong_high": 22
+  },
+  "lexicon-term-reading": {
+   "names": 316,
+   "wrong_low": 42,
+   "wrong_high": 53
+  },
+  "unsupported-script": {
+   "names": 2610,
+   "wrong_low": 2610,
+   "wrong_high": 2610
+  },
+  "collision-word": {
+   "names": 2104,
+   "wrong_low": 351,
+   "wrong_high": 561
+  },
+  "guesser-reading": {
+   "names": 71452,
+   "wrong_low": 33344,
+   "wrong_high": 38108
+  },
+  "dictionary-reading-needs-check": {
+   "names": 16457,
+   "wrong_low": 7680,
+   "wrong_high": 7680
+  },
+  "dictionary-reading-likely-right": {
+   "names": 6927,
+   "wrong_low": 1154,
+   "wrong_high": 2078
+  },
+  "total": {
+   "names": 100000,
+   "wrong_low": 45194,
+   "wrong_high": 51112
+  }
+ }
+}
