@@ -9,7 +9,7 @@ import CSherpaOnnx
 ///   --mute                                              silence output
 ///   --trace                                             print player state twice a second
 ///   --download-voice                                    download the voice model and exit
-///   --phonemize [--gb] [--raw] < lines.txt               print each line's phonemes
+///   --phonemize [--gb] [--raw] [--explain] < lines.txt   print each line's phonemes (--explain: and each word's source)
 ///   --g2p-test Tests/g2p/regression.json [--verbose]    pronunciation regression suite
 ///   --speech-test Tests/g2p/core-readings.json [--verbose] [--freeze]   reading tests written as plain words
 ///   --bench-lexicon [lexicon.json] [--article f.txt]    custom lexicon load and matching times (made-up 10,000 entries by default)
@@ -221,8 +221,9 @@ enum DebugScript {
         }
         if args.contains("--phonemize") {
             // Reads lines from stdin and prints "line<TAB>phonemes". --gb for British,
-            // --raw to skip text normalization and custom lexicons (the reference pipeline).
-            exit(G2PTest.phonemizeLines(british: args.contains("--gb"), raw: args.contains("--raw")))
+            // --raw to skip text normalization and custom lexicons (the reference pipeline),
+            // --explain to add which source read each word.
+            exit(G2PTest.phonemizeLines(british: args.contains("--gb"), raw: args.contains("--raw"), explain: args.contains("--explain")))
         }
         if let path = value("--g2p-test") {
             exit(G2PTest.run(path: path, verbose: args.contains("--verbose")))

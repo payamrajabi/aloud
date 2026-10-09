@@ -64,6 +64,33 @@ public final class Phonemizer {
         return g2p.phonemize(t, unk: unknown).trimmingCharacters(in: .whitespaces)
     }
 
+    /// For `--phonemize --explain`: each word of `text` as read, its phonemes, and the source
+    /// that gave them: "lexicon" (the custom lexicon, or a pronunciation fixed in the text),
+    /// "gold", "letters" (spelled with the gold lexicon's letters), "cmudict", "guesser"
+    /// (mini-bart), "rule" (numbers and signs) or "none" (unreadable, left out).
+    public func explain(_ text: String) -> [(word: String, phonemes: String, source: String)] {
+        var words: [(word: String, phonemes: String, source: String)] = []
+        let fallback = g2p.fallback
+        g2p.trace = { word, ps, rating in
+            let letters = word.contains(where: \.isLetter)
+            let source: String
+            switch rating {
+            case 5?: source = "lexicon"
+            case _ where !letters: source = "rule"
+            case _ where ps.isEmpty: source = "none"
+            case 4?: source = "gold"
+            case 3?: source = "letters"
+            case 1?: source = fallback?.source(of: word) ?? "guesser"
+            case nil: source = "none"
+            case let r?: source = "rating \(r)"
+            }
+            words.append((word, ps, source))
+        }
+        defer { g2p.trace = nil }
+        _ = phonemize(text)
+        return words
+    }
+
     private static let bareMicro = try! NSRegularExpression(pattern: #"\x{00B5}(?![\p{L}])"#)
 
     /// The micro sign Option-M types (U+00B5) as the Greek μ (U+03BC) the lexicons and unit rules

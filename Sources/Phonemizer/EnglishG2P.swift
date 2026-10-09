@@ -42,6 +42,8 @@ final class EnglishG2P {
     /// Aloud's fixes beyond the reference pipeline (on with text normalization): numbers and
     /// signs in a group the guessers get keep their readings.
     var extended = false
+    /// `--phonemize --explain` only: told each word as read (text, phonemes, rating).
+    var trace: ((String, String, Int?) -> Void)?
 
     init(lexicon: Lexicon, fallback: Fallback?) {
         self.british = lexicon.british
@@ -91,6 +93,7 @@ final class EnglishG2P {
                 words[i] = .many(w)
             }
         }
+        if let trace { Self.trace(words, unk: unk, to: trace) }
         let final: [MToken] = words.map {
             switch $0 {
             case .one(let t): return t
@@ -104,6 +107,28 @@ final class EnglishG2P {
             out += ps + tk.whitespace
         }
         return out
+    }
+
+    /// Each stretch that got its phonemes in one go, before groups are merged: a token with
+    /// phonemes and the empty ones after it that it covers ("Mc" + "Donald" read as one word).
+    private static func trace(_ words: [Word], unk: String, to report: (String, String, Int?) -> Void) {
+        for word in words {
+            let tokens: [MToken]
+            switch word {
+            case .one(let t): tokens = [t]
+            case .many(let ts): tokens = ts
+            }
+            var text = "", ps: String?, rating: Int?, open = false
+            for tk in tokens {
+                if open, tk.phonemes?.isEmpty == true {
+                    text += tk.text
+                    continue
+                }
+                if open { report(text, ps ?? unk, rating) }
+                text = tk.text; ps = tk.phonemes; rating = tk.rating; open = true
+            }
+            if open { report(text, ps ?? unk, rating) }
+        }
     }
 
     /// A group of tokens written without spaces ("16gb", "Ctrl+C", "McDonald"): the longest
