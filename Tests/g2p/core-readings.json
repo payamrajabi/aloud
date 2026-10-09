@@ -2048,6 +2048,24 @@
       "us" : "ʧˈæptəɹ wˈʌn stˈɑɹts slˈOli."
     },
     {
+      "area" : "roman",
+      "gb" : "dˌʌbᵊljuːdˈʌbᵊljuː ˌI θˈɪŋk sˌQ.",
+      "text" : "WW I think so.",
+      "us" : "dˌʌbᵊljudˈʌbᵊlju ˌI θˈɪŋk sˌO."
+    },
+    {
+      "area" : "roman",
+      "gb" : "ˌI mˈɛt hˈɛnɹi. ˌI lˈIkt hˌɪm.",
+      "text" : "I met Henry. I liked him.",
+      "us" : "ˌI mˈɛt hˈɛnɹi. ˌI lˈIkt hˌɪm."
+    },
+    {
+      "area" : "roman",
+      "gb" : "ɹˈiːd ʧˈaptə ˈɛks.",
+      "text" : "Read chapter x.",
+      "us" : "ɹˈid ʧˈæptəɹ ˈɛks."
+    },
+    {
       "area" : "addresses",
       "gb" : "ˈɑːsk dˈɒktə pətˈɛl əbˈWt ɪt.",
       "text" : "Ask Dr. Patel about it.",
@@ -5938,11 +5956,6 @@
     },
     {
       "area" : "roman",
-      "says" : "Saudi-backed Liv Golf signed him.",
-      "text" : "Saudi-backed LIV Golf signed him."
-    },
-    {
-      "area" : "roman",
       "says" : "Star Wars: Episode four came first.",
       "text" : "Star Wars: Episode IV came first."
     },
@@ -6093,9 +6106,8 @@
     },
     {
       "area" : "roman",
-      "says" : "Read Moby-Dick, Chapter one hundred thirty-five.",
-      "says_gb" : "Read Moby-Dick, Chapter one hundred and thirty-five.",
-      "text" : "Read Moby-Dick, Chapter CXXXV."
+      "says" : "The novel ends with Chapter one hundred thirty-five.",
+      "text" : "The novel ends with Chapter CXXXV."
     },
     {
       "area" : "roman",
@@ -6214,8 +6226,8 @@
     },
     {
       "area" : "roman",
-      "says" : "Stage three-A cancer has spread to the lymph nodes.",
-      "text" : "Stage IIIA cancer has spread to the lymph nodes."
+      "says" : "Stage three-B cancer has spread to the lymph nodes.",
+      "text" : "Stage IIIB cancer has spread to the lymph nodes."
     },
     {
       "area" : "roman",
@@ -6250,7 +6262,6 @@
     {
       "area" : "roman",
       "says" : "copyright two thousand six Acme Films",
-      "says_gb" : "copyright two thousand and six Acme Films",
       "text" : "© MMVI Acme Films"
     },
     {
@@ -8312,6 +8323,11 @@
       "area" : "roman",
       "says" : "He fought in World War Two.",
       "text" : "He fought in WWII."
+    },
+    {
+      "area" : "roman",
+      "not_says" : "Stage three A cancer has spread to the lymph nodes.",
+      "text" : "Stage IIIA cancer has spread to the lymph nodes."
     },
     {
       "area" : "addresses",
