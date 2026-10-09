@@ -6,7 +6,8 @@ import Phonemizer
 struct Chunk {
     let range: NSRange      // location in the displayed text (UTF-16)
     let speech: String      // what is actually sent to the voice model
-    let pauseAfter: Double  // seconds of silence after this chunk
+    let pauseAfter: Double  // seconds of silence after this chunk (at 1×)
+    var speed: Float = 1    // the voice's speaking rate: slower for headings and quotes
 }
 
 enum TextPrep {
@@ -14,14 +15,7 @@ enum TextPrep {
 
     /// Normalizes copied text: line endings, hard-wrapped lines, extra spaces.
     static func clean(_ raw: String) -> String {
-        var s = raw
-            .replacingOccurrences(of: "\r\n", with: "\n")
-            .replacingOccurrences(of: "\r", with: "\n")
-            .replacingOccurrences(of: "\u{00A0}", with: " ")
-            .replacingOccurrences(of: "\u{00AD}", with: "")
-            // A byte-order mark or zero-width space glued to a word garbled it ("\u{FEFF}Hello").
-            .replacingOccurrences(of: "\u{FEFF}", with: "")
-            .replacingOccurrences(of: "\u{200B}", with: "")
+        var s = normalizeCharacters(raw)
         func sub(_ pattern: String, _ template: String) {
             s = s.replacingOccurrences(of: pattern, with: template, options: .regularExpression)
         }
@@ -33,63 +27,29 @@ enum TextPrep {
         return s.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
-    static func chunks(for text: String) -> [Chunk] {
+    /// Line endings, no-break spaces and invisible characters.
+    static func normalizeCharacters(_ raw: String) -> String {
+        raw.replacingOccurrences(of: "\r\n", with: "\n")
+            .replacingOccurrences(of: "\r", with: "\n")
+            .replacingOccurrences(of: "\u{00A0}", with: " ")
+            .replacingOccurrences(of: "\u{00AD}", with: "")
+            // A byte-order mark or zero-width space glued to a word garbled it ("\u{FEFF}Hello").
+            .replacingOccurrences(of: "\u{FEFF}", with: "")
+            .replacingOccurrences(of: "\u{200B}", with: "")
+    }
+
+    /// The 1.6.0 chunking (every line a paragraph, pauses 0.08 / 0.22 / 0.5, speed 1), kept
+    /// for `--say --flat` before/after listening and the lexicon benchmark.
+    static func legacyChunks(for text: String) -> [Chunk] {
         let ns = text as NSString
         var result: [Chunk] = []
-        let tokenizer = NLTokenizer(unit: .sentence)
-
         ns.enumerateSubstrings(in: NSRange(location: 0, length: ns.length), options: .byParagraphs) { para, paraRange, _, _ in
             guard let para, hasWords(para) else { return }
-            tokenizer.string = para
-            var sentences: [NSRange] = []
-            tokenizer.enumerateTokens(in: para.startIndex..<para.endIndex) { r, _ in
-                let local = NSRange(r, in: para)
-                sentences.append(NSRange(location: paraRange.location + local.location, length: local.length))
-                return true
-            }
-            if sentences.isEmpty { sentences = [paraRange] }
-            // NLTokenizer ends a sentence after "St.", "Gov." or "Sen." even before a name: "We
-            // flew to St." was read as Street, then a pause, then "Louis on Friday." It also
-            // ends one inside Markdown ("![" | "Screenshot…](docs/install.png)"), and the half
-            // without its "![" was read with its file path.
-            let markup = markupSpans(in: ns, range: paraRange)
-            var joined: [NSRange] = []
-            for sentence in sentences {
-                if let last = joined.last,
-                   markup.contains(where: { $0.location < sentence.location && sentence.location < NSMaxRange($0) })
-                    || Tokenizer.titleContinues(ns.substring(with: last), into: ns.substring(with: sentence)) {
-                    joined[joined.count - 1] = NSUnionRange(last, sentence)
-                } else {
-                    joined.append(sentence)
+            let speakable = pieces(in: ns, range: paraRange, protected: markupSpans(in: ns, range: paraRange))
+                .compactMap { piece -> (NSRange, String, Bool)? in
+                    let speech = speechText(ns.substring(with: piece.range))
+                    return hasWords(speech) ? (piece.range, speech, piece.endsSentence) : nil
                 }
-            }
-            // "Did the build pass? No. 2 tests failed.": the answer "No." is read on its own,
-            // as the word; kept with the number it was read "Number two tests failed."
-            sentences = []
-            for sentence in joined {
-                if let previous = sentences.last,
-                   let n = Tokenizer.answerNoLength(ns.substring(with: sentence), after: ns.substring(with: previous)) {
-                    sentences.append(NSRange(location: sentence.location, length: n))
-                    sentences.append(NSRange(location: sentence.location + n, length: sentence.length - n))
-                } else {
-                    sentences.append(sentence)
-                }
-            }
-
-            var pieces: [(NSRange, Bool)] = []  // (range, ends a sentence)
-            for sentence in sentences {
-                let parts = split(sentence, in: ns)
-                for (k, part) in parts.enumerated() {
-                    pieces.append((part, k == parts.count - 1))
-                }
-            }
-            let speakable = pieces.compactMap { range, endsSentence -> (NSRange, String, Bool)? in
-                let trimmed = trim(range, in: ns)
-                guard trimmed.length > 0 else { return nil }
-                let speech = speechText(ns.substring(with: trimmed))
-                guard hasWords(speech) else { return nil }
-                return (trimmed, speech, endsSentence)
-            }
             for (k, item) in speakable.enumerated() {
                 let pause: Double = k == speakable.count - 1 ? 0.5 : (item.2 ? 0.22 : 0.08)
                 result.append(Chunk(range: item.0, speech: item.1, pauseAfter: pause))
@@ -99,12 +59,82 @@ enum TextPrep {
         return result
     }
 
+    /// One block's sentences, as trimmed ranges of `ns` with whether each piece ends its
+    /// sentence. `protected` spans (links, images) are never split.
+    static func pieces(in ns: NSString, range: NSRange, protected: [NSRange]) -> [(range: NSRange, endsSentence: Bool)] {
+        let para = ns.substring(with: range)
+        let tokenizer = NLTokenizer(unit: .sentence)
+        tokenizer.string = para
+        var sentences: [NSRange] = []
+        tokenizer.enumerateTokens(in: para.startIndex..<para.endIndex) { r, _ in
+            let local = NSRange(r, in: para)
+            sentences.append(NSRange(location: range.location + local.location, length: local.length))
+            return true
+        }
+        if sentences.isEmpty { sentences = [range] }
+        // NLTokenizer ends a sentence after "St.", "Gov." or "Sen." even before a name: "We
+        // flew to St." was read as Street, then a pause, then "Louis on Friday." It also
+        // ends one inside Markdown ("![" | "Screenshot…](docs/install.png)"), and the half
+        // without its "![" was read with its file path.
+        var joined: [NSRange] = []
+        for sentence in sentences {
+            if let last = joined.last,
+               protected.contains(where: { $0.location < sentence.location && sentence.location < NSMaxRange($0) })
+                || Tokenizer.titleContinues(ns.substring(with: last), into: ns.substring(with: sentence)) {
+                joined[joined.count - 1] = NSUnionRange(last, sentence)
+            } else {
+                joined.append(sentence)
+            }
+        }
+        // "Did the build pass? No. 2 tests failed.": the answer "No." is read on its own,
+        // as the word; kept with the number it was read "Number two tests failed."
+        sentences = []
+        for sentence in joined {
+            if let previous = sentences.last,
+               let n = Tokenizer.answerNoLength(ns.substring(with: sentence), after: ns.substring(with: previous)) {
+                sentences.append(NSRange(location: sentence.location, length: n))
+                sentences.append(NSRange(location: sentence.location + n, length: sentence.length - n))
+            } else {
+                sentences.append(sentence)
+            }
+        }
+
+        var result: [(range: NSRange, endsSentence: Bool)] = []
+        for sentence in sentences {
+            let parts = split(sentence, in: ns, protected: protected)
+            for (k, part) in parts.enumerated() {
+                let trimmed = trim(part, in: ns)
+                if trimmed.length > 0 { result.append((trimmed, k == parts.count - 1)) }
+            }
+        }
+        return result
+    }
+
     /// Each chunk costs ~0.4 s to start generating plus time proportional to its
     /// length, so a long first sentence delays the start. Split its opening
     /// words off at a natural break so the first audio arrives in about half a second.
     private static func splitOpening(_ chunks: inout [Chunk], in ns: NSString) {
-        guard let first = chunks.first, first.range.length > 90 else { return }
-        let r = first.range
+        guard let first = chunks.first,
+              let (a, b) = openingHalves(first.range, in: ns, protected: markupSpans(in: ns, range: first.range)) else { return }
+        let speechA = speechText(ns.substring(with: a))
+        let speechB = speechText(ns.substring(with: b))
+        guard hasWords(speechA), hasWords(speechB) else { return }
+        chunks[0] = Chunk(range: a, speech: speechA, pauseAfter: 0.02)
+        chunks.insert(Chunk(range: b, speech: speechB, pauseAfter: first.pauseAfter), at: 1)
+    }
+
+    /// A first chunk longer than 90 characters as its opening words and the rest, trimmed
+    /// (`openingCut`). Nil to leave it whole.
+    static func openingHalves(_ r: NSRange, in ns: NSString, protected: [NSRange]) -> (NSRange, NSRange)? {
+        guard let cut = openingCut(r, in: ns, protected: protected) else { return nil }
+        return (trim(NSRange(location: r.location, length: cut - r.location), in: ns),
+                trim(NSRange(location: cut, length: NSMaxRange(r) - cut), in: ns))
+    }
+
+    /// Where to split a first chunk longer than 90 characters: after its opening words, at a
+    /// comma, dash or space, never inside a `protected` span. Nil to leave it whole.
+    private static func openingCut(_ r: NSRange, in ns: NSString, protected: [NSRange]) -> Int? {
+        guard r.length > 90 else { return nil }
         let search = NSRange(location: r.location + 25, length: min(60, r.length - 45))
         var cut = Int.max
         for mark in [", ", "; ", ": ", " — ", " – ", " ("] {
@@ -113,29 +143,23 @@ enum TextPrep {
         }
         if cut == Int.max {
             let m = ns.range(of: " ", options: .backwards, range: NSRange(location: r.location + 25, length: 30))
-            guard m.location != NSNotFound else { return }
+            guard m.location != NSNotFound else { return nil }
             cut = NSMaxRange(m)
         }
         // Never inside a link or image: its halves would be read with the path.
-        if let span = markupSpans(in: ns, range: r).first(where: { $0.location < cut && cut < NSMaxRange($0) }) {
-            guard span.location - r.location >= 25 else { return }
+        if let span = protected.first(where: { $0.location < cut && cut < NSMaxRange($0) }) {
+            guard span.location - r.location >= 25 else { return nil }
             cut = span.location
         }
-        let a = trim(NSRange(location: r.location, length: cut - r.location), in: ns)
-        let b = trim(NSRange(location: cut, length: NSMaxRange(r) - cut), in: ns)
-        let speechA = speechText(ns.substring(with: a))
-        let speechB = speechText(ns.substring(with: b))
-        guard hasWords(speechA), hasWords(speechB) else { return }
-        chunks[0] = Chunk(range: a, speech: speechA, pauseAfter: 0.02)
-        chunks.insert(Chunk(range: b, speech: speechB, pauseAfter: first.pauseAfter), at: 1)
+        return cut
     }
 
     /// Splits overly long sentences at commas, semicolons, dashes or spaces.
-    private static func split(_ range: NSRange, in ns: NSString) -> [NSRange] {
+    static func split(_ range: NSRange, in ns: NSString, protected: [NSRange]) -> [NSRange] {
         var out: [NSRange] = []
         var start = range.location
         let end = NSMaxRange(range)
-        let markup = end - start > maxChunkLength ? markupSpans(in: ns, range: range) : []
+        let markup = end - start > maxChunkLength ? protected : []
         while end - start > maxChunkLength {
             let window = NSRange(location: start + maxChunkLength / 2, length: maxChunkLength / 2)
             var cut = -1
@@ -158,7 +182,7 @@ enum TextPrep {
         return out
     }
 
-    private static func trim(_ range: NSRange, in ns: NSString) -> NSRange {
+    static func trim(_ range: NSRange, in ns: NSString) -> NSRange {
         var start = range.location
         var end = NSMaxRange(range)
         let ws = CharacterSet.whitespacesAndNewlines
@@ -177,6 +201,13 @@ enum TextPrep {
 
     /// Light cleanup of what gets spoken (the display text is untouched).
     static func speechText(_ s: String) -> String {
+        speechCleanup(s).trimmingCharacters(in: .whitespaces)
+    }
+
+    /// `speechText` without the trim, for pieces of a sentence that are joined afterwards.
+    /// `lineStart`: `s` starts a line, where a ">" is a quote marker; inside a sentence
+    /// ("**count** > 5") it's read.
+    static func speechCleanup(_ s: String, lineStart: Bool = true) -> String {
         var t = s
         func sub(_ pattern: String, _ template: String) {
             t = t.replacingOccurrences(of: pattern, with: template, options: .regularExpression)
@@ -184,13 +215,20 @@ enum TextPrep {
         sub("!?\\[([^\\]]*)\\]\\([^)]*\\)", "$1")  // markdown links and images: just the label
         sub("https?://\\S+", "link")
         sub("\\[\\d+(,\\s*\\d+)*\\]", "")      // citation markers like [12]
-        sub("^(\\s*>)+", " ")                 // a markdown quote ("a > b" is read)
+        if lineStart { sub("^(\\s*>)+", " ") }  // a markdown quote ("a > b" is read)
         sub("[*#`~|•▪●◦]+", " ")              // markdown and bullet symbols
         sub("\\s+", " ")
-        return t.trimmingCharacters(in: .whitespaces)
+        return t
     }
 
-    private static func hasWords(_ s: String) -> Bool {
+    static func hasWords(_ s: String) -> Bool {
         s.unicodeScalars.contains { CharacterSet.alphanumerics.contains($0) }
+    }
+
+    /// Whether `s` ends with one of `marks`, looking past closing quotes and brackets.
+    static func endsWith(_ s: String, _ marks: String) -> Bool {
+        let closing: Set<Character> = ["\"", "'", "”", "’", ")", "]", "»"]
+        guard let last = s.last(where: { !closing.contains($0) }) else { return false }
+        return marks.contains(last)
     }
 }

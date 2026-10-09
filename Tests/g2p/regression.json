@@ -5180,14 +5180,15 @@
   {
    "text": "![Screenshot of the installer](docs/images/install.png)\n\nSee [the FAQ](docs/faq.md) for help.",
    "chunks": [
-    "Screenshot of the installer",
+    "Image: Screenshot of the installer.",
     "See the FAQ for help."
    ]
   },
   {
    "text": "Here is a picture: ![A cat. Very cute!](cat.png) Nice.",
    "chunks": [
-    "Here is a picture: A cat. Very cute! Nice."
+    "Here is a picture: Image: A cat. Very cute!",
+    "Nice."
    ]
   },
   {
@@ -5207,7 +5208,7 @@
   {
    "text": "![Screenshot showing the installer window, with the Continue button highlighted in blue](docs/images/install-step-two.png)",
    "chunks": [
-    "Screenshot showing the installer window, with the Continue button highlighted in blue"
+    "Image: Screenshot showing the installer window, with the Continue button highlighted in blue."
    ]
   },
   {

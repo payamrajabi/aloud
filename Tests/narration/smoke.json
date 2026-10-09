@@ -1,0 +1,1646 @@
+{
+ "about": "Smoke cases for the narration pipeline (NarrationMarkdown / NarrationHTML / NarrationPlain → NarrationPlanner). Run: .build/debug/ReadAloud --test-narration Tests/narration/smoke.json [--verbose]. The fuller suite is Tests/narration/cases.json. A case with `html` reads it beside `input` (the selected text) as the player does; chunks are those the voice can read (KokoroEngine.canRead), as the player plays them.",
+ "cases": [
+  {
+   "name": "md: heading, emphasis, lead-in list, quote, code, rule, table",
+   "format": "auto",
+   "input": "# Aloud\n\nIt reads **any** text. It is *very* fast.\n\nYou need:\n\n- macOS 14\n  - or later\n\n> Quotes are slower.\n\n```\nlet x = 1\n```\n\nThat ~~was~~ is it.\n\n---\n\n| Key | Action |\n|---|---|\n| Esc | Stop |",
+   "detect": "markdown",
+   "chunks": [
+    {
+     "speech": "Aloud.",
+     "speed": 0.88,
+     "pause": 0.8
+    },
+    {
+     "speech": "It reads [any](+1) text.",
+     "pause": 0.25
+    },
+    {
+     "speech": "It is [very](+1) fast.",
+     "pause": 0.75
+    },
+    {
+     "speech": "You need:",
+     "pause": 0.45
+    },
+    {
+     "speech": "macOS 14.",
+     "pause": 0.4
+    },
+    {
+     "speech": "or later.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Quotes are slower.",
+     "speed": 0.95,
+     "pause": 0.75
+    },
+    {
+     "speech": "That is it.",
+     "pause": 1.6
+    },
+    {
+     "speech": "Key, Action.",
+     "pause": 0.35
+    },
+    {
+     "speech": "Esc, Stop.",
+     "pause": 0.5
+    }
+   ],
+   "display": "Aloud\nIt reads any text. It is very fast.\nYou need:\n• macOS 14\n    • or later\nQuotes are slower.\nlet x = 1\nThat was is it.\n⸻\nKey   Action\nEsc   Stop"
+  },
+  {
+   "name": "md: stress links keep punctuation outside; long emphasis is left alone",
+   "format": "markdown",
+   "input": "Use **(this)** one, *don't* stop, and read **a long bold span of many words** too.",
+   "chunks": [
+    {
+     "speech": "Use ([this](+1)) one, [don't](+1) stop, and read a long bold span of many words too.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "md: a bold label is its own chunk; a lone bold label is not stressed",
+   "format": "markdown",
+   "input": "**Note:** this is a label.\n\n**Steps:**\n\n1. One\n2. Two",
+   "chunks": [
+    {
+     "speech": "Note:",
+     "pause": 0.3
+    },
+    {
+     "speech": "this is a label.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Steps:",
+     "pause": 0.45
+    },
+    {
+     "speech": "1. One.",
+     "pause": 0.4
+    },
+    {
+     "speech": "2. Two.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "md: __init__ survives in and out of code; footnotes and comments go",
+   "format": "auto",
+   "input": "Call `__init__` or __init__ now.[^1] <!-- hidden -->\n\n[^1]: The note.",
+   "chunks": [
+    {
+     "speech": "Call __init__ or __init__ now.",
+     "pause": 0.75
+    },
+    {
+     "speech": "The note.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "md: images read as Image: with a sentence end, inline HTML maps to styles",
+   "format": "markdown",
+   "input": "Here: ![A cat](cat.png) Nice.\n\nThis is <u>underlined</u> and <s>gone</s>.",
+   "chunks": [
+    {
+     "speech": "Here: Image: A cat.",
+     "pause": 0.25
+    },
+    {
+     "speech": "Nice.",
+     "pause": 0.75
+    },
+    {
+     "speech": "This is [underlined](+1) and.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "html: Google Docs bold wrapper, li > p, aria-level depth, single and double br",
+   "format": "html",
+   "input": "<meta charset='utf-8'><b style=\"font-weight:normal;\"><h1><span>Doc Title</span></h1><p><span style=\"font-weight:700\">Bold</span><span> and plain.</span></p><ul><li aria-level=\"1\"><p><span>Item</span></p></li><li aria-level=\"2\"><p><span>Nested</span></p></li></ul><p>wrapped<br>line</p><div>one<br>two<br>three</div></b>",
+   "chunks": [
+    {
+     "speech": "Doc Title.",
+     "speed": 0.88,
+     "pause": 0.8
+    },
+    {
+     "speech": "[Bold](+1) and plain.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Item.",
+     "pause": 0.4
+    },
+    {
+     "speech": "Nested.",
+     "pause": 0.75
+    },
+    {
+     "speech": "wrapped line",
+     "pause": 0.75
+    },
+    {
+     "speech": "one",
+     "pause": 0.75
+    },
+    {
+     "speech": "two",
+     "pause": 0.75
+    },
+    {
+     "speech": "three",
+     "pause": 0.5
+    }
+   ],
+   "display": "Doc Title\nBold and plain.\n• Item\n    • Nested\nwrapped line\none\ntwo\nthree"
+  },
+  {
+   "name": "html: layout tables read as blocks, data tables with commas, code and hr skipped",
+   "format": "html",
+   "input": "<table><tr><td><table><tr><th>A</th><th>B</th></tr><tr><td>1</td><td>2</td></tr></table></td></tr><tr><td><p>Para.</p></td></tr></table><pre><code>code</code></pre><hr><p>End.</p>",
+   "chunks": [
+    {
+     "speech": "A, B.",
+     "pause": 0.35
+    },
+    {
+     "speech": "1, 2.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Para.",
+     "pause": 1.6
+    },
+    {
+     "speech": "End.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: rendered page text (headings, subheading, bullets, numbered list, tab table) keeps one block a line",
+   "format": "auto",
+   "input": "Pour-Over Coffee\nIt takes about four minutes, and most of that is waiting.\nThe Method\nRinse and Weigh\nRinse the filter with hot water first.\nBrew\n1. Heat the water.\n2. Pour slowly.\nThe pour takes three minutes.\nStrength\tCoffee\nLight\t18 grams\nFor the Curious\nKeep notes after each cup you make.",
+   "detect": "plain",
+   "chunks": [
+    {
+     "speech": "Pour-Over Coffee.",
+     "speed": 0.88,
+     "pause": 0.8
+    },
+    {
+     "speech": "It takes about four minutes, and most of that is waiting.",
+     "pause": 1.2
+    },
+    {
+     "speech": "The Method.",
+     "speed": 0.92,
+     "pause": 0.6
+    },
+    {
+     "speech": "Rinse and Weigh.",
+     "speed": 0.92,
+     "pause": 0.7
+    },
+    {
+     "speech": "Rinse the filter with hot water first.",
+     "pause": 1.2
+    },
+    {
+     "speech": "Brew.",
+     "speed": 0.92,
+     "pause": 0.7
+    },
+    {
+     "speech": "1. Heat the water.",
+     "pause": 0.4
+    },
+    {
+     "speech": "2. Pour slowly.",
+     "pause": 0.75
+    },
+    {
+     "speech": "The pour takes three minutes.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Strength, Coffee.",
+     "pause": 0.35
+    },
+    {
+     "speech": "Light, 18 grams.",
+     "pause": 1.2
+    },
+    {
+     "speech": "For the Curious.",
+     "speed": 0.92,
+     "pause": 0.7
+    },
+    {
+     "speech": "Keep notes after each cup you make.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: indented bullets nest; lettered items need a neighbour",
+   "format": "plain",
+   "input": "Gear:\n• Kettle\n    ◦ Gooseneck\n• Scale\nA. Lincoln wrote it.",
+   "chunks": [
+    {
+     "speech": "Gear:",
+     "pause": 0.45
+    },
+    {
+     "speech": "Kettle.",
+     "pause": 0.4
+    },
+    {
+     "speech": "Gooseneck.",
+     "pause": 0.4
+    },
+    {
+     "speech": "Scale.",
+     "pause": 0.75
+    },
+    {
+     "speech": "A. Lincoln wrote it.",
+     "pause": 0.5
+    }
+   ],
+   "display": "Gear:\n• Kettle\n    • Gooseneck\n• Scale\nA. Lincoln wrote it."
+  },
+  {
+   "name": "plain guard: email keeps its commas, chat and verse get no headings",
+   "format": "auto",
+   "input": "Hi Sam,\n\nThanks for the draft.\n\nCheers,\nAlex\n\nHey\nAre you coming tonight?\nRoses are red\nViolets are blue\nSugar is sweet\nAnd so are you.",
+   "detect": "plain",
+   "chunks": [
+    {
+     "speech": "Hi Sam,",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "Thanks for the draft.",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "Cheers,",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "Alex",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "Hey",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "Are you coming tonight?",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "Roses are red",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "Violets are blue",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "Sugar is sweet",
+     "speed": 1,
+     "pause": 0.75
+    },
+    {
+     "speech": "And so are you.",
+     "speed": 1,
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: the opening split keeps its comma; ./paths keep their space",
+   "format": "plain",
+   "input": "This is a fairly long opening sentence that keeps going, with a comma in the middle so that it can be split.\nRun INSTALL=0 ./scripts/build.sh now.",
+   "chunks": [
+    {
+     "speech": "This is a fairly long opening sentence that keeps going,",
+     "pause": 0.02
+    },
+    {
+     "speech": "with a comma in the middle so that it can be split.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Run INSTALL=0 ./scripts/build.sh now.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "auto: legacy sentence rules still apply (St., answer No.)",
+   "format": "auto",
+   "input": "We flew to St. Louis on Friday. Did the build pass? No. 2 tests failed.",
+   "detect": "plain",
+   "chunks": [
+    {
+     "speech": "We flew to St. Louis on Friday.",
+     "pause": 0.25
+    },
+    {
+     "speech": "Did the build pass?",
+     "pause": 0.25
+    },
+    {
+     "speech": "No.",
+     "pause": 0.25
+    },
+    {
+     "speech": "2 tests failed.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "nothing speakable: empty, code only, rule only, image without alt",
+   "format": "markdown",
+   "input": "```\nnpm i\n```\n\n---\n\n![](x.png)",
+   "chunks": [],
+   "display": "npm i\n⸻"
+  },
+  {
+   "name": "plain guard: sentence-case chat lines are not headings",
+   "format": "plain",
+   "input": "Quick question\nDo you know where the spare keys are?",
+   "chunks": [
+    {
+     "speech": "Quick question",
+     "pause": 0.75
+    },
+    {
+     "speech": "Do you know where the spare keys are?",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain guard: a name answered by a question makes the text a chat (no headings anywhere)",
+   "format": "plain",
+   "input": "Sam Lee\nCan you take a look at the PR when you get a chance?\nPayam Rajabi\nSure, on it now.",
+   "chunks": [
+    {
+     "speech": "Sam Lee",
+     "pause": 0.75
+    },
+    {
+     "speech": "Can you take a look at the PR when you get a chance?",
+     "pause": 0.75
+    },
+    {
+     "speech": "Payam Rajabi",
+     "pause": 0.75
+    },
+    {
+     "speech": "Sure, on it now.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain guard: a short line after a question is an answer",
+   "format": "plain",
+   "input": "Where are you?\nHome\nOk see you soon.",
+   "chunks": [
+    {
+     "speech": "Where are you?",
+     "pause": 0.75
+    },
+    {
+     "speech": "Home",
+     "pause": 0.75
+    },
+    {
+     "speech": "Ok see you soon.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain guard: two lines of verse",
+   "format": "plain",
+   "input": "Sugar is sweet\nAnd so are you.",
+   "chunks": [
+    {
+     "speech": "Sugar is sweet",
+     "pause": 0.75
+    },
+    {
+     "speech": "And so are you.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain guard: a wrapped PDF line after a sentence end",
+   "format": "plain",
+   "input": "The experiment ended after six weeks.\nResults from the second trial with\nGPT models were mixed and inconclusive overall.",
+   "chunks": [
+    {
+     "speech": "The experiment ended after six weeks.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Results from the second trial with",
+     "pause": 0.75
+    },
+    {
+     "speech": "GPT models were mixed and inconclusive overall.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain guard: a chat interjection",
+   "format": "plain",
+   "input": "Omg\nThat is the funniest thing I've seen all week.",
+   "chunks": [
+    {
+     "speech": "Omg",
+     "pause": 0.75
+    },
+    {
+     "speech": "That is the funniest thing I've seen all week.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: title-case headings are still found (iPhone, Chapter 1)",
+   "format": "plain",
+   "input": "Setting Up Your iPhone\nTurn the phone on and follow the steps on the screen.\nChapter 1\nIt was a bright cold day in April.",
+   "chunks": [
+    {
+     "speech": "Setting Up Your iPhone.",
+     "speed": 0.88,
+     "pause": 0.8
+    },
+    {
+     "speech": "Turn the phone on and follow the steps on the screen.",
+     "pause": 1.2
+    },
+    {
+     "speech": "Chapter 1.",
+     "speed": 0.92,
+     "pause": 0.7
+    },
+    {
+     "speech": "It was a bright cold day in April.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "html: HTML5 sections and figure captions are blocks; svg and template aren't read",
+   "format": "html",
+   "input": "<header>Aloud Blog</header><article><h1>Hello</h1><p>Body.</p><figure><img src='a.png' alt='A cup'><figcaption>Our morning cup.</figcaption></figure></article><svg width='9'><text>Q1</text><title>Chart</title></svg><template><p>Hidden.</p></template><footer>Posted by Sam</footer>",
+   "chunks": [
+    {
+     "speech": "Aloud Blog",
+     "pause": 1.4
+    },
+    {
+     "speech": "Hello.",
+     "speed": 0.88,
+     "pause": 0.8
+    },
+    {
+     "speech": "Body.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Image: A cup.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Our morning cup.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Posted by Sam",
+     "pause": 0.5
+    }
+   ],
+   "display": "Aloud Blog\nHello\nBody.\nA cup\nOur morning cup.\nPosted by Sam"
+  },
+  {
+   "name": "md: task-list boxes are shown as ☐ and ☑, not read; a cell after a colon gets no comma",
+   "format": "markdown",
+   "input": "- [ ] Buy beans\n- [x] Grind them\n\n| Item | Note |\n|---|---|\n| Total: | 12 |",
+   "chunks": [
+    {
+     "speech": "Buy beans.",
+     "pause": 0.4
+    },
+    {
+     "speech": "Grind them.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Item, Note.",
+     "pause": 0.35
+    },
+    {
+     "speech": "Total: 12.",
+     "pause": 0.5
+    }
+   ],
+   "display": "☐ Buy beans\n☑ Grind them\nItem   Note\nTotal:   12"
+  },
+  {
+   "name": "md: a trailing comma becomes the full stop (heading, list item)",
+   "format": "markdown",
+   "input": "# Hello,\n\nWe need:\n\n- apples,\n- pears,\n- and plums.",
+   "chunks": [
+    {
+     "speech": "Hello.",
+     "speed": 0.88,
+     "pause": 0.8
+    },
+    {
+     "speech": "We need:",
+     "pause": 0.45
+    },
+    {
+     "speech": "apples.",
+     "pause": 0.4
+    },
+    {
+     "speech": "pears.",
+     "pause": 0.4
+    },
+    {
+     "speech": "and plums.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "html: a plain-text page's <pre> (a .txt file in the browser) is read line by line, not skipped as code",
+   "format": "html",
+   "input": "<meta charset='utf-8'><pre style=\"word-wrap: break-word; white-space: pre-wrap; color: rgb(0, 0, 0); font-size: 13.333px;\">Dear Payam,\n\nThanks for the notes on the draft. I will send the revised version\ntomorrow morning, once the numbers are checked.\n\nBest,\nClare</pre>",
+   "chunks": [
+    {
+     "speech": "Dear Payam,",
+     "pause": 0.75
+    },
+    {
+     "speech": "Thanks for the notes on the draft.",
+     "pause": 0.25
+    },
+    {
+     "speech": "I will send the revised version tomorrow morning, once the numbers are checked.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Best,",
+     "pause": 0.75
+    },
+    {
+     "speech": "Clare",
+     "pause": 0.5
+    }
+   ],
+   "display": "Dear Payam,\nThanks for the notes on the draft. I will send the revised version tomorrow morning, once the numbers are checked.\nBest,\nClare"
+  },
+  {
+   "name": "html: a mail archive's header and <pre> body are both read; a quoted line loses its >",
+   "format": "html",
+   "input": "<h1>[Dev] Release plan</h1><hr><pre>Hi all,\n\nThe release is planned for Friday.\n\n&gt; Will it include the fix?\n\nYes.\n</pre>",
+   "chunks": [
+    {
+     "speech": "[Dev] Release plan.",
+     "speed": 0.88,
+     "pause": 1.6
+    },
+    {
+     "speech": "Hi all,",
+     "pause": 0.75
+    },
+    {
+     "speech": "The release is planned for Friday.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Will it include the fix?",
+     "pause": 0.75
+    },
+    {
+     "speech": "Yes.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "html: a selection inside a code block (only code) reads its selected text, as 1.6.0 did; GitHub's highlighted <pre> is still code",
+   "format": "auto",
+   "input": "Brew install aloud\nThen run it",
+   "html": "<meta charset='utf-8'><pre style=\"white-space: pre;\"><code>Brew install aloud\nThen run it</code></pre>",
+   "chunks": [
+    {
+     "speech": "Brew install aloud",
+     "pause": 0.75
+    },
+    {
+     "speech": "Then run it",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "html: GitHub's one-word highlighted code block is shown, not read",
+   "format": "html",
+   "input": "<p>Run this.</p><div class=\"highlight highlight-source-shell notranslate\"><pre>swift build</pre></div><p>Then open it.</p>",
+   "chunks": [
+    {
+     "speech": "Run this.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Then open it.",
+     "pause": 0.5
+    }
+   ],
+   "display": "Run this.\nswift build\nThen open it."
+  },
+  {
+   "name": "html: Google Docs sub-lists don't use up their list's numbers; letters are read like numbers",
+   "format": "html",
+   "input": "<meta charset=\"utf-8\"><b style=\"font-weight:normal;\" id=\"docs-internal-guid-1\"><ol style=\"margin-top:0;margin-bottom:0;padding-inline-start:48px;\"><li dir=\"ltr\" style=\"list-style-type:decimal;font-size:11pt;\" aria-level=\"1\"><p dir=\"ltr\" style=\"line-height:1.38;margin-top:0pt;margin-bottom:0pt;\" role=\"presentation\"><span style=\"font-size:11pt;font-weight:400;\">Prepare the room</span></p></li><ol style=\"margin-top:0;margin-bottom:0;padding-inline-start:48px;\"><li dir=\"ltr\" style=\"list-style-type:lower-alpha;font-size:11pt;\" aria-level=\"2\"><p dir=\"ltr\" role=\"presentation\"><span style=\"font-weight:400;\">Move the chairs</span></p></li><li dir=\"ltr\" style=\"list-style-type:lower-alpha;font-size:11pt;\" aria-level=\"2\"><p dir=\"ltr\" role=\"presentation\"><span style=\"font-weight:400;\">Test the projector</span></p></li></ol><li dir=\"ltr\" style=\"list-style-type:decimal;font-size:11pt;\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\"><span style=\"font-weight:400;\">Greet the guests</span></p></li></ol></b>",
+   "chunks": [
+    {
+     "speech": "1. Prepare the room.",
+     "pause": 0.4
+    },
+    {
+     "speech": "A, Move the chairs.",
+     "pause": 0.4
+    },
+    {
+     "speech": "B, Test the projector.",
+     "pause": 0.4
+    },
+    {
+     "speech": "2. Greet the guests.",
+     "pause": 0.5
+    }
+   ],
+   "display": "1. Prepare the room\n    a. Move the chairs\n    b. Test the projector\n2. Greet the guests"
+  },
+  {
+   "name": "html: a flat list with aria-level numbers each level on its own",
+   "format": "html",
+   "input": "<meta charset=\"utf-8\"><b style=\"font-weight:normal;\" id=\"docs-internal-guid-1\"><ol style=\"margin-top:0;margin-bottom:0;\"><li dir=\"ltr\" style=\"list-style-type:decimal;\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\"><span style=\"font-weight:400;\">Prepare the room</span></p></li><li dir=\"ltr\" style=\"list-style-type:lower-alpha;\" aria-level=\"2\"><p dir=\"ltr\" role=\"presentation\"><span style=\"font-weight:400;\">Move the chairs</span></p></li><li dir=\"ltr\" style=\"list-style-type:lower-alpha;\" aria-level=\"2\"><p dir=\"ltr\" role=\"presentation\"><span style=\"font-weight:400;\">Test the projector</span></p></li><li dir=\"ltr\" style=\"list-style-type:decimal;\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\"><span style=\"font-weight:400;\">Greet the guests</span></p></li></ol></b>",
+   "chunks": [
+    {
+     "speech": "1. Prepare the room.",
+     "pause": 0.4
+    },
+    {
+     "speech": "A, Move the chairs.",
+     "pause": 0.4
+    },
+    {
+     "speech": "B, Test the projector.",
+     "pause": 0.4
+    },
+    {
+     "speech": "2. Greet the guests.",
+     "pause": 0.5
+    }
+   ],
+   "display": "1. Prepare the room\n    a. Move the chairs\n    b. Test the projector\n2. Greet the guests"
+  },
+  {
+   "name": "html: emoji and hidden images: :tada: and aria-hidden formulas aren't read, 🎉 doesn't end the sentence",
+   "format": "html",
+   "input": "<p>Great work, team <span class=\"c-emoji\"><img alt=\":tada:\" src=\"t.png\"></span> let's keep going</p><p>The famous equation <img class=\"mwe-math-fallback-image-inline\" aria-hidden=\"true\" alt=\"{\\displaystyle E=mc^{2}}\" src=\"m.svg\"> relates energy and mass.</p><p>We shipped it <img class=\"emoji\" alt=\"🎉\" src=\"e.svg\"> and it went well.</p>",
+   "chunks": [
+    {
+     "speech": "Great work, team let's keep going",
+     "pause": 0.75
+    },
+    {
+     "speech": "The famous equation relates energy and mass.",
+     "pause": 0.75
+    },
+    {
+     "speech": "We shipped it 🎉 and it went well.",
+     "pause": 0.5
+    }
+   ],
+   "display": "Great work, team let's keep going\nThe famous equation relates energy and mass.\nWe shipped it 🎉 and it went well."
+  },
+  {
+   "name": "html: newlines in white-space: pre-wrap text are line breaks (posts on X, chat prompts)",
+   "format": "html",
+   "input": "<meta charset='utf-8'><span style=\"color: rgb(15, 20, 25); white-space: pre-wrap; display: inline !important;\">Big news today\nWe are hiring three engineers\n\nApply on the site</span>",
+   "chunks": [
+    {
+     "speech": "Big news today",
+     "pause": 0.75
+    },
+    {
+     "speech": "We are hiring three engineers",
+     "pause": 0.75
+    },
+    {
+     "speech": "Apply on the site",
+     "pause": 0.5
+    }
+   ],
+   "display": "Big news today\nWe are hiring three engineers\nApply on the site"
+  },
+  {
+   "name": "md: a selection that starts at a --- rule keeps its first section (it isn't front matter)",
+   "format": "auto",
+   "input": "---\n\n## Part two\n\nThe second part starts **here** and explains the plan.\n\n---\n\n## Part three\n\nThe end.",
+   "chunks": [
+    {
+     "speech": "Part two.",
+     "speed": 0.92,
+     "pause": 0.7
+    },
+    {
+     "speech": "The second part starts [here](+1) and explains the plan.",
+     "pause": 1.6
+    },
+    {
+     "speech": "Part three.",
+     "speed": 0.92,
+     "pause": 0.7
+    },
+    {
+     "speech": "The end.",
+     "pause": 0.5
+    }
+   ],
+   "display": "⸻\nPart two\nThe second part starts here and explains the plan.\n⸻\nPart three\nThe end."
+  },
+  {
+   "name": "html: a table's caption is read before its rows",
+   "format": "html",
+   "input": "<meta charset='utf-8'><p>Results below.</p><table class=\"wikitable\"><caption>Population by city, 2026</caption><tbody><tr><th>City</th><th>Population</th></tr><tr><td>Lisbon</td><td>545,000</td></tr></tbody></table><p>After.</p>",
+   "chunks": [
+    {
+     "speech": "Results below.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Population by city, 2026",
+     "pause": 0.75
+    },
+    {
+     "speech": "City, Population.",
+     "pause": 0.35
+    },
+    {
+     "speech": "Lisbon, 545,000.",
+     "pause": 0.75
+    },
+    {
+     "speech": "After.",
+     "pause": 0.5
+    }
+   ],
+   "display": "Results below.\nPopulation by city, 2026\nCity   Population\nLisbon   545,000\nAfter."
+  },
+  {
+   "name": "html: Word list paragraphs are list items; their bullet and number spans aren't read",
+   "format": "html",
+   "input": "<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in;mso-list:l0 level1 lfo1'><![if !supportLists]><span style='font-family:Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt \"Times New Roman\"'>&nbsp;&nbsp;&nbsp; </span></span></span><![endif]>Buy milk<o:p></o:p></p>\n<p class=MsoListParagraphCxSpLast style='margin-left:1.0in;mso-list:l0 level2 lfo1'><![if !supportLists]><span style='font-family:\"Courier New\"'><span style='mso-list:Ignore'>o<span style='font:7.0pt \"Times New Roman\"'>&nbsp;&nbsp; </span></span></span><![endif]>Oat milk is fine<o:p></o:p></p>\n<p class=MsoListParagraphCxSpFirst style='mso-list:l1 level1 lfo2'><![if !supportLists]><span style='mso-list:Ignore'>1.<span style='font:7.0pt \"Times New Roman\"'>&nbsp;&nbsp; </span></span><![endif]>Open the file<o:p></o:p></p>\n<p class=MsoListParagraphCxSpLast style='mso-list:l1 level2 lfo2'><![if !supportLists]><span style='mso-list:Ignore'>a.<span style='font:7.0pt \"Times New Roman\"'>&nbsp;&nbsp; </span></span><![endif]>Check the date<o:p></o:p></p>\n<p class=MsoNormal>Thanks,<o:p></o:p></p>",
+   "chunks": [
+    {
+     "speech": "Buy milk.",
+     "pause": 0.4
+    },
+    {
+     "speech": "Oat milk is fine.",
+     "pause": 0.4
+    },
+    {
+     "speech": "1. Open the file.",
+     "pause": 0.4
+    },
+    {
+     "speech": "A, Check the date.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Thanks,",
+     "pause": 0.5
+    }
+   ],
+   "display": "• Buy milk\n    • Oat milk is fine\n1. Open the file\n    a. Check the date\nThanks,"
+  },
+  {
+   "name": "auto: __main__.py on a long line is plain (and detection stays fast); __two words__ is Markdown",
+   "format": "auto",
+   "input": "Run __main__.py first. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. Then read the notes on the page and keep going without stopping. ",
+   "detect": "plain"
+  },
+  {
+   "name": "auto: __two words__ is Markdown",
+   "format": "auto",
+   "input": "Some __bold words__ here.",
+   "detect": "markdown",
+   "chunks": [
+    {
+     "speech": "Some [bold words](+1) here.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "md: a bold or italic X starting a list item is read as the letter, not taken for a task box",
+   "format": "markdown",
+   "input": "- **X** is the horizontal axis.\n- *x* is the input value\n\n1. **X** marks the spot\n2. [x] Done",
+   "chunks": [
+    {
+     "speech": "[X](+1) is the horizontal axis.",
+     "pause": 0.4
+    },
+    {
+     "speech": "[x](+1) is the input value.",
+     "pause": 0.4
+    },
+    {
+     "speech": "1. [X](+1) marks the spot.",
+     "pause": 0.4
+    },
+    {
+     "speech": "2. Done.",
+     "pause": 0.5
+    }
+   ],
+   "display": "• X is the horizontal axis.\n• x is the input value\n1. X marks the spot\n2. ☑ Done"
+  },
+  {
+   "name": "md: a > after emphasis or struck text is read, and in a table cell; plain text's leading > is a quote marker",
+   "format": "markdown",
+   "input": "Check that **count** > 5 before you go on.\n\nUse ~~old~~ > new values from now on.\n\n| Group | Age |\n|---|---|\n| Seniors | > 65 |",
+   "chunks": [
+    {
+     "speech": "Check that [count](+1) > 5 before you go on.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Use > new values from now on.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Group, Age.",
+     "pause": 0.35
+    },
+    {
+     "speech": "Seniors, > 65.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a line's leading > is a quote marker, not read",
+   "format": "plain",
+   "input": "> On Monday Sam wrote:\nThanks for the notes.",
+   "chunks": [
+    {
+     "speech": "On Monday Sam wrote:",
+     "pause": 0.75
+    },
+    {
+     "speech": "Thanks for the notes.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "md: a sentence the voice can't read hands on its pause (the heading's 1.2 s, the 0.5 s at the end)",
+   "format": "markdown",
+   "input": "The motto is printed below. 天下无难事，只怕有心人。\n\n## Next section\n\nBody text here. 日本語です。",
+   "chunks": [
+    {
+     "speech": "The motto is printed below.",
+     "pause": 1.2
+    },
+    {
+     "speech": "Next section.",
+     "speed": 0.92,
+     "pause": 0.7
+    },
+    {
+     "speech": "Body text here.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a tab table whose rows start lowercase stays a table",
+   "format": "auto",
+   "input": "Option\tDefault\nverbose\tfalse\ntimeout\t30",
+   "chunks": [
+    {
+     "speech": "Option, Default.",
+     "pause": 0.35
+    },
+    {
+     "speech": "verbose, false.",
+     "pause": 0.35
+    },
+    {
+     "speech": "timeout, 30.",
+     "pause": 0.5
+    }
+   ],
+   "display": "Option   Default\nverbose   false\ntimeout   30"
+  },
+  {
+   "name": "html: a long table row cut in two reads its image once",
+   "format": "html",
+   "input": "<table><tr><th>Method</th><th>Diagram</th><th>Notes</th></tr><tr><td>This method uses a slow and careful pour that keeps the coffee bed level and wets every ground evenly so the cup comes out sweet and clear and never thin or sour at all</td><td><img src='d.png' alt='A diagram of the pour over cone with the water level marked at three different heights for reference purposes and a ruler beside it for scale'></td><td>Notes after it here.</td></tr></table>",
+   "chunks": [
+    {
+     "speech": "Method, Diagram, Notes.",
+     "pause": 0.35
+    },
+    {
+     "speech": "This method uses a slow and careful pour that keeps the coffee bed level and wets every ground evenly so the cup comes out sweet and clear and never thin or sour at all",
+     "pause": 0.08
+    },
+    {
+     "speech": "Image: A diagram of the pour over cone with the water level marked at three different heights for reference purposes and a ruler beside it for scale. Notes after it here.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain and html: lettered and roman items show their marker and only letters are read",
+   "format": "plain",
+   "input": "Which is the capital of France?\na) Berlin\nb) Paris",
+   "chunks": [
+    {
+     "speech": "Which is the capital of France?",
+     "pause": 0.75
+    },
+    {
+     "speech": "A, Berlin.",
+     "pause": 0.4
+    },
+    {
+     "speech": "B, Paris.",
+     "pause": 0.5
+    }
+   ],
+   "display": "Which is the capital of France?\na) Berlin\nb) Paris"
+  },
+  {
+   "name": "html: <ol type> letters are read, list-style roman numerals are only shown",
+   "format": "html",
+   "input": "<ol type='A' start='3'><li>Third</li><li>Fourth</li></ol><p>Then:</p><ol style='list-style-type: lower-roman'><li>One</li><li>Two</li></ol>",
+   "chunks": [
+    {
+     "speech": "C, Third.",
+     "pause": 0.4
+    },
+    {
+     "speech": "D, Fourth.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Then:",
+     "pause": 0.45
+    },
+    {
+     "speech": "One.",
+     "pause": 0.4
+    },
+    {
+     "speech": "Two.",
+     "pause": 0.5
+    }
+   ],
+   "display": "C. Third\nD. Fourth\nThen:\ni. One\nii. Two"
+  },
+  {
+   "name": "html: GitHub task lists show ☐ and ☑ and don't read the box",
+   "format": "html",
+   "input": "<ul class='contains-task-list'><li class='task-list-item'><input type='checkbox' class='task-list-item-checkbox' disabled> Buy beans</li><li class='task-list-item'><input type='checkbox' class='task-list-item-checkbox' disabled checked> Grind them</li></ul>",
+   "chunks": [
+    {
+     "speech": "Buy beans.",
+     "pause": 0.4
+    },
+    {
+     "speech": "Grind them.",
+     "pause": 0.5
+    }
+   ],
+   "display": "☐ Buy beans\n☑ Grind them"
+  },
+  {
+   "name": "plain: a --- separator in an email stays plain",
+   "format": "auto",
+   "input": "Hi all,\nThe offsite is confirmed for the 14th.\nPlease book your travel by Friday.\n---\nJordan Blake\nOperations",
+   "chunks": [
+    {
+     "speech": "Hi all,",
+     "pause": 0.75
+    },
+    {
+     "speech": "The offsite is confirmed for the 14th.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Please book your travel by Friday.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Jordan Blake",
+     "pause": 0.75
+    },
+    {
+     "speech": "Operations",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a dash line between notes isn't a setext heading",
+   "format": "auto",
+   "input": "Groceries\nEggs, spinach, oat milk\n----------\nErrands\nReturn library books\nPick up the dry cleaning",
+   "chunks": [
+    {
+     "speech": "Groceries",
+     "pause": 0.75
+    },
+    {
+     "speech": "Eggs, spinach, oat milk",
+     "pause": 0.75
+    },
+    {
+     "speech": "Errands",
+     "pause": 0.75
+    },
+    {
+     "speech": "Return library books",
+     "pause": 0.75
+    },
+    {
+     "speech": "Pick up the dry cleaning",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a -- signature line and a quoted reply",
+   "format": "auto",
+   "input": "Yes, I can cover the Friday shift.\nJordan Blake\n--\nSent from my phone\n\n> Can anyone swap with me this Friday?\n> I need to leave early for a flight.",
+   "chunks": [
+    {
+     "speech": "Yes, I can cover the Friday shift.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Jordan Blake",
+     "pause": 0.75
+    },
+    {
+     "speech": "Sent from my phone",
+     "pause": 0.75
+    },
+    {
+     "speech": "Can anyone swap with me this Friday?",
+     "pause": 0.75,
+     "speed": 0.95
+    },
+    {
+     "speech": "I need to leave early for a flight.",
+     "pause": 0.5,
+     "speed": 0.95
+    }
+   ]
+  },
+  {
+   "name": "md: <placeholders> are kept in speech",
+   "format": "auto",
+   "input": "## Setup\n\nReplace <your-token> with the key from your dashboard, then run the app.\nKeep <project-name> short and lowercase.",
+   "chunks": [
+    {
+     "speech": "Setup.",
+     "pause": 0.7,
+     "speed": 0.92
+    },
+    {
+     "speech": "Replace <your-token> with the key from your dashboard, then run the app.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Keep <project-name> short and lowercase.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: CLI usage with <placeholders> and a code span",
+   "format": "auto",
+   "input": "Usage: deploy <env> <region>\nExample: `deploy staging eu-west`\nThe <env> argument must match a folder under config.",
+   "chunks": [
+    {
+     "speech": "Usage: deploy <env> <region>",
+     "pause": 0.75
+    },
+    {
+     "speech": "Example: deploy staging eu-west",
+     "pause": 0.75
+    },
+    {
+     "speech": "The <env> argument must match a folder under config.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: initials aren't list markers",
+   "format": "auto",
+   "input": "Panel members:\nJ. Okafor\nM. Lindqvist\nR. Patel",
+   "chunks": [
+    {
+     "speech": "Panel members:",
+     "pause": 0.75
+    },
+    {
+     "speech": "J.",
+     "pause": 0.25
+    },
+    {
+     "speech": "Okafor",
+     "pause": 0.75
+    },
+    {
+     "speech": "M. Lindqvist",
+     "pause": 0.75
+    },
+    {
+     "speech": "R.",
+     "pause": 0.25
+    },
+    {
+     "speech": "Patel",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: quiz options read their letters",
+   "format": "auto",
+   "input": "Which planet has the shortest year?\nA. Venus\nB. Mercury\nC. Mars\nThe answer is B.",
+   "chunks": [
+    {
+     "speech": "Which planet has the shortest year?",
+     "pause": 0.75
+    },
+    {
+     "speech": "A, Venus.",
+     "pause": 0.4
+    },
+    {
+     "speech": "B, Mercury.",
+     "pause": 0.4
+    },
+    {
+     "speech": "C, Mars.",
+     "pause": 0.75
+    },
+    {
+     "speech": "The answer is B.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a chat log with one code span keeps its lines",
+   "format": "auto",
+   "input": "Sam Ortiz\nCan you run `make test` before you push?\nPriya Raman\nSure, running it now\nAll tests pass\nMerging in five minutes",
+   "chunks": [
+    {
+     "speech": "Sam Ortiz",
+     "pause": 0.75
+    },
+    {
+     "speech": "Can you run make test before you push?",
+     "pause": 0.75
+    },
+    {
+     "speech": "Priya Raman",
+     "pause": 0.75
+    },
+    {
+     "speech": "Sure, running it now",
+     "pause": 0.75
+    },
+    {
+     "speech": "All tests pass",
+     "pause": 0.75
+    },
+    {
+     "speech": "Merging in five minutes",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: '>50%' isn't a quote",
+   "format": "auto",
+   "input": "Survey highlights\n>50% of respondents use the app daily\n3 in 4 would recommend it\nMost requests were for dark mode",
+   "chunks": [
+    {
+     "speech": "Survey highlights",
+     "pause": 0.75
+    },
+    {
+     "speech": "50% of respondents use the app daily",
+     "pause": 0.75
+    },
+    {
+     "speech": "3 in 4 would recommend it",
+     "pause": 0.75
+    },
+    {
+     "speech": "Most requests were for dark mode",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a bold reminder in a short email",
+   "format": "auto",
+   "input": "Hi team,\n**Reminder:** timesheets are due today.\nThanks\nSam",
+   "chunks": [
+    {
+     "speech": "Hi team,",
+     "pause": 0.75
+    },
+    {
+     "speech": "Reminder:",
+     "pause": 0.3
+    },
+    {
+     "speech": "timesheets are due today.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Thanks",
+     "pause": 0.75
+    },
+    {
+     "speech": "Sam",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: +---+ bordered text tables aren't Markdown tables",
+   "format": "auto",
+   "input": "+--------+-----+\n| item   | qty |\n+--------+-----+\n| pens   |   4 |\n| paper  |   2 |\n+--------+-----+\n2 rows in set (0.00 sec)",
+   "chunks": [
+    {
+     "speech": "item qty",
+     "pause": 0.75
+    },
+    {
+     "speech": "pens 4",
+     "pause": 0.75
+    },
+    {
+     "speech": "paper 2",
+     "pause": 0.75
+    },
+    {
+     "speech": "2 rows in set (0.00 sec)",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: shell comments aren't headings",
+   "format": "auto",
+   "input": "# Install the dependencies\nnpm install\n# Run the test suite\nnpm test",
+   "chunks": [
+    {
+     "speech": "Install the dependencies npm install",
+     "pause": 0.75
+    },
+    {
+     "speech": "Run the test suite npm test",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: '# of seats' isn't a heading",
+   "format": "auto",
+   "input": "Venue options\n# of seats: 120 at the library, 80 at the hall\nParking is free at both after 6 pm.",
+   "chunks": [
+    {
+     "speech": "Venue options",
+     "pause": 0.75
+    },
+    {
+     "speech": "of seats: 120 at the library, 80 at the hall",
+     "pause": 0.75
+    },
+    {
+     "speech": "Parking is free at both after 6 pm.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: speaker names in a chat log aren't headings",
+   "format": "auto",
+   "input": "Sam Ortiz\nThe nightly build finished without errors.\nPriya Raman\nGreat, I'll tag the release after lunch.\nSam Ortiz\nI also updated the deploy checklist in the wiki.",
+   "chunks": [
+    {
+     "speech": "Sam Ortiz",
+     "pause": 0.75
+    },
+    {
+     "speech": "The nightly build finished without errors.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Priya Raman",
+     "pause": 0.75
+    },
+    {
+     "speech": "Great, I'll tag the release after lunch.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Sam Ortiz",
+     "pause": 0.75
+    },
+    {
+     "speech": "I also updated the deploy checklist in the wiki.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: transcript speaker labels aren't headings",
+   "format": "auto",
+   "input": "INTERVIEWER\nTell me about your first commission.\nMARA QUINN\nIt was a dining table for a family of eight, and I had three weeks.\nINTERVIEWER\nThat sounds like a lot of pressure.",
+   "chunks": [
+    {
+     "speech": "INTERVIEWER",
+     "pause": 0.75
+    },
+    {
+     "speech": "Tell me about your first commission.",
+     "pause": 0.75
+    },
+    {
+     "speech": "MARA QUINN",
+     "pause": 0.75
+    },
+    {
+     "speech": "It was a dining table for a family of eight, and I had three weeks.",
+     "pause": 0.75
+    },
+    {
+     "speech": "INTERVIEWER",
+     "pause": 0.75
+    },
+    {
+     "speech": "That sounds like a lot of pressure.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: an email signature isn't a heading",
+   "format": "auto",
+   "input": "Hi Marcus,\n\nThe signed contract is attached. Let me know if anything looks off.\n\nTalk soon,\n\nPriya Raman\nHead of Partnerships | Fernhill Labs\nThis email and any files sent with it are confidential and meant only for the person named above.",
+   "chunks": [
+    {
+     "speech": "Hi Marcus,",
+     "pause": 0.75
+    },
+    {
+     "speech": "The signed contract is attached.",
+     "pause": 0.25
+    },
+    {
+     "speech": "Let me know if anything looks off.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Talk soon,",
+     "pause": 0.75
+    },
+    {
+     "speech": "Priya Raman",
+     "pause": 0.75
+    },
+    {
+     "speech": "Head of Partnerships Fernhill Labs",
+     "pause": 0.75
+    },
+    {
+     "speech": "This email and any files sent with it are confidential and meant only for the person named above.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: an address isn't a heading",
+   "format": "auto",
+   "input": "Please send the signed form to:\nFernhill Labs\n42 Harbor Street, Portland, OR 97201\nWe will process it within five business days.",
+   "chunks": [
+    {
+     "speech": "Please send the signed form to:",
+     "pause": 0.75
+    },
+    {
+     "speech": "Fernhill Labs",
+     "pause": 0.75
+    },
+    {
+     "speech": "42 Harbor Street, Portland, OR 97201",
+     "pause": 0.75
+    },
+    {
+     "speech": "We will process it within five business days.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a title-case wrapped line isn't a heading",
+   "format": "auto",
+   "input": "Rates have not changed since 2019.\nMembers of the Riverside Water Authority\nBoard voted on Monday to raise them by six percent.\nThe increase takes effect in July.",
+   "chunks": [
+    {
+     "speech": "Rates have not changed since 2019.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Members of the Riverside Water Authority",
+     "pause": 0.75
+    },
+    {
+     "speech": "Board voted on Monday to raise them by six percent.",
+     "pause": 0.75
+    },
+    {
+     "speech": "The increase takes effect in July.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: wrapped list items continue on the next line",
+   "format": "auto",
+   "input": "Action items:\n- Ask Priya to send the revised\n  Q3 budget to finance by Friday\n- Book the large room for the\n  October planning session",
+   "chunks": [
+    {
+     "speech": "Action items:",
+     "pause": 0.45
+    },
+    {
+     "speech": "Ask Priya to send the revised Q3 budget to finance by Friday.",
+     "pause": 0.4
+    },
+    {
+     "speech": "Book the large room for the October planning session.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: wrapped numbered steps continue",
+   "format": "auto",
+   "input": "1. Open Settings and choose\n   Privacy & Security.\n2. Scroll to the bottom and click\n   Advanced.",
+   "chunks": [
+    {
+     "speech": "1. Open Settings and choose Privacy & Security.",
+     "pause": 0.4
+    },
+    {
+     "speech": "2. Scroll to the bottom and click Advanced.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a tab doesn't stop a hard-wrap join",
+   "format": "auto",
+   "input": "Figure 3.\tAverage nightly sleep by shift type, measured over\ntwo weeks in each of the three hospitals.",
+   "chunks": [
+    {
+     "speech": "Figure 3.",
+     "pause": 0.25
+    },
+    {
+     "speech": "Average nightly sleep by shift type, measured over two weeks in each of the three hospitals.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: U+2028 line separators split lines",
+   "format": "auto",
+   "input": "The first draft is done. Next Steps We will send it to the board for comments by Friday.",
+   "chunks": [
+    {
+     "speech": "The first draft is done.",
+     "pause": 1.2
+    },
+    {
+     "speech": "Next Steps.",
+     "pause": 0.7,
+     "speed": 0.92
+    },
+    {
+     "speech": "We will send it to the board for comments by Friday.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a byline and date aren't headings",
+   "format": "auto",
+   "input": "By Dana Whitfield\nMarch 4, 2026\nThe Harbor District council voted on Tuesday to extend evening ferry service.\nOfficials expect the change to start in May.",
+   "chunks": [
+    {
+     "speech": "By Dana Whitfield",
+     "pause": 0.75
+    },
+    {
+     "speech": "March 4, 2026",
+     "pause": 0.75
+    },
+    {
+     "speech": "The Harbor District council voted on Tuesday to extend evening ferry service.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Officials expect the change to start in May.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "plain: a byline under a headline isn't a heading",
+   "format": "auto",
+   "input": "Council Extends Evening Ferry Service\nBy Dana Whitfield\nThe Harbor District council voted on Tuesday to extend evening ferry service. Officials expect the change to start in May.",
+   "chunks": [
+    {
+     "speech": "Council Extends Evening Ferry Service",
+     "pause": 0.75
+    },
+    {
+     "speech": "By Dana Whitfield",
+     "pause": 0.75
+    },
+    {
+     "speech": "The Harbor District council voted on Tuesday to extend evening ferry service.",
+     "pause": 0.25
+    },
+    {
+     "speech": "Officials expect the change to start in May.",
+     "pause": 0.5
+    }
+   ]
+  }
+ ]
+}

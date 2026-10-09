@@ -7,6 +7,8 @@ import Foundation
 final class PlayerModel: ObservableObject {
     @Published private(set) var text = ""
     @Published private(set) var chunkRanges: [NSRange] = []
+    /// Headings, lists, quotes, code, struck and bold text in `text`, for the player to show.
+    @Published private(set) var displayStyles: [DisplayStyle] = []
     @Published private(set) var currentIndex = 0
     @Published private(set) var position: Double = 0
     @Published private(set) var duration: Double = 0
@@ -30,9 +32,11 @@ final class PlayerModel: ObservableObject {
     var onTransportChange: (() -> Void)?
     private var notifiedDuration: Double = 0
 
-    /// A short title for Control Center: the opening words of the text.
+    /// A short title for Control Center: the opening words of the text, as shown (the speech
+    /// can hold stress marks).
     var title: String {
-        guard let first = chunks.first?.speech else { return "Aloud" }
+        guard let range = chunkRanges.first else { return "Aloud" }
+        let first = (text as NSString).substring(with: range)
         return first.count > 70 ? String(first.prefix(70)).trimmingCharacters(in: .whitespaces) + "…" : first
     }
 
@@ -168,16 +172,18 @@ final class PlayerModel: ObservableObject {
         synth.preload(accent: voice.accent)
         guard hasSession else { return }
         // Generate from where the listener is waiting; chunkReady starts playback.
-        session = synth.begin(texts: chunks.map(\.speech), voice: voice, from: currentPoint().index)
+        session = synth.begin(chunks, voice: voice, from: currentPoint().index)
         updateWindow()
     }
 
     // MARK: - Session
 
-    func load(_ raw: String) {
+    /// Reads `raw`, with its structure from the app's `html` when there is some (else from
+    /// Markdown, else guessed from the plain text).
+    func load(_ raw: String, html: String? = nil) {
         stop()
-        let cleaned = TextPrep.clean(raw)
-        let allChunks = TextPrep.chunks(for: cleaned)
+        let plan = NarrationPlanner.plan(NarrationDoc.parse(raw, html: html))
+        let allChunks = plan.chunks
         guard !allChunks.isEmpty else {
             message = "There's nothing readable in that selection."
             return
@@ -185,20 +191,21 @@ final class PlayerModel: ObservableObject {
         // The voices only speak English: skip the sentences mostly in other scripts, and if
         // that's all of them, say so rather than play silence. Deciding it here, before a
         // session starts, lets a shortcut read open the player to show the message.
-        let newChunks = allChunks.filter { KokoroEngine.canRead($0.speech) }
+        let newChunks = NarrationPlanner.readable(allChunks)
         guard !newChunks.isEmpty else {
             message = Self.notEnglishMessage
             return
         }
         message = nil
         sourceText = raw
-        text = cleaned
+        text = plan.displayText
+        displayStyles = plan.styles
         chunks = newChunks
         chunkRanges = newChunks.map(\.range)
         buffers = [:]
         recomputeTimeline()
         if KokoroEngine.isModelInstalled {
-            session = synth.begin(texts: newChunks.map(\.speech), voice: voice, from: 0)
+            session = synth.begin(newChunks, voice: voice, from: 0)
         } else {
             downloadVoiceIfNeeded()  // reading starts once it's ready
         }
@@ -216,6 +223,7 @@ final class PlayerModel: ObservableObject {
         timer = nil
         chunks = []
         chunkRanges = []
+        displayStyles = []
         buffers = [:]
         unspeakable = []
         segments = []
@@ -326,7 +334,7 @@ final class PlayerModel: ObservableObject {
         buffers = [:]
         recomputeTimeline()
         if KokoroEngine.isModelInstalled {
-            session = synth.begin(texts: chunks.map(\.speech), voice: v, from: p.index)
+            session = synth.begin(chunks, voice: v, from: p.index)
         }
         if isPlaying {
             startPlayback(at: p.index, fraction: 0)
@@ -523,14 +531,15 @@ final class PlayerModel: ObservableObject {
 
     private func chunkDuration(_ i: Int) -> Double {
         if let b = buffers[i] { return Double(b.frameLength) / sampleRate }
-        return Double(chunks[i].speech.count) * secondsPerChar + chunks[i].pauseAfter
+        return Double(chunks[i].speech.count) * secondsPerChar / Double(chunks[i].speed) + chunks[i].pauseAfter
     }
 
+    /// Seconds per character at the voice's normal speed, from the chunks generated so far.
     private func refineEstimate() {
         var seconds = 0.0
         var chars = 0
         for (i, b) in buffers {
-            seconds += Double(b.frameLength) / sampleRate - chunks[i].pauseAfter
+            seconds += (Double(b.frameLength) / sampleRate - chunks[i].pauseAfter) * Double(chunks[i].speed)
             chars += chunks[i].speech.count
         }
         if chars > 40 { secondsPerChar = seconds / Double(chars) }

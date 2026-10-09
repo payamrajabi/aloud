@@ -1,9 +1,17 @@
 import AppKit
 import ApplicationServices
 
+/// A selection's text, and the app's HTML for it when Aloud copied the selection to read
+/// its structure (headings, lists, bold…).
+struct Selection {
+    var text: String
+    var html: String?
+}
+
 /// Gets the selected text from whatever app is in front.
 /// First asks the app through Accessibility; if that returns nothing, it
-/// simulates ⌘C and restores the clipboard afterwards.
+/// simulates ⌘C and restores the clipboard afterwards. A selection of several lines that
+/// isn't Markdown is also copied, behind the scenes, for the app's HTML.
 enum SelectionReader {
     static var isTrusted: Bool { AXIsProcessTrusted() }
 
@@ -18,11 +26,35 @@ enum SelectionReader {
         }
     }
 
-    static func read(completion: @escaping (String?) -> Void) {
-        DispatchQueue.global(qos: .userInitiated).async {
-            let text = viaAccessibility() ?? viaCopy()
-            DispatchQueue.main.async { completion(text) }
+    /// One read at a time: a read that copies must not take another's copy for the
+    /// clipboard to put back.
+    private static let queue = DispatchQueue(label: "SelectionReader", qos: .userInitiated)
+
+    /// `current`: the text already being read. Selecting it again only pauses or resumes,
+    /// so it isn't copied again for its HTML.
+    static func read(current: String = "", completion: @escaping (Selection?) -> Void) {
+        queue.async {
+            var lateCopy: (() -> Void)?
+            let selection = capture(current: current.trimmingCharacters(in: .whitespacesAndNewlines), lateCopy: &lateCopy)
+            DispatchQueue.main.async { completion(selection) }
+            lateCopy?()   // reading starts meanwhile; the next read waits for it
         }
+    }
+
+    private static func capture(current: String, lateCopy: inout (() -> Void)?) -> Selection? {
+        guard let text = viaAccessibility() else {
+            guard let copied = viaCopy(selected: nil, lateCopy: &lateCopy), let text = copied.text else { return nil }
+            return Selection(text: text, html: copied.html.flatMap { matches($0, text) ? $0 : nil })
+        }
+        // One line has no structure to find, and Markdown carries its own: both stay on the
+        // fast path. (A list alone is usually a web page's text with its numbers, so it's
+        // copied: the page's headings and bold come with the HTML.)
+        let lines = text.split(whereSeparator: \.isNewline).filter { !$0.allSatisfy(\.isWhitespace) }
+        guard lines.count >= 2, !NarrationMarkdown.hasMarkupBeyondLists(text),
+              text.trimmingCharacters(in: .whitespacesAndNewlines) != current,
+              let html = viaCopy(selected: text, lateCopy: &lateCopy)?.html, matches(html, text)
+        else { return Selection(text: text) }
+        return Selection(text: text, html: html)
     }
 
     private static func viaAccessibility() -> String? {
@@ -41,7 +73,11 @@ enum SelectionReader {
         return text
     }
 
-    private static func viaCopy() -> String? {
+    /// The selection as the app copies it: its plain text and, when it offers one, its HTML.
+    /// `selected`: the text Accessibility read, when there is one. The app is then only slow
+    /// if nothing arrives in time (a whole long page can take it a second): `lateCopy` waits
+    /// for its copy and puts the clipboard back.
+    private static func viaCopy(selected: String?, lateCopy: inout (() -> Void)?) -> (text: String?, html: String?)? {
         let pasteboard = NSPasteboard.general
         let saved = snapshot(pasteboard)
         let before = pasteboard.changeCount
@@ -55,11 +91,93 @@ enum SelectionReader {
             usleep(20_000)
             if pasteboard.changeCount != before { copied = true; break }
         }
-        guard copied else { return nil }  // nothing selected; clipboard untouched
+        guard copied else {
+            if let selected {
+                lateCopy = {
+                    for _ in 0..<100 {   // ~3 s
+                        usleep(30_000)
+                        guard pasteboard.changeCount != before else { continue }
+                        usleep(30_000)
+                        // Ours, not something copied since: put back what was there.
+                        if let late = pasteboard.string(forType: .string), matches(late, selected) { restore(pasteboard, saved) }
+                        return
+                    }
+                }
+            }
+            return nil  // nothing selected; clipboard untouched
+        }
         usleep(30_000)
         let text = pasteboard.string(forType: .string)
+        let html = pasteboard.string(forType: .html)
         restore(pasteboard, saved)
-        return text
+        return (text, html)
+    }
+
+    // MARK: - Does the HTML match the selection?
+
+    /// Whether the HTML shows the selected text, comparing only letters and digits: one
+    /// holds at least 90% of the other's in order, or they're about as long (within 15%) and
+    /// share most words (Jaccard ≥ 0.85). Guards against reading something else the app put
+    /// on the clipboard (a link, say) instead of the selection.
+    static func matches(_ html: String, _ text: String) -> Bool {
+        let visible = visibleText(html)
+        let a = letters(visible), b = letters(text)
+        guard !a.isEmpty, !b.isEmpty else { return false }
+        if a == b || holdsMost(of: a, in: b) || holdsMost(of: b, in: a) { return true }
+        guard abs(a.count - b.count) * 100 <= 15 * max(a.count, b.count) else { return false }
+        let wa = words(visible), wb = words(text)
+        return Double(wa.intersection(wb).count) >= 0.85 * Double(wa.union(wb).count)
+    }
+
+    /// The text a browser would show, roughly: no tags, comments, scripts, styles or entities.
+    /// Cheap on purpose; the real parse happens once, when the player loads it.
+    private static func visibleText(_ html: String) -> String {
+        var s = html
+        for pattern in ["(?is)<(head|script|style|template|noscript)\\b.*?</\\1\\s*>", "(?s)<!--.*?-->", "<[^>]*>", "&#?\\w+;"] {
+            s = s.replacingOccurrences(of: pattern, with: " ", options: .regularExpression)
+        }
+        return s
+    }
+
+    private static func letters(_ s: String) -> [UInt32] {
+        s.lowercased().unicodeScalars.filter { CharacterSet.alphanumerics.contains($0) }.map(\.value)
+    }
+
+    private static func words(_ s: String) -> Set<Substring> {
+        Set(s.lowercased().split { !$0.isLetter && !$0.isNumber })
+    }
+
+    /// Whether `big` holds at least 90% of `small`'s letters in order. Walks the two side by
+    /// side; where they differ, it looks up to 1,000 letters ahead in `big` for `small`'s next
+    /// eight (`big` has something extra), else counts the letter missing (`small` has
+    /// something extra, like a list's numbers). Gives up once more than 10% are missing.
+    private static func holdsMost(of small: [UInt32], in big: [UInt32]) -> Bool {
+        let allowed = small.count / 10
+        var i = 0, j = 0, missing = 0
+        while i < small.count {
+            if j < big.count, small[i] == big[j] {
+                i += 1
+                j += 1
+                continue
+            }
+            let k = min(8, small.count - i)
+            var p = j + 1
+            let last = min(big.count - k, j + 1_000)
+            while p <= last {
+                var q = 0
+                while q < k, big[p + q] == small[i + q] { q += 1 }
+                if q == k { break }
+                p += 1
+            }
+            if p <= last {
+                j = p
+            } else {
+                missing += 1
+                if missing > allowed { return false }
+                i += 1
+            }
+        }
+        return true
     }
 
     /// The shortcut's modifier keys are usually still held; wait so ⌘C isn't ⌃⌥⌘C.

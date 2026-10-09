@@ -29,7 +29,7 @@ struct PlayerView: View {
             }
             .frame(height: 16)
             if model.hasSession {
-                SentenceTextView(text: model.text, ranges: model.chunkRanges, current: model.currentIndex) {
+                SentenceTextView(text: model.text, styles: model.displayStyles, ranges: model.chunkRanges, current: model.currentIndex) {
                     model.jump(to: $0)
                 }
                 .frame(minHeight: 90)

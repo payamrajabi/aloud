@@ -4,14 +4,18 @@ import CoreAudio
 import CSherpaOnnx
 
 /// Developer-only command-line modes used to test the app without the shortcut.
-///   --say "text" | --say-file path [--voice af_heart] [--out file.wav] [--show-phonemes]   synthesize only, print speed
-///   --read "text" | --read-file path                    open the player and read
+///   --say "text" | --say-file path [--voice af_heart] [--out file.wav] [--show-phonemes]   synthesize what the player
+///         would say, with its pauses and speeds; print each chunk. "\n" in --say text is a line break.
+///         [--format markdown|html|plain] (default: .html/.htm files as HTML, else detected as the player does)
+///         [--flat] the 1.6.0 reading instead (every line a paragraph, no structure), for before/after listening
+///   --read "text" | --read-file path                    open the player and read (.html/.htm files as HTML)
 ///   --mute                                              silence output
 ///   --trace                                             print player state twice a second
 ///   --download-voice                                    download the voice model and exit
 ///   --phonemize [--gb] [--raw] < lines.txt               print each line's phonemes
 ///   --g2p-test Tests/g2p/regression.json [--verbose]    pronunciation regression suite
 ///   --speech-test Tests/g2p/core-readings.json [--verbose] [--freeze]   reading tests written as plain words
+///   --test-narration Tests/narration/cases.json [--verbose]   what the player shows and says for Markdown, HTML, plain text
 ///   --bench-lexicon [lexicon.json] [--article f.txt]    custom lexicon load and matching times (made-up 10,000 entries by default)
 ///   --correct-dictation "text" [--lexicon f.json]       what dictation would type, and why (reads lines from stdin without text)
 ///   --test-dictation Tests/dictation/regression.json    dictation corrector regression suite
@@ -230,6 +234,9 @@ enum DebugScript {
         if let path = value("--speech-test") {
             exit(SpeechTest.run(path: path, verbose: args.contains("--verbose"), freeze: args.contains("--freeze")))
         }
+        if let path = value("--test-narration") {
+            exit(NarrationTest.run(path: path, verbose: args.contains("--verbose")))
+        }
         if args.contains("--correct-dictation") {
             let text = value("--correct-dictation").flatMap { $0.hasPrefix("--") ? nil : $0 }
             exit(DictationTest.correct(text, lexicon: value("--lexicon")))
@@ -256,8 +263,25 @@ enum DebugScript {
                 exit(1)
             }
         }
-        guard let text = value("--say") ?? value("--say-file").flatMap({ try? String(contentsOfFile: $0, encoding: .utf8) }) else { return }
+        guard var text = value("--say") ?? value("--say-file").flatMap({ try? String(contentsOfFile: $0, encoding: .utf8) }) else { return }
+        if value("--say") != nil { text = text.replacingOccurrences(of: "\\n", with: "\n") }
         let voice = Voice.with(key: value("--voice"))
+        let chunks: [Chunk]
+        if args.contains("--flat") {
+            print("format: 1.6.0 (flat)")
+            chunks = TextPrep.legacyChunks(for: TextPrep.clean(text))
+        } else {
+            let ext = value("--say-file").map { URL(fileURLWithPath: $0).pathExtension.lowercased() } ?? ""
+            let given = value("--format")
+            guard let format = given.map(NarrationFormat.init(rawValue:)) ?? (ext == "html" || ext == "htm" ? .html : .auto) else {
+                print("error: --format is markdown, html or plain")
+                exit(1)
+            }
+            print("format: \(format.rawValue)")
+            chunks = NarrationPlanner.plan(NarrationDoc.parse(text, format: format)).chunks
+        }
+        // Unlike the player, every chunk is generated, even text in another script: the
+        // runtime suite checks here that the voice gives no near-silent audio for it.
         do {
             print("model: \(KokoroEngine.modelDirectory.path)")
             var t0 = Date()
@@ -265,14 +289,17 @@ enum DebugScript {
             engine.prepare(voice.accent)
             print(String(format: "model load: %.2fs", Date().timeIntervalSince(t0)))
             var all: [Float] = []
-            for chunk in TextPrep.chunks(for: TextPrep.clean(text)) {
+            for chunk in chunks {
                 t0 = Date()
                 if args.contains("--show-phonemes") { print("   /\(engine.phonemes(chunk.speech, accent: voice.accent))/") }
-                let samples = engine.generate(chunk.speech, voice: voice)
+                // Trimmed and followed by its pause, as the player plays it.
+                let samples = AudioOut.trimSilence(engine.generate(chunk.speech, voice: voice, speed: chunk.speed))
                 let elapsed = Date().timeIntervalSince(t0)
                 let secs = Double(samples.count) / Double(KokoroEngine.sampleRate)
-                print(String(format: "%.2fs audio in %.2fs (%.1fx real time): %@", secs, elapsed, secs / elapsed, chunk.speech))
+                print(String(format: "%.2fs audio in %.2fs (%.1fx real time)  speed %.2f  pause %.2f: %@",
+                             secs, elapsed, secs / elapsed, chunk.speed, chunk.pauseAfter, chunk.speech))
                 all += samples
+                all += [Float](repeating: 0, count: Int(chunk.pauseAfter * Double(KokoroEngine.sampleRate)))
             }
             if let out = value("--out") {
                 SherpaOnnxWriteWave(all, Int32(all.count), Int32(KokoroEngine.sampleRate), out)
@@ -289,8 +316,12 @@ enum DebugScript {
         if args.contains("--mute") { model.isMuted = true }
         if args.contains("--dark") { NSApp.appearance = NSAppearance(named: .darkAqua) }
         var text = value("--read")
-        if let path = value("--read-file") { text = try? String(contentsOfFile: path, encoding: .utf8) }
-        if let text { model.load(text) }
+        var isHTML = false
+        if let path = value("--read-file") {
+            text = try? String(contentsOfFile: path, encoding: .utf8)
+            isHTML = ["html", "htm"].contains(URL(fileURLWithPath: path).pathExtension.lowercased())
+        }
+        if let text { model.load(text, html: isHTML ? text : nil) }
         if args.contains("--trace") {
             Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
                 print(String(format: "[%5.1f] ", Date().timeIntervalSince(start)) + model.debugDescription)
