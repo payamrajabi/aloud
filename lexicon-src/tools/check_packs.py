@@ -50,7 +50,7 @@ def load_entries(path):
 
 
 def case_sensitive(match):
-    return match in ("case-sensitive", "exact")
+    return match in ("case-sensitive", "exact", "name")
 
 
 def spelling(word, match):
@@ -92,7 +92,7 @@ def main():
             if not isinstance(word, str) or not word.strip() or not isinstance(us, str) or not us.strip():
                 continue
             word = unicodedata.normalize("NFC", word.strip())
-            match = e.get("match") if e.get("match") in ("case-sensitive", "case-insensitive", "exact") else (
+            match = e.get("match") if e.get("match") in ("case-sensitive", "case-insensitive", "exact", "name") else (
                 "case-sensitive" if e.get("match") is None else "case-insensitive")
             item = {"word": word, "match": match, "us": us.strip(), "pack": pack, "file": name,
                     "pack_only": e.get("pack_only") is True}

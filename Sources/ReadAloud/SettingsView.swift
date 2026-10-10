@@ -113,18 +113,18 @@ struct SettingsView: View {
                          installed: ParakeetEngine.isInstalled, progress: dictation.modelProgress,
                          canRemove: ParakeetEngine.isInstalled, busy: dictation.isBusy,
                          download: { dictation.downloadModelNow() }, remove: { dictation.removeModel() })
-                if TranscriptCleaner.isOffered || dictation.cleanupProgress != nil {
-                    ModelRow(title: "Clean-up", detail: "Tidies dictation as you speak · about \(TranscriptCleaner.downloadSize)", symbol: "text.badge.checkmark",
-                             installed: TranscriptCleaner.isInstalled, progress: dictation.cleanupProgress,
-                             canRemove: TranscriptCleaner.isInstalled, busy: dictation.isCleanupBusy,
-                             download: { dictation.downloadCleanupModel() }, remove: { dictation.removeCleanupModel() })
-                }
+                ModelRow(title: "Clean-up",
+                         detail: "Tidies dictation as you speak · about \(TranscriptCleaner.downloadSize)"
+                             + (TranscriptCleaner.hasRecommendedMemory ? "" : " · best with 16 GB of memory"),
+                         symbol: "text.badge.checkmark",
+                         installed: TranscriptCleaner.isInstalled, progress: dictation.cleanupProgress,
+                         canRemove: TranscriptCleaner.isInstalled, busy: dictation.isCleanupBusy,
+                         download: { dictation.downloadCleanupModel() }, remove: { dictation.removeCleanupModel() },
+                         afterRemoving: TranscriptCleaner.removeConfirmation)
             } header: {
                 Text("Downloads")
             } footer: {
-                Text(TranscriptCleaner.isOffered
-                     ? "All three run entirely on your Mac. Voice and dictation download automatically the first time Aloud opens; clean-up is optional. Remove one to free up space, and Aloud asks before downloading it again when you next use it."
-                     : "Both run entirely on your Mac and download automatically the first time Aloud opens. Remove one to free up space; Aloud asks before downloading it again when you next use it.")
+                Text("All three run entirely on your Mac. Voice and dictation download automatically the first time Aloud opens; Aloud asks before downloading them again if you remove one. Clean-up is optional and only downloads when you click Download: it fixes punctuation and drops ums, repeats and false starts while you talk. Remove it to go back to exactly what was heard.")
                     .foregroundStyle(.secondary)
                     .font(.caption)
                     .fixedSize(horizontal: false, vertical: true)
@@ -389,6 +389,8 @@ private struct ModelRow: View {
     let busy: Bool
     let download: () -> Void
     let remove: () -> Void
+    /// What the Remove confirmation says happens afterwards.
+    var afterRemoving = "Aloud will ask before downloading it again the next time you use it."
     @State private var confirmingRemove = false
 
     var body: some View {
@@ -433,7 +435,7 @@ private struct ModelRow: View {
         .confirmationDialog("Remove the \(title.lowercased()) model?", isPresented: $confirmingRemove) {
             Button("Remove", role: .destructive, action: remove)
         } message: {
-            Text("Aloud will ask before downloading it again the next time you use it.")
+            Text(afterRemoving)
         }
     }
 }

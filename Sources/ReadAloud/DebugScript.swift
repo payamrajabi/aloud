@@ -19,6 +19,7 @@ import CSherpaOnnx
 ///   --bench-lexicon [lexicon.json] [--article f.txt]    custom lexicon load and matching times (made-up 10,000 entries by default)
 ///   --correct-dictation "text" [--lexicon f.json]       what dictation would type, and why (reads lines from stdin without text)
 ///   --test-dictation Tests/dictation/regression.json    dictation corrector regression suite
+///   --test-tidy Tests/dictation/tidy.json               clean-up fallback (rule-based tidy-up) regression suite
 ///   --packs finance,medicine                            switch field packs on for any of the above (and --say, --read)
 ///   --render-phonemes "ðə kwˈɪk" [--voice v] [--out f.wav] [--raw]   synthesize exact phonemes
 ///   --clean "text" | --clean-file path [--piece-words 30]  tidy dictation text as if it arrived in pieces, print timing
@@ -31,6 +32,8 @@ import CSherpaOnnx
 ///   --script "2:seek=30;4:pause;5:play;8:open;9:snapshot=/tmp/p.png;10:quit"
 enum DebugScript {
     static let args = CommandLine.arguments
+    /// A regression suite: these read only the app's own lexicons, never the user's folder.
+    static let isTestRun = ["--g2p-test", "--speech-test", "--test-dictation", "--test-narration"].contains { args.contains($0) }
 
     static func value(_ flag: String) -> String? {
         guard let i = args.firstIndex(of: flag), i + 1 < args.count else { return nil }
@@ -244,6 +247,9 @@ enum DebugScript {
         }
         if let path = value("--test-dictation") {
             exit(DictationTest.run(path: path, lexicon: value("--lexicon"), verbose: args.contains("--verbose")))
+        }
+        if let path = value("--test-tidy") {
+            exit(DictationTest.runTidy(path: path, verbose: args.contains("--verbose")))
         }
         if args.contains("--bench-lexicon") {
             let path = value("--bench-lexicon").flatMap { $0.hasPrefix("--") ? nil : $0 }
