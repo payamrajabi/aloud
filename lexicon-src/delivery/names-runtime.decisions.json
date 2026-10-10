@@ -1,0 +1,17 @@
+{
+  "approved_runtime_sha256": "1f632909bf74adfec25f433a435e1e25c72d71107bf597969849d2173422cb8a",
+  "provenance": {
+    "basis": "Reviewed stable existing owner decisions and original master dispositions; no names added or re-researched.",
+    "commit": "cbd4e2941b2c0e20a160d497d3fbb9ee0e343b1b",
+    "matching_change": "FIN-906 commit 53845e8: exact-case names now accept possessives only; readings and 5,000-rank scope unchanged."
+  },
+  "schema": 1,
+  "scope": {
+    "existing_special_batches": [
+      "p0001"
+    ],
+    "rank_limit": 5000,
+    "why": "Preserve existing approved Persian owner/regional corrections outside the ranked tranche; report them separately, never count them as first-5000 coverage."
+  },
+  "source_sha256": "bf139d14730d1d845987a365bf929e0d74391f3249cbb0de5f449bee3f511e1d"
+}

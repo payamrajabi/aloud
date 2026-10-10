@@ -5118,8 +5118,45 @@
   },
   {
    "text": "I met Payam yesterday.",
-   "us": "pæjˈɑm",
-   "gb": "pajˈɑːm"
+   "us": "mˈɛt pˈɑjˌʌm jˈɛstəɹdˌA",
+   "gb": "pˈɑːjˌʌm",
+   "absent": "pæj"
+  },
+  {
+   "text": "Payam's plan.",
+   "us": "pˈɑjˌʌmz",
+   "gb": "pˈɑːjˌʌmz"
+  },
+  {
+   "text": "Payam’s plan.",
+   "us": "pˈɑjˌʌmz",
+   "gb": "pˈɑːjˌʌmz"
+  },
+  {
+   "text": "Andreas' idea.",
+   "us": "ɑndɹˈAəs Idˈiə",
+   "gb": "ɒndɹˈAəs Idˈɪə"
+  },
+  {
+   "text": "Payam, can you hear me?",
+   "us": "pˈɑjˌʌm,",
+   "gb": "pˈɑːjˌʌm,"
+  },
+  {
+   "text": "Rayan and Shayan met Khashayar.",
+   "us": "ɹɑjˈɑn ænd ʃɑjˈɑn mˈɛt kˌæʃɑjˈɑɹ",
+   "gb": "ɹɑːjˈɑːn and ʃɑːjˈɑːn mˈɛt kˌaʃɑːjˈɑː"
+  },
+  {
+   "text": "Keyvan and Katayoun arrived.",
+   "us": "kAvˈɑn ænd kˌætɑjˈun",
+   "gb": "kAvˈɑːn and kˌatɑːjˈuːn"
+  },
+  {
+   "text": "Sui fees fell this week.",
+   "us": "swˈi fˈiz",
+   "gb": "swˈiː fˈiːz",
+   "absent": "swˈA"
   },
   {
    "text": "Payman called this morning.",

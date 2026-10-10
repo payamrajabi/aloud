@@ -21,7 +21,13 @@ Persian readings Payam asked for) and writes:
   - lexicon-src/names/coverage.json: the "research" block (totals, by origin, language and
     rank tier, the Persian batch on its own) and by_disposition.
 
+READING_DECISIONS replaces a batch's reading after research (the owner's listening choices, such
+as Payam's, and fixes carried to names with the same pattern); names.source.json keeps the
+research reading beside it.
+
 A corrected name is held back (logged in names.source.json "dropped") when:
+  - the owner decided another list's reading of the spelling wins (OWNER_HOLD: Sui stays the
+    blockchain's SWEE from the tech list);
   - Core reads the spelling as something else after the lexicon has marked its terms: a month
     or weekday abbreviation ("Jun 5", "Thu 3pm");
   - its everyday use in English text is a place or brand read another way (ELSEWHERE: Port
@@ -130,6 +136,29 @@ WORD_DROP = {
     "Dolma": "'dolma' (the stuffed dish) is an everyday word in food writing",
 }
 
+# Readings settled after research, which win over the batch's (the research reading is kept in
+# names.source.json as "research_reading", with the reason as "reading_decision").
+READING_DECISIONS = {
+    # Payam chose option E on the listening page (round 3, claude.ai/artifact/9DYUR5Z2VMpdBVYqGSKnGy)
+    # on 2026-10-09. The researched pæjˈɑm sounded like "PAY-yahm" to him: Kokoro pulls the
+    # 'cat' vowel towards "ay" before the y glide. E keeps the open "pah" and stresses it.
+    "Payam": {"us": "pˈɑjˌʌm", "gb": "pˈɑːjˌʌm", "respelling": "PAH-yuhm",
+              "why": "Owner decision (Payam, 2026-10-09): option E of the listening page, PAH-yuhm; "
+                     "the researched pæjˈɑm sounded like PAY-yahm"},
+    # The same "a + y" pattern as Payam (an open "ah" before the y glide): the research wrote the
+    # US vowel open (ɹɑjˈɑn) but the British one as the 'cat' vowel (a), which Kokoro pulls towards
+    # "ay" before j. Shayan, Khashayar and Katayoun already write ɑ(ː)j in both.
+    "Rayan": {"gb": "ɹɑːjˈɑːn",
+              "why": "Consistency with Payam's fix (2026-10-09): GB 'a' before the y glide sounds like 'ay'; "
+                     "rah-YAHN takes the open ɑː as the US reading and Shayan already do"},
+}
+
+# Corrected names the owner decided to leave to another list's reading of the same spelling.
+OWNER_HOLD = {
+    "Sui": "Owner decision (Payam, 2026-10-09): Sui reads as the Sui blockchain, SWEE (the tech list's entry, "
+           "with its dictation fix); the Chinese name and dynasty's SWAY stays in the research",
+}
+
 
 def load_research(folder):
     """{name: entry} from the checked batches; p-batches (special research) win."""
@@ -198,6 +227,8 @@ ELSEWHERE = {
 def hold_back(e, gold, before):
     """Why a corrected name stays out of the pack, or None."""
     n = e["name"]
+    if n in OWNER_HOLD:
+        return "owner-decision", OWNER_HOLD[n]
     if n in CORE_ABBREVIATIONS:
         return "core-abbreviation", "Core reads it as a month or weekday abbreviation ('Jun 5', 'Thu 3pm') after the lexicon runs"
     if n in ELSEWHERE:
@@ -238,6 +269,14 @@ def main():
     args = ap.parse_args()
 
     research, batches, overrides = load_research(args.research)
+    for n, decision in READING_DECISIONS.items():
+        e = research[n]
+        e["research_reading"] = {k: e.get(k) for k in ("us", "gb", "respelling")}
+        for k in ("us", "gb", "respelling"):
+            if k in decision:
+                e[k] = decision[k]
+        e["gb_effective"] = e.get("gb") or e.get("us")
+        e["reading_decision"] = decision["why"]
     names = sorted(research, key=lambda n: (int(research[n].get("rank") or 0) == 0, int(research[n].get("rank") or 0), n))
 
     if args.baseline_out:
@@ -301,7 +340,7 @@ def main():
     # Source file.
     keep = ["rank", "name", "batch", "disposition", "shipped", "drop_reason", "drop_detail", "reads_as_written",
             "language", "region", "ipa", "us", "gb", "respelling", "source", "url", "confidence", "alternatives", "notes",
-            "transliteration", "word_check", "tech_clash", "verdict_us", "verdict_us_detail", "verdict_gb", "verdict_gb_detail"]
+            "transliteration", "reading_decision", "research_reading", "word_check", "tech_clash", "verdict_us", "verdict_us_detail", "verdict_gb", "verdict_gb_detail"]
     entries = []
     for n in names:
         e = research[n]
@@ -392,11 +431,13 @@ def main():
     research_block = {
         "about": "Phase 4 (assembly): the researched names (n-batches for the top ranks, p0001 for Persian names) "
                  "and what the pack does with them. 'Handled' means read as intended now (already correct, or "
-                 "corrected and shipped), or decided on purpose (protect-word, not-a-name). Names not yet researched "
+                 "corrected and shipped), or decided on purpose (protect-word, not-a-name, or held back by an owner "
+                 "decision such as Sui). Names not yet researched "
                  "and names in other scripts (unsupported) are not handled.",
         "batches": sorted(batches),
         "totals": totals(rows),
-        "handled": sum(1 for e in rows if status(e) in ("already correct", "corrected and shipped", "protect-word", "not-a-name")),
+        "handled": sum(1 for e in rows if status(e) in ("already correct", "corrected and shipped", "protect-word", "not-a-name")
+                       or e.get("drop_reason") == "owner-decision"),
         "ledger_rows": ledger_total,
         "researched_not_in_ledger": sum(1 for e in rows if not int(e.get("rank") or 0)),
         "not yet researched": ledger_total - len([r for r in researched_ranks if r]),

@@ -194,10 +194,12 @@ enum DictationTest {
         }
         let must_change: [Case]
         let must_not_change: [String]
+        let faithful: [Case]?
+        let unfaithful: [Case]?
+        let filler_sounds: [Case]?
     }
 
-    /// The rule-based tidy-up the clean-up model falls back to when its reply can't be
-    /// trusted (`TranscriptCleaner.basicTidy`): its output is typed as it is.
+    /// The cleanup fallback and the lexical faithfulness guard for model output.
     ///   --test-tidy Tests/dictation/tidy.json [--verbose]
     /// Each output must also come out unchanged from a second pass.
     static func runTidy(path: String, verbose: Bool) -> Int32 {
@@ -226,25 +228,70 @@ enum DictationTest {
         print("\n== must not change (\(doc.must_not_change.count)) ==")
         for text in doc.must_not_change {
             check(text, want: text)
-            // The filler pass that runs before the model must leave these alone too.
             let dropped = TranscriptCleaner.dropFillerSounds(text)
             if dropped != text {
                 failures += 1
                 print("  ✗ \(text.debugDescription)\n      dropFillerSounds → \(dropped.debugDescription)")
             }
         }
-        // The Remove dialog must not promise tidying: with the model gone dictation types the
-        // raw transcript (the rule-based tidy only backs up a rejected model reply).
-        let copy = TranscriptCleaner.removeConfirmation.lowercased()
-        for banned in ["tidy", "tidying", "clean"] where copy.contains(banned) {
-            failures += 1
-            print("  ✗ Remove confirmation mentions \(banned.debugDescription), but nothing tidies once the model is removed")
+        let fillerSounds = doc.filler_sounds ?? []
+        print("\n== pre-model filler sounds (\(fillerSounds.count)) ==")
+        for c in fillerSounds {
+            let got = TranscriptCleaner.dropFillerSounds(c.in)
+            let ok = got == c.out && TranscriptCleaner.dropFillerSounds(got) == got
+            failures += ok ? 0 : 1
+            if !ok || verbose { print("  \(ok ? "✓" : "✗") \(c.in.debugDescription) → \(got.debugDescription), want \(c.out.debugDescription)") }
         }
-        if !copy.contains("exactly what aloud heard") {
+
+        // Preserve the shipped removal contract: an absent model leaves the raw transcript.
+        let removalCopy = TranscriptCleaner.removeConfirmation.lowercased()
+        if ["tidy", "tidying", "clean"].contains(where: { removalCopy.contains($0) }) {
             failures += 1
-            print("  ✗ Remove confirmation should say dictation types exactly what Aloud heard")
+            print("  ✗ Remove confirmation promises cleanup while its model is absent")
         }
-        let total = doc.must_change.count + doc.must_not_change.count + 2
+        if !removalCopy.contains("exactly what aloud heard") {
+            failures += 1
+            print("  ✗ Remove confirmation must explain the original-transcript fallback")
+        }
+
+        func checkFaithfulness(_ cases: [TidyDoc.Case], wantFaithful: Bool) {
+            for c in cases {
+                let got = TranscriptCleaner.isFaithful(c.out, to: c.in)
+                let ok = got == wantFaithful
+                failures += ok ? 0 : 1
+                if !ok || verbose {
+                    print("  \(ok ? "✓" : "✗") \(c.in.debugDescription) → \(c.out.debugDescription)"
+                          + "\n      expected \(wantFaithful ? "faithful" : "unfaithful"), got \(got ? "faithful" : "unfaithful")")
+                }
+            }
+        }
+        let faithful = doc.faithful ?? []
+        let unfaithful = doc.unfaithful ?? []
+        print("\n== faithfulness guard: accept (\(faithful.count)) ==")
+        checkFaithfulness(faithful, wantFaithful: true)
+        print("\n== faithfulness guard: reject (\(unfaithful.count)) ==")
+        checkFaithfulness(unfaithful, wantFaithful: false)
+
+        let stressInput = Array(repeating: "alpha beta", count: 5_000).joined(separator: " ")
+        let stressStart = Date()
+        let stressAccepted = TranscriptCleaner.isFaithful("Alpha beta", to: stressInput)
+        let stressDuration = Date().timeIntervalSince(stressStart)
+        let stressPassed = stressAccepted && stressDuration < 2
+        failures += stressPassed ? 0 : 1
+        print("\n== repeated-phrase stress (10,000 words) ==")
+        print("  \(stressPassed ? "✓" : "✗") \(String(format: "%.3f", stressDuration))s, \(stressAccepted ? "accepted" : "rejected")")
+
+        let stammerInput = Array(repeating: "the the alpha", count: 1_000).joined(separator: " ")
+        let stammerOutput = Array(repeating: "the alpha", count: 1_000).joined(separator: " ")
+        let stammerStart = Date()
+        let stammerAccepted = TranscriptCleaner.isFaithful(stammerOutput, to: stammerInput)
+        let stammerDuration = Date().timeIntervalSince(stammerStart)
+        let stammerPassed = stammerAccepted && stammerDuration < 2
+        failures += stammerPassed ? 0 : 1
+        print("\n== repeated-stammer stress (3,000 words) ==")
+        print("  \(stammerPassed ? "✓" : "✗") \(String(format: "%.3f", stammerDuration))s, \(stammerAccepted ? "accepted" : "rejected")")
+
+        let total = doc.must_change.count + doc.must_not_change.count + faithful.count + unfaithful.count + fillerSounds.count + 4
         print(failures == 0 ? "\nPASSED (\(total) checks)" : "\nFAILED: \(failures) of \(total) checks")
         return failures == 0 ? 0 : 1
     }
