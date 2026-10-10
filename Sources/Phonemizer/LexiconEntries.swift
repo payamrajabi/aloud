@@ -73,10 +73,14 @@ public struct LexiconEntry {
         self.pack = pack
     }
 
-    /// As the original loader read it: "case-sensitive" and "exact" keep their casing,
+    /// As the original loader read it: "case-sensitive", "exact" and "name" keep their casing,
     /// anything else (including unknown values) matches any casing.
-    public var isCaseSensitive: Bool { match == "case-sensitive" || match == "exact" }
+    public var isCaseSensitive: Bool { match == "case-sensitive" || match == "exact" || match == "name" }
     public var isExact: Bool { match == "exact" }
+    /// A person's name: its own casing, and a possessive ending ("Payam's") but never a plural
+    /// one. With the plural endings a short name took over other words: "Thi" read "This" as
+    /// "Thi" plus s, "Andrea" read "Andreas", "Venu" read "Venus".
+    public var isName: Bool { match == "name" }
     public var isEvidence: Bool { evidence != false }
     public var isUnit: Bool { unit == true }
     public var isCapsWord: Bool { capsWord == true }
