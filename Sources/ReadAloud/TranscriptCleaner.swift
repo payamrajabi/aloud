@@ -15,6 +15,10 @@ final class TranscriptCleaner {
     static let fileName = "Qwen3.5-4B-Q4_K_M.gguf"
     static let downloadURL = URL(string: "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/main/\(fileName)")!
     static let downloadSize = "2.7 GB"
+    /// What the Remove confirmation promises. With the model gone the cleaner is inactive,
+    /// so dictation types the raw transcript: no basic tidying runs on that path (it only
+    /// backs up a rejected model reply). Keep this honest: --test-tidy checks it.
+    static let removeConfirmation = "Dictation will go back to typing exactly what Aloud heard. It won't download again unless you click Download here."
 
     static var modelDirectory: URL { ModelStore.root.appendingPathComponent(modelName) }
     static var modelPath: URL { modelDirectory.appendingPathComponent(fileName) }

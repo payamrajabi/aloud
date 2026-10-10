@@ -233,7 +233,18 @@ enum DictationTest {
                 print("  ✗ \(text.debugDescription)\n      dropFillerSounds → \(dropped.debugDescription)")
             }
         }
-        let total = doc.must_change.count + doc.must_not_change.count
+        // The Remove dialog must not promise tidying: with the model gone dictation types the
+        // raw transcript (the rule-based tidy only backs up a rejected model reply).
+        let copy = TranscriptCleaner.removeConfirmation.lowercased()
+        for banned in ["tidy", "tidying", "clean"] where copy.contains(banned) {
+            failures += 1
+            print("  ✗ Remove confirmation mentions \(banned.debugDescription), but nothing tidies once the model is removed")
+        }
+        if !copy.contains("exactly what aloud heard") {
+            failures += 1
+            print("  ✗ Remove confirmation should say dictation types exactly what Aloud heard")
+        }
+        let total = doc.must_change.count + doc.must_not_change.count + 2
         print(failures == 0 ? "\nPASSED (\(total) checks)" : "\nFAILED: \(failures) of \(total) checks")
         return failures == 0 ? 0 : 1
     }

@@ -120,7 +120,7 @@ struct SettingsView: View {
                          installed: TranscriptCleaner.isInstalled, progress: dictation.cleanupProgress,
                          canRemove: TranscriptCleaner.isInstalled, busy: dictation.isCleanupBusy,
                          download: { dictation.downloadCleanupModel() }, remove: { dictation.removeCleanupModel() },
-                         afterRemoving: "Dictation will go back to typing what Aloud heard, with only basic tidying. It won't download again unless you click Download here.")
+                         afterRemoving: TranscriptCleaner.removeConfirmation)
             } header: {
                 Text("Downloads")
             } footer: {
