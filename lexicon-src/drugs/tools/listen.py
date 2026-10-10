@@ -15,7 +15,7 @@ Usage (from the repository root, after assemble.py; needs the voice installed):
    and after (the pack's), alone and in "Ask your pharmacist about ___ today."
 3. Writes a self-contained page (audio inlined) to <out>/drugs-listening.html.
 Plain python3 (standard library) and macOS afconvert."""
-import argparse, base64, html, json, os, random, subprocess, sys
+import argparse, base64, concurrent.futures, html, json, os, random, subprocess, sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DRUGS = os.path.dirname(HERE)
@@ -98,7 +98,7 @@ def main():
                       "note": r.get("notes", "") or "; ".join(r.get("held", [])),
                       "src": "; ".join(f"{e.get('source')}: {e.get('says', '')}" for e in r.get("evidence", []) if isinstance(e, dict))[:400],
                       "url": next((e.get("url") for e in r.get("evidence", []) if isinstance(e, dict) and e.get("url")), "")})
-    for it in items:
+    def clips(it):
         base = os.path.join(args.out, "clips", f"{it['n']:03d}")
         for kind, b, a in (("alone", it["before"], it["after"]), ("sentence", it["sb"], it["sa"])):
             render(args.binary, b, f"{base}.{kind}.before.m4a")
@@ -108,6 +108,9 @@ def main():
             else:
                 render(args.binary, a, f"{base}.{kind}.after.m4a")
         print(it["n"], it["name"], flush=True)
+    # Four renders at a time: each launch of the app spends most of its time loading the voice.
+    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+        list(pool.map(clips, items))
     with open(os.path.join(args.out, "manifest.json"), "w", encoding="utf-8") as f:
         json.dump(items, f, ensure_ascii=False, indent=1)
     page(items, args.out, args.version)

@@ -48,15 +48,52 @@ the word they begin ("Umeclidin" → umeclidinium).
 (`~/Library/Caches/aloud-drugs/http`):
 - **MedlinePlus Drug Information** (US National Library of Medicine; the monographs are ASHP's
   AHFS Patient Medication Information): the generic's respelling, "pronounced as (a tore' va sta
-  tin)", the apostrophe after the stressed syllable; and which generic each brand is.
+  tin)", an apostrophe after the syllable with the main stress and a double one after a
+  secondary stress; and which generic each brand is.
 - **DailyMed** (FDA-approved labels, NLM): the maker's own respelling of a brand in its Medication
   Guide or Patient Information, "ELIQUIS (ELL eh kwiss)".
 - **Wiktionary**: IPA where the word has an English entry.
 Research batches added Merriam-Webster, the makers' websites and other references where these
 were missing. `evidence.json` keeps the short facts only (respellings, IPA, URLs), never page text.
 
+## Research
+All 1,272 candidates went through 27 batches of 50 (`DRUGS-GUIDE.md`): one research pass and an
+independent second-review pass per batch, each finishing with `tools/check_drugs.py` clean. The
+checker compares every reading with today's and with the harvested respellings' syllable count and
+main stress; a disagreement had to be fixed or explained in the entry's notes. Pack-wide rulings
+(which stress is main when sources disagree, which unstressed differences count, the British "y"
+after t, d and n, -sone with s) are in the guide, and `tools/families.py` lists the readings by stem
+family (-statin, -mab, -sartan) so one that breaks ranks stands out.
+
 ## Results
-(filled in by the assembly; see coverage.json)
+| | generic | brand | salt | device | all |
+|---|---:|---:|---:|---:|---:|
+| corrected | 346 | 294 | 25 | 5 | 670 |
+| already right | 200 | 279 | 31 | 11 | 521 |
+| unresolved | 2 | 43 | 4 | 0 | 49 |
+| ordinary word (never shipped) | 3 | 16 | 0 | 1 | 20 |
+| not a drug name | 3 | 4 | 0 | 0 | 7 |
+| covered by the tech list | 0 | 5 | 0 | 0 | 5 |
+| **shipped** | 344 | 272 | 23 | 5 | **643** |
+
+Shipped by confidence: 500 high, 124 medium, 20 low (each low one replaces a reading that is
+clearly wrong today; `drugs.source.json` lists them). Held back: 26 corrections, 25 of them
+low-confidence readings that only partly change today's, and Larin (also a given name;
+`decisions.json`). The atorvastatin canary now reads uh-TOR-vuh-STAT-in.
+
+Checks: `assemble.py` asks the app to read every shipped spelling, alone and in a sentence, US and
+GB (0 problems); `check_packs.py` is clean; `Tests/g2p/regression.json` has the drug cases and
+`Tests/g2p/drugs-negatives.json` the 56 ordinary sentences frozen before the pack. Loading the
+pack adds about 1 ms at launch (13,555 entries in 26.9 ms against 25.7 ms without it).
+
+`tools/listen.py` renders the before/after listening page from a sample fixed in
+`listen-sample.json`.
+
+Known limits: the harvest's label pattern missed respellings written in brackets, with primes,
+accents or in lower case (the researchers found them in the cached labels by hand), and the 49
+unresolved names have no written pronunciation the research could reach (several are store-brand
+contraceptives with no maker respelling). Dictation rewrites (spoken variants checked against the
+dictation model, and `evidence` for drug-field context) are a follow-up.
 
 ## Rebuild
 ```sh

@@ -1,0 +1,560 @@
+{
+ "about": "Drugs pack listening sample (FIN-893), drawn with seed 893 by tools/listen.py before listening; strata in tools/listen.py.",
+ "sample": [
+  {
+   "word": "atorvastatin",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "levothyroxine",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "amlodipine",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "metformin",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "lisinopril",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "losartan",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "metoprolol",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "hydrochlorothiazide",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "gabapentin",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "omeprazole",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "rosuvastatin",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "dextroamphetamine",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "amphetamine",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "sertraline",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "fluticasone",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "pantoprazole",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "estradiol",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "trazodone",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "bupropion",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "furosemide",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "tamsulosin",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "montelukast",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "hydrocodone",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "prednisone",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "simvastatin",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "famotidine",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "empagliflozin",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "glargine",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "duloxetine",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "meloxicam",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "carvedilol",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "tramadol",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "hydroxyzine",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "buspirone",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "clopidogrel",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "cetirizine",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "valsartan",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "cyclobenzaprine",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "tirzepatide",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "clonazepam",
+   "kind": "generic",
+   "stratum": "top generic"
+  },
+  {
+   "word": "eliquis",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "jardiance",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "farxiga",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "trulicity",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "januvia",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "myrbetriq",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "linzess",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "humalog",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "suboxone",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "novolog",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "basaglar",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "paxlovid",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "vraylar",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "tdap",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "humulin",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "tradjenta",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "abrysvo",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "vascepa",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "breztri",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "rybelsus",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "janumet",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "concerta",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "humira",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "incruse",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "creon",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "gavilyte-g",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "rexulti",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "dupixent",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "dulera",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "combivent",
+   "kind": "brand",
+   "stratum": "top brand"
+  },
+  {
+   "word": "tosylate",
+   "kind": "salt",
+   "stratum": "salt or device"
+  },
+  {
+   "word": "ethylsuccinate",
+   "kind": "salt",
+   "stratum": "salt or device"
+  },
+  {
+   "word": "mononitrate",
+   "kind": "salt",
+   "stratum": "salt or device"
+  },
+  {
+   "word": "solostar",
+   "kind": "device",
+   "stratum": "salt or device"
+  },
+  {
+   "word": "disoproxil",
+   "kind": "salt",
+   "stratum": "salt or device"
+  },
+  {
+   "word": "dimesylate",
+   "kind": "salt",
+   "stratum": "salt or device"
+  },
+  {
+   "word": "fluorometholone",
+   "kind": "generic",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "gavilyte-c",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "diprivan",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "atrovent",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "senexon-s",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "derma-smoothe-fs",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "rynex",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "gamunex-c",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "proctozone-hc",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "tri-estarylla",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "octagam",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "clinolipid",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "sandostatin",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "colace",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "fybogel",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "lotrimin",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "midol",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "piriteze",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "solpadeine",
+   "kind": "brand",
+   "stratum": "low confidence"
+  },
+  {
+   "word": "ergocalciferol",
+   "kind": "generic",
+   "stratum": "already right (control)"
+  },
+  {
+   "word": "insulin",
+   "kind": "generic",
+   "stratum": "already right (control)"
+  },
+  {
+   "word": "spironolactone",
+   "kind": "generic",
+   "stratum": "already right (control)"
+  },
+  {
+   "word": "escitalopram",
+   "kind": "generic",
+   "stratum": "already right (control)"
+  },
+  {
+   "word": "oxycodone",
+   "kind": "generic",
+   "stratum": "already right (control)"
+  },
+  {
+   "word": "aspirin",
+   "kind": "generic",
+   "stratum": "already right (control)"
+  },
+  {
+   "word": "propionate",
+   "kind": "salt",
+   "stratum": "already right (control)"
+  },
+  {
+   "word": "doxycycline",
+   "kind": "generic",
+   "stratum": "already right (control)"
+  },
+  {
+   "word": "loteprednol",
+   "kind": "generic",
+   "stratum": "must not change (control)"
+  },
+  {
+   "word": "dimaphen",
+   "kind": "brand",
+   "stratum": "must not change (control)"
+  },
+  {
+   "word": "multivitamin",
+   "kind": "brand",
+   "stratum": "must not change (control)"
+  },
+  {
+   "word": "toprol",
+   "kind": "brand",
+   "stratum": "must not change (control)"
+  },
+  {
+   "word": "syeda",
+   "kind": "brand",
+   "stratum": "must not change (control)"
+  },
+  {
+   "word": "ella",
+   "kind": "brand",
+   "stratum": "must not change (control)"
+  },
+  {
+   "word": "euthyrox",
+   "kind": "brand",
+   "stratum": "must not change (control)"
+  },
+  {
+   "word": "allegra",
+   "kind": "brand",
+   "stratum": "must not change (control)"
+  }
+ ]
+}
