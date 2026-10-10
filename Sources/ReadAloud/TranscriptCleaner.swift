@@ -446,15 +446,17 @@ final class TranscriptCleaner {
     }
 
     /// Preserve notation whose meaning depends on punctuation or symbols that `words()`
-    /// intentionally ignores. URL text is exact apart from trailing sentence punctuation;
-    /// numeric spans preserve signs, decimal/grouping marks, currency, percent, and known
-    /// unit symbols. Whitespace inside a numeric span is formatting and is ignored.
+    /// intentionally ignores. Email and technical spans are exact; URLs ignore trailing
+    /// sentence punctuation; numeric spans preserve signs, decimals, currencies, percentages,
+    /// common units, and accounting negatives while ignoring internal whitespace.
     private static func protectedSpans(in text: String) -> [String] {
         let ns = text as NSString
         let fullRange = NSRange(location: 0, length: ns.length)
         var spans: [(range: NSRange, value: String)] = []
-        for match in protectedEmailPattern.matches(in: text, range: fullRange) {
-            spans.append((match.range, ns.substring(with: match.range)))
+        for pattern in protectedExactPatterns {
+            for match in pattern.matches(in: text, range: fullRange) {
+                spans.append((match.range, ns.substring(with: match.range)))
+            }
         }
         for match in protectedURLPattern.matches(in: text, range: fullRange) {
             var value = ns.substring(with: match.range)
@@ -487,7 +489,7 @@ final class TranscriptCleaner {
     /// exact protected-span comparison above still catches notation changes.
     private static func formattingWords(in text: String) -> [String] {
         var normalized = text
-        for pattern in [protectedEmailPattern, protectedURLPattern, protectedNumberPattern] {
+        for pattern in protectedFormattingPatterns {
             let ns = normalized as NSString
             let range = NSRange(location: 0, length: ns.length)
             for match in pattern.matches(in: normalized, range: range).reversed() {
@@ -503,6 +505,43 @@ final class TranscriptCleaner {
         pattern: "(?i)(?:https?://|www\\.)[^\\s<>\"']+|(?<![@\\p{L}\\p{N}])(?:[\\p{L}\\p{N}-]+\\.)+[A-Za-z]{2,}(?:/[^\\s<>\"']*)?")
     private static let protectedNumberPattern = try! NSRegularExpression(
         pattern: "(?<![\\p{L}\\p{N}])(?:\\(\\s*(?:\\p{Sc}\\s*)?[+\\-−]?\\s*\\d+(?:[.,]\\d+)*(?:\\s*(?:%|‰|°\\s*[CFK]))?(?:\\s*(?:km/h|m/s|mi/h|ft/s|kg|mg|g|lbs?|oz|mL|ml|L|l|km|cm|mm|m|mi|ft|in|ms|min|sec|hr|h|s|µs|ns|GHz|MHz|kHz|Hz|MW|kW|mW|W|mV|V|mA|A|GB|MB|KB|B|Gbps|Mbps|kbps|bps|px)(?![\\p{L}\\p{N}]))?\\s*\\)|(?:[+\\-−]\\s*\\p{Sc}\\s*|\\p{Sc}\\s*[+\\-−]?\\s*|[+\\-−]\\s*)?\\d+(?:[.,]\\d+)*(?:\\s*(?:%|‰|°\\s*[CFK]))?(?:\\s*(?:km/h|m/s|mi/h|ft/s|kg|mg|g|lbs?|oz|mL|ml|L|l|km|cm|mm|m|mi|ft|in|ms|min|sec|hr|h|s|µs|ns|GHz|MHz|kHz|Hz|MW|kW|mW|W|mV|V|mA|A|GB|MB|KB|B|Gbps|Mbps|kbps|bps|px)(?![\\p{L}\\p{N}]))?(?:\\s*\\p{Sc})?)(?![\\p{L}\\p{N}])")
+
+    /// Preserve concise technical notation that the ordinary word tokenizer loses.
+    /// These spans are compared exactly, including their punctuation and spacing.
+    private static let protectedCodePattern = try! NSRegularExpression(
+        pattern: "(?<!`)`[^`\\n]+`(?!`)")
+    private static let protectedEnvironmentPattern = try! NSRegularExpression(
+        pattern: "(?<![\\p{L}\\p{N}])\\$[A-Za-z_][A-Za-z0-9_]*")
+    private static let protectedLanguagePattern = try! NSRegularExpression(
+        pattern: "(?<![\\p{L}\\p{N}])C(?:\\+\\+|#)(?![\\p{L}\\p{N}])")
+    private static let protectedFlagPattern = try! NSRegularExpression(
+        pattern: "(?<![\\p{L}\\p{N}])--?[A-Za-z][A-Za-z0-9]*(?:-[A-Za-z0-9]+)*(?:=[^\\s,;.!?]+)?")
+    private static let protectedMentionPattern = try! NSRegularExpression(
+        pattern: "(?<![\\p{L}\\p{N}])@[A-Za-z0-9_]+")
+    private static let protectedComparisonPattern = try! NSRegularExpression(
+        pattern: "(?<![\\p{L}\\p{N}])(?:<=|>=|==|!=|[≤≥≠≈=<>]|±)\\s*[+\\-−]?\\s*\\d+(?:[.,]\\d+)*(?:\\s*/\\s*[+\\-−]?\\s*\\d+(?:[.,]\\d+)*)?(?:[eE][+\\-−]?\\d+)?")
+    private static let protectedOperatorExpressionPattern = try! NSRegularExpression(
+        pattern: "(?<![\\p{L}\\p{N}])\\d+(?:[.,]\\d+)?\\s*(?:<=|>=|==|!=|[≤≥≠≈=<>]|[+−×*/÷^])\\s*[+\\-−]?\\d+(?:[.,]\\d+)*(?![\\p{L}\\p{N}])")
+    private static let protectedVariableExponentPattern = try! NSRegularExpression(
+        pattern: "(?<![\\p{L}\\p{N}])[A-Za-z]\\s*\\^\\s*\\d+(?![\\p{L}\\p{N}])")
+    private static let protectedFractionPattern = try! NSRegularExpression(
+        pattern: "(?<![\\p{L}\\p{N}])[+\\-−]?\\d+(?:[.,]\\d+)*\\s*/\\s*[+\\-−]?\\d+(?:[.,]\\d+)*(?![\\p{L}\\p{N}])")
+    private static let protectedExponentPattern = try! NSRegularExpression(
+        pattern: "(?<![\\p{L}\\p{N}])[+\\-−]?\\d+(?:[.,]\\d+)*[eE][+\\-−]?\\d+(?![\\p{L}\\p{N}])")
+
+    private static let protectedExactPatterns = [
+        protectedEmailPattern, protectedCodePattern, protectedEnvironmentPattern,
+        protectedLanguagePattern, protectedFlagPattern, protectedMentionPattern,
+        protectedOperatorExpressionPattern, protectedComparisonPattern,
+        protectedVariableExponentPattern, protectedFractionPattern, protectedExponentPattern
+    ]
+    private static let protectedFormattingPatterns = [
+        protectedEmailPattern, protectedURLPattern, protectedCodePattern,
+        protectedEnvironmentPattern, protectedLanguagePattern, protectedFlagPattern,
+        protectedMentionPattern, protectedOperatorExpressionPattern,
+        protectedComparisonPattern, protectedVariableExponentPattern,
+        protectedFractionPattern, protectedExponentPattern, protectedNumberPattern
+    ]
 
     /// Ranges include one discarded word and an isolated correction cue. The cue must
     /// have commas on both sides, so "Tuesday, no, Wednesday" qualifies while sentence
