@@ -110405,26 +110405,6 @@
 "asr_heard": "Loki"
 },
 {
-"word": "LOL",
-"match": "case-insensitive",
-"us": "ˌɛlˌOˈɛl",
-"gb": "ˌɛlˌQˈɛl",
-"category": "general",
-"respelling": "el-oh-EL",
-"source": "Chat initialism (laugh out loud); spelled out or said 'lol'.",
-"confidence": "medium",
-"alternatives": "'lol' as a word (LOLL)",
-"spoken_variants": [
-"l o l"
-],
-"dictation": "always",
-"baseline_us": "ˌɛlˌOˈɛl",
-"verdict": "right",
-"batch": "b079",
-"evidence": false,
-"asr_heard": "lol"
-},
-{
 "word": "Lollipop",
 "match": "case-insensitive",
 "us": "lˈɑlipˌɑp",

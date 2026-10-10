@@ -5117,6 +5117,22 @@
    "gb": "ɛtsˈɛtəɹə. ðˈɛn"
   },
   {
+   "text": "lol that was close",
+   "us": "lˈɑl ðˈæt",
+   "gb": "lˈɒl ðˈat",
+   "absent": "ˌɛlˌO"
+  },
+  {
+   "text": "imma head out",
+   "us": "ˈImə hˈɛd",
+   "gb": "ˈImə hˈɛd"
+  },
+  {
+   "text": "omg btw rn",
+   "us": "ˌOˌɛmʤˈi bˌitˌidˈʌbᵊlju ˌɑɹˈɛn",
+   "gb": "ˌQˌɛmʤˈiː bˌiːtˌiːdˈʌbᵊljuː ˌɑːˈɛn"
+  },
+  {
    "text": "I met Payam yesterday.",
    "us": "pæjˈɑm",
    "gb": "pajˈɑːm"
@@ -5385,7 +5401,7 @@
   {
    "text": "Follow #blessed on Instagram.",
    "chunks": [
-    "Follow blessed on Instagram."
+    "Follow #blessed on Instagram."
    ]
   },
   {

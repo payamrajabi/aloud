@@ -43,6 +43,9 @@ public final class Phonemizer {
             (t, stresses) = Self.holdStress(t)
             // Links lose their paths before any pass looks at slashes or digits.
             t = Self.foldMicroSign(TextNormalizer.linkLabels(t))
+            // The messaging pack's reading rules (FIN-896, on by default): emoji and emoticons
+            // silent, hashtags, @mentions, "u" and "ur". First, so every later pass sees words.
+            t = MessagingPass.apply(t)
             // The Core passes that read whole expressions before the custom lexicon marks terms
             // inside them ("CAD", "+1", "Room", "Max", "10x"), in cross.json's rule_order (steps
             // 2 to 8): each sees what the one before wrote.

@@ -1657,7 +1657,7 @@
           "pause": 0.75
         },
         {
-          "speech": "launch",
+          "speech": "#launch",
           "pause": 0.75
         },
         {
@@ -1904,7 +1904,7 @@
       "detect": "plain",
       "chunks": [
         {
-          "speech": "Launch day is here launch",
+          "speech": "Launch day is here #launch",
           "pause": 0.5
         }
       ]

@@ -231,9 +231,10 @@ enum TextPrep {
     private static let keyVerbs: Set<String> = ["press", "presses", "pressed", "pressing", "hit", "tap", "enter", "dial"]
     private static let keyNouns: Set<String> = ["key", "keys", "button", "buttons"]
 
-    /// "*", "#" and "~" are markup (bold, headings, hashtags, strikethrough, "~/paths") and read
-    /// as a space, except where the phonemizer reads them (FIN-889): "#" against a digit ("#1",
-    /// "#31#") or after a letter ("C#"), "# of", "~" before a number ("~5", "~ 10 km", "9~5"), and
+    /// "*", "#" and "~" are markup (bold, headings, strikethrough, "~/paths") and read as a space,
+    /// except where the phonemizer reads them (FIN-889): "#" against a digit ("#1", "#31#") or
+    /// after a letter ("C#"), "# of", a hashtag ("#blessed", read "hashtag blessed" by the
+    /// messaging pack, FIN-896), "~" before a number ("~5", "~ 10 km", "9~5"), and
     /// a keypad "*" or "#" on its own after a key verb or before "key" or "button" ("Press * then
     /// 2"). A run of two or more ("**", "##", "~~") is always markup.
     private static func markupSigns(_ t: String) -> String {
@@ -263,6 +264,8 @@ enum TextPrep {
             || numberOf.firstMatch(in: after, range: rest) != nil {
             return true
         }
+        // A hashtag, which the messaging pack reads "hashtag …" (FIN-896).
+        if sign == "#", MessagingPass.startsHashtag(before: before, after: after) { return true }
         // A key on its own: "Press * then 2.", "Press # to finish.", "the # key".
         guard previous.map(\.isWhitespace) ?? true, next.map({ $0.isWhitespace || ".,;:!?)".contains($0) }) ?? true else { return false }
         let wordBefore = String(before.reversed().drop { $0 == " " || $0 == "\t" }.prefix { $0.isLetter }.reversed())

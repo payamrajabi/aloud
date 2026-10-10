@@ -1,0 +1,137 @@
+{
+"about": "FIN-896 messaging & internet shorthand pack: the master list behind Lexicons/messaging.json (build.py projects it), with each entry's reading, evidence and the stack's reading before the pack (before_us). The pack is on by default and every entry is general (heard by everyone); its context-dependent readings are Sources/Phonemizer/Packs/MessagingPass.swift. Tests: Tests/g2p/messaging-readings.json.",
+"decisions": {
+ "owner": [
+  "Payam, 2026-10-09: emoji are never read aloud.",
+  "Shorthand that can be said as a word is read as the word: 'lol' as the word lol, 'u' as 'you', and by extension 'ur' as 'your'.",
+  "Shorthand that can't be said as a word stays letters: tbh, idk, smh, brb, ngl (already letters in the tech list, which keeps them).",
+  "On by default.",
+  "Hashtags and @mentions: pick sensible readings and document them."
+ ],
+ "calls": [
+  "Initialisms of several words are letters, like idk: omg, btw, rn, ty, np, ikr, ttyl, omw, wyd, wbu, hbu, gtg, g2g, nbd, hbd, tysm, yw, jk, ofc, tfw, ootd, fr, af, xoxo, wtf, stfu, idgaf, lmfao, rsvp. Expanding them ('right now', 'thank you') would put words in the writer's mouth; the owner's rule keeps letters for what can't be said as a word.",
+  "Shortenings and rebus spellings of a single word are that word, as 'u' is 'you': abt, bday, msg, smth, sth, obv, rly, b4, gr8, l8r, 2day, 2nite, 2moro. (Core already reads pls, plz, thx, thnx, tmrw, ppl, and bc before a clause.)",
+  "Words already: lol, lolz, imma (EYE-muh), cya (see ya). The tech list's rofl (ROF-ul), fomo and yolo are words too and stay there.",
+  "lmao stays letters (the tech list's reading): it's said both ways, and letters match lmfao.",
+  "Letters a stack already reads right (smh, idk, tbh, brb, ngl, imo, irl, lmk, hmu, fyi, ftw, dm, afk, gg, icymi, idc, tbt, tl;dr, nvm) stay in the tech list rather than being copied here.",
+  "Single letters that already sound like the word stay letters: 'r' (are), 'c' (see), 'y' (why), 'k' (kay).",
+  "Hashtags: 'hashtag' and the tag's words, split at case changes and digits (#ThrowbackThursday → 'hashtag Throwback Thursday', #100DaysOfCode → 'hashtag 100 Days Of Code'). Saying 'hashtag' keeps what the writer marked; dropping the # (as before) lost it.",
+  "@mentions: 'at' and the handle's words (@john_doe, @JohnDoe → 'at John Doe'); an all-lower-case part is read as a name (@payam → 'at Payam', which the names pack then reads).",
+  "Emoji: silent, a run becoming one space so the words around it don't join ('great😂lol'). Keycap digits keep the digit ('Step 1️⃣' → 'Step one'): it's a number in a box. ©, ®, ™, ‼ and arrows keep the readings other rules give them.",
+  "Text emoticons are emoji too: ':)', ';-P', ':D', '<3', '^_^', 'xD', the shrug, when they stand on their own. 'XD' and 'XP' in capitals stay (Adobe XD, Windows XP)."
+ ]
+},
+"rules": [
+ {
+  "rule": "emoji",
+  "reads": "nothing (a space)",
+  "where": "MessagingPass.stripEmoji",
+  "guards": "keycap digits keep the digit; ©, ®, ™, ‼, ⁉ and arrows stay unless an emoji selector follows"
+ },
+ {
+  "rule": "emoticons",
+  "reads": "nothing (a space)",
+  "where": "MessagingPass.stripEmoticons",
+  "guards": "only standing on their own (start or space before; end, space or closing mark after); not XD, XP, xP; not inside 'C:\\' or 'http:/'"
+ },
+ {
+  "rule": "hashtags",
+  "reads": "hashtag + the tag's words",
+  "where": "MessagingPass.readHashtags; TextPrep keeps the # for it",
+  "guards": "not after a letter, digit, &, #, /, \\, ', @, ., : or - (C#, URL fragments, HTML entities); not a hex colour (#fff, #1e90ff, #ffffff, #aabbcc); not a C directive at the start of a line (#include, #define, #if...); digits first only before a word of 3+ letters (#2020Vision, not #4B or #12th); #1 stays Core's number"
+ },
+ {
+  "rule": "mentions",
+  "reads": "at + the handle's words",
+  "where": "MessagingPass.readMentions",
+  "guards": "not after a letter, digit, _, ., @, /, \\, + or - (email addresses); '@ 5pm' stays 'at'"
+ },
+ {
+  "rule": "u, ur, urs",
+  "reads": "you, your, yours (u'll, u're, u've, u'd → you'll...)",
+  "where": "MessagingPass.readYou",
+  "guards": "lower case only (U, U.S., Part U, U-turn keep the letter); not after . ' / \\ < > @ # & $ % ^ * = + - ~ | or a letter and '(' (f(u)); not after a number (5 u, 12 u); not before - / > @ ( _ or a point that continues (u-turn, u.s., <u>, u(t)); not next to maths (u = 5, x = u, u + v)"
+ }
+],
+"removed_from_tech": [
+ {
+  "word": "LOL",
+  "why": "The tech list read LOL as letters (el-oh-EL); the owner decided lol is read as the word, so the entry moved here with its dictation fix ('l o l' → LOL) and its reading changed. Removed from Lexicons/tech-lexicon.json and tech-lexicon-10k.source.json.",
+  "removed_entry": {
+   "word": "LOL",
+   "match": "case-insensitive",
+   "us": "ˌɛlˌOˈɛl",
+   "gb": "ˌɛlˌQˈɛl",
+   "category": "general",
+   "respelling": "el-oh-EL",
+   "source": "Chat initialism (laugh out loud); spelled out or said 'lol'.",
+   "confidence": "medium",
+   "alternatives": "'lol' as a word (LOLL)",
+   "spoken_variants": [
+    "l o l"
+   ],
+   "dictation": "always",
+   "baseline_us": "ˌɛlˌOˈɛl",
+   "verdict": "right",
+   "batch": "b079",
+   "evidence": false,
+   "asr_heard": "lol"
+  }
+ }
+],
+"entries": [
+{"word": "LOL", "match": "case-insensitive", "us": "lˈɑl", "gb": "lˈɒl", "pack": "messaging", "category": "word", "pack_only": false, "reading": "word", "respelling": "LOL (rhymes with doll)", "notes": "Owner decision (2026-10-09): 'lol' is read as the word. Merriam-Webster lists \\ˈläl\\ beside the letters. Moved from the tech list (which read L-O-L), keeping its dictation fix ('l o l' → LOL).", "confidence": "high", "before_us": "ˌɛlˌOˈɛl", "dictation": "always", "evidence": false, "spoken": ["l o l"]},
+{"word": "lolz", "match": "case-insensitive", "us": "lˈɑlz", "gb": "lˈɒlz", "pack": "messaging", "category": "word", "pack_only": false, "reading": "word", "respelling": "LOLZ", "notes": "Plural/slang form of lol, read as the word like lol.", "confidence": "high", "before_us": "lˈɑlz", "dictation": "never", "evidence": false},
+{"word": "imma", "match": "case-insensitive", "us": "ˈImə", "gb": "ˈImə", "pack": "messaging", "category": "word", "pack_only": false, "reading": "word", "respelling": "EYE-muh", "notes": "'I'm gonna'; the stack guessed 'Emma'.", "confidence": "high", "before_us": "ˈɪmə", "dictation": "never", "evidence": false},
+{"word": "cya", "match": "case-insensitive", "us": "sˈi jə", "gb": "sˈiː jə", "pack": "messaging", "category": "word", "pack_only": false, "reading": "word", "respelling": "see-ya", "notes": "'see ya', said as words; the stack guessed SY-uh.", "confidence": "high", "before_us": "sˈIə", "dictation": "never", "evidence": false},
+{"word": "abt", "match": "case-sensitive", "us": "əbˈWt", "gb": "əbˈWt", "pack": "messaging", "category": "short-word", "pack_only": false, "reading": "the word it shortens", "respelling": "about", "notes": "Shortening of one word, read as the word. Lower case only (ABT is American Ballet Theatre).", "confidence": "high", "before_us": "ˈæbt", "dictation": "never", "evidence": false},
+{"word": "bday", "match": "case-insensitive", "us": "bˈɜɹθdˌA", "gb": "bˈɜːθdA", "pack": "messaging", "category": "short-word", "pack_only": false, "reading": "the word it shortens", "respelling": "birthday", "notes": "Shortening of one word, read as the word.", "confidence": "high", "before_us": "bdˈA", "dictation": "never", "evidence": false},
+{"word": "msg", "match": "case-sensitive", "us": "mˈɛsɪʤ", "gb": "mˈɛsɪʤ", "pack": "messaging", "category": "short-word", "pack_only": false, "reading": "the word it shortens", "respelling": "message", "notes": "Lower case only: MSG (monosodium glutamate) keeps its letters. 'msgs' adds the plural.", "confidence": "high", "before_us": "mˈɪzɪɡ", "dictation": "never", "evidence": false},
+{"word": "smth", "match": "case-sensitive", "us": "sˈʌmθˌɪŋ", "gb": "sˈʌmθɪŋ", "pack": "messaging", "category": "short-word", "pack_only": false, "reading": "the word it shortens", "respelling": "something", "notes": "Shortening of one word, read as the word.", "confidence": "high", "before_us": "smθ", "dictation": "never", "evidence": false},
+{"word": "sth", "match": "case-sensitive", "us": "sˈʌmθˌɪŋ", "gb": "sˈʌmθɪŋ", "pack": "messaging", "category": "short-word", "pack_only": false, "reading": "the word it shortens", "respelling": "something", "notes": "Lower case only (Sth. can be South in an address).", "confidence": "high", "before_us": "sθ", "dictation": "never", "evidence": false},
+{"word": "obv", "match": "case-sensitive", "us": "ˈɑbviəsli", "gb": "ˈɒbvɪəsli", "pack": "messaging", "category": "short-word", "pack_only": false, "reading": "the word it shortens", "respelling": "obviously", "notes": "Shortening of one word, read as the word.", "confidence": "high", "before_us": "ˈObˌivˌi", "dictation": "never", "evidence": false},
+{"word": "rly", "match": "case-sensitive", "us": "ɹˈiᵊli", "gb": "ɹˈɪəli", "pack": "messaging", "category": "short-word", "pack_only": false, "reading": "the word it shortens", "respelling": "really", "notes": "Shortening of one word, read as the word.", "confidence": "high", "before_us": "ɹlˈI", "dictation": "never", "evidence": false},
+{"word": "b4", "match": "case-sensitive", "us": "bəfˈɔɹ", "gb": "bɪfˈɔː", "pack": "messaging", "category": "short-word", "pack_only": false, "reading": "the word it shortens", "respelling": "before", "notes": "Lower case only: B4 is a paper size.", "confidence": "high", "before_us": "bˈi fˈɔɹ", "dictation": "never", "evidence": false},
+{"word": "gr8", "match": "case-insensitive", "us": "ɡɹˈAt", "gb": "ɡɹˈAt", "pack": "messaging", "category": "short-word", "pack_only": false, "reading": "the word it shortens", "respelling": "great", "notes": "Rebus spelling, read as the word.", "confidence": "high", "before_us": "ɡɹ ˈAt", "dictation": "never", "evidence": false},
+{"word": "l8r", "match": "case-insensitive", "us": "lˈATəɹ", "gb": "lˈAtə", "pack": "messaging", "category": "short-word", "pack_only": false, "reading": "the word it shortens", "respelling": "later", "notes": "Rebus spelling, read as the word.", "confidence": "high", "before_us": "ˈɛl ˈAt ˈɑɹ", "dictation": "never", "evidence": false},
+{"word": "2day", "match": "case-sensitive", "us": "tədˈA", "gb": "tədˈA", "pack": "messaging", "category": "short-word", "pack_only": false, "reading": "the word it shortens", "respelling": "today", "notes": "Rebus spelling, read as the word.", "confidence": "high", "before_us": "tˈu dˈA", "dictation": "never", "evidence": false},
+{"word": "2nite", "match": "case-sensitive", "us": "tənˈIt", "gb": "tənˈIt", "pack": "messaging", "category": "short-word", "pack_only": false, "reading": "the word it shortens", "respelling": "tonight", "notes": "Rebus spelling, read as the word.", "confidence": "high", "before_us": "tˈu nˈIt", "dictation": "never", "evidence": false},
+{"word": "2moro", "match": "case-sensitive", "us": "təmˈɑɹO", "gb": "tʊmˈɒɹQ", "pack": "messaging", "category": "short-word", "pack_only": false, "reading": "the word it shortens", "respelling": "tomorrow", "notes": "Rebus spelling, read as the word.", "confidence": "high", "before_us": "tˈu mˈɔɹO", "dictation": "never", "evidence": false},
+{"word": "omg", "match": "case-insensitive", "us": "ˌOˌɛmʤˈi", "gb": "ˌQˌɛmʤˈiː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "O-M-G", "notes": "oh my god; said as letters (the stack guessed 'omg' as one syllable)", "confidence": "high", "before_us": "ˈɔmɡ", "dictation": "never", "evidence": false},
+{"word": "btw", "match": "case-insensitive", "us": "bˌitˌidˈʌbᵊlju", "gb": "bˌiːtˌiːdˈʌbᵊljuː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "B-T-W", "notes": "by the way", "confidence": "high", "before_us": "bˈitˌʌbəlju", "dictation": "never", "evidence": false},
+{"word": "rn", "match": "case-sensitive", "us": "ˌɑɹˈɛn", "gb": "ˌɑːˈɛn", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "R-N", "notes": "right now. Lower case only: Rn is radon; RN (nurse) is letters already", "confidence": "high", "before_us": "ˈɑɹn", "dictation": "never", "evidence": false},
+{"word": "ty", "match": "case-sensitive", "us": "tˌiwˈI", "gb": "tˌiːwˈI", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "T-Y", "notes": "thank you. Lower case only: Ty is a given name", "confidence": "high", "before_us": "tˈI", "dictation": "never", "evidence": false},
+{"word": "np", "match": "case-sensitive", "us": "ˌɛnpˈi", "gb": "ˌɛnpˈiː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "N-P", "notes": "no problem. Lower case only: Np is neptunium", "confidence": "high", "before_us": "ˈɛnpˌi", "dictation": "never", "evidence": false},
+{"word": "ikr", "match": "case-insensitive", "us": "ˌIkˌAˈɑɹ", "gb": "ˌIkˌAˈɑː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "I-K-R", "notes": "I know, right", "confidence": "high", "before_us": "ˈIkəɹ", "dictation": "never", "evidence": false},
+{"word": "ttyl", "match": "case-insensitive", "us": "tˌitˌiwˌIˈɛl", "gb": "tˌiːtˌiːwˌIˈɛl", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "T-T-Y-L", "notes": "talk to you later", "confidence": "high", "before_us": "tˈIl", "dictation": "never", "evidence": false},
+{"word": "omw", "match": "case-insensitive", "us": "ˌOˌɛmdˈʌbᵊlju", "gb": "ˌQˌɛmdˈʌbᵊljuː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "O-M-W", "notes": "on my way", "confidence": "high", "before_us": "ˈɑmdˌʌbəlju", "dictation": "never", "evidence": false},
+{"word": "wtf", "match": "case-insensitive", "us": "dˌʌbᵊljutˌiˈɛf", "gb": "dˌʌbᵊljuːtˌiːˈɛf", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "W-T-F", "notes": "said as letters, never expanded", "confidence": "high", "before_us": "dˈʌtəf", "dictation": "never", "evidence": false},
+{"word": "ily", "match": "case-sensitive", "us": "ˌIˌɛlwˈI", "gb": "ˌIˌɛlwˈI", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "I-L-Y", "notes": "I love you. Lower case only", "confidence": "high", "before_us": "ˈIli", "dictation": "never", "evidence": false},
+{"word": "wyd", "match": "case-insensitive", "us": "dˌʌbᵊljuwˌIdˈi", "gb": "dˌʌbᵊljuːwˌIdˈiː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "W-Y-D", "notes": "what (are) you doing", "confidence": "high", "before_us": "wˈɪd", "dictation": "never", "evidence": false},
+{"word": "wbu", "match": "case-insensitive", "us": "dˌʌbᵊljubˌijˈu", "gb": "dˌʌbᵊljuːbˌiːjˈuː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "W-B-U", "notes": "what about you", "confidence": "high", "before_us": "dˈʌbəlju", "dictation": "never", "evidence": false},
+{"word": "hbu", "match": "case-insensitive", "us": "ˌAʧbˌijˈu", "gb": "ˌAʧbˌiːjˈuː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "H-B-U", "notes": "how about you", "confidence": "high", "before_us": "ˈAʧbˌijˌu", "dictation": "never", "evidence": false},
+{"word": "gtg", "match": "case-insensitive", "us": "ʤˌitˌiʤˈi", "gb": "ʤˌiːtˌiːʤˈiː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "G-T-G", "notes": "got to go", "confidence": "high", "before_us": "ʤˈitˌiʤˌi", "dictation": "never", "evidence": false},
+{"word": "g2g", "match": "case-insensitive", "us": "ʤˌitˌuʤˈi", "gb": "ʤˌiːtˌuːʤˈiː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "G-2-G", "notes": "got to go", "confidence": "high", "before_us": "ʤˈitəʤˈi", "dictation": "never", "evidence": false},
+{"word": "nbd", "match": "case-insensitive", "us": "ˌɛnbˌidˈi", "gb": "ˌɛnbˌiːdˈiː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "N-B-D", "notes": "no big deal", "confidence": "high", "before_us": "ˈɛnbˌidˌi", "dictation": "never", "evidence": false},
+{"word": "hbd", "match": "case-insensitive", "us": "ˌAʧbˌidˈi", "gb": "ˌAʧbˌiːdˈiː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "H-B-D", "notes": "happy birthday", "confidence": "high", "before_us": "ˈAʧbˌidˌi", "dictation": "never", "evidence": false},
+{"word": "lmfao", "match": "case-insensitive", "us": "ˌɛlˌɛmˌɛfˌAˈO", "gb": "ˌɛlˌɛmˌɛfˌAˈQ", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "L-M-F-A-O", "notes": "letters, like the tech list's LMAO", "confidence": "high", "before_us": "lmfˈW", "dictation": "never", "evidence": false},
+{"word": "tysm", "match": "case-insensitive", "us": "tˌiwˌIˌɛsˈɛm", "gb": "tˌiːwˌIˌɛsˈɛm", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "T-Y-S-M", "notes": "thank you so much", "confidence": "high", "before_us": "tˈɪzəm", "dictation": "never", "evidence": false},
+{"word": "yw", "match": "case-insensitive", "us": "wˌIdˈʌbᵊlju", "gb": "wˌIdˈʌbᵊljuː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "Y-W", "notes": "you're welcome (the stack read it 'you')", "confidence": "high", "before_us": "jˈu", "dictation": "never", "evidence": false},
+{"word": "jk", "match": "case-insensitive", "us": "ʤˌAkˈA", "gb": "ʤˌAkˈA", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "J-K", "notes": "just kidding", "confidence": "high", "before_us": "ʤˈAkˌA", "dictation": "never", "evidence": false},
+{"word": "xoxo", "match": "case-insensitive", "us": "ˌɛksˌOˌɛksˈO", "gb": "ˌɛksˌQˌɛksˈQ", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "X-O-X-O", "notes": "hugs and kisses, said as the letters", "confidence": "high", "before_us": "zˈɑksO", "dictation": "never", "evidence": false},
+{"word": "ofc", "match": "case-sensitive", "us": "ˌOˌɛfsˈi", "gb": "ˌQˌɛfsˈiː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "O-F-C", "notes": "of course; the stack had the letters with the stress on O. Lower case only: Ofc. is Office", "confidence": "high", "before_us": "ˈOˌɛfsˌi", "dictation": "never", "evidence": false},
+{"word": "fwiw", "match": "case-insensitive", "us": "ˌɛfdˌʌbᵊljuˌIdˈʌbᵊlju", "gb": "ˌɛfdˌʌbᵊljuːˌIdˈʌbᵊljuː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "F-W-I-W", "notes": "for what it's worth; the tech list has FWIW (that casing only)", "confidence": "high", "before_us": "fwˈɪv", "dictation": "never", "evidence": false},
+{"word": "iirc", "match": "case-insensitive", "us": "ˌIˌIˌɑɹsˈi", "gb": "ˌIˌIˌɑːsˈiː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "I-I-R-C", "notes": "if I recall correctly; the tech list has IIRC (that casing only)", "confidence": "high", "before_us": "ˈIɹk", "dictation": "never", "evidence": false},
+{"word": "imho", "match": "case-insensitive", "us": "ˌIˌɛmˌAʧˈO", "gb": "ˌIˌɛmˌAʧˈQ", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "I-M-H-O", "notes": "in my humble opinion; the tech list has IMHO (that casing only)", "confidence": "high", "before_us": "ˈɪmhO", "dictation": "never", "evidence": false},
+{"word": "afaik", "match": "case-insensitive", "us": "ˌAˌɛfˌAˌIkˈA", "gb": "ˌAˌɛfˌAˌIkˈA", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "A-F-A-I-K", "notes": "as far as I know; the tech list has AFAIK (that casing only)", "confidence": "high", "before_us": "əfˈAk", "dictation": "never", "evidence": false},
+{"word": "tfw", "match": "case-insensitive", "us": "tˌiˌɛfdˈʌbᵊlju", "gb": "tˌiːˌɛfdˈʌbᵊljuː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "T-F-W", "notes": "that feeling when", "confidence": "high", "before_us": "tˈiˌɛfdˌʌbəlju", "dictation": "never", "evidence": false},
+{"word": "ootd", "match": "case-insensitive", "us": "ˌOˌOtˌidˈi", "gb": "ˌQˌQtˌiːdˈiː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "O-O-T-D", "notes": "outfit of the day", "confidence": "high", "before_us": "ˈutɪd", "dictation": "never", "evidence": false},
+{"word": "bff", "match": "case-insensitive", "us": "bˌiˌɛfˈɛf", "gb": "bˌiːˌɛfˈɛf", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "B-F-F", "notes": "best friends forever; the stack dropped a letter; the tech list has BFF (that casing only)", "confidence": "high", "before_us": "bˌiˌɛf", "dictation": "never", "evidence": false},
+{"word": "pov", "match": "case-insensitive", "us": "pˌiˌOvˈi", "gb": "pˌiːˌQvˈiː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "P-O-V", "notes": "point of view; the tech list has PoV (that casing only)", "confidence": "high", "before_us": "pˈɑv", "dictation": "never", "evidence": false},
+{"word": "stfu", "match": "case-insensitive", "us": "ˌɛstˌiˌɛfjˈu", "gb": "ˌɛstˌiːˌɛfjˈuː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "S-T-F-U", "notes": "said as letters, never expanded", "confidence": "high", "before_us": "stfˈu", "dictation": "never", "evidence": false},
+{"word": "idgaf", "match": "case-insensitive", "us": "ˌIdˌiʤˌiˌAˈɛf", "gb": "ˌIdˌiːʤˌiːˌAˈɛf", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "I-D-G-A-F", "notes": "said as letters, never expanded", "confidence": "high", "before_us": "ˈɪdɡəf", "dictation": "never", "evidence": false},
+{"word": "rsvp", "match": "case-insensitive", "us": "ˌɑɹˌɛsvˌipˈi", "gb": "ˌɑːˌɛsvˌiːpˈiː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "R-S-V-P", "notes": "the stack dropped the P", "confidence": "high", "before_us": "ˈɑɹˌɛsvˌi", "dictation": "never", "evidence": false},
+{"word": "fr", "match": "case-sensitive", "us": "ˌɛfˈɑɹ", "gb": "ˌɛfˈɑː", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "F-R", "notes": "for real. Lower case only: Fr. is Father, FR letters already", "confidence": "high", "before_us": "fɹ", "dictation": "never", "evidence": false},
+{"word": "af", "match": "case-sensitive", "us": "ˌAˈɛf", "gb": "ˌAˈɛf", "pack": "messaging", "category": "letters", "pack_only": false, "reading": "letters", "respelling": "A-F", "notes": "intensifier ('tired af'). Lower case only", "confidence": "high", "before_us": "ˈæf", "dictation": "never", "evidence": false}
+]
+}

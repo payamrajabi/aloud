@@ -197,7 +197,11 @@ Every file in `Lexicons/` is a field pack named after the file (`finance.json` i
 only while their pack is on: the `enabledPacks` setting (a list of pack names, none by
 default; there's no Settings control yet), or `--packs finance,medicine` in the test
 modes below. Your own folder still wins over every pack. In dictation a term that needs
-context needs it from its own pack. Before adding a pack, check the lists agree:
+context needs it from its own pack. The messaging pack (`messaging.json`, FIN-896) is on for
+everyone: "lol" as the word, "omg" as letters, "u" and "ur" as you and your, hashtags as
+"hashtag …", @mentions as "at …", and emoji and emoticons silent
+(`Sources/Phonemizer/Packs/MessagingPass.swift`; its source and decisions are in
+`lexicon-src/messaging/`). Before adding a pack, check the lists agree:
 
 ```bash
 python3 lexicon-src/tools/check_packs.py
