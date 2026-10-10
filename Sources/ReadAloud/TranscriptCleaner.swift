@@ -153,10 +153,12 @@ final class TranscriptCleaner {
         let started = Date()
         let reply = clean(input, context: settled)
         let accepted = reply.map { Self.isFaithful($0, to: input) } ?? false
-        let output = accepted ? reply! : Self.basicTidy(input)
+        // If the model's edit is untrusted, preserve its source text rather than
+        // applying deletions we cannot verify.
+        let output = accepted ? reply! : input
         if trace {
             print(String(format: "   cleanup: %d words in %.2fs%@\n     in:  %@\n     out: %@",
-                         Self.words(input).count, Date().timeIntervalSince(started), accepted ? "" : " (rejected, tidied by rules)",
+                         Self.words(input).count, Date().timeIntervalSince(started), accepted ? "" : " (rejected, kept source)",
                          input, reply ?? "")); fflush(stdout)
         }
         if final {
@@ -407,29 +409,136 @@ final class TranscriptCleaner {
             .filter { !$0.isEmpty }
     }
 
-    /// The model may only remove words (fillers, repeats, corrected slips) and fix
-    /// punctuation. If it added or swapped many words, it answered or rewrote instead.
+    /// The model may only preserve words in order, except for deletions the deterministic
+    /// tidy-up already recognizes (fillers and definite stammers) or a local correction.
+    /// This deliberately rejects uncertain omissions: raw speech is safer than a fluent
+    /// sentence whose meaning may have drifted.
     static func isFaithful(_ output: String, to input: String) -> Bool {
-        let a = words(input), b = words(output)
-        guard !b.isEmpty else { return a.count < 3 }
-        let kept = lcs(a, b)
-        let added = b.count - kept
-        guard added <= max(2, b.count / 20) else { return false }
-        // Fillers and slips rarely make up more than a third of what's said.
-        return a.count < 8 || Double(b.count) >= Double(a.count) * 0.6
+        let baseline = basicTidy(input)
+        let source = words(baseline), result = words(output)
+        guard !result.isEmpty else { return source.isEmpty }
+        if source == result { return true }
+        var withoutFillers = source
+        for (start, end) in fillerRanges(in: source, text: baseline).sorted(by: { $0.0 > $1.0 }) {
+            withoutFillers.removeSubrange(start..<end)
+        }
+        if withoutFillers == result { return true }
+
+        // A correction marker immediately follows a discarded version and precedes its
+        // replacement: "Tuesday, no, Wednesday" → "Wednesday". Try a few local
+        // correction removals, then require every remaining word to match exactly.
+        var candidates: Set<String> = [source.joined(separator: " ")]
+        var variants = [source]
+        for depth in 0..<4 {
+            var next: [[String]] = []
+            for words in variants {
+                let corrections = depth == 0 ? correctionRanges(in: source, text: baseline) : []
+                let fillers = depth == 0 ? fillerRanges(in: source, text: baseline) : []
+                for (start, end) in corrections + fillers + repeatedPhraseRanges(in: words) {
+                    var reduced = words
+                    reduced.removeSubrange(start..<end)
+                    guard !reduced.isEmpty else { continue }
+                    let key = reduced.joined(separator: " ")
+                    if candidates.insert(key).inserted { next.append(reduced) }
+                    if reduced == result { return true }
+                }
+            }
+            variants = next
+            if variants.isEmpty { break }
+        }
+        return false
     }
 
-    private static func lcs(_ a: [String], _ b: [String]) -> Int {
-        guard !a.isEmpty, !b.isEmpty else { return 0 }
-        var prev = [Int](repeating: 0, count: b.count + 1)
-        var cur = prev
-        for x in a {
-            for (j, y) in b.enumerated() {
-                cur[j + 1] = x == y ? prev[j] + 1 : max(prev[j + 1], cur[j])
+    /// Ranges include the discarded wording and the correction marker, but never the
+    /// replacement that follows. Keep this narrow so a standalone "no" or "actually"
+    /// cannot authorize arbitrary deletion elsewhere in the transcript.
+    private static func correctionRanges(in words: [String], text: String) -> [(Int, Int)] {
+        var ranges: [(Int, Int)] = []
+        let ns = text as NSString
+        let tokenRanges = faithfulnessTokenRanges(in: text)
+        guard tokenRanges.count == words.count else { return ranges }
+        for i in words.indices {
+            let markerLength: Int
+            if ["no", "actually", "sorry", "rather"].contains(words[i]) {
+                markerLength = 1
+            } else if words[i] == "i", i + 1 < words.count, words[i + 1] == "mean" {
+                markerLength = 2
+            } else {
+                continue
             }
-            swap(&prev, &cur)
+            let end = i + markerLength
+            guard i > 0, end < words.count else { continue } // a correction needs old and new wording
+            let gapStart = NSMaxRange(tokenRanges[i - 1])
+            let gap = ns.substring(with: NSRange(location: gapStart, length: tokenRanges[i].location - gapStart))
+            guard gap.contains(",") || gap.contains(".") || gap.contains("\n") else { continue }
+            for discardedCount in 1...min(4, i) {
+                ranges.append((i - discardedCount, end))
+            }
         }
-        return prev[b.count]
+        return ranges
+    }
+
+    /// Allow only common filler uses with a clear speech cue: "like" framed by commas,
+    /// or "and like" at a sentence opening; "you know" after a comma at a clause end.
+    /// Unmarked uses can carry meaning, so they remain required words.
+    private static func fillerRanges(in words: [String], text: String) -> [(Int, Int)] {
+        let ns = text as NSString
+        let tokenRanges = faithfulnessTokenRanges(in: text)
+        guard tokenRanges.count == words.count else { return [] }
+        var ranges: [(Int, Int)] = []
+        for i in words.indices {
+            if words[i] == "like", i > 0, i + 1 < words.count {
+                let before = ns.substring(with: NSRange(location: NSMaxRange(tokenRanges[i - 1]),
+                                                        length: tokenRanges[i].location - NSMaxRange(tokenRanges[i - 1])))
+                let after = ns.substring(with: NSRange(location: NSMaxRange(tokenRanges[i]),
+                                                       length: tokenRanges[i + 1].location - NSMaxRange(tokenRanges[i])))
+                let sentenceOpeningAnd = words[i - 1] == "and" && (i == 1 || {
+                    let prefixGap = ns.substring(with: NSRange(location: NSMaxRange(tokenRanges[i - 2]),
+                                                               length: tokenRanges[i - 1].location - NSMaxRange(tokenRanges[i - 2])))
+                    return prefixGap.contains(".") || prefixGap.contains("?") || prefixGap.contains("!") || prefixGap.contains("\n")
+                }())
+                if (before.contains(",") && after.contains(",")) || sentenceOpeningAnd {
+                    ranges.append((i, i + 1))
+                }
+            } else if words[i] == "you", i + 1 < words.count, words[i + 1] == "know", i > 0 {
+                let before = ns.substring(with: NSRange(location: NSMaxRange(tokenRanges[i - 1]),
+                                                        length: tokenRanges[i].location - NSMaxRange(tokenRanges[i - 1])))
+                let end = i + 2
+                let terminal = end == words.count || {
+                    let after = ns.substring(with: NSRange(location: NSMaxRange(tokenRanges[end - 1]),
+                                                           length: tokenRanges[end].location - NSMaxRange(tokenRanges[end - 1])))
+                    return after.contains(",")
+                }()
+                if before.contains(",") && terminal { ranges.append((i, end)) }
+            }
+        }
+        return ranges
+    }
+
+    private static func faithfulnessTokenRanges(in text: String) -> [NSRange] {
+        let ns = text as NSString
+        let tokenPattern = try! NSRegularExpression(pattern: "[\\p{L}\\p{N}]+(?:['’][\\p{L}\\p{N}]+)*")
+        return tokenPattern.matches(in: text, range: NSRange(location: 0, length: ns.length)).map(\.range)
+    }
+
+    /// A repeated phrase is a stutter only when the exact same two or more words occur
+    /// consecutively. Single doubled words are handled by basicTidy's narrower grammar-
+    /// aware rules, which preserve meaningful doubles such as "had had" and "that that".
+    private static func repeatedPhraseRanges(in words: [String]) -> [(Int, Int)] {
+        var ranges: [(Int, Int)] = []
+        guard words.count >= 4 else { return ranges }
+        for start in 0..<(words.count - 3) {
+            let maxLength = min(8, (words.count - start) / 2)
+            guard maxLength >= 2 else { continue }
+            for length in 2...maxLength {
+                let middle = start + length
+                let end = middle + length
+                if Array(words[start..<middle]) == Array(words[middle..<end]) {
+                    ranges.append((middle, end))
+                }
+            }
+        }
+        return ranges
     }
 
     /// Joins two stretches of text with a space, or a blank line for a new paragraph.

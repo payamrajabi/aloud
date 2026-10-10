@@ -194,10 +194,11 @@ enum DictationTest {
         }
         let must_change: [Case]
         let must_not_change: [String]
+        let faithful: [Case]?
+        let unfaithful: [Case]?
     }
 
-    /// The rule-based tidy-up the clean-up model falls back to when its reply can't be
-    /// trusted (`TranscriptCleaner.basicTidy`): its output is typed as it is.
+    /// The cleanup fallback and the lexical faithfulness guard for model output.
     ///   --test-tidy Tests/dictation/tidy.json [--verbose]
     /// Each output must also come out unchanged from a second pass.
     static func runTidy(path: String, verbose: Bool) -> Int32 {
@@ -225,7 +226,26 @@ enum DictationTest {
         for c in doc.must_change { check(c.in, want: c.out) }
         print("\n== must not change (\(doc.must_not_change.count)) ==")
         for text in doc.must_not_change { check(text, want: text) }
-        let total = doc.must_change.count + doc.must_not_change.count
+
+        func checkFaithfulness(_ cases: [TidyDoc.Case], wantFaithful: Bool) {
+            for c in cases {
+                let got = TranscriptCleaner.isFaithful(c.out, to: c.in)
+                let ok = got == wantFaithful
+                failures += ok ? 0 : 1
+                if !ok || verbose {
+                    print("  \(ok ? "✓" : "✗") \(c.in.debugDescription) → \(c.out.debugDescription)"
+                          + "\n      expected \(wantFaithful ? "faithful" : "unfaithful"), got \(got ? "faithful" : "unfaithful")")
+                }
+            }
+        }
+        let faithful = doc.faithful ?? []
+        let unfaithful = doc.unfaithful ?? []
+        print("\n== faithfulness guard: accept (\(faithful.count)) ==")
+        checkFaithfulness(faithful, wantFaithful: true)
+        print("\n== faithfulness guard: reject (\(unfaithful.count)) ==")
+        checkFaithfulness(unfaithful, wantFaithful: false)
+
+        let total = doc.must_change.count + doc.must_not_change.count + faithful.count + unfaithful.count
         print(failures == 0 ? "\nPASSED (\(total) checks)" : "\nFAILED: \(failures) of \(total) checks")
         return failures == 0 ? 0 : 1
     }

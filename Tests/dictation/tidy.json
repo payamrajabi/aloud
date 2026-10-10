@@ -1,5 +1,5 @@
 {
-  "_comment": "TranscriptCleaner.basicTidy: what's typed when the clean-up model's reply can't be trusted. Run with: .build/debug/ReadAloud --test-tidy Tests/dictation/tidy.json [--verbose]. FIN-882 review finding NEW3-D6: it capitalised after every full stop (\"9 a.M. Tomorrow\", \"github.Com\") and collapsed grammatical doubles (\"had had\").",
+  "_comment": "TranscriptCleaner.basicTidy and isFaithful: fallback tidying and the model-output guard. Run with: .build/debug/ReadAloud --test-tidy Tests/dictation/tidy.json [--verbose].",
   "must_change": [
     { "in": "see you at 9 a.m. tomorrow", "out": "See you at 9 a.m. tomorrow" },
     { "in": "it's on github.com. check the readme", "out": "It's on github.com. Check the readme" },
@@ -60,5 +60,29 @@
     "Call 555 555 1234, extension 4 4 2.",
     "The ER was busy.",
     "Paragraph one ends here.\n\nParagraph two starts here."
+  ],
+  "faithful": [
+    { "in": "We. should ship the the update on Tuesday", "out": "We should ship the update on Tuesday." },
+    { "in": "Um, so I think we can finish today", "out": "So, I think we can finish today." },
+    { "in": "Move the launch to Tuesday. No, Wednesday.", "out": "Move the launch to Wednesday." },
+    { "in": "Ship it Friday, actually Monday", "out": "Ship it Monday." },
+    { "in": "Send the draft to me, I mean to Maya", "out": "Send the draft to Maya." },
+    { "in": "We should, we should ship it", "out": "We should ship it." },
+    { "in": "And like the third one is too long, you know", "out": "And the third one is too long." },
+    { "in": "I think, like, we should wait", "out": "I think we should wait." },
+    { "in": "Keep the awkward grammar as spoken", "out": "Keep the awkward grammar as spoken." }
+  ],
+  "unfaithful": [
+    { "in": "We ship Tuesday", "out": "We ship Wednesday" },
+    { "in": "The amount is 500", "out": "The amount is 5000" },
+    { "in": "Do not deploy", "out": "Do deploy" },
+    { "in": "The meeting is Friday", "out": "The meeting is Friday at noon" },
+    { "in": "Please email Maya today", "out": "Please email today" },
+    { "in": "Keep the file, but do not publish it", "out": "Keep the file, publish it" },
+    { "in": "The build passed", "out": "The build failed" },
+    { "in": "I like the new design", "out": "I the new design" },
+    { "in": "We will ship the patch", "out": "We will" },
+    { "in": "She had had enough", "out": "She had enough" },
+    { "in": "Do not remove the word no", "out": "Do remove the word" }
   ]
 }
