@@ -12,7 +12,7 @@ Reads every checked batch in the research folder (`out/n*.checked.json`, then th
 batches `out/p*.checked.json`, which win over an n-batch for the same name: p0001 holds the
 Persian readings Payam asked for) and writes:
   - Lexicons/names.json: one entry per `corrected` name that passes the checks below, as
-    {"word", "match": "case-sensitive", "us", "gb", "dictation": "never"}. Pack id "names",
+    {"word", "match": "name", "us", "gb", "dictation": "never"}. Pack id "names",
     always on, nothing pack_only, no dictation rewrites.
   - lexicon-src/names/names.source.json: every researched name with its evidence,
     disposition, alternatives, batch, today's reading ("before") and the pack's ("after"),
@@ -280,7 +280,7 @@ def main():
         hits = tech_hits(n, tech)
         if hits:
             e["tech_clash"] = [{"word": t["word"], "match": t.get("match"), "us": t["us"]} for t in hits]
-        pack.append({"word": n, "match": "case-sensitive", "us": e["us"], "gb": e["gb_effective"], "dictation": "never"})
+        pack.append({"word": n, "match": "name", "us": e["us"], "gb": e["gb_effective"], "dictation": "never"})
 
     with open(PACK, "w", encoding="utf-8") as f:
         f.write("[\n" + ",\n".join(json.dumps(p, ensure_ascii=False, separators=(",", ":")) for p in pack) + "\n]\n")

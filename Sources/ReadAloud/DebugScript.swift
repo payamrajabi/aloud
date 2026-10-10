@@ -32,6 +32,8 @@ import CSherpaOnnx
 ///   --script "2:seek=30;4:pause;5:play;8:open;9:snapshot=/tmp/p.png;10:quit"
 enum DebugScript {
     static let args = CommandLine.arguments
+    /// A regression suite: these read only the app's own lexicons, never the user's folder.
+    static let isTestRun = ["--g2p-test", "--speech-test", "--test-dictation", "--test-narration"].contains { args.contains($0) }
 
     static func value(_ flag: String) -> String? {
         guard let i = args.firstIndex(of: flag), i + 1 < args.count else { return nil }

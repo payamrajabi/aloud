@@ -344,8 +344,10 @@ enum LexiconFiles {
         ModelStore.root.deletingLastPathComponent().appendingPathComponent("lexicons")
     }
 
-    /// Every list, read once per launch and shared by reading and dictation.
-    static let shared = LexiconSet(directories: appDirectories, userDirectory: userDirectory)
+    /// Every list, read once per launch and shared by reading and dictation. The test suites
+    /// leave out the user's own folder, so they give the same answers on every Mac (a
+    /// personal list of contacts' names changed frozen readings of other people's tests).
+    static let shared = LexiconSet(directories: appDirectories, userDirectory: DebugScript.isTestRun ? nil : userDirectory)
 
     /// The saved field packs that are on: pack ids ("finance", "medicine"), none by default.
     static let enabledPacksKey = "enabledPacks"
