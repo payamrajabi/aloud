@@ -416,8 +416,12 @@ final class TranscriptCleaner {
     static func isFaithful(_ output: String, to input: String) -> Bool {
         let baseline = basicTidy(input)
         let source = words(baseline), result = words(output)
-        guard !result.isEmpty else { return source.isEmpty }
+        // Symbols can carry meaning even outside a recognized numeric or code
+        // span (lowercase c++, ${HOME}, api_key, x ≤ y, a filesystem path).
+        // Preserve their ordered signature rather than guessing every syntax.
+        guard meaningfulSymbols(in: baseline) == meaningfulSymbols(in: output) else { return false }
         guard protectedSpans(in: baseline) == protectedSpans(in: output) else { return false }
+        guard !result.isEmpty else { return source.isEmpty }
         if formattingWords(in: baseline) == formattingWords(in: output) { return true }
 
         let fillers = fillerRanges(in: source, text: baseline)
@@ -436,6 +440,15 @@ final class TranscriptCleaner {
         }
         return false
     }
+
+    private static func meaningfulSymbols(in text: String) -> [String] {
+        let ns = text as NSString
+        return meaningfulSymbolPattern.matches(in: text, range: NSRange(location: 0, length: ns.length))
+            .map { ns.substring(with: $0.range) }
+    }
+
+    private static let meaningfulSymbolPattern = try! NSRegularExpression(
+        pattern: "[\\p{Sc}\\p{Sm}#%@&_*/\\\\`]")
 
     private static func matches(_ result: [String], source: [String], removing ranges: [(Int, Int)]) -> Bool {
         let sorted = ranges.sorted { $0.0 < $1.0 }

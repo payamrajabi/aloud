@@ -62,6 +62,7 @@
     "Paragraph one ends here.\n\nParagraph two starts here."
   ],
   "faithful": [
+    { "in": "Use api_key and c++; compare x ≤ y.", "out": "Use api_key and c++! Compare x ≤ y." },
     { "in": "We. should ship the the update on Tuesday", "out": "We should ship the update on Tuesday." },
     { "in": "Um, so I think we can finish today", "out": "So, I think we can finish today." },
     { "in": "Move the launch to Tuesday, no, Wednesday", "out": "Move the launch to Wednesday." },
@@ -78,6 +79,12 @@
     { "in": "Keep the awkward grammar as spoken", "out": "Keep the awkward grammar as spoken." }
   ],
   "unfaithful": [
+    { "in": "Use c++ for rendering", "out": "Use c for rendering" },
+    { "in": "Use ${HOME} today", "out": "Use HOME today" },
+    { "in": "Use api_key today", "out": "Use api key today" },
+    { "in": "Require x ≤ y today", "out": "Require x y today" },
+    { "in": "Read $HOME/config today", "out": "Read $HOME config today" },
+    { "in": "+", "out": "" },
     { "in": "We ship Tuesday", "out": "We ship Wednesday" },
     { "in": "The amount is 500", "out": "The amount is 5000" },
     { "in": "Do not deploy", "out": "Do deploy" },
