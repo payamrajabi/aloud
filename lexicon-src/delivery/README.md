@@ -67,10 +67,37 @@ python3 -B -I lexicon-src/tools/build_runtime.py recover --out build/lexicon-run
 `apply` only replaces generated repository pack files after every staged pack, conflict,
 input hash, before snapshot and current target has passed validation. It buffers verified
 bytes, writes a prepared transaction journal, atomically replaces each file and records success.
-It never installs an app or publishes a release. A failure restores the original files. If the
+It never installs an app or publishes a release. A failure restores eligible original files while
+preserving subsequent external edits; `transaction.json` records any remaining manual reconciliation. If the
 process disappears between files, run `recover` using the same stage. Recovery refuses to erase
 a later edit whose hash matches neither the original nor the generated file. Preserve that edit
 and reconcile it manually. Keep the stage until the acceptance/release gates are satisfied.
+
+Apply and recovery use one fail-fast exclusive filesystem lock per checkout:
+`build/.lexicon-runtime.lock`. Every cooperating publisher must enter through these commands.
+The lock file remains in place; never delete it to bypass a running publisher. The operating
+system releases the lock when the holder exits. A second apply/recover fails immediately and
+can be retried after the first finishes. Different output-stage directories still share the
+same repository lock.
+
+Before every target replacement, the builder rechecks input hashes, the complete pack inventory,
+and the expected state of runtime targets, then checks the relevant target again immediately
+before `os.replace`. Rollback/recovery checks each relevant target before replacing it and
+preserves a later external edit rather than overwriting it. Eligible files can be restored while
+changed files are left intact; the journal becomes `recovery_required` and lists restored files
+and preserved/pending files. If inputs or pack inventory change partway through, automatic
+replacement stops, including recovery. Preserve the stage and reconcile the source/inventory
+with its recorded hashes before retrying, or recover the recorded original bytes manually
+after reviewing the intervening changes.
+
+This assumes a **single cooperating publisher** and no concurrent external edits to source or
+runtime files. Hash rechecks detect edits at their check points; the filesystem has no atomic
+compare-and-swap for file contents, so an editor that ignores the lock can still write between
+the final check and `os.replace`. Likewise, a reader can observe a mix of pack versions between
+per-file replacements. This tool does not lock application readers or replace the entire bundle
+atomically. Use it in an isolated, quiescent checkout before packaging the app, and preserve
+unexpected edits for reconciliation. The tests exercise competing real processes and edits
+in the apply/rollback windows, without claiming protection against noncooperating writers.
 
 ## Private original evidence preservation
 

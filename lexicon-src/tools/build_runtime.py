@@ -2,6 +2,8 @@
 """Offline, deterministic approved-master build. See ../delivery/README.md."""
 import argparse
 import csv
+import fcntl
+from contextlib import contextmanager
 import io
 from collections import Counter
 import hashlib
@@ -228,7 +230,7 @@ def compile_names(master, decisions, manifest_bytes):
     return rows, coverage
 
 
-def atomic_write(path, data):
+def atomic_write(path, data, before_replace=None):
     path.parent.mkdir(parents=True, exist_ok=True)
     fd, temporary = tempfile.mkstemp(prefix="." + path.name + ".", dir=path.parent)
     try:
@@ -236,6 +238,8 @@ def atomic_write(path, data):
             stream.write(data)
             stream.flush()
             os.fsync(stream.fileno())
+        if before_replace is not None:
+            before_replace()
         os.replace(temporary, path)
         directory = os.open(path.parent, os.O_RDONLY)
         try:
@@ -370,18 +374,64 @@ def verify_stage(output, receipt):
     return payload, snapshots
 
 
+@contextmanager
+def mutation_lock(root):
+    """One cooperating publisher per checkout; never unlink this stable lock inode."""
+    path = inside(root, "build/.lexicon-runtime.lock")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a+b") as lock:
+        try:
+            fcntl.flock(lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError as error:
+            raise BuildError("another apply/recover publisher owns this repository lock; retry after it finishes") from error
+        try:
+            yield
+        finally:
+            fcntl.flock(lock.fileno(), fcntl.LOCK_UN)
+
+
+def assert_target(root, name, allowed):
+    try:
+        current = sha(inside(root, name).read_bytes())
+    except OSError as error:
+        raise BuildError(f"{name}: target disappeared; preserve and reconcile it manually") from error
+    if current not in allowed:
+        raise BuildError(f"{name}: current file is neither the expected original nor generated version; preserve and reconcile it manually")
+
+
+def mutation_guard(root, receipt):
+    assert_inputs(root, receipt)
+    assert_inventory(root, set(receipt["outputs"]) | set(receipt["preserved_peers"]))
+
+
 def restore(root, output, receipt, snapshots):
-    # Refuse to overwrite a subsequent edit, even during recovery.
-    for name, old in receipt["before"].items():
-        now = sha(inside(root, name).read_bytes())
-        if now not in (old, receipt["outputs"][name]):
-            raise BuildError(f"{name}: current file is neither before nor generated; preserve and reconcile it manually")
+    restored, problems = [], {}
+    # Restore eligible files while preserving any external edit, including one made
+    # during rollback. Recheck immediately before each atomic replacement.
     for name in receipt["outputs"]:
-        atomic_write(inside(root, name), snapshots[name])
-    atomic_write(output / "transaction.json", encoded({"build_id": receipt["build_id"], "state": "recovered"}))
+        def guard(name=name):
+            mutation_guard(root, receipt)
+            assert_target(root, name, {receipt["before"][name], receipt["outputs"][name]})
+        try:
+            atomic_write(inside(root, name), snapshots[name], before_replace=guard)
+            restored.append(name)
+        except (BuildError, OSError) as error:
+            problems[name] = str(error)
+    transaction = {"build_id": receipt["build_id"], "state": "recovery_required" if problems else "recovered",
+                   "restored": restored, "preserved_or_pending": problems}
+    atomic_write(output / "transaction.json", encoded(transaction))
+    if problems:
+        raise BuildError("recovery preserved changed files or could not finish; see transaction.json and reconcile manually: "
+                         + "; ".join(problems.values()))
 
 
 def apply(root, output, recover=False):
+    root, output = root.resolve(), output.resolve()
+    with mutation_lock(root):
+        return apply_locked(root, output, recover)
+
+
+def apply_locked(root, output, recover):
     receipt = read_json(output / "receipt.json")
     check = dict(receipt)
     expected_id = check.pop("build_id", None)
@@ -391,18 +441,31 @@ def apply(root, output, recover=False):
     if recover:
         restore(root, output, receipt, snapshots)
         return receipt
-    assert_inputs(root, receipt)
-    assert_inventory(root, set(receipt["outputs"]) | set(receipt["preserved_peers"]))
+    mutation_guard(root, receipt)
     for name, expected in receipt["before"].items():
         if sha(inside(root, name).read_bytes()) != expected:
             raise BuildError(f"runtime changed since staging: {name}")
     atomic_write(output / "transaction.json", encoded({"build_id": expected_id, "state": "prepared", "targets": list(receipt["outputs"])}))
+    replaced = set()
+    def guard(target=None):
+        mutation_guard(root, receipt)
+        for name in receipt["outputs"]:
+            expected = receipt["outputs"][name] if name in replaced else receipt["before"][name]
+            assert_target(root, name, {expected})
+        if target is not None:
+            expected = receipt["outputs"][target] if target in replaced else receipt["before"][target]
+            assert_target(root, target, {expected})
     try:
         for name in receipt["outputs"]:
-            atomic_write(inside(root, name), payload[name])
+            atomic_write(inside(root, name), payload[name], before_replace=lambda name=name: guard(name))
+            replaced.add(name)
+        guard()
         atomic_write(output / "transaction.json", encoded({"build_id": expected_id, "state": "applied"}))
-    except BaseException:
-        restore(root, output, receipt, snapshots)
+    except BaseException as original:
+        try:
+            restore(root, output, receipt, snapshots)
+        except (BuildError, OSError) as recovery_error:
+            raise BuildError(f"apply stopped ({original}); {recovery_error}") from original
         raise
     return receipt
 

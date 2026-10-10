@@ -4,6 +4,10 @@ import importlib.util
 import contextlib
 import io
 import hashlib
+import subprocess
+import sys
+import selectors
+import time
 import json
 from pathlib import Path
 import shutil
@@ -125,7 +129,7 @@ class RuntimeBuildTests(unittest.TestCase):
         M.atomic_write(self.root / "Lexicons/tech-lexicon.json", edited)
         with self.assertRaisesRegex(M.BuildError, "runtime changed"):
             M.apply(self.root, self.out)
-        with self.assertRaisesRegex(M.BuildError, "neither before nor generated"):
+        with self.assertRaisesRegex(M.BuildError, "neither the expected original nor generated"):
             M.apply(self.root, self.out, recover=True)
         self.assertEqual(edited, (self.root / "Lexicons/tech-lexicon.json").read_bytes())
 
@@ -150,12 +154,12 @@ class RuntimeBuildTests(unittest.TestCase):
         M.build(self.root, self.out)
         real_write = M.atomic_write
         failed = False
-        def failing_write(path, data):
+        def failing_write(path, data, **options):
             nonlocal failed
             if path.resolve() == (self.root / "Lexicons/tech-lexicon.json").resolve() and data == self.runtime and not failed:
                 failed = True
                 raise OSError("simulated interruption after first target replacement")
-            real_write(path, data)
+            real_write(path, data, **options)
         with patch.object(M, "atomic_write", side_effect=failing_write), self.assertRaises(OSError):
             M.apply(self.root, self.out)
         self.assertTrue(failed)
@@ -171,6 +175,142 @@ class RuntimeBuildTests(unittest.TestCase):
         M.atomic_write(self.root / "Lexicons/tech-lexicon.json", self.runtime)
         M.apply(self.root, self.out, recover=True)
         self.assertEqual(original, (self.root / "Lexicons/tech-lexicon.json").read_bytes())
+
+    def multiple_targets(self):
+        self.registry["packs"].append({**self.registry["packs"][0], "id": "copy", "runtime": "Lexicons/copy.json"})
+        self.write_json(M.REGISTRY, self.registry)
+        original = M.encoded(self.approved)
+        for name in ("copy", "tech-lexicon"):
+            M.atomic_write(self.root / f"Lexicons/{name}.json", original)
+        M.build(self.root, self.out)
+        return original
+
+    def test_real_concurrent_apply_and_recover_fail_fast(self):
+        original = M.encoded(self.approved)
+        M.atomic_write(self.root / "Lexicons/tech-lexicon.json", original)
+        M.build(self.root, self.out)
+        child_code = """
+import importlib.util, pathlib, sys
+spec = importlib.util.spec_from_file_location('runtime', sys.argv[1])
+m = importlib.util.module_from_spec(spec); spec.loader.exec_module(m)
+root, output = pathlib.Path(sys.argv[2]), pathlib.Path(sys.argv[3])
+real = m.atomic_write
+waiting = True
+def pause(path, data, **options):
+    global waiting
+    if path == root / 'Lexicons/tech-lexicon.json' and waiting:
+        waiting = False
+        print('locked apply', flush=True)
+        sys.stdin.readline()
+    real(path, data, **options)
+m.atomic_write = pause
+m.apply(root, output)
+"""
+        child = subprocess.Popen([sys.executable, "-B", "-I", "-c", child_code,
+                                  str(ROOT / "lexicon-src/tools/build_runtime.py"),
+                                  str(self.root.resolve()), str(self.out.resolve())],
+                                 stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        try:
+            with selectors.DefaultSelector() as ready:
+                ready.register(child.stdout, selectors.EVENT_READ)
+                self.assertTrue(ready.select(5), "child failed to reach locked apply")
+            self.assertEqual("locked apply", child.stdout.readline().strip())
+            for recover in (False, True):
+                started = time.monotonic()
+                with self.assertRaisesRegex(M.BuildError, "publisher owns"):
+                    M.apply(self.root, self.out, recover=recover)
+                self.assertLess(time.monotonic() - started, 2)
+            self.assertEqual(original, (self.root / "Lexicons/tech-lexicon.json").read_bytes())
+            self.assertEqual("prepared", M.read_json(self.out / "transaction.json")["state"])
+            _, error = child.communicate("release\n", timeout=5)
+            self.assertEqual(0, child.returncode, error)
+        finally:
+            if child.poll() is None:
+                child.kill()
+                child.communicate()
+        # Same stable lock file works again after process exit; it is never unlinked.
+        M.apply(self.root, self.out, recover=True)
+        self.assertEqual(original, (self.root / "Lexicons/tech-lexicon.json").read_bytes())
+
+    def test_mid_transaction_edit_is_preserved_and_eligible_file_rolls_back(self):
+        original = self.multiple_targets()
+        edited = b"external edit made between target replacements"
+        real = M.atomic_write
+        def edit_after_first(path, data, **options):
+            real(path, data, **options)
+            if path == self.root.resolve() / "Lexicons/copy.json" and data == self.runtime:
+                real(self.root / "Lexicons/tech-lexicon.json", edited)
+        with patch.object(M, "atomic_write", side_effect=edit_after_first), self.assertRaisesRegex(M.BuildError, "recovery preserved"):
+            M.apply(self.root, self.out)
+        self.assertEqual(original, (self.root / "Lexicons/copy.json").read_bytes())
+        self.assertEqual(edited, (self.root / "Lexicons/tech-lexicon.json").read_bytes())
+        journal = M.read_json(self.out / "transaction.json")
+        self.assertEqual("recovery_required", journal["state"])
+        self.assertEqual(["Lexicons/copy.json"], journal["restored"])
+        self.assertIn("Lexicons/tech-lexicon.json", journal["preserved_or_pending"])
+
+    def test_edit_to_already_replaced_file_is_detected_before_next_write(self):
+        original = self.multiple_targets()
+        edited = b"external edit to already published first target"
+        real = M.atomic_write
+        def edit_first(path, data, **options):
+            real(path, data, **options)
+            if path == self.root.resolve() / "Lexicons/copy.json" and data == self.runtime:
+                real(path, edited)
+        with patch.object(M, "atomic_write", side_effect=edit_first), self.assertRaisesRegex(M.BuildError, "recovery preserved"):
+            M.apply(self.root, self.out)
+        self.assertEqual(edited, (self.root / "Lexicons/copy.json").read_bytes())
+        self.assertEqual(original, (self.root / "Lexicons/tech-lexicon.json").read_bytes())
+
+    def test_edit_during_rollback_is_checked_immediately_before_replace(self):
+        original = self.multiple_targets()
+        edited = b"external edit during rollback temp-file write"
+        real = M.atomic_write
+        failed = False
+        def interrupt_and_edit(path, data, **options):
+            nonlocal failed
+            target = self.root.resolve() / "Lexicons/tech-lexicon.json"
+            if path == target and data == self.runtime and not failed:
+                failed = True
+                raise OSError("second target interrupted")
+            if path == target and data == original and failed:
+                real(path, edited)
+            real(path, data, **options)
+        with patch.object(M, "atomic_write", side_effect=interrupt_and_edit), self.assertRaisesRegex(M.BuildError, "recovery preserved"):
+            M.apply(self.root, self.out)
+        self.assertEqual(original, (self.root / "Lexicons/copy.json").read_bytes())
+        self.assertEqual(edited, (self.root / "Lexicons/tech-lexicon.json").read_bytes())
+        self.assertEqual("recovery_required", M.read_json(self.out / "transaction.json")["state"])
+
+    def test_input_change_mid_transaction_freezes_mutation_until_reconciled(self):
+        original = self.multiple_targets()
+        changed_source = b"[]"
+        real = M.atomic_write
+        def change_source(path, data, **options):
+            real(path, data, **options)
+            if path == self.root.resolve() / "Lexicons/copy.json" and data == self.runtime:
+                real(self.root / "lexicon-src/master.json", changed_source)
+        with patch.object(M, "atomic_write", side_effect=change_source), self.assertRaisesRegex(M.BuildError, "input changed"):
+            M.apply(self.root, self.out)
+        self.assertEqual(self.runtime, (self.root / "Lexicons/copy.json").read_bytes())
+        self.assertEqual(original, (self.root / "Lexicons/tech-lexicon.json").read_bytes())
+        self.assertEqual(changed_source, (self.root / "lexicon-src/master.json").read_bytes())
+        self.assertEqual("recovery_required", M.read_json(self.out / "transaction.json")["state"])
+
+    def test_pack_inventory_change_mid_transaction_blocks_further_replaces(self):
+        original = self.multiple_targets()
+        real = M.atomic_write
+        extra = b"external new pack"
+        def add_pack(path, data, **options):
+            real(path, data, **options)
+            if path == self.root.resolve() / "Lexicons/copy.json" and data == self.runtime:
+                real(self.root / "Lexicons/undeclared.json", extra)
+        with patch.object(M, "atomic_write", side_effect=add_pack), self.assertRaisesRegex(M.BuildError, "inventory changed"):
+            M.apply(self.root, self.out)
+        self.assertEqual(self.runtime, (self.root / "Lexicons/copy.json").read_bytes())
+        self.assertEqual(original, (self.root / "Lexicons/tech-lexicon.json").read_bytes())
+        self.assertEqual(extra, (self.root / "Lexicons/undeclared.json").read_bytes())
+        self.assertEqual("recovery_required", M.read_json(self.out / "transaction.json")["state"])
 
     def test_duplicate_json_keys_and_path_escape_refused(self):
         file = self.root / "duplicate.json"
