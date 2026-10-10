@@ -1,0 +1,234 @@
+{
+ "batch": "d0027",
+ "rows": [
+  {
+   "rank": 1265,
+   "word": "unisom",
+   "kind": "brand",
+   "display": "Unisom",
+   "today_us": "jˈunəsˌɑm",
+   "today_gb": "jˈuːnəsˌɒm",
+   "today_source": "cmudict",
+   "zipf": 1.5,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Unisom",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Unisom®",
+      "generic_monograph": "Diphenhydramine",
+      "generic_pronounced": [
+       "dye fen hye' dra meen"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a682539.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1266,
+   "word": "vicks",
+   "kind": "brand",
+   "display": "Vicks",
+   "today_us": "vˈɪks",
+   "today_gb": "vˈɪks",
+   "today_source": "cmudict",
+   "zipf": 2.17,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Vicks",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1267,
+   "word": "visine",
+   "kind": "brand",
+   "display": "Visine",
+   "today_us": "visˈini",
+   "today_gb": "visˈiːni",
+   "today_source": "guesser",
+   "zipf": 1.72,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Visine",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Visine®",
+      "generic_monograph": "Tetrahydrozoline Ophthalmic",
+      "generic_pronounced": [
+       "tet ra hye droz' a leen"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a682563.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1268,
+   "word": "voltaren",
+   "kind": "brand",
+   "display": "Voltaren",
+   "today_us": "vˈOltəɹən",
+   "today_gb": "vˈQltəɹən",
+   "today_source": "cmudict",
+   "zipf": 1.49,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Voltaren",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1269,
+   "word": "xyzal",
+   "kind": "brand",
+   "display": "Xyzal",
+   "today_us": "zˈIzəl",
+   "today_gb": "zˈIzəl",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Xyzal",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Xyzal®",
+      "generic_monograph": "Levocetirizine",
+      "generic_pronounced": [
+       "lee'' voe se tir' i zeen"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a607056.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1270,
+   "word": "zantac",
+   "kind": "brand",
+   "display": "Zantac",
+   "today_us": "zˈæntæk",
+   "today_gb": "zˈantak",
+   "today_source": "gold",
+   "zipf": 1.87,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Zantac",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Zantac®",
+      "generic_monograph": "Ranitidine",
+      "generic_pronounced": [
+       "ra ni' ti deen"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a601106.html"
+     },
+     {
+      "brand_listed_as": "Zantac®",
+      "generic_monograph": "Ranitidine Injection",
+      "generic_pronounced": [
+       "ra ni' ti deen"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a601164.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1271,
+   "word": "zyrtec",
+   "kind": "brand",
+   "display": "Zyrtec",
+   "today_us": "zˈɪɹtˌɛk",
+   "today_gb": "zˈɪətˌɛk",
+   "today_source": "guesser",
+   "zipf": 1.84,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Zyrtec",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Zyrtec®",
+      "generic_monograph": "Cetirizine",
+      "generic_pronounced": [
+       "se ti' ra zeen"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a623043.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1272,
+   "word": "zzzquil",
+   "kind": "brand",
+   "display": "ZzzQuil",
+   "today_us": "zkwˈɪl",
+   "today_gb": "zkwˈɪl",
+   "today_source": "guesser",
+   "zipf": 1.04,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "ZzzQuil",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  }
+ ]
+}

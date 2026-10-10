@@ -34,8 +34,12 @@ pack's `../names/NAMES-GUIDE.md` (its "Converting IPA to misaki" section applies
     monograph's whole line (combination products list one group per ingredient, in title order).
     For a brand, the generic monograph it points to.
   - `dailymed`: respellings printed in FDA-approved labels (the maker's Medication Guide or
-    Patient Information), e.g. `{"term": "ELIQUIS", "respelling": "ELL eh kwiss"}`. A term other
-    than the row's word is a pronunciation of another word on that label (often the generic).
+    Patient Information), e.g. `{"term": "ELIQUIS", "for": "eliquis", "respelling": "ELL eh kwiss"}`.
+    `for` is the candidate word it belongs to; a different `for` is another word on that label
+    (often the generic or the device). A `term` of two words ("BREZTRI AEROSPHERE") had its
+    respelling printed after the device name: it may cover the brand alone or both words. The
+    harvest is mechanical, so a few items aren't respellings at all ("based on AUC",
+    "Steady-State"): ignore those.
   - `wiktionary`: Wiktionary's IPA (`a=GA` US, `a=RP`/`UK` British).
 
 ## The intended reading
@@ -45,23 +49,41 @@ gives it). These are the readings patients hear at the pharmacy counter, so they
 everyone; there is no separate lay reading.
 - **Brands:** the maker's own pronunciation (the label respelling, the maker's website or TV
   advertising as written on a page) is the reading. Brand names are coined; spelling rules don't
-  settle them.
+  settle them. When the maker writes a full vowel in an unstressed syllable ("VRAY-lar",
+  "meer-BEH-trick"), use that vowel. When the maker's own sources disagree, the current US label
+  wins over a website or an older FDA submission; put the other in `alternatives` and use
+  `medium` if they disagree about the stressed syllable.
 - **Generics:** the USAN/ASHP reading MedlinePlus gives, unless dictionaries agree on something
-  else (put the other in `alternatives`). Where sources disagree on which of two stressed
-  syllables is the main one (atorvastatin: MedlinePlus "a tore' va sta tin", Merriam-Webster
-  ə-ˌtȯr-və-ˈsta-tᵊn), keep both stresses (`ˈ` and `ˌ`) and follow MedlinePlus for which is
-  primary in `us`, the British source for `gb`; note it.
+  else (put the other in `alternatives`).
+- **When authoritative sources disagree on which of two stressed syllables is the main one**
+  (atorvastatin: MedlinePlus "a tore' va sta tin", Merriam-Webster ə-ˌtȯr-və-ˈsta-tᵊn;
+  rosuvastatin: MedlinePlus "roe soo'' va stat' in", MW and Wiktionary main stress on "soo"),
+  keep both stresses (`ˈ` and `ˌ`); take the main one that two or more authoritative sources
+  share, and when they split evenly, MedlinePlus's for `us` and the British source's for `gb`.
+  Note it and put the other order in `alternatives`. This kind of disagreement doesn't lower
+  confidence; disagreement about which syllables are stressed at all, or about a stressed vowel,
+  makes it `medium`.
 - **Stem families read alike** (-statin stat-in, -pril pril, -sartan SAR-tan, -olol oh-lol,
-  -azole uh-zole, -prazole PRAY-zole, -mab mab, -gliflozin gli-FLOH-zin, -gliptin GLIP-tin,
-  -glutide GLOO-tide, -tidine tih-deen, -dipine dih-peen, -cycline SY-kleen, -floxacin FLOX-uh-sin,
+  -azole uh-zole, -prazole: main stress on the syllable before "pra", which reduces (oh-MEP-ruh-
+  zole, pan-TOH-pruh-zole), -mab mab, -gliflozin gli-FLOH-zin, -gliptin GLIP-tin, -glutide
+  GLOO-tide, -tidine tih-deen, -dipine dih-peen, -cycline SY-kleen, -floxacin FLOX-uh-sin,
   -vir veer). Check a word against its family; a family pattern alone is `low` confidence.
 - **Same reading, different unstressed vowels, is still right.** Today's reading is already the
   intended one when the stressed syllables, their vowels and the consonants match and only
-  unstressed vowels differ in reduction (ə, ɪ). Don't churn readings for that.
+  unstressed vowels differ in reduction (ə, ɪ), or a secondary stress is present in one and not
+  the other. Don't churn readings for that. A full vowel with secondary stress that today's
+  reading reduces ("losartan" -tan read -tun) is a real difference: correct it.
+- **US-only and British-only fixes** are `corrected` too (today's US reading right and the
+  British wrong, or the reverse). British readings keep the US stresses unless a British source
+  says otherwise; a US-only brand (Farxiga; Forxiga in the UK) gets British vowels on the US name.
 
 ## Converting a respelling to misaki
-MedlinePlus (ASHP) style: syllables separated by spaces, an apostrophe after the stressed one.
-Label style: hyphens or spaces, the stressed syllable in capitals.
+MedlinePlus (ASHP) style: syllables separated by spaces, an apostrophe after the syllable with
+the main stress and a double apostrophe after one with secondary stress ("hye'' droe klor'' oh thye' a
+zide": main stress on "thye"; write `ˌ` for each '' syllable).
+Label style: hyphens or spaces, the stressed syllable in capitals ("zah-REL-toe"); some labels
+mark it with an apostrophe ("Re stay' sis"), write long vowels with macrons ("NŌ-vō-log", "fī-COM-puh")
+or mark no stress at all ("baz-a-glar": then the stress is yours to source or infer, `medium` at most).
 
 | Respelling | misaki | e.g. |
 |---|---|---|
@@ -84,7 +106,9 @@ Label style: hyphens or spaces, the stressed syllable in capitals.
 | final -tin, -ton, -den after a stressed vowel | `tᵊn`, `dᵊn` (as gold's "statin" stˈætᵊn) | |
 
 - **Unstressed syllables reduce** as clinicians say them: unstressed "a", "e", "u" in an open
-  syllable → `ə`; "i" → `ɪ` (or `ə`); keep "oh", "ee", "eye", "oo", "ay" full (`O i I u A`).
+  syllable → `ə`; "i" → `ɪ` (or `ə`); keep "ee", "eye", "oo", "ay" full (`i I u A`). Keep "oh" full
+  (`O`) before the main stress (loh-SAR-tan); after it, reduce it to `ə` where a dictionary does
+  (ly-SIN-uh-pril, TRAZ-uh-dohn).
 - **Secondary stress:** words of four or more syllables usually carry one `ˌ` on a full vowel
   two syllables away from the main stress (`lˌivOθIɹˈɑksin`). A final syllable with a full vowel
   after an unstressed one (-ine "een", -ide "ide", -ole "ole") usually takes `ˌ` in American
@@ -110,8 +134,10 @@ Worked examples:
 ## Evidence, in order of preference
 1. **The maker's own pronunciation for a brand**: the label respelling in `evidence.dailymed`,
    the maker's website ("pronounced ..."), the prescribing information.
+   FDA's proprietary-name reviews on accessdata.fda.gov often record the maker's "intended
+   pronunciation" of a brand; makers' professional sites (e.g. Novo Nordisk's NovoMedLink) too.
 2. **MedlinePlus** (ASHP) for a generic; **Merriam-Webster** (Medical) and other dictionaries;
-   **Wiktionary** IPA; USP/USAN pronunciation guides.
+   **Wiktionary** IPA; USP/USAN pronunciation guides; the NCI Drug Dictionary (cancer.gov).
 3. Pharmacy and nursing references that print a respelling (drug guides, pharmacology
    pronunciation lists, Drugs.com's "Pronunciation" line), a news story or ad transcript that
    says how the maker pronounces a brand.
@@ -119,7 +145,9 @@ Worked examples:
 
 You may search the web (`WebSearch`, `WebFetch`) for rows with no harvested evidence, especially
 brands. Record facts only (a respelling, an IPA string, which page), never copied paragraphs.
-Never use a dictation round trip as evidence.
+Never use a dictation round trip as evidence. Merriam-Webster, Drugs.com, Collins and Cambridge
+refuse automated fetches; a search result's summary of their entry may be cited, saying so in
+`says` ("via search result").
 
 - `evidence`: `[{"source": "MedlinePlus (ASHP)", "says": "a tore' va sta tin", "url": "..."}]`,
   one item per source you relied on.
@@ -127,6 +155,9 @@ Never use a dictation round trip as evidence.
   contradicts it; `medium` for one secondary source (3), or an authoritative source you had to
   interpret (a stress the respelling leaves open); `low` when it rests on the family and the
   spelling (say why in `notes`). When you'd be guessing, the disposition is `unresolved`.
+  A name built from plain English words the maker capitalises (SoloStar, FlexTouch, KwikPen =
+  quick pen) may be `medium` without a written source when no source contradicts the obvious
+  reading; say so in `notes`.
 
 ## Dispositions
 | disposition | when | needs |

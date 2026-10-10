@@ -11,6 +11,7 @@ UA = "Mozilla/5.0 (Macintosh) aloud-drugs-research/1.0 (+https://aloudformac.com
 DEFAULT_CACHE = os.path.expanduser("~/Library/Caches/aloud-drugs")
 _last = {}
 _lock = threading.Lock()
+OFFLINE = False   # True: answer from the cache only; a miss is (0, b"")
 
 
 def _paths(cache, url):
@@ -36,6 +37,8 @@ def get(cache, url, refresh=False, min_interval=1.0, tries=3, timeout=60):
         hit = cached(cache, url)
         if hit is not None:
             return hit
+    if OFFLINE:
+        return 0, b""
     d, body_path, meta_path = _paths(cache, url)
     os.makedirs(d, exist_ok=True)
     host = urllib.parse.urlsplit(url).netloc

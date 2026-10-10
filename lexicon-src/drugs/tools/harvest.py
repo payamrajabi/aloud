@@ -8,7 +8,8 @@ Three sources, each read politely (one request a second per site) through net.py
   medlineplus  MedlinePlus Drug Information (US National Library of Medicine; the monographs
                are ASHP's AHFS Patient Medication Information). Each monograph gives the
                generic name's pronunciation as a respelling, "pronounced as (a tore' va sta
-               tin)": the apostrophe follows the stressed syllable. The A-Z index also maps
+               tin)": an apostrophe follows the syllable with the main stress, a double one ('')
+               a syllable with secondary stress. The A-Z index also maps
                brand names to their generic monograph.
   dailymed     FDA-approved labels on DailyMed (NLM). A maker's Medication Guide or Patient
                Information often prints the brand's own pronunciation after its name:
@@ -168,17 +169,30 @@ def harvest_medlineplus(cache, cands, out, limit):
 # ---------- DailyMed ----------
 
 RESP = re.compile(r"\b([A-Za-z][A-Za-z0-9-]*)\s*(?:®|™|\(R\))?\s*\(([^()]{2,48})\)")
+PREV = re.compile(r"([A-Za-z][A-Za-z0-9-]*)\s*(?:®|™|\(R\))?\s+$")
+
+
+LITTLE = {"or", "and", "see", "the", "with", "for", "of", "table", "mg", "ml", "once", "daily", "twice", "each",
+          "per", "dose", "doses", "also", "such", "as", "in", "to", "by", "if", "is", "are", "not", "a", "an", "at"}
 
 
 def looks_like_respelling(s):
-    """Syllables of a respelling: two to eight short alphabetic pieces, at least one in capitals
-    (the stressed syllable), and none of the little words that start a real parenthetical."""
-    toks = [t for t in re.split(r"[\s-]+", s.strip()) if t]
-    if not 2 <= len(toks) <= 8 or not all(re.fullmatch(r"[A-Za-z']{1,7}", t) for t in toks):
+    """Syllables of a respelling: two to eight short alphabetic pieces, and none of the little
+    words that start a real parenthetical. Labels show the stress four ways: a syllable in
+    capitals ("ELL eh kwiss"), an apostrophe after it ("Re stay' sis"), macrons with a capital
+    ("NŌ-vō-log"), or not at all ("baz-a-glar"); an unmarked form counts only when hyphenated."""
+    raw = s.strip()
+    toks = [t for t in re.split(r"[\s-]+", raw) if t]
+    if not 2 <= len(toks) <= 8 or not all(re.fullmatch(r"[A-Za-zĀāĒēĪīŌōŪūȲȳ']{1,7}", t) for t in toks):
         return False
-    if any(t.lower() in ("or", "and", "see", "the", "with", "for", "of", "table", "mg", "ml") for t in toks):
+    if any(t.lower().strip("'") in LITTLE for t in toks):
         return False
-    return any(t.isupper() and len(t) >= 2 for t in toks)
+    # Every syllable has a vowel ("CD-II", "BFF MDI", "PCD-I" are abbreviations).
+    if not all(re.search(r"[aeiouyāēīōūȳAEIOUYĀĒĪŌŪȲ]", t) for t in toks):
+        return False
+    if any(t.isupper() and len(t) >= 2 for t in toks) or any(t.endswith("'") for t in toks):
+        return True
+    return "-" in raw and " " not in raw
 
 
 def label_text(xml_bytes):
@@ -211,7 +225,7 @@ def harvest_dailymed(cache, cands, out, limit, words_of_interest):
         found = []
         tried = 0
         for l in labels:
-            if tried >= 2 or (found and any(f["term"].lower() == w for f in found)):
+            if tried >= 2 or (found and any(f["for"] == w for f in found)):
                 break
             if pref(l)[0]:
                 break
@@ -224,17 +238,24 @@ def harvest_dailymed(cache, cands, out, limit, words_of_interest):
             seen = set()
             for m in RESP.finditer(text):
                 term, resp = m.group(1), m.group(2).strip()
-                tl = term.lower()
-                if tl != w and tl not in words_of_interest:
-                    continue
-                if not looks_like_respelling(resp) or resp.lower() == tl:
-                    continue
-                key = (tl, resp.lower())
-                if key in seen:
-                    continue
-                seen.add(key)
-                found.append({"term": term, "respelling": resp, "label": l.get("title", ""), "setid": l["setid"],
-                              "url": f"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid={l['setid']}"})
+                # "BREZTRI AEROSPHERE (brez-TREE)": a respelling after a device name belongs to
+                # the brand before it too (it may cover both words).
+                terms = [(term, term.lower())]
+                prev = PREV.search(text[max(0, m.start() - 40):m.start()].rstrip() + " ")
+                if prev and prev.group(1).lower() == w and term.lower() != w:
+                    terms.append((prev.group(1) + " " + term, w))
+                for shown, for_word in terms:
+                    if for_word != w and for_word not in words_of_interest:
+                        continue
+                    if not looks_like_respelling(resp) or resp.lower() == for_word:
+                        continue
+                    key = (for_word, resp.lower())
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    found.append({"term": shown, "for": for_word, "respelling": resp, "label": l.get("title", ""),
+                                  "setid": l["setid"],
+                                  "url": f"https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid={l['setid']}"})
         ev["dailymed"] = found
         done += 1
         if limit and done >= limit:
@@ -274,18 +295,23 @@ def main():
     ap.add_argument("--cache", default=net.DEFAULT_CACHE)
     ap.add_argument("--only", default="medlineplus,dailymed,wiktionary")
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--offline", action="store_true", help="read the cache only (a partial harvest while another runs)")
+    ap.add_argument("--out", default=os.path.join(DRUGS, "evidence.json"))
     args = ap.parse_args()
+    net.OFFLINE = args.offline
     cands = load_candidates()
-    path = os.path.join(DRUGS, "evidence.json")
+    path = args.out
     old = json.load(open(path, encoding="utf-8")) if os.path.exists(path) else {}
     words = {r["word"] for r in cands}
     parts = {}
     jobs = []
-    # Two workers per site, each on every other candidate: requests overlap their wait for the
-    # server, and net.py still spaces the starts at least a second apart per site.
+    # Several workers per site, each on every n-th candidate: requests overlap their wait for
+    # the server (DailyMed's labels are large), and net.py still spaces the starts at least a
+    # second apart per site.
     for name in args.only.split(","):
         parts[name] = {}
-        for half in (cands[0::2], cands[1::2]):
+        n = 4 if name == "dailymed" else 2
+        for half in [cands[i::n] for i in range(n)]:
             fn = {"medlineplus": lambda o, c=half: harvest_medlineplus(args.cache, c, o, args.limit),
                   "dailymed": lambda o, c=half: harvest_dailymed(args.cache, c, o, args.limit, words),
                   "wiktionary": lambda o, c=half: harvest_wiktionary(args.cache, c, o, args.limit)}[name]
@@ -307,7 +333,7 @@ def main():
         f.write("\n")
     stats = {name: sum(1 for e in merged.values() if e.get(name)) for name in ("medlineplus", "dailymed", "wiktionary")}
     resp = sum(1 for k, e in merged.items() if any(x.get("aligned") for x in e.get("medlineplus", [])))
-    dmb = sum(1 for k, e in merged.items() if any(x["term"].lower() == k.split(":", 1)[1] for x in e.get("dailymed", [])))
+    dmb = sum(1 for k, e in merged.items() if any(x["for"] == k.split(":", 1)[1] for x in e.get("dailymed", [])))
     print(f"wrote {path}: {len(merged)} candidates; with any hit: {stats}; MedlinePlus respelling aligned: {resp}; "
           f"DailyMed own-name respelling: {dmb}")
 

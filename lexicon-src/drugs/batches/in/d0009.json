@@ -1,0 +1,1735 @@
+{
+ "batch": "d0009",
+ "rows": [
+  {
+   "rank": 470,
+   "word": "ibandronate",
+   "kind": "generic",
+   "display": "ibandronate",
+   "today_us": "IbˈændɹənˌAt",
+   "today_gb": "IbˈandɹənˌAt",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 888352,
+   "examples": "Ibandronate Sodium",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "i ban' droh nate",
+      "pronounced": [
+       "i ban' droh nate"
+      ],
+      "title": "Ibandronate",
+      "url": "https://medlineplus.gov/druginfo/meds/a605035.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 473,
+   "word": "sulfadiazine",
+   "kind": "generic",
+   "display": "sulfadiazine",
+   "today_us": "sˌʌlfədˈIəzˌin",
+   "today_gb": "səlfˈAdiəzˌiːn",
+   "today_source": "gold",
+   "zipf": 1.35,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 858013,
+   "examples": "Silver Sulfadiazine | Sulfadiazine",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "sul fa dye' a zeen",
+      "pronounced": [
+       "sul fa dye' a zeen"
+      ],
+      "title": "Sulfadiazine",
+      "url": "https://medlineplus.gov/druginfo/meds/a682130.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌsʌl.fəˈdaɪ.ə.ziːn/"
+      ],
+      "page": "sulfadiazine",
+      "url": "https://en.wiktionary.org/wiki/sulfadiazine"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 474,
+   "word": "silver",
+   "kind": "generic",
+   "display": "silver",
+   "today_us": "sˈɪlvəɹ",
+   "today_gb": "sˈɪlvə",
+   "today_source": "gold",
+   "zipf": 4.81,
+   "dictionary_word": true,
+   "given_name": {
+    "rank": 14605,
+    "name": "Silver",
+    "est_people": 25578
+   },
+   "other_lists": [],
+   "score": 857231,
+   "examples": "Silver Sulfadiazine | Silver Nitrate",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "sil' ver sul fa dye' a zeen"
+      ],
+      "title": "Silver Sulfadiazine",
+      "url": "https://medlineplus.gov/druginfo/meds/a682598.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [
+       "sĭl'vər|a=GenAm"
+      ],
+      "ipa": [
+       "/ˈsɪl.və/|a=RP",
+       "/ˈsɪl.vɚ/"
+      ],
+      "page": "silver",
+      "url": "https://en.wiktionary.org/wiki/silver"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 475,
+   "word": "diphenoxylate",
+   "kind": "generic",
+   "display": "diphenoxylate",
+   "today_us": "dˌɪfənˈɑksəlˌAt",
+   "today_gb": "dˌɪfənˈɒksəlˌAt",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 848861,
+   "examples": "Diphenoxylate HCl/Atropine",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "dye fen ox' i late",
+      "pronounced": [
+       "dye fen ox' i late"
+      ],
+      "title": "Diphenoxylate",
+      "url": "https://medlineplus.gov/druginfo/meds/a601045.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌdaɪˌfɛnˈɑk.səˌleɪt/|a=GA"
+      ],
+      "page": "diphenoxylate",
+      "url": "https://en.wiktionary.org/wiki/diphenoxylate"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 476,
+   "word": "olodaterol",
+   "kind": "generic",
+   "display": "olodaterol",
+   "today_us": "ˌOlOdˈætəɹəl",
+   "today_gb": "ˌQlQdˈatəɹəl",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 847847,
+   "examples": "Tiotropium Br/Olodaterol HCl | Olodaterol HCl",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "oh'' loe da' ter ol",
+      "pronounced": [
+       "oh'' loe da' ter ol"
+      ],
+      "title": "Olodaterol Oral Inhalation",
+      "url": "https://medlineplus.gov/druginfo/meds/a615019.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 478,
+   "word": "zonisamide",
+   "kind": "generic",
+   "display": "zonisamide",
+   "today_us": "zənˈɪsəmˌId",
+   "today_gb": "zənˈɪsəmˌId",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 842322,
+   "examples": "Zonisamide",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "zoe nis' a mide",
+      "pronounced": [
+       "zoe nis' a mide"
+      ],
+      "title": "Zonisamide",
+      "url": "https://medlineplus.gov/druginfo/meds/a603008.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/zoʊˈnɪs.əˌmaɪd/|a=GA"
+      ],
+      "page": "zonisamide",
+      "url": "https://en.wiktionary.org/wiki/zonisamide"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 480,
+   "word": "dabigatran",
+   "kind": "generic",
+   "display": "dabigatran",
+   "today_us": "dˈæbəɡˌAtɹən",
+   "today_gb": "dˈabəɡˌAtɹən",
+   "today_source": "guesser",
+   "zipf": 1.49,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 821482,
+   "examples": "Dabigatran Etexilate Mesylate",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "da'' bi gat' ran",
+      "pronounced": [
+       "da'' bi gat' ran"
+      ],
+      "title": "Dabigatran",
+      "url": "https://medlineplus.gov/druginfo/meds/a610024.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/dəˈbɪɡ.əˌtɹæn/|/ˌdæb.ɪˈɡæˌtɹæn/|a=GA"
+      ],
+      "page": "dabigatran",
+      "url": "https://en.wiktionary.org/wiki/dabigatran"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 481,
+   "word": "etexilate",
+   "kind": "generic",
+   "display": "etexilate",
+   "today_us": "ɪtˈɛksəlˌAt",
+   "today_gb": "ɪtˈɛksəlˌAt",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 821482,
+   "examples": "Dabigatran Etexilate Mesylate",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 482,
+   "word": "cholestyramine",
+   "kind": "generic",
+   "display": "cholestyramine",
+   "today_us": "ʧOlˈɛstɪɹəmˌIn",
+   "today_gb": "ʧQlˈɛstɪɹəmˌIn",
+   "today_source": "cmudict",
+   "zipf": 1.21,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 817491,
+   "examples": "Cholestyramine (With Sugar) | Cholestyramine",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "koe less' tir a meen"
+      ],
+      "title": "Cholestyramine Resin",
+      "url": "https://medlineplus.gov/druginfo/meds/a682672.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 485,
+   "word": "amantadine",
+   "kind": "generic",
+   "display": "amantadine",
+   "today_us": "ɑmɑntɑdˈini",
+   "today_gb": "ɒmɒntɒdˈiːni",
+   "today_source": "guesser",
+   "zipf": 1.8,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 797480,
+   "examples": "Amantadine HCl",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "a man' ta deen",
+      "pronounced": [
+       "a man' ta deen"
+      ],
+      "title": "Amantadine",
+      "url": "https://medlineplus.gov/druginfo/meds/a682064.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/əˈmæn.təˌdin/|a=GA"
+      ],
+      "page": "amantadine",
+      "url": "https://en.wiktionary.org/wiki/amantadine"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 488,
+   "word": "tosylate",
+   "kind": "salt",
+   "display": "tosylate",
+   "today_us": "tˈɑsəlˌAt",
+   "today_gb": "tˈQsIlAt",
+   "today_source": "gold",
+   "zipf": 1.01,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 778442,
+   "examples": "Lumateperone Tosylate | Valbenazine Tosylate | Naldemedine Tosylate",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 489,
+   "word": "rivastigmine",
+   "kind": "generic",
+   "display": "rivastigmine",
+   "today_us": "ɹˈIvəstˌɪɡmˌin",
+   "today_gb": "ɹˈIvəstˌɪɡmˌiːn",
+   "today_source": "guesser",
+   "zipf": 1.33,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 773896,
+   "examples": "Rivastigmine | Rivastigmine Tartrate",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "ri va stig' meen",
+      "pronounced": [
+       "ri va stig' meen"
+      ],
+      "title": "Rivastigmine",
+      "url": "https://medlineplus.gov/druginfo/meds/a602009.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌɹɪv.əˈstɪɡˌmin/|a=GA"
+      ],
+      "page": "rivastigmine",
+      "url": "https://en.wiktionary.org/wiki/rivastigmine"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 490,
+   "word": "norgestrel",
+   "kind": "generic",
+   "display": "norgestrel",
+   "today_us": "nˈɔɹɡɪstɹəl",
+   "today_gb": "nˈɔːɡɪstɹəl",
+   "today_source": "guesser",
+   "zipf": 1.2,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 771407,
+   "examples": "Ethinyl Estradiol; Norgestrel | Norgestrel-Ethinyl Estradiol | Norgestrel",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "nor jes′ trel",
+      "pronounced": [
+       "eth′ i nil es″ tra dye′ ol",
+       "nor jes′ trel"
+      ],
+      "title": "Ethinyl Estradiol and Norgestrel (Oral Contraceptives)",
+      "url": "https://medlineplus.gov/druginfo/meds/a625051.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/nɔːˈd͡ʒɛ.stɹl̩/|a=RP",
+       "/nɔɹˈd͡ʒɛ.stɹəl/|a=GA"
+      ],
+      "page": "norgestrel",
+      "url": "https://en.wiktionary.org/wiki/norgestrel"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 491,
+   "word": "ascorbic",
+   "kind": "generic",
+   "display": "ascorbic",
+   "today_us": "əskˈɔɹbɪk",
+   "today_gb": "əskˈɔːbɪk",
+   "today_source": "cmudict",
+   "zipf": 2.4,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 766305,
+   "examples": "Ascorbic Acid",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "a skor' bik"
+      ],
+      "title": "Ascorbic Acid (Vitamin C)",
+      "url": "https://medlineplus.gov/druginfo/meds/a682583.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 492,
+   "word": "fluvoxamine",
+   "kind": "generic",
+   "display": "fluvoxamine",
+   "today_us": "fluvˈɑksəmˌin",
+   "today_gb": "fluvˈɒksəmˌiːn",
+   "today_source": "gold",
+   "zipf": 1.54,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 764764,
+   "examples": "Fluvoxamine Maleate",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "floo vox' a meen",
+      "pronounced": [
+       "floo vox' a meen"
+      ],
+      "title": "Fluvoxamine",
+      "url": "https://medlineplus.gov/druginfo/meds/a695004.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/fluːˈvɒk.səm.iːn/|a=RP",
+       "/fluːˈvɑk.səˌmiːn/|a=GA"
+      ],
+      "page": "fluvoxamine",
+      "url": "https://en.wiktionary.org/wiki/fluvoxamine"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 493,
+   "word": "oxide",
+   "kind": "generic",
+   "display": "oxide",
+   "today_us": "ˈɑksˌId",
+   "today_gb": "ˈɒksId",
+   "today_source": "gold",
+   "zipf": 3.66,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 748301,
+   "examples": "Magnesium Oxide | Zinc Oxide | Calamine/Zinc Oxide",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "ox' ide",
+      "pronounced": [
+       "mag nee' zee um",
+       "ox' ide"
+      ],
+      "title": "Magnesium Oxide",
+      "url": "https://medlineplus.gov/druginfo/meds/a601074.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈɒksaɪd/|a=RP",
+       "/ˈɑksaɪd/|a=GA,Atlantic Canada",
+       "/ˈɒksaɪd/|a=CA,dialects of the US",
+       "/ˈɔksɑed/|a=AU",
+       "/ˈɒksaɪd/|[ˈɔ̟ksɑe̯d]|a=NZ"
+      ],
+      "page": "oxide",
+      "url": "https://en.wiktionary.org/wiki/oxide"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 495,
+   "word": "raloxifene",
+   "kind": "generic",
+   "display": "raloxifene",
+   "today_us": "ɹælˈɑksəfˌin",
+   "today_gb": "ɹəlˈɒksəfˌiːn",
+   "today_source": "gold",
+   "zipf": 1.71,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 738254,
+   "examples": "Raloxifene HCl",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "ral ox' i feen",
+      "pronounced": [
+       "ral ox' i feen"
+      ],
+      "title": "Raloxifene",
+      "url": "https://medlineplus.gov/druginfo/meds/a698007.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ɹəˈlɒk.sɪˌfiːn/|a=RP",
+       "/ɹəˈlɑk.sɪˌfin/|a=GA"
+      ],
+      "page": "raloxifene",
+      "url": "https://en.wiktionary.org/wiki/raloxifene"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 496,
+   "word": "netarsudil",
+   "kind": "generic",
+   "display": "netarsudil",
+   "today_us": "nˌɛtəɹsˈudəl",
+   "today_gb": "nˌɛtəsˈuːdəl",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 737310,
+   "examples": "Netarsudil Mesylate | Netarsudil Mesylat/Latanoprost",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "ne tar' soo dil",
+      "pronounced": [
+       "ne tar' soo dil"
+      ],
+      "title": "Netarsudil Ophthalmic",
+      "url": "https://medlineplus.gov/druginfo/meds/a618014.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 498,
+   "word": "fluocinolone",
+   "kind": "generic",
+   "display": "fluocinolone",
+   "today_us": "fluˈɑsənOlˌOn",
+   "today_gb": "fluˈɒsənQlˌQn",
+   "today_source": "guesser",
+   "zipf": 1.11,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 727199,
+   "examples": "Fluocinolone Acetonide | Fluocinolone Acetonide Oil | Fluocinolone/Shower Cap",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "floo oh sin' oh lone",
+      "pronounced": [
+       "floo oh sin' oh lone"
+      ],
+      "title": "Fluocinolone Topical",
+      "url": "https://medlineplus.gov/druginfo/meds/a682271.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 499,
+   "word": "metolazone",
+   "kind": "generic",
+   "display": "metolazone",
+   "today_us": "mˌɛtOlɑzˈOni",
+   "today_gb": "mˌɛtQlɒzˈQni",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 724993,
+   "examples": "Metolazone",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "me tol' a zone",
+      "pronounced": [
+       "me tol' a zone"
+      ],
+      "title": "Metolazone",
+      "url": "https://medlineplus.gov/druginfo/meds/a682345.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 500,
+   "word": "ketotifen",
+   "kind": "generic",
+   "display": "ketotifen",
+   "today_us": "kˈitOtˌIfən",
+   "today_gb": "kˈiːtQtˌIfən",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 721611,
+   "examples": "Ketotifen Fumarate",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "kee toe tye' fen",
+      "pronounced": [
+       "kee toe tye' fen"
+      ],
+      "title": "Ketotifen Ophthalmic",
+      "url": "https://medlineplus.gov/druginfo/meds/a604033.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 501,
+   "word": "sulfasalazine",
+   "kind": "generic",
+   "display": "sulfasalazine",
+   "today_us": "sˌʌlfəsˈæləzˌin",
+   "today_gb": "sˌʌlfəsələzˌiːn",
+   "today_source": "gold",
+   "zipf": 1.51,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 701300,
+   "examples": "Sulfasalazine",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "sul fa sal' a zeen",
+      "pronounced": [
+       "sul fa sal' a zeen"
+      ],
+      "title": "Sulfasalazine",
+      "url": "https://medlineplus.gov/druginfo/meds/a682204.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌsʌl.fəˈsæl.ə.ziːn/"
+      ],
+      "page": "sulfasalazine",
+      "url": "https://en.wiktionary.org/wiki/sulfasalazine"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 502,
+   "word": "olamine",
+   "kind": "generic",
+   "display": "olamine",
+   "today_us": "ˈɑləmˌin",
+   "today_gb": "ˈɒləmˌiːn",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 700530,
+   "examples": "Ciclopirox Olamine | Eltrombopag Olamine",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 503,
+   "word": "cefadroxil",
+   "kind": "generic",
+   "display": "cefadroxil",
+   "today_us": "sˌɛfədɹˈɑksəl",
+   "today_gb": "sˌɛfədɹˈɒksəl",
+   "today_source": "guesser",
+   "zipf": 1.08,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 699083,
+   "examples": "Cefadroxil",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "sef a drox' il",
+      "pronounced": [
+       "sef a drox' il"
+      ],
+      "title": "Cefadroxil",
+      "url": "https://medlineplus.gov/druginfo/meds/a682730.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 504,
+   "word": "leflunomide",
+   "kind": "generic",
+   "display": "leflunomide",
+   "today_us": "ləflˈunəmˌId",
+   "today_gb": "ləflˈuːnəmˌId",
+   "today_source": "guesser",
+   "zipf": 1.27,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 693833,
+   "examples": "Leflunomide",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "le floo' na mide",
+      "pronounced": [
+       "le floo' na mide"
+      ],
+      "title": "Leflunomide",
+      "url": "https://medlineplus.gov/druginfo/meds/a600032.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ləˈfluː.nəˌmaɪd/|a=GA"
+      ],
+      "page": "leflunomide",
+      "url": "https://en.wiktionary.org/wiki/leflunomide"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 505,
+   "word": "iohexol",
+   "kind": "generic",
+   "display": "iohexol",
+   "today_us": "ˌIOhˈɛksɑl",
+   "today_gb": "ˌIQhˈɛksɒl",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 683196,
+   "examples": "Iohexol",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌaɪ.oʊˈhɛkˌsɔl/|a=GA"
+      ],
+      "page": "iohexol",
+      "url": "https://en.wiktionary.org/wiki/iohexol"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 507,
+   "word": "decanoate",
+   "kind": "salt",
+   "display": "decanoate",
+   "today_us": "dikˈænOˌAt",
+   "today_gb": "dikˈanQˌAt",
+   "today_source": "guesser",
+   "zipf": 1.48,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 681938,
+   "examples": "Haloperidol Decanoate | Fluphenazine Decanoate",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 508,
+   "word": "cinacalcet",
+   "kind": "generic",
+   "display": "cinacalcet",
+   "today_us": "sˌɪnəkˈælsət",
+   "today_gb": "sˌɪnəkˈalsət",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 675149,
+   "examples": "Cinacalcet HCl",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "sin a cal' set",
+      "pronounced": [
+       "sin a cal' set"
+      ],
+      "title": "Cinacalcet",
+      "url": "https://medlineplus.gov/druginfo/meds/a605004.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌsɪn.əˈkæl.sɛt/|a=GA"
+      ],
+      "page": "cinacalcet",
+      "url": "https://en.wiktionary.org/wiki/cinacalcet"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 510,
+   "word": "clobazam",
+   "kind": "generic",
+   "display": "clobazam",
+   "today_us": "klˈɑbəzəm",
+   "today_gb": "klˈɒbəzəm",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 669738,
+   "examples": "Clobazam",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "kloe' ba zam",
+      "pronounced": [
+       "kloe' ba zam"
+      ],
+      "title": "Clobazam",
+      "url": "https://medlineplus.gov/druginfo/meds/a612008.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 511,
+   "word": "valproic",
+   "kind": "generic",
+   "display": "valproic",
+   "today_us": "vælpɹˈOɪk",
+   "today_gb": "valpɹˈQɪk",
+   "today_source": "guesser",
+   "zipf": 1.79,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 668329,
+   "examples": "Valproic Acid (As Sodium Salt) | Valproic Acid",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "val proe' ik"
+      ],
+      "title": "Valproic Acid",
+      "url": "https://medlineplus.gov/druginfo/meds/a682412.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 512,
+   "word": "ursodiol",
+   "kind": "generic",
+   "display": "ursodiol",
+   "today_us": "əɹsˈOdiəl",
+   "today_gb": "əsˈQdiəl",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 667566,
+   "examples": "Ursodiol",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "er' soe dye ol",
+      "pronounced": [
+       "er' soe dye ol"
+      ],
+      "title": "Ursodiol",
+      "url": "https://medlineplus.gov/druginfo/meds/a699047.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 513,
+   "word": "propofol",
+   "kind": "generic",
+   "display": "propofol",
+   "today_us": "pɹəpˈOfəl",
+   "today_gb": "pɹəpˈQfəl",
+   "today_source": "guesser",
+   "zipf": 2.43,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 666951,
+   "examples": "Propofol",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "proe′ poe fol",
+      "pronounced": [
+       "proe′ poe fol"
+      ],
+      "title": "Propofol Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a625006.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈpɹəʊ.pəf.ɒl/|a=RP",
+       "/ˈpɹoʊ.pəˌfoʊl/|a=GA"
+      ],
+      "page": "propofol",
+      "url": "https://en.wiktionary.org/wiki/propofol"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 514,
+   "word": "minocycline",
+   "kind": "generic",
+   "display": "minocycline",
+   "today_us": "mˈɪnəsˌIklˌIn",
+   "today_gb": "mˈɪnəsˌIklˌIn",
+   "today_source": "guesser",
+   "zipf": 1.78,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 665771,
+   "examples": "Minocycline HCl | Minocycline HCl Microspheres",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "mi noe sye' kleen",
+      "pronounced": [
+       "mi noe sye' kleen"
+      ],
+      "title": "Minocycline Topical",
+      "url": "https://medlineplus.gov/druginfo/meds/a620003.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌmʌɪ.nəʊˈsʌɪ.kliːn/|a=RP",
+       "/ˌmɪn.oʊˈsaɪˌklin/|a=GA"
+      ],
+      "page": "minocycline",
+      "url": "https://en.wiktionary.org/wiki/minocycline"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 515,
+   "word": "hydroxyurea",
+   "kind": "generic",
+   "display": "hydroxyurea",
+   "today_us": "hˌIdɹˌɔksiɛɹˈAə",
+   "today_gb": "hˌIdɹˌɔːksiɛɹˈAə",
+   "today_source": "guesser",
+   "zipf": 1.63,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 665749,
+   "examples": "Hydroxyurea",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "hye drox'' ee ure ee' a",
+      "pronounced": [
+       "hye drox'' ee ure ee' a"
+      ],
+      "title": "Hydroxyurea",
+      "url": "https://medlineplus.gov/druginfo/meds/a682004.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 516,
+   "word": "fludrocortisone",
+   "kind": "generic",
+   "display": "fludrocortisone",
+   "today_us": "flˈudɹOkˌɔɹtəzən",
+   "today_gb": "flˈuːdɹQkˌɔːtəzən",
+   "today_source": "guesser",
+   "zipf": 1.15,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 663706,
+   "examples": "Fludrocortisone Acetate",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "floo droe kor' ti sone"
+      ],
+      "title": "Fludrocortisone Acetate",
+      "url": "https://medlineplus.gov/druginfo/meds/a682549.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌflu.dɹoʊˈkɔɹ.tɪˌsoʊn/|a=GA"
+      ],
+      "page": "fludrocortisone",
+      "url": "https://en.wiktionary.org/wiki/fludrocortisone"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 517,
+   "word": "thiamine",
+   "kind": "generic",
+   "display": "thiamine",
+   "today_us": "θˈIəmˌin",
+   "today_gb": "θˈIəmiːn",
+   "today_source": "gold",
+   "zipf": 2.27,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 661170,
+   "examples": "Thiamine | Thiamine HCl | Thiamine Mononitrate (Vit B1)",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "thye' a min",
+      "pronounced": [
+       "thye' a min"
+      ],
+      "title": "Thiamine (Vitamin B1)",
+      "url": "https://medlineplus.gov/druginfo/meds/a682586.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈθaɪ.ə.min/|/ˈθaɪ.ə.mɪn/"
+      ],
+      "page": "thiamine",
+      "url": "https://en.wiktionary.org/wiki/thiamine"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 518,
+   "word": "midazolam",
+   "kind": "generic",
+   "display": "midazolam",
+   "today_us": "mˌɪdəzˈOləm",
+   "today_gb": "mˌɪdəzˈQləm",
+   "today_source": "guesser",
+   "zipf": 2.33,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 658148,
+   "examples": "Midazolam HCl | Midazolam HCl/PF | Midazolam",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "mid' ay zoe lam",
+      "pronounced": [
+       "mid' ay zoe lam"
+      ],
+      "title": "Midazolam",
+      "url": "https://medlineplus.gov/druginfo/meds/a609003.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/mʌɪˈdeɪ.zə(ʊ).lam/|a=RP",
+       "/mɪˈdæz.əˌlæm/|a=GA"
+      ],
+      "page": "midazolam",
+      "url": "https://en.wiktionary.org/wiki/midazolam"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 519,
+   "word": "sulfacetamide",
+   "kind": "generic",
+   "display": "sulfacetamide",
+   "today_us": "sˌʌlfəsˈɛtəmˌId",
+   "today_gb": "sˌʌlfəsˈɛtəmˌId",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 655194,
+   "examples": "Sulfacetamide; Sulfur | Sulfacetamide Sodium | Sulfacetamide Sodium/Sulfur",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "sul fa see' ta mide",
+      "pronounced": [
+       "sul fa see' ta mide"
+      ],
+      "title": "Sulfacetamide Ophthalmic",
+      "url": "https://medlineplus.gov/druginfo/meds/a601114.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 520,
+   "word": "vilazodone",
+   "kind": "generic",
+   "display": "vilazodone",
+   "today_us": "vilɑzOdˈOni",
+   "today_gb": "vilɒzQdˈQni",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 654036,
+   "examples": "Vilazodone HCl",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "vil az' oh done",
+      "pronounced": [
+       "vil az' oh done"
+      ],
+      "title": "Vilazodone",
+      "url": "https://medlineplus.gov/druginfo/meds/a611020.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/vɪˈlæzədəʊn/"
+      ],
+      "page": "vilazodone",
+      "url": "https://en.wiktionary.org/wiki/vilazodone"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 521,
+   "word": "vancomycin",
+   "kind": "generic",
+   "display": "vancomycin",
+   "today_us": "vˌæŋkəmˈIsɪn",
+   "today_gb": "vˌaŋkəmˈIsɪn",
+   "today_source": "gold",
+   "zipf": 2.28,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 648480,
+   "examples": "Vancomycin HCl | Vancomycin/Water For Inj (PEG) | Vancomycin HCl In 5 % Dextrose",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "van\" koe mye' sin",
+      "pronounced": [
+       "van\" koe mye' sin"
+      ],
+      "title": "Vancomycin Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a601167.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌvæŋ.kəˈmaɪ.sɪn/"
+      ],
+      "page": "vancomycin",
+      "url": "https://en.wiktionary.org/wiki/vancomycin"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 522,
+   "word": "prilocaine",
+   "kind": "generic",
+   "display": "prilocaine",
+   "today_us": "pɹˈɪləkˌAn",
+   "today_gb": "pɹˈɪləkˌAn",
+   "today_source": "guesser",
+   "zipf": 1.22,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 647779,
+   "examples": "Lidocaine/Prilocaine",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "pril′ oh kane",
+      "pronounced": [
+       "lye′ doe kane",
+       "pril′ oh kane"
+      ],
+      "title": "Lidocaine and Prilocaine Topical",
+      "url": "https://medlineplus.gov/druginfo/meds/a625032.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈpɹɪl.əˌkeɪn/|a=GA"
+      ],
+      "page": "prilocaine",
+      "url": "https://en.wiktionary.org/wiki/prilocaine"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 524,
+   "word": "candesartan",
+   "kind": "generic",
+   "display": "candesartan",
+   "today_us": "kˌændɪsˈɑɹtən",
+   "today_gb": "kˌandɪsˈɑːtən",
+   "today_source": "guesser",
+   "zipf": 1.23,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 643092,
+   "examples": "Candesartan Cilexetil | Candesartan/Hydrochlorothiazid",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "kan des ar' tan",
+      "pronounced": [
+       "kan des ar' tan"
+      ],
+      "title": "Candesartan",
+      "url": "https://medlineplus.gov/druginfo/meds/a601033.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 525,
+   "word": "gentamicin",
+   "kind": "generic",
+   "display": "gentamicin",
+   "today_us": "ʤˌɛntəmˈIsən",
+   "today_gb": "ʤˌɛntəmˈIsɪn",
+   "today_source": "gold",
+   "zipf": 2.03,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 641163,
+   "examples": "Gentamicin Sulfate | Gentamicin In NaCl, Iso-Osm | Gentamicin Sulfate/PF",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "jen ta mye' sin",
+      "pronounced": [
+       "jen ta mye' sin"
+      ],
+      "title": "Gentamicin Topical",
+      "url": "https://medlineplus.gov/druginfo/meds/a619033.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/d͡ʒɛn.təˈmaɪ.sɪn/"
+      ],
+      "page": "gentamicin",
+      "url": "https://en.wiktionary.org/wiki/gentamicin"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 526,
+   "word": "dinitrate",
+   "kind": "salt",
+   "display": "dinitrate",
+   "today_us": "dˈɪnətɹˌAt",
+   "today_gb": "dˈɪnətɹˌAt",
+   "today_source": "guesser",
+   "zipf": 1.23,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 628955,
+   "examples": "Isosorbide Dinitrate",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/daɪˈnaɪtɹeɪt/|a=UK"
+      ],
+      "page": "dinitrate",
+      "url": "https://en.wiktionary.org/wiki/dinitrate"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 527,
+   "word": "alafenamide",
+   "kind": "salt",
+   "display": "alafenamide",
+   "today_us": "əlˈæfənəmˌId",
+   "today_gb": "əlˈafənəmˌId",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 628570,
+   "examples": "Emtricitabine/Tenofov Alafenam | Tenofovir Alafenamide",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "ten of' oh vir al\" a fen' a mide"
+      ],
+      "title": "Tenofovir alafenamide",
+      "url": "https://medlineplus.gov/druginfo/meds/a602018.html"
+     },
+     {
+      "aligned": null,
+      "pronounced": [
+       "em tri sit' uh bean",
+       "ten of′ oh vir al″ a fen′ a mide"
+      ],
+      "title": "Emtricitabine and Tenofovir alafenamide",
+      "url": "https://medlineplus.gov/druginfo/meds/a625077.html"
+     },
+     {
+      "aligned": null,
+      "pronounced": [
+       "bik teg' ra vir",
+       "em tri sit' uh bean",
+       "te noe' fo veer"
+      ],
+      "title": "Bictegravir, Emtricitabine, and Tenofovir Alafenamide",
+      "url": "https://medlineplus.gov/druginfo/meds/a618012.html"
+     },
+     {
+      "aligned": null,
+      "pronounced": [
+       "em″ trye sye′ ta been",
+       "ril″ pi vir′ een",
+       "ten of′ oh vir al″ a fen′ a mide"
+      ],
+      "title": "Emtricitabine, Rilpivirine, and Tenofovir alafenamide",
+      "url": "https://medlineplus.gov/druginfo/meds/a625075.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 528,
+   "word": "colestipol",
+   "kind": "generic",
+   "display": "colestipol",
+   "today_us": "kˈOlstˌɪpˌɑl",
+   "today_gb": "kˈQlstˌɪpˌɒl",
+   "today_source": "cmudict",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 624426,
+   "examples": "Colestipol HCl",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "koe les' ti pole",
+      "pronounced": [
+       "koe les' ti pole"
+      ],
+      "title": "Colestipol",
+      "url": "https://medlineplus.gov/druginfo/meds/a682157.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/kəˈlɛs.təˌpɔl/|a=GA"
+      ],
+      "page": "colestipol",
+      "url": "https://en.wiktionary.org/wiki/colestipol"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 529,
+   "word": "cefpodoxime",
+   "kind": "generic",
+   "display": "cefpodoxime",
+   "today_us": "sˌɛfpədˈɑksIm",
+   "today_gb": "sˌɛfpədˈɒksIm",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 621783,
+   "examples": "Cefpodoxime Proxetil",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "sef pode ox' eem",
+      "pronounced": [
+       "sef pode ox' eem"
+      ],
+      "title": "Cefpodoxime",
+      "url": "https://medlineplus.gov/druginfo/meds/a698024.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 530,
+   "word": "proxetil",
+   "kind": "salt",
+   "display": "proxetil",
+   "today_us": "pɹˈɑksətəl",
+   "today_gb": "pɹˈɒksətəl",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 621783,
+   "examples": "Cefpodoxime Proxetil",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 531,
+   "word": "phenobarbital",
+   "kind": "generic",
+   "display": "phenobarbital",
+   "today_us": "fˌinObˈɑɹbətˌɔl",
+   "today_gb": "fˌiːnQbˈɑːbɪtᵊl",
+   "today_source": "gold",
+   "zipf": 2.07,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 621778,
+   "examples": "Phenobarbital | Phenobarbital Sodium | Phenobarb/Hyoscy/Atropine/Scop",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "fee noe bar' bi tal",
+      "pronounced": [
+       "fee noe bar' bi tal"
+      ],
+      "title": "Phenobarbital",
+      "url": "https://medlineplus.gov/druginfo/meds/a682007.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌfiː.nə(ʊ)ˈbɑː.bɪt.əl/|/ˌfɛn.ə(ʊ)ˈbɑː.bɪt.əl/|a=RP",
+       "/ˌfiː.noʊˈbɑɹ.bəˌtɔl/|a=GA"
+      ],
+      "page": "phenobarbital",
+      "url": "https://en.wiktionary.org/wiki/phenobarbital"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 532,
+   "word": "trospium",
+   "kind": "generic",
+   "display": "trospium",
+   "today_us": "tɹˈɑspiəm",
+   "today_gb": "tɹˈɒspiəm",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 620283,
+   "examples": "Trospium Chloride | Xanomeline Tart/Trospium Chlor",
+   "generic_of": "",
+   "why": "top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "trose' pee um",
+      "pronounced": [
+       "trose' pee um"
+      ],
+      "title": "Trospium",
+      "url": "https://medlineplus.gov/druginfo/meds/a604037.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  }
+ ]
+}

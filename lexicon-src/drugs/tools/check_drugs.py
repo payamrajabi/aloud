@@ -50,10 +50,14 @@ def respelling_shape(resp, style):
     """(syllable count, stressed syllable index) of a MedlinePlus or label respelling."""
     if style == "medlineplus":
         sylls = resp.split()
-        stress = next((i for i, s in enumerate(sylls) if s.endswith("'")), None)
+        # ' follows the primary stress, '' a secondary one ("hye'' droe klor'' oh thye' a zide").
+        stress = next((i for i, s in enumerate(sylls) if s.endswith("'") and not s.endswith("''")), None)
         return len(sylls), stress
     sylls = [t for t in re.split(r"[\s-]+", resp.strip()) if t]
     caps = [i for i, t in enumerate(sylls) if t.isupper() and len(t) >= 2]
+    marked = [i for i, t in enumerate(sylls) if t.endswith("'")]   # "Re stay' sis"
+    if marked:
+        return len(sylls), marked[0]
     if len(caps) == len(sylls):   # an all-capitals section: no stress shown
         return len(sylls), None
     return len(sylls), (caps[0] if caps else None)
@@ -67,7 +71,8 @@ def harvested_respellings(row):
         if m.get("aligned"):
             out.append(("medlineplus", m["aligned"], m["url"]))
     for d in ev.get("dailymed", []):
-        if d.get("term", "").lower() == row["word"]:
+        # Only a respelling of this word alone ("BREZTRI AEROSPHERE (...)" may cover two words).
+        if d.get("for", d.get("term", "").lower()) == row["word"] and " " not in d.get("term", ""):
             out.append(("label", d["respelling"], d["url"]))
     seen, uniq = set(), []
     for o in out:
@@ -161,10 +166,11 @@ def main():
                             warns.append(f"{tag}: main stress on syllable {mine_s + 1}, but {style} '{resp}' stresses "
                                          f"syllable {s + 1}: explain in notes if intended")
         if disp == "corrected" and e.get("match") == "case-insensitive" and (
-                row.get("dictionary_word") or row.get("given_name") or (row.get("zipf") or 0) >= 3.5):
+                (row.get("dictionary_word") and (row.get("zipf") or 0) >= 3.0) or row.get("given_name")
+                or (row.get("zipf") or 0) >= 3.5):
             gn = row.get("given_name")
             warns.append(f"{tag}: the spelling is also "
-                         + ", ".join(x for x in ["a dictionary word" if row.get("dictionary_word") else "",
+                         + ", ".join(x for x in ["a dictionary word" if row.get("dictionary_word") and (row.get("zipf") or 0) >= 3.0 else "",
                                                   f"a given name (rank {gn['rank']})" if gn else "",
                                                   f"common in text (Zipf {row.get('zipf')})" if (row.get("zipf") or 0) >= 3.5 else ""] if x)
                          + ": a general entry changes it everywhere; use ordinary-word, or say in notes why the drug reading is safe")

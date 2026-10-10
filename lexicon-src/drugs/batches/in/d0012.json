@@ -1,0 +1,1485 @@
+{
+ "batch": "d0012",
+ "rows": [
+  {
+   "rank": 801,
+   "word": "infliximab",
+   "kind": "generic",
+   "display": "infliximab",
+   "today_us": "ɪnflˈɪksɪmˌæb",
+   "today_gb": "ɪnflˈɪksɪmˌab",
+   "today_source": "guesser",
+   "zipf": 1.74,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 144362,
+   "examples": "Infliximab | Infliximab-Dyyb | Infliximab-Abda",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "in flix' I mab",
+      "pronounced": [
+       "in flix' I mab"
+      ],
+      "title": "Infliximab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a604023.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ɪnˈflɪk.sɪˌmæb/|a=GA"
+      ],
+      "page": "infliximab",
+      "url": "https://en.wiktionary.org/wiki/infliximab"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 808,
+   "word": "tocilizumab",
+   "kind": "generic",
+   "display": "tocilizumab",
+   "today_us": "tˌɑsəlɪzˈuməb",
+   "today_gb": "tˌɒsəlɪzˈuːməb",
+   "today_source": "guesser",
+   "zipf": 1.11,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 139917,
+   "examples": "Tocilizumab | Tocilizumab-Aazg",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "toe'' si liz' oo mab",
+      "pronounced": [
+       "toe'' si liz' oo mab"
+      ],
+      "title": "Tocilizumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a611004.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 830,
+   "word": "leuprolide",
+   "kind": "generic",
+   "display": "leuprolide",
+   "today_us": "lˈupɹəlˌId",
+   "today_gb": "lˈuːpɹəlˌId",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 119470,
+   "examples": "Leuprolide Acetate | Leuprolide Mesylate | Leuprolide Acetate*",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "loo proe' lide",
+      "pronounced": [
+       "loo proe' lide"
+      ],
+      "title": "Leuprolide Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a685040.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈlu.pɹəˌlaɪd/|a=GA"
+      ],
+      "page": "leuprolide",
+      "url": "https://en.wiktionary.org/wiki/leuprolide"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 834,
+   "word": "trihydrate",
+   "kind": "salt",
+   "display": "trihydrate",
+   "today_us": "tɹˈIhˌIdɹˌAt",
+   "today_gb": "tɹˈIhˌIdɹˌAt",
+   "today_source": "guesser",
+   "zipf": 1.59,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 118417,
+   "examples": "Ampicillin Trihydrate",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 848,
+   "word": "mepolizumab",
+   "kind": "generic",
+   "display": "mepolizumab",
+   "today_us": "mˌɛpəlˈɪzumˌæb",
+   "today_gb": "mˌɛpəlˈɪzumˌab",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 109751,
+   "examples": "Mepolizumab",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "me\" poe liz' ue mab",
+      "pronounced": [
+       "me\" poe liz' ue mab"
+      ],
+      "title": "Mepolizumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a615058.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 851,
+   "word": "edisylate",
+   "kind": "salt",
+   "display": "edisylate",
+   "today_us": "ˈɛdəsəlˌAt",
+   "today_gb": "ˈɛdəsəlˌAt",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 108304,
+   "examples": "Prochlorperazine Edisylate",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 882,
+   "word": "pembrolizumab",
+   "kind": "generic",
+   "display": "pembrolizumab",
+   "today_us": "pˌɛmbɹəlˈIzˌumæb",
+   "today_gb": "pˌɛmbɹəlˈIzˌuːmab",
+   "today_source": "guesser",
+   "zipf": 1.59,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 92113,
+   "examples": "Pembrolizumab | pembrolizumab",
+   "generic_of": "",
+   "why": "fin-888,partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "pem'' broe liz' ue mab",
+      "pronounced": [
+       "pem'' broe liz' ue mab"
+      ],
+      "title": "Pembrolizumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a614048.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 890,
+   "word": "benralizumab",
+   "kind": "generic",
+   "display": "benralizumab",
+   "today_us": "bˌɛnɹəlɪzˈuməb",
+   "today_gb": "bˌɛnɹəlɪzˈuːməb",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 84770,
+   "examples": "Benralizumab | Benralizumab*",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "ben\" ra liz' ue mab",
+      "pronounced": [
+       "ben\" ra liz' ue mab"
+      ],
+      "title": "Benralizumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a618002.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 899,
+   "word": "paclitaxel",
+   "kind": "generic",
+   "display": "paclitaxel",
+   "today_us": "pˈæklətˌæksəl",
+   "today_gb": "pˈaklətˌaksəl",
+   "today_source": "guesser",
+   "zipf": 2.16,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 82007,
+   "examples": "Paclitaxel | Paclitaxel Protein-Bound | Paclitaxel Protein-Bound*",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "pak'' li tax' el",
+      "pronounced": [
+       "pak'' li tax' el"
+      ],
+      "title": "Paclitaxel (with polyoxyethylated castor oil) Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a607070.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌpak.lɪˈtak.sɛl/|a=RP",
+       "/ˌpæk.lɪˈtæk.sl̩/|a=GA"
+      ],
+      "page": "paclitaxel",
+      "url": "https://en.wiktionary.org/wiki/paclitaxel"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 917,
+   "word": "besilate",
+   "kind": "salt",
+   "display": "besilate",
+   "today_us": "bˈɛzəlˌAt",
+   "today_gb": "bˈɛzəlˌAt",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 75929,
+   "examples": "Bepotastine Besilate",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 922,
+   "word": "certolizumab",
+   "kind": "generic",
+   "display": "certolizumab",
+   "today_us": "sˈɜɹtəlˌIzumˌæb",
+   "today_gb": "sˈɜːtəlˌIzumˌab",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 73888,
+   "examples": "Certolizumab PEGol | Certolizumab Pegol*",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "ser'' toe liz' oo mab",
+      "pronounced": [
+       "ser'' toe liz' oo mab"
+      ],
+      "title": "Certolizumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a608041.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 926,
+   "word": "enanthate",
+   "kind": "salt",
+   "display": "enanthate",
+   "today_us": "ɪnˈænθˌAt",
+   "today_gb": "ɪnˈanθˌAt",
+   "today_source": "guesser",
+   "zipf": 1.55,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 73242,
+   "examples": "Testosterone Enanthate",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/iːˈnan.θeɪt/|/ɪˈnan.θeɪt/|a=RP",
+       "/ɪˈnænˌθeɪt/|a=GA"
+      ],
+      "page": "enanthate",
+      "url": "https://en.wiktionary.org/wiki/enanthate"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 927,
+   "word": "benzathine",
+   "kind": "salt",
+   "display": "benzathine",
+   "today_us": "bˈɛnzəθˌin",
+   "today_gb": "bˈɛnzəθˌiːn",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 72845,
+   "examples": "Penicillin G Benzathine",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "pen\" i sil' in g ben' za theen"
+      ],
+      "title": "Penicillin G Benzathine Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a615051.html"
+     },
+     {
+      "aligned": null,
+      "pronounced": [
+       "pen\" sil' in g ben' za theen and pen\" i sil' in g proe' kane"
+      ],
+      "title": "Penicillin G Benzathine and Penicillin G Procaine Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a615053.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈbɛn.zəˌθin/|a=GA"
+      ],
+      "page": "benzathine",
+      "url": "https://en.wiktionary.org/wiki/benzathine"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 928,
+   "word": "faricimab",
+   "kind": "generic",
+   "display": "faricimab",
+   "today_us": "fəɹˈɪsəmˌæb",
+   "today_gb": "fəɹˈɪsəmˌab",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 72747,
+   "examples": "Faricimab-Svoa",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 933,
+   "word": "tezepelumab",
+   "kind": "generic",
+   "display": "tezepelumab",
+   "today_us": "tˌɛzəpˈɛljumˌæb",
+   "today_gb": "tˌɛzəpˈɛljumˌab",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 72477,
+   "examples": "Tezepelumab-Ekko",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "tez\" e pel' ue mab",
+      "pronounced": [
+       "tez\" e pel' ue mab"
+      ],
+      "title": "Tezepelumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a622010.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 935,
+   "word": "meglumine",
+   "kind": "salt",
+   "display": "meglumine",
+   "today_us": "mˈɛɡlumˌIn",
+   "today_gb": "mˈɛɡlumˌIn",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 70888,
+   "examples": "Gadoterate Meglumine | Tafamidis Meglumine | Delafloxacin Meglumine",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 938,
+   "word": "proteinase",
+   "kind": "generic",
+   "display": "proteinase",
+   "today_us": "pɹˈOtˌinˌAz",
+   "today_gb": "pɹˈQtiːnAz",
+   "today_source": "gold",
+   "zipf": 1.97,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 69158,
+   "examples": "Alpha-1-Proteinase Inhibitor | Paclitaxel Protein-Bound | Perflutren Protein-A Microsphr",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 949,
+   "word": "ethylsuccinate",
+   "kind": "salt",
+   "display": "ethylsuccinate",
+   "today_us": "ˌiθɪlsˈuʧənˌAt",
+   "today_gb": "ˌiːθɪlsˈuːʧənˌAt",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 64823,
+   "examples": "Erythromycin Ethylsuccinate",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 957,
+   "word": "golimumab",
+   "kind": "generic",
+   "display": "golimumab",
+   "today_us": "ɡˌɑləmjˈuməb",
+   "today_gb": "ɡˌɒləmjˈuːməb",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 61529,
+   "examples": "Golimumab",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "goe lim' ue mab",
+      "pronounced": [
+       "goe lim' ue mab"
+      ],
+      "title": "Golimumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a610010.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ɡoʊˈlɪm.jəˌmæb/|a=GA"
+      ],
+      "page": "golimumab",
+      "url": "https://en.wiktionary.org/wiki/golimumab"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 967,
+   "word": "trastuzumab",
+   "kind": "generic",
+   "display": "trastuzumab",
+   "today_us": "tɹˌæstˈuzumæb",
+   "today_gb": "tɹˌastˈuːzumab",
+   "today_source": "guesser",
+   "zipf": 1.93,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 58941,
+   "examples": "Fam-Trastuzumab Deruxtecn-Nxki | Trastuzumab-Qyyp | Trastuzumab-Anns",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "tras too' zoo mab",
+      "pronounced": [
+       "tras too' zoo mab"
+      ],
+      "title": "Trastuzumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a699019.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 969,
+   "word": "sulfonate",
+   "kind": "salt",
+   "display": "sulfonate",
+   "today_us": "sˈʌlfənˌAt",
+   "today_gb": "sˈʌlfənˌAt",
+   "today_source": "gold",
+   "zipf": 2.01,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 58727,
+   "examples": "Sodium Polystyrene Sulfonate",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "pol ee stye' reen"
+      ],
+      "title": "Sodium Polystyrene Sulfonate",
+      "url": "https://medlineplus.gov/druginfo/meds/a682108.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 990,
+   "word": "vedolizumab",
+   "kind": "generic",
+   "display": "vedolizumab",
+   "today_us": "vˌɛdOlizˈuməb",
+   "today_gb": "vˌɛdQlizˈuːməb",
+   "today_source": "guesser",
+   "zipf": 1.01,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 54454,
+   "examples": "Vedolizumab",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "ve'' doe liz' ue mab",
+      "pronounced": [
+       "ve'' doe liz' ue mab"
+      ],
+      "title": "Vedolizumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a614034.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1011,
+   "word": "bitartrate",
+   "kind": "salt",
+   "display": "bitartrate",
+   "today_us": "bItˈɑɹtɹˌAt",
+   "today_gb": "bˈɪtətɹˌAt",
+   "today_source": "gold",
+   "zipf": 1.47,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 49646,
+   "examples": "Hydrocodone Bitartrate | Cysteamine Bitartrate | Norepinephrine Bitartrate/D5W",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "lak' tik as' id",
+       "sit' rik as' id",
+       "poe tas' ee um bye tar' trate"
+      ],
+      "title": "Lactic Acid, Citric Acid, and Potassium Bitartrate Vaginal Contraceptive",
+      "url": "https://medlineplus.gov/druginfo/meds/a620047.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1017,
+   "word": "rituximab",
+   "kind": "generic",
+   "display": "rituximab",
+   "today_us": "ɹɪtˈʌksɪməb",
+   "today_gb": "ɹɪtˈʌksɪməb",
+   "today_source": "guesser",
+   "zipf": 2.0,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 48051,
+   "examples": "Rituximab-Pvvr | Rituximab | Rituximab-Abbs",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "ri tux' i mab",
+      "pronounced": [
+       "ri tux' i mab"
+      ],
+      "title": "Rituximab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a607038.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ɹɪˈtʌk.sɪˌmæb/|a=GA"
+      ],
+      "page": "rituximab",
+      "url": "https://en.wiktionary.org/wiki/rituximab"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 1033,
+   "word": "diacetate",
+   "kind": "salt",
+   "display": "diacetate",
+   "today_us": "dIˈæsətˌAt",
+   "today_gb": "dIˈasətˌAt",
+   "today_source": "guesser",
+   "zipf": 1.62,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 43933,
+   "examples": "Diflorasone Diacetate",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "eth′ i nil es″ tra dye′ ol",
+       "e thye″ noe dye′ ol dye as′ e tate"
+      ],
+      "title": "Ethinyl Estradiol and Ethynodiol Diacetate (Oral Contraceptives)",
+      "url": "https://medlineplus.gov/druginfo/meds/a625056.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1036,
+   "word": "hyaluronidase",
+   "kind": "generic",
+   "display": "hyaluronidase",
+   "today_us": "hIˈæljəɹˌɑnədˌAs",
+   "today_gb": "hIˈaljəɹˌɒnədˌAs",
+   "today_source": "guesser",
+   "zipf": 1.82,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 42608,
+   "examples": "Daratumumab-Hyaluronidase-Fihj | IgG/Hyaluronidase,Recombinant | Efgartigimod-Hyaluronidas-Qvfc",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "ri tux' I mab"
+      ],
+      "title": "Rituximab and Hyaluronidase Human Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a619047.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1039,
+   "word": "octreotide",
+   "kind": "generic",
+   "display": "octreotide",
+   "today_us": "ɑktɹˈiətˌId",
+   "today_gb": "ɒktɹˈiːətˌId",
+   "today_source": "guesser",
+   "zipf": 1.49,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 41240,
+   "examples": "Octreotide Acetate | Octreotide Acetate,Mi-Spheres | Octreotide Acetate,mi-Spheres",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "ok tree' oh tide",
+      "pronounced": [
+       "ok tree' oh tide"
+      ],
+      "title": "Octreotide",
+      "url": "https://medlineplus.gov/druginfo/meds/a620051.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1059,
+   "word": "ranibizumab",
+   "kind": "generic",
+   "display": "ranibizumab",
+   "today_us": "ɹˌænɪbˈɪzumæb",
+   "today_gb": "ɹˌanɪbˈɪzumab",
+   "today_source": "guesser",
+   "zipf": 1.18,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 38240,
+   "examples": "Ranibizumab | Ranibizumab-Eqrn | Ranibizumab-Nuna",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "ra'' ni biz' oo mab",
+      "pronounced": [
+       "ra'' ni biz' oo mab"
+      ],
+      "title": "Ranibizumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a607044.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1074,
+   "word": "nivolumab",
+   "kind": "generic",
+   "display": "nivolumab",
+   "today_us": "nˈIvOlˌumæb",
+   "today_gb": "nˈIvQlˌuːmab",
+   "today_source": "guesser",
+   "zipf": 1.71,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 35162,
+   "examples": "Nivolumab | Nivolumab-Relatlimab-Rmbw",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "nye vol' ue mab",
+      "pronounced": [
+       "nye vol' ue mab"
+      ],
+      "title": "Nivolumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a614056.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/nɪˈvɒljʊˌmæb/"
+      ],
+      "page": "nivolumab",
+      "url": "https://en.wiktionary.org/wiki/nivolumab"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 1076,
+   "word": "daratumumab",
+   "kind": "generic",
+   "display": "daratumumab",
+   "today_us": "dˈɛɹətˌuməb",
+   "today_gb": "dˈɛɹətˌuːməb",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 35044,
+   "examples": "Daratumumab-Hyaluronidase-Fihj | Daratumumab",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "dar\" a toom' ue mab",
+      "pronounced": [
+       "dar\" a toom' ue mab"
+      ],
+      "title": "Daratumumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a616002.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1094,
+   "word": "hemifumarate",
+   "kind": "salt",
+   "display": "hemifumarate",
+   "today_us": "hˌɛməfjˈuməɹˌAt",
+   "today_gb": "hˌɛməfjˈuːməɹˌAt",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 32289,
+   "examples": "Aliskiren Hemifumarate",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1096,
+   "word": "emicizumab",
+   "kind": "generic",
+   "display": "emicizumab",
+   "today_us": "ˌɛməsˈɪzumˌæb",
+   "today_gb": "ˌɛməsˈɪzumˌab",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 30662,
+   "examples": "Emicizumab-Kxwh",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1098,
+   "word": "pertuzumab",
+   "kind": "generic",
+   "display": "pertuzumab",
+   "today_us": "pəɹtˈuzumˌæb",
+   "today_gb": "pətˈuːzumˌab",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 27183,
+   "examples": "Pertuzumab | Pertuzumab-Trastuzumab-Hy-Zzxf",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "per tooz' ue mab",
+      "pronounced": [
+       "per tooz' ue mab"
+      ],
+      "title": "Pertuzumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a612027.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1100,
+   "word": "romiplostim",
+   "kind": "generic",
+   "display": "romiplostim",
+   "today_us": "ɹˌɑmɪplˈɑstəm",
+   "today_gb": "ɹˌɒmɪplˈɒstəm",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 25862,
+   "examples": "Romiplostim",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "roe mi ploe' stim",
+      "pronounced": [
+       "roe mi ploe' stim"
+      ],
+      "title": "Romiplostim Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a609008.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1103,
+   "word": "erbumine",
+   "kind": "salt",
+   "display": "erbumine",
+   "today_us": "əɹbjˈumən",
+   "today_gb": "əbjˈuːmən",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 22254,
+   "examples": "Perindopril Erbumine",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1104,
+   "word": "bound",
+   "kind": "generic",
+   "display": "bound",
+   "today_us": "bˈWnd",
+   "today_gb": "bˈWnd",
+   "today_source": "gold",
+   "zipf": 4.46,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 22058,
+   "examples": "Paclitaxel Protein-Bound | Paclitaxel Protein-Bound* | Sirolimus Protein-Bound",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈbaʊ̯nd/|a=RP,GA",
+       "/ˈbæʊ̯nd/|a=Southern US,Midland US,Mid-Atlantic US,NYC,AU,NZ",
+       "/ˈbaːnd/|a=Pittsburgh,ZA,[[w:monophthongization|/aʊ̯/-monophthongization]]",
+       "/ˈbʊnd/|/ˈbuːnd/|a=Northumbrian"
+      ],
+      "page": "bound",
+      "url": "https://en.wiktionary.org/wiki/bound"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 1107,
+   "word": "ocrelizumab",
+   "kind": "generic",
+   "display": "ocrelizumab",
+   "today_us": "Okɹˌilˈɪzumæb",
+   "today_gb": "Qkɹˌiːlˈɪzumab",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 19609,
+   "examples": "Ocrelizumab",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "ok\" re liz' ue mab",
+      "pronounced": [
+       "ok\" re liz' ue mab"
+      ],
+      "title": "Ocrelizumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a617026.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1109,
+   "word": "durvalumab",
+   "kind": "generic",
+   "display": "durvalumab",
+   "today_us": "dˈɜɹvəlˌumˌæb",
+   "today_gb": "dˈɜːvəlˌuːmˌab",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 18992,
+   "examples": "Durvalumab",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "dur val' ue mab",
+      "pronounced": [
+       "dur val' ue mab"
+      ],
+      "title": "Durvalumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a617030.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1111,
+   "word": "deruxtecan",
+   "kind": "generic",
+   "display": "deruxtecan",
+   "today_us": "dəɹˈʌkstəkən",
+   "today_gb": "dəɹˈʌkstəkən",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 18403,
+   "examples": "Fam-Trastuzumab Deruxtecn-Nxki",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1116,
+   "word": "atezolizumab",
+   "kind": "generic",
+   "display": "atezolizumab",
+   "today_us": "ətˌɛzəlˈIzumˌæb",
+   "today_gb": "ətˌɛzəlˈIzumˌab",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 14803,
+   "examples": "Atezolizumab",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "a'' te zoe liz' ue mab",
+      "pronounced": [
+       "a'' te zoe liz' ue mab"
+      ],
+      "title": "Atezolizumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a616035.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1118,
+   "word": "carfilzomib",
+   "kind": "generic",
+   "display": "carfilzomib",
+   "today_us": "kɑɹfˈɪlzəmɪb",
+   "today_gb": "kɑːfˈɪlzəmɪb",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 14749,
+   "examples": "Carfilzomib",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "kar filz' oh mib",
+      "pronounced": [
+       "kar filz' oh mib"
+      ],
+      "title": "Carfilzomib Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a612031.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1120,
+   "word": "lanreotide",
+   "kind": "generic",
+   "display": "lanreotide",
+   "today_us": "lˈænɹiətˌId",
+   "today_gb": "lˈanɹiətˌId",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 14496,
+   "examples": "Lanreotide Acetate | Lanreotide Acetate*",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "lan ree' oh tide",
+      "pronounced": [
+       "lan ree' oh tide"
+      ],
+      "title": "Lanreotide Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a615007.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1122,
+   "word": "vedotin",
+   "kind": "generic",
+   "display": "vedotin",
+   "today_us": "vAdˈOtɪn",
+   "today_gb": "vAdˈQtɪn",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 13745,
+   "examples": "Enfortumab Vedotin-Ejfv | Brentuximab Vedotin | Polatuzumab Vedotin-Piiq",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "bren tux' i mab ve doe' tin"
+      ],
+      "title": "Brentuximab Vedotin Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a611052.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1123,
+   "word": "undecanoate",
+   "kind": "salt",
+   "display": "undecanoate",
+   "today_us": "ˌʌndɪkˈænOˌAt",
+   "today_gb": "ˌʌndɪkˈanQˌAt",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 13435,
+   "examples": "Testosterone Undecanoate",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1127,
+   "word": "efgartigimod",
+   "kind": "generic",
+   "display": "efgartigimod",
+   "today_us": "ɛfɡˈɑɹtəʤəməd",
+   "today_gb": "ɛfɡˈɑːtəʤəməd",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 11467,
+   "examples": "Efgartigimod Alfa-Fcab | Efgartigimod-Hyaluronidas-Qvfc",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "ef\" gar tig' i mod"
+      ],
+      "title": "Efgartigimod alfa-fcab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a622057.html"
+     },
+     {
+      "aligned": null,
+      "pronounced": [
+       "ef\" gar tig' i mod",
+       "hye\" al ure on' i dase"
+      ],
+      "title": "Efgartigimod alfa and Hyaluronidase-qvfc Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a624057.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1131,
+   "word": "govitecan",
+   "kind": "generic",
+   "display": "govitecan",
+   "today_us": "ɡOvˈItkˌæn",
+   "today_gb": "ɡQvˈItkˌan",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 8952,
+   "examples": "Sacituzumab Govitecan-Hziy",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1132,
+   "word": "sacituzumab",
+   "kind": "generic",
+   "display": "sacituzumab",
+   "today_us": "sˈæsɪtˌuzumˌæb",
+   "today_gb": "sˈasɪtˌuːzumˌab",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 8952,
+   "examples": "Sacituzumab Govitecan-Hziy",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "sak\" i tooz' ue mab goe\" vi tee' kan"
+      ],
+      "title": "Sacituzumab govitecan-hziy Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a620034.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1135,
+   "word": "pegcetacoplan",
+   "kind": "generic",
+   "display": "pegcetacoplan",
+   "today_us": "pˌɛɡsətˈækəplən",
+   "today_gb": "pˌɛɡsətˈakəplən",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 8132,
+   "examples": "PEGcetacoplan/PF | PEGcetacoplan | Pegcetacoplan/PF",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "peg set\" a koe' plan",
+      "pronounced": [
+       "peg set\" a koe' plan"
+      ],
+      "title": "Pegcetacoplan Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a621045.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1136,
+   "word": "eculizumab",
+   "kind": "generic",
+   "display": "eculizumab",
+   "today_us": "ɪkjˌulɪzˈuməb",
+   "today_gb": "ɪkjˌuːlɪzˈuːməb",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 8040,
+   "examples": "Eculizumab",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "e'' kue liz' ue mab",
+      "pronounced": [
+       "e'' kue liz' ue mab"
+      ],
+      "title": "Eculizumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a612024.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1139,
+   "word": "pegloticase",
+   "kind": "generic",
+   "display": "pegloticase",
+   "today_us": "pɛɡlˈɑtɪkˌAs",
+   "today_gb": "pɛɡlˈɒtɪkˌAs",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 8015,
+   "examples": "PEGloticase | Pegloticase",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "peg loe' ti kase",
+      "pronounced": [
+       "peg loe' ti kase"
+      ],
+      "title": "Pegloticase Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a611015.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/pəˈɡlɑt.əˌkeɪs/|a=GA"
+      ],
+      "page": "pegloticase",
+      "url": "https://en.wiktionary.org/wiki/pegloticase"
+     }
+    ]
+   }
+  }
+ ]
+}

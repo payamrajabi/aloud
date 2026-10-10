@@ -1,0 +1,316 @@
+[
+ {
+  "batch": "d0001",
+  "kinds": [
+   "generic",
+   "salt"
+  ],
+  "rows": 50,
+  "ranks": [
+   1,
+   50
+  ]
+ },
+ {
+  "batch": "d0002",
+  "kinds": [
+   "generic",
+   "salt"
+  ],
+  "rows": 50,
+  "ranks": [
+   51,
+   101
+  ]
+ },
+ {
+  "batch": "d0003",
+  "kinds": [
+   "generic",
+   "salt"
+  ],
+  "rows": 50,
+  "ranks": [
+   102,
+   154
+  ]
+ },
+ {
+  "batch": "d0004",
+  "kinds": [
+   "generic",
+   "salt"
+  ],
+  "rows": 50,
+  "ranks": [
+   155,
+   209
+  ]
+ },
+ {
+  "batch": "d0005",
+  "kinds": [
+   "generic",
+   "salt"
+  ],
+  "rows": 50,
+  "ranks": [
+   210,
+   267
+  ]
+ },
+ {
+  "batch": "d0006",
+  "kinds": [
+   "generic",
+   "salt"
+  ],
+  "rows": 50,
+  "ranks": [
+   268,
+   324
+  ]
+ },
+ {
+  "batch": "d0007",
+  "kinds": [
+   "generic",
+   "salt"
+  ],
+  "rows": 50,
+  "ranks": [
+   325,
+   391
+  ]
+ },
+ {
+  "batch": "d0008",
+  "kinds": [
+   "generic",
+   "salt"
+  ],
+  "rows": 50,
+  "ranks": [
+   392,
+   469
+  ]
+ },
+ {
+  "batch": "d0009",
+  "kinds": [
+   "generic",
+   "salt"
+  ],
+  "rows": 50,
+  "ranks": [
+   470,
+   532
+  ]
+ },
+ {
+  "batch": "d0010",
+  "kinds": [
+   "generic",
+   "salt"
+  ],
+  "rows": 50,
+  "ranks": [
+   534,
+   617
+  ]
+ },
+ {
+  "batch": "d0011",
+  "kinds": [
+   "generic",
+   "salt"
+  ],
+  "rows": 50,
+  "ranks": [
+   618,
+   800
+  ]
+ },
+ {
+  "batch": "d0012",
+  "kinds": [
+   "generic",
+   "salt"
+  ],
+  "rows": 50,
+  "ranks": [
+   801,
+   1139
+  ]
+ },
+ {
+  "batch": "d0013",
+  "kinds": [
+   "generic"
+  ],
+  "rows": 14,
+  "ranks": [
+   1141,
+   1171
+  ]
+ },
+ {
+  "batch": "d0014",
+  "kinds": [
+   "brand",
+   "device"
+  ],
+  "rows": 50,
+  "ranks": [
+   64,
+   412
+  ]
+ },
+ {
+  "batch": "d0015",
+  "kinds": [
+   "brand",
+   "device"
+  ],
+  "rows": 50,
+  "ranks": [
+   414,
+   571
+  ]
+ },
+ {
+  "batch": "d0016",
+  "kinds": [
+   "brand"
+  ],
+  "rows": 50,
+  "ranks": [
+   573,
+   692
+  ]
+ },
+ {
+  "batch": "d0017",
+  "kinds": [
+   "brand",
+   "device"
+  ],
+  "rows": 50,
+  "ranks": [
+   693,
+   746
+  ]
+ },
+ {
+  "batch": "d0018",
+  "kinds": [
+   "brand"
+  ],
+  "rows": 50,
+  "ranks": [
+   747,
+   799
+  ]
+ },
+ {
+  "batch": "d0019",
+  "kinds": [
+   "brand",
+   "device"
+  ],
+  "rows": 50,
+  "ranks": [
+   802,
+   856
+  ]
+ },
+ {
+  "batch": "d0020",
+  "kinds": [
+   "brand"
+  ],
+  "rows": 50,
+  "ranks": [
+   857,
+   909
+  ]
+ },
+ {
+  "batch": "d0021",
+  "kinds": [
+   "brand"
+  ],
+  "rows": 50,
+  "ranks": [
+   910,
+   971
+  ]
+ },
+ {
+  "batch": "d0022",
+  "kinds": [
+   "brand"
+  ],
+  "rows": 50,
+  "ranks": [
+   972,
+   1024
+  ]
+ },
+ {
+  "batch": "d0023",
+  "kinds": [
+   "brand"
+  ],
+  "rows": 50,
+  "ranks": [
+   1025,
+   1080
+  ]
+ },
+ {
+  "batch": "d0024",
+  "kinds": [
+   "brand",
+   "device"
+  ],
+  "rows": 50,
+  "ranks": [
+   1081,
+   1158
+  ]
+ },
+ {
+  "batch": "d0025",
+  "kinds": [
+   "brand"
+  ],
+  "rows": 50,
+  "ranks": [
+   1159,
+   1214
+  ]
+ },
+ {
+  "batch": "d0026",
+  "kinds": [
+   "brand"
+  ],
+  "rows": 50,
+  "ranks": [
+   1215,
+   1264
+  ]
+ },
+ {
+  "batch": "d0027",
+  "kinds": [
+   "brand"
+  ],
+  "rows": 8,
+  "ranks": [
+   1265,
+   1272
+  ]
+ }
+]

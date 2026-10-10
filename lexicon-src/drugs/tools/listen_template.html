@@ -1,0 +1,152 @@
+<title>Drug Names Listening Sheet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,600&display=swap">
+<style>
+/* Layout: a sticky player bar over one column of cards styled like pharmacy labels; each card holds the name,
+   how clinicians say it, and before/after for the name alone and in a sentence. */
+:root {
+  --bg: #f2f5f4; --surface: #ffffff; --fg: #15211f; --muted: #56635f; --line: #d7dfdc;
+  --accent: #0d6b5b; --accent-soft: #dcefe9; --was: #8a5a12; --was-soft: #f5ead6; --flag: #b3261e; --flag-soft: #fbe9e7;
+  --display: "Source Serif 4", Georgia, serif; --body: "Atkinson Hyperlegible", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0e1513; --surface: #15201d; --fg: #e3ebe8; --muted: #95a6a1; --line: #273531;
+  --accent: #5fd0b6; --accent-soft: #163a32; --was: #e2b464; --was-soft: #33270f; --flag: #ff8a80; --flag-soft: #3a1d1b; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0e1513; --surface: #15201d; --fg: #e3ebe8; --muted: #95a6a1; --line: #273531;
+  --accent: #5fd0b6; --accent-soft: #163a32; --was: #e2b464; --was-soft: #33270f; --flag: #ff8a80; --flag-soft: #3a1d1b; color-scheme: dark; }
+body { background: var(--bg); color: var(--fg); font: 16px/1.5 var(--body); }
+.wrap { max-width: 920px; margin: 0 auto; padding-inline: 18px; padding-block: 32px 72px; display: grid; gap: 22px; }
+.eyebrow { font: 500 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font: 600 clamp(28px, 5vw, 40px)/1.1 var(--display); margin: 6px 0 0; text-wrap: balance; }
+header { display: grid; gap: 10px; }
+.lede { margin: 0; max-width: 65ch; color: var(--muted); }
+.lede b { color: var(--fg); }
+.meta { font: 13px/1.4 var(--mono); color: var(--muted); }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  padding: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+.seg button { font: 700 13px/1 var(--body); padding: 9px 11px; border: 0; background: transparent; color: var(--muted); cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); }
+.btn { display: inline-flex; align-items: center; gap: 7px; font: 700 14px/1 var(--body); padding: 9px 12px; border-radius: 6px; cursor: pointer;
+  border: 1px solid var(--line); background: var(--surface); color: var(--fg); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.btn:focus-visible, .seg button:focus-visible, input:focus-visible, .p:focus-visible, .flagbtn:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.now { font: 13px/1.3 var(--mono); color: var(--muted); min-width: 0; flex: 1 1 180px; }
+input[type=search], select { font: 14px/1 var(--body); padding: 9px 10px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--fg); min-width: 0; flex: 1 1 140px; }
+.list { display: grid; gap: 10px; list-style: none; margin: 0; padding: 0; }
+.card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 16px; align-items: center; padding: 14px 16px;
+  background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 6px; }
+.card.same { border-left-color: var(--line); }
+.card.active { box-shadow: 0 0 0 2px var(--accent-soft); }
+.card.flagged { border-color: var(--flag); }
+.who { min-width: 0; display: grid; gap: 2px; }
+.rx { font: 500 11px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.name { font: 600 22px/1.15 var(--display); overflow-wrap: anywhere; }
+.say { font: 14px/1.3 var(--mono); color: var(--accent); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.tag { font: 500 11px/1 var(--mono); letter-spacing: .04em; text-transform: uppercase; padding: 4px 6px; border-radius: 4px; border: 1px solid var(--line); color: var(--muted); }
+.tag.low { border-color: var(--flag); color: var(--flag); }
+.controls { display: grid; grid-template-columns: auto auto auto; gap: 6px 8px; align-items: center; justify-items: start; }
+.lbl { font: 500 11px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+.p { font: 700 13px/1 var(--body); padding: 8px 10px; border-radius: 6px; cursor: pointer; border: 1px solid var(--line); background: var(--surface); }
+.p.b { color: var(--was); } .p.a { color: var(--accent); border-color: var(--accent); }
+.p.playing { background: var(--accent-soft); } .p.b.playing { background: var(--was-soft); }
+.flagbtn { grid-column: 1 / -1; justify-self: start; font: 700 12px/1 var(--body); padding: 6px 8px; border-radius: 6px; cursor: pointer; border: 1px dashed var(--line); background: transparent; color: var(--muted); }
+.flagbtn[aria-pressed="true"] { border: 1px solid var(--flag); color: var(--flag); background: var(--flag-soft); }
+details { grid-column: 1 / -1; font-size: 13px; color: var(--muted); min-width: 0; }
+details summary { cursor: pointer; }
+details p { overflow-wrap: anywhere; margin: 6px 0 0; }
+details a { color: var(--accent); }
+.feedback { display: grid; gap: 10px; padding: 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.feedback h2 { margin: 0; font: 500 13px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+textarea { width: 100%; box-sizing: border-box; min-height: 90px; font: 13px/1.5 var(--mono); color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 10px; }
+@media (max-width: 620px) { .card { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+<main class="wrap">
+<header>
+<div class="eyebrow">Aloud · drug names pack · listening check</div>
+<h1>How Aloud says drug names, before and after</h1>
+<p class="lede">Each card plays a drug name the way Aloud read it <b>before</b> the pack, then <b>after</b>, alone and in a sentence. The sample was fixed before listening: the most-prescribed generic and brand names, salts and inhaler names, every reading the research marked low confidence, and controls that must not change. Tap <b>Sounds wrong</b> on any that are off.</p>
+<div class="meta">__META__</div>
+</header>
+<div class="bar" role="region" aria-label="Player">
+<button class="btn primary" id="playall" type="button">Play through</button>
+<button class="btn" id="stop" type="button">Stop</button>
+<div class="seg" role="group" aria-label="What to play">
+<button type="button" id="m-alone" aria-pressed="true">Name alone</button><button type="button" id="m-sentence" aria-pressed="false">In a sentence</button></div>
+<select id="stratum" aria-label="Show a group"><option value="">All groups</option></select>
+<input type="search" id="q" placeholder="Find a name" aria-label="Find a name">
+<span class="now" id="now" aria-live="polite">Plays each name before, then after.</span>
+</div>
+<ol class="list" id="list"></ol>
+<section class="feedback" aria-labelledby="fb">
+<h2 id="fb">Names that sound wrong</h2>
+<p style="margin:0;color:var(--muted)">Your list builds up here as you mark cards. Copy it and send it back, with a note on how the name should sound if you can.</p>
+<textarea id="flags" readonly aria-label="Names marked as sounding wrong"></textarea>
+<button class="btn" id="copyflags" type="button">Copy the list</button>
+</section>
+</main>
+<script>
+const DATA = __DATA__;
+let mode = "alone", queue = [], playingBtn = null, flags = new Set();
+try { flags = new Set(JSON.parse(localStorage.getItem("drug-flags") || "[]")); } catch (e) {}
+const audio = new Audio();
+const list = document.getElementById("list"), now = document.getElementById("now");
+function esc(s) { return String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]); }
+const strata = [...new Set(DATA.map(x => x.stratum))];
+document.getElementById("stratum").insertAdjacentHTML("beforeend", strata.map(s => `<option value="${esc(s)}">${esc(s)}</option>`).join(""));
+list.innerHTML = DATA.map(x => `<li class="card${x.same ? " same" : ""}" id="c${x.n}" data-name="${esc(x.name.toLowerCase())}" data-stratum="${esc(x.stratum)}">
+<div class="who"><span class="rx">${esc(x.stratum)}</span><span class="name">${esc(x.name)}</span><span class="say">${esc(x.say)}</span>
+<span class="tags">${x.same ? '<span class="tag">unchanged</span>' : ''}${x.conf ? `<span class="tag${x.conf === 'low' ? ' low' : ''}">${esc(x.conf)} confidence</span>` : ''}</span></div>
+<div class="controls"><span class="lbl">Alone</span><button class="p b" type="button" data-n="${x.n}" data-k="alone_before">Before</button><button class="p a" type="button" data-n="${x.n}" data-k="alone_after">After</button>
+<span class="lbl">Sentence</span><button class="p b" type="button" data-n="${x.n}" data-k="sentence_before">Before</button><button class="p a" type="button" data-n="${x.n}" data-k="sentence_after">After</button>
+<button class="flagbtn" type="button" data-n="${x.n}" aria-pressed="false">Sounds wrong</button></div>
+<details><summary>Evidence</summary><p>${esc(x.src)}${x.url ? ` · <a href="${esc(x.url)}" target="_blank" rel="noopener">source</a>` : ''}</p>${x.note ? `<p>${esc(x.note)}</p>` : ''}</details></li>`).join("");
+const byN = Object.fromEntries(DATA.map(x => [x.n, x]));
+function mark(btn) { if (playingBtn) playingBtn.classList.remove("playing"); playingBtn = btn; if (btn) btn.classList.add("playing"); }
+function active(n) { document.querySelectorAll(".card.active").forEach(c => c.classList.remove("active")); if (n) { const c = document.getElementById("c" + n); c.classList.add("active"); c.scrollIntoView({block: "center", behavior: "smooth"}); } }
+function play(n, k, btn) { return new Promise(res => { audio.onended = res; audio.onerror = res; audio.src = byN[n].a[k]; mark(btn); audio.play().catch(res); }); }
+function stop() { queue = []; audio.pause(); mark(null); active(null); now.textContent = "Stopped."; }
+list.addEventListener("click", async e => {
+  const b = e.target.closest(".p");
+  if (b) { queue = []; audio.pause(); await play(+b.dataset.n, b.dataset.k, b); mark(null); return; }
+  const f = e.target.closest(".flagbtn");
+  if (f) { const n = byN[+f.dataset.n].name; flags.has(n) ? flags.delete(n) : flags.add(n); saveFlags(); }
+});
+function saveFlags() {
+  try { localStorage.setItem("drug-flags", JSON.stringify([...flags])); } catch (e) {}
+  document.querySelectorAll(".flagbtn").forEach(f => { const on = flags.has(byN[+f.dataset.n].name); f.setAttribute("aria-pressed", on); f.textContent = on ? "Marked: sounds wrong" : "Sounds wrong"; f.closest(".card").classList.toggle("flagged", on); });
+  document.getElementById("flags").value = [...flags].join("\n");
+}
+saveFlags();
+document.getElementById("playall").addEventListener("click", async () => {
+  stop(); const visible = DATA.filter(x => !document.getElementById("c" + x.n).hidden);
+  queue = visible.map(x => x.n); const token = queue;
+  for (const n of visible.map(x => x.n)) {
+    if (queue !== token) return;
+    active(n); const x = byN[n]; now.textContent = `${x.name}: before`;
+    const card = document.getElementById("c" + n);
+    await play(n, mode + "_before", card.querySelector(`[data-k="${mode}_before"]`)); if (queue !== token) return;
+    await new Promise(r => setTimeout(r, 350)); now.textContent = `${x.name}: after${x.say ? ` (${x.say})` : ""}`;
+    await play(n, mode + "_after", card.querySelector(`[data-k="${mode}_after"]`)); if (queue !== token) return;
+    await new Promise(r => setTimeout(r, 700));
+  }
+  mark(null); active(null); now.textContent = "Done. Mark any that sound wrong.";
+});
+document.getElementById("stop").addEventListener("click", stop);
+for (const [id, m] of [["m-alone", "alone"], ["m-sentence", "sentence"]]) document.getElementById(id).addEventListener("click", () => {
+  mode = m; document.getElementById("m-alone").setAttribute("aria-pressed", m === "alone"); document.getElementById("m-sentence").setAttribute("aria-pressed", m === "sentence"); });
+function filter() {
+  const q = document.getElementById("q").value.trim().toLowerCase(), s = document.getElementById("stratum").value;
+  document.querySelectorAll(".card").forEach(c => c.hidden = (!!q && !c.dataset.name.includes(q)) || (!!s && c.dataset.stratum !== s));
+}
+document.getElementById("q").addEventListener("input", filter);
+document.getElementById("stratum").addEventListener("change", filter);
+document.getElementById("copyflags").addEventListener("click", e => {
+  const t = document.getElementById("flags");
+  navigator.clipboard.writeText(t.value).then(() => e.target.textContent = "Copied").catch(() => { t.focus(); t.select(); e.target.textContent = "Selected: press Cmd-C"; });
+});
+</script>

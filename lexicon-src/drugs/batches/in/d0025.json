@@ -1,0 +1,1379 @@
+{
+ "batch": "d0025",
+ "rows": [
+  {
+   "rank": 1159,
+   "word": "mucinex",
+   "kind": "brand",
+   "display": "Mucinex",
+   "today_us": "mjˈusənɛks",
+   "today_gb": "mjˈuːsənɛks",
+   "today_source": "guesser",
+   "zipf": 1.64,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 1835,
+   "examples": "Mucinex",
+   "generic_of": "guaifenesin",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Mucinex®",
+      "generic_monograph": "Guaifenesin",
+      "generic_pronounced": [
+       "gwye fen' e sin"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a682494.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1161,
+   "word": "polivy",
+   "kind": "brand",
+   "display": "Polivy",
+   "today_us": "pˈɑlɪvi",
+   "today_gb": "pˈɒlɪvi",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 1816,
+   "examples": "Polivy",
+   "generic_of": "polatuzumab | vedotin",
+   "why": "partb-top",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Polivy®",
+      "generic_monograph": "Polatuzumab vedotin-piiq Injection",
+      "generic_pronounced": [
+       "pol\" a tooz' ue mab ve doe' tin"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a619039.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1162,
+   "word": "amvuttra",
+   "kind": "brand",
+   "display": "Amvuttra",
+   "today_us": "æmvˈʌtɹə",
+   "today_gb": "amvˈʌtɹə",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 1345,
+   "examples": "Amvuttra",
+   "generic_of": "sodium | vutrisiran",
+   "why": "partb-top",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Amvuttra®",
+      "generic_monograph": "Vutrisiran Injection",
+      "generic_pronounced": [
+       "vue\" tri sir' an"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a622061.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1165,
+   "word": "tecvayli",
+   "kind": "brand",
+   "display": "Tecvayli",
+   "today_us": "tˌɛkvˈAli",
+   "today_gb": "tˌɛkvˈAli",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 1261,
+   "examples": "Tecvayli",
+   "generic_of": "teclistamab",
+   "why": "partb-top",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Tecvayli®",
+      "generic_monograph": "Teclistamab-cqyv Injection",
+      "generic_pronounced": [],
+      "url": "https://medlineplus.gov/druginfo/meds/a622076.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1166,
+   "word": "opdualag",
+   "kind": "brand",
+   "display": "Opdualag",
+   "today_us": "ˈɑpʤuəlˌæɡ",
+   "today_gb": "ˈɒpʤuəlˌaɡ",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 1003,
+   "examples": "Opdualag",
+   "generic_of": "nivolumab | relatlimab",
+   "why": "partb-top",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "opdualag",
+      "label": "OPDUALAG (NIVOLUMAB AND RELATLIMAB-RMBW) INJECTION [E.R. SQUIBB & SONS, L.L.C.]",
+      "respelling": "op-DEW-uh-lag",
+      "setid": "b22c9d83-3256-4e17-85f7-f331a504adc6",
+      "term": "OPDUALAG",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b22c9d83-3256-4e17-85f7-f331a504adc6"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Opdualag®",
+      "generic_monograph": "Nivolumab and relatlimab-rmbw",
+      "generic_pronounced": [
+       "nye vol' ue mab and rel at' li mab"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a622037.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1168,
+   "word": "lumify",
+   "kind": "brand",
+   "display": "Lumify",
+   "today_us": "lˈuməfˌI",
+   "today_gb": "lˈuːməfˌI",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 980,
+   "examples": "Lumify",
+   "generic_of": "brimonidine",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1169,
+   "word": "elahere",
+   "kind": "brand",
+   "display": "Elahere",
+   "today_us": "ˈɛləhˌɪɹ",
+   "today_gb": "ˈɛləhˌɪə",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 831,
+   "examples": "Elahere",
+   "generic_of": "mirvetuximab | soravtansine",
+   "why": "partb-top",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "elahere",
+      "label": "ELAHERE (MIRVETUXIMAB SORAVTANSINE) INJECTION, SOLUTION [IMMUNOGEN, INC.]",
+      "respelling": "el-ah-HERE",
+      "setid": "00c424b5-6ccd-48ab-9e88-1986451120e2",
+      "term": "ELAHERE",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=00c424b5-6ccd-48ab-9e88-1986451120e2"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Elahere®",
+      "generic_monograph": "Mirvetuximab soravtansine-gynx Injection",
+      "generic_pronounced": [
+       "mir\" ve tux' i mab"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a622075.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1172,
+   "word": "pepcid",
+   "kind": "brand",
+   "display": "Pepcid",
+   "today_us": "pˈɛpsɪd",
+   "today_gb": "pˈɛpsɪd",
+   "today_source": "cmudict",
+   "zipf": 1.47,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 624,
+   "examples": "Pepcid",
+   "generic_of": "famotidine",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Pepcid",
+      "generic_monograph": "Famotidine Injection",
+      "generic_pronounced": [
+       "fa moe' ti deen"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a601142.html"
+     },
+     {
+      "brand_listed_as": "Pepcid®",
+      "generic_monograph": "Famotidine",
+      "generic_pronounced": [
+       "fa moe' ti deen"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a687011.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈpɛpsɪd/|a=GA"
+      ],
+      "page": "Pepcid",
+      "url": "https://en.wiktionary.org/wiki/Pepcid"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 1173,
+   "word": "fluzone",
+   "kind": "brand",
+   "display": "Fluzone",
+   "today_us": "fluzˈOni",
+   "today_gb": "fluzˈQni",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 232,
+   "examples": "Fluzone High-Dose * | Fluzone Quad 2023-2024",
+   "generic_of": "flu vacc ts(65yr up)/pf* | flu vacc qs2023-24(6mos up)/pf",
+   "why": "partb-top",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Fluzone®",
+      "generic_monograph": "Influenza Vaccine, Inactivated or Recombinant",
+      "generic_pronounced": [],
+      "url": "https://medlineplus.gov/druginfo/meds/a607017.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1174,
+   "word": "afrin",
+   "kind": "brand",
+   "display": "Afrin",
+   "today_us": "ˈæfɹɪn",
+   "today_gb": "ˈafɹɪn",
+   "today_source": "guesser",
+   "zipf": 2.35,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 31,
+   "examples": "Afrin",
+   "generic_of": "oxymetazoline",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1175,
+   "word": "cepacol",
+   "kind": "brand",
+   "display": "Cepacol",
+   "today_us": "sˈɛpəkˌɑl",
+   "today_gb": "sˈɛpəkˌɒl",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 28,
+   "examples": "Cepacol Sore Throat | Cepacol",
+   "generic_of": "benzocaine | menthol",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1176,
+   "word": "miralax",
+   "kind": "brand",
+   "display": "Miralax",
+   "today_us": "mˈɪɹəlˌæks",
+   "today_gb": "mˈɪɹəlˌaks",
+   "today_source": "guesser",
+   "zipf": 1.19,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 26,
+   "examples": "Miralax",
+   "generic_of": "glycol | polyethylene",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "MiraLax®",
+      "generic_monograph": "Polyethylene Glycol 3350",
+      "generic_pronounced": [
+       "pol ee eth' i leen",
+       "glye' col"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a603032.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1177,
+   "word": "spikevax",
+   "kind": "brand",
+   "display": "Spikevax",
+   "today_us": "spˈIkvˌæks",
+   "today_gb": "spˈIkvˌaks",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Spikevax",
+   "generic_of": "covid vac (12up)(andu)/pf",
+   "why": "partb-top",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Spikevax®",
+      "generic_monograph": "COVID-19 Vaccine, mRNA",
+      "generic_pronounced": [],
+      "url": "https://medlineplus.gov/druginfo/meds/a623042.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1178,
+   "word": "prevnar",
+   "kind": "brand",
+   "display": "Prevnar",
+   "today_us": "pɹˈɛvnəɹ",
+   "today_gb": "pɹˈɛvnə",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Prevnar 20",
+   "generic_of": "pneumoc 20-val conj-dip crm/pf",
+   "why": "partb-top",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1179,
+   "word": "fluad",
+   "kind": "brand",
+   "display": "Fluad",
+   "today_us": "flˈuəd",
+   "today_gb": "flˈuːəd",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Fluad *",
+   "generic_of": "flu vacc ts(65up)/mf59c/pf*",
+   "why": "partb-top",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Fluad®",
+      "generic_monograph": "Influenza Vaccine, Inactivated or Recombinant",
+      "generic_pronounced": [],
+      "url": "https://medlineplus.gov/druginfo/meds/a607017.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1180,
+   "word": "abreva",
+   "kind": "brand",
+   "display": "Abreva",
+   "today_us": "ɑbɹˈAvə",
+   "today_gb": "ɒbɹˈAvə",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Abreva",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1181,
+   "word": "advil",
+   "kind": "brand",
+   "display": "Advil",
+   "today_us": "ˈædvˌɪl",
+   "today_gb": "ˈadvˌɪl",
+   "today_source": "cmudict",
+   "zipf": 2.59,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Advil",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Advil®",
+      "generic_monograph": "Ibuprofen",
+      "generic_pronounced": [
+       "eye byoo' proe fen"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a682159.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1182,
+   "word": "aleve",
+   "kind": "brand",
+   "display": "Aleve",
+   "today_us": "əlˈiv",
+   "today_gb": "əlˈiːv",
+   "today_source": "cmudict",
+   "zipf": 1.92,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Aleve",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Aleve®",
+      "generic_monograph": "Naproxen",
+      "generic_pronounced": [
+       "na prox' en"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a681029.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1183,
+   "word": "alka-seltzer",
+   "kind": "brand",
+   "display": "Alka-Seltzer",
+   "today_us": "ˈælkəsˌɛltzəɹ",
+   "today_gb": "ˈalkəsˌɛltzə",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Alka-Seltzer",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Alka-Seltzer® (as various combination products containing Aspirin)",
+      "generic_monograph": "Aspirin",
+      "generic_pronounced": [
+       "as' pir in"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a682878.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1184,
+   "word": "allegra",
+   "kind": "brand",
+   "display": "Allegra",
+   "today_us": "ɑlˈɛɡɹə",
+   "today_gb": "ɒlˈɛɡɹə",
+   "today_source": "cmudict",
+   "zipf": 2.57,
+   "dictionary_word": false,
+   "given_name": {
+    "rank": 16855,
+    "name": "Allegra",
+    "est_people": 16956
+   },
+   "other_lists": [],
+   "score": 0,
+   "examples": "Allegra",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Allegra®",
+      "generic_monograph": "Fexofenadine",
+      "generic_pronounced": [
+       "fex oh fen' a deen"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a697035.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/əˈlɛɡrə/|/æˈleɪɡrə/"
+      ],
+      "page": "Allegra",
+      "url": "https://en.wiktionary.org/wiki/Allegra"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 1185,
+   "word": "anadin",
+   "kind": "brand",
+   "display": "Anadin",
+   "today_us": "ˈænədɪn",
+   "today_gb": "ˈanədɪn",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Anadin",
+   "generic_of": "",
+   "why": "otc-uk",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1186,
+   "word": "anbesol",
+   "kind": "brand",
+   "display": "Anbesol",
+   "today_us": "ˈænbəsˌɑl",
+   "today_gb": "ˈanbəsˌɒl",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Anbesol",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1187,
+   "word": "aspercreme",
+   "kind": "brand",
+   "display": "Aspercreme",
+   "today_us": "ˈæspəɹkɹˌim",
+   "today_gb": "ˈaspəkɹˌiːm",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Aspercreme",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1188,
+   "word": "bayer",
+   "kind": "brand",
+   "display": "Bayer",
+   "today_us": "bˈAəɹ",
+   "today_gb": "bˈAə",
+   "today_source": "cmudict",
+   "zipf": 3.26,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Bayer",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1189,
+   "word": "beechams",
+   "kind": "brand",
+   "display": "Beechams",
+   "today_us": "bˈiʧəmz",
+   "today_gb": "bˈiːʧəmz",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Beechams",
+   "generic_of": "",
+   "why": "otc-uk",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1190,
+   "word": "benadryl",
+   "kind": "brand",
+   "display": "Benadryl",
+   "today_us": "bɪnˈædɹəl",
+   "today_gb": "bɪnˈadɹəl",
+   "today_source": "guesser",
+   "zipf": 2.57,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Benadryl",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Benadryl",
+      "generic_monograph": "Diphenhydramine Injection",
+      "generic_pronounced": [
+       "dye fen hye' dra meen"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a616038.html"
+     },
+     {
+      "brand_listed_as": "Benadryl®",
+      "generic_monograph": "Diphenhydramine",
+      "generic_pronounced": [
+       "dye fen hye' dra meen"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a682539.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈbɛnədɹɪl/"
+      ],
+      "page": "Benadryl",
+      "url": "https://en.wiktionary.org/wiki/Benadryl"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 1191,
+   "word": "bengay",
+   "kind": "brand",
+   "display": "Bengay",
+   "today_us": "bˈɛŋɡA",
+   "today_gb": "bˈɛŋɡA",
+   "today_source": "guesser",
+   "zipf": 1.4,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Bengay",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1192,
+   "word": "benylin",
+   "kind": "brand",
+   "display": "Benylin",
+   "today_us": "bˈɛnəlɪn",
+   "today_gb": "bˈɛnəlɪn",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Benylin",
+   "generic_of": "",
+   "why": "otc-uk",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1193,
+   "word": "bonine",
+   "kind": "brand",
+   "display": "Bonine",
+   "today_us": "bOnˈini",
+   "today_gb": "bQnˈiːni",
+   "today_source": "cmudict",
+   "zipf": 1.22,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Bonine",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Bonine®",
+      "generic_monograph": "Meclizine",
+      "generic_pronounced": [
+       "mek' li zeen"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a682548.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1194,
+   "word": "buscopan",
+   "kind": "brand",
+   "display": "Buscopan",
+   "today_us": "bˈʌskəpˌæn",
+   "today_gb": "bˈʌskəpˌan",
+   "today_source": "guesser",
+   "zipf": 1.03,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Buscopan",
+   "generic_of": "",
+   "why": "otc-uk",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1195,
+   "word": "calpol",
+   "kind": "brand",
+   "display": "Calpol",
+   "today_us": "kˈælpɔl",
+   "today_gb": "kˈalpɔl",
+   "today_source": "guesser",
+   "zipf": 1.61,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Calpol",
+   "generic_of": "",
+   "why": "otc-uk",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1196,
+   "word": "canesten",
+   "kind": "brand",
+   "display": "Canesten",
+   "today_us": "kˈænɪstən",
+   "today_gb": "kˈanɪstən",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Canesten",
+   "generic_of": "",
+   "why": "otc-uk",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1197,
+   "word": "chloraseptic",
+   "kind": "brand",
+   "display": "Chloraseptic",
+   "today_us": "klˌɔɹəsˈɛptɪk",
+   "today_gb": "klˌɔːɹəsˈɛptɪk",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Chloraseptic",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1198,
+   "word": "citrucel",
+   "kind": "brand",
+   "display": "Citrucel",
+   "today_us": "sˈɪtɹəsˌɛl",
+   "today_gb": "sˈɪtɹəsˌɛl",
+   "today_source": "cmudict",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Citrucel",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1199,
+   "word": "claritin",
+   "kind": "brand",
+   "display": "Claritin",
+   "today_us": "klˈɛɹɪtɪn",
+   "today_gb": "klˈɛɹɪtɪn",
+   "today_source": "cmudict",
+   "zipf": 1.93,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Claritin",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Claritin®",
+      "generic_monograph": "Loratadine",
+      "generic_pronounced": [
+       "lor at' a deen"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a697038.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈklæɹ.ɪ.tɪn/|/ˈkleɹ.ə.tɪn/|a=US"
+      ],
+      "page": "Claritin",
+      "url": "https://en.wiktionary.org/wiki/Claritin"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 1200,
+   "word": "clarityn",
+   "kind": "brand",
+   "display": "Clarityn",
+   "today_us": "klˈɛɹɪtɪn",
+   "today_gb": "klˈɛɹɪtɪn",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Clarityn",
+   "generic_of": "",
+   "why": "otc-uk",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1201,
+   "word": "coricidin",
+   "kind": "brand",
+   "display": "Coricidin",
+   "today_us": "kˌɔɹəsˈIdən",
+   "today_gb": "kˌɔːɹəsˈIdən",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Coricidin",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1202,
+   "word": "cortizone",
+   "kind": "brand",
+   "display": "Cortizone",
+   "today_us": "kˈɔɹtəzˌOn",
+   "today_gb": "kˈɔːtəzˌQn",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Cortizone",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1203,
+   "word": "day nurse",
+   "kind": "brand",
+   "display": "Day nurse",
+   "today_us": "dˈA nˈɜɹs",
+   "today_gb": "dˈA nˈɜːs",
+   "today_source": "gold",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Day Nurse",
+   "generic_of": "",
+   "why": "otc-uk",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1204,
+   "word": "dayquil",
+   "kind": "brand",
+   "display": "DayQuil",
+   "today_us": "dˈAkwɪl",
+   "today_gb": "dˈAkwɪl",
+   "today_source": "guesser",
+   "zipf": 1.43,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "DayQuil",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Dayquil® (as a combination product containing Acetaminophen, Dextromethorphan, Pseudoephedrine)",
+      "generic_monograph": "Acetaminophen",
+      "generic_pronounced": [
+       "a set a mee' noe fen"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a681004.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1205,
+   "word": "debrox",
+   "kind": "brand",
+   "display": "Debrox",
+   "today_us": "dˈɛbɹɑks",
+   "today_gb": "dˈɛbɹɒks",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Debrox",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1206,
+   "word": "delsym",
+   "kind": "brand",
+   "display": "Delsym",
+   "today_us": "dˈɛlsɪm",
+   "today_gb": "dˈɛlsɪm",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Delsym",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1207,
+   "word": "dimetapp",
+   "kind": "brand",
+   "display": "Dimetapp",
+   "today_us": "dˈImətˌæp",
+   "today_gb": "dˈImətˌap",
+   "today_source": "cmudict",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Dimetapp",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1208,
+   "word": "dioralyte",
+   "kind": "brand",
+   "display": "Dioralyte",
+   "today_us": "dˈIəɹəlˌIt",
+   "today_gb": "dˈIəɹəlˌIt",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Dioralyte",
+   "generic_of": "",
+   "why": "otc-uk",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1209,
+   "word": "dramamine",
+   "kind": "brand",
+   "display": "Dramamine",
+   "today_us": "dɹˈæməmˌin",
+   "today_gb": "dɹˈaməmiːn",
+   "today_source": "gold",
+   "zipf": 1.9,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Dramamine",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Dramamine®",
+      "generic_monograph": "Dimenhydrinate",
+      "generic_pronounced": [
+       "dye men hye' dri nate"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a607046.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1210,
+   "word": "dulcolax",
+   "kind": "brand",
+   "display": "Dulcolax",
+   "today_us": "dˈʌlkəlˌæks",
+   "today_gb": "dˈʌlkəlˌaks",
+   "today_source": "guesser",
+   "zipf": 1.44,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Dulcolax",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Dulcolax®",
+      "generic_monograph": "Bisacodyl",
+      "generic_pronounced": [
+       "bis ak' oh dil"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a601027.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1211,
+   "word": "emergen-c",
+   "kind": "brand",
+   "display": "Emergen-C",
+   "today_us": "ˈiməɹʤˌɛnsˌi",
+   "today_gb": "ˈiːməʤˌɛnsˌiː",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Emergen-C",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1212,
+   "word": "ex-lax",
+   "kind": "brand",
+   "display": "Ex-Lax",
+   "today_us": "ˌɛkslˈæks",
+   "today_gb": "ˌɛkslˈaks",
+   "today_source": "gold",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Ex-Lax",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Ex-Lax®",
+      "generic_monograph": "Senna",
+      "generic_pronounced": [
+       "sen' a"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a601112.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1213,
+   "word": "excedrin",
+   "kind": "brand",
+   "display": "Excedrin",
+   "today_us": "ɛksˈɛdɹən",
+   "today_gb": "ɛksˈɛdɹən",
+   "today_source": "cmudict",
+   "zipf": 1.82,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Excedrin",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Excedrin® (as a combination product containing Acetaminophen, Aspirin, Caffeine)",
+      "generic_monograph": "Aspirin",
+      "generic_pronounced": [
+       "as' pir in"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a682878.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1214,
+   "word": "flonase",
+   "kind": "brand",
+   "display": "Flonase",
+   "today_us": "flˈɑnəs",
+   "today_gb": "flˈɒnəs",
+   "today_source": "guesser",
+   "zipf": 1.67,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 0,
+   "examples": "Flonase",
+   "generic_of": "",
+   "why": "otc-us",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  }
+ ]
+}

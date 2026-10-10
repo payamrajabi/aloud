@@ -1,0 +1,1943 @@
+{
+ "batch": "d0001",
+ "rows": [
+  {
+   "rank": 1,
+   "word": "atorvastatin",
+   "kind": "generic",
+   "display": "atorvastatin",
+   "today_us": "ˌAtəɹvˈæstAtɪn",
+   "today_gb": "ˌAtəvˈastAtɪn",
+   "today_source": "guesser",
+   "zipf": 1.93,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 202547311,
+   "examples": "Atorvastatin | Atorvastatin Calcium | Amlodipine/Atorvastatin",
+   "generic_of": "",
+   "why": "clincalc-top300,fin-888,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "a tore' va sta tin",
+      "pronounced": [
+       "a tore' va sta tin"
+      ],
+      "title": "Atorvastatin",
+      "url": "https://medlineplus.gov/druginfo/meds/a600045.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/əˌtɔːvəˈstætɪn/|a=UK",
+       "/əˈtɔːɹvəˌstætɪn/|/əˌtɔːɹvəˈstætɪn/|a=US"
+      ],
+      "page": "atorvastatin",
+      "url": "https://en.wiktionary.org/wiki/atorvastatin"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 2,
+   "word": "sodium",
+   "kind": "generic",
+   "display": "sodium",
+   "today_us": "sˈOdiəm",
+   "today_gb": "sˈQdɪəm",
+   "today_source": "gold",
+   "zipf": 3.87,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 182810277,
+   "examples": "Levothyroxine Sodium | Pantoprazole Sodium | Montelukast Sodium",
+   "generic_of": "",
+   "why": "clincalc-top300,partb-top,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "soe' dee um",
+      "pronounced": [
+       "soe' dee um",
+       "ox' i bate"
+      ],
+      "title": "Sodium Oxybate",
+      "url": "https://medlineplus.gov/druginfo/meds/a605032.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [
+       "sōʹdē-əm|a=GA,CA"
+      ],
+      "ipa": [
+       "/ˈsəʊ.di.əm/|a=RP",
+       "/ˈsəw.dɪj.əm/|a=SSB",
+       "/ˈsoʊ.di.əm/|[ˈsoʊ.ɾi.əm]",
+       "/ˈsəʉ.di.əm/|[ˈsəʉ.ɾi.əm]|~|[ˈsɐʉ.ɾi.əm]|a=AU|q3=some speakers",
+       "/ˈsɐʉ.di.əm/|[ˈsɐʉ.ɾi.əm]|a=NZ",
+       "/ˈso.de.əm/|/-dɪ-/|/-di-/|a=Scotland",
+       "/ˈsoːdi.əm/|a=Wales,non-toe-tow"
+      ],
+      "page": "sodium",
+      "url": "https://en.wiktionary.org/wiki/sodium"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 3,
+   "word": "levothyroxine",
+   "kind": "generic",
+   "display": "levothyroxine",
+   "today_us": "lˌɛvəθˈIɹɑksin",
+   "today_gb": "lˌɛvəθˈIɹɒksin",
+   "today_source": "guesser",
+   "zipf": 1.76,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 139718857,
+   "examples": "Levothyroxine | Levothyroxine Sodium",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "lee voe thye rox' een",
+      "pronounced": [
+       "lee voe thye rox' een"
+      ],
+      "title": "Levothyroxine",
+      "url": "https://medlineplus.gov/druginfo/meds/a682461.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌli.voʊ.θaɪˈɹɑkˌsin/|/ˌli.voʊ.θaɪˈɹɑk.sɪn/|a=GA"
+      ],
+      "page": "levothyroxine",
+      "url": "https://en.wiktionary.org/wiki/levothyroxine"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 4,
+   "word": "amlodipine",
+   "kind": "generic",
+   "display": "amlodipine",
+   "today_us": "æmlˈɑdəpˌIn",
+   "today_gb": "amlˈɒdəpˌIn",
+   "today_source": "guesser",
+   "zipf": 1.79,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 136051567,
+   "examples": "Amlodipine | Amlodipine Besylate | Amlodipine; Benazepril",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "am loe' di peen",
+      "pronounced": [
+       "am loe' di peen"
+      ],
+      "title": "Amlodipine",
+      "url": "https://medlineplus.gov/druginfo/meds/a692044.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/æmˈləʊ.dɪ.piːn/|a=RP",
+       "/æmˈloʊ.dɪˌpin/|[ɛəmˈloʊ.dɪˌpin]|a=GA,CA|a2=æ-tensing"
+      ],
+      "page": "amlodipine",
+      "url": "https://en.wiktionary.org/wiki/amlodipine"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 5,
+   "word": "metformin",
+   "kind": "generic",
+   "display": "metformin",
+   "today_us": "mˈɛtfˌɔɹmɪn",
+   "today_gb": "mˈɛtfˌɔːmɪn",
+   "today_source": "guesser",
+   "zipf": 2.55,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 129738705,
+   "examples": "Metformin | Metformin HCl | Sitagliptin Phos/Metformin HCl",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "met for' min",
+      "pronounced": [
+       "met for' min"
+      ],
+      "title": "Metformin",
+      "url": "https://medlineplus.gov/druginfo/meds/a696005.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/mɛtˈfɔː.mɪn/|a=RP",
+       "/mɛtˈfɔɹ.mɪn/|a=GA"
+      ],
+      "page": "metformin",
+      "url": "https://en.wiktionary.org/wiki/metformin"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 6,
+   "word": "lisinopril",
+   "kind": "generic",
+   "display": "lisinopril",
+   "today_us": "lˈɪzənəpɹɪl",
+   "today_gb": "lˈɪzənəpɹɪl",
+   "today_source": "guesser",
+   "zipf": 1.67,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 126965899,
+   "examples": "Lisinopril | Hydrochlorothiazide; Lisinopril | Lisinopril/Hydrochlorothiazide",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "lyse in' oh pril",
+      "pronounced": [
+       "lyse in' oh pril"
+      ],
+      "title": "Lisinopril",
+      "url": "https://medlineplus.gov/druginfo/meds/a692051.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/lɪˈsɪn.əˌpɹɪl/|/laɪˈsɪn.əˌpɹɪl/|a=GA"
+      ],
+      "page": "lisinopril",
+      "url": "https://en.wiktionary.org/wiki/lisinopril"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 7,
+   "word": "calcium",
+   "kind": "generic",
+   "display": "calcium",
+   "today_us": "kˈælsiəm",
+   "today_gb": "kˈalsɪəm",
+   "today_source": "gold",
+   "zipf": 3.82,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 126673629,
+   "examples": "Atorvastatin Calcium | Rosuvastatin Calcium | Calcium",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "kal' see um",
+      "pronounced": [
+       "kal' see um"
+      ],
+      "title": "Calcium Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a625036.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈkælsi.əm/|a=US,UK",
+       "/ˈkalʃɪəm/|a=Indic",
+       "/ˈkæl.ʃum/|a=Philippines"
+      ],
+      "page": "calcium",
+      "url": "https://en.wiktionary.org/wiki/calcium"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 8,
+   "word": "losartan",
+   "kind": "generic",
+   "display": "losartan",
+   "today_us": "ləsˈɑɹtən",
+   "today_gb": "ləsˈɑːtən",
+   "today_source": "guesser",
+   "zipf": 1.64,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 115985063,
+   "examples": "Losartan | Losartan Potassium | Hydrochlorothiazide; Losartan",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "loe sar' tan",
+      "pronounced": [
+       "loe sar' tan"
+      ],
+      "title": "Losartan",
+      "url": "https://medlineplus.gov/druginfo/meds/a695008.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/loʊˈsɑɹˌtæn/|/loʊˈsɑɹ.tən/|a=GA"
+      ],
+      "page": "losartan",
+      "url": "https://en.wiktionary.org/wiki/losartan"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 9,
+   "word": "metoprolol",
+   "kind": "generic",
+   "display": "metoprolol",
+   "today_us": "mətˈɑpɹəlɑl",
+   "today_gb": "mɪtˈɒpɹəlɒl",
+   "today_source": "gold",
+   "zipf": 1.84,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 113171547,
+   "examples": "Metoprolol | Metoprolol Succinate | Metoprolol Tartrate",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "me toe' proe lole",
+      "pronounced": [
+       "me toe' proe lole"
+      ],
+      "title": "Metoprolol",
+      "url": "https://medlineplus.gov/druginfo/meds/a682864.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/mɪˈtɒp.ɹə.lɒl/|a=RP",
+       "/məˈtoʊ.pɹəˌlɔl/|a=GA"
+      ],
+      "page": "metoprolol",
+      "url": "https://en.wiktionary.org/wiki/metoprolol"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 10,
+   "word": "albuterol",
+   "kind": "generic",
+   "display": "albuterol",
+   "today_us": "ælbjˈuTəɹˌɔl",
+   "today_gb": "albjˈuːtəɹɒl",
+   "today_source": "gold",
+   "zipf": 2.06,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 110976266,
+   "examples": "Albuterol | Albuterol Sulfate | Albuterol; Ipratropium",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "al byoo' ter ole",
+      "pronounced": [
+       "al byoo' ter ole"
+      ],
+      "title": "Albuterol",
+      "url": "https://medlineplus.gov/druginfo/meds/a607004.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ælˈbju.təˌɹɔl/|a=GA"
+      ],
+      "page": "albuterol",
+      "url": "https://en.wiktionary.org/wiki/albuterol"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 11,
+   "word": "hydrochlorothiazide",
+   "kind": "generic",
+   "display": "hydrochlorothiazide",
+   "today_us": "hˌIdɹOklˈɔɹəθiəzˌId",
+   "today_gb": "hˌIdɹQklˈɔːɹəθiəzˌId",
+   "today_source": "guesser",
+   "zipf": 1.92,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 97683036,
+   "examples": "Hydrochlorothiazide | Hydrochlorothiazide; Lisinopril | Hydrochlorothiazide; Losartan",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "hye'' droe klor'' oh thye' a zide",
+      "pronounced": [
+       "hye'' droe klor'' oh thye' a zide"
+      ],
+      "title": "Hydrochlorothiazide",
+      "url": "https://medlineplus.gov/druginfo/meds/a682571.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌhaɪ.dɹəˌklɔɹ.əˈθaɪ.əˌzaɪd/|a=GA"
+      ],
+      "page": "hydrochlorothiazide",
+      "url": "https://en.wiktionary.org/wiki/hydrochlorothiazide"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 12,
+   "word": "gabapentin",
+   "kind": "generic",
+   "display": "gabapentin",
+   "today_us": "ɡˌɑbəpˈɛntɪn",
+   "today_gb": "ɡˌɒbəpˈɛntɪn",
+   "today_source": "guesser",
+   "zipf": 2.26,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 96546720,
+   "examples": "Gabapentin | Gabapentin Enacarbil",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "ga' ba pen tin",
+      "pronounced": [
+       "ga' ba pen tin"
+      ],
+      "title": "Gabapentin",
+      "url": "https://medlineplus.gov/druginfo/meds/a694007.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈɡæb.əˌpɛn.tɪn/|a=GA"
+      ],
+      "page": "gabapentin",
+      "url": "https://en.wiktionary.org/wiki/gabapentin"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 13,
+   "word": "potassium",
+   "kind": "generic",
+   "display": "potassium",
+   "today_us": "pətˈæsiəm",
+   "today_gb": "pətˈasɪəm",
+   "today_source": "gold",
+   "zipf": 3.58,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 91608827,
+   "examples": "Losartan Potassium | Potassium Chloride | Amoxicillin/Potassium Clav",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "poe tass' i um",
+      "pronounced": [
+       "poe tass' i um"
+      ],
+      "title": "Potassium",
+      "url": "https://medlineplus.gov/druginfo/meds/a601099.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [
+       "pətăs′ēəm"
+      ],
+      "ipa": [
+       "/pəˈtæsiəm/"
+      ],
+      "page": "potassium",
+      "url": "https://en.wiktionary.org/wiki/potassium"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 14,
+   "word": "omeprazole",
+   "kind": "generic",
+   "display": "omeprazole",
+   "today_us": "ˈOmpɹəzˌOl",
+   "today_gb": "ˈQmpɹəzˌQl",
+   "today_source": "guesser",
+   "zipf": 2.0,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 88280450,
+   "examples": "Omeprazole | Omeprazole/Sodium Bicarbonate | Omeprazole Magnesium",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "oh me' pray zol",
+      "pronounced": [
+       "oh me' pray zol"
+      ],
+      "title": "Omeprazole",
+      "url": "https://medlineplus.gov/druginfo/meds/a693050.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/əʊˈmɛp.ɹə.zəʊl/|a=RP",
+       "/oʊˈmɛp.ɹəˌzoʊl/|a=GA"
+      ],
+      "page": "omeprazole",
+      "url": "https://en.wiktionary.org/wiki/omeprazole"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 15,
+   "word": "rosuvastatin",
+   "kind": "generic",
+   "display": "rosuvastatin",
+   "today_us": "ɹˌOsəvˈæstAtɪn",
+   "today_gb": "ɹˌQsəvˈastAtɪn",
+   "today_source": "guesser",
+   "zipf": 1.52,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 88154361,
+   "examples": "Rosuvastatin | Rosuvastatin Calcium",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "roe soo'' va stat' in",
+      "pronounced": [
+       "roe soo'' va stat' in"
+      ],
+      "title": "Rosuvastatin",
+      "url": "https://medlineplus.gov/druginfo/meds/a603033.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ɹoʊˈsu.vəˌstæt.n̩/|a=GA"
+      ],
+      "page": "rosuvastatin",
+      "url": "https://en.wiktionary.org/wiki/rosuvastatin"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 16,
+   "word": "dextroamphetamine",
+   "kind": "generic",
+   "display": "dextroamphetamine",
+   "today_us": "dɛkstɹˈOmfətəmˌin",
+   "today_gb": "dɛkstɹˈQmfətəmˌiːn",
+   "today_source": "guesser",
+   "zipf": 1.75,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 86884596,
+   "examples": "Dextroamphetamine; Dextroamphetamine Saccharate; Amphetamine; Amphetamine Aspartate | Dextroamphetamine/Amphetamine | Dextroamphetamine",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "dex troe am fet' a meen",
+      "pronounced": [
+       "dex troe am fet' a meen"
+      ],
+      "title": "Dextroamphetamine",
+      "url": "https://medlineplus.gov/druginfo/meds/a605027.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌdɛkstɹəʊæmˈfɛtəmiːn/|a=UK"
+      ],
+      "page": "dextroamphetamine",
+      "url": "https://en.wiktionary.org/wiki/dextroamphetamine"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 17,
+   "word": "acetaminophen",
+   "kind": "generic",
+   "display": "acetaminophen",
+   "today_us": "əsˌiTəmˈɪnəfən",
+   "today_gb": "əsˌiːtəmˈɪnəfɛn",
+   "today_source": "gold",
+   "zipf": 2.69,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 85746297,
+   "examples": "Hydrocodone/Acetaminophen | Acetaminophen; Hydrocodone | Acetaminophen",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "a set a mee' noe fen",
+      "pronounced": [
+       "a set a mee' noe fen"
+      ],
+      "title": "Acetaminophen Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a611019.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/əˌsitəˈmɪnəfən/"
+      ],
+      "page": "acetaminophen",
+      "url": "https://en.wiktionary.org/wiki/acetaminophen"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 18,
+   "word": "insulin",
+   "kind": "generic",
+   "display": "insulin",
+   "today_us": "ˈɪnsələn",
+   "today_gb": "ˈɪnsjʊlɪn",
+   "today_source": "gold",
+   "zipf": 3.81,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 85501846,
+   "examples": "Insulin Glargine | Insulin Lispro | Insulin Glargine,Hum.Rec.Anlog",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "in' su lin",
+      "pronounced": [
+       "in' su lin"
+      ],
+      "title": "Insulin Human Inhalation",
+      "url": "https://medlineplus.gov/druginfo/meds/a615014.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈɪnsjʊlin/|/ˈɪnʃʊlɪn/|a=UK",
+       "/ˈɪnsəlɪn/|a=US",
+       "/ˈɪnsəlɪn/|/ˈɪnʃʊlɪn/|a=South Africa"
+      ],
+      "page": "insulin",
+      "url": "https://en.wiktionary.org/wiki/insulin"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 19,
+   "word": "amphetamine",
+   "kind": "generic",
+   "display": "amphetamine",
+   "today_us": "æmpfˈɛTəmˌin",
+   "today_gb": "amfˈɛtəmiːn",
+   "today_source": "gold",
+   "zipf": 2.93,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 84885894,
+   "examples": "Dextroamphetamine; Dextroamphetamine Saccharate; Amphetamine; Amphetamine Aspartate | Dextroamphetamine/Amphetamine | Amphetamine",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "am fet' a meen",
+      "pronounced": [
+       "am fet' a meen"
+      ],
+      "title": "Amphetamine",
+      "url": "https://medlineplus.gov/druginfo/meds/a616004.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/æmˈfɛt.ə.miːn/|/æmˈfɛt.əm.ɪn/"
+      ],
+      "page": "amphetamine",
+      "url": "https://en.wiktionary.org/wiki/amphetamine"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 20,
+   "word": "amoxicillin",
+   "kind": "generic",
+   "display": "amoxicillin",
+   "today_us": "əmˌɑksəsˈɪlɪn",
+   "today_gb": "əmˌɒksɪsˈɪlɪn",
+   "today_source": "gold",
+   "zipf": 2.26,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 71774966,
+   "examples": "Amoxicillin | Amoxicillin/Potassium Clav | Amoxicillin; Clavulanate",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "a mox I sil' in",
+      "pronounced": [
+       "a mox I sil' in"
+      ],
+      "title": "Amoxicillin",
+      "url": "https://medlineplus.gov/druginfo/meds/a685001.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/əˌmɒk.sɪˈsɪl.ɪn/|a=RP",
+       "/əˌmak.sɪˈsɪlːɪn/|a=GA"
+      ],
+      "page": "amoxicillin",
+      "url": "https://en.wiktionary.org/wiki/amoxicillin"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 21,
+   "word": "sertraline",
+   "kind": "generic",
+   "display": "sertraline",
+   "today_us": "sˈɜɹtɹəlˌIn",
+   "today_gb": "sˈɜːtɹəlˌIn",
+   "today_source": "guesser",
+   "zipf": 2.14,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 70114232,
+   "examples": "Sertraline | Sertraline HCl",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "ser' tra leen",
+      "pronounced": [
+       "ser' tra leen"
+      ],
+      "title": "Sertraline",
+      "url": "https://medlineplus.gov/druginfo/meds/a697048.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈsɜː.tɹəˌliːn/|a=RP",
+       "/ˈsɜɹ.tɹəˌlin/|a=GA"
+      ],
+      "page": "sertraline",
+      "url": "https://en.wiktionary.org/wiki/sertraline"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 22,
+   "word": "fluticasone",
+   "kind": "generic",
+   "display": "fluticasone",
+   "today_us": "flˈutəkəsˌOn",
+   "today_gb": "flˈuːtəkəsˌQn",
+   "today_source": "guesser",
+   "zipf": 1.64,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 69578922,
+   "examples": "Fluticasone Propionate | Fluticasone | Fluticasone/Umeclidin/Vilanter",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "floo tik' a sone",
+      "pronounced": [
+       "floo tik' a sone"
+      ],
+      "title": "Fluticasone Oral Inhalation",
+      "url": "https://medlineplus.gov/druginfo/meds/a601056.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 23,
+   "word": "pantoprazole",
+   "kind": "generic",
+   "display": "pantoprazole",
+   "today_us": "pˈæntəpɹˌæzˌOl",
+   "today_gb": "pˈantəpɹˌazˌQl",
+   "today_source": "guesser",
+   "zipf": 1.26,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 66543589,
+   "examples": "Pantoprazole | Pantoprazole Sodium",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "pan toe' pra zole",
+      "pronounced": [
+       "pan toe' pra zole"
+      ],
+      "title": "Pantoprazole",
+      "url": "https://medlineplus.gov/druginfo/meds/a601246.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/pænˈtoʊ.pɹəˌzoʊl/|a=GA"
+      ],
+      "page": "pantoprazole",
+      "url": "https://en.wiktionary.org/wiki/pantoprazole"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 24,
+   "word": "sulfate",
+   "kind": "generic",
+   "display": "sulfate",
+   "today_us": "sˈʌlfˌAt",
+   "today_gb": "sˈʌlfAt",
+   "today_source": "gold",
+   "zipf": 3.19,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 65736276,
+   "examples": "Albuterol Sulfate | Ferrous Sulfate | Morphine Sulfate",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "ba' ree um"
+      ],
+      "title": "Barium Sulfate",
+      "url": "https://medlineplus.gov/druginfo/meds/a606010.html"
+     },
+     {
+      "aligned": null,
+      "pronounced": [
+       "mag nee' zee um",
+       "sul' fate"
+      ],
+      "title": "Magnesium Sulfate, Potassium Sulfate, and Sodium Sulfate",
+      "url": "https://medlineplus.gov/druginfo/meds/a619013.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈsʌlfeɪt/"
+      ],
+      "page": "sulfate",
+      "url": "https://en.wiktionary.org/wiki/sulfate"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 25,
+   "word": "sulfate",
+   "kind": "salt",
+   "display": "sulfate",
+   "today_us": "sˈʌlfˌAt",
+   "today_gb": "sˈʌlfAt",
+   "today_source": "gold",
+   "zipf": 3.19,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 62387220,
+   "examples": "Albuterol Sulfate | Ferrous Sulfate | Morphine Sulfate",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "ba' ree um"
+      ],
+      "title": "Barium Sulfate",
+      "url": "https://medlineplus.gov/druginfo/meds/a606010.html"
+     },
+     {
+      "aligned": null,
+      "pronounced": [
+       "mag nee' zee um",
+       "sul' fate"
+      ],
+      "title": "Magnesium Sulfate, Potassium Sulfate, and Sodium Sulfate",
+      "url": "https://medlineplus.gov/druginfo/meds/a619013.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈsʌlfeɪt/"
+      ],
+      "page": "sulfate",
+      "url": "https://en.wiktionary.org/wiki/sulfate"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 26,
+   "word": "besylate",
+   "kind": "salt",
+   "display": "besylate",
+   "today_us": "bˈɛzəlˌAt",
+   "today_gb": "bˈɛzəlˌAt",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 61295184,
+   "examples": "Amlodipine Besylate | Amlodipine Besylate/Benazepril | Amlodipine Besylate/Valsartan",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈbɛsɪleɪt/"
+      ],
+      "page": "besylate",
+      "url": "https://en.wiktionary.org/wiki/besylate"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 27,
+   "word": "escitalopram",
+   "kind": "generic",
+   "display": "escitalopram",
+   "today_us": "ˌɛsətˈæləpɹˌæm",
+   "today_gb": "ˌɛsətˈaləpɹˌam",
+   "today_source": "guesser",
+   "zipf": 1.63,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 61220154,
+   "examples": "Escitalopram | Escitalopram Oxalate",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "es sye tal' oh pram",
+      "pronounced": [
+       "es sye tal' oh pram"
+      ],
+      "title": "Escitalopram",
+      "url": "https://medlineplus.gov/druginfo/meds/a603005.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌɛs.əˈtæl.əˌpɹæm/|a=GA"
+      ],
+      "page": "escitalopram",
+      "url": "https://en.wiktionary.org/wiki/escitalopram"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 28,
+   "word": "semaglutide",
+   "kind": "generic",
+   "display": "semaglutide",
+   "today_us": "sˌɛməɡlˈutˌId",
+   "today_gb": "sˌɛməɡlˈuːtˌId",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 57469841,
+   "examples": "Semaglutide | semaglutide",
+   "generic_of": "",
+   "why": "clincalc-top300,fin-888,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "sem\" a gloo' tide",
+      "pronounced": [
+       "sem\" a gloo' tide"
+      ],
+      "title": "Semaglutide Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a618008.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌsɛməˈɡlutaɪd/",
+       "/ˌsɛməˈɡluːtaɪd/"
+      ],
+      "page": "semaglutide",
+      "url": "https://en.wiktionary.org/wiki/semaglutide"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 29,
+   "word": "estradiol",
+   "kind": "generic",
+   "display": "estradiol",
+   "today_us": "ˌɛstɹədˈIɔl",
+   "today_gb": "ɪstɹˈAdiəl",
+   "today_source": "gold",
+   "zipf": 2.73,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 57129303,
+   "examples": "Estradiol | Ethinyl Estradiol; Norethindrone | Ethinyl Estradiol; Norgestimate",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "es tra dye' ole",
+      "pronounced": [
+       "es tra dye' ole"
+      ],
+      "title": "Estradiol Topical",
+      "url": "https://medlineplus.gov/druginfo/meds/a605041.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌɛs.tɹəˈdaɪˌɔl/|a=GA"
+      ],
+      "page": "estradiol",
+      "url": "https://en.wiktionary.org/wiki/estradiol"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 30,
+   "word": "trazodone",
+   "kind": "generic",
+   "display": "trazodone",
+   "today_us": "tɹɑzOdˈOni",
+   "today_gb": "tɹɒzQdˈQni",
+   "today_source": "guesser",
+   "zipf": 1.92,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 52626541,
+   "examples": "Trazodone HCl | Trazodone",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "traz' oh done",
+      "pronounced": [
+       "traz' oh done"
+      ],
+      "title": "Trazodone",
+      "url": "https://medlineplus.gov/druginfo/meds/a681038.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈtɹæz.əˌdoʊn/|a=GA"
+      ],
+      "page": "trazodone",
+      "url": "https://en.wiktionary.org/wiki/trazodone"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 31,
+   "word": "bupropion",
+   "kind": "generic",
+   "display": "bupropion",
+   "today_us": "bjupɹˈOpiən",
+   "today_gb": "bjuːpɹˈQpɪən",
+   "today_source": "gold",
+   "zipf": 2.04,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 51946954,
+   "examples": "Bupropion | Bupropion HCl | Dextromethorphan HBr/Bupropion",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "byoo proe' pee on",
+      "pronounced": [
+       "byoo proe' pee on"
+      ],
+      "title": "Bupropion",
+      "url": "https://medlineplus.gov/druginfo/meds/a695033.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/bjuːˈpɹəʊ.pi.ən/|a=RP",
+       "/bjuːˈpɹoʊ.piˌɑn/|a=GA"
+      ],
+      "page": "bupropion",
+      "url": "https://en.wiktionary.org/wiki/bupropion"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 32,
+   "word": "apixaban",
+   "kind": "generic",
+   "display": "apixaban",
+   "today_us": "əpˈɪksəbˌæn",
+   "today_gb": "əpˈɪksəbˌan",
+   "today_source": "guesser",
+   "zipf": 1.18,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 47965964,
+   "examples": "Apixaban",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "a pix' a ban",
+      "pronounced": [
+       "a pix' a ban"
+      ],
+      "title": "Apixaban",
+      "url": "https://medlineplus.gov/druginfo/meds/a613032.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 33,
+   "word": "furosemide",
+   "kind": "generic",
+   "display": "furosemide",
+   "today_us": "fjʊɹˈOsəmˌId",
+   "today_gb": "fjˈʊɹQsmˌId",
+   "today_source": "gold",
+   "zipf": 2.14,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 46776475,
+   "examples": "Furosemide",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "fyoor oh' se mide",
+      "pronounced": [
+       "fyoor oh' se mide"
+      ],
+      "title": "Furosemide Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a616046.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/fjʊˈɹoʊ.səˌmaɪd/|a=GA"
+      ],
+      "page": "furosemide",
+      "url": "https://en.wiktionary.org/wiki/furosemide"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 34,
+   "word": "tamsulosin",
+   "kind": "generic",
+   "display": "tamsulosin",
+   "today_us": "tˈæmsəlˌOsən",
+   "today_gb": "tˈamsəlˌQsən",
+   "today_source": "guesser",
+   "zipf": 1.51,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 46456646,
+   "examples": "Tamsulosin HCl | Tamsulosin | Dutasteride/Tamsulosin HCl",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "tam soo' loe sin",
+      "pronounced": [
+       "tam soo' loe sin"
+      ],
+      "title": "Tamsulosin",
+      "url": "https://medlineplus.gov/druginfo/meds/a698012.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/tæmˈsuː.ləs.ɪn/|a=GA"
+      ],
+      "page": "tamsulosin",
+      "url": "https://en.wiktionary.org/wiki/tamsulosin"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 35,
+   "word": "oxycodone",
+   "kind": "generic",
+   "display": "oxycodone",
+   "today_us": "ˌɑksikˈOdˌOn",
+   "today_gb": "ˌɒksɪkˈQdQn",
+   "today_source": "gold",
+   "zipf": 2.59,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 45788556,
+   "examples": "Oxycodone | Oxycodone HCl | Oxycodone HCl/Acetaminophen",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "ox I koe' done",
+      "pronounced": [
+       "ox I koe' done"
+      ],
+      "title": "Oxycodone",
+      "url": "https://medlineplus.gov/druginfo/meds/a682132.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌɒk.siˈkəʊ.dəʊn/|a=RP",
+       "/ˌɑk.siˈkoʊˌdoʊn/|a=GA"
+      ],
+      "page": "oxycodone",
+      "url": "https://en.wiktionary.org/wiki/oxycodone"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 36,
+   "word": "montelukast",
+   "kind": "generic",
+   "display": "montelukast",
+   "today_us": "mˌɑntɪlˈukəst",
+   "today_gb": "mˌɒntɪlˈuːkəst",
+   "today_source": "guesser",
+   "zipf": 1.5,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 44620634,
+   "examples": "Montelukast | Montelukast Sodium",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "mon te loo' kast",
+      "pronounced": [
+       "mon te loo' kast"
+      ],
+      "title": "Montelukast",
+      "url": "https://medlineplus.gov/druginfo/meds/a600014.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌmɑn.təˈluːˌkæst/|a=GA"
+      ],
+      "page": "montelukast",
+      "url": "https://en.wiktionary.org/wiki/montelukast"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 37,
+   "word": "hydrocodone",
+   "kind": "generic",
+   "display": "hydrocodone",
+   "today_us": "hˈIdɹOkOdˌOni",
+   "today_gb": "hˈIdɹQkQdˌQni",
+   "today_source": "guesser",
+   "zipf": 2.39,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 44233349,
+   "examples": "Hydrocodone/Acetaminophen | Acetaminophen; Hydrocodone | Hydrocodone Bitartrate",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "hye'' droe koe' done",
+      "pronounced": [
+       "hye'' droe koe' done"
+      ],
+      "title": "Hydrocodone",
+      "url": "https://medlineplus.gov/druginfo/meds/a614045.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌhaɪ.dɹoʊˈkoʊˌdoʊn/|a=GA"
+      ],
+      "page": "hydrocodone",
+      "url": "https://en.wiktionary.org/wiki/hydrocodone"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 38,
+   "word": "chloride",
+   "kind": "generic",
+   "display": "chloride",
+   "today_us": "klˈɔɹˌId",
+   "today_gb": "klˈɔːɹId",
+   "today_source": "gold",
+   "zipf": 3.39,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 44107806,
+   "examples": "Potassium Chloride | Oxybutynin Chloride | 0.9 % Sodium Chloride",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "stron' shee um"
+      ],
+      "title": "Strontium-89 Chloride",
+      "url": "https://medlineplus.gov/druginfo/meds/a601004.html"
+     },
+     {
+      "aligned": null,
+      "pronounced": [
+       "poe tas′ ee um klor′ ide"
+      ],
+      "title": "Potassium Chloride Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a625021.html"
+     },
+     {
+      "aligned": null,
+      "pronounced": [
+       "zan oh′ me leen and trose' pee um"
+      ],
+      "title": "Xanomeline and trospium chloride",
+      "url": "https://medlineplus.gov/druginfo/meds/a624070.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [
+       "klôʹrīd'|a=UK",
+       "klôrʹīd'|a=US"
+      ],
+      "ipa": [
+       "/ˈklɔːˌɹaɪd/",
+       "/ˈklɔɹˌaɪd/"
+      ],
+      "page": "chloride",
+      "url": "https://en.wiktionary.org/wiki/chloride"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 39,
+   "word": "succinate",
+   "kind": "salt",
+   "display": "succinate",
+   "today_us": "sˈʌksənˌAt",
+   "today_gb": "sˈʌksɪnAt",
+   "today_source": "gold",
+   "zipf": 2.21,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 43998365,
+   "examples": "Metoprolol Succinate | Sumatriptan Succinate | Desvenlafaxine Succinate",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 40,
+   "word": "fluoxetine",
+   "kind": "generic",
+   "display": "fluoxetine",
+   "today_us": "fluˈɑksətˌin",
+   "today_gb": "fluːˈɒksɪtiːn",
+   "today_source": "gold",
+   "zipf": 2.19,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 43898319,
+   "examples": "Fluoxetine | Fluoxetine HCl | Olanzapine/Fluoxetine HCl",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "floo ox' e teen",
+      "pronounced": [
+       "floo ox' e teen"
+      ],
+      "title": "Fluoxetine",
+      "url": "https://medlineplus.gov/druginfo/meds/a689006.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/fluːˈɒk.sə.tiːn/|a=RP",
+       "/fluːˈaksətiːn/|a=GA"
+      ],
+      "page": "fluoxetine",
+      "url": "https://en.wiktionary.org/wiki/fluoxetine"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 41,
+   "word": "prednisone",
+   "kind": "generic",
+   "display": "prednisone",
+   "today_us": "pɹˈɛdnəzˌOn",
+   "today_gb": "pɹˈɛdnɪzQn",
+   "today_source": "gold",
+   "zipf": 2.56,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 39850966,
+   "examples": "Prednisone",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "pred' ni sone",
+      "pronounced": [
+       "pred' ni sone"
+      ],
+      "title": "Prednisone",
+      "url": "https://medlineplus.gov/druginfo/meds/a601102.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [
+       "prĕdʹnĭ-sōn'|prĕdʹnĭ-zōn'"
+      ],
+      "ipa": [
+       "/ˈpɹɛd.nɪ.zəʊn/|a=RP",
+       "/ˈpɹɛd.nɪˌsoʊn/|a=GA"
+      ],
+      "page": "prednisone",
+      "url": "https://en.wiktionary.org/wiki/prednisone"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 42,
+   "word": "ibuprofen",
+   "kind": "generic",
+   "display": "ibuprofen",
+   "today_us": "ˌIbjupɹˈOfən",
+   "today_gb": "ˌIbjuːpɹˈQfᵊn",
+   "today_source": "gold",
+   "zipf": 2.93,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 38827004,
+   "examples": "Ibuprofen | Hydrocodone/Ibuprofen | Ibuprofen/FAmotidine",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "eye byoo' proe fen",
+      "pronounced": [
+       "eye byoo' proe fen"
+      ],
+      "title": "Ibuprofen",
+      "url": "https://medlineplus.gov/druginfo/meds/a682159.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌʌɪ.bjuː.ˈpɹəʊ.fən/|a=RP",
+       "/ˌaɪ.bju.ˈpɹoʊ.fən/|/ˌaɪ.bjə.ˈpɹoʊfən/|a=GA"
+      ],
+      "page": "ibuprofen",
+      "url": "https://en.wiktionary.org/wiki/ibuprofen"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 43,
+   "word": "simvastatin",
+   "kind": "generic",
+   "display": "simvastatin",
+   "today_us": "sˈɪmvəstˌAtɪn",
+   "today_gb": "sˈɪmvəstˌAtɪn",
+   "today_source": "guesser",
+   "zipf": 1.98,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 38552055,
+   "examples": "Simvastatin | Ezetimibe/Simvastatin",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "sim' va stat in",
+      "pronounced": [
+       "sim' va stat in"
+      ],
+      "title": "Simvastatin",
+      "url": "https://medlineplus.gov/druginfo/meds/a692030.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈsɪm.vəˌstæt.n̩/|/ˌsɪm.vəˈstæt.n̩/|a=GA"
+      ],
+      "page": "simvastatin",
+      "url": "https://en.wiktionary.org/wiki/simvastatin"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 44,
+   "word": "famotidine",
+   "kind": "generic",
+   "display": "famotidine",
+   "today_us": "fəmˈɑtədˌin",
+   "today_gb": "fəmˈɒtədˌiːn",
+   "today_source": "guesser",
+   "zipf": 1.29,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 38169981,
+   "examples": "Famotidine | Famotidine/PF | Ibuprofen/FAmotidine",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "fa moe' ti deen",
+      "pronounced": [
+       "fa moe' ti deen"
+      ],
+      "title": "Famotidine Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a601142.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/fəˈmoʊ.tɪˌdin/|a=GA"
+      ],
+      "page": "famotidine",
+      "url": "https://en.wiktionary.org/wiki/famotidine"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 45,
+   "word": "aspartate",
+   "kind": "salt",
+   "display": "aspartate",
+   "today_us": "əspˈɑɹtˌAt",
+   "today_gb": "əspˈɑːtAt",
+   "today_source": "gold",
+   "zipf": 2.36,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 36846046,
+   "examples": "Dextroamphetamine; Dextroamphetamine Saccharate; Amphetamine; Amphetamine Aspartate",
+   "generic_of": "",
+   "why": "top-60-salt",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈæspə(ɹ)teɪt/|/əsˈpɑː(ɹ)teɪt/"
+      ],
+      "page": "aspartate",
+      "url": "https://en.wiktionary.org/wiki/aspartate"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 46,
+   "word": "saccharate",
+   "kind": "generic",
+   "display": "saccharate",
+   "today_us": "sˈækəɹˌAt",
+   "today_gb": "sˈakəɹˌAt",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 36846046,
+   "examples": "Dextroamphetamine; Dextroamphetamine Saccharate; Amphetamine; Amphetamine Aspartate",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 47,
+   "word": "empagliflozin",
+   "kind": "generic",
+   "display": "empagliflozin",
+   "today_us": "ɛmpˈæɡləflˌOzɪn",
+   "today_gb": "ɛmpˈaɡləflˌQzɪn",
+   "today_source": "guesser",
+   "zipf": 1.19,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 35791073,
+   "examples": "Empagliflozin | Empagliflozin/Metformin HCl | Empagliflozin/Linagliptin",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "em'' pa gli floe' zin",
+      "pronounced": [
+       "em'' pa gli floe' zin"
+      ],
+      "title": "Empagliflozin",
+      "url": "https://medlineplus.gov/druginfo/meds/a614043.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˌɛm.pəɡ.ləˈfloʊ.zɪn/|a=GA"
+      ],
+      "page": "empagliflozin",
+      "url": "https://en.wiktionary.org/wiki/empagliflozin"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 48,
+   "word": "glargine",
+   "kind": "generic",
+   "display": "glargine",
+   "today_us": "ɡlˈɑɹʤən",
+   "today_gb": "ɡlˈɑːʤən",
+   "today_source": "guesser",
+   "zipf": 1.73,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 35764756,
+   "examples": "Insulin Glargine | Insulin Glargine,Hum.Rec.Anlog | Insulin Glargine-Yfgn",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "glar' geen",
+      "pronounced": [
+       "in' su lin",
+       "glar' geen"
+      ],
+      "title": "Insulin Glargine (rDNA origin) Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a600027.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 49,
+   "word": "duloxetine",
+   "kind": "generic",
+   "display": "duloxetine",
+   "today_us": "djulˈɑksətˌin",
+   "today_gb": "djulˈɒksətˌiːn",
+   "today_source": "guesser",
+   "zipf": 1.65,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 35538864,
+   "examples": "Duloxetine | Duloxetine HCl",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "doo lox' e teen",
+      "pronounced": [
+       "doo lox' e teen"
+      ],
+      "title": "Duloxetine",
+      "url": "https://medlineplus.gov/druginfo/meds/a604030.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/duːˈlɑk.səˌtiːn/|a=GA"
+      ],
+      "page": "duloxetine",
+      "url": "https://en.wiktionary.org/wiki/duloxetine"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 50,
+   "word": "meloxicam",
+   "kind": "generic",
+   "display": "meloxicam",
+   "today_us": "məlˈɑksɪkəm",
+   "today_gb": "məlˈɒksɪkəm",
+   "today_source": "guesser",
+   "zipf": 1.46,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 35419461,
+   "examples": "Meloxicam | Meloxicam, Submicronized",
+   "generic_of": "",
+   "why": "clincalc-top300,top-500-generic",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "mel ox' i cam",
+      "pronounced": [
+       "mel ox' i cam"
+      ],
+      "title": "Meloxicam",
+      "url": "https://medlineplus.gov/druginfo/meds/a601242.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/məˈlɑk.səˌkæm/|a=GA"
+      ],
+      "page": "meloxicam",
+      "url": "https://en.wiktionary.org/wiki/meloxicam"
+     }
+    ]
+   }
+  }
+ ]
+}

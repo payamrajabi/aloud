@@ -1,0 +1,1654 @@
+{
+ "batch": "d0021",
+ "rows": [
+  {
+   "rank": 910,
+   "word": "nortrel",
+   "kind": "brand",
+   "display": "Nortrel",
+   "today_us": "nˈɔɹtɹəl",
+   "today_gb": "nˈɔːtɹəl",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 78798,
+   "examples": "Nortrel",
+   "generic_of": "estradiol | ethinyl | norethindrone",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Nortrel®",
+      "generic_monograph": "Ethinyl Estradiol and Norethindrone (Oral Contraceptives)",
+      "generic_pronounced": [
+       "ess' troe jen",
+       "nor eth′ in drone"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a601050.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 911,
+   "word": "hectorol",
+   "kind": "brand",
+   "display": "Hectorol",
+   "today_us": "hˈɛktəɹəl",
+   "today_gb": "hˈɛktəɹəl",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 78435,
+   "examples": "Hectorol",
+   "generic_of": "doxercalciferol",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Hectorol®",
+      "generic_monograph": "Doxercalciferol Injection",
+      "generic_pronounced": [
+       "dox'' er kaf sif' er ol"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a616044.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 912,
+   "word": "airsupra",
+   "kind": "brand",
+   "display": "Airsupra",
+   "today_us": "ˈɛɹsˌʌpɹə",
+   "today_gb": "ˈɛːsˌʌpɹə",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 78305,
+   "examples": "Airsupra",
+   "generic_of": "albuterol | budesonide",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "airsupra",
+      "label": "AIRSUPRA (ALBUTEROL SULFATE AND BUDESONIDE) AEROSOL, METERED [ASTRAZENECA PHARMACEUTICALS LP]",
+      "respelling": "ayr soo' prah",
+      "setid": "e60aa9f9-5139-44df-b886-ebddc3c7eb13",
+      "term": "AIRSUPRA",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e60aa9f9-5139-44df-b886-ebddc3c7eb13"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Airsupra®",
+      "generic_monograph": "Budesonide and Albuterol Oral Inhalation",
+      "generic_pronounced": [
+       "byoo des' oh nide"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a623009.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 913,
+   "word": "proctozone-hc",
+   "kind": "brand",
+   "display": "Proctozone-HC",
+   "today_us": "pɹˌɑktəzˈOnihk",
+   "today_gb": "pɹˌɒktəzˈQnihk",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 78124,
+   "examples": "Proctozone-HC",
+   "generic_of": "hydrocortisone",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 914,
+   "word": "genteal",
+   "kind": "brand",
+   "display": "Genteal",
+   "today_us": "ʤɛntˈil",
+   "today_gb": "ʤɛntˈiːl",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 77804,
+   "examples": "Genteal Tears | Genteal Tears Severe",
+   "generic_of": "hypromellose | dextran | glycerin",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 915,
+   "word": "dok",
+   "kind": "brand",
+   "display": "Dok",
+   "today_us": "dˈɑk",
+   "today_gb": "dˈɒk",
+   "today_source": "guesser",
+   "zipf": 2.33,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 77503,
+   "examples": "Dok",
+   "generic_of": "docusate | sodium",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 916,
+   "word": "cosentyx",
+   "kind": "brand",
+   "display": "Cosentyx",
+   "today_us": "kˈOsəntˌɪks",
+   "today_gb": "kˈQsəntˌɪks",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 77192,
+   "examples": "Cosentyx Unoready Pen | Cosentyx",
+   "generic_of": "secukinumab",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "cosentyx",
+      "label": "COSENTYX (SECUKINUMAB) INJECTION COSENTYX (SECUKINUMAB) INJECTION, SOLUTION, CONCENTRATE [NOVARTIS PHARMACEUTICALS CORPORATION]",
+      "respelling": "koe-sen-tix",
+      "setid": "77c4b13e-7df3-42d4-81db-3d0cddb7f67a",
+      "term": "COSENTYX",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=77c4b13e-7df3-42d4-81db-3d0cddb7f67a"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Cosentyx®",
+      "generic_monograph": "Secukinumab Injection",
+      "generic_pronounced": [
+       "sek'' ue kin' ue mab"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a615011.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 918,
+   "word": "norditropin",
+   "kind": "brand",
+   "display": "Norditropin",
+   "today_us": "nˌɔɹdˈɪtɹəpɪn",
+   "today_gb": "nˌɔːdˈɪtɹəpɪn",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 75870,
+   "examples": "Norditropin Flexpro",
+   "generic_of": "somatropin",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "norditropin",
+      "label": "NORDITROPIN (SOMATROPIN) INJECTION, SOLUTION [NOVO NORDISK]",
+      "respelling": "nor-dee-tro-pin",
+      "setid": "1058e17c-9261-459c-a3e6-fae38d196c14",
+      "term": "NORDITROPIN",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1058e17c-9261-459c-a3e6-fae38d196c14"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Norditropin®",
+      "generic_monograph": "Somatropin Injection",
+      "generic_pronounced": [
+       "soe\" ma troe' pin"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a622022.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 919,
+   "word": "dayvigo",
+   "kind": "brand",
+   "display": "Dayvigo",
+   "today_us": "dˈAvɪɡˌO",
+   "today_gb": "dˈAvɪɡˌQ",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 74743,
+   "examples": "Dayvigo",
+   "generic_of": "lemborexant",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "dayvigo",
+      "label": "DAYVIGO (LEMBOREXANT) TABLET, FILM COATED [EISAI INC.]",
+      "respelling": "daye-vi'-goe",
+      "setid": "7074cb65-77b3-45d2-8e8d-da8dc0f70bfd",
+      "term": "DAYVIGO",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7074cb65-77b3-45d2-8e8d-da8dc0f70bfd"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Dayvigo®",
+      "generic_monograph": "Lemborexant",
+      "generic_pronounced": [
+       "lem'' boe rex' ant"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a620039.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 920,
+   "word": "hizentra",
+   "kind": "brand",
+   "display": "Hizentra",
+   "today_us": "hɪzˈɛntɹə",
+   "today_gb": "hɪzˈɛntɹə",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 74170,
+   "examples": "Hizentra",
+   "generic_of": "immun glob g(igg)/pro/iga 0-50",
+   "why": "partb-top,top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "hizentra",
+      "label": "HIZENTRA (HUMAN IMMUNOGLOBULIN G) LIQUID [CSL BEHRING AG]",
+      "respelling": "hi-ZEN-tra",
+      "setid": "7b58f5ff-0316-49a3-b585-1f6003ddb953",
+      "term": "HIZENTRA",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b58f5ff-0316-49a3-b585-1f6003ddb953"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Hizentra®",
+      "generic_monograph": "Immune Globulin Subcutaneous (Human)",
+      "generic_pronounced": [],
+      "url": "https://medlineplus.gov/druginfo/meds/a624083.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 921,
+   "word": "eluryng",
+   "kind": "brand",
+   "display": "Eluryng",
+   "today_us": "ɪlˈʊɹɪŋ",
+   "today_gb": "ɪlˈʊɹɪŋ",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 74093,
+   "examples": "Eluryng",
+   "generic_of": "estradiol | ethinyl | etonogestrel",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 923,
+   "word": "cimzia",
+   "kind": "brand",
+   "display": "Cimzia",
+   "today_us": "sˈɪmziə",
+   "today_gb": "sˈɪmziə",
+   "today_source": "guesser",
+   "zipf": 1.27,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 73888,
+   "examples": "Cimzia (2 Pack) | Cimzia | Cimzia*",
+   "generic_of": "certolizumab",
+   "why": "partb-top,top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "cimzia",
+      "label": "CIMZIA (CERTOLIZUMAB PEGOL) KIT CIMZIA (CERTOLIZUMAB PEGOL) INJECTION, SOLUTION [UCB, INC.]",
+      "respelling": "CIM-zee-uh",
+      "setid": "b4c2c9dc-a0bb-4d64-a667-a67ebe88392d",
+      "term": "CIMZIA",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b4c2c9dc-a0bb-4d64-a667-a67ebe88392d"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Cimzia®",
+      "generic_monograph": "Certolizumab Injection",
+      "generic_pronounced": [
+       "ser'' toe liz' oo mab"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a608041.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 924,
+   "word": "bicillin",
+   "kind": "brand",
+   "display": "Bicillin",
+   "today_us": "bIsˈɪlɪn",
+   "today_gb": "bIsˈɪlɪn",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 73784,
+   "examples": "Bicillin L-A | Bicillin C-R",
+   "generic_of": "penicillin | benztropine",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 925,
+   "word": "forteo",
+   "kind": "brand",
+   "display": "Forteo",
+   "today_us": "fˈɔɹtiO",
+   "today_gb": "fˈɔːtiQ",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 73661,
+   "examples": "Forteo",
+   "generic_of": "teriparatide",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Forteo®",
+      "generic_monograph": "Teriparatide Injection",
+      "generic_pronounced": [
+       "terr ih par' a tyd"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a603018.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 929,
+   "word": "vabysmo",
+   "kind": "brand",
+   "display": "Vabysmo",
+   "today_us": "vəbˈɪsmO",
+   "today_gb": "vəbˈɪsmQ",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 72747,
+   "examples": "Vabysmo",
+   "generic_of": "faricimab",
+   "why": "partb-top,top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Vabysmo®",
+      "generic_monograph": "Faricimab-svoa Injection",
+      "generic_pronounced": [
+       "far ik′ i mab"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a624073.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 930,
+   "word": "heather",
+   "kind": "brand",
+   "display": "Heather",
+   "today_us": "hˈɛðəɹ",
+   "today_gb": "hˈɛðə",
+   "today_source": "gold",
+   "zipf": 3.87,
+   "dictionary_word": true,
+   "given_name": {
+    "rank": 1756,
+    "name": "Heather",
+    "est_people": 758286
+   },
+   "other_lists": [],
+   "score": 72704,
+   "examples": "Heather",
+   "generic_of": "norethindrone",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Heather®",
+      "generic_monograph": "Progestin-Only (norethindrone) Oral Contraceptives",
+      "generic_pronounced": [
+       "pro jes' tin"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a602008.html"
+     }
+    ],
+    "wiktionary": [
+     {
+      "enpr": [],
+      "ipa": [
+       "/ˈhɛðɚ/|a=GenAm",
+       "/ˈhɛðə/|a=RP",
+       "/ˈhiːðə/|a=Leicestershire"
+      ],
+      "page": "Heather",
+      "url": "https://en.wiktionary.org/wiki/Heather"
+     }
+    ]
+   }
+  },
+  {
+   "rank": 931,
+   "word": "tremfya",
+   "kind": "brand",
+   "display": "Tremfya",
+   "today_us": "tɹˈɛmfjə",
+   "today_gb": "tɹˈɛmfjə",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 72689,
+   "examples": "Tremfya* | Tremfya Pen",
+   "generic_of": "guselkumab",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "tremfya",
+      "label": "TREMFYA (GUSELKUMAB) INJECTION TREMFYA (GUSELKUMAB) INJECTION [JANSSEN BIOTECH, INC.]",
+      "respelling": "trem fye' ah",
+      "setid": "1e6dc9ae-1c4c-42d9-87aa-c315ecc51b56",
+      "term": "TREMFYA",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e6dc9ae-1c4c-42d9-87aa-c315ecc51b56"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Tremfya®",
+      "generic_monograph": "Guselkumab Injection",
+      "generic_pronounced": [
+       "gue\" sel koo' mab"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a617036.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 932,
+   "word": "daily",
+   "kind": "brand",
+   "display": "Daily",
+   "today_us": "dˈAli",
+   "today_gb": "dˈAli",
+   "today_source": "gold",
+   "zipf": 5.07,
+   "dictionary_word": true,
+   "given_name": null,
+   "other_lists": [],
+   "score": 72636,
+   "examples": "Pataday Once Daily Relief | Pataday Twice Daily Relief | Lastacaft Once Daily Relief",
+   "generic_of": "olopatadine | alcaftadine | folic",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 934,
+   "word": "tezspire",
+   "kind": "brand",
+   "display": "Tezspire",
+   "today_us": "tˈɛspˌIɹ",
+   "today_gb": "tˈɛspˌIə",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 72477,
+   "examples": "Tezspire",
+   "generic_of": "tezepelumab",
+   "why": "partb-top,top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "tezspire",
+      "label": "TEZSPIRE (TEZEPELUMAB-EKKO) INJECTION, SOLUTION [AMGEN INC]",
+      "respelling": "TEZ-SPY-ER",
+      "setid": "60f0aa03-ad25-4d48-80ce-7fcfa76f325f",
+      "term": "TEZSPIRE",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=60f0aa03-ad25-4d48-80ce-7fcfa76f325f"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Tezspire®",
+      "generic_monograph": "Tezepelumab Injection",
+      "generic_pronounced": [
+       "tez\" e pel' ue mab"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a622010.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 936,
+   "word": "pataday",
+   "kind": "brand",
+   "display": "Pataday",
+   "today_us": "pˈætədˌA",
+   "today_gb": "pˈatədˌA",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 70158,
+   "examples": "Pataday Once Daily Relief | Pataday Twice Daily Relief | Pataday",
+   "generic_of": "olopatadine",
+   "why": "otc-us,top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Pataday®",
+      "generic_monograph": "Olopatadine Ophthalmic",
+      "generic_pronounced": [
+       "oh loe pa ta' deen"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a602025.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 937,
+   "word": "quviviq",
+   "kind": "brand",
+   "display": "Quviviq",
+   "today_us": "kwvˈɪvɪk",
+   "today_gb": "kwvˈɪvɪk",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 70065,
+   "examples": "Quviviq",
+   "generic_of": "daridorexant",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "quviviq",
+      "label": "QUVIVIQ (DARIDOREXANT) TABLET, FILM COATED [IDORSIA PHARMACEUTICALS LTD]",
+      "respelling": "cue-VIH-vick",
+      "setid": "3a2d1503-b816-40c9-9fac-7e03c5a3bcef",
+      "term": "QUVIVIQ",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3a2d1503-b816-40c9-9fac-7e03c5a3bcef"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "QUVIVIQ®",
+      "generic_monograph": "Daridorexant",
+      "generic_pronounced": [],
+      "url": "https://medlineplus.gov/druginfo/meds/a622034.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 939,
+   "word": "isibloom",
+   "kind": "brand",
+   "display": "Isibloom",
+   "today_us": "ˈɪzəblˌum",
+   "today_gb": "ˈɪzəblˌuːm",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 68985,
+   "examples": "Isibloom",
+   "generic_of": "desogestrel | estradiol | ethinyl",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Isibloom®",
+      "generic_monograph": "Ethinyl Estradiol and Desogestrel (Oral Contraceptive)",
+      "generic_pronounced": [
+       "eth′ i nil es″ tra dye′ ol",
+       "droe spye′ re none"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a625046.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 940,
+   "word": "kisqali",
+   "kind": "brand",
+   "display": "Kisqali",
+   "today_us": "kɪskˈɑli",
+   "today_gb": "kɪskˈɒli",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 68947,
+   "examples": "Kisqali | Kisqali Femara Co-Pack",
+   "generic_of": "ribociclib | letrozole",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "kisqali",
+      "label": "KISQALI (RIBOCICLIB) TABLET, FILM COATED [NOVARTIS PHARMACEUTICALS CORPORATION]",
+      "respelling": "kis kah' lee",
+      "setid": "aaeaef94-f3f5-4367-8ea2-b181d7be2da8",
+      "term": "KISQALI",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aaeaef94-f3f5-4367-8ea2-b181d7be2da8"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Kisqali®",
+      "generic_monograph": "Ribociclib",
+      "generic_pronounced": [
+       "rye'' boe sye' klib"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a617008.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 941,
+   "word": "fanapt",
+   "kind": "brand",
+   "display": "Fanapt",
+   "today_us": "fˈænəpt",
+   "today_gb": "fˈanəpt",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 68572,
+   "examples": "Fanapt",
+   "generic_of": "iloperidone",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Fanapt®",
+      "generic_monograph": "Iloperidone",
+      "generic_pronounced": [
+       "eye'' loe per' i done"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a609026.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 942,
+   "word": "dyanavel",
+   "kind": "brand",
+   "display": "Dyanavel",
+   "today_us": "dIˈænəvəl",
+   "today_gb": "dIˈanəvəl",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 67901,
+   "examples": "Dyanavel XR",
+   "generic_of": "amphetamine",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 943,
+   "word": "plenvu",
+   "kind": "brand",
+   "display": "Plenvu",
+   "today_us": "plˈɛnvu",
+   "today_gb": "plˈɛnvu",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 67705,
+   "examples": "Plenvu",
+   "generic_of": "asb | kcl | nacl",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "plenvu",
+      "label": "PLENVU (POLYETHYLENE GLYCOL 3350, SODIUM SULFATE, SODIUM CHLORIDE, POTASSIUM CHLORIDE, ASCORBIC ACID, SODIUM ASCORBATE) KIT [SALIX PHARMACEUTICALS, INC]",
+      "respelling": "plen-vu",
+      "setid": "79f930fa-5674-4f30-8ae8-9448d6243797",
+      "term": "PLENVU",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=79f930fa-5674-4f30-8ae8-9448d6243797"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Plenvu®",
+      "generic_monograph": "Polyethylene glycol-electrolyte solution (PEG-ES)",
+      "generic_pronounced": [
+       "pol ee eth' i leen",
+       "glye' col"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a601097.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 944,
+   "word": "depo-provera",
+   "kind": "brand",
+   "display": "Depo-Provera",
+   "today_us": "dˈipOpɹˌOvˌɛɹə",
+   "today_gb": "dˈiːpQpɹˌQvˌɛɹə",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 67665,
+   "examples": "Depo-Provera",
+   "generic_of": "medroxyprogesterone",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Depo-Provera®",
+      "generic_monograph": "Medroxyprogesterone Injection",
+      "generic_pronounced": [
+       "me drox' ee proe jes' te rone"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a604039.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 945,
+   "word": "errin",
+   "kind": "brand",
+   "display": "Errin",
+   "today_us": "ˈɛɹɪn",
+   "today_gb": "ˈɛɹɪn",
+   "today_source": "guesser",
+   "zipf": 1.12,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 67642,
+   "examples": "Errin",
+   "generic_of": "norethindrone",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Errin®",
+      "generic_monograph": "Progestin-Only (norethindrone) Oral Contraceptives",
+      "generic_pronounced": [
+       "pro jes' tin"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a602008.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 946,
+   "word": "xdemvy",
+   "kind": "brand",
+   "display": "Xdemvy",
+   "today_us": "ˈɛksdˌɛmvi",
+   "today_gb": "ˈɛksdˌɛmvi",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 66213,
+   "examples": "Xdemvy",
+   "generic_of": "lotilaner",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 947,
+   "word": "edarbyclor",
+   "kind": "brand",
+   "display": "Edarbyclor",
+   "today_us": "ˈɛdəɹbikləɹ",
+   "today_gb": "ˈɛdəbiklə",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 66177,
+   "examples": "Edarbyclor",
+   "generic_of": "azilsartan | chlorthalidone | medroxyprogesterone",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "edarbyclor",
+      "label": "EDARBYCLOR (AZILSARTAN KAMEDOXOMIL AND CHLORTHALIDONE) TABLET [AZURITY PHARMACEUTICALS, INC. (FORMERLY ARBOR PHARMACEUTICALS)]",
+      "respelling": "eh-DAR-bih-clor",
+      "setid": "e60f795b-fce3-4361-aa03-f143451689d1",
+      "term": "EDARBYCLOR",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e60f795b-fce3-4361-aa03-f143451689d1"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Edarbyclor® (as a combination product containing Azilsartan, Chlorthalidone)",
+      "generic_monograph": "Azilsartan",
+      "generic_pronounced": [
+       "ay'' zil sar' tan"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a611028.html"
+     },
+     {
+      "brand_listed_as": "Edarbyclor® (as a combination product containing Azilsartan, Chlorthalidone)",
+      "generic_monograph": "Chlorthalidone",
+      "generic_pronounced": [
+       "klor thal' i done"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a682342.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 948,
+   "word": "vanacof",
+   "kind": "brand",
+   "display": "Vanacof",
+   "today_us": "vˈænəkˌɔf",
+   "today_gb": "vˈanəkˌɔːf",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 65807,
+   "examples": "Vanacof | Vanacof DM",
+   "generic_of": "chlophedianol | dexchlorpheniramine | pseudoephedrine",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Vanacof® (as a combination product containing Chlophedianol, Dexchlorpheniramine, Pseudoephedrine)",
+      "generic_monograph": "Pseudoephedrine",
+      "generic_pronounced": [
+       "soo doe e fed' rin"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a682619.html"
+     },
+     {
+      "brand_listed_as": "Vanacof® (as a combination product containing Chlophedianol, Guaifenesin)",
+      "generic_monograph": "Guaifenesin",
+      "generic_pronounced": [
+       "gwye fen' e sin"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a682494.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 950,
+   "word": "oxtellar",
+   "kind": "brand",
+   "display": "Oxtellar",
+   "today_us": "ˌɑkstˈɛləɹ",
+   "today_gb": "ˌɒkstˈɛlə",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 64797,
+   "examples": "Oxtellar XR",
+   "generic_of": "oxcarbazepine",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "oxtellar",
+      "label": "OXTELLAR XR (OXCARBAZEPINE) TABLET [SUPERNUS PHARMACEUTICALS, INC.]",
+      "respelling": "ahks-TEH-lahr eks ahr",
+      "setid": "aa610e56-1d1d-11e1-8bc2-0800200c9a66",
+      "term": "Oxtellar XR",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aa610e56-1d1d-11e1-8bc2-0800200c9a66"
+     }
+    ],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 951,
+   "word": "remicade",
+   "kind": "brand",
+   "display": "Remicade",
+   "today_us": "ɹˌɛməkˈAd",
+   "today_gb": "ɹˌɛməkˈAd",
+   "today_source": "guesser",
+   "zipf": 1.53,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 64193,
+   "examples": "Remicade",
+   "generic_of": "infliximab",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "remicade",
+      "label": "REMICADE (INFLIXIMAB) INJECTION, POWDER, LYOPHILIZED, FOR SOLUTION [JANSSEN BIOTECH, INC.]",
+      "respelling": "Rem-eh-kaid",
+      "setid": "a0a046c1-056d-45a9-bfd9-13b47c24f257",
+      "term": "REMICADE",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a0a046c1-056d-45a9-bfd9-13b47c24f257"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Remicade® (Infliximab)",
+      "generic_monograph": "Infliximab Injection",
+      "generic_pronounced": [
+       "in flix' I mab"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a604023.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 952,
+   "word": "mapap",
+   "kind": "brand",
+   "display": "Mapap",
+   "today_us": "mˈApˌæp",
+   "today_gb": "mˈApˌap",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 64050,
+   "examples": "Mapap",
+   "generic_of": "acetaminophen",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 953,
+   "word": "privigen",
+   "kind": "brand",
+   "display": "Privigen",
+   "today_us": "pɹˈɪvɪɡən",
+   "today_gb": "pɹˈɪvɪɡən",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 63160,
+   "examples": "Privigen",
+   "generic_of": "immun glob g(igg)/pro/iga 0-50",
+   "why": "partb-top,top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Privigen®",
+      "generic_monograph": "Immune Globulin Intravenous (Human)(IVIG)",
+      "generic_pronounced": [],
+      "url": "https://medlineplus.gov/druginfo/meds/a624082.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 954,
+   "word": "tri-estarylla",
+   "kind": "brand",
+   "display": "Tri-Estarylla",
+   "today_us": "tɹˈIstˌɛɹˌɪlə",
+   "today_gb": "tɹˈIstˌɛɹˌɪlə",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 63111,
+   "examples": "Tri-Estarylla",
+   "generic_of": "estradiol | ethinyl | norgestimate",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 955,
+   "word": "smoflipid",
+   "kind": "brand",
+   "display": "Smoflipid",
+   "today_us": "smˈɑfləpɪd",
+   "today_gb": "smˈɒfləpɪd",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 62553,
+   "examples": "Smoflipid",
+   "generic_of": "emulsions | fatty | fish",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 956,
+   "word": "promacta",
+   "kind": "brand",
+   "display": "Promacta",
+   "today_us": "pɹOmˈæktə",
+   "today_gb": "pɹQmˈaktə",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 61837,
+   "examples": "Promacta",
+   "generic_of": "eltrombopag | olamine",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "promacta",
+      "label": "PROMACTA (ELTROMBOPAG OLAMINE) TABLET, FILM COATED PROMACTA (ELTROMBOPAG OLAMINE) POWDER, FOR SUSPENSION [NOVARTIS PHARMACEUTICALS CORPORATION]",
+      "respelling": "pro-MAC-ta",
+      "setid": "7714a0ed-34bb-46e6-a0a5-b363908b22c2",
+      "term": "PROMACTA",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7714a0ed-34bb-46e6-a0a5-b363908b22c2"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Promacta®",
+      "generic_monograph": "Eltrombopag",
+      "generic_pronounced": [
+       "el trom' boe pag"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a609011.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 958,
+   "word": "simponi",
+   "kind": "brand",
+   "display": "Simponi",
+   "today_us": "simpˈOni",
+   "today_gb": "simpˈQni",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 61529,
+   "examples": "Simponi | Simponi Aria",
+   "generic_of": "golimumab",
+   "why": "partb-top,top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "simponi",
+      "label": "SIMPONI (GOLIMUMAB) INJECTION, SOLUTION [JANSSEN BIOTECH, INC.]",
+      "respelling": "SIM-po-nee",
+      "setid": "f86cb4a7-c358-4136-ae57-b32bda9bba00",
+      "term": "SIMPONI",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f86cb4a7-c358-4136-ae57-b32bda9bba00"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Simponi®",
+      "generic_monograph": "Golimumab Injection",
+      "generic_pronounced": [
+       "goe lim' ue mab"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a610010.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 959,
+   "word": "fetzima",
+   "kind": "brand",
+   "display": "Fetzima",
+   "today_us": "fˈɛtzɪmə",
+   "today_gb": "fˈɛtzɪmə",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 61529,
+   "examples": "Fetzima",
+   "generic_of": "levomilnacipran",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "fetzima",
+      "label": "FETZIMA (LEVOMILNACIPRAN HYDROCHLORIDE) CAPSULE, EXTENDED RELEASE FETZIMA (LEVOMILNACIPRAN HYDROCHLORIDE) KIT [ALLERGAN, INC.]",
+      "respelling": "fet-ZEE-muh",
+      "setid": "f371258d-91b3-4b6a-ac99-434a1964c3af",
+      "term": "FETZIMA",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f371258d-91b3-4b6a-ac99-434a1964c3af"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Fetzima®",
+      "generic_monograph": "Levomilnacipran",
+      "generic_pronounced": [
+       "lee'' voe mil na' si pran"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a613048.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 960,
+   "word": "zoryve",
+   "kind": "brand",
+   "display": "Zoryve",
+   "today_us": "zˈɔɹiv",
+   "today_gb": "zˈɔːɹiv",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 61493,
+   "examples": "Zoryve",
+   "generic_of": "roflumilast",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "zoryve",
+      "label": "ZORYVE (ROFLUMILAST) CREAM [ARCUTIS BIOTHERAPEUTICS, INC.]",
+      "respelling": "zor-EEV",
+      "setid": "ec1bb0d1-f38a-4080-831a-68791d1d1fdb",
+      "term": "ZORYVE",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ec1bb0d1-f38a-4080-831a-68791d1d1fdb"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Zoryve®",
+      "generic_monograph": "Roflumilast topical",
+      "generic_pronounced": [
+       "roe flue′ mi last"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a625108.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 961,
+   "word": "trileptal",
+   "kind": "brand",
+   "display": "Trileptal",
+   "today_us": "tɹIlˈɛptəl",
+   "today_gb": "tɹIlˈɛptəl",
+   "today_source": "guesser",
+   "zipf": 1.09,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 60891,
+   "examples": "Trileptal",
+   "generic_of": "oxcarbazepine",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Trileptal®",
+      "generic_monograph": "Oxcarbazepine",
+      "generic_pronounced": [
+       "ox car baz' e peen"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a601245.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 962,
+   "word": "mintox",
+   "kind": "brand",
+   "display": "Mintox",
+   "today_us": "mˈɪntˌɑks",
+   "today_gb": "mˈɪntˌɒks",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 60183,
+   "examples": "Mintox Maximum Strength | Mintox Plus",
+   "generic_of": "aluminum | hydrochlorothiazide | hydroxyzine",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 963,
+   "word": "protonix",
+   "kind": "brand",
+   "display": "Protonix",
+   "today_us": "pɹOtˈɑnɪks",
+   "today_gb": "pɹQtˈɒnɪks",
+   "today_source": "guesser",
+   "zipf": 1.22,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 59996,
+   "examples": "Protonix IV | Protonix",
+   "generic_of": "pantoprazole | sodium",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "protonix",
+      "label": "PROTONIX DELAYED-RELEASE (PANTOPRAZOLE SODIUM) TABLET, DELAYED RELEASE PROTONIX DELAYED-RELEASE (PANTOPRAZOLE SODIUM) GRANULE, DELAYED RELEASE [WYETH PHARMACEUTICALS LLC, A SUBSIDIARY OF PFIZER INC.]",
+      "respelling": "pro-TAH-nix",
+      "setid": "08098cb2-c048-4640-f387-6beec4a38936",
+      "term": "PROTONIX",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=08098cb2-c048-4640-f387-6beec4a38936"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Protonix®",
+      "generic_monograph": "Pantoprazole",
+      "generic_pronounced": [
+       "pan toe' pra zole"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a601246.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 964,
+   "word": "mavyret",
+   "kind": "brand",
+   "display": "Mavyret",
+   "today_us": "mˈævIɹɪt",
+   "today_gb": "mˈavIɹɪt",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 59909,
+   "examples": "Mavyret",
+   "generic_of": "glecaprevir | pibrentasvir",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "mavyret",
+      "label": "MAVYRET (GLECAPREVIR AND PIBRENTASVIR) TABLET, FILM COATED MAVYRET (GLECAPREVIR AND PIBRENTASVIR) PELLET [ABBVIE INC.]",
+      "respelling": "MAV-ih-reht",
+      "setid": "7bf99777-0401-9095-8645-16c6e907fcc0",
+      "term": "MAVYRET",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7bf99777-0401-9095-8645-16c6e907fcc0"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Mavyret®",
+      "generic_monograph": "Glecaprevir and Pibrentasvir",
+      "generic_pronounced": [
+       "glek a' pre vir",
+       "pi brent' as vir"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a617039.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 965,
+   "word": "adempas",
+   "kind": "brand",
+   "display": "Adempas",
+   "today_us": "ədˈɛmpəz",
+   "today_gb": "ədˈɛmpəz",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 59273,
+   "examples": "Adempas",
+   "generic_of": "riociguat",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Adempas®",
+      "generic_monograph": "Riociguat",
+      "generic_pronounced": [
+       "rye'' oh sig' ue at"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a615005.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 966,
+   "word": "xultophy",
+   "kind": "brand",
+   "display": "Xultophy",
+   "today_us": "zˈʌltəfi",
+   "today_gb": "zˈʌltəfi",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 59028,
+   "examples": "Xultophy 100-3.6",
+   "generic_of": "degludec | insulin | liraglutide",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Xultophy® (as a combination product containing Insulin Degludec and Liraglutide)",
+      "generic_monograph": "Liraglutide Injection",
+      "generic_pronounced": [
+       "lir'' a gloo' tide"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a611003.html"
+     },
+     {
+      "brand_listed_as": "Xultophy® (as a combination product containing Insulin Degludec and Liraglutide)",
+      "generic_monograph": "Insulin Degludec (rDNA Origin) Injection",
+      "generic_pronounced": [
+       "in' su lin de gloo' dek"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a615055.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 968,
+   "word": "endocet",
+   "kind": "brand",
+   "display": "Endocet",
+   "today_us": "ˌɛndOsˈɛt",
+   "today_gb": "ˌɛndQsˈɛt",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 58838,
+   "examples": "Endocet",
+   "generic_of": "acetaminophen | oxycodone",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 970,
+   "word": "diclegis",
+   "kind": "brand",
+   "display": "Diclegis",
+   "today_us": "dˈIkləʤəs",
+   "today_gb": "dˈIkləʤəs",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 58534,
+   "examples": "Diclegis",
+   "generic_of": "doxylamine | vits",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [
+     {
+      "for": "diclegis",
+      "label": "DICLEGIS (DOXYLAMINE SUCCINATE AND PYRIDOXINE HYDROCHLORIDE) TABLET, DELAYED RELEASE [DUCHESNAY USA, INC.]",
+      "respelling": "dye-CLEE-gis",
+      "setid": "8bde08f6-e8bd-4e90-baa7-82e01876a86a",
+      "term": "DICLEGIS",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8bde08f6-e8bd-4e90-baa7-82e01876a86a"
+     }
+    ],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Diclegis®",
+      "generic_monograph": "Doxylamine and Pyridoxine",
+      "generic_pronounced": [
+       "dox il' a meen",
+       "peer i dox' een"
+      ],
+      "url": "https://medlineplus.gov/druginfo/meds/a613045.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 971,
+   "word": "havrix",
+   "kind": "brand",
+   "display": "Havrix",
+   "today_us": "hˈævɹɪks",
+   "today_gb": "hˈavɹɪks",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 58473,
+   "examples": "Havrix",
+   "generic_of": "hepatitis a virus vaccine/pf",
+   "why": "top-500-brand",
+   "evidence": {
+    "dailymed": [],
+    "medlineplus": [
+     {
+      "brand_listed_as": "Havrix®",
+      "generic_monograph": "Hepatitis A Vaccine",
+      "generic_pronounced": [],
+      "url": "https://medlineplus.gov/druginfo/meds/a695003.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  }
+ ]
+}

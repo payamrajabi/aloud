@@ -1,0 +1,353 @@
+{
+ "batch": "d0013",
+ "rows": [
+  {
+   "rank": 1141,
+   "word": "teprotumumab",
+   "kind": "generic",
+   "display": "teprotumumab",
+   "today_us": "tˌɛpɹOtˈuməb",
+   "today_gb": "tˌɛpɹQtˈuːməb",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 7635,
+   "examples": "Teprotumumab-Trbw",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1143,
+   "word": "luspatercept",
+   "kind": "generic",
+   "display": "luspatercept",
+   "today_us": "ləspˈætəɹsˌɛpt",
+   "today_gb": "ləspˈatəsˌɛpt",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 6841,
+   "examples": "Luspatercept-Aamt",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1145,
+   "word": "inclisiran",
+   "kind": "generic",
+   "display": "inclisiran",
+   "today_us": "ɪnklˈɪzɪɹən",
+   "today_gb": "ɪnklˈɪzɪɹən",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 6717,
+   "examples": "Inclisiran Sodium",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "in' kli sir' an",
+      "pronounced": [
+       "in' kli sir' an"
+      ],
+      "title": "Inclisiran injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a622009.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1147,
+   "word": "ravulizumab",
+   "kind": "generic",
+   "display": "ravulizumab",
+   "today_us": "ɹˌævjəlɪzˈuməb",
+   "today_gb": "ɹˌavjəlɪzˈuːməb",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 6366,
+   "examples": "Ravulizumab-Cwvz",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1149,
+   "word": "enfortumab",
+   "kind": "generic",
+   "display": "enfortumab",
+   "today_us": "ɛnfˈɔɹʧuməb",
+   "today_gb": "ɛnfˈɔːʧuməb",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 5905,
+   "examples": "Enfortumab Vedotin-Ejfv",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "en fort' ue mab ve doe' tin"
+      ],
+      "title": "Enfortumab vedotin-ejfv Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a620005.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1151,
+   "word": "ipilimumab",
+   "kind": "generic",
+   "display": "ipilimumab",
+   "today_us": "ˌɪpˈɪləmjˌuməb",
+   "today_gb": "ˌɪpˈɪləmjˌuːməb",
+   "today_source": "guesser",
+   "zipf": 1.67,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 5812,
+   "examples": "Ipilimumab",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "ip'' i lim' ue mab",
+      "pronounced": [
+       "ip'' i lim' ue mab"
+      ],
+      "title": "Ipilimumab Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a611023.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1153,
+   "word": "cemiplimab",
+   "kind": "generic",
+   "display": "cemiplimab",
+   "today_us": "sˌɛmiplˈImˌæb",
+   "today_gb": "sˌɛmiplˈImˌab",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 5334,
+   "examples": "Cemiplimab-Rwlc",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1157,
+   "word": "tildrakizumab",
+   "kind": "generic",
+   "display": "tildrakizumab",
+   "today_us": "tˈɪldɹəkˌIzˌumæb",
+   "today_gb": "tˈɪldɹəkˌIzˌuːmab",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 4332,
+   "examples": "Tildrakizumab-Asmn",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1160,
+   "word": "polatuzumab",
+   "kind": "generic",
+   "display": "polatuzumab",
+   "today_us": "pˌɑlətˈuzumˌæb",
+   "today_gb": "pˌɒlətˈuːzumˌab",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 1816,
+   "examples": "Polatuzumab Vedotin-Piiq",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "pol\" a tooz' ue mab ve doe' tin"
+      ],
+      "title": "Polatuzumab vedotin-piiq Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a619039.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1163,
+   "word": "vutrisiran",
+   "kind": "generic",
+   "display": "vutrisiran",
+   "today_us": "vutɹˈɪʒəɹən",
+   "today_gb": "vutɹˈɪʒəɹən",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 1345,
+   "examples": "Vutrisiran Sodium",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": "vue\" tri sir' an",
+      "pronounced": [
+       "vue\" tri sir' an"
+      ],
+      "title": "Vutrisiran Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a622061.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1164,
+   "word": "teclistamab",
+   "kind": "generic",
+   "display": "teclistamab",
+   "today_us": "tˈɛklɪstˌæməb",
+   "today_gb": "tˈɛklɪstˌaməb",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 1261,
+   "examples": "Teclistamab-Cqyv",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1167,
+   "word": "relatlimab",
+   "kind": "generic",
+   "display": "relatlimab",
+   "today_us": "ɹilˈætlɪmˌæb",
+   "today_gb": "ɹilˈatlɪmˌab",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 1003,
+   "examples": "Nivolumab-Relatlimab-Rmbw",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1170,
+   "word": "mirvetuximab",
+   "kind": "generic",
+   "display": "mirvetuximab",
+   "today_us": "mˈɜɹvətˌʌksɪməb",
+   "today_gb": "mˈɜːvətˌʌksɪməb",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 831,
+   "examples": "Mirvetuximab Soravtansine-Gynx",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "mir\" ve tux' i mab"
+      ],
+      "title": "Mirvetuximab soravtansine-gynx Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a622075.html"
+     }
+    ],
+    "wiktionary": []
+   }
+  },
+  {
+   "rank": 1171,
+   "word": "soravtansine",
+   "kind": "generic",
+   "display": "soravtansine",
+   "today_us": "sɔɹˈævtənsˌin",
+   "today_gb": "sɔɹˈavtənsˌiːn",
+   "today_source": "guesser",
+   "zipf": null,
+   "dictionary_word": false,
+   "given_name": null,
+   "other_lists": [],
+   "score": 831,
+   "examples": "Mirvetuximab Soravtansine-Gynx",
+   "generic_of": "",
+   "why": "partb-top",
+   "evidence": {
+    "medlineplus": [],
+    "wiktionary": []
+   }
+  }
+ ]
+}
