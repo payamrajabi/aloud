@@ -1,0 +1,49 @@
+{
+ "by_kind": {
+  "brand": {
+   "already-correct": 279,
+   "corrected": 294,
+   "covered": 5,
+   "not-a-drug": 4,
+   "ordinary-word": 16,
+   "shipped": 272,
+   "unresolved": 43
+  },
+  "device": {
+   "already-correct": 11,
+   "corrected": 5,
+   "ordinary-word": 1,
+   "shipped": 5
+  },
+  "generic": {
+   "already-correct": 200,
+   "corrected": 346,
+   "not-a-drug": 3,
+   "ordinary-word": 3,
+   "shipped": 344,
+   "unresolved": 2
+  },
+  "salt": {
+   "already-correct": 31,
+   "corrected": 25,
+   "shipped": 23,
+   "unresolved": 4
+  }
+ },
+ "candidates": 1272,
+ "dispositions": {
+  "already-correct": 521,
+  "corrected": 670,
+  "covered": 5,
+  "not-a-drug": 7,
+  "ordinary-word": 20,
+  "unresolved": 49
+ },
+ "held_back": 26,
+ "shipped": 643,
+ "shipped_by_confidence": {
+  "high": 500,
+  "low": 20,
+  "medium": 124
+ }
+}

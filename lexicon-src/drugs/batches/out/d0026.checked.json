@@ -1,0 +1,1572 @@
+[
+ {
+  "rank": 1215,
+  "word": "fybogel",
+  "kind": "brand",
+  "spelling": "Fybogel",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "fˈIbOʤˌɛl",
+  "gb": "fˈIbQʤˌɛl",
+  "respelling": "FY-boh-jel",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "Fybo (fibre) + gel, the English word gel (soft g); Reckitt's UK fibre supplement. No written pronunciation found (not in Longman, Wiktionary, Dictionary.com; Wikipedia redirects to Psyllium)",
+    "url": "https://en.wikipedia.org/wiki/Fybogel"
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Low: no written pronunciation found; rests on the spelling. Today fˈIbˌOɡəl (FY-boh-gul) reads the g hard and reduces 'gel'; the name ends in the English word gel, which is soft, and the second part of a compound keeps its full vowel with secondary stress (as KwikPen, FlexPen). REVIEW if a British source turns up.",
+  "review": "ok",
+  "today_us": "fˈIbˌOɡəl",
+  "today_gb": "fˈIbˌQɡəl",
+  "today_source": "guesser",
+  "gb_effective": "fˈIbQʤˌɛl",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 1216,
+  "word": "gas-x",
+  "kind": "brand",
+  "spelling": "Gas-X",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "ɡˈæsˈɛks",
+  "gb": "ɡˈasˈɛks",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "the English word gas plus the letter X; the maker writes Gas-X",
+    "url": ""
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [],
+  "notes": "Today ɡˈæsˈɛks (GAS-EKS). Built from a plain English word and a letter, and nothing contradicts the obvious reading: medium, as the guide allows. Nothing to ship.",
+  "review": "ok",
+  "today_us": "ɡˈæsˈɛks",
+  "today_gb": "ɡˈasˈɛks",
+  "today_source": "gold+lexicon",
+  "gb_effective": "ɡˈasˈɛks",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1217,
+  "word": "gaviscon",
+  "kind": "brand",
+  "spelling": "Gaviscon",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "ɡˈævəskɑn",
+  "gb": "ɡˈavəskɒn",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "no written pronunciation found (not in Longman, AHD, AHD Medicine, Dictionary.com, Wiktionary; Wikipedia redirects to Antacid)",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Today ɡˈævəskɑn (GAV-uh-skon), GB ɡˈavəskɒn. Low: rests on the spelling; GAV-iss-kon and GAV-uh-skon differ only in an unstressed vowel.",
+  "review": "ok",
+  "today_us": "ɡˈævəskɑn",
+  "today_gb": "ɡˈavəskɒn",
+  "today_source": "guesser",
+  "gb_effective": "ɡˈavəskɒn",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1218,
+  "word": "germolene",
+  "kind": "brand",
+  "spelling": "Germolene",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "ʤˈɜɹməlˌin",
+  "gb": "ʤˈɜːməlˌiːn",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "germ + -olene; no written pronunciation found (not in Longman, Dictionary.com, Wiktionary; Wikipedia gives none)",
+    "url": "https://en.wikipedia.org/wiki/Germolene"
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Today ʤˈɜɹməlˌin (JER-muh-leen), GB ʤˈɜːməlˌiːn. Low: rests on the spelling (the English word germ).",
+  "review": "ok",
+  "today_us": "ʤˈɜɹməlˌin",
+  "today_gb": "ʤˈɜːməlˌiːn",
+  "today_source": "guesser",
+  "gb_effective": "ʤˈɜːməlˌiːn",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1219,
+  "word": "imodium",
+  "kind": "brand",
+  "spelling": "Imodium",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "ˌɪmˈOdiəm",
+  "gb": "ˌɪmˈQdiəm",
+  "evidence": [
+   {
+    "source": "NCI Dictionary of Cancer Terms (cancer.gov glossary API)",
+    "says": "Imodium (ih-MOH-dee-um)",
+    "url": "https://webapis.cancer.gov/glossary/v1/Terms/Cancer.gov/Patient/en/imodium"
+   },
+   {
+    "source": "American Heritage Stedman's Medical Dictionary, via YourDictionary",
+    "says": "ĭ-mō′dē-əm (bold primary mark after mō)",
+    "url": "https://www.yourdictionary.com/imodium"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today ˌɪmˈOdiəm (ih-MOH-dee-um) matches both; the secondary mark on the first syllable is the only difference.",
+  "review": "ok: NCI (ih-MOH-dee-um) and YourDictionary/AHD Medicine (ĭ-mō[bold]dē-əm) re-checked",
+  "today_us": "ˌɪmˈOdiəm",
+  "today_gb": "ˌɪmˈQdiəm",
+  "today_source": "guesser",
+  "gb_effective": "ˌɪmˈQdiəm",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1220,
+  "word": "kaopectate",
+  "kind": "brand",
+  "spelling": "Kaopectate",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "kˌAOpˈɛktˌAt",
+  "gb": "kˌAQpˈɛktˌAt",
+  "respelling": "kay-oh-PEK-tayt",
+  "evidence": [
+   {
+    "source": "American Heritage Dictionary, 5th ed.",
+    "says": "Ka·o·pec·tate (kā′ō-pĕk′tāt′), main stress on pĕk (bold mark, U+E01F in the page markup)",
+    "url": "https://ahdictionary.com/word/search.html?q=Kaopectate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess kˌiOpˈɛktAt says 'kee-oh'; the dictionary has 'kay' (the name comes from kaolin, KAY-uh-lin) and a full 'tayt' with secondary stress. AHD's fetched text loses its bold main-stress mark; in the raw markup it is the private-use character U+E01F, here after pĕk (checked against Tylenol, where AHD's bold mark follows tī: tī′lə-nôl′).",
+  "review": "notes only: the Tylenol cross-check misquoted AHD as tī-ˈlə-nôl′ (AHD: tī′lə-nôl′, bold mark after tī); AHD Kaopectate re-checked in the markup (kā′ō-pĕk[bold]tāt′); reading unchanged",
+  "today_us": "kˌiOpˈɛktAt",
+  "today_gb": "kˌiːQpˈɛktAt",
+  "today_source": "guesser",
+  "gb_effective": "kˌAQpˈɛktˌAt",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 1221,
+  "word": "lamisil",
+  "kind": "brand",
+  "spelling": "Lamisil",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "lˈæməsˌɪl",
+  "gb": "lˈaməsˌɪl",
+  "respelling": "LAM-uh-sil",
+  "evidence": [
+   {
+    "source": "FDA label for Lamisil tablets (Novartis), 2019, Medication Guide heading",
+    "says": "LAMISIL® (lam-i-sil)",
+    "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2019/020539s033lbl.pdf"
+   },
+   {
+    "source": "American Heritage Stedman's Medical Dictionary, via YourDictionary",
+    "says": "lăm′ə-sĭl (bold primary mark after lăm)",
+    "url": "https://www.yourdictionary.com/lamisil"
+   },
+   {
+    "source": "Merriam-Webster Medical (via search result; the page refuses automated fetches)",
+    "says": "ˈla-mə-ˌsil",
+    "url": "https://www.merriam-webster.com/medical/Lamisil"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess lɑmisˈil (lah-mee-SEEL) has the wrong stress and vowels. The maker's respelling marks no stress; both dictionaries put it on LAM, and MW gives 'sil' secondary stress.",
+  "review": "ok: label 'LAMISIL (lam-i-sil)' re-checked in the 2019 PDF; AHD Medicine lăm[bold]ə-sĭl re-checked",
+  "today_us": "lɑmisˈil",
+  "today_gb": "lɒmisˈiːl",
+  "today_source": "guesser",
+  "gb_effective": "lˈaməsˌɪl",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "3 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "4 phonemes off"
+ },
+ {
+  "rank": 1222,
+  "word": "lemsip",
+  "kind": "brand",
+  "spelling": "Lemsip",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "lˈɛmsɪp",
+  "gb": "lˈɛmsɪp",
+  "evidence": [
+   {
+    "source": "Longman Dictionary of Contemporary English",
+    "says": "Lemsip /ˈlemsɪp/",
+    "url": "https://www.ldoceonline.com/dictionary/lemsip"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today lˈɛmsɪp matches.",
+  "review": "ok: Longman /ˈlemsɪp/ re-checked",
+  "today_us": "lˈɛmsɪp",
+  "today_gb": "lˈɛmsɪp",
+  "today_source": "guesser",
+  "gb_effective": "lˈɛmsɪp",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1223,
+  "word": "lotrimin",
+  "kind": "brand",
+  "spelling": "Lotrimin",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "lˈOtɹɪmɪn",
+  "gb": "lˈQtɹɪmɪn",
+  "respelling": "LOH-trih-min",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP), clotrimazole, the original Lotrimin ingredient",
+    "says": "kloe trim' a zole",
+    "url": "https://medlineplus.gov/druginfo/meds/a618059.html"
+   },
+   {
+    "source": "spelling",
+    "says": "Lotrimin is cut from (c)lotrim(azole) + -in; no written pronunciation of the brand found (not in AHD, AHD Medicine, Dictionary.com, Wiktionary)",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [
+   {
+    "us": "lˈɑtɹəmɪn",
+    "gb": "lˈɒtɹəmɪn",
+    "context": "today's reading (LAH-truh-min); no source for the 'lot' vowel"
+   },
+   {
+    "us": "lOtɹˈɪmɪn",
+    "gb": "lQtɹˈɪmɪn",
+    "context": "loh-TRIM-in, the stress of the generic clotrimazole (kloe trim' a zole); no source either"
+   }
+  ],
+  "notes": "Low: no written pronunciation of the brand; rests on its generic (clotrimazole, 'kloe') and the open first syllable 'Lo-'. Only the first vowel changes from today's (LAH- to LOH-); the stress stays on the first syllable as today. REVIEW.",
+  "review": "ok (low kept): AHD, Dictionary.com and YourDictionary have no entry; added loh-TRIM-in (the generic's stress) as a second unsourced alternative",
+  "today_us": "lˈɑtɹəmɪn",
+  "today_gb": "lˈɒtɹəmɪn",
+  "today_source": "guesser",
+  "gb_effective": "lˈQtɹɪmɪn",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 1224,
+  "word": "lyclear",
+  "kind": "brand",
+  "spelling": "Lyclear",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "lˈIklˌɪɹ",
+  "gb": "lˈIklˌɪə",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "Ly (lice) + the English word clear; no written pronunciation found",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Today lˈIklˌɪɹ (LY-kleer), GB lˈIklˌɪə. Low: rests on the spelling.",
+  "review": "ok",
+  "today_us": "lˈIklˌɪɹ",
+  "today_gb": "lˈIklˌɪə",
+  "today_source": "guesser",
+  "gb_effective": "lˈIklˌɪə",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1225,
+  "word": "maalox",
+  "kind": "brand",
+  "spelling": "Maalox",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "mˈAlɑks",
+  "gb": "mˈAlɒks",
+  "evidence": [
+   {
+    "source": "American Heritage Stedman's Medical Dictionary, via YourDictionary",
+    "says": "mā′lŏks′ (bold primary mark after mā)",
+    "url": "https://www.yourdictionary.com/maalox"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today mˈAlɑks (MAY-loks, from CMUdict) matches; the dictionary's secondary stress on 'loks' is the only difference.",
+  "review": "ok: AHD Medicine mā[bold]lŏks′ re-checked (confirms the CMUdict reading)",
+  "today_us": "mˈAlɑks",
+  "today_gb": "mˈAlɒks",
+  "today_source": "cmudict",
+  "gb_effective": "mˈAlɒks",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1226,
+  "word": "metamucil",
+  "kind": "brand",
+  "spelling": "Metamucil",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "mˌɛtəmjˈusəl",
+  "gb": "mˌɛtəmjˈuːsəl",
+  "evidence": [
+   {
+    "source": "American Heritage Dictionary, 5th ed.",
+    "says": "Met·a·mu·cil (mĕt′ə-myo͞o′sĭl), main stress on myo͞o (bold mark, U+E01F in the markup)",
+    "url": "https://ahdictionary.com/word/search.html?q=Metamucil"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today mˌɛtəmjˈusəl (met-uh-MYOO-sul) matches; 'sil' vs 'sul' is an unstressed-vowel difference.",
+  "review": "ok: AHD 5th re-checked in the markup (bold mark after myo͞o)",
+  "today_us": "mˌɛtəmjˈusəl",
+  "today_gb": "mˌɛtəmjˈuːsəl",
+  "today_source": "cmudict",
+  "gb_effective": "mˌɛtəmjˈuːsəl",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1227,
+  "word": "midol",
+  "kind": "brand",
+  "spelling": "Midol",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "mˈIdɔl",
+  "gb": "mˈIdɒl",
+  "respelling": "MY-dawl",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "open first syllable Mi- (as in Midas) + the -ol ending of analgesic brands (Tylenol tī′lə-nôl′, AHD); no written pronunciation found (not in AHD, AHD Medicine, Dictionary.com, Longman; Wiktionary has only a French surname; Wikipedia gives none)",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Low: no written pronunciation found; rests on the spelling. Today's guess mˈɪdəl (MID-ul) reads a closed short i and reduces the ending. -ol takes ɔ as the guide says when today has neither ɑ nor ɔ. REVIEW: a top OTC brand; worth confirming against Bayer's ads.",
+  "review": "evidence text only: the Tylenol analogy misquoted AHD as tī-ˈlə-nôl′ (AHD: tī′lə-nôl′); re-checked that Longman, Dictionary.com and YourDictionary have no Midol entry; low kept (MY-dawl is the usual spoken form as far as I know, but nothing written)",
+  "today_us": "mˈɪdəl",
+  "today_gb": "mˈɪdəl",
+  "today_source": "guesser",
+  "gb_effective": "mˈIdɒl",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 1228,
+  "word": "monistat",
+  "kind": "brand",
+  "spelling": "Monistat",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "mˈɑnəstˌæt",
+  "gb": "mˈɒnəstˌat",
+  "evidence": [
+   {
+    "source": "American Heritage Stedman's Medical Dictionary, via YourDictionary",
+    "says": "mŏn′ĭ-stăt′ (bold primary mark after mŏn)",
+    "url": "https://www.yourdictionary.com/monistat"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today mˈɑnəstˌæt (MAH-nuh-stat) matches; ə vs ɪ in the unstressed middle syllable only.",
+  "review": "ok: AHD Medicine mŏn[bold]ĭ-stăt′ re-checked",
+  "today_us": "mˈɑnəstˌæt",
+  "today_gb": "mˈɒnəstˌat",
+  "today_source": "guesser",
+  "gb_effective": "mˈɒnəstˌat",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1229,
+  "word": "motrin",
+  "kind": "brand",
+  "spelling": "Motrin",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "mˈOtɹɪn",
+  "gb": "mˈQtɹɪn",
+  "respelling": "MOH-trin",
+  "evidence": [
+   {
+    "source": "Dictionary.com (Random House)",
+    "says": "Motrin [moh-trin] /ˈmoʊ trɪn/",
+    "url": "https://www.dictionary.com/browse/motrin"
+   },
+   {
+    "source": "American Heritage Dictionary, 5th ed.",
+    "says": "Mo·trin (mō′trĭn), main stress on mō",
+    "url": "https://ahdictionary.com/word/search.html?q=Motrin"
+   },
+   {
+    "source": "Merriam-Webster Medical (via search result; the page refuses automated fetches)",
+    "says": "ˈmō-trən",
+    "url": "https://www.merriam-webster.com/medical/Motrin"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms (cancer.gov glossary API)",
+    "says": "Motrin (MOH-trin)",
+    "url": "https://webapis.cancer.gov/glossary/v1/Terms/Cancer.gov/Patient/en/motrin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today mˈɑtɹɪn (MAH-trin) comes from CMUdict, which isn't independent evidence; three dictionaries and NCI say MOH.",
+  "review": "evidence added: NCI (MOH-trin) confirms; Dictionary.com (/ˈmoʊ trɪn/) and AHD (mō[bold]trĭn) re-checked; reading unchanged",
+  "today_us": "mˈɑtɹɪn",
+  "today_gb": "mˈɒtɹɪn",
+  "today_source": "cmudict",
+  "gb_effective": "mˈQtɹɪn",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 1230,
+  "word": "movicol",
+  "kind": "brand",
+  "spelling": "Movicol",
+  "match": "case-insensitive",
+  "disposition": "unresolved",
+  "us": "mˈuvɪkˌɑl",
+  "gb": "mˈuːvɪkˌɒl",
+  "respelling": "MOO-vih-kol",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "no written pronunciation found (not in Longman, Dictionary.com, Wiktionary); Norgine's UK macrogol laxative",
+    "url": ""
+   }
+  ],
+  "confidence": "",
+  "alternatives": [
+   {
+    "us": "mˈɑvɪkˌɑl",
+    "gb": "mˈɒvɪkˌɒl",
+    "context": "MOV-ih-kol, the short-o reading of the spelling"
+   }
+  ],
+  "notes": "Unresolved: no source, and the spelling allows both MOO-vih-kol (as in 'move', today's reading, kept as the candidate) and MOV-ih-kol. Nothing should ship without a British source; today's reading stays either way.",
+  "review": "ok",
+  "today_us": "mˈuvɪkˌɑl",
+  "today_gb": "mˈuːvɪkˌɒl",
+  "today_source": "guesser",
+  "gb_effective": "mˈuːvɪkˌɒl",
+  "verdict_us": "right",
+  "verdict_us_detail": "identical",
+  "verdict_gb": "right",
+  "verdict_gb_detail": "identical"
+ },
+ {
+  "rank": 1231,
+  "word": "mylanta",
+  "kind": "brand",
+  "spelling": "Mylanta",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "mɪlˈæntə",
+  "gb": "mɪlˈantə",
+  "evidence": [
+   {
+    "source": "American Heritage Stedman's Medical Dictionary, via YourDictionary",
+    "says": "mī-lăn′tə (bold primary mark after lăn)",
+    "url": "https://www.yourdictionary.com/mylanta"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "mIlˈæntə",
+    "gb": "mIlˈantə",
+    "context": "AHD's full 'mī' in the unstressed first syllable (my-LAN-tuh)"
+   }
+  ],
+  "notes": "Today mɪlˈæntə (mih-LAN-tuh) matches AHD's stress (LAN), stressed vowel and consonants. AHD writes a full 'mī' in the unstressed first syllable; a full vowel against a reduced one there is only reduction under the guide's pack-wide ruling (it is a dictionary's, not the maker's), as with simethicone (d0010) and Latuda (d0022). Nothing to ship; the full form is the alternative.",
+  "review": "corrected → already-correct (dropped us mIlˈæntə / gb mIlˈantə): AHD's full 'mī' against today's reduced 'mɪ' in an unstressed syllable is reduction only under the pack-wide ruling (no maker respelling); AHD re-checked (mī-lăn′tə, bold mark after lăn); full form kept as the alternative",
+  "today_us": "mɪlˈæntə",
+  "today_gb": "mɪlˈantə",
+  "today_source": "guesser",
+  "gb_effective": "mɪlˈantə",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1232,
+  "word": "nasacort",
+  "kind": "brand",
+  "spelling": "Nasacort",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "nˈAzəkˌɔɹt",
+  "gb": "nˈAzəkˌɔːt",
+  "respelling": "NAY-zuh-kort",
+  "evidence": [
+   {
+    "source": "FDA label for Nasacort AQ (Sanofi), July 2013, Patient Information heading",
+    "says": "Nasacort® AQ (na’ za-cort)",
+    "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2013/020468s033s034lbl.pdf"
+   },
+   {
+    "source": "American Heritage Stedman's Medical Dictionary, via YourDictionary",
+    "says": "nā′zə-kôrt′ (bold primary mark after nā)",
+    "url": "https://www.yourdictionary.com/nasacort"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess nˈæsəkˌɔɹt (NASS-uh-kort) has the wrong stressed vowel and an s where the maker writes z. The label's stressed 'na'' leaves the vowel open; the dictionary's nā settles it as 'nay' (as in nasal). Found in the last prescription-era label; the OTC labels print no respelling.",
+  "review": "ok: 2013 label 'Nasacort® AQ (na’ za-cort)' re-checked in the PDF; AHD Medicine nā[bold]zə-kôrt′ re-checked",
+  "today_us": "nˈæsəkˌɔɹt",
+  "today_gb": "nˈasəkˌɔːt",
+  "today_source": "guesser",
+  "gb_effective": "nˈAzəkˌɔːt",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 1233,
+  "word": "neosporin",
+  "kind": "brand",
+  "spelling": "Neosporin",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "nˌiOspˈɔɹɪn",
+  "gb": "nˌiːQspˈɔːɹɪn",
+  "evidence": [
+   {
+    "source": "Dictionary.com (Random House)",
+    "says": "Neosporin [nee-oh-spawr-in, -spohr-in] /ˌni oʊˈspɔr ɪn, -ˈspoʊr-/",
+    "url": "https://www.dictionary.com/browse/neosporin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today nˌiOspˈɔɹɪn (nee-oh-SPOR-in) matches.",
+  "review": "ok: Dictionary.com re-checked",
+  "today_us": "nˌiOspˈɔɹɪn",
+  "today_gb": "nˌiːQspˈɔːɹɪn",
+  "today_source": "guesser",
+  "gb_effective": "nˌiːQspˈɔːɹɪn",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1234,
+  "word": "nicoderm",
+  "kind": "brand",
+  "spelling": "NicoDerm",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "nˈɪkədˌɜɹm",
+  "gb": "nˈɪkədˌɜːm",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "Nico(tine) + Derm, as the maker writes NicoDerm CQ; no written pronunciation found (not in AHD, AHD Medicine, Dictionary.com)",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Today nˈɪkədˌɜɹm (NIK-uh-derm, from CMUdict, which isn't independent). Low: rests on the spelling.",
+  "review": "ok",
+  "today_us": "nˈɪkədˌɜɹm",
+  "today_gb": "nˈɪkədˌɜːm",
+  "today_source": "cmudict",
+  "gb_effective": "nˈɪkədˌɜːm",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1235,
+  "word": "nicorette",
+  "kind": "brand",
+  "spelling": "Nicorette",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "nˌɪkəɹˈɛt",
+  "gb": "",
+  "respelling": "nik-uh-RET",
+  "evidence": [
+   {
+    "source": "American Heritage Stedman's Medical Dictionary, via YourDictionary",
+    "says": "nĭk′ə-rĕt′ (the bold primary mark is the one after rĕt; checked in the page markup)",
+    "url": "https://www.yourdictionary.com/nicorette"
+   },
+   {
+    "source": "Wikipedia (Nicorette)",
+    "says": "name from nicotine + Swedish rätt/'rette' (right way); no pronunciation",
+    "url": "https://en.wikipedia.org/wiki/Nicorette"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "nˈɪkəɹˌɛt",
+    "gb": "nˈɪkəɹˌɛt",
+    "context": "main stress on NIK: today's reading (CMUdict), like American 'cigarette'; no independent source"
+   }
+  ],
+  "notes": "Both readings stress both NIK and RET; the dictionary (AHD Medicine) makes RET the main one, today's CMUdict reading NIK. CMUdict can't confirm itself, so the dictionary wins by the guide (as with lovastatin in d0005, a main-stress difference is a real one); -ette is a stressed suffix in English (cigarette, majorette), and NIK-uh-ret is kept as the alternative.",
+  "review": "ok: YourDictionary markup re-checked, 'nĭk′ə-rĕt <b>′</b>' (the bold, primary mark follows rĕt); no entry in Longman, AHD 5th, Dictionary.com or Wiktionary; REVIEW hedge replaced by the guide's ruling",
+  "today_us": "nˈɪkəɹˌɛt",
+  "today_gb": "nˈɪkəɹˌɛt",
+  "today_source": "cmudict",
+  "gb_effective": "nˌɪkəɹˈɛt",
+  "verdict_us": "partial",
+  "verdict_us_detail": "right sounds, wrong stress",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "right sounds, wrong stress"
+ },
+ {
+  "rank": 1236,
+  "word": "night nurse",
+  "kind": "brand",
+  "spelling": "Night Nurse",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "nˈIt nˈɜɹs",
+  "gb": "nˈIt nˈɜːs",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "the English words night and nurse (also an ordinary phrase); the UK cold remedy",
+    "url": ""
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [],
+  "notes": "Today nˈIt nˈɜɹs reads both words normally. A phrase of plain English words, also an everyday phrase ('a night nurse'): nothing to ship.",
+  "review": "ok",
+  "today_us": "nˈIt nˈɜɹs",
+  "today_gb": "nˈIt nˈɜːs",
+  "today_source": "gold",
+  "gb_effective": "nˈIt nˈɜːs",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1237,
+  "word": "nurofen",
+  "kind": "brand",
+  "spelling": "Nurofen",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "nˈʊɹOfən",
+  "gb": "njˈʊəɹQfɛn",
+  "evidence": [
+   {
+    "source": "Longman Dictionary of Contemporary English",
+    "says": "Nurofen /ˈnjʊərəʊfen $ ˈnʊər-/",
+    "url": "https://www.ldoceonline.com/dictionary/nurofen"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "GB njˈʊəɹQfɛn matches exactly; US nˈʊɹOfən matches Longman's American 'NOOR-' and stress, and differs only in reducing the unstressed final 'fen' (one source writes it full; the guide asks for a second before treating that as a difference).",
+  "review": "ok: Longman /ˈnjʊərəʊfen $ ˈnʊər-/ re-checked; GB exact, US matches the American NOOR- and stress; the unstressed full 'fen' has one source only (pack-wide ruling (a) needs two)",
+  "today_us": "nˈʊɹOfən",
+  "today_gb": "njˈʊəɹQfɛn",
+  "today_source": "guesser",
+  "gb_effective": "njˈʊəɹQfɛn",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1238,
+  "word": "nyquil",
+  "kind": "brand",
+  "spelling": "NyQuil",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "nˈIkwɪl",
+  "gb": "",
+  "respelling": "NY-kwil",
+  "evidence": [
+   {
+    "source": "Longman Dictionary of Contemporary English",
+    "says": "Nyquil /ˈnaɪkwəl/",
+    "url": "https://www.ldoceonline.com/dictionary/nyquil"
+   },
+   {
+    "source": "Vicks (Procter & Gamble), NyQuil creation story",
+    "says": "the name is believed to come from 'nighttime tranquility'; no respelling",
+    "url": "https://vicks.com/en-us/vicks-history/power-you-trust-nyquil-creation-story"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess nˈɪkwɪl (NIK-wil) reads a short i; Longman says 'NY' (night), as the maker's own account of the name implies. The unstressed 'quil' is written ɪ as in the family names DayQuil (dˈAkwɪl, d0025) and ZzzQuil (zˈikwɪl, d0027); Longman's ə there is only reduction.",
+  "review": "us nˈIkwəl → nˈIkwɪl (respelling NY-kwul → NY-kwil): unstressed 'quil' aligned with DayQuil and ZzzQuil (ə vs ɪ is reduction only, so Longman /ˈnaɪkwəl/ still supports it); Longman re-checked",
+  "today_us": "nˈɪkwɪl",
+  "today_gb": "nˈɪkwɪl",
+  "today_source": "guesser",
+  "gb_effective": "nˈIkwɪl",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 1239,
+  "word": "nytol",
+  "kind": "brand",
+  "spelling": "Nytol",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "nˈItˌɔl",
+  "gb": "nˈItˌɒl",
+  "respelling": "NY-tawl",
+  "evidence": [
+   {
+    "source": "American Heritage Stedman's Medical Dictionary, via YourDictionary",
+    "says": "nī′tôl′ (bold primary mark after nī, light secondary after tôl)",
+    "url": "https://www.yourdictionary.com/nytol"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess nˈItəl (NY-tl) reduces the second syllable; the dictionary gives it a full vowel with secondary stress, which the guide counts as a real difference. -ol takes ɔ (GB ɒ) as the guide says when today has neither.",
+  "review": "ok: AHD Medicine re-checked, nī[bold]tôl′ with an explicit secondary mark on tôl, so the guide's 'full vowel with secondary stress' line applies (not just a written-out vowel); no Longman or Dictionary.com entry",
+  "today_us": "nˈItəl",
+  "today_gb": "nˈItəl",
+  "today_source": "guesser",
+  "gb_effective": "nˈItˌɒl",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 1240,
+  "word": "olbas",
+  "kind": "brand",
+  "spelling": "Olbas",
+  "match": "case-insensitive",
+  "disposition": "unresolved",
+  "us": "ˈɑlbəs",
+  "gb": "ˈɒlbəs",
+  "respelling": "OL-bus",
+  "evidence": [
+   {
+    "source": "Wikipedia (Olbas Oil)",
+    "says": "the name is a contraction of Oleum Basileum, 'oil from Basel'; no pronunciation",
+    "url": "https://en.wikipedia.org/wiki/Olbas_Oil"
+   }
+  ],
+  "confidence": "",
+  "alternatives": [
+   {
+    "us": "ˈOlbəs",
+    "gb": "ˈQlbəs",
+    "context": "OHL-bus: today's first vowel (today ˈOlbəz also ends in z)"
+   }
+  ],
+  "notes": "Unresolved: no written pronunciation (not in Longman, Dictionary.com, Wiktionary). Two things are open: the first vowel ('ol' as in doll, my candidate, or 'ohl' as today) and the final consonant (s by the spelling, as in atlas; today says z). Needs a British source before anything ships.",
+  "review": "ok",
+  "today_us": "ˈOlbəz",
+  "today_gb": "ˈQlbəz",
+  "today_source": "guesser",
+  "gb_effective": "ˈɒlbəs",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 1241,
+  "word": "orajel",
+  "kind": "brand",
+  "spelling": "Orajel",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ˈɔɹəʤˌɛl",
+  "gb": "ˈɔːɹəʤˌɛl",
+  "respelling": "OR-uh-jel",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "Ora (oral) + jel (gel), the English word gel respelt; no written pronunciation found (not in AHD, AHD Medicine, Dictionary.com, Longman; Wikipedia gives none)",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Low: no written pronunciation; rests on the spelling. Today ˈɔɹəʤəl (OR-uh-jul) reduces 'jel'; as with KwikPen's 'pen', the second part of the compound keeps its full vowel with secondary stress. The assembly guard will likely hold this (low, today only partly off).",
+  "review": "ok",
+  "today_us": "ˈɔɹəʤəl",
+  "today_gb": "ˈɔːɹəʤəl",
+  "today_source": "guesser",
+  "gb_effective": "ˈɔːɹəʤˌɛl",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 1242,
+  "word": "pedialyte",
+  "kind": "brand",
+  "spelling": "Pedialyte",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "pˈidiəlˌIt",
+  "gb": "pˈiːdiəlˌIt",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "pedia(tric) + (electro)lyte; no written pronunciation found (not in AHD, AHD Medicine, Dictionary.com)",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Today pˈidiəlˌIt (PEE-dee-uh-lite). Low: rests on the spelling.",
+  "review": "ok",
+  "today_us": "pˈidiəlˌIt",
+  "today_gb": "pˈiːdiəlˌIt",
+  "today_source": "guesser",
+  "gb_effective": "pˈiːdiəlˌIt",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1243,
+  "word": "pepto-bismol",
+  "kind": "brand",
+  "spelling": "Pepto-Bismol",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "pˌɛptObˈɪzmɔl",
+  "gb": "pˌɛptQbˈɪzmɒl",
+  "respelling": "pep-toh-BIZ-mawl",
+  "evidence": [
+   {
+    "source": "American Heritage Dictionary, 5th ed.",
+    "says": "Pep·to-Bis·mol (pĕp′tō-bĭz′môl), main stress on bĭz (bold mark, U+E01F in the markup)",
+    "url": "https://ahdictionary.com/word/search.html?q=Pepto-Bismol"
+   },
+   {
+    "source": "Longman Dictionary of Contemporary English",
+    "says": "Pepto-bismol /ˌpeptəʊ ˈbɪzmɒl $ -mɔːl/",
+    "url": "https://www.ldoceonline.com/dictionary/pepto-bismol"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess pˈɛptObˌɪzməl (PEP-toh-biz-mul) puts the main stress on PEP and reduces 'mol'; both dictionaries put it on BIZ and write a full vowel (US 'mawl', British 'mol').",
+  "review": "ok: AHD 5th markup re-checked (pĕp′tō-bĭz[bold]môl) and Longman (/ˌpeptəʊ ˈbɪzmɒl $ -mɔːl/); two sources put the main stress on BIZ and write the final vowel full",
+  "today_us": "pˈɛptObˌɪzməl",
+  "today_gb": "pˈɛptQbˌɪzməl",
+  "today_source": "guesser",
+  "gb_effective": "pˌɛptQbˈɪzmɒl",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 1244,
+  "word": "piriteze",
+  "kind": "brand",
+  "spelling": "Piriteze",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "pˈɪɹɪtˌiz",
+  "gb": "pˈɪɹɪtˌiːz",
+  "respelling": "PIRR-ih-teez",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "Piri- from the sister brand Piriton + -teze (cetirizine), -eze as in breeze; no written pronunciation found (not in Longman, Dictionary.com, Wiktionary)",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [
+   {
+    "us": "pˌɪɹɪtˈiz",
+    "gb": "pˌɪɹɪtˈiːz",
+    "context": "main stress on 'teez' (pirr-ih-TEEZ); no source either way"
+   }
+  ],
+  "notes": "Low: no written pronunciation; rests on the spelling and the Piriton family. Today's guess pˌɪɹɪtˈAzi (pih-rih-TAY-zee) adds a fourth syllable and reads -eze as 'ay-zee', which is plainly wrong; the stress (PIRR- as in Piriton, or -TEEZ) is my reading. REVIEW.",
+  "review": "ok",
+  "today_us": "pˌɪɹɪtˈAzi",
+  "today_gb": "pˌɪɹɪtˈAzi",
+  "today_source": "guesser",
+  "gb_effective": "pˈɪɹɪtˌiːz",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "3 phonemes off"
+ },
+ {
+  "rank": 1245,
+  "word": "piriton",
+  "kind": "brand",
+  "spelling": "Piriton",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "pˈɪɹɪtɑn",
+  "gb": "pˈɪɹɪtɒn",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "no written pronunciation found (not in Longman, Dictionary.com, Wiktionary)",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Today pˈɪɹɪtɑn, GB pˈɪɹɪtɒn (PIRR-ih-ton). Low: rests on the spelling.",
+  "review": "ok",
+  "today_us": "pˈɪɹɪtɑn",
+  "today_gb": "pˈɪɹɪtɒn",
+  "today_source": "guesser",
+  "gb_effective": "pˈɪɹɪtɒn",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1246,
+  "word": "plan b",
+  "kind": "brand",
+  "spelling": "Plan B",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "plˈæn bˈi",
+  "gb": "plˈan bˈiː",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "the English word plan and the letter B (also the everyday phrase 'plan B')",
+    "url": ""
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [],
+  "notes": "Today plˈæn bˈi reads the phrase normally; also an everyday phrase, so nothing to ship.",
+  "review": "ok",
+  "today_us": "plˈæn bˈi",
+  "today_gb": "plˈan bˈiː",
+  "today_source": "gold+letters",
+  "gb_effective": "plˈan bˈiː",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1247,
+  "word": "polysporin",
+  "kind": "brand",
+  "spelling": "Polysporin",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "pˌɑlˌispˈɔɹɪn",
+  "gb": "pˌɒlˌiːspˈɔːɹɪn",
+  "evidence": [
+   {
+    "source": "Dictionary.com (Random House), the sister brand Neosporin",
+    "says": "Neosporin /ˌni oʊˈspɔr ɪn/; Polysporin itself not found (not in AHD, AHD Medicine, Dictionary.com)",
+    "url": "https://www.dictionary.com/browse/neosporin"
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Today pˌɑlˌispˈɔɹɪn (pah-lee-SPOR-in). Low: rests on the spelling (poly-) and the Neosporin analogy (-SPOR-in).",
+  "review": "ok",
+  "today_us": "pˌɑlˌispˈɔɹɪn",
+  "today_gb": "pˌɒlˌiːspˈɔːɹɪn",
+  "today_source": "guesser",
+  "gb_effective": "pˌɒlˌiːspˈɔːɹɪn",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1248,
+  "word": "primatene",
+  "kind": "brand",
+  "spelling": "Primatene",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "pɹˈImətˌin",
+  "gb": "pɹˈImətˌiːn",
+  "evidence": [
+   {
+    "source": "FDA proprietary name review, NDA 205920 (Armstrong Pharmaceuticals, 22 Aug 2018)",
+    "says": "Intended Pronunciation: ˈprī-mə-tēn ˈmist",
+    "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2018/205920Orig1s000NameR.pdf"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today pɹˈImətˌin (PRY-muh-teen) matches the maker's intended pronunciation.",
+  "review": "ok: FDA name review PDF re-checked ('Intended Pronunciation: ˈprī-mə-tēn ˈmist')",
+  "today_us": "pɹˈImətˌin",
+  "today_gb": "pɹˈImətˌiːn",
+  "today_source": "guesser",
+  "gb_effective": "pɹˈImətˌiːn",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1249,
+  "word": "rennie",
+  "kind": "brand",
+  "spelling": "Rennie",
+  "match": "case-insensitive",
+  "disposition": "ordinary-word",
+  "us": "",
+  "gb": "",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "also a common surname; no written pronunciation of the brand found (not in Longman)",
+    "url": ""
+   }
+  ],
+  "confidence": "",
+  "alternatives": [],
+  "notes": "Rennie is also a surname met in ordinary text (zipf 2.89). Today ɹˈɛni (REN-ee) is both the surname's reading and the brand's obvious one, so nothing needs shipping.",
+  "review": "ok",
+  "today_us": "ɹˈɛni",
+  "today_gb": "ɹˈɛni",
+  "today_source": "cmudict"
+ },
+ {
+  "rank": 1250,
+  "word": "rhinocort",
+  "kind": "brand",
+  "spelling": "Rhinocort",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "ɹˈInəkˌɔɹt",
+  "gb": "ɹˈInəkˌɔːt",
+  "evidence": [
+   {
+    "source": "DailyMed label, Rhinocort Aqua (AstraZeneca's label, Physicians Total Care relabel), Patient Information",
+    "says": "RHINOCORT AQUA (RINE-o-cort AH-kwa)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ffca32a2-fbef-40bb-b0f0-73f63e18e747"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today ɹˈInəkˌɔɹt (RY-nuh-kort) matches 'RINE-o-cort'; the lower-case 'o' is an unstressed vowel, so ə is only a reduction difference.",
+  "review": "ok: harvested label respelling RINE-o-cort; today's reading matches",
+  "today_us": "ɹˈInəkˌɔɹt",
+  "today_gb": "ɹˈInəkˌɔːt",
+  "today_source": "guesser",
+  "gb_effective": "ɹˈInəkˌɔːt",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1251,
+  "word": "robitussin",
+  "kind": "brand",
+  "spelling": "Robitussin",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ɹˈɑbɪtˌʌsɪn",
+  "gb": "ɹˈɒbɪtˌʌsɪn",
+  "respelling": "RAH-bih-tuss-in",
+  "evidence": [
+   {
+    "source": "Longman Dictionary of Contemporary English",
+    "says": "Robitussin /ˈrɒbɪtʌsɪn $ ˈrɑː-/",
+    "url": "https://www.ldoceonline.com/dictionary/robitussin"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "/ˈɹoʊ.bəˌtʌs.ɪn/",
+    "url": "https://en.wiktionary.org/wiki/Robitussin"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "ɹˈObətˌʌsɪn",
+    "gb": "ɹˈQbətˌʌsɪn",
+    "context": "ROH-buh-tuss-in: Wiktionary's 'oh' vowel in the first syllable"
+   },
+   {
+    "us": "ɹˌɑbɪtˈʌsɪn",
+    "gb": "ɹˌɒbɪtˈʌsɪn",
+    "context": "main stress on TUS: today's reading (CMUdict); no independent source"
+   }
+  ],
+  "notes": "REVIEW. Both dictionaries put the main stress on the first syllable (today's CMUdict reading puts it on TUS, with a secondary on the first); Wiktionary gives 'tus' a secondary stress, kept here. They split on the first vowel: Longman's American form 'rah' (as in A.H. Robins, the original maker) vs Wiktionary's 'roh'; an even split, so medium. I kept 'rah', today's vowel and Longman's explicit American form.",
+  "review": "ok: Longman (/ˈrɒbɪtʌsɪn $ ˈrɑː-/) and Wiktionary raw (/ˈɹoʊ.bəˌtʌs.ɪn/) re-checked; both put the main stress on the first syllable, so the guide's two-source rule outvotes today's CMUdict TUS; no entry in AHD, Dictionary.com or YourDictionary; medium kept for the even rah/roh split",
+  "today_us": "ɹˌɑbɪtˈʌsɪn",
+  "today_gb": "ɹˌɒbɪtˈʌsɪn",
+  "today_source": "cmudict",
+  "gb_effective": "ɹˈɒbɪtˌʌsɪn",
+  "verdict_us": "partial",
+  "verdict_us_detail": "right sounds, wrong stress",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "right sounds, wrong stress"
+ },
+ {
+  "rank": 1252,
+  "word": "rogaine",
+  "kind": "brand",
+  "spelling": "Rogaine",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ɹˈOɡˌAn",
+  "gb": "ɹˈQɡˌAn",
+  "respelling": "ROH-gayn",
+  "evidence": [
+   {
+    "source": "Dictionary.com (Random House)",
+    "says": "Rogaine [roh-gayn] /ˈroʊ geɪn/",
+    "url": "https://www.dictionary.com/browse/rogaine"
+   },
+   {
+    "source": "American Heritage Dictionary, 5th ed.",
+    "says": "Ro·gaine (rō′gān′), main stress on rō",
+    "url": "https://ahdictionary.com/word/search.html?q=Rogaine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "US-only fix: today's US ɹOɡˈAn (roh-GAYN, CMUdict, not independent) stresses the second syllable; both dictionaries stress ROH. Today's GB ɹˈQɡAn is already right.",
+  "review": "ok: Dictionary.com (/ˈroʊ geɪn/) and AHD 5th (rō[bold]gān′) re-checked; US-only fix",
+  "today_us": "ɹOɡˈAn",
+  "today_gb": "ɹˈQɡAn",
+  "today_source": "cmudict",
+  "gb_effective": "ɹˈQɡˌAn",
+  "verdict_us": "partial",
+  "verdict_us_detail": "right sounds, wrong stress",
+  "verdict_gb": "right",
+  "verdict_gb_detail": "same sounds, only secondary-stress differences"
+ },
+ {
+  "rank": 1253,
+  "word": "rolaids",
+  "kind": "brand",
+  "spelling": "Rolaids",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "ɹˈOlˌAdz",
+  "gb": "ɹˈQlˌAdz",
+  "evidence": [
+   {
+    "source": "Longman Dictionary of Contemporary English",
+    "says": "Rolaids /ˈrəʊleɪdz/",
+    "url": "https://www.ldoceonline.com/dictionary/rolaids"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today ɹˈOlˌAdz (ROH-laydz) matches.",
+  "review": "ok: Longman /ˈrəʊleɪdz/ re-checked",
+  "today_us": "ɹˈOlˌAdz",
+  "today_gb": "ɹˈQlˌAdz",
+  "today_source": "guesser",
+  "gb_effective": "ɹˈQlˌAdz",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1254,
+  "word": "salonpas",
+  "kind": "brand",
+  "spelling": "Salonpas",
+  "match": "case-insensitive",
+  "disposition": "unresolved",
+  "us": "səlˈɑnpəs",
+  "gb": "səlˈɒnpəs",
+  "respelling": "suh-LON-pus",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "no written pronunciation found (not in AHD, AHD Medicine, Dictionary.com, Wikipedia; the maker's FAQ link redirects to a broken address)",
+    "url": ""
+   }
+  ],
+  "confidence": "",
+  "alternatives": [
+   {
+    "us": "səlˈɑnpˌɑs",
+    "gb": "səlˈɒnpˌas",
+    "context": "suh-LON-pahs, with a full final vowel (Japanese サロンパス saronpasu)"
+   }
+  ],
+  "notes": "Unresolved: no source. Today səlˈɑnpəz (suh-LON-puz) ends in z, which the spelling doesn't support (s, as in atlas); my candidate changes only that. The final vowel (reduced or 'pahs') is open too. Needs Hisamitsu's ads or a written source.",
+  "review": "ok",
+  "today_us": "səlˈɑnpəz",
+  "today_gb": "səlˈɒnpəz",
+  "today_source": "guesser",
+  "gb_effective": "səlˈɒnpəs",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 1255,
+  "word": "solpadeine",
+  "kind": "brand",
+  "spelling": "Solpadeine",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "sˈɑlpədˌin",
+  "gb": "sˈɒlpədˌiːn",
+  "respelling": "SOL-puh-deen",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP), codeine",
+    "says": "koe' deen",
+    "url": "https://medlineplus.gov/druginfo/meds/a682065.html"
+   },
+   {
+    "source": "spelling",
+    "says": "Sol(uble) + pa(racetamol) + (co)deine; no written pronunciation of the brand found (not in Longman, Dictionary.com, Wiktionary)",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [
+   {
+    "us": "sˈOlpədˌin",
+    "gb": "sˈQlpədˌiːn",
+    "context": "SOHL-puh-deen: today's first vowel, with only the ending fixed"
+   }
+  ],
+  "notes": "Low: no written pronunciation of the brand; rests on its parts. Today's guess sˈOlpədˌIn ends '-dine' (eye); the name ends in codeine's 'deen'. The first vowel ('sol' as in soluble rather than today's 'sohl') is my reading. REVIEW.",
+  "review": "ok",
+  "today_us": "sˈOlpədˌIn",
+  "today_gb": "sˈQlpədˌIn",
+  "today_source": "guesser",
+  "gb_effective": "sˈɒlpədˌiːn",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "3 phonemes off"
+ },
+ {
+  "rank": 1256,
+  "word": "sominex",
+  "kind": "brand",
+  "spelling": "Sominex",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "sˈɑmɪnˌɛks",
+  "gb": "sˈɒmɪnˌɛks",
+  "respelling": "SAH-mih-neks",
+  "evidence": [
+   {
+    "source": "American Heritage Stedman's Medical Dictionary, via YourDictionary",
+    "says": "sŏm′ĭ-nĕks′ (bold primary mark after sŏm)",
+    "url": "https://www.yourdictionary.com/sominex"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess sˈʌmɪnɛks (SUM-ih-neks, as in 'some') has the wrong stressed vowel; the dictionary has ŏ (LOT: US ɑ, GB ɒ), as in somnolent, and a secondary stress on 'neks'.",
+  "review": "ok: AHD Medicine sŏm[bold]ĭ-nĕks′ re-checked; no Longman or Dictionary.com entry",
+  "today_us": "sˈʌmɪnɛks",
+  "today_gb": "sˈʌmɪnɛks",
+  "today_source": "guesser",
+  "gb_effective": "sˈɒmɪnˌɛks",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 1257,
+  "word": "strepsils",
+  "kind": "brand",
+  "spelling": "Strepsils",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "stɹˈɛpsəlz",
+  "gb": "stɹˈɛpsəlz",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "strep (throat) + -sils; no written pronunciation found (not in Longman, Dictionary.com, Wiktionary; Wikipedia gives none)",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Today stɹˈɛpsəlz (STREP-sulz). Low: rests on the spelling; 'silz' vs 'sulz' is only an unstressed-vowel difference.",
+  "review": "ok",
+  "today_us": "stɹˈɛpsəlz",
+  "today_gb": "stɹˈɛpsəlz",
+  "today_source": "guesser",
+  "gb_effective": "stɹˈɛpsəlz",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1258,
+  "word": "sudafed",
+  "kind": "brand",
+  "spelling": "Sudafed",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "sˈudəfˌɛd",
+  "gb": "sˈuːdəfˌɛd",
+  "evidence": [
+   {
+    "source": "Dictionary.com (Random House)",
+    "says": "Sudafed [soo-duh-fed] /ˈsu dəˌfɛd/",
+    "url": "https://www.dictionary.com/browse/sudafed"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today sˈudəfˌɛd matches exactly.",
+  "review": "ok: Dictionary.com re-checked",
+  "today_us": "sˈudəfˌɛd",
+  "today_gb": "sˈuːdəfˌɛd",
+  "today_source": "cmudict",
+  "gb_effective": "sˈuːdəfˌɛd",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1259,
+  "word": "sudocrem",
+  "kind": "brand",
+  "spelling": "Sudocrem",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "sˈudəkɹˌɛm",
+  "gb": "sˈuːdəkɹˌɛm",
+  "evidence": [
+   {
+    "source": "Wikipedia (Sudocrem)",
+    "says": "/ˈsudəkrɛm/ or /ˈsudəkrim/ in Ireland",
+    "url": "https://en.wikipedia.org/wiki/Sudocrem"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [],
+  "notes": "Today sˈudəkɹˌɛm, GB sˈuːdəkɹˌɛm (SOO-duh-krem) matches Wikipedia's main form. Medium: one secondary source; not in Longman or Dictionary.com.",
+  "review": "ok: Wikipedia wikitext re-checked (IPAc-en ˈsudəkrɛm, ˈsudəkrim in Ireland)",
+  "today_us": "sˈudəkɹˌɛm",
+  "today_gb": "sˈuːdəkɹˌɛm",
+  "today_source": "guesser",
+  "gb_effective": "sˈuːdəkɹˌɛm",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1260,
+  "word": "tagamet",
+  "kind": "brand",
+  "spelling": "Tagamet",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "tˈæɡəmˌɛt",
+  "gb": "tˈaɡəmˌɛt",
+  "respelling": "TAG-uh-met",
+  "evidence": [
+   {
+    "source": "Dictionary.com (Random House)",
+    "says": "Tagamet [tag-uh-met] /ˈtæg əˌmɛt/",
+    "url": "https://www.dictionary.com/browse/tagamet"
+   },
+   {
+    "source": "American Heritage Dictionary, 5th ed.",
+    "says": "Tag·a·met (tăg′ə-mĕt′), main stress on tăg",
+    "url": "https://ahdictionary.com/word/search.html?q=Tagamet"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's US tˈæɡəmət (gold dictionary) reduces 'met' to 'mut'; both dictionaries give it a full vowel with secondary stress, which the guide counts as a real difference. Today's GB tˈaɡəmɛt already has the full vowel.",
+  "review": "ok: Dictionary.com (/ˈtæg əˌmɛt/) and AHD 5th (tăg[bold]ə-mĕt′) re-checked; two sources give 'met' full with secondary stress",
+  "today_us": "tˈæɡəmət",
+  "today_gb": "tˈaɡəmɛt",
+  "today_source": "gold",
+  "gb_effective": "tˈaɡəmˌɛt",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "right",
+  "verdict_gb_detail": "same sounds, only secondary-stress differences"
+ },
+ {
+  "rank": 1261,
+  "word": "theraflu",
+  "kind": "brand",
+  "spelling": "Theraflu",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "θˈɛɹəflu",
+  "gb": "θˈɛɹəflu",
+  "evidence": [
+   {
+    "source": "spelling",
+    "says": "thera(py) + the English word flu; no written pronunciation found (not in AHD, AHD Medicine, Dictionary.com)",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Today θˈɛɹəflu (THERR-uh-floo). Low: rests on the spelling.",
+  "review": "ok",
+  "today_us": "θˈɛɹəflu",
+  "today_gb": "θˈɛɹəflu",
+  "today_source": "guesser",
+  "gb_effective": "θˈɛɹəflu",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1262,
+  "word": "tinactin",
+  "kind": "brand",
+  "spelling": "Tinactin",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "tInˈæktɪn",
+  "gb": "tInˈaktɪn",
+  "evidence": [
+   {
+    "source": "Dictionary.com (Random House)",
+    "says": "Tinactin [ti-nak-tin] /tɪˈnæk tɪn/",
+    "url": "https://www.dictionary.com/browse/tinactin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "tɪnˈæktɪn",
+    "gb": "tɪnˈaktɪn",
+    "context": "Dictionary.com's reduced 'ti-' in the unstressed first syllable (tih-NAK-tin)"
+   }
+  ],
+  "notes": "Today tInˈæktɪn (ty-NAK-tin) matches Dictionary.com's stress (NAK), stressed vowel and consonants. Dictionary.com reduces the unstressed first syllable ('ti', ɪ) where today has a full 'eye'; a full vowel against a reduced one in an unstressed syllable is only reduction under the guide's pack-wide ruling (as Latuda's 'lah' vs the maker's 'luh' in d0022). Nothing to ship; Dictionary.com's form is the alternative.",
+  "review": "corrected → already-correct (dropped us tɪnˈæktɪn / gb tɪnˈaktɪn): today's full 'tI' against Dictionary.com's reduced 'tɪ' in the unstressed first syllable is reduction only under the pack-wide ruling; Dictionary.com re-checked (ti-nak-tin, /tɪˈnæk tɪn/); its form kept as the alternative",
+  "today_us": "tInˈæktɪn",
+  "today_gb": "tInˈaktɪn",
+  "today_source": "guesser",
+  "gb_effective": "tInˈaktɪn",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1263,
+  "word": "tums",
+  "kind": "brand",
+  "spelling": "Tums",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "tˈʌmz",
+  "gb": "tˈʌmz",
+  "evidence": [
+   {
+    "source": "American Heritage Dictionary, 5th ed.",
+    "says": "Tums (tŭmz)",
+    "url": "https://ahdictionary.com/word/search.html?q=Tums"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today tˈʌmz matches. Also the plural of British 'tum' (tummy), read the same way, so nothing to ship.",
+  "review": "ok: AHD 5th re-checked",
+  "today_us": "tˈʌmz",
+  "today_gb": "tˈʌmz",
+  "today_source": "gold",
+  "gb_effective": "tˈʌmz",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 1264,
+  "word": "tylenol",
+  "kind": "brand",
+  "spelling": "Tylenol",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "tˈIlənɔl",
+  "gb": "tˈIlənɒl",
+  "evidence": [
+   {
+    "source": "American Heritage Dictionary, 5th ed.",
+    "says": "Ty·le·nol (tī′lə-nôl′, -nŏl′), main stress on tī",
+    "url": "https://ahdictionary.com/word/search.html?q=Tylenol"
+   },
+   {
+    "source": "Dictionary.com (Random House)",
+    "says": "Tylenol [tahy-luh-nawl, -nol] /ˈtaɪ ləˌnɔl, -ˌnɒl/",
+    "url": "https://www.dictionary.com/browse/tylenol"
+   },
+   {
+    "source": "Longman Dictionary of Contemporary English",
+    "says": "Tylenol /ˈtaɪlənɒl $ -nɔːl/",
+    "url": "https://www.ldoceonline.com/dictionary/tylenol"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "/ˈtaɪləˌnɑl/ (Canada, US)",
+    "url": "https://en.wiktionary.org/wiki/Tylenol"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today tˈIlənɔl (US) and tˈIlənɒl (GB) match; the dictionaries' secondary stress on 'nol' is the only difference, and ɑ/ɔ in -ol is one sound for most Americans (the guide).",
+  "review": "ok: AHD 5th (tī[bold]lə-nôl′, -nŏl′), Dictionary.com and Longman re-checked",
+  "today_us": "tˈIlənɔl",
+  "today_gb": "tˈIlənɒl",
+  "today_source": "gold",
+  "gb_effective": "tˈIlənɒl",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ }
+]

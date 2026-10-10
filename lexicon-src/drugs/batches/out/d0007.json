@@ -23,7 +23,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today says SIK-luh-pyre-oks: main stress on the first syllable, 'sik' for 'sye' and 'pyre' for 'peer'. MedlinePlus and Davis agree on sye-kloh-PEER-oks. Pre-tonic 'kloe' kept full (O); secondary on 'sye'. GB keeps the r before the vowel ('peer-ox')."
+  "notes": "Today says SIK-luh-pyre-oks: main stress on the first syllable, 'sik' for 'sye' and 'pyre' for 'peer'. MedlinePlus and Davis agree on sye-kloh-PEER-oks. Pre-tonic 'kloe' kept full (O); secondary on 'sye'. GB keeps the r before the vowel ('peer-ox').",
+  "review": "ok"
  },
  {
   "rank": 326,
@@ -49,7 +50,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's US mənˈɑksədˌɪl is Wiktionary's GA form exactly; GB mɪnˈɒksɪdɪl is its RP form exactly."
+  "notes": "Today's US mənˈɑksədˌɪl is Wiktionary's GA form exactly; GB mɪnˈɒksɪdɪl is its RP form exactly.",
+  "review": "ok"
  },
  {
   "rank": 327,
@@ -75,7 +77,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's US lˈæktjəlOs matches (unstressed 'tyoo' reduced; no secondary on 'lose', a secondary-only difference). GB lˈaktjʊlQz is Wiktionary's RP form exactly."
+  "notes": "Today's US lˈæktjəlOs matches (unstressed 'tyoo' reduced; no secondary on 'lose', a secondary-only difference). GB lˈaktjʊlQz is Wiktionary's RP form exactly.",
+  "review": "ok"
  },
  {
   "rank": 329,
@@ -96,7 +99,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Enzyme (in pancrelipase). Today's US ˈæməlˌAs matches Wiktionary (unstressed ɪ/ə only). Today's GB ˈamɪlAz ends in z where Wiktionary's unlabelled form has s: a voicing difference only (no British source checked), so left alone. A dictionary word (Zipf 2.31) whose everyday meaning is this enzyme; nothing to ship."
+  "notes": "Enzyme (in pancrelipase). Today's US ˈæməlˌAs matches Wiktionary (unstressed ɪ/ə only). Today's GB ˈamɪlAz ends in z where Wiktionary's unlabelled form has s: a voicing difference only (no British source checked), so left alone. A dictionary word (Zipf 2.31) whose everyday meaning is this enzyme; nothing to ship.",
+  "review": "ok"
  },
  {
   "rank": 330,
@@ -123,6 +127,16 @@
     "source": "Davis's Drug Guide (F.A. Davis, via Unbound Medicine; bold = stressed syllable)",
     "says": "pan-kre-**li**-pase (pancrelipase)",
     "url": "https://www.unboundmedicine.com/washingtonmanual/view/Davis-Drug-Guide/51577/0/pancrelipase"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "(lĭp′ās′, līp′ās′): LIP- listed first",
+    "url": "https://ahdictionary.com/word/search.html?q=lipase"
+   },
+   {
+    "source": "Dictionary.com (Random House; Collins for British)",
+    "says": "US LAHY-pays, LIP-ays /ˈlaɪ peɪs, ˈlɪp eɪs/; British /ˈlaɪpeɪs, ˈlɪpeɪs/",
+    "url": "https://www.dictionary.com/browse/lipase"
    }
   ],
   "confidence": "medium",
@@ -133,7 +147,8 @@
     "context": "LYE-pace: Wiktionary's first form (today's British reading already says LYE-paze)"
    }
   ],
-  "notes": "Today US lˈɪpˌAs (LIP-ace), GB lˈIpAz (LYE-paze); both are Wiktionary forms. MedlinePlus and Davis respell the enzyme's name inside pancrelipase as 'li' (lih, not 'lye', which both write for /aɪ/), which supports today's US. Medium: no source respells lipase alone, and Wiktionary lists LYE- first. A dictionary word (Zipf 2.29) that only means the enzyme; nothing to ship."
+  "notes": "Today US lˈɪpˌAs (LIP-ace), GB lˈIpAz (LYE-paze). Every dictionary lists both stressed vowels: AHD puts LIP- first; Dictionary.com, Collins and Wiktionary put LYE- first. MedlinePlus and Davis respell the enzyme inside pancrelipase with 'li' (lih), which leans to LIP-. An even split on the stressed vowel, and today's US is one of the listed forms, so it stays (medium); LYE-pace is the alternative. A dictionary word (Zipf 2.29) whose only meaning is the enzyme; nothing to ship.",
+  "review": "added AHD (LIP- first) and Dictionary.com/Collins (LYE- first): an even split, so already-correct at medium stands; notes restated"
  },
  {
   "rank": 331,
@@ -150,6 +165,11 @@
     "source": "Davis's Drug Guide (F.A. Davis, via Unbound Medicine; bold = stressed syllable)",
     "says": "val-**proe**-ate soe-dee-um (valproate sodium)",
     "url": "https://www.unboundmedicine.com/washingtonmanual/view/Davis-Drug-Guide/51781/0/VALPROATES"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "(văl-prō′āt′): stress on 'pro'",
+    "url": "https://ahdictionary.com/word/search.html?q=valproate"
    },
    {
     "source": "MedlinePlus (ASHP), Valproic Acid",
@@ -170,7 +190,8 @@
     "context": "VAL-proh-ate: Wiktionary's GA form (its RP form is today's British reading)"
    }
   ],
-  "notes": "Today's US vælpɹˈOˌAt (val-PROH-ate) matches Davis's 'val-PROE-ate' and keeps the stress MedlinePlus gives valproic acid ('val proe' ik'). Today's GB vˈalpɹQAt (VAL-proh-ate) is Wiktionary's RP form. Medium: Wiktionary's GA puts the main stress on 'val', and MedlinePlus has no monograph that respells valproate itself."
+  "notes": "Today's US vælpɹˈOˌAt (val-PROH-ate) matches AHD (văl-prō′āt′) and Davis's val-PROE-ate, and keeps the stress MedlinePlus gives valproic acid ('val proe' ik'). Today's GB vˈalpɹQAt (VAL-proh-ate) is Wiktionary's RP form, a British source for the British stress. Medium: Wiktionary's GA puts the main stress on 'val' and MedlinePlus has no monograph that respells valproate itself.",
+  "review": "added AHD (văl-prō′āt′), which confirms today's US stress; unchanged (medium kept: Wiktionary GA dissents)"
  },
  {
   "rank": 333,
@@ -207,7 +228,8 @@
     "context": "tye-kuh-GREL-or: Davis's Drug Guide bolds 'tye' and 'grel'"
    }
   ],
-  "notes": "Today says TIK-uh-grel-er: 'tik' for 'tye', and 'er' for the full 'or'. MedlinePlus stresses 'ka' (tye-KAG-ruh-lor), which is the reading. Medium because Davis's Drug Guide stresses 'tye' and 'grel' instead (a disagreement about which syllables are stressed); Wiktionary and Wikipedia give no pronunciation and the label respells only the brand. Post-tonic 'grel' reduced; final 'or' full with secondary stress."
+  "notes": "Today says TIK-uh-grel-er: 'tik' for 'tye', and 'er' for the full 'or'. MedlinePlus stresses 'ka' (tye-KAG-ruh-lor), which is the reading. Medium because Davis's Drug Guide stresses 'tye' and 'grel' instead (a disagreement about which syllables are stressed); Wiktionary and Wikipedia give no pronunciation and the label respells only the brand. Post-tonic 'grel' reduced; final 'or' full with secondary stress.",
+  "review": "ok; Davis re-checked (bold 'tye' and 'grel'); Wikipedia's infobox pronunciation is empty and AHD/Dictionary.com have no entry, so MedlinePlus's tye-KAG-ruh-lor at medium stands"
  },
  {
   "rank": 334,
@@ -228,7 +250,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's mˌɑksəflˈɑksən (mok-suh-FLOK-suh-sin) matches MedlinePlus: secondary on 'mox', main on 'flox'; only unstressed vowels differ in reduction. The -floxacin family pattern."
+  "notes": "Today's mˌɑksəflˈɑksən (mok-suh-FLOK-suh-sin) matches MedlinePlus: secondary on 'mox', main on 'flox'; only unstressed vowels differ in reduction. The -floxacin family pattern.",
+  "review": "ok"
  },
  {
   "rank": 336,
@@ -254,7 +277,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's dˌIfɛnhˈIdɹəmin matches MedlinePlus and Wiktionary (only a secondary stress on 'meen' differs)."
+  "notes": "Today's dˌIfɛnhˈIdɹəmin matches MedlinePlus and Wiktionary (only a secondary stress on 'meen' differs).",
+  "review": "ok"
  },
  {
   "rank": 337,
@@ -280,7 +304,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Ordinary word (Zipf 3.25); today's flˈʊɹˌId / flˈʊəɹId is the everyday and the drug reading (Wiktionary's first forms; MedlinePlus 'floor' ide'). Nothing to ship."
+  "notes": "Ordinary word (Zipf 3.25); today's flˈʊɹˌId / flˈʊəɹId is the everyday and the drug reading (Wiktionary's first forms; MedlinePlus 'floor' ide'). Nothing to ship.",
+  "review": "ok"
  },
  {
   "rank": 339,
@@ -302,6 +327,11 @@
     "source": "Davis's Drug Guide (F.A. Davis, via Unbound Medicine; bold = stressed syllable)",
     "says": "byoo-**tal**-bi-tal (butalbital, acetaminophen, caffeine)",
     "url": "https://www.unboundmedicine.com/washingtonmanual/view/Davis-Drug-Guide/110813/0/butalbital_acetaminophen_caffeine%C2%86"
+   },
+   {
+    "source": "Dictionary.com (Random House), barbital (family)",
+    "says": "BAHR-bi-tawl, -tal /ˈbɑr bɪˌtɔl, -ˌtæl/: full secondary-stressed final; butalbital itself not listed",
+    "url": "https://www.dictionary.com/browse/barbital"
    }
   ],
   "confidence": "medium",
@@ -312,7 +342,8 @@
     "context": "byoo-TAL-bih-tawl: the -barbital ending as the app's US dictionary reads phenobarbital (fˌinObˈɑɹbətˌɔl)"
    }
   ],
-  "notes": "Today bjutˈælbətəl (byoo-TAL-buh-tul) has the right stress but reduces the last syllable. MedlinePlus and Davis both write a full 'tal' there, spelled exactly like the stressed 'tal', while they write reduced vowels as 'a'/'i'; the barbiturate family keeps a full final vowel (the app's US dictionary reads phenobarbital with a secondary-stressed -ˌɔl). So, as with losartan's -tan, a full secondary-stressed final. Medium: the respellings mark no secondary stress, so 'full vowel' is my reading of them, and the vowel (tal or tawl) is not settled by a dictionary; no Wiktionary entry."
+  "notes": "Today bjutˈælbətəl (byoo-TAL-buh-tul) has the right stress but reduces the last syllable. MedlinePlus and Davis both write a full 'tal' there, spelled exactly like the stressed 'tal', while they write reduced vowels as 'a'/'i'; the barbiturate family keeps a full final vowel (the app's US dictionary reads phenobarbital with a secondary-stressed -ˌɔl). So, as with losartan's -tan, a full secondary-stressed final. Medium: the respellings mark no secondary stress, so 'full vowel' is my reading of them, and the vowel (tal or tawl) is not settled by a dictionary; no Wiktionary entry.",
+  "review": "added Dictionary.com's barbital (-ˌtɔl, -ˌtæl) as family support for the full final; reading and medium unchanged"
  },
  {
   "rank": 340,
@@ -343,7 +374,8 @@
   ],
   "confidence": "",
   "alternatives": [],
-  "notes": "Everyday word (Zipf 3.67: coffee, tea). Today reads US kæfˈin (ka-FEEN, one of Wiktionary's two forms) and GB kˈafiːn (KAF-een). MedlinePlus and Davis write KAF-een, but both stresses are standard for the same substance, and a general entry would change everyday American prose. Don't ship."
+  "notes": "Everyday word (Zipf 3.67: coffee, tea). Today reads US kæfˈin (ka-FEEN, one of Wiktionary's two forms) and GB kˈafiːn (KAF-een). MedlinePlus and Davis write KAF-een, but both stresses are standard for the same substance, and a general entry would change everyday American prose. Don't ship.",
+  "review": "ok"
  },
  {
   "rank": 343,
@@ -367,20 +399,26 @@
     "url": "https://en.wiktionary.org/wiki/terbinafine"
    },
    {
+    "source": "American Heritage Dictionary",
+    "says": "(tər-bĭn′ə-fēn′, tûr′bĭ-nə-fēn′): ter-BIN- first, TUR-bi- second",
+    "url": "https://ahdictionary.com/word/search.html?q=terbinafine"
+   },
+   {
     "source": "Davis's Drug Guide (F.A. Davis, via Unbound Medicine; bold = stressed syllable)",
     "says": "ter-**bi**-na-feen",
     "url": "https://www.unboundmedicine.com/washingtonmanual/view/Davis-Drug-Guide/110948/0/terbinafine__systemic_"
    }
   ],
-  "confidence": "medium",
+  "confidence": "high",
   "alternatives": [
    {
     "us": "tˈɜɹbɪnəfˌin",
     "gb": "tˈɜːbɪnəfˌiːn",
-    "context": "TER-bin-uh-feen: MedlinePlus's stress"
+    "context": "TER-bin-uh-feen: MedlinePlus's stress and AHD's second form"
    }
   ],
-  "notes": "Today says TER-bin-uh-fyne: '-fyne' for '-feen' is wrong in every source, so this is a correction either way. Stress: MedlinePlus puts it on 'ter'; Wiktionary (GA) and Davis put it on 'bin', with a secondary on 'feen'. Two sources share 'bin', so that is the main stress (the checker's WARN about MedlinePlus's syllable 1 is intended); MedlinePlus's form is the alternative. Medium because the sources disagree about which syllables carry stress."
+  "notes": "Today says TER-bin-uh-fyne: '-fyne' for '-feen' is wrong in every source, so this is a correction either way. Stress: Wiktionary (GA), AHD's first form and Davis put the main stress on 'bin', with a secondary on 'feen'; MedlinePlus (and AHD's second form) put it on 'ter'. Two authoritative sources against one, so 'bin' is the main stress at high (the checker's WARN about MedlinePlus's syllable 1 is intended); MedlinePlus's form is the alternative.",
+  "review": "confidence medium → high: AHD's first form (tər-bĭn′ə-fēn′) also stresses 'bin', so two authoritative sources (Wiktionary, AHD) against MedlinePlus; added AHD; reading unchanged"
  },
  {
   "rank": 344,
@@ -402,11 +440,27 @@
     "source": "MedlinePlus (ASHP), Ammonium Lactate Topical",
     "says": "a moe' nee um lak' tate",
     "url": "https://medlineplus.gov/druginfo/meds/a617028.html"
+   },
+   {
+    "source": "Dictionary.com (Random House; Collins for British)",
+    "says": "verb and noun both LAK-tayt /ˈlæk teɪt/; Collins British gives /ˈlækteɪt/ for the verb as well as the noun",
+    "url": "https://www.dictionary.com/browse/lactate"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "lactate (verb) and lactate (noun) both (lăk′tāt′)",
+    "url": "https://ahdictionary.com/word/search.html?q=lactate"
+   },
+   {
+    "source": "Google Books Ngram Viewer (POS-tagged), 2010-2019",
+    "says": "British English corpus: lactate_NOUN about 38 times lactate_VERB; English fiction corpus: noun about 4 times verb",
+    "url": "https://books.google.com/ngrams/graph?content=lactate_NOUN%2Clactate_VERB&year_start=2010&year_end=2019&corpus=en-GB-2019"
    }
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "GB-only fix. US is right (LAK-tayt for noun and verb). Today's GB laktˈAt is the British verb ('to lactate'); the salt and the biochemical noun (sodium lactate, Ringer's lactate, blood lactate) are LAK-tayt in British English too. Safe as a general entry: the noun is what readers meet; the bare British verb is, in my judgment, rare in text (most verb uses are 'lactating'/'lactation', other spellings the entry doesn't touch) and LAK-tayt is still a recognised (American) verb form. A dictionary word (Zipf 2.72): REVIEW if the British verb matters more than I think. Same entry as the salt row."
+  "notes": "GB-only fix. US is right (LAK-tayt for noun and verb). Today's GB laktˈAt is the British verb stress ('to lactate', Wiktionary UK verb); the salt and the noun (sodium lactate, Ringer's lactate, blood lactate, lactate threshold) are LAK-tayt in British English too. Safe as a general entry: the noun outnumbers the verb about 38 to 1 in British books and about 4 to 1 even in fiction (Ngram, POS-tagged), most verb uses are 'lactating'/'lactation' (spellings the entry doesn't touch), and a British dictionary (Collins) gives LAK-tayt for the verb as well. Same entry as the salt row.",
+  "review": "kept the GB-only fix (not ordinary-word): the bare British verb is rare in text (noun:verb about 38:1 in British books, 4:1 in fiction, Ngram) and Collins gives LAK-tayt for the British verb too; added Dictionary.com/Collins, AHD and the Ngram counts; removed the REVIEW hedge"
  },
  {
   "rank": 345,
@@ -428,11 +482,27 @@
     "source": "MedlinePlus (ASHP), Ammonium Lactate Topical",
     "says": "a moe' nee um lak' tate",
     "url": "https://medlineplus.gov/druginfo/meds/a617028.html"
+   },
+   {
+    "source": "Dictionary.com (Random House; Collins for British)",
+    "says": "verb and noun both LAK-tayt /ˈlæk teɪt/; Collins British gives /ˈlækteɪt/ for the verb as well as the noun",
+    "url": "https://www.dictionary.com/browse/lactate"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "lactate (verb) and lactate (noun) both (lăk′tāt′)",
+    "url": "https://ahdictionary.com/word/search.html?q=lactate"
+   },
+   {
+    "source": "Google Books Ngram Viewer (POS-tagged), 2010-2019",
+    "says": "British English corpus: lactate_NOUN about 38 times lactate_VERB; English fiction corpus: noun about 4 times verb",
+    "url": "https://books.google.com/ngrams/graph?content=lactate_NOUN%2Clactate_VERB&year_start=2010&year_end=2019&corpus=en-GB-2019"
    }
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Same spelling and entry as the generic row (rank 344): a GB-only fix from the British verb stress (lak-TAYT) to the noun's LAK-tayt; see that row's note."
+  "notes": "Same spelling and entry as the generic row (rank 344): a GB-only fix from the British verb stress (lak-TAYT) to the noun's LAK-tayt; see that row's note for why the British verb doesn't make this an ordinary-word.",
+  "review": "same as rank 344: kept the GB-only fix; added Dictionary.com/Collins, AHD and the Ngram counts"
  },
  {
   "rank": 346,
@@ -458,7 +528,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's ˌælfjˈuzOsɪn matches MedlinePlus and Wiktionary exactly, full post-tonic 'zoe' included."
+  "notes": "Today's ˌælfjˈuzOsɪn matches MedlinePlus and Wiktionary exactly, full post-tonic 'zoe' included.",
+  "review": "ok"
  },
  {
   "rank": 347,
@@ -495,7 +566,8 @@
     "context": "fyoo-ROH-ate, keeping furoic acid's stress; no source found for it either"
    }
   ],
-  "notes": "Today fjˈʊɹOˌAt (FYOOR-oh-ate). Low: no written pronunciation found (Wiktionary has the entry but no IPA; MedlinePlus, Davis's fluticasone entry and the Asmanex label respell only mometasone, fluticasone or the brand). It rests on the spelling and the analogy of benzoate (BEN-zoh-ate, Wiktionary), the -oate salt of an -oic acid stressed on its first syllable. The harvested label hit ('based on AUC') was junk."
+  "notes": "Today fjˈʊɹOˌAt (FYOOR-oh-ate). Low: no written pronunciation found (Wiktionary has the entry but no IPA; MedlinePlus, Davis's fluticasone entry and the Asmanex label respell only mometasone, fluticasone or the brand). It rests on the spelling and the analogy of benzoate (BEN-zoh-ate, Wiktionary), the -oate salt of an -oic acid stressed on its first syllable. The harvested label hit ('based on AUC') was junk.",
+  "review": "ok"
  },
  {
   "rank": 348,
@@ -516,7 +588,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's mˌɛlətˈOnən / mˌɛlətˈQnɪn match Wiktionary (unstressed ɪ/ə only). The drug and the everyday reading are the same; nothing to ship."
+  "notes": "Today's mˌɛlətˈOnən / mˌɛlətˈQnɪn match Wiktionary (unstressed ɪ/ə only). The drug and the everyday reading are the same; nothing to ship.",
+  "review": "ok"
  },
  {
   "rank": 349,
@@ -542,7 +615,8 @@
   ],
   "confidence": "",
   "alternatives": [],
-  "notes": "Everyday word (Zipf 4.74; the guide's own example). Today's ˈIəɹn / ˈIən is the everyday reading and matches MedlinePlus 'eye' urn'. Nothing to ship."
+  "notes": "Everyday word (Zipf 4.74; the guide's own example). Today's ˈIəɹn / ˈIən is the everyday reading and matches MedlinePlus 'eye' urn'. Nothing to ship.",
+  "review": "ok"
  },
  {
   "rank": 351,
@@ -568,7 +642,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "GB-only fix. Today's US matches MedlinePlus and Wiktionary; today's GB ɡwˌIfənˈiːzɪn (gwye-fuh-NEE-zin) moves the stress and voices the s. Wiktionary's form carries no accent label and no British source says otherwise, so GB keeps the US stress (the guide's rule); US unchanged."
+  "notes": "GB-only fix. Today's US matches MedlinePlus and Wiktionary; today's GB ɡwˌIfənˈiːzɪn (gwye-fuh-NEE-zin) moves the stress and voices the s. Wiktionary's form carries no accent label and no British source says otherwise, so GB keeps the US stress (the guide's rule); US unchanged.",
+  "review": "ok"
  },
  {
   "rank": 352,
@@ -592,6 +667,11 @@
     "url": "https://www.unboundmedicine.com/washingtonmanual/view/Davis-Drug-Guide/51111/0/brompheniramine"
    },
    {
+    "source": "Dictionary.com (Random House)",
+    "says": "brohm-fuh-NEER-uh-meen, -min /ˌbroʊm fəˈnɪər əˌmin/",
+    "url": "https://www.dictionary.com/browse/brompheniramine"
+   },
+   {
     "source": "Wiktionary",
     "says": "/ˌbɹɒmfəˈnɪɹəmiːn/ (no accent label)",
     "url": "https://en.wiktionary.org/wiki/brompheniramine"
@@ -599,7 +679,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "US-only fix. Today's US bɹˌɑmfənˈɪɹəmˌin says 'brahm' in the secondary-stressed first syllable; MedlinePlus and Davis both write 'brome' (as in bromide, which the app's US dictionary reads bɹˈOmˌId). GB is today's GB unchanged: it is Wiktionary's form exactly (its ɒ is a British transcription), the only source with a British vowel. Main stress on 'ir' everywhere."
+  "notes": "US-only fix. Today's US bɹˌɑmfənˈɪɹəmˌin says 'brahm' in the secondary-stressed first syllable; MedlinePlus, Davis and Dictionary.com all write 'brome'/'brohm' (two different full vowels: a real difference). GB is today's GB unchanged: it is Wiktionary's form exactly (its ɒ is a British transcription), the only source with a British vowel. Main stress on 'ir' everywhere.",
+  "review": "added Dictionary.com (ˌbroʊm-), which confirms the US fix; unchanged"
  },
  {
   "rank": 353,
@@ -607,10 +688,10 @@
   "kind": "generic",
   "spelling": "cyproheptadine",
   "match": "case-insensitive",
-  "disposition": "corrected",
-  "us": "sɪpɹOhˈɛptədˌin",
-  "gb": "sɪpɹQhˈɛptədˌiːn",
-  "respelling": "sih-proh-HEP-tuh-deen",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
   "evidence": [
    {
     "source": "MedlinePlus (ASHP), Cyproheptadine",
@@ -626,17 +707,28 @@
     "source": "Wiktionary",
     "says": "/ˌsaɪ.pɹəˈhɛp.tə.diːn/ (no accent label)",
     "url": "https://en.wiktionary.org/wiki/cyproheptadine"
+   },
+   {
+    "source": "Dictionary.com (Random House)",
+    "says": "sahy-proh-HEP-tuh-deen /ˌsaɪ proʊˈhɛp təˌdin/",
+    "url": "https://www.dictionary.com/browse/cyproheptadine"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "(sī′prō-hĕp′tə-dēn′)",
+    "url": "https://ahdictionary.com/word/search.html?q=cyproheptadine"
    }
   ],
-  "confidence": "medium",
+  "confidence": "high",
   "alternatives": [
    {
-    "us": "sˌIpɹOhˈɛptədˌin",
-    "gb": "sˌIpɹQhˈɛptədˌiːn",
-    "context": "sye-proh-HEP-tuh-deen: Wiktionary's 'sye'; today's reading"
+    "us": "sɪpɹOhˈɛptədˌin",
+    "gb": "sɪpɹQhˈɛptədˌiːn",
+    "context": "sih-proh-HEP-tuh-deen: MedlinePlus's and Davis's unstressed 'si'"
    }
   ],
-  "notes": "REVIEW. Today says sye-proh-HEP-tuh-deen (Wiktionary's form). MedlinePlus and Davis both write 'si' (sih), and both write 'sye' when they mean /saɪ/ (ciclopirox: 'sye kloe'), so the difference is deliberate. The guide prefers MedlinePlus unless dictionaries agree on something else; only one dictionary (Wiktionary) was checkable, so MedlinePlus's 'sih' is the reading. Medium: a dictionary disagrees about the first vowel. Main stress on 'hep' in every source."
+  "notes": "Today's sˌIpɹOhˈɛptədˌin (sye-proh-HEP-tuh-deen) is Dictionary.com's IPA exactly, and AHD and Wiktionary agree ('sye' with a secondary stress). MedlinePlus and Davis write the first syllable 'si', unstressed: a full vowel against a reduced one in an unstressed syllable, which the guide counts as reduction only, and three dictionaries agree on 'sye'. Main stress on 'hep' in every source. Nothing to ship.",
+  "review": "corrected → already-correct (us sɪpɹOhˈɛptədˌin dropped, today's sˌIpɹOhˈɛptədˌin kept), medium → high: Dictionary.com, AHD and Wiktionary all give 'sye'; MedlinePlus's unstressed 'si' is reduction only under the guide's ruling"
  },
  {
   "rank": 354,
@@ -662,7 +754,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today says fek-soh-fuh-NAY-deen: main stress on 'nay' instead of 'fen'. MedlinePlus and Davis agree on fek-soh-FEN-uh-deen."
+  "notes": "Today says fek-soh-fuh-NAY-deen: main stress on 'nay' instead of 'fen'. MedlinePlus and Davis agree on fek-soh-FEN-uh-deen.",
+  "review": "ok"
  },
  {
   "rank": 355,
@@ -688,7 +781,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's lˈɛtɹəzˌOl is Wiktionary's GA form exactly (post-tonic 'roe' reduced, as Wiktionary does)."
+  "notes": "Today's lˈɛtɹəzˌOl is Wiktionary's GA form exactly (post-tonic 'roe' reduced, as Wiktionary does).",
+  "review": "ok"
  },
  {
   "rank": 356,
@@ -725,7 +819,8 @@
     "context": "de-TEM-eer: Davis's Drug Guide stresses 'te'"
    }
   ],
-  "notes": "Today's dˈɛtəmɪɹ / dˈɛtəmɪə (DET-uh-meer) matches MedlinePlus ('de' te mir', ASHP writes 'ee' for a long e) and Wikipedia's IPA exactly. Davis's Drug Guide stresses the second syllable; it is outvoted by the two, so today's reading stays (Davis's form is the alternative)."
+  "notes": "Today's dˈɛtəmɪɹ / dˈɛtəmɪə (DET-uh-meer) matches MedlinePlus ('de' te mir', ASHP writes 'ee' for a long e) and Wikipedia's IPA exactly. Davis's Drug Guide stresses the second syllable; it is outvoted by the two, so today's reading stays (Davis's form is the alternative).",
+  "review": "ok"
  },
  {
   "rank": 358,
@@ -757,7 +852,8 @@
     "context": "final 'dole': MedlinePlus"
    }
   ],
-  "notes": "Today's hˌælOpˈɛɹədɔl matches Wiktionary GA (only the secondary on '-dol' is missing); GB hˌalQpˈɛɹɪdɒl matches RP."
+  "notes": "Today's hˌælOpˈɛɹədɔl matches Wiktionary GA (only the secondary on '-dol' is missing); GB hˌalQpˈɛɹɪdɒl matches RP.",
+  "review": "ok"
  },
  {
   "rank": 359,
@@ -783,7 +879,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today says eye-koh-SAY-punt: main stress on the third syllable, 'say' for a reduced 'sa', 'punt' for 'pent'. MedlinePlus and Davis agree on eye-KOH-suh-pent. The final full 'pent' takes a secondary stress. (The harvest found MedlinePlus's line but couldn't align it to the word.)"
+  "notes": "Today says eye-koh-SAY-punt: main stress on the third syllable, 'say' for a reduced 'sa', 'punt' for 'pent'. MedlinePlus and Davis agree on eye-KOH-suh-pent. The final full 'pent' takes a secondary stress. (The harvest found MedlinePlus's line but couldn't align it to the word.)",
+  "review": "ok"
  },
  {
   "rank": 361,
@@ -809,7 +906,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today says yoo-BRAHJ-punt: drops a syllable and says 'brahj' for 'broh'. MedlinePlus and Davis agree on yoo-BROH-juh-pant ('ue' is ASHP's 'yoo'). Both write a full final 'pant', which takes a secondary stress (a final full vowel after an unstressed syllable, the guide's rule)."
+  "notes": "Today says yoo-BRAHJ-punt: drops a syllable and says 'brahj' for 'broh'. MedlinePlus and Davis agree on yoo-BROH-juh-pant ('ue' is ASHP's 'yoo'). Both write a full final 'pant', which takes a secondary stress (a final full vowel after an unstressed syllable, the guide's rule).",
+  "review": "ok"
  },
  {
   "rank": 363,
@@ -835,7 +933,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today says LIN-uh-glip-tin (main stress on 'lin'). MedlinePlus (main on 'glip', secondary on 'lin') and Davis agree; the -gliptin family pattern."
+  "notes": "Today says LIN-uh-glip-tin (main stress on 'lin'). MedlinePlus (main on 'glip', secondary on 'lin') and Davis agree; the -gliptin family pattern.",
+  "review": "ok"
  },
  {
   "rank": 364,
@@ -861,7 +960,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's pˌɛnəsˈɪlən / pˌɛnɪsˈɪlɪn match MedlinePlus and Wiktionary. A dictionary word (Zipf 3.04) whose everyday reading is the drug's; nothing to ship."
+  "notes": "Today's pˌɛnəsˈɪlən / pˌɛnɪsˈɪlɪn match MedlinePlus and Wiktionary. A dictionary word (Zipf 3.04) whose everyday reading is the drug's; nothing to ship.",
+  "review": "ok"
  },
  {
   "rank": 365,
@@ -887,7 +987,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's pˌælɪpˈɛɹədˌOn matches Wiktionary GA; MedlinePlus's unstressed 'ee' in the second syllable against today's ɪ is a reduction difference (Wiktionary also has ɪ)."
+  "notes": "Today's pˌælɪpˈɛɹədˌOn matches Wiktionary GA; MedlinePlus's unstressed 'ee' in the second syllable against today's ɪ is a reduction difference (Wiktionary also has ɪ).",
+  "review": "ok"
  },
  {
   "rank": 366,
@@ -924,7 +1025,8 @@
     "context": "sef-yuh-ROKS-eem: Wiktionary's first GA form (same stress)"
    }
   ],
-  "notes": "Today says sih-FYOOR-ok-syme: main stress on 'fyoor' and '-syme' for '-eem'. MedlinePlus and Davis agree on se-fyoor-OX-eem, and Wiktionary's first form has the same main stress on 'ox' and the same '-eem'."
+  "notes": "Today says sih-FYOOR-ok-syme: main stress on 'fyoor' and '-syme' for '-eem'. MedlinePlus and Davis agree on se-fyoor-OX-eem, and Wiktionary's first form has the same main stress on 'ox' and the same '-eem'.",
+  "review": "ok"
  },
  {
   "rank": 367,
@@ -950,7 +1052,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess lʊɹɑsidˈOni says lur-ah-see-DOH-nee: an extra syllable and the stress on the wrong one. MedlinePlus and Davis agree on loo-RAS-ih-dohn (MedlinePlus's capital 'I' is Davis's 'i')."
+  "notes": "Today's guess lʊɹɑsidˈOni says lur-ah-see-DOH-nee: an extra syllable and the stress on the wrong one. MedlinePlus and Davis agree on loo-RAS-ih-dohn (MedlinePlus's capital 'I' is Davis's 'i').",
+  "review": "ok"
  },
  {
   "rank": 368,
@@ -976,7 +1079,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's dˈɑksɪpɪn / dˈɒksɪpɪn match (unstressed ɪ/ə only)."
+  "notes": "Today's dˈɑksɪpɪn / dˈɒksɪpɪn match (unstressed ɪ/ə only).",
+  "review": "ok"
  },
  {
   "rank": 369,
@@ -1002,7 +1106,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today says MID-uh-dryne: 'mid' for 'mye' and '-dryne' for '-dreen'. MedlinePlus and Davis agree on MY-doh-dreen. The post-tonic 'doe' is kept full because no dictionary entry was found that reduces it."
+  "notes": "Today says MID-uh-dryne: 'mid' for 'mye' and '-dryne' for '-dreen'. MedlinePlus and Davis agree on MY-doh-dreen. The post-tonic 'doe' is kept full because no dictionary entry was found that reduces it.",
+  "review": "ok"
  },
  {
   "rank": 370,
@@ -1028,7 +1133,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today says NAB-yoom-tohn: drops a syllable and stresses the first. MedlinePlus and Davis agree on nuh-BYOO-muh-tohn."
+  "notes": "Today says NAB-yoom-tohn: drops a syllable and stresses the first. MedlinePlus and Davis agree on nuh-BYOO-muh-tohn.",
+  "review": "ok"
  },
  {
   "rank": 371,
@@ -1054,7 +1160,8 @@
   ],
   "confidence": "medium",
   "alternatives": [],
-  "notes": "Today's nˌɔɹəlʤˈɛstɹəmɪn (nor-uh-JES-truh-min) matches Davis's nor-el-JESS-troe-min in the stressed syllable and the consonants; 'el' and the post-tonic 'troe' differ only in reduction. Medium: one secondary source (MedlinePlus's patch monograph respells only 'estrogen' and 'progestin'; Wikipedia gives no pronunciation and the harvest found no Wiktionary IPA)."
+  "notes": "Today's nˌɔɹəlʤˈɛstɹəmɪn (nor-uh-JES-truh-min) matches Davis's nor-el-JESS-troe-min in the stressed syllable and the consonants; 'el' and the post-tonic 'troe' differ only in reduction. Medium: one secondary source (MedlinePlus's patch monograph respells only 'estrogen' and 'progestin'; Wikipedia gives no pronunciation and the harvest found no Wiktionary IPA).",
+  "review": "ok"
  },
  {
   "rank": 372,
@@ -1080,7 +1187,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's hˈɛpəɹən / hˈɛpəɹɪn match."
+  "notes": "Today's hˈɛpəɹən / hˈɛpəɹɪn match.",
+  "review": "ok"
  },
  {
   "rank": 373,
@@ -1106,7 +1214,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Ordinary word (Zipf 3.13); today's pəɹˈɑksˌId / pəɹˈɒksId is the everyday and the drug reading. Nothing to ship."
+  "notes": "Ordinary word (Zipf 3.13); today's pəɹˈɑksˌId / pəɹˈɒksId is the everyday and the drug reading. Nothing to ship.",
+  "review": "ok"
  },
  {
   "rank": 374,
@@ -1132,7 +1241,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's klˈOzəpˌin / klˈQzəpiːn are Wiktionary's GA and RP forms exactly."
+  "notes": "Today's klˈOzəpˌin / klˈQzəpiːn are Wiktionary's GA and RP forms exactly.",
+  "review": "ok"
  },
  {
   "rank": 375,
@@ -1174,7 +1284,8 @@
     "context": "kuh-RIP-ruh-zeen: Wikipedia's IPA (reduced first syllable)"
    }
   ],
-  "notes": "Today says KAIR-uh-pruh-zeen (main stress on the first syllable). MedlinePlus gives the syllables but no stress mark; Davis, Kaiser Permanente and Wikipedia all stress 'ip', so kar-IP-ruh-zeen. The maker's label respells only Vraylar (VRAY-lar). High because the stress is sourced three times, not inferred. GB keeps the r before the vowel."
+  "notes": "Today says KAIR-uh-pruh-zeen (main stress on the first syllable). MedlinePlus gives the syllables but no stress mark; Davis, Kaiser Permanente and Wikipedia all stress 'ip', so kar-IP-ruh-zeen. The maker's label respells only Vraylar (VRAY-lar). High because the stress is sourced three times, not inferred. GB keeps the r before the vowel.",
+  "review": "ok"
  },
  {
   "rank": 378,
@@ -1200,7 +1311,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Ordinary word (Zipf 3.52); today's nˈɪkətˌin / nˈɪkətiːn is the everyday and the drug reading. Nothing to ship."
+  "notes": "Ordinary word (Zipf 3.52); today's nˈɪkətˌin / nˈɪkətiːn is the everyday and the drug reading. Nothing to ship.",
+  "review": "ok"
  },
  {
   "rank": 379,
@@ -1221,7 +1333,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's bˈɛnzOˌAt / bˈɛnzQAt are Wiktionary's GenAm and RP forms exactly. No MedlinePlus respelling (it appears only as a salt in other monographs)."
+  "notes": "Today's bˈɛnzOˌAt / bˈɛnzQAt are Wiktionary's GenAm and RP forms exactly. No MedlinePlus respelling (it appears only as a salt in other monographs).",
+  "review": "ok"
  },
  {
   "rank": 380,
@@ -1229,10 +1342,10 @@
   "kind": "generic",
   "spelling": "mycophenolate",
   "match": "case-insensitive",
-  "disposition": "already-correct",
-  "us": "",
-  "gb": "",
-  "respelling": "",
+  "disposition": "corrected",
+  "us": "mˌIkOfˈɛnəlˌAt",
+  "gb": "mˌIkQfˈɛnəlˌAt",
+  "respelling": "mye-koh-FEN-uh-layt",
   "evidence": [
    {
     "source": "MedlinePlus (ASHP), Mycophenolate",
@@ -1243,11 +1356,23 @@
     "source": "Wiktionary",
     "says": "GA /ˌmaɪ.koʊˈfɛn.əˌleɪt/",
     "url": "https://en.wiktionary.org/wiki/mycophenolate"
+   },
+   {
+    "source": "Davis's Drug Guide (F.A. Davis, via Unbound Medicine; bold = stressed syllable)",
+    "says": "mye-koe-**fee**-noe-late **moe**-fe-til (mycophenolate mofetil)",
+    "url": "https://www.unboundmedicine.com/washingtonmanual/view/Davis-Drug-Guide/51522/0/mycophenolate_mofetil"
    }
   ],
   "confidence": "high",
-  "alternatives": [],
-  "notes": "Today's mˌIkəfˈɛnəlˌAt has the same stresses, stressed vowels and consonants; it reduces the unstressed 'koe' (MedlinePlus and Wiktionary keep it full), a reduction difference only. Post-tonic 'oh' reduced as in Wiktionary."
+  "alternatives": [
+   {
+    "us": "mˌIkOfˈinOlˌAt",
+    "gb": "mˌIkQfˈiːnQlˌAt",
+    "context": "mye-koh-FEE-noh-layt: Davis's Drug Guide (stressed 'fee')"
+   }
+  ],
+  "notes": "Today mˌIkəfˈɛnəlˌAt reduces 'koe', the syllable just before the main stress, to ə. MedlinePlus ('mye koe fen' oh late'), Wiktionary GA (/ˌmaɪ.koʊˈfɛn.əˌleɪt/) and Davis ('mye-koe-fee-noe-late') all write 'oh' there, which the guide counts as a real difference when every source does. Stressed 'fen': MedlinePlus and Wiktionary against Davis's 'fee' (two authoritative sources against one secondary, recorded as the alternative). Post-tonic 'oh' reduced as in Wiktionary.",
+  "review": "already-correct → corrected (us mˌIkəfˈɛnəlˌAt → mˌIkOfˈɛnəlˌAt, gb → mˌIkQfˈɛnəlˌAt): every source (MedlinePlus, Wiktionary, Davis) writes 'oh' just before the main stress, the guide's exception (c); added Davis (stresses 'fee') as the alternative"
  },
  {
   "rank": 381,
@@ -1273,7 +1398,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's dəʤˈɑksən / dɪʤˈɒksɪn match MedlinePlus and Wiktionary's first forms."
+  "notes": "Today's dəʤˈɑksən / dɪʤˈɒksɪn match MedlinePlus and Wiktionary's first forms.",
+  "review": "ok"
  },
  {
   "rank": 383,
@@ -1304,7 +1430,8 @@
   ],
   "confidence": "low",
   "alternatives": [],
-  "notes": "Today sˈɛnəsˌIdz (SEN-uh-sides). Low: no written pronunciation found (the harvest found no MedlinePlus respelling; MedlinePlus's Senna monograph and Davis respell only 'senna'; Wiktionary's sennoside entry has no IPA). It rests on the spelling: senna + -oside, read like glycoside, which keeps senna's first-syllable stress."
+  "notes": "Today sˈɛnəsˌIdz (SEN-uh-sides). Low: no written pronunciation found (the harvest found no MedlinePlus respelling; MedlinePlus's Senna monograph and Davis respell only 'senna'; Wiktionary's sennoside entry has no IPA). It rests on the spelling: senna + -oside, read like glycoside, which keeps senna's first-syllable stress.",
+  "review": "ok"
  },
  {
   "rank": 385,
@@ -1326,6 +1453,16 @@
     "source": "Wiktionary",
     "says": "/ˈbɛnzəʊ.ɪl/ | /ˈbɛnzəʊ.aɪl/",
     "url": "https://en.wiktionary.org/wiki/benzoyl"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "(bĕn′zō-ĭl′, -zoil′)",
+    "url": "https://ahdictionary.com/word/search.html?q=benzoyl"
+   },
+   {
+    "source": "Dictionary.com (Random House; Collins for British)",
+    "says": "US ben-zoh-il /ˈbɛn zoʊ ɪl/; British /ˈbɛnzəʊɪl/",
+    "url": "https://www.dictionary.com/browse/benzoyl"
    }
   ],
   "confidence": "high",
@@ -1336,7 +1473,8 @@
     "context": "BEN-zoh-ile: Wiktionary's second form"
    }
   ],
-  "notes": "US-only fix. Today's US bˈɛnzəwəl (BEN-zuh-wul) reduces both vowels after the stress; MedlinePlus and Wiktionary agree on BEN-zoh-il with a full 'oh' and 'il', and neither reduces them. GB is today's GB unchanged (bˈɛnzQɪl, Wiktionary's first form). A dictionary word (Zipf 2.34), but only a chemistry term whose reading is the drug's, so a general entry is safe."
+  "notes": "US-only fix. Today's US bˈɛnzəwəl (BEN-zuh-wul) reduces both vowels after the stress and inserts a w consonant; MedlinePlus ('ben' zoe ill'), Wiktionary, AHD and Dictionary.com/Collins all give BEN-zoh-il (or BEN-zoyl), none with a w or with 'zoh' reduced, and AHD marks a stress on the final 'il'. The extra consonant is why this is more than unstressed reduction. GB is today's GB unchanged (bˈɛnzQɪl, Wiktionary's and Collins's form). A dictionary word (Zipf 2.34), but only a chemistry term whose reading is the drug's, so a general entry is safe.",
+  "review": "kept the US fix; added AHD and Dictionary.com/Collins (all 'zoh-il', no w); notes now say why it is more than reduction (today's inserted w consonant)"
  },
  {
   "rank": 388,
@@ -1373,7 +1511,8 @@
     "context": "SIP-ee-uh-nayt: today's reading; no written source found for it"
    }
   ],
-  "notes": "Conflicting: Wiktionary (GA) says SYE-pee-uh-nayt; Davis's Drug Guide says sip-EYE-oh-nayt; today's guess says SIP-ee-uh-nayt. The harvest found no MedlinePlus or label respelling, and Wikipedia's testosterone cypionate article gives none. The candidate above is Wiktionary's (it matches the etymology, cy(clopentyl) + propionate), but with two sources disagreeing on the first vowel and the stress, a reviewer should decide (or keep today's)."
+  "notes": "Conflicting: Wiktionary (GA, its only pronunciation) says SYE-pee-uh-nayt; Davis's Drug Guide (re-checked) says sip-EYE-oh-nate; today's guess says SIP-ee-uh-nayt. No MedlinePlus or label respelling (none in the cached DailyMed labels either), no entry in AHD or Dictionary.com, Merriam-Webster refuses fetches, Wikipedia gives none. The candidate above is Wiktionary's (it fits the etymology, cy(clopentyl) + propionate, and Dictionary.com's PROH-pee-uh-nayt for propionate); with the two sources disagreeing on the first vowel and the stress, it needs a source such as Merriam-Webster Medical before it ships.",
+  "review": "kept unresolved: re-checked Davis (sip-EYE-oh-nate) and Wiktionary raw (GA SYE-pee-uh-nayt only); AHD and Dictionary.com have no entry, MW refuses fetches, no label respelling in the cache"
  },
  {
   "rank": 390,
@@ -1399,7 +1538,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today says luh-KAH-suh-mide: 'kah' for the stressed 'koh'. MedlinePlus and Davis agree on luh-KOH-suh-mide."
+  "notes": "Today says luh-KAH-suh-mide: 'kah' for the stressed 'koh'. MedlinePlus and Davis agree on luh-KOH-suh-mide.",
+  "review": "ok"
  },
  {
   "rank": 391,
@@ -1425,6 +1565,7 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today says sef-tree-AK-sun: 'tree' for 'try' and a reduced last syllable. MedlinePlus and Wiktionary agree on sef-try-AKS-ohn, with full 'try' and 'ohn'."
+  "notes": "Today says sef-tree-AK-sun: 'tree' for 'try' and a reduced last syllable. MedlinePlus and Wiktionary agree on sef-try-AKS-ohn, with full 'try' and 'ohn'.",
+  "review": "ok"
  }
 ]

@@ -29,7 +29,8 @@
     "context": "lih-RAG-loo-tide: Wiktionary's second GA form, close to today's reading"
    }
   ],
-  "notes": "Today's guess says lir-AG-luh-tide (main stress on 'rag'). MedlinePlus and Wiktionary's first GA form put the main stress on 'gloo', the -glutide family pattern (GLOO-tide), with secondaries on 'lir' and 'tide'. Wiktionary also lists lih-RAG-loo-tide, kept as the alternative."
+  "notes": "Today's guess says lir-AG-luh-tide (main stress on 'rag'). MedlinePlus and Wiktionary's first GA form put the main stress on 'gloo', the -glutide family pattern (GLOO-tide), with secondaries on 'lir' and 'tide'. Wiktionary also lists lih-RAG-loo-tide, kept as the alternative.",
+  "review": "ok"
  },
  {
   "rank": 394,
@@ -38,9 +39,9 @@
   "spelling": "isotretinoin",
   "match": "case-insensitive",
   "disposition": "corrected",
-  "us": "ˌIsətɹˈɛtənYn",
+  "us": "ˌIsOtɹˈɛtɪnˌYn",
   "gb": "ˌIsQtɹətˈɪnQɪn",
-  "respelling": "eye-suh-TRET-ih-noyn",
+  "respelling": "eye-soh-TRET-ih-noyn",
   "evidence": [
    {
     "source": "MedlinePlus (ASHP)",
@@ -66,7 +67,8 @@
     "context": "eye-soh-trih-TIN-oh-in: Dictionary.com's US form"
    }
   ],
-  "notes": "GB-only fix. US is today's reading unchanged: it matches MedlinePlus 'eye soe tret' i noyn' (stress on 'tret', final 'noyn'), which Wiktionary GA also stresses; the unstressed 'soe' read as ə is only a reduction difference (Wiktionary RP allows sə). GB: both British sources (Wiktionary RP and Dictionary.com British) say eye-soh-truh-TIN-oh-in, stress on 'tin'; today's GB copies the US stress. Respelling shows the US form; British is eye-soh-truh-TIN-oh-in."
+  "notes": "US: MedlinePlus 'eye soe tret' i noyn' (stress on 'tret', final 'noyn'), which Wiktionary GA also stresses on 'tret'; Dictionary.com's US first form stresses 'tin' (alternative). The syllable just before the main stress is a full 'oh' in MedlinePlus, Wiktionary GA, Dictionary.com US and Collins British (Wiktionary RP writes sə(ʊ), allowing it), so under the guide's pre-tonic 'oh' rule today's reduced ə there is a difference too. GB: both British sources (Wiktionary RP and Dictionary.com/Collins British) say eye-soh-truh-TIN-oh-in, stress on 'tin'; today's GB copies the US stress. Respelling shows the US form.",
+  "review": "us ˌIsətɹˈɛtənYn → ˌIsOtɹˈɛtɪnˌYn: every US source writes a full 'oh' just before the main stress (the guide's pre-tonic 'oh' rule, as cyclobenzaprine, mycophenolate); GB unchanged"
  },
  {
   "rank": 395,
@@ -92,7 +94,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess flˌʊɹˈʊɹəsɪl (floor-OOR-uh-sil) drops the 'oh' and the y of 'uracil' (four syllables for five). MedlinePlus and Wiktionary agree on floor-oh-YOOR-uh-sil; GB follows Wiktionary's first RP form."
+  "notes": "Today's guess flˌʊɹˈʊɹəsɪl (floor-OOR-uh-sil) drops the 'oh' and the y of 'uracil' (four syllables for five). MedlinePlus and Wiktionary agree on floor-oh-YOOR-uh-sil; GB follows Wiktionary's first RP form.",
+  "review": "ok"
  },
  {
   "rank": 396,
@@ -113,7 +116,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess stresses 'bik' (BIK-tuh-gruh-veer); MedlinePlus stresses 'teg', as in the -tegravir family (MedlinePlus: dolutegravir 'doe'' loo teg' ra vir', raltegravir 'ral teg' ra veer'). MedlinePlus writes this 'vir' and raltegravir's 'veer'; the -vir family reading (veer) is kept, as today's final syllable already has it. No dictionary entry found (Wiktionary has no pronunciation)."
+  "notes": "Today's guess stresses 'bik' (BIK-tuh-gruh-veer); MedlinePlus stresses 'teg', as in the -tegravir family (MedlinePlus: dolutegravir 'doe'' loo teg' ra vir', raltegravir 'ral teg' ra veer'). MedlinePlus writes this 'vir' and raltegravir's 'veer'; the -vir family reading (veer) is kept, as today's final syllable already has it. No dictionary entry found (Wiktionary has no pronunciation).",
+  "review": "ok"
  },
  {
   "rank": 399,
@@ -121,10 +125,10 @@
   "kind": "salt",
   "spelling": "dipropionate",
   "match": "case-insensitive",
-  "disposition": "corrected",
-  "us": "dIpɹˈOpiənˌAt",
-  "gb": "dIpɹˈQpiənˌAt",
-  "respelling": "dye-PROH-pee-uh-nate",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
   "evidence": [
    {
     "source": "Dictionary.com (Random House Unabridged)",
@@ -140,12 +144,13 @@
   "confidence": "medium",
   "alternatives": [
    {
-    "us": "dɪpɹˈOpiənˌAt",
-    "gb": "dɪpɹˈQpiənˌAt",
-    "context": "dih-PROH-pee-uh-nate: today's reading, the prefix reduced"
+    "us": "dIpɹˈOpiənˌAt",
+    "gb": "dIpɹˈQpiənˌAt",
+    "context": "dye-PROH-pee-uh-nate: the chemistry prefix di- said in full"
    }
   ],
-  "notes": "Medium: no dictionary has 'dipropionate' itself (Wiktionary has no pronunciation; Dictionary.com shows 'propionate'), so the reading is built from its parts: the chemistry prefix di- (dye) plus propionate (PROH-pee-uh-nate). Today's guess says dih-; the rest matches. A reviewer may treat dih- as an acceptable reduction and prefer already-correct."
+  "notes": "Medium: no dictionary has 'dipropionate' itself (Wiktionary has no pronunciation; Dictionary.com shows 'propionate', PROH-pee-uh-nate, which today's reading matches; d0002 kept propionate as already-correct). The only difference from the parts-built reading is the unstressed prefix di-, dih- against dye-: a full vowel against ɪ in an unstressed syllable, which the guide's pack-wide ruling counts as reduction (none of its three exceptions applies). Nothing to ship; dye- is the alternative.",
+  "review": "corrected → already-correct: dih- vs dye- in the unstressed prefix is only reduction under the guide's pack-wide ruling (not a final syllable, not a brand, not 'oh'); dye- kept as the alternative"
  },
  {
   "rank": 400,
@@ -176,7 +181,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today fˈɛntənˌɪl (gold) matches MedlinePlus, Wiktionary and Dictionary.com (FEN-tuh-nil). Dictionary.com's British form ends -nile, but Wiktionary's (unlabelled) form is -nil, as today's GB is; GB left unchanged."
+  "notes": "Today fˈɛntənˌɪl (gold) matches MedlinePlus, Wiktionary and Dictionary.com (FEN-tuh-nil). Dictionary.com's British form ends -nile, but Wiktionary's (unlabelled) form is -nil, as today's GB is; GB left unchanged.",
+  "review": "ok"
  },
  {
   "rank": 402,
@@ -197,7 +203,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess mˈOftɪl (MOHF-til) drops the middle syllable; Wiktionary GA has three (MOH-fuh-til). Only source found (Merriam-Webster refuses fetches; Dictionary.com has no entry; the harvest found no MedlinePlus respelling)."
+  "notes": "Today's guess mˈOftɪl (MOHF-til) drops the middle syllable; Wiktionary GA has three (MOH-fuh-til). Only source found (Merriam-Webster refuses fetches; Dictionary.com has no entry; the harvest found no MedlinePlus respelling).",
+  "review": "ok"
  },
  {
   "rank": 403,
@@ -229,7 +236,8 @@
     "context": "PAL-mih-tate: the first form in both dictionaries"
    }
   ],
-  "notes": "Today US pˈɑlmətˌAt (gold: PAHL-muh-tate) is a variant both Dictionary.com and the American Heritage Dictionary list; GB pˈalmɪtAt matches Dictionary.com's British form. Medium because the US variant is the second choice, not the first (PAL-mih-tate). Also a dictionary word (vitamin A palmitate on food labels). Reviewer: consider correcting US to the first form."
+  "notes": "Today US pˈɑlmətˌAt (gold: PAHL-muh-tate) is a variant both Dictionary.com and the American Heritage Dictionary list; GB pˈalmɪtAt matches Dictionary.com's British form. Medium because the US variant is the second choice, not the first (PAL-mih-tate). Also a dictionary word (vitamin A palmitate on food labels). Kept as already-correct: every dictionary that has the word (Dictionary.com, AHD) lists today's PAHL- as a variant, so no source contradicts it; a correction would change ordinary ingredient-label text for a listed variant.",
+  "review": "ok; re-checked Dictionary.com (pal-mi-tayt, pahl-, pah-mi-); kept already-correct medium and removed the reviewer hedge from notes"
  },
  {
   "rank": 404,
@@ -261,7 +269,8 @@
     "context": "PRY-muh-dohn: Wiktionary's first GA form"
    }
   ],
-  "notes": "Today pɹˈɪmɪdˌOn (PRIM-ih-dohn) matches MedlinePlus 'pri' mi done' (MedlinePlus writes 'prye' for the long i), Wiktionary RP and Wiktionary's second GA form."
+  "notes": "Today pɹˈɪmɪdˌOn (PRIM-ih-dohn) matches MedlinePlus 'pri' mi done' (MedlinePlus writes 'prye' for the long i), Wiktionary RP and Wiktionary's second GA form.",
+  "review": "ok"
  },
  {
   "rank": 405,
@@ -287,7 +296,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Ordinary word (Zipf 3.03); today's uh-MOH-nee-um (gold) is the everyday and the drug reading. Nothing to ship."
+  "notes": "Ordinary word (Zipf 3.03); today's uh-MOH-nee-um (gold) is the everyday and the drug reading. Nothing to ship.",
+  "review": "ok"
  },
  {
   "rank": 406,
@@ -313,7 +323,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess says by-MAY-tuh-prohst: 'by' and 'may' for 'bih' and 'mat', and 'prohst' for 'prost'. MedlinePlus 'bi ma' toe prost' and Wiktionary GA agree on bih-MAT-uh-prost (post-tonic 'toe' reduced as in Wiktionary)."
+  "notes": "Today's guess says by-MAY-tuh-prohst: 'by' and 'may' for 'bih' and 'mat', and 'prohst' for 'prost'. MedlinePlus 'bi ma' toe prost' and Wiktionary GA agree on bih-MAT-uh-prost (post-tonic 'toe' reduced as in Wiktionary).",
+  "review": "ok"
  },
  {
   "rank": 410,
@@ -335,11 +346,17 @@
     "source": "MedlinePlus (ASHP), Ethinyl Estradiol and Desogestrel monograph",
     "says": "prints '(droe spye′ re none)' (drospirenone's respelling) for desogestrel: a page error, not used",
     "url": "https://medlineplus.gov/druginfo/meds/a625046.html"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "(dĕs′ə-jĕstrəl) as rendered (the fetch drops the primary-stress mark): secondary 'des', main stress on 'jes'",
+    "url": "https://www.ahdictionary.com/word/search.html?q=desogestrel"
    }
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess stresses 'des' (DES-uh-juh-strul); Wiktionary GA stresses 'jes', as the -gestrel family does (MedlinePlus levonorgestrel 'lee'' voe nor jes' trel'). The harvested MedlinePlus respelling for this row belongs to drospirenone (the monograph prints the wrong one), so it was set aside; the checker's stress warning compares against that drospirenone respelling and can be ignored."
+  "notes": "Today's guess stresses 'des' (DES-uh-juh-strul); Wiktionary GA stresses 'jes', as the -gestrel family does (MedlinePlus levonorgestrel 'lee'' voe nor jes' trel'). The harvested MedlinePlus respelling for this row belongs to drospirenone (the monograph prints the wrong one), so it was set aside; the checker's stress warning compares against that drospirenone respelling and can be ignored.",
+  "review": "ok; added the American Heritage Dictionary (DES-uh-JES-trul), which confirms; re-checked that the MedlinePlus page prints drospirenone's respelling for desogestrel"
  },
  {
   "rank": 413,
@@ -365,7 +382,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today næltɹˈɛksˌOn (gold) matches MedlinePlus and Wiktionary GA; GB naltɹˈɛksQn matches Wiktionary RP."
+  "notes": "Today næltɹˈɛksˌOn (gold) matches MedlinePlus and Wiktionary GA; GB naltɹˈɛksQn matches Wiktionary RP.",
+  "review": "ok"
  },
  {
   "rank": 415,
@@ -391,7 +409,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess vˈIbɡɹˌɑn (VIBE-gron) has two syllables and stresses the first; MedlinePlus has three, stressed on 'beg' (as mirabegron 'mir'' a beg' ron'). Final 'ron' keeps today's full vowel."
+  "notes": "Today's guess vˈIbɡɹˌɑn (VIBE-gron) has two syllables and stresses the first; MedlinePlus has three, stressed on 'beg' (as mirabegron 'mir'' a beg' ron'). Final 'ron' keeps today's full vowel.",
+  "review": "ok"
  },
  {
   "rank": 416,
@@ -412,7 +431,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today ɪpˈOətɪn (ih-POH-uh-tin) matches MedlinePlus 'e poe' e tin'; the unstressed 'e's only differ in reduction (MedlinePlus writes 'ee' when it means a full vowel, e.g. enoxaparin 'ee nox')."
+  "notes": "Today ɪpˈOətɪn (ih-POH-uh-tin) matches MedlinePlus 'e poe' e tin'; the unstressed 'e's only differ in reduction (MedlinePlus writes 'ee' when it means a full vowel, e.g. enoxaparin 'ee nox').",
+  "review": "ok"
  },
  {
   "rank": 418,
@@ -438,7 +458,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess stresses 'ran' (RAN-uh-luh-zeen); MedlinePlus and Wiktionary stress 'noe'."
+  "notes": "Today's guess stresses 'ran' (RAN-uh-luh-zeen); MedlinePlus and Wiktionary stress 'noe'.",
+  "review": "ok"
  },
  {
   "rank": 419,
@@ -464,7 +485,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Ordinary word; today's US SOO-krohs and GB S(Y)OO-krohz match MedlinePlus and Wiktionary. Nothing to ship."
+  "notes": "Ordinary word; today's US SOO-krohs and GB S(Y)OO-krohz match MedlinePlus and Wiktionary. Nothing to ship.",
+  "review": "ok"
  },
  {
   "rank": 420,
@@ -490,7 +512,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Ordinary word (the plant); today's SEN-uh matches MedlinePlus and Wiktionary. Nothing to ship."
+  "notes": "Ordinary word (the plant); today's SEN-uh matches MedlinePlus and Wiktionary. Nothing to ship.",
+  "review": "ok"
  },
  {
   "rank": 421,
@@ -511,7 +534,8 @@
   ],
   "confidence": "low",
   "alternatives": [],
-  "notes": "Low: no written pronunciation found for axetil (cefuroxime axetil): Wiktionary has no entry, the harvest found nothing, Merriam-Webster refuses fetches and web search was unavailable for this batch. Today ˈæksətəl (AK-suh-tul) reads it as spelled with first-syllable stress, like the sister ester mofetil (MOH-fuh-til); the final unstressed 'til' read 'tul' is only a reduction difference. Nothing ships for an already-correct row."
+  "notes": "Low: no written pronunciation found for axetil (cefuroxime axetil): Wiktionary has no entry, the harvest found nothing, Merriam-Webster refuses fetches and web search was unavailable for this batch. Today ˈæksətəl (AK-suh-tul) reads it as spelled with first-syllable stress, like the sister ester mofetil (MOH-fuh-til); the final unstressed 'til' read 'tul' is only a reduction difference. Nothing ships for an already-correct row.",
+  "review": "ok"
  },
  {
   "rank": 422,
@@ -519,10 +543,10 @@
   "kind": "generic",
   "spelling": "levalbuterol",
   "match": "case-insensitive",
-  "disposition": "corrected",
-  "us": "lˌɛvælbjˈutəɹˌɔl",
-  "gb": "lˌɛvalbjˈuːtəɹˌɒl",
-  "respelling": "lev-al-BYOO-ter-awl",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
   "evidence": [
    {
     "source": "MedlinePlus (ASHP)",
@@ -530,20 +554,21 @@
     "url": "https://medlineplus.gov/druginfo/meds/a603025.html"
    },
    {
-    "source": "Wiktionary",
-    "says": "From levo- + albuterol (no pronunciation given)",
-    "url": "https://en.wiktionary.org/wiki/levalbuterol"
+    "source": "Davis's Drug Guide",
+    "says": "lev-al-byoo-ter-ole, 'byoo' in bold (the only stress marked)",
+    "url": "https://www.drugguide.com/ddo/view/Davis-Drug-Guide/51441/0/levalbuterol"
    }
   ],
-  "confidence": "medium",
+  "confidence": "high",
   "alternatives": [
    {
-    "us": "lˌɛvælbjˈutəɹˌOl",
-    "gb": "lˌɛvalbjˈuːtəɹˌQl",
-    "context": "final 'ole', as MedlinePlus's albuterol 'al byoo' ter ole'"
+    "us": "lˌɛvælbjˈutəɹˌɔl",
+    "gb": "lˌɛvalbjˈuːtəɹˌɒl",
+    "context": "LEV-al-BYOO-ter-awl: 'lev' kept full with a secondary stress"
    }
   ],
-  "notes": "Today's guess ləvˌælbjˈutəɹˌɔl says luh-VAL-byoo-ter-awl: the closed 'lev' MedlinePlus writes is reduced to ə and the secondary stress sits on 'val', right before the main stress. MedlinePlus 'lev al byoo' ter ol' = lev + albuterol; the secondary goes on 'lev', two syllables before the main stress (the guide's rule). The main stress and the albuterol part are today's (the albuterol row in d0001 kept -awl). Medium: MedlinePlus marks no secondary stress, so its placement is my reading. Borderline: a reviewer may judge this a reduction difference."
+  "notes": "Today ləvˌælbjˈutəɹˌɔl (luh-val-BYOO-ter-awl) has MedlinePlus's and Davis's main stress on 'byoo', its vowel and every consonant. Neither source marks a secondary stress; both write 'lev' and 'al' as unstressed. Today reduces the unstressed 'lev' to ə and puts a secondary on 'al': a reduction difference and a secondary present in one reading and not the other, which the guide counts as already correct. The final -ol: Davis 'ole', MedlinePlus 'ol', today ɔ (the -ol ending rule: not a difference worth correcting); albuterol (d0001) was likewise left with -awl.",
+  "review": "corrected (medium) → already-correct (high): the only differences were the reduced unstressed 'lev' and where an unmarked secondary sits, both 'same reading' under the guide's pack-wide ruling; added Davis (lev-al-BYOO-ter-ole), which agrees with MedlinePlus"
  },
  {
   "rank": 425,
@@ -569,7 +594,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess stresses 'meth' (METH-uh-muh-zole); MedlinePlus and Wiktionary (GA and RP) stress 'thim'."
+  "notes": "Today's guess stresses 'meth' (METH-uh-muh-zole); MedlinePlus and Wiktionary (GA and RP) stress 'thim'.",
+  "review": "ok"
  },
  {
   "rank": 427,
@@ -590,7 +616,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today hˌIdɹOmˈɔɹfˌOn (hy-droh-MOR-fohn) matches MedlinePlus 'hye droe mor' fone'."
+  "notes": "Today hˌIdɹOmˈɔɹfˌOn (hy-droh-MOR-fohn) matches MedlinePlus 'hye droe mor' fone'.",
+  "review": "ok"
  },
  {
   "rank": 428,
@@ -616,7 +643,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today US tˌObɹəmˈIsɪn (gold) matches MedlinePlus 'toe″ bra mye′ sin' and Wiktionary GA; GB tˌɒbɹəmˈIsɪn matches Wiktionary RP."
+  "notes": "Today US tˌObɹəmˈIsɪn (gold) matches MedlinePlus 'toe″ bra mye′ sin' and Wiktionary GA; GB tˌɒbɹəmˈIsɪn matches Wiktionary RP.",
+  "review": "ok"
  },
  {
   "rank": 430,
@@ -647,7 +675,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess bɪklˈʌmθəsˌOn (bih-KLUM-thuh-sohn) has four syllables and stresses the wrong one. MedlinePlus, Dictionary.com and the American Heritage Dictionary all stress 'meth'; the two dictionaries give the first syllable as a secondary-stressed 'bek' (MedlinePlus's unstressed 'be' allows it)."
+  "notes": "Today's guess bɪklˈʌmθəsˌOn (bih-KLUM-thuh-sohn) has four syllables and stresses the wrong one. MedlinePlus, Dictionary.com and the American Heritage Dictionary all stress 'meth'; the two dictionaries give the first syllable as a secondary-stressed 'bek' (MedlinePlus's unstressed 'be' allows it).",
+  "review": "ok"
  },
  {
   "rank": 432,
@@ -656,14 +685,24 @@
   "spelling": "olopatadine",
   "match": "case-insensitive",
   "disposition": "corrected",
-  "us": "ˌOlOpətˈædˌin",
-  "gb": "ˌQlQpətˈadˌiːn",
-  "respelling": "oh-loh-puh-TAD-een",
+  "us": "ˌOlOpˈætədˌin",
+  "gb": "ˌQlQpˈatədˌiːn",
+  "respelling": "oh-loh-PAT-uh-deen",
   "evidence": [
    {
     "source": "MedlinePlus (ASHP)",
-    "says": "oh loe pa ta' deen",
+    "says": "oh loe pa ta' deen (main stress on 'ta')",
     "url": "https://medlineplus.gov/druginfo/meds/a602025.html"
+   },
+   {
+    "source": "Davis's Drug Guide, olopatadine (nasal)",
+    "says": "o-lo-pa-ta-deen, 'pa' in bold (main stress on syllable 3)",
+    "url": "https://www.drugguide.com/ddo/view/Davis-Drug-Guide/110870/all/olopatadine__nasal_"
+   },
+   {
+    "source": "MedlinePlus (ASHP), the -tadine family",
+    "says": "loratadine 'lor at' a deen': main stress on the syllable before -tadine",
+    "url": "https://medlineplus.gov/druginfo/meds/a697038.html"
    },
    {
     "source": "DailyMed labels (Patanase; Ryaltris)",
@@ -674,12 +713,13 @@
   "confidence": "medium",
   "alternatives": [
    {
-    "us": "ˌOlOpˈætədˌin",
-    "gb": "ˌQlQpˈatədˌiːn",
-    "context": "oh-loh-PAT-uh-deen: main stress on 'pat', the -tadine family pattern (loratadine 'lor at' a deen') and today's stress"
+    "us": "ˌOlOpətˈædˌin",
+    "gb": "ˌQlQpətˈadˌiːn",
+    "context": "oh-loh-puh-TAD-een: MedlinePlus's main stress on 'ta'"
    }
   ],
-  "notes": "REVIEW. Today's guess says oh-luh-PAT-uh-dyne: '-dyne' is wrong whichever stress is right (MedlinePlus and the -tadine family say 'deen'). MedlinePlus 'oh loe pa ta' deen' puts the main stress on 'ta', the fourth syllable; that is the reading here because MedlinePlus is the reference for generics. But it breaks the family pattern (MedlinePlus loratadine 'lor at' a deen', cyproheptadine stressed on 'hep': the syllable before '-tadine'), which today's stress follows; I found no second written source (Wiktionary has no pronunciation, Dictionary.com has no entry, Drugs.com refuses fetches, the Patanase and Ryaltris labels respell only the brands). Medium for that reason; the family stress is the alternative."
+  "notes": "Today's guess ˌOləpˈætədˌIn says oh-luh-PAT-uh-dyne: '-dyne' is wrong (MedlinePlus, Davis and the -tadine family say 'deen'), and the 'loh' just before the main stress, which both sources write as 'oh', is reduced. Main stress: Davis's Drug Guide bolds 'pa' (oh-loh-PAT-uh-deen), the -tadine family pattern (loratadine 'lor at' a deen', cyproheptadine stressed on 'hep') and today's stress; MedlinePlus alone marks 'ta'. No dictionary has the word (Wiktionary has no pronunciation; AHD, Dictionary.com and Wikipedia none; Merriam-Webster and Drugs.com refuse fetches). Medium: one authoritative source against a drug guide and the family; MedlinePlus's stress is the alternative. The checker's stress WARN against MedlinePlus is intended.",
+  "review": "us ˌOlOpətˈædˌin → ˌOlOpˈætədˌin (gb likewise): Davis's Drug Guide (o-lo-PA-ta-deen) agrees with the -tadine family and today's stress against MedlinePlus's lone 'ta''; still corrected for -dyne → -deen; medium kept"
  },
  {
   "rank": 434,
@@ -689,7 +729,7 @@
   "match": "case-insensitive",
   "disposition": "corrected",
   "us": "fˌɛnəzOpˈɪɹɪdˌin",
-  "gb": "fˌɛnəzQpˈɪəɹɪdˌiːn",
+  "gb": "fˌɛnəzQpˈɪɹɪdˌiːn",
   "respelling": "fen-uh-zoh-PEER-ih-deen",
   "evidence": [
    {
@@ -701,11 +741,17 @@
     "source": "Dictionary.com (Random House Unabridged)",
     "says": "[fen-uh-zoh-pir-i-deen, -din] /ˌfɛn ə zoʊˈpɪr ɪˌdin, -dɪn/",
     "url": "https://www.dictionary.com/browse/phenazopyridine"
+   },
+   {
+    "source": "Dictionary.com (Collins), pyridine",
+    "says": "British /ˈpɪrɪˌdiːn/ (short ɪ before r)",
+    "url": "https://www.dictionary.com/browse/pyridine"
    }
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess fˌinəzˈɑpˌɪɹɪdˌIn says fee-nuh-ZOP-ih-rih-dyne: main stress on 'zop', 'fee' for 'fen' and '-dyne' for '-deen'. MedlinePlus and Dictionary.com agree on fen-uh-zoh-PEER-ih-deen."
+  "notes": "Today's guess fˌinəzˈɑpˌɪɹɪdˌIn says fee-nuh-ZOP-ih-rih-dyne: main stress on 'zop', 'fee' for 'fen' and '-dyne' for '-deen'. MedlinePlus and Dictionary.com agree on fen-uh-zoh-PEER-ih-deen. GB keeps the short ɪ of British 'pyridine' (/ˈpɪrɪˌdiːn/) before the r, since the r begins the next syllable (as cetirizine in d0002).",
+  "review": "gb fˌɛnəzQpˈɪəɹɪdˌiːn → fˌɛnəzQpˈɪɹɪdˌiːn: the r is followed by a vowel, so British keeps short ɪ (Collins pyridine /ˈpɪrɪˌdiːn/)"
  },
  {
   "rank": 435,
@@ -714,9 +760,9 @@
   "spelling": "sotalol",
   "match": "case-insensitive",
   "disposition": "corrected",
-  "us": "sˈOtəlˌɔl",
+  "us": "sˈOtəlˌɑl",
   "gb": "sˈQtəlɒl",
-  "respelling": "SOH-tuh-lawl",
+  "respelling": "SOH-tuh-lahl",
   "evidence": [
    {
     "source": "MedlinePlus (ASHP)",
@@ -735,9 +781,15 @@
     "us": "sˈOtəlˌOl",
     "gb": "sˈQtəlˌQl",
     "context": "final 'lole': MedlinePlus 'soe' ta lole'"
+   },
+   {
+    "us": "sˈOtəlˌɔl",
+    "gb": "sˈQtəlɒl",
+    "context": "final -lawl as Wiktionary GA writes it (one sound with -lahl for most Americans)"
    }
   ],
-  "notes": "Today's guess sˈɑtəlˌɑl says SAH-tuh-lahl; MedlinePlus and Wiktionary both have 'soh'. Final syllable follows Wiktionary GA (-lawl), as d0001 did for metoprolol; MedlinePlus's 'lole' is the alternative."
+  "notes": "Today's guess sˈɑtəlˌɑl says SAH-tuh-lahl; MedlinePlus and Wiktionary both have 'soh' in the stressed syllable, the fix. Final syllable: MedlinePlus 'lole', Wiktionary GA -lɔl; today's -lɑl is kept, as the guide asks for -ol endings when a word is corrected for another reason (ɑ and ɔ are one sound for most Americans). GB: British -lɒl.",
+  "review": "us sˈOtəlˌɔl → sˈOtəlˌɑl: the guide's -ol rule keeps today's ending vowel (ɑ) when correcting for another reason; the 'soh' fix itself is unchanged"
  },
  {
   "rank": 437,
@@ -763,7 +815,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today US ˈætɹəpˌin (gold) matches MedlinePlus and Wiktionary GA; GB ˈatɹəpiːn matches Wiktionary RP. Also a dictionary word; nothing to ship."
+  "notes": "Today US ˈætɹəpˌin (gold) matches MedlinePlus and Wiktionary GA; GB ˈatɹəpiːn matches Wiktionary RP. Also a dictionary word; nothing to ship.",
+  "review": "ok"
  },
  {
   "rank": 438,
@@ -784,7 +837,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess kˌɑɹbɑksimˈɛθɪlsəlˌu stresses 'meth' and garbles 'cellulose' into 'suh-loo'. Dictionary.com: main stress on 'sel' (as in cellulose), secondaries on 'bok' and 'meth'. No MedlinePlus or Wiktionary pronunciation. GB: British vowels on the same shape (cellulose SEL-yoo-lohs); no British source found."
+  "notes": "Today's guess kˌɑɹbɑksimˈɛθɪlsəlˌu stresses 'meth' and garbles 'cellulose' into 'suh-loo'. Dictionary.com: main stress on 'sel' (as in cellulose), secondaries on 'bok' and 'meth'. No MedlinePlus or Wiktionary pronunciation. GB: British vowels on the same shape (cellulose SEL-yoo-lohs); no British source found.",
+  "review": "ok"
  },
  {
   "rank": 439,
@@ -792,31 +846,42 @@
   "kind": "generic",
   "spelling": "ziprasidone",
   "match": "case-insensitive",
-  "disposition": "corrected",
-  "us": "zɪpɹˈAsɪdˌOn",
-  "gb": "zɪpɹˈAsɪdˌQn",
-  "respelling": "zih-PRAY-sih-dohn",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
   "evidence": [
-   {
-    "source": "MedlinePlus (ASHP)",
-    "says": "zi pray' si done",
-    "url": "https://medlineplus.gov/druginfo/meds/a615047.html"
-   },
    {
     "source": "Wiktionary",
     "says": "GA /zɪˈpɹæs.əˌdoʊn/",
     "url": "https://en.wiktionary.org/wiki/ziprasidone"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "(zĭ-prăsĭ-dōn′) as rendered (the fetch drops the primary-stress mark): main stress on 'pras', short a",
+    "url": "https://www.ahdictionary.com/word/search.html?q=ziprasidone"
+   },
+   {
+    "source": "Davis's Drug Guide",
+    "says": "zi-pra-si-done, 'pra' in bold (Davis writes a long a as 'ay')",
+    "url": "https://www.drugguide.com/ddo/view/Davis-Drug-Guide/51805/0/ziprasidone"
+   },
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "zi pray' si done (dissent: long a)",
+    "url": "https://medlineplus.gov/druginfo/meds/a615047.html"
    }
   ],
-  "confidence": "medium",
+  "confidence": "high",
   "alternatives": [
    {
-    "us": "zɪpɹˈæsədˌOn",
-    "gb": "zɪpɹˈasədˌQn",
-    "context": "zih-PRAS-uh-dohn: Wiktionary GA, and today's reading"
+    "us": "zɪpɹˈAsɪdˌOn",
+    "gb": "zɪpɹˈAsɪdˌQn",
+    "context": "zih-PRAY-sih-dohn: MedlinePlus 'zi pray' si done'"
    }
   ],
-  "notes": "REVIEW. MedlinePlus 'zi pray' si done' and Wiktionary GA disagree on the stressed vowel (PRAY vs PRAS); today's reading is Wiktionary's. The guide takes MedlinePlus for a generic unless dictionaries agree on something else, and only one dictionary was found (Dictionary.com has no entry; the Geodon label respells nothing), so MedlinePlus's reading is used. Medium because the stressed vowel is disputed; both are heard."
+  "notes": "Today zɪpɹˈæsɪdˌOn (zih-PRAS-ih-dohn) is Wiktionary GA's and the American Heritage Dictionary's reading, and Davis's Drug Guide agrees (zi-PRA-si-done). MedlinePlus alone has a long a (zi pray' si done). The guide takes MedlinePlus for a generic unless dictionaries agree on something else, and two do (two authoritative sources against one may stay high). MedlinePlus's PRAY is the alternative. Nothing to ship.",
+  "review": "corrected (medium, zih-PRAY) → already-correct (high): the American Heritage Dictionary (zĭ-prăs′ĭ-dōn′) and Davis (zi-PRA-si-done) side with Wiktionary and today's PRAS; the guide's 'dictionaries agree' rule"
  },
  {
   "rank": 440,
@@ -842,7 +907,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today pɹˌOklɔɹpˈɛɹəzˌin (gold) matches MedlinePlus and Wiktionary GA; GB matches Wiktionary RP."
+  "notes": "Today pɹˌOklɔɹpˈɛɹəzˌin (gold) matches MedlinePlus and Wiktionary GA; GB matches Wiktionary RP.",
+  "review": "ok"
  },
  {
   "rank": 441,
@@ -850,10 +916,10 @@
   "kind": "generic",
   "spelling": "indomethacin",
   "match": "case-insensitive",
-  "disposition": "already-correct",
-  "us": "",
-  "gb": "",
-  "respelling": "",
+  "disposition": "corrected",
+  "us": "ˌɪndOmˈɛθəsɪn",
+  "gb": "ˌɪndQmˈɛθəsɪn",
+  "respelling": "in-doh-METH-uh-sin",
   "evidence": [
    {
     "source": "MedlinePlus (ASHP)",
@@ -864,11 +930,22 @@
     "source": "Wiktionary",
     "says": "RP /ˌɪn.dəʊˈmɛθ.əs.ɪn/; GA /ˌɪn.doʊˈmɛθ.əs.ɪn/",
     "url": "https://en.wiktionary.org/wiki/indomethacin"
+   },
+   {
+    "source": "Dictionary.com (Random House Unabridged)",
+    "says": "US [in-doh-meth-uh-sin] /ˌɪn doʊˈmɛθ ə sɪn/; British /ˌɪndəʊˈmɛθəsɪn/",
+    "url": "https://www.dictionary.com/browse/indomethacin"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "(ĭn′dō-mĕthə-sĭn) as rendered: 'dō' full",
+    "url": "https://www.ahdictionary.com/word/search.html?q=indomethacin"
    }
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today US ˌɪndəmˈɛθəsən (gold dictionary) has MedlinePlus's and Wiktionary's stresses and consonants; the unstressed 'doe' and 'sin' are only reduced. GB ˌɪndQmˈɛθəsɪn matches Wiktionary RP."
+  "notes": "US-only fix. Today's US ˌɪndəmˈɛθəsən (gold) has every source's stresses and consonants but reduces the syllable just before the main stress to ə; MedlinePlus ('doe'), Wiktionary GA and RP, Dictionary.com US and British and the American Heritage Dictionary all write a full 'oh' there, which the guide counts as a real difference. GB is today's GB (ˌɪndQmˈɛθəsɪn), which already has it and matches Wiktionary RP.",
+  "review": "already-correct → corrected (US only): us → ˌɪndOmˈɛθəsɪn; every source (MedlinePlus, Wiktionary, Dictionary.com, AHD) writes the pre-tonic 'doh' full, the guide's rule; GB unchanged"
  },
  {
   "rank": 444,
@@ -900,7 +977,8 @@
     "context": "vuh-REN-ik-lin: Wiktionary GA, final vowel reduced"
    }
   ],
-  "notes": "Today's guess ends '-klyne'; MedlinePlus has '-kleen' (both its varenicline monographs: 'var en' I kleen', 'var en' i kleen'). Main stress on 'ren' everywhere."
+  "notes": "Today's guess ends '-klyne'; MedlinePlus has '-kleen' (both its varenicline monographs: 'var en' I kleen', 'var en' i kleen'). Main stress on 'ren' everywhere.",
+  "review": "ok"
  },
  {
   "rank": 445,
@@ -910,21 +988,26 @@
   "match": "case-insensitive",
   "disposition": "corrected",
   "us": "fˈɛnɪtˌYn",
-  "gb": "fˈɛnɪtQɪn",
+  "gb": "fˌɛnɪtˈQɪn",
   "respelling": "FEN-ih-toyn",
   "evidence": [
    {
     "source": "MedlinePlus (ASHP)",
-    "says": "fen' i toyn",
-    "url": "https://medlineplus.gov/druginfo/meds/a619062.html"
+    "says": "fen' i toyn (Phenytoin and Phenytoin Injection monographs)",
+    "url": "https://medlineplus.gov/druginfo/meds/a682022.html"
+   },
+   {
+    "source": "Davis's Drug Guide",
+    "says": "fen-i-toyn, 'fen' in bold",
+    "url": "https://www.drugguide.com/ddo/view/Davis-Drug-Guide/109077/0/phenytoin"
    },
    {
     "source": "American Heritage Dictionary",
-    "says": "(fĕn′ĭ-tōĭn, fə-nĭtō-) as rendered (the fetch drops some stress marks)",
+    "says": "(fĕn′ĭ-tōĭn, fə-nĭtō-) as rendered; the fetch drops the bold primary marks (the second form has none left), so the light ′ after 'fĕn' is a secondary: fen-ih-TOH-in, fuh-NIT-oh-in",
     "url": "https://www.ahdictionary.com/word/search.html?q=phenytoin"
    },
    {
-    "source": "Dictionary.com (Random House Unabridged)",
+    "source": "Dictionary.com (Random House Unabridged; Collins British)",
     "says": "US [fen-i-toh-in, fuh-nit-oh-] /ˌfɛn ɪˈtoʊ ɪn, fəˈnɪt oʊ-/; British /ˌfɛnɪˈtəʊɪn/",
     "url": "https://www.dictionary.com/browse/phenytoin"
    },
@@ -937,17 +1020,18 @@
   "confidence": "medium",
   "alternatives": [
    {
-    "us": "fˈɛnɪtˌOɪn",
-    "gb": "fˈɛnɪtQɪn",
-    "context": "FEN-ih-toh-in: the American Heritage Dictionary's first form, and today's reading"
+    "us": "fˌɛnɪtˈOɪn",
+    "gb": "fˌɛnɪtˈQɪn",
+    "context": "fen-ih-TOH-in: the first form in AHD and Dictionary.com"
    },
    {
     "us": "fənˈɪtOɪn",
     "gb": "fɛnˈɪtQɪn",
-    "context": "fuh-NIT-oh-in: Wiktionary, and second forms in AHD and Dictionary.com"
+    "context": "fuh-NIT-oh-in: Wiktionary (GA and RP), second forms in AHD and Dictionary.com"
    }
   ],
-  "notes": "US fix. Today's US fˈɛnətˌOən (FEN-uh-toh-in, gold) is four syllables; MedlinePlus says FEN-ih-toyn (three). The dictionaries disagree among themselves on the stress (AHD 'fen', Dictionary.com 'toh', Wiktionary 'nit'), so the guide's rule keeps MedlinePlus. Medium because the sources disagree on syllables and stress. GB left as today's (FEN-ih-toh-in): the two British sources disagree with each other (Dictionary.com fen-ih-TOH-in, Wiktionary RP feh-NIT-oh-in) and neither has the three-syllable form."
+  "notes": "US: MedlinePlus (both monographs) and Davis's Drug Guide say FEN-ih-toyn, three syllables; today's US fˈɛnətˌOən (gold, FEN-uh-toh-un) has four, a different vowel and syllable count. The dictionaries have four syllables but disagree on the stress among themselves (AHD and Dictionary.com fen-ih-TOH-in, Wiktionary fuh-NIT-oh-in), so they don't agree on something else and the pharmacists' references stand. Medium because the sources disagree on syllables and stress. GB: the British sources have four syllables and stress 'toh' (Collins, as AHD and Random House) or 'nit' (Wiktionary RP); 'toh' as main is shared by three sources, so GB is fen-ih-TOH-in (today's GB stressed 'fen', which no British source does).",
+  "review": "gb fˈɛnɪtQɪn → fˌɛnɪtˈQɪn (Collins British, also AHD's and Random House's first form); fixed the AHD evidence (its first form stresses 'toh', not 'fen': the fetch drops bold primary marks); added Davis (FEN-i-toyn), which supports the US reading; US and medium kept"
  },
  {
   "rank": 446,
@@ -973,7 +1057,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess ˌɛsəpiklˈOn (es-uh-pee-KLOHN) stresses the last syllable and drops the z; MedlinePlus 'es zoe' pi clone' stresses 'zoe'. Only MedlinePlus found (no Wiktionary pronunciation, no dictionary entry)."
+  "notes": "Today's guess ˌɛsəpiklˈOn (es-uh-pee-KLOHN) stresses the last syllable and drops the z; MedlinePlus 'es zoe' pi clone' stresses 'zoe'. Only MedlinePlus found (no Wiktionary pronunciation, no dictionary entry).",
+  "review": "ok"
  },
  {
   "rank": 447,
@@ -982,9 +1067,9 @@
   "spelling": "gemfibrozil",
   "match": "case-insensitive",
   "disposition": "corrected",
-  "us": "ʤɛmfˈɪbɹəzˌɪl",
+  "us": "ʤɛmfˈIbɹəzˌɪl",
   "gb": "ʤɛmfˈIbɹQzɪl",
-  "respelling": "jem-FIB-ruh-zil",
+  "respelling": "jem-FY-bruh-zil",
   "evidence": [
    {
     "source": "MedlinePlus (ASHP)",
@@ -1005,17 +1090,23 @@
     "source": "Dictionary.com (Random House Unabridged)",
     "says": "British /dʒɛmˈfaɪbrəʊzɪl/",
     "url": "https://www.dictionary.com/browse/gemfibrozil"
+   },
+   {
+    "source": "Davis's Drug Guide",
+    "says": "gem-fye-broe-zil, 'fye' in bold",
+    "url": "https://www.drugguide.com/ddo/view/Davis-Drug-Guide/51353/0/gemfibrozil"
    }
   ],
-  "confidence": "medium",
+  "confidence": "high",
   "alternatives": [
    {
-    "us": "ʤɛmfˈIbɹəzˌɪl",
-    "gb": "ʤɛmfˈIbɹQzɪl",
-    "context": "jem-FY-bruh-zil: the first form in Wiktionary and the American Heritage Dictionary"
+    "us": "ʤɛmfˈɪbɹəzˌɪl",
+    "gb": "ʤɛmfˈɪbɹQzɪl",
+    "context": "jem-FIB-ruh-zil: MedlinePlus 'jem fi' broe zil', second forms in Wiktionary and AHD"
    }
   ],
-  "notes": "Today's reading (CMUdict) ɡˈɛmfɪbɹOzəl has a hard g and stresses 'gem'; every source has j and stresses the second syllable. The stressed vowel is disputed: MedlinePlus 'jem fi' broe zil' has a short i (it writes 'fye' for the long one), as do the second forms in Wiktionary and the American Heritage Dictionary, whose first forms have 'fy'. US follows MedlinePlus (post-tonic 'broe' reduced as in Wiktionary and AHD); GB follows Dictionary.com's British form (jem-FY-broh-zil). Medium because the stressed vowel is disputed."
+  "notes": "Today's reading (CMUdict, not independent evidence) ɡˈɛmfɪbɹOzəl has a hard g and stresses 'gem'; every source has j and stresses the second syllable. Stressed vowel: Wiktionary's and the American Heritage Dictionary's first forms, Dictionary.com's British form and Davis's Drug Guide all say 'fy' (jem-FY-broh-zil); MedlinePlus has a short i ('fi'; it writes 'fye' for the long one). The guide takes the dictionaries' reading when they agree against MedlinePlus (two or more authoritative sources against one may stay high); FIB is the alternative. Post-tonic 'broe' reduced in US as in Wiktionary and AHD; GB follows Dictionary.com's British form (jem-FY-broh-zil).",
+  "review": "us ʤɛmfˈɪbɹəzˌɪl → ʤɛmfˈIbɹəzˌɪl, medium → high: Wiktionary, AHD and Collins first forms agree on 'fy' against MedlinePlus, and Davis (gem-FYE-broe-zil) agrees too; the guide's 'dictionaries agree' rule"
  },
  {
   "rank": 448,
@@ -1023,10 +1114,10 @@
   "kind": "generic",
   "spelling": "dutasteride",
   "match": "case-insensitive",
-  "disposition": "already-correct",
-  "us": "",
-  "gb": "",
-  "respelling": "",
+  "disposition": "corrected",
+  "us": "dutˈæstəɹˌId",
+  "gb": "djuːtˈastəɹˌId",
+  "respelling": "doo-TAS-ter-ide",
   "evidence": [
    {
     "source": "MedlinePlus (ASHP)",
@@ -1041,7 +1132,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today dutˈæstəɹˌId (doo-TAS-ter-ide) matches Wiktionary GA exactly and MedlinePlus 'doo tas' teer ide' apart from the unstressed 'teer', which Wiktionary also reduces. (A British voice might add a y, dyoo-; no British source found, so GB is left as is.)"
+  "notes": "GB-only fix. US is today's reading unchanged: it matches Wiktionary GA exactly and MedlinePlus 'doo tas' teer ide' apart from the unstressed 'teer', which Wiktionary also reduces. GB: the guide's pack-wide British rule keeps RP's y glide after d before a 'u' in a full syllable (duloxetine GB djuːlˈɒksɪtiːn), and today's GB has neither the glide nor the long uː: dyoo-TAS-ter-ide. No British source found for this word (Dictionary.com redirects to finasteride; Wiktionary GA only).",
+  "review": "already-correct → corrected (GB only): gb dutˈastəɹˌId → djuːtˈastəɹˌId, the guide's British y glide after d before a full 'u' (as duloxetine); US unchanged"
  },
  {
   "rank": 449,
@@ -1070,7 +1162,7 @@
     "url": "https://www.ahdictionary.com/word/search.html?q=hydroquinone"
    }
   ],
-  "confidence": "high",
+  "confidence": "medium",
   "alternatives": [
    {
     "us": "hˌIdɹOkwɪnˈOn",
@@ -1078,7 +1170,8 @@
     "context": "hy-droh-kwih-NOHN: the first form in Dictionary.com and AHD"
    }
   ],
-  "notes": "Today hˌIdɹəkwˈɪnˌOn (gold: hy-druh-KWIN-ohn) matches Wiktionary and the second forms in Dictionary.com and the American Heritage Dictionary. Also a dictionary word (zipf 2.0, skin lighteners and photography); nothing to ship."
+  "notes": "Today hˌIdɹəkwˈɪnˌOn (gold: hy-druh-KWIN-ohn) matches Wiktionary and the second forms in Dictionary.com and the American Heritage Dictionary, whose first forms (and Collins British) stress 'nohn' instead (hy-droh-kwih-NOHN; AHD's fetched text drops its bold primary marks: hī′drō-kwĭ-nōn′, -kwĭn′ōn′). Medium because today's form is those dictionaries' second choice, as with palmitate. Also a dictionary word (zipf 2.0, skin lighteners and photography); nothing to ship.",
+  "review": "confidence high → medium: today's KWIN-ohn is the second form in AHD and Dictionary.com (their first forms and Collins British stress 'nohn'); same treatment as palmitate; disposition kept"
  },
  {
   "rank": 452,
@@ -1099,7 +1192,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess says vor-shee-OK-suh-teen; MedlinePlus 'vor'' tye ox' e teen' has 'tye' (t + eye), not 'shee'. Stress unchanged."
+  "notes": "Today's guess says vor-shee-OK-suh-teen; MedlinePlus 'vor'' tye ox' e teen' has 'tye' (t + eye), not 'shee'. Stress unchanged.",
+  "review": "ok"
  },
  {
   "rank": 453,
@@ -1120,7 +1214,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess fluˈɑsənənˌId says floo-OS-uh-nuh-nide (four syllables, stress on 'os'); MedlinePlus 'floo oh sin' oh nide' has five, stressed on 'sin'. The 'oh' after the main stress is kept full: no dictionary reduces it."
+  "notes": "Today's guess fluˈɑsənənˌId says floo-OS-uh-nuh-nide (four syllables, stress on 'os'); MedlinePlus 'floo oh sin' oh nide' has five, stressed on 'sin'. The 'oh' after the main stress is kept full: no dictionary reduces it.",
+  "review": "ok"
  },
  {
   "rank": 455,
@@ -1141,7 +1236,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess dəlˈutəɡɹˌAvəɹ says duh-LOO-tuh-gray-ver; MedlinePlus 'doe'' loo teg' ra vir' (also in the Dolutegravir and Lamivudine monograph) stresses 'teg', secondary on 'doe'. Final -vir read 'veer' (the -vir family)."
+  "notes": "Today's guess dəlˈutəɡɹˌAvəɹ says duh-LOO-tuh-gray-ver; MedlinePlus 'doe'' loo teg' ra vir' (also in the Dolutegravir and Lamivudine monograph) stresses 'teg', secondary on 'doe'. Final -vir read 'veer' (the -vir family).",
+  "review": "ok"
  },
  {
   "rank": 457,
@@ -1162,7 +1258,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess sˈɛvəlˌAməɹ says SEV-uh-lay-mer; MedlinePlus 'se vel' a mer' stresses 'vel'."
+  "notes": "Today's guess sˈɛvəlˌAməɹ says SEV-uh-lay-mer; MedlinePlus 'se vel' a mer' stresses 'vel'.",
+  "review": "ok"
  },
  {
   "rank": 460,
@@ -1183,7 +1280,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Dictionary word (propylene glycol); today's US pɹˈOpəlˌin and GB pɹˈQpɪliːn match Dictionary.com's US and British forms. Nothing to ship."
+  "notes": "Dictionary word (propylene glycol); today's US pɹˈOpəlˌin and GB pɹˈQpɪliːn match Dictionary.com's US and British forms. Nothing to ship.",
+  "review": "ok"
  },
  {
   "rank": 461,
@@ -1191,23 +1289,18 @@
   "kind": "generic",
   "spelling": "methenamine",
   "match": "case-insensitive",
-  "disposition": "unresolved",
+  "disposition": "corrected",
   "us": "məθˈinəmˌin",
   "gb": "məθˈiːnəmˌiːn",
   "respelling": "muh-THEE-nuh-meen",
   "evidence": [
-   {
-    "source": "MedlinePlus (ASHP)",
-    "says": "meth en' a meen",
-    "url": "https://medlineplus.gov/druginfo/meds/a682296.html"
-   },
    {
     "source": "American Heritage Dictionary",
     "says": "(mə-thēnə-mēn′, -mĭn) as rendered: thē, not thĕn",
     "url": "https://www.ahdictionary.com/word/search.html?q=methenamine"
    },
    {
-    "source": "Dictionary.com (Random House Unabridged)",
+    "source": "Dictionary.com (Random House Unabridged; Collins British)",
     "says": "US [me-thee-nuh-meen, -min] /mɛˈθi nəˌmin, -mɪn/; British /mɛˈθiːnəˌmiːn, -ˌmaɪn/",
     "url": "https://www.dictionary.com/browse/methenamine"
    },
@@ -1215,9 +1308,14 @@
     "source": "Wiktionary",
     "says": "/mɪˈθiː.nə.miːn/, /mɪˈθiː.nəm.ɪn/ (no accent label)",
     "url": "https://en.wiktionary.org/wiki/methenamine"
+   },
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "meth en' a meen (dissent: short e)",
+    "url": "https://medlineplus.gov/druginfo/meds/a682296.html"
    }
   ],
-  "confidence": "",
+  "confidence": "medium",
   "alternatives": [
    {
     "us": "məθˈɛnəmˌin",
@@ -1225,7 +1323,8 @@
     "context": "meth-EN-uh-meen: MedlinePlus 'meth en' a meen', and today's reading"
    }
   ],
-  "notes": "Sources split on the stressed vowel. MedlinePlus (ASHP, the pharmacists' reference) says meth-EN-uh-meen, which is today's reading. The American Heritage Dictionary, Dictionary.com (US and British) and Wiktionary all say muh-THEE-nuh-meen. The guide's rule (MedlinePlus unless dictionaries agree on something else) points to THEE, but the dictionaries are general (chemistry) sources and the reading would overturn the ASHP one patients hear at the counter, so I have not chosen. The candidate above is the dictionaries' form; leaving today's reading changes nothing. A reviewer should decide (GB at least has two British sources for THEE)."
+  "notes": "Today's guess məθˈɛnəmˌin says muh-THEN-uh-meen, which is MedlinePlus's 'meth en' a meen'. The American Heritage Dictionary, Dictionary.com (US and British) and Wiktionary all have a long e in the stressed syllable (muh-THEE-nuh-meen). The guide takes MedlinePlus for a generic unless dictionaries agree on something else, and three do, so the dictionaries' reading is used and MedlinePlus's is the alternative. Medium rather than high because the dissent is the pharmacists' own reference and no drug guide was found to settle it (Davis has no methenamine monograph; the Hiprex and Urex labels print no respelling). In the system word list, but its only sense is this compound (zipf none), so the entry changes no ordinary prose.",
+  "review": "unresolved → corrected, medium: applied the guide's rule (MedlinePlus unless dictionaries agree on something else): AHD, Dictionary.com US/British and Wiktionary all say THEE; MedlinePlus's THEN kept as the alternative"
  },
  {
   "rank": 463,
@@ -1251,7 +1350,8 @@
   ],
   "confidence": "low",
   "alternatives": [],
-  "notes": "Low: no written pronunciation found (Wiktionary, Dictionary.com, the American Heritage Dictionary and Wordnik have none; Merriam-Webster refuses fetches). Today's US guess hˈɪpjəɹət (HIP-yuh-rut) reduces the salt ending -ate to 'ut'; chemical -ate salts keep a full 'ate' (sulfate, succinate, besylate in d0001), as today's GB hˈɪpjʊɹAt already does. US-only fix; the assembly guard will hold it (low confidence, today only partly off)."
+  "notes": "Low: no written pronunciation found (Wiktionary, Dictionary.com, the American Heritage Dictionary and Wordnik have none; Merriam-Webster refuses fetches). Today's US guess hˈɪpjəɹət (HIP-yuh-rut) reduces the salt ending -ate to 'ut'; chemical -ate salts keep a full 'ate' (sulfate, succinate, besylate in d0001), as today's GB hˈɪpjʊɹAt already does. US-only fix; the assembly guard will hold it (low confidence, today only partly off).",
+  "review": "ok"
  },
  {
   "rank": 464,
@@ -1277,7 +1377,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today ɪnɑksəpˈɛɹɪn matches Wiktionary GA (without its secondary stress) and MedlinePlus 'ee nox a pa' rin' apart from the unstressed first vowel, which Wiktionary also reduces to ɪ."
+  "notes": "Today ɪnɑksəpˈɛɹɪn matches Wiktionary GA (without its secondary stress) and MedlinePlus 'ee nox a pa' rin' apart from the unstressed first vowel, which Wiktionary also reduces to ɪ.",
+  "review": "ok"
  },
  {
   "rank": 465,
@@ -1298,7 +1399,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Ordinary word (plural of estrogen); today's US ES-truh-junz and GB EE-struh-junz match Dictionary.com's US and British forms. Nothing to ship."
+  "notes": "Ordinary word (plural of estrogen); today's US ES-truh-junz and GB EE-struh-junz match Dictionary.com's US and British forms. Nothing to ship.",
+  "review": "ok"
  },
  {
   "rank": 466,
@@ -1319,7 +1421,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess stresses the last syllable (brex-pih-pruh-ZOLE); MedlinePlus 'brex pip' ra zole' stresses 'pip', the -prazole pattern the guide gives (main stress on the syllable before 'pra')."
+  "notes": "Today's guess stresses the last syllable (brex-pih-pruh-ZOLE); MedlinePlus 'brex pip' ra zole' stresses 'pip', the -prazole pattern the guide gives (main stress on the syllable before 'pra').",
+  "review": "ok"
  },
  {
   "rank": 468,
@@ -1328,9 +1431,9 @@
   "spelling": "cilostazol",
   "match": "case-insensitive",
   "disposition": "corrected",
-  "us": "sɪlˈOstəzˌɑl",
+  "us": "sɪlˈɑstəzˌɔl",
   "gb": "sɪlˈɒstəzɒl",
-  "respelling": "sih-LOH-stuh-zol",
+  "respelling": "sih-LOSS-tuh-zawl",
   "evidence": [
    {
     "source": "MedlinePlus (ASHP)",
@@ -1341,17 +1444,23 @@
     "source": "Wiktionary",
     "says": "/sɪˈlɒstəzɒl/ (no accent label)",
     "url": "https://en.wiktionary.org/wiki/cilostazol"
+   },
+   {
+    "source": "Davis's Drug Guide",
+    "says": "sil-os-tah-zol, 'os' in bold",
+    "url": "https://www.drugguide.com/ddo/view/Davis-Drug-Guide/51155/0/cilostazol"
    }
   ],
   "confidence": "medium",
   "alternatives": [
    {
-    "us": "sɪlˈɑstəzˌɑl",
-    "gb": "sɪlˈɒstəzɒl",
-    "context": "sih-LOS-tuh-zol: Wiktionary's vowel"
+    "us": "sɪlˈOstəzˌɔl",
+    "gb": "sɪlˈQstəzɒl",
+    "context": "sih-LOH-stuh-zawl: MedlinePlus 'sil oh' sta zol'"
    }
   ],
-  "notes": "Today's guess sˌɪləstˈAzəl says sil-uh-STAY-zul (main stress on the third syllable). MedlinePlus and Wiktionary both stress the second syllable but disagree on its vowel: MedlinePlus 'oh', Wiktionary ɒ (LOT). US follows MedlinePlus; GB follows Wiktionary, whose ɒ is a British transcription. Medium because the stressed vowel is disputed."
+  "notes": "Today's guess sˌɪləstˈAzəl says sil-uh-STAY-zul (main stress on the third syllable). MedlinePlus, Wiktionary and Davis's Drug Guide all stress the second syllable; its vowel is disputed: MedlinePlus 'oh', Wiktionary /sɪˈlɒstəzɒl/ (LOT) and Davis 'os' (LOT). US takes the LOT vowel two sources share (ɑ), GB ɒ; MedlinePlus's 'oh' is the alternative. Final -ol: today's has neither ɑ nor ɔ, so ɔ (the guide's -ol rule). Medium: one authoritative source against one, with a drug guide tipping it; no AHD or Dictionary.com entry.",
+  "review": "us sɪlˈOstəzˌɑl → sɪlˈɑstəzˌɔl: Davis (sil-OS-tah-zol) sides with Wiktionary's LOT vowel against MedlinePlus's 'oh'; final -ol written ɔ per the guide (today's ending has neither); GB unchanged; medium kept"
  },
  {
   "rank": 469,
@@ -1372,6 +1481,7 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess tˈOltəɹədˌIn says TOHL-ter-uh-dyne: stress on the first syllable and '-dyne' for '-deen'. MedlinePlus 'tole ter' a deen' stresses 'ter'."
+  "notes": "Today's guess tˈOltəɹədˌIn says TOHL-ter-uh-dyne: stress on the first syllable and '-dyne' for '-deen'. MedlinePlus 'tole ter' a deen' stresses 'ter'.",
+  "review": "ok"
  }
 ]

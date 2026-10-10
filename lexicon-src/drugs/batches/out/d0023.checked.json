@@ -30,6 +30,7 @@
    }
   ],
   "notes": "No written pronunciation found: the label prints none, the brand is too old for a published FDA name review, and no dictionary lists it (web search was unavailable for this batch). Today's guess ʧɛlɛstˈOni (cheh-leh-STOH-nee) is plainly wrong (Italian ch, a fourth syllable from the final e), but choosing between suh-LESS-tohn (as in celestial) and SEL-uh-stohn would be a guess. Candidate in us; a reviewer with a source should settle it.",
+  "review": "ok; no source found (labels print none; Wiktionary 404); stays unresolved, candidate not shipped",
   "today_us": "ʧɛlɛstˈOni",
   "today_gb": "ʧɛlɛstˈQni",
   "today_source": "guesser",
@@ -63,6 +64,7 @@
   "confidence": "medium",
   "alternatives": [],
   "notes": "Today ˌɪnʤˈɛktəfəɹ (in-JEK-tuh-fer) has the maker's sounds. Medium: both maker sources mark no stress; the stress on 'jekt' follows the English word inject, which the name is built on.",
+  "review": "ok; FDA review NDA 203565 re-checked ('Intended pronunciation: in-jekt-a-fer'), no stress marked",
   "today_us": "ˌɪnʤˈɛktəfəɹ",
   "today_gb": "ˌɪnʤˈɛktəfə",
   "today_source": "guesser",
@@ -94,6 +96,7 @@
   "confidence": "low",
   "alternatives": [],
   "notes": "Today tˈɛnɪvæk (TEN-ih-vak). Low: no label, maker or reference respelling found; it rests on the spelling.",
+  "review": "ok; both Sanofi labels print no respelling; low, nothing ships",
   "today_us": "tˈɛnɪvæk",
   "today_gb": "tˈɛnɪvak",
   "today_source": "guesser",
@@ -131,7 +134,8 @@
     "context": "ok-TAG-um: today's guess; no source for it"
    }
   ],
-  "notes": "Low: no label, maker or reference respelling found (biologic licensed by CBER, so no CDER name review online). Today's guess ok-TAG-um splits the name against its parts and reduces 'gam'; OK-tuh-gam keeps Octa- whole and 'gam' full, as the maker's other Octa- names are built. The assembly guard will hold this.",
+  "notes": "Low: no label, maker or reference respelling found (biologic licensed by CBER, so no CDER name review online). Today's guess ok-TAG-um splits the name against its parts and reduces 'gam'; OK-tuh-gam keeps Octa- whole and 'gam' full, as the maker's other Octa- names are built (Octapharma, octaplas, octanate), read like octagon. This row ships despite low confidence: the assembler counts today's stress as wrong, so the low-confidence guard does not hold it. Octapharma's sites print no pronunciation.",
+  "review": "notes corrected: this row ships (today counts as wrong, so the low guard does not hold it), not held as the note said; reading kept (Octa- read whole, as in octagon); no source on Octapharma's sites",
   "today_us": "ɑktˈæɡəm",
   "today_gb": "ɒktˈaɡəm",
   "today_source": "guesser",
@@ -154,6 +158,7 @@
   "confidence": "",
   "alternatives": [],
   "notes": "Dosage-form descriptor from Adzenys XR-ODT and Cotempla XR-ODT (extended-release orally disintegrating tablet), not a drug name. Today's letter-by-letter reading (X-R-O-D-T) is how it is said; nothing to ship.",
+  "review": "ok",
   "today_us": "ˌɛksˈɑɹˌOdˌitˈi",
   "today_gb": "ˌɛksˈɑːˌQdˌiːtˈiː",
   "today_source": "lexicon+letters"
@@ -173,11 +178,17 @@
     "source": "DailyMed label (Allergan), Medication Guide",
     "says": "VIBERZI (vye BER zee)",
     "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7821bd40-4c84-4984-951b-6436ae20421a"
+   },
+   {
+    "source": "FDA proprietary name review, NDA 206940 (2015), applicant's product information",
+    "says": "Intended Pronunciation: vye ber’ zee",
+    "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2015/206940Orig1s000NameR.pdf"
    }
   ],
   "confidence": "high",
   "alternatives": [],
   "notes": "Today vibˈɛɹzi says 'vee-BAIR-zee'. The label's 'vye' is a full eye vowel and 'BER' the stressed er of 'Bert', not 'bare'.",
+  "review": "ok; added the FDA name review (NDA 206940: 'vye ber' zee'), which agrees; reading unchanged",
   "today_us": "vibˈɛɹzi",
   "today_gb": "vibˈɛːzi",
   "today_source": "guesser",
@@ -202,6 +213,11 @@
     "source": "DailyMed label (Sanofi/Regeneron), Medication Guide and Instructions for Use",
     "says": "KEVZARA (KEV-za-ra)",
     "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=827bc01c-d379-4266-a18c-c7f904b76af3"
+   },
+   {
+    "source": "FDA proprietary name review, BLA 761037 (2017), applicant's product information (March 16, 2016 submission)",
+    "says": "Intended Pronunciation: KEV za ra",
+    "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2017/761037Orig1s000NameR.pdf"
    }
   ],
   "confidence": "high",
@@ -212,7 +228,8 @@
     "context": "kev-ZAR-uh: today's reading; no written source found for it"
    }
   ],
-  "notes": "REVIEW: today stresses ZAR; the maker's current label (twice, in capitals) stresses KEV. Following the guide (the current US label wins). Worth a check against the maker's advertising before shipping a stress change.",
+  "notes": "Today stresses ZAR; the maker stresses KEV in both its current label (twice, in capitals) and its 2016 FDA name submission ('KEV za ra'), so the stress change is the maker's own. The unstressed 'za ra' reduce to ə.",
+  "review": "added the FDA name review (BLA 761037, 2016 submission: 'Intended Pronunciation: KEV za ra'), a second maker source for the KEV stress; removed the 'check before shipping' hedge; reading unchanged",
   "today_us": "kˌɛvzˈɑɹə",
   "today_gb": "kˌɛvzˈɑɹə",
   "today_source": "guesser",
@@ -242,6 +259,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today's guess ˈɛlInəst (EL-eye-nust) has the wrong stress and vowels. The harvest missed the respelling because it is in square brackets.",
+  "review": "ok; label '[ee-lin-EST]' verified in the cached Northstar label",
   "today_us": "ˈɛlInəst",
   "today_gb": "ˈɛlInəst",
   "today_source": "guesser",
@@ -271,6 +289,7 @@
   "confidence": "medium",
   "alternatives": [],
   "notes": "GB-only fix. US pˈɛɹəɡˌɑɹd is today's reading and matches the label (stress mark before 'par'; American 'par-uh' as in paragraph, Mary-marry merged). Today's GB keeps the American ɛ ('PERR-uh-gahd'); British says this 'par-' with the TRAP vowel, as in paragraph pˈaɹəɡɹɑːf. Medium because the label is American and gives no British form. (The harvested 'face-up' was junk from the insertion instructions.)",
+  "review": "ok; both CooperSurgical labels print ''par-uh-gahrd'; the 'face-up' WARN is answered in notes",
   "today_us": "pˈɛɹəɡˌɑɹd",
   "today_gb": "pˈɛɹəɡˌɑːd",
   "today_source": "guesser",
@@ -309,6 +328,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today lɛnvˈimə matches. The maker's respellings mark no stress; NCI's dictionary puts it on VEE.",
+  "review": "ok; label and FDA review ('lehn veema') re-checked",
   "today_us": "lɛnvˈimə",
   "today_gb": "lɛnvˈiːmə",
   "today_source": "guesser",
@@ -335,6 +355,7 @@
   "confidence": "",
   "alternatives": [],
   "notes": "Syeda is a ranked given name (rank 15,266, about 22,000 people; the Arabic/Urdu Sayyida) as well as a generic oral contraceptive. No maker pronunciation found for the pill, and an entry would change the name everywhere, so nothing ships. Today's sIˈidə (sy-EE-duh) is one common reading of the name.",
+  "review": "ok; a ranked given name with no maker pronunciation found: nothing ships",
   "today_us": "sIˈidə",
   "today_gb": "sIˈiːdə",
   "today_source": "guesser"
@@ -358,6 +379,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today ɛksfˈOzə (eks-FOH-zuh) matches the maker's intended pronunciation; the unstressed final 'zah' reduces to ə. The label prints no respelling.",
+  "review": "ok; FDA review re-checked (the product-information page is an image: 'Intended Pronunciation: ex foe' zah'); final 'zah' as ə matches the Tresiba precedent (d0014)",
   "today_us": "ɛksfˈOzə",
   "today_gb": "ɛksfˈQzə",
   "today_source": "guesser",
@@ -385,6 +407,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today səflˈAv (suh-FLAYV) has the right stress, but the maker writes a full 'Soo' in the unstressed first syllable, which the guide keeps (`u`).",
+  "review": "ok; label 'Soo-FLAVE' verified; the maker's full 'Soo' is the guide's case (b)",
   "today_us": "səflˈAv",
   "today_gb": "səflˈAv",
   "today_source": "guesser",
@@ -418,6 +441,7 @@
   "confidence": "low",
   "alternatives": [],
   "notes": "Today sˈɛləbɹˌɛks (SEL-uh-breks). Low: no label, maker or reference respelling could be found or fetched (web search was unavailable for this batch); it rests on the spelling. A widely known brand: a reviewer can likely raise this to medium with any pharmacy reference.",
+  "review": "ok; no source found (celebrex.com, Wiktionary, AHD and Dictionary.com have none); stays low",
   "today_us": "sˈɛləbɹˌɛks",
   "today_gb": "sˈɛləbɹˌɛks",
   "today_source": "guesser",
@@ -450,6 +474,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today's guess dˈiOvən says 'DEE-oh-vun'; the maker says 'DYE'. 'van' is kept full with secondary stress (the label writes 'van', not 'vun', as in caravan).",
+  "review": "ok; both Novartis labels verified ('DYE-o-van', 'DYE'-o-van HCT')",
   "today_us": "dˈiOvən",
   "today_gb": "dˈiːQvən",
   "today_source": "guesser",
@@ -489,6 +514,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today's guess zˈɑɹksiO reads the x as ks; the maker says it as z. The maker's respellings mark no stress; NCI puts it on ZAR, as today does.",
+  "review": "ok; label, FDA review ('Zar-Zee-Oh') and NCI re-checked",
   "today_us": "zˈɑɹksiO",
   "today_gb": "zˈɑːksiQ",
   "today_source": "guesser",
@@ -513,6 +539,11 @@
     "source": "DailyMed label (Paratek, formerly Optinose), Patient Information",
     "says": "XHANCE (ex hans)",
     "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=44fcea33-8cfa-3a5c-e063-6394a90aafb2"
+   },
+   {
+    "source": "FDA proprietary name review, NDA 209022 (2017)",
+    "says": "no intended pronunciation or derivation recorded",
+    "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2017/209022Orig1s000NameR_rev.pdf"
    }
   ],
   "confidence": "medium",
@@ -524,6 +555,7 @@
    }
   ],
   "notes": "Today's guess zˈæns ('zanss', one syllable) drops the 'ex'. The label settles the sounds but marks no stress; stress on 'hans' is my reading (the name plays on enhance, en-HANCE), so medium. GB keeps the label's 'a' (TRAP), not the BATH vowel of British enhance.",
+  "review": "ok; added the FDA name review (NDA 209022), which records no intended pronunciation or derivation; xhance.com prints none; stress stays medium",
   "today_us": "zˈæns",
   "today_gb": "zˈans",
   "today_source": "guesser",
@@ -553,6 +585,7 @@
   "confidence": "low",
   "alternatives": [],
   "notes": "Low: no label or maker respelling found; it rests on the spelling. Today dˈɛntəʤəl reduces 'gel' to 'jul'; the second word of a compound keeps its vowel with secondary stress (the KwikPen decision in d0014). The assembly guard will hold this.",
+  "review": "ok; held by the low-confidence guard (today only partly off), consistent with Fybogel (d0026)",
   "today_us": "dˈɛntəʤəl",
   "today_gb": "dˈɛntəʤəl",
   "today_source": "guesser",
@@ -586,6 +619,7 @@
   "confidence": "low",
   "alternatives": [],
   "notes": "Today ˌæmɪtˈizə (am-ih-TEE-zuh). Low: no label, maker or reference respelling found (the 2006 FDA review package is not online in a readable form); it rests on the spelling.",
+  "review": "ok; label prints no respelling; low, nothing ships",
   "today_us": "ˌæmɪtˈizə",
   "today_gb": "ˌamɪtˈiːzə",
   "today_source": "guesser",
@@ -617,6 +651,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today dˈɪfəsəd (DIF-uh-sid) matches: the label gives the sounds and the maker's FDA submission marks the first syllable stressed; 'sid' vs səd is only reduction.",
+  "review": "ok; FDA review re-checked (\"'Di-fi-sid\")",
   "today_us": "dˈɪfəsəd",
   "today_gb": "dˈɪfəsəd",
   "today_source": "guesser",
@@ -644,6 +679,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today's guess ˌæmʤəvˈItə says 'VY'; the label's stressed syllable is 'vee'.",
+  "review": "ok; both Amgen labels print 'am-jeh-vee'-tah'",
   "today_us": "ˌæmʤəvˈItə",
   "today_gb": "ˌamʤəvˈItə",
   "today_source": "guesser",
@@ -659,9 +695,10 @@
   "kind": "brand",
   "spelling": "Vestura",
   "match": "case-insensitive",
-  "disposition": "already-correct",
+  "disposition": "corrected",
   "us": "vɛstˈʊɹə",
-  "gb": "vɛstˈʊɹə",
+  "gb": "vɛstjˈʊəɹə",
+  "respelling": "ves-TOOR-uh",
   "evidence": [
    {
     "source": "DailyMed label (Teva), Patient Information",
@@ -676,13 +713,16 @@
   ],
   "confidence": "low",
   "alternatives": [],
-  "notes": "Today vɛstˈʊɹə (ves-TOOR-uh). Low: no label, maker or reference respelling found; it rests on the spelling.",
+  "notes": "Today vɛstˈʊɹə (ves-TOOR-uh), kept for US. Low: no label, maker or reference respelling found; it rests on the spelling. GB-only fix: British keeps the y glide after t before a stressed 'u' (the guide's duloxetine/Januvia rule), ves-TYOOR-uh, where today's GB copies the American. The low-confidence guard holds it (today's US is right).",
+  "review": "already-correct -> corrected (GB-only): GB vɛstˈʊɹə -> vɛstjˈʊəɹə, the guide's British y glide after t before a stressed 'u'; US unchanged; low, held by the guard",
   "today_us": "vɛstˈʊɹə",
   "today_gb": "vɛstˈʊɹə",
   "today_source": "guesser",
-  "gb_effective": "vɛstˈʊɹə",
+  "gb_effective": "vɛstjˈʊəɹə",
   "verdict_us": "right",
-  "verdict_gb": "right"
+  "verdict_us_detail": "identical",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
  },
  {
   "rank": 1050,
@@ -714,7 +754,8 @@
     "context": "KAHN-voh-mep: today's reading and what the spelling 'Kon' suggests"
    }
   ],
-  "notes": "REVIEW: stress (first syllable), 'voh' and the syllables are settled by the maker and match today. The open question is the first vowel: all three maker writings spell it 'kan' (the FDA submissions use dictionary notation, where plain 'a' is the vowel of cat and the cot vowel would be 'ä'), which says KAN, not today's KAHN, although the brand is spelled Kon-. I followed the maker's writing, so medium. If a reviewer reads 'Kan' as a loose spelling of 'Kon', keep today's reading (the alternative).",
+  "notes": "Stress (first syllable), 'voh' and the syllables are settled by the maker and match today. The first vowel differs: all three maker writings spell it 'kan' (the label's 'Kan-vo-mep', and both FDA submissions in dictionary notation, which writes ō and ə beside a plain 'a', the vowel of cat; the cot vowel would be 'ä'), so KAN, not today's KAHN, although the brand is spelled Kon-. Medium because the spelling points the other way; KAHN in alternatives.",
+  "review": "ok; verified the label 'Kan-vo-mep' and both FDA submissions (dictionary notation 'Kaŋ-vō-məp', 2022; 'kan-võ-məp', 2020): a plain 'a' beside ō and ə is deliberate, so KAN stays at medium; the hedge in notes replaced with that reasoning",
   "today_us": "kˈɑnvOmˌɛp",
   "today_gb": "kˈɒnvQmˌɛp",
   "today_source": "guesser",
@@ -741,6 +782,11 @@
     "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c486fc7-c8c4-4c6c-b30c-366dabaeaadd"
    },
    {
+    "source": "Original label (GlaxoSmithKline, 2011), Medication Guide, NDA 022399",
+    "says": "HORIZANT™ [ho-ri' zant]",
+    "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2011/022399s000lbl.pdf"
+   },
+   {
     "source": "FDA proprietary name review, NDA 022399 (2011)",
     "says": "the applicant's intended pronunciation was not submitted; FDA's own stress variants: HOR-eh-zont, hor-EH-zont, hor-eh-ZONT",
     "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2011/022399Orig1s000NameR.pdf"
@@ -754,7 +800,8 @@
     "context": "hoh-RY-zuhnt, as in horizon: the other reading of the label's open syllable 'ri''"
    }
   ],
-  "notes": "REVIEW: today hˈɔɹəzənt (HOR-uh-zunt) stresses the first syllable; the maker's Medication Guide stresses 'ri'. Which vowel 'ri'' stands for is not certain: in the ASHP style the label imitates (stress apostrophe), a short vowel is written in an open syllable (MedlinePlus 'len va' ti nib', 'ga' ba pen tin'), and FDA's reviewers also read the i short; the name also evokes horizon (RYE). I chose the short vowel; medium either way.",
+  "notes": "Today hˈɔɹəzənt (HOR-uh-zunt) stresses the first syllable; both maker labels (GSK's original 2011 Medication Guide and Azurity's current one) write 'ho-ri' zant', stressing 'ri'. Which vowel 'ri'' stands for is not certain: in the ASHP style the labels use, a stressed open 'i'' is usually the short vowel (MedlinePlus 'pye oh gli' ta zone', 'pri' mi done', 'ra mi' pril'), but ASHP occasionally writes 'eye' that way too ('jem fi' broe zil', 'me troe ni' da zole'), and the name evokes horizon (RYE). Short i follows the usual ASHP reading, as the guide does for a stressed open 'a''; medium either way, RYE in alternatives. FDA's reviewers also read the i short.",
+  "review": "ok; added GSK's original 2011 label, which prints the same '[ho-ri' zant]'; notes now say ASHP style writes 'eye' as an open 'i'' in a minority of words, so the RIZ/RYE vowel stays medium; reading unchanged",
   "today_us": "hˈɔɹəzənt",
   "today_gb": "hˈɔːɹəzənt",
   "today_source": "guesser",
@@ -795,6 +842,7 @@
    }
   ],
   "notes": "Today's guess kˈæmziOz says 'KAM-zee-ohz'; the maker says 'zai' (eye) and a final s ('ōs'). The label marks no stress; the middle syllable is my reading (the name echoes cardiac myosin, MY-), so medium.",
+  "review": "ok; FDA memo re-checked (no pronunciation) and camzyos.com prints none; stress stays medium",
   "today_us": "kˈæmziOz",
   "today_gb": "kˈamziQz",
   "today_source": "guesser",
@@ -828,6 +876,7 @@
   "confidence": "",
   "alternatives": [],
   "notes": "No written pronunciation found. The spelling allows ill-EV-roh (today's ˌɪlˈɛvɹO, whose extra secondary stress on the first syllable is harmless) or eye-LEV-roh; choosing would be a guess.",
+  "review": "ok; FDA review's product information is withheld; stays unresolved",
   "today_us": "ˌɪlˈɛvɹO",
   "today_gb": "ˌɪlˈɛvɹQ",
   "today_source": "guesser"
@@ -851,6 +900,7 @@
   "confidence": "",
   "alternatives": [],
   "notes": "No written pronunciation found. Today lˌOzumˈændəmˌin (loh-zoo-MAN-dih-meen) is a plausible spelling reading, but the stress and the '-mine' (meen or mine) are open; nothing to ship without a source.",
+  "review": "ok; one Aurobindo label, no respelling; stays unresolved",
   "today_us": "lˌOzumˈændəmˌin",
   "today_gb": "lˌQzumˈandəmˌiːn",
   "today_source": "guesser"
@@ -891,6 +941,7 @@
    }
   ],
   "notes": "Low: no written pronunciation found for the brand (the label prints none; no dictionary entry). The name is cut from metoprolol's stressed 'toe' and 'proe(l)' (MedlinePlus 'me toe' proe lole'), which gives TOH-prohl; today's guess stresses the second syllable and reduces the first. The assembly guard will hold this; a reviewer with a source should confirm.",
+  "review": "ok; no source found (the Melinta site toprol-xl.com prints none); low, held by the guard",
   "today_us": "təpɹˈOl",
   "today_gb": "təpɹˈQl",
   "today_source": "guesser",
@@ -919,6 +970,7 @@
   "confidence": "medium",
   "alternatives": [],
   "notes": "Today lˌɪlˈænə (lil-AN-uh) matches the label's syllables and stress. Medium because the ASHP-style respelling leaves vowels to interpret: 'lyl' read as in Lyle would be eye, and a stressed open 'la'' is the short a in ASHP's own respellings ('ga' ba pen tin'), which is what today says.",
+  "review": "ok; label 'lyl laʹ na' verified; stressed open 'la'' read as short a by the guide's ASHP rule",
   "today_us": "lˌɪlˈænə",
   "today_gb": "lˌɪlˈanə",
   "today_source": "guesser",
@@ -950,6 +1002,7 @@
   "confidence": "",
   "alternatives": [],
   "notes": "No written pronunciation found. The name looks built from penta- and ASA (5-ASA, mesalamine), which leaves pen-TAH-suh (today's pɛntˈɑsə), pen-TAY-suh and PEN-tuh-suh all plausible; choosing would be a guess.",
+  "review": "ok; no source found; stays unresolved",
   "today_us": "pɛntˈɑsə",
   "today_gb": "pɛntˈɒsə",
   "today_source": "guesser"
@@ -973,6 +1026,7 @@
   "confidence": "",
   "alternatives": [],
   "notes": "No written pronunciation found (the 1998 approval predates published name reviews). Today əzˈɑpt (uh-ZOPT) and AY-zopt are both plausible; choosing would be a guess.",
+  "review": "ok; no source found; stays unresolved",
   "today_us": "əzˈɑpt",
   "today_gb": "əzˈɒpt",
   "today_source": "guesser"
@@ -1007,7 +1061,8 @@
     "context": "KLIN-oh-lip-id: main stress on the first part"
    }
   ],
-  "notes": "Low: no written pronunciation found; it rests on the spelling. Today's guess klInˈɑləpəd (kly-NOL-uh-pud) breaks up the English word lipid. The assembly guard will hold this.",
+  "notes": "Low: no written pronunciation found; it rests on the spelling. Today's guess klInˈɑləpəd (kly-NOL-uh-pud) breaks up the English word lipid and gives Clino- (clinical) an eye vowel. The same build in another lipid emulsion, SMOFlipid (d0021), has the maker's main stress on 'li' with lipid kept whole. This row ships despite low confidence: the assembler counts today's reading as wrong.",
+  "review": "notes corrected: this row ships (today counts as wrong), not held as the note said; added the SMOFlipid analogy (d0021); FDA review NDA 204508 re-checked, no intended pronunciation; reading kept, low",
   "today_us": "klInˈɑləpəd",
   "today_gb": "klInˈɒləpəd",
   "today_source": "guesser",
@@ -1036,6 +1091,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today ɪmvˈɛksi matches the label. The harvest missed it (ASHP-style apostrophe and a breve).",
+  "review": "ok; label 'ĭm vex' ee' verified on both Mayne labels",
   "today_us": "ɪmvˈɛksi",
   "today_gb": "ɪmvˈɛksi",
   "today_source": "guesser",
@@ -1063,6 +1119,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today's guess vˈitˌɑmə (VEE-tah-muh) stresses the first syllable and says 'tah'; the label stresses TAM (short a). 'Vee' stays full.",
+  "review": "ok; label 'Vee-TAM-uh' verified",
   "today_us": "vˈitˌɑmə",
   "today_gb": "vˈiːtˌɒmə",
   "today_source": "guesser",
@@ -1091,6 +1148,7 @@
   "confidence": "low",
   "alternatives": [],
   "notes": "Today ˈɛndəkˌɔfdˌiˈɛm (EN-duh-kawf dee-EM, Endacof guessed and DM from a lexicon). Low: no source; it rests on the spelling.",
+  "review": "ok; no DailyMed label; low, nothing ships",
   "today_us": "ˈɛndəkˌɔfdˌiˈɛm",
   "today_gb": "ˈɛndəkˌɔːfdˌiːˈɛm",
   "today_source": "guesser+lexicon",
@@ -1117,6 +1175,7 @@
   "confidence": "medium",
   "alternatives": [],
   "notes": "Today ˈævənɛks (AV-uh-neks) has the label's sounds. Medium: the label marks no stress; first-syllable stress is my reading of the unmarked respelling. The harvested 'AVONEX Pen' items were not respellings.",
+  "review": "ok; avonex.com prints no pronunciation; stays medium",
   "today_us": "ˈævənɛks",
   "today_gb": "ˈavənɛks",
   "today_source": "guesser",
@@ -1148,6 +1207,7 @@
   "confidence": "",
   "alternatives": [],
   "notes": "No written pronunciation found. Today pəɹsˈɛɹɪs (per-SERR-iss) and PUR-ser-iss are both plausible spelling readings; choosing would be a guess.",
+  "review": "ok; FDA memo has no pronunciation; stays unresolved",
   "today_us": "pəɹsˈɛɹɪs",
   "today_gb": "pəsˈɛɹɪs",
   "today_source": "guesser"
@@ -1172,6 +1232,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today's guess tˈIvəsO (TY-vuh-soh) stresses the first syllable; the maker marks 'vā' (vay) stressed, with long vowels in all three syllables. The harvest missed it (square brackets and macrons).",
+  "review": "ok; Tyvaso DPI label '[ tī-vā'-sō ]' verified",
   "today_us": "tˈIvəsO",
   "today_gb": "tˈIvəsQ",
   "today_source": "guesser",
@@ -1201,6 +1262,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today ˌɑltɑvˈɛɹə says 'ahl-tah-VAIR-uh'; the label's first syllable is 'all' (ɔ, a secondary-stressed full vowel) and its second is reduced 'tuh'. The harvest missed the square-bracket respelling.",
+  "review": "ok; both Xiromed labels print '[all-tuh-VAIR-uh]'; today's GB 'ɒl-tɒ' is wrong for British in any case",
   "today_us": "ˌɑltɑvˈɛɹə",
   "today_gb": "ˌɒltɒvˈɛɹə",
   "today_source": "guesser",
@@ -1229,6 +1291,7 @@
   "confidence": "low",
   "alternatives": [],
   "notes": "Today kˈæpməst (KAP-mist). Low: no source; it rests on the spelling. Today's unstressed 'məst' vs 'mɪst' is only a reduction difference.",
+  "review": "ok",
   "today_us": "kˈæpməst",
   "today_gb": "kˈapməst",
   "today_source": "guesser",
@@ -1256,6 +1319,7 @@
   "confidence": "medium",
   "alternatives": [],
   "notes": "Enteric-coated naproxen (EC said as letters, the way EC-Naprosyn is). Today's guess ˈɛknəpɹˌɑksən reads 'EC' as 'ek' and puts the main stress on it. Medium: naproxen is MedlinePlus's reading; EC as letters is the obvious reading of a capitalised abbreviation, with no written source. A reviewer may prefer not-a-drug (a descriptor plus a generic) if the app's naproxen entry also reaches hyphenated forms.",
+  "review": "ok; the naproxen part matches the pack's naproxen (d0003, nəpɹˈɑksən); EC as letters is the plain reading of the abbreviation",
   "today_us": "ˈɛknəpɹˌɑksən",
   "today_gb": "ˈɛknəpɹˌɒksən",
   "today_source": "guesser",
@@ -1285,6 +1349,7 @@
   "confidence": "low",
   "alternatives": [],
   "notes": "Low: no written pronunciation found; it rests on the spelling. Today ɪnfˌɛd has no primary stress at all; IN-fed puts it on the first syllable. The assembly guard will hold this.",
+  "review": "ok; held by the low-confidence guard (today only partly off)",
   "today_us": "ɪnfˌɛd",
   "today_gb": "ɪnfˌɛd",
   "today_source": "guesser",
@@ -1314,6 +1379,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today's guess əpˈɪdɹə says 'uh-PID-ruh'; the label's stressed vowel is 'PEE'.",
+  "review": "ok; label 'uh PEE druh' verified",
   "today_us": "əpˈɪdɹə",
   "today_gb": "əpˈɪdɹə",
   "today_source": "guesser",
@@ -1347,6 +1413,7 @@
   "confidence": "low",
   "alternatives": [],
   "notes": "Today lɛsˈinə (less-EE-nuh). Low: no label, maker or reference respelling found; it rests on the spelling.",
+  "review": "ok; label prints no respelling; low, nothing ships",
   "today_us": "lɛsˈinə",
   "today_gb": "lɛsˈiːnə",
   "today_source": "guesser",
@@ -1373,6 +1440,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today ɪpklˈusə matches; the unstressed 'ep' as ɪ is only a reduction difference (as Spiriva's 'speh' and Ellipta's 'e-' in d0014).",
+  "review": "ok; unstressed 'ep' as ɪ is reduction, as Ellipta and Spiriva in d0014",
   "today_us": "ɪpklˈusə",
   "today_gb": "ɪpklˈuːsə",
   "today_source": "guesser",
@@ -1406,6 +1474,7 @@
    }
   ],
   "notes": "Low: rests on the spelling (a generic etonogestrel/ethinyl estradiol vaginal ring; DailyMed has no label for it). Today's guess hˈælOɛt (HAL-oh-et) says 'hal' where halo says 'hay'. The assembly guard will hold this.",
+  "review": "ok; DailyMed has no label for it; held by the low-confidence guard",
   "today_us": "hˈælOɛt",
   "today_gb": "hˈalQɛt",
   "today_source": "guesser",
@@ -1439,6 +1508,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today dˈɑɹzəlˌɛks matches; the unstressed 'zah' reduces to ə.",
+  "review": "ok; the Darzalex Faspro label prints the same 'Dar-zah-lex'",
   "today_us": "dˈɑɹzəlˌɛks",
   "today_gb": "dˈɑːzəlˌɛks",
   "today_source": "guesser",
@@ -1475,6 +1545,7 @@
   "confidence": "",
   "alternatives": [],
   "notes": "No written pronunciation found. Today ɹˌAˈɑldi (ray-AHL-dee) and ray-AL-dee are both plausible; choosing would be a guess.",
+  "review": "ok; re-checked the 2016 FDA review including its image-only product-information page: no intended pronunciation; stays unresolved",
   "today_us": "ɹˌAˈɑldi",
   "today_gb": "ɹˌAˈɒldi",
   "today_source": "guesser"
@@ -1505,6 +1576,7 @@
    }
   ],
   "notes": "Today's guess təpˈæmæks (tuh-PAM-aks) reduces the first syllable, which the maker writes TOE. The label writes every syllable in capitals, so it shows no stress; first-syllable stress is my reading (as in the generic's 'toe'), hence medium. (The label also prints TopAMAX: tall-man lettering against Toprol-XL, not a stress mark.)",
+  "review": "ok; no second source found (topamax.com prints none); first-syllable stress stays medium",
   "today_us": "təpˈæmæks",
   "today_gb": "təpˈamaks",
   "today_source": "guesser",
@@ -1533,6 +1605,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today sənˈOsi matches the label.",
+  "review": "ok; label 'suh-NOH-see' verified",
   "today_us": "sənˈOsi",
   "today_gb": "sənˈQsi",
   "today_source": "guesser",

@@ -23,6 +23,7 @@
   "confidence": "low",
   "alternatives": [],
   "notes": "Today pɹˈɛmpɹO (PREM-proh). Low: no label, maker or reference respelling found; rests on the spelling (Premarin + Provera).",
+  "review": "ok",
   "today_us": "pɹˈɛmpɹO",
   "today_gb": "pɹˈɛmpɹQ",
   "today_source": "guesser",
@@ -42,6 +43,11 @@
   "respelling": "PROH-krit",
   "evidence": [
    {
+    "source": "DailyMed label (Janssen), Medication Guide and Instructions for Use (rev. 04/2024)",
+    "says": "PROCRIT (PRO'–KRIT)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=0c721ba4-ae19-417f-aae1-221ed1a0866a"
+   },
+   {
     "source": "NCI Dictionary of Cancer Terms (cancer.gov glossary API)",
     "says": "Procrit (PROH-krit)",
     "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/procrit"
@@ -49,7 +55,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today pɹOkɹˌɪt has no main stress at all (only a secondary on 'krit'); NCI stresses PROH. The label prints no respelling.",
+  "notes": "Today pɹOkɹˌɪt has no main stress at all (only a secondary on 'krit'); the label's PRO'–KRIT (apostrophe after the stressed syllable; the harvest missed it) and NCI's PROH-krit both stress PROH.",
+  "review": "evidence added: the current Janssen label prints PRO'–KRIT (harvest missed it); reading and high unchanged",
   "today_us": "pɹOkɹˌɪt",
   "today_gb": "pɹQkɹˌɪt",
   "today_source": "guesser",
@@ -78,6 +85,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today bɛvˈɛspi matches the brand half of the respelling; the unstressed 'be' only differs in reduction.",
+  "review": "ok",
   "today_us": "bɛvˈɛspi",
   "today_gb": "bɛvˈɛspi",
   "today_source": "guesser",
@@ -100,6 +108,11 @@
     "source": "DailyMed label (Takeda), Medication Guide heading",
     "says": "DEXILANT® (decks-i-launt)",
     "url": "https://dailymed.nlm.nih.gov/dailymed/medguide.cfm?setid=9819f033-3bbe-442e-8e92-45fec77b237d"
+   },
+   {
+    "source": "DailyMed label (Dexilant, repackaged by Physicians Total Care, 2012), Medication Guide",
+    "says": "DEXILANT (decks-ĭ-launt)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d62d754e-2310-4912-b022-603ae925710d"
    }
   ],
   "confidence": "medium",
@@ -110,7 +123,8 @@
     "context": "DEK-suh-lunt, final syllable reduced as the spelling suggests: today's reading; no written source found for it"
    }
   ],
-  "notes": "REVIEW. The maker's only respelling is all lower case, so it marks no stress (first syllable inferred, hence medium). It writes the last syllable 'launt' instead of the spelling's 'lant', which I read as the 'aw' of haunt/jaunt: a full vowel the maker chose to write, kept with secondary stress per the guide. Today's DEK-suh-lunt reduces it. If a reviewer reads 'launt' as a quirk rather than a vowel, today's reading is already right (the alternative).",
+  "notes": "The maker's respellings ('decks-i-launt'; an older label 'decks-ĭ-launt', the breve marking a short i) are lower case, so they mark no stress (first syllable inferred, hence medium). Both write the last syllable 'launt' instead of the spelling's 'lant': the 'aw' of haunt/launch, a full vowel the maker chose to write (the guide: a brand whose maker writes the full vowel), kept with secondary stress. Today's DEK-suh-lunt reduces it (alternative). dexilant.com now redirects to Takeda's portfolio page.",
+  "review": "ok: kept; added the older label's 'decks-ĭ-launt' (same vowels, short i); 'launt' over 'lant' is a maker-written full vowel; medium stands (no stress mark, no site respelling)",
   "today_us": "dˈɛksələnt",
   "today_gb": "dˈɛksələnt",
   "today_source": "guesser",
@@ -145,6 +159,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today's guess ʤəkˈɑfi (juh-KAH-fee) stresses the second syllable and ends in 'fee'; the label and NCI say JAK-uh-fye. The UK brand is Jakavi, so GB is British vowels on the US name.",
+  "review": "ok",
   "today_us": "ʤəkˈɑfi",
   "today_gb": "ʤəkˈɒfi",
   "today_source": "guesser",
@@ -174,6 +189,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today's guess ʤˈuləkə (JOO-luh-kuh) stresses the first syllable; the label stresses LOO.",
+  "review": "ok",
   "today_us": "ʤˈuləkə",
   "today_gb": "ʤˈuːləkə",
   "today_source": "guesser",
@@ -197,11 +213,17 @@
     "source": "DailyMed label (Teva Respiratory), ProAir Digihaler, Patient Information and Instructions for Use",
     "says": "ProAir® Digihaler® (prō´ār di´ji haye´´ ler)",
     "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=667ce3ec-5217-4b10-b712-f3e54fbbf087"
+   },
+   {
+    "source": "DailyMed label (Teva), ProAir RespiClick, Patient Information",
+    "says": "PROAIR RESPICLICK (prō´ār res-pē-klik)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9324e2eb-26fd-4f14-9f10-e5aa467306f4"
    }
   ],
   "confidence": "high",
   "alternatives": [],
   "notes": "Today pɹˈOˌɛɹ (PRO-air) matches the maker's 'prō´ār': main stress on prō, and ār is 'air'. Found by fetching Teva's ProAir Digihaler label (the harvest had nothing for this row).",
+  "review": "evidence added: the ProAir RespiClick label prints the same 'prō´ār'; reading and high unchanged",
   "today_us": "pɹˈOˌɛɹ",
   "today_gb": "pɹˈQˌɛː",
   "today_source": "guesser",
@@ -229,6 +251,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today tɹˈIʤˌɑɹdi (TRY-jar-dee) stresses the first syllable; the label stresses JAR. The harvest missed this respelling; found by fetching the Medication Guide.",
+  "review": "ok",
   "today_us": "tɹˈIʤˌɑɹdi",
   "today_gb": "tɹˈIʤˌɑːdi",
   "today_source": "guesser",
@@ -273,6 +296,7 @@
    }
   ],
   "notes": "Today pɹɛzkˈObɪks (prez-KOH-biks) has the sounds of the label's 'prez-koe-bix'. Medium: the label and Drugs.com mark no stress and the FDA name review gives no pronunciation; stress on 'koe' (the full long vowel) is my inference.",
+  "review": "ok: re-read the FDA name review (no intended pronunciation; its voice study notes only z/b misheard); prezcobix.com gives none; already-correct medium kept",
   "today_us": "pɹɛzkˈObɪks",
   "today_gb": "pɹɛzkˈQbɪks",
   "today_source": "guesser",
@@ -304,6 +328,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today æktˈɛmɹə matches NCI's ak-TEM-ruh exactly; the label agrees on the sounds. (The harvested 'ACTEMRA-IV' item is not a respelling.)",
+  "review": "ok",
   "today_us": "æktˈɛmɹə",
   "today_gb": "aktˈɛmɹə",
   "today_source": "guesser",
@@ -323,6 +348,11 @@
   "respelling": "RIS-per-dal",
   "evidence": [
    {
+    "source": "DailyMed label (Janssen), Instructions for Use, oral solution (2026)",
+    "says": "RISPERDAL (RISS-per-dal)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7e117c7e-02fc-4343-92a1-230061dfc5e0"
+   },
+   {
     "source": "NCI Dictionary of Cancer Terms (cancer.gov glossary API)",
     "says": "Risperdal (RIS-per-dal)",
     "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/risperdal"
@@ -330,7 +360,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess ɹɪspˈɜɹdəl (ris-PUR-dul) stresses the second syllable; NCI stresses RIS. NCI writes schwa as 'uh' and a reduced -al as 'ul' (oral: OR-ul), so its 'dal' is a full vowel, kept with secondary stress.",
+  "notes": "Today's guess ɹɪspˈɜɹdəl (ris-PUR-dul) stresses the second syllable; Janssen's label (RISS-per-dal, missed by the harvest) and NCI (RIS-per-dal) stress RIS. Janssen writes 'per' for a reduced syllable, so its 'dal' alone wouldn't settle the last vowel, but NCI writes schwa as 'uh' and a reduced -al as 'ul' (oral: OR-ul), so two sources write 'dal' full: æ with secondary stress (the guide's final-syllable rule).",
+  "review": "evidence added: Janssen's current label prints RISS-per-dal (harvest missed it); reading and high unchanged",
   "today_us": "ɹɪspˈɜɹdəl",
   "today_gb": "ɹɪspˈɜːdəl",
   "today_source": "guesser",
@@ -346,10 +377,9 @@
   "kind": "brand",
   "spelling": "PreviDent",
   "match": "case-insensitive",
-  "disposition": "corrected",
-  "us": "pɹˈɛvɪdˌɛnt",
-  "gb": "",
-  "respelling": "PREV-ih-dent",
+  "disposition": "already-correct",
+  "us": "pɹˈɛvədənt",
+  "gb": "pɹˈɛvədənt",
   "evidence": [
    {
     "source": "DailyMed label (Colgate Oral Pharmaceuticals), PreviDent 5000 Dry Mouth",
@@ -358,16 +388,21 @@
    }
   ],
   "confidence": "low",
-  "alternatives": [],
-  "notes": "Low: no written pronunciation found. Colgate writes PreviDent with a capital D (prevent + dent, as in dental), so, as with KwikPen in d0014, the second element keeps its vowel; today pɹˈɛvədənt reduces it to 'dunt'. Stress and first syllable are today's. The assembly guard will hold this (low, today only partly off).",
+  "alternatives": [
+   {
+    "us": "pɹˈɛvɪdˌɛnt",
+    "gb": "",
+    "context": "PREV-ih-dent, 'Dent' kept full as the maker's capital D suggests; no written source"
+   }
+  ],
+  "notes": "Today pɹˈɛvədənt (PREV-uh-dunt). Low: no written pronunciation found. Colgate's capital D (prevent + dent, as in dental) suggests 'dent' keeps its vowel (alternative), but the only difference is a full vowel against a reduced one in an unstressed syllable that no source writes, which the guide's pack-wide ruling counts as reduction; PreviDent is not a compound of plain English words like KwikPen.",
+  "review": "corrected (low) → already-correct (low): the only difference is the reduced unstressed 'dent', reduction under the pack-wide ruling; the note's 'the guard will hold this' was wrong (the checker grades today 'wrong', so it would have shipped)",
   "today_us": "pɹˈɛvədənt",
   "today_gb": "pɹˈɛvədənt",
   "today_source": "guesser",
-  "gb_effective": "pɹˈɛvɪdˌɛnt",
-  "verdict_us": "wrong",
-  "verdict_us_detail": "2 phonemes off",
-  "verdict_gb": "wrong",
-  "verdict_gb_detail": "2 phonemes off"
+  "gb_effective": "pɹˈɛvədənt",
+  "verdict_us": "right",
+  "verdict_gb": "right"
  },
  {
   "rank": 815,
@@ -388,6 +423,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today fIkˈɑmpə matches the label.",
+  "review": "ok",
   "today_us": "fIkˈɑmpə",
   "today_gb": "fIkˈɒmpə",
   "today_source": "guesser",
@@ -419,7 +455,8 @@
     "context": "'mir' read as in mirror or Mir (kuh-MEER-nuh-tee)"
    }
   ],
-  "notes": "REVIEW. Today kəmˈɜɹnəti (kuh-MUR-nuh-tee) has the label's stress (apostrophe after 'mir') and its sounds if 'mir' reads as in mirth. The label's 'mir' just copies the spelling, so it doesn't settle the vowel; 'meer' (alternative) is the other reading. Medium: no second source (NCI and Wiktionary have no entry; the Wikipedia article's lead gives none).",
+  "notes": "Today kəmˈɜɹnəti (kuh-MUR-nuh-tee) has the label's stress (apostrophe after 'mir') and its sounds: 'ir' before a consonant ('mir-na') is the vowel of firm and mirth in English spelling. 'meer' (alternative) is the other possible reading of 'mir'. Medium: no second source (NCI and Wiktionary have no entry; the Wikipedia article's pronunciation field is empty).",
+  "review": "ok: label Cuh-mir'-na-tee re-checked in the cached label; no Wiktionary page; Wikipedia gives none; already-correct medium kept",
   "today_us": "kəmˈɜɹnəti",
   "today_gb": "kəmˈɜːnəti",
   "today_source": "guesser",
@@ -446,6 +483,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today mOtˈɛɡɹəti matches the label.",
+  "review": "ok",
   "today_us": "mOtˈɛɡɹəti",
   "today_gb": "mQtˈɛɡɹəti",
   "today_source": "guesser",
@@ -478,6 +516,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today's guess bɹukˈɪnsə (broo-KIN-suh) stresses the second syllable; the label and NCI stress BROO.",
+  "review": "ok",
   "today_us": "bɹukˈɪnsə",
   "today_gb": "bɹukˈɪnsə",
   "today_source": "guesser",
@@ -506,6 +545,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today nˈAzɪlˌæm matches the label.",
+  "review": "ok",
   "today_us": "nˈAzɪlˌæm",
   "today_gb": "nˈAzɪlˌam",
   "today_source": "guesser",
@@ -533,6 +573,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today's guess nˈæmzəɹɪk (NAM-zuh-rik) stresses the first syllable; the label stresses ZAIR. The harvest missed this respelling (square brackets); found by fetching the label.",
+  "review": "ok",
   "today_us": "nˈæmzəɹɪk",
   "today_gb": "nˈamzəɹɪk",
   "today_source": "guesser",
@@ -560,13 +601,14 @@
    },
    {
     "source": "FDA proprietary name review, NDA 208325",
-    "says": "records no intended pronunciation",
+    "says": "records no intended pronunciation; voice-prescription study heard 'sa' reduced (PARCIBIV x3, PARSIBIV x6, PARSEBIV x2, PARCEBIV x2) and a short-i 'biv'",
     "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2017/208325Orig1s000NameR.pdf"
    }
   ],
   "confidence": "",
   "alternatives": [],
-  "notes": "No written pronunciation found: label, FDA name review and parsabiv.com give none. Today's guess pˌɑɹsəbˈiv (par-suh-BEEV) looks wrong (final stress, 'beev' for -biv), but PAR-suh-biv (the candidate above, a guess from the spelling) and par-SAB-iv are both plausible, so I'd be guessing.",
+  "notes": "No maker pronunciation found: label, FDA name review and parsabiv.com give none. In the FDA name review's voice-prescription study the listeners wrote 'sa' as ce/ci/si and the end as 'biv', so the FDA reader reduced 'sa' and said a short i: that argues against par-SAB-iv and against today's final 'beev' (pˌɑɹsəbˈiv), but the reader isn't the maker and the main stress (PAR-suh-biv, the candidate above, or par-suh-BIV) stays open, so I'd be guessing.",
+  "review": "notes and evidence: FDA's voice study (reduced 'sa', short-i 'biv') narrows it, but the main stress stays unsourced: still unresolved",
   "today_us": "pˌɑɹsəbˈiv",
   "today_gb": "pˌɑːsəbˈiːv",
   "today_source": "guesser",
@@ -606,7 +648,8 @@
     "context": "JOO-blee-uh, first-syllable stress: today's reading; the current label's lower-case respelling allows it but doesn't give it"
    }
   ],
-  "notes": "REVIEW. The only stress-marked maker source is the applicant's intended pronunciation in the 2014 FDA name review, 'Joob lee’ ah', with the apostrophe after the stressed syllable (ASHP style): joob-LEE-uh. The current label has the same sounds but marks no stress. Medium: the stress comes from an older submission the label neither confirms nor contradicts; worth checking the maker's TV ads before shipping a stress change.",
+  "notes": "The only stress-marked maker source is the applicant's intended pronunciation in the 2014 FDA name review, 'Joob lee’ ah', apostrophe after the stressed syllable (ASHP style): joob-LEE-uh. The current label has the same sounds but marks no stress, so it neither confirms nor contradicts it; jubliarx.com gives no pronunciation. Medium: the stress rests on that older submission alone.",
+  "review": "ok: re-read the FDA name review PDF (Intended Pronunciation: Joob lee’ ah) and the label (joo-blee-uh, no stress); jubliarx.com has none; corrected medium kept",
   "today_us": "ʤˈubliə",
   "today_gb": "ʤˈuːbliə",
   "today_source": "guesser",
@@ -640,6 +683,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today kˈælkwəns matches. The '-kwens/-kwents' ending is the reduced -ence of 'sequence': NCI writes reduced -ence the same way (incidence IN-sih-dents, prevalence PREH-vih-lents), so the schwa is right (as Jardiance's 'ans' in the guide).",
+  "review": "ok",
   "today_us": "kˈælkwəns",
   "today_gb": "kˈalkwəns",
   "today_source": "guesser",
@@ -666,6 +710,7 @@
   "confidence": "medium",
   "alternatives": [],
   "notes": "Today mɪɹˈAnə (mih-RAY-nuh) matches the label's sounds; 'mur' vs 'mih' in the unstressed first syllable is a reduction difference. Medium: the label is lower case, so the stress on 'ā' (its one long vowel) is inferred; no other written source found (Wiktionary has an entry without IPA; mirena-us.com refuses automated fetches).",
+  "review": "ok",
   "today_us": "mɪɹˈAnə",
   "today_gb": "mɪɹˈAnə",
   "today_source": "guesser",
@@ -697,6 +742,7 @@
   "confidence": "low",
   "alternatives": [],
   "notes": "Today pɹˌOlˈɛnsə (pro-LEN-suh). Low: no label, maker or FDA-review pronunciation found; rests on the spelling (pro + lens + a).",
+  "review": "ok: re-read the FDA name review PDF; it records no intended pronunciation",
   "today_us": "pɹˌOlˈɛnsə",
   "today_gb": "pɹˌQlˈɛnsə",
   "today_source": "guesser",
@@ -728,6 +774,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today dIlˈɔdəd matches; 'did' vs 'dəd' is an unstressed reduction difference. NCI supplies the stress the label leaves open.",
+  "review": "ok",
   "today_us": "dIlˈɔdəd",
   "today_gb": "dIlˈɔːdəd",
   "today_source": "guesser",
@@ -754,6 +801,7 @@
   "confidence": "low",
   "alternatives": [],
   "notes": "Today klˈɪkʤˌɛkt (CLICK-ject). Low: no written pronunciation found; rests on the spelling (ClickJect: click + (in)ject).",
+  "review": "ok",
   "today_us": "klˈɪkʤˌɛkt",
   "today_gb": "klˈɪkʤˌɛkt",
   "today_source": "guesser",
@@ -780,7 +828,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today nuvˈɛɹɪŋ (noo-VAIR-ing) stresses the second syllable; the label stresses NEW. 'Ring' keeps its vowel with secondary stress. GB gives 'NEW' its British yod (nyoo); no British source found for that, so a reviewer may prefer nˈuːvəɹˌɪŋ (d0014 left Januvia's GB without the yod, but that row changed nothing).",
+  "notes": "Today nuvˈɛɹɪŋ (noo-VAIR-ing) stresses the second syllable; the label stresses NEW. 'Ring' keeps its vowel with secondary stress. GB keeps the British yod after n (nyoo), the guide's ruling and its own example (NuvaRing GB njˈuːvəɹɪŋ); d0014's Januvia was brought in line the same way.",
+  "review": "notes only: the GB yod is the guide's ruling (its own NuvaRing example); stale 'reviewer may drop it' hedge removed",
   "today_us": "nuvˈɛɹɪŋ",
   "today_gb": "nuvˈɛɹɪŋ",
   "today_source": "guesser",
@@ -809,6 +858,7 @@
   "confidence": "",
   "alternatives": [],
   "notes": "No written pronunciation found (vitafol.com refuses automated fetches). 'Vita' + 'fol' (folate): an American vita- brand is usually VY-tuh (as in American 'vitamin'), but VEE-tuh is common too; today's vˈɪtəfɑl (VIT-uh-fahl) takes the British 'vitamin' vowel and is probably wrong for a US brand. I'd be guessing between VY- and VEE-.",
+  "review": "ok",
   "today_us": "vˈɪtəfɑl",
   "today_gb": "vˈɪtəfɒl",
   "today_source": "guesser"
@@ -832,6 +882,7 @@
   "confidence": "",
   "alternatives": [],
   "notes": "No written pronunciation found. A branded generic progestin-only pill; today ʤˈɛnsˌIklə (JEN-sy-kluh), but jen-SY-kluh and JEN-sik-luh are as plausible. I'd be guessing.",
+  "review": "ok",
   "today_us": "ʤˈɛnsˌIklə",
   "today_gb": "ʤˈɛnsˌIklə",
   "today_source": "guesser"
@@ -842,10 +893,9 @@
   "kind": "brand",
   "spelling": "SudoGest",
   "match": "case-insensitive",
-  "disposition": "corrected",
-  "us": "sˈudOʤˌɛst",
-  "gb": "sˈuːdQʤˌɛst",
-  "respelling": "SOO-doh-jest",
+  "disposition": "already-correct",
+  "us": "sˈudəʤəst",
+  "gb": "sˈuːdəʤəst",
   "evidence": [
    {
     "source": "DailyMed label (Major Pharmaceuticals), principal display panel",
@@ -859,16 +909,21 @@
    }
   ],
   "confidence": "low",
-  "alternatives": [],
-  "notes": "Low: no written pronunciation of the brand found. The maker writes SudoGest: 'Sudo' for pseudo(ephedrine), which MedlinePlus says 'soo doe', and 'Gest' (decongestant) capitalised as its own element, so, as with KwikPen in d0014, it keeps its vowel. Today sˈudəʤəst (SOO-duh-just) has the same stress but reduces both. The assembly guard will hold this (low, today only partly off).",
+  "alternatives": [
+   {
+    "us": "sˈudOʤˌɛst",
+    "gb": "sˈuːdQʤˌɛst",
+    "context": "SOO-doh-jest, both elements kept full as the maker's capital G suggests; no written source"
+   }
+  ],
+  "notes": "Today sˈudəʤəst (SOO-duh-jist): the stressed SOO is right ('Sudo' is pseudo-, MedlinePlus 'soo doe'). Low: no written pronunciation of the brand found. The maker writes SudoGest, which suggests 'doh' and 'gest' keep their vowels (alternative), but both are unstressed syllables after the main stress that no source writes full, which the guide's pack-wide ruling counts as reduction ('oh' counts only before the main stress).",
+  "review": "corrected (low) → already-correct (low): only unstressed reductions differ, reduction under the pack-wide ruling; the note's 'the guard will hold this' was wrong (the checker grades today 'wrong')",
   "today_us": "sˈudəʤəst",
   "today_gb": "sˈuːdəʤəst",
   "today_source": "guesser",
-  "gb_effective": "sˈuːdQʤˌɛst",
-  "verdict_us": "wrong",
-  "verdict_us_detail": "2 phonemes off",
-  "verdict_gb": "wrong",
-  "verdict_gb_detail": "2 phonemes off"
+  "gb_effective": "sˈuːdəʤəst",
+  "verdict_us": "right",
+  "verdict_gb": "right"
  },
  {
   "rank": 833,
@@ -889,6 +944,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today sˈikwə matches. The maker's intended pronunciation (from its FDA name submission) marks no stress, but with 'kwuh' a schwa the stress can only fall on 'see'. The label prints no respelling.",
+  "review": "ok: re-read the FDA name review PDF (Intended Pronunciation: see-kwuh)",
   "today_us": "sˈikwə",
   "today_gb": "sˈiːkwə",
   "today_source": "guesser",
@@ -921,6 +977,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today's guess əɹˈAnsp has two syllables ('uh-RAYNSP'). The label (capital only at the start, so no stress shown) and NCI (which marks it: AYR) give AIR-uh-nesp; NCI writes schwa as 'uh', so 'nesp' keeps a full vowel, with secondary stress.",
+  "review": "ok",
   "today_us": "əɹˈAnsp",
   "today_gb": "əɹˈAnsp",
   "today_source": "guesser",
@@ -954,6 +1011,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today vɛnklˈɛkstə matches the label and NCI.",
+  "review": "ok",
   "today_us": "vɛnklˈɛkstə",
   "today_gb": "vɛnklˈɛkstə",
   "today_source": "guesser",
@@ -980,6 +1038,7 @@
   "confidence": "",
   "alternatives": [],
   "notes": "No written pronunciation found. A branded generic birth-control pill; today lˈɔɹɪnə (LOR-ih-nuh), but lor-EE-nuh and lor-EYE-nuh are as plausible. I'd be guessing.",
+  "review": "ok",
   "today_us": "lˈɔɹɪnə",
   "today_gb": "lˈɔːɹɪnə",
   "today_source": "guesser"
@@ -1004,6 +1063,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today's guess əpsˈumɪt (up-SOO-mit) stresses the second syllable; the label stresses OP.",
+  "review": "ok",
   "today_us": "əpsˈumɪt",
   "today_gb": "əpsˈuːmɪt",
   "today_source": "guesser",
@@ -1033,6 +1093,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today flˈʌvənt (FLUV-unt) has the wrong stressed vowel; the label's FLO is 'oh', and 'vent' keeps its vowel (as in GSK's Ventolin, VENT o lin).",
+  "review": "ok",
   "today_us": "flˈʌvənt",
   "today_gb": "flˈʌvənt",
   "today_source": "guesser",
@@ -1061,6 +1122,7 @@
   "confidence": "low",
   "alternatives": [],
   "notes": "Today ˌɛspˌiˈɛs says the letters S-P-S, the way an all-capitals initialism is read (sodium polystyrene sulfonate suspension). Low: no written pronunciation; rests on the spelling. SPS is also an abbreviation in other fields with the same letter reading, so nothing should ship either way.",
+  "review": "ok",
   "today_us": "ˌɛspˌiˈɛs",
   "today_gb": "ˌɛspˌiːˈɛs",
   "today_source": "guesser",
@@ -1072,7 +1134,7 @@
   "rank": 841,
   "word": "derma-smoothe-fs",
   "kind": "brand",
-  "spelling": "Derma-Smoothe-FS",
+  "spelling": "Derma-Smoothe/FS",
   "match": "case-insensitive",
   "disposition": "corrected",
   "us": "dˌɜɹməsmˈuðˌɛfˌɛs",
@@ -1087,7 +1149,8 @@
   ],
   "confidence": "low",
   "alternatives": [],
-  "notes": "REVIEW (matching). Low: no written pronunciation; rests on the spelling: derma + Smoothe (smooth) + the letters F-S. Today dˌɜɹməzmˈuðz says 'derma-zmoothz' and drops the F-S. The label writes the name Derma-Smoothe/FS; this hyphenated form comes from the CMS file, so the assembler should check whether an entry keyed on 'Derma-Smoothe-FS' can ever match real text, and whether 'Derma-Smoothe' alone (dˌɜɹməsmˈuð) is the better key.",
+  "notes": "Low: no written pronunciation; rests on the spelling: derma + Smoothe (smooth) + the letters F-S. Today dˌɜɹməzmˈuðz says 'derma-zmoothz' and drops the F-S. Spelling: the candidate's 'Derma-Smoothe-FS' is the CMS file's form; the maker writes 'Derma-Smoothe/FS' (label and carton), and the app matches keys on the raw text with punctuation allowed inside a key ('A/B', CustomLexicon.swift), so the entry is keyed on the maker's spelling, the form real text uses; the hyphenated key would never match it.",
+  "review": "spelling Derma-Smoothe-FS → Derma-Smoothe/FS: the maker writes the slash and keys match raw text, so the CMS hyphen form would never match; reading unchanged",
   "today_us": "dˌɜɹməzmˈuðz",
   "today_gb": "dˌɜːməzmˈuːðz",
   "today_source": "guesser",
@@ -1116,6 +1179,7 @@
   "confidence": "medium",
   "alternatives": [],
   "notes": "Today səvˈɛlə matches the label's sounds. Medium: the respelling shows no stress (only its first letter is a capital), so the stress on 'vel' is inferred; savella.com gives no pronunciation.",
+  "review": "ok",
   "today_us": "səvˈɛlə",
   "today_gb": "səvˈɛlə",
   "today_source": "guesser",
@@ -1143,6 +1207,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today ljˈumʤˌɛv says 'LYOOM'; the label says LOOM, with no y glide. 'jehv' keeps its vowel (closed syllable), as today.",
+  "review": "ok",
   "today_us": "ljˈumʤˌɛv",
   "today_gb": "ljˈuːmʤˌɛv",
   "today_source": "guesser",
@@ -1176,6 +1241,7 @@
   "confidence": "low",
   "alternatives": [],
   "notes": "Today jˈunɪθɹˌYd (YOO-nih-throyd). Low: no written pronunciation found; rests on the spelling and the analogy with Synthroid.",
+  "review": "ok",
   "today_us": "jˈunɪθɹˌYd",
   "today_gb": "jˈuːnɪθɹˌYd",
   "today_source": "guesser",
@@ -1189,28 +1255,37 @@
   "kind": "brand",
   "spelling": "Opzelura",
   "match": "case-insensitive",
-  "disposition": "unresolved",
-  "us": "ˌɑpzəlˈɜɹə",
-  "gb": "ˌɒpzəlˈɜːɹə",
-  "respelling": "op-zuh-LER-uh",
+  "disposition": "already-correct",
+  "us": "ˌɑpzəlˈʊɹə",
+  "gb": "ˌɒpzəlˈʊɹə",
   "evidence": [
    {
     "source": "DailyMed label (Incyte), Medication Guide heading",
     "says": "OPZELURA® (OP-zuh-LUR-ah)",
     "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=24da5509-6631-4795-9d42-273faecd08e7"
+   },
+   {
+    "source": "FDA proprietary name review, NDA 215309 (26 May 2021)",
+    "says": "no intended pronunciation released; voice-prescription study, 27 listeners: stressed syllable written -LORA/-OLA by 11 (ABLORA, ABSOLORA, ABZELORA, OBZALORA, OBSOLOLA), -LURA by 8 (OBSOLURA, OBSULURA), -LER- by 2 (AUXILERA, OBSULERVA), other by 6",
+    "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2022/215309Orig1s000NameR.pdf"
    }
   ],
-  "confidence": "",
-  "alternatives": [],
-  "notes": "REVIEW. The label capitalises two syllables, OP and LUR. Today ˌɑpzəlˈʊɹə already has both stresses (main on LUR, secondary on OP, the usual English pattern) and every sound but one: it says the stressed vowel as in lure ('loor'), while the respelling 'LUR' reads most naturally as in blur ('ler', the candidate above). The spelling -lura (as in lurid) supports today's. No second source (opzelura.com and the HCP site give none; NCI has no entry; no FDA name review found). Today's reading stays unless the maker's ads settle it as 'ler'.",
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "ˌɑpzəlˈɜɹə",
+    "gb": "ˌɒpzəlˈɜːɹə",
+    "context": "op-zuh-LER-uh, reading the label's 'LUR' as in blur"
+   }
+  ],
+  "notes": "The label capitalises OP and LUR; today ˌɑpzəlˈʊɹə has both stresses (main on LUR, secondary on OP) and reads 'LUR' as in lure, as the spelling -lura (lurid) suggests. 'LUR' could also be blur's vowel (alternative). FDA's voice-mail prescription study (a recorded FDA reading of the name) was written with a rounded vowel ('-lora', '-ola') by 11 of 27 listeners and '-lura' by 8, against 2 for 'ler', which supports today's reading. Medium: the label leaves the vowel open and the FDA reader isn't the maker; opzelura.com gives no pronunciation.",
+  "review": "unresolved → already-correct (medium): today has the label's two stresses, and the FDA name review's voice study was written '-lora/-ola' 11 times and '-lura' 8 times against 2 for 'ler'; 'ler' moved to alternatives",
   "today_us": "ˌɑpzəlˈʊɹə",
   "today_gb": "ˌɒpzəlˈʊɹə",
   "today_source": "guesser",
-  "gb_effective": "ˌɒpzəlˈɜːɹə",
-  "verdict_us": "partial",
-  "verdict_us_detail": "1 phoneme off",
-  "verdict_gb": "wrong",
-  "verdict_gb_detail": "2 phonemes off"
+  "gb_effective": "ˌɒpzəlˈʊɹə",
+  "verdict_us": "right",
+  "verdict_gb": "right"
  },
  {
   "rank": 846,
@@ -1231,6 +1306,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today vˈɪndəmˌæks matches. Found by fetching the label (the harvest had nothing for this row).",
+  "review": "ok: label (VIN-dah-max) re-checked on DailyMed",
   "today_us": "vˈɪndəmˌæks",
   "today_gb": "vˈɪndəmˌaks",
   "today_source": "guesser",
@@ -1245,7 +1321,7 @@
   "spelling": "Nexletol",
   "match": "case-insensitive",
   "disposition": "corrected",
-  "us": "nˈɛkslətˌɑl",
+  "us": "nˈɛkslətˌɔl",
   "gb": "nˈɛkslətˌɒl",
   "respelling": "NEKS-luh-tol",
   "evidence": [
@@ -1262,7 +1338,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "Today's guess nˈɛksəltəl (NEK-sul-tul) puts the l before the schwa and reduces 'tol'. The final -tol keeps a full vowel like the -ol of metoprolol and atenolol in the gold dictionary (ɑl; ɔl is equally American).",
+  "notes": "Today's guess nˈɛksəltəl (NEK-sul-tul) puts the l before the schwa and reduces 'tol'. The final -tol keeps a full vowel, like the -ol of metoprolol and atenolol; today has neither ɑ nor ɔ there, so the guide's -ol ruling gives ɔ (GB ɒ).",
+  "review": "US final ɑ → ɔ: the guide's -ol ruling takes ɔ when today's reading has neither (today -təl); GB unchanged",
   "today_us": "nˈɛksəltəl",
   "today_gb": "nˈɛksəltəl",
   "today_source": "guesser",
@@ -1291,7 +1368,8 @@
   ],
   "confidence": "high",
   "alternatives": [],
-  "notes": "GB-only fix. US nukˈɑlə is today's reading and matches the label (American 'new' = noo). Today's GB nukˈɒlə says 'nu-KOL-uh'; the label's KAH is the 'ah' of spa, British ɑː, and British 'new' has the yod (nyoo). No British source found for either; the vowel is the main fix, and a reviewer may drop the yod (see NuvaRing).",
+  "notes": "GB-only fix. US nukˈɑlə is today's reading and matches the label (American 'new' = noo). Today's GB nukˈɒlə says 'nu-KOL-uh'; the label's KAH is the 'ah' of spa, British ɑː, and 'new' is a full syllable, so British keeps the yod (nyoo) per the guide's ruling (as NuvaRing and Januvia).",
+  "review": "notes only: GB yod per the guide's ruling ('new' is a full syllable); stale hedge removed; reading unchanged",
   "today_us": "nukˈɑlə",
   "today_gb": "nukˈɒlə",
   "today_source": "guesser",
@@ -1326,6 +1404,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today's guess nˈɛkslˌIzət says 'NEX-lye-zut'; the maker says 'lee' (kept full, per the guide) and 'zet'.",
+  "review": "ok",
   "today_us": "nˈɛkslˌIzət",
   "today_gb": "nˈɛkslˌIzət",
   "today_source": "guesser",
@@ -1359,7 +1438,8 @@
     "context": "'tal' as a full vowel (as in pal), if the label's 'tal' is meant literally"
    }
   ],
-  "notes": "Today ləmˈɪktəl (luh-MIK-tul) matches the label's stress and consonants. GSK's respellings split the spelling and leave unstressed vowels as written ('la', 'tal'; VENT o lin), so 'tal' doesn't settle whether the last vowel is reduced: medium. No other written source found (NCI and Wiktionary have no entry). The harvested 'ODT Kit' items are not respellings.",
+  "notes": "Today ləmˈɪktəl (luh-MIK-tul) matches the label's stress and consonants. GSK's respellings write unstressed vowels as spelled ('la' here, Nucala 'new KAH la', VENT o lin), so 'tal' doesn't settle whether the last vowel is full; unlike Risperdal (NCI also writes 'dal'), no second source writes it full, so the guide's final-syllable exception doesn't apply: medium. No NCI or Wiktionary entry. The harvested 'ODT Kit' items are not respellings.",
+  "review": "ok: label la-MIK-tal re-checked; NCI has no entry; notes say why it differs from Risperdal",
   "today_us": "ləmˈɪktəl",
   "today_gb": "ləmˈɪktəl",
   "today_source": "guesser",
@@ -1392,6 +1472,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today's guess tɑɡɹˈisO (tah-GREE-soh) has the wrong stressed vowel; the label and NCI say GRISS.",
+  "review": "ok",
   "today_us": "tɑɡɹˈisO",
   "today_gb": "tɒɡɹˈiːsQ",
   "today_source": "guesser",
@@ -1420,6 +1501,7 @@
   "confidence": "medium",
   "alternatives": [],
   "notes": "Today tˈɛɡɹətɑl (TEG-ruh-tahl; GB -tɒl) matches the Medication Guide's 'Teg-ret-ol' (found by fetching the label; the harvest had nothing). Medium: the respelling marks no stress (only its first letter is a capital), so first-syllable stress is inferred.",
+  "review": "ok",
   "today_us": "tˈɛɡɹətɑl",
   "today_gb": "tˈɛɡɹətɒl",
   "today_source": "guesser",
@@ -1452,6 +1534,7 @@
   "confidence": "low",
   "alternatives": [],
   "notes": "Low: no written pronunciation of the brand found. It rests on the generics it's clipped from: 'Tobra' is tobramycin's first two syllables, 'toe bra' in MedlinePlus, plus 'Dex' (dexamethasone). Today tˈɑbɹədˌɛks says 'TAH-bruh-dex'. The assembly guard will hold this (low).",
+  "review": "ok: low, and the checker grades today 'partial', so the assembly guard holds it as the note says",
   "today_us": "tˈɑbɹədˌɛks",
   "today_gb": "tˈɒbɹədˌɛks",
   "today_source": "guesser",
@@ -1480,6 +1563,7 @@
   "confidence": "low",
   "alternatives": [],
   "notes": "Today ɡˈæməɡˌɑɹd (GAM-uh-gard). Low: no written pronunciation found; rests on the spelling (gamma globulin + gard, guard).",
+  "review": "ok",
   "today_us": "ɡˈæməɡˌɑɹd",
   "today_gb": "ɡˈaməɡˌɑːd",
   "today_source": "guesser",

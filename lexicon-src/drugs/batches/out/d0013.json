@@ -7,7 +7,7 @@
   "match": "case-insensitive",
   "disposition": "corrected",
   "us": "tˌɛpɹOtˈumjumˌæb",
-  "gb": "tˌɛpɹQtˈuːmjuːmˌab",
+  "gb": "tˌɛpɹQtjˈuːmjuːmˌab",
   "respelling": "tep-roh-TOOM-yoo-mab",
   "evidence": [
    {
@@ -19,7 +19,7 @@
   "confidence": "high",
   "alternatives": [],
   "notes": "Today's guess says tep-roh-TOO-mub: four syllables, the 'yoo' syllable lost and 'mab' reduced. MedlinePlus gives five, main stress on 'toom'. ASHP's 'ue' is the 'yoo' sound: NCI writes the same syllables 'yoo'/'myoo' (ravulizumab RAV-yoo-LIZ-yoo-mab, ipilimumab ih-pih-LIH-myoo-mab), and ASHP uses it for fumarate 'fue' ma rate' and lamivudine 'la miv' ue deen'. Unstressed 'yoo' kept full (`ju`) as the guide keeps 'oo' and as NCI writes it. -mab keeps a full, secondary-stressed 'mab': the guide's -mab family, and Wiktionary's US IPA for the -mab names in the harvest (nivolumab, rituximab, adalimumab, golimumab: ˌmæb). No NCI entry (not a cancer drug); the Tepezza site prints no respelling. GB keeps the US consonants (no British source; a British 'tyoo' for 'tu' is possible).",
-  "review": "ok: MedlinePlus 'tep roe toom' ue mab' re-checked on the page; no NCI entry, no maker respelling (Tepezza site checked)"
+  "review": "ok: MedlinePlus 'tep roe toom' ue mab' re-checked on the page; no NCI entry, no maker respelling (Tepezza site checked) | parent: GB tˌɛpɹQtˈuːmjuːmˌab -> tˌɛpɹQtjˈuːmjuːmˌab (pack rule: British keeps the y after t before a stressed u)"
  },
  {
   "rank": 1143,

@@ -5286,6 +5286,94 @@
    "text": "The GUI froze in a gui app.",
    "us": "ðə ɡˈui fɹˈOz ɪn ɐ ɡˈui",
    "gb": "ðə ɡˈuːi"
+  },
+  {
+   "text": "Take atorvastatin daily.",
+   "us": "tˈAk ətˌɔɹvəstˈætᵊn dˈAli",
+   "gb": "tˈAk ətˌɔːvəstˈatᵊn dˈAli",
+   "absent": "ˌAtəɹvˈæstAtɪn"
+  },
+  {
+   "text": "ATORVASTATIN 20 mg tablets",
+   "us": "ətˌɔɹvəstˈætᵊn twˈɛnti mˈɪləɡɹˌæmz",
+   "gb": "ətˌɔːvəstˈatᵊn"
+  },
+  {
+   "text": "She switched from metformin to Jardiance.",
+   "us": "mɛtfˈɔɹmɪn tə ʤɑɹdˈiəns",
+   "gb": "mɛtfˈɔːmɪn tə ʤɑːdˈiːəns"
+  },
+  {
+   "text": "Lisinopril and amlodipine besylate lower blood pressure.",
+   "us": "lIsˈɪnəpɹˌɪl ænd æmlˈOdəpˌin bˈɛsəlˌAt",
+   "gb": "lIsˈɪnəpɹˌɪl and amlˈQdɪpˌiːn bˈɛsəlˌAt",
+   "absent": "æmlˈɑdəpˌIn"
+  },
+  {
+   "text": "Levothyroxine is taken before breakfast.",
+   "us": "lˌivOθIɹˈɑksin",
+   "gb": "lˌiːvQθIɹˈɒksiːn",
+   "absent": "lˌɛvəθˈIɹɑksin"
+  },
+  {
+   "text": "Metoprolol, omeprazole and gabapentin were refilled.",
+   "us": "mətˈOpɹəlˌɔl, OmˈɛpɹəzˌOl ænd ɡˈæbəpˌɛntɪn",
+   "gb": "mɪtˈɒpɹəlɒl, QmˈɛpɹəzˌQl and ɡˌabəpˈɛntɪn"
+  },
+  {
+   "text": "Duloxetine helps nerve pain.",
+   "us": "dulˈɑksətˌin",
+   "gb": "djulˈɒksətˌiːn"
+  },
+  {
+   "text": "Eliquis is an anticoagulant.",
+   "us": "ˈɛləkwɪs ɪz",
+   "gb": "ˈɛləkwɪs ɪz"
+  },
+  {
+   "text": "Humira's maker is AbbVie.",
+   "us": "hjumˈɛɹəz mˈAkəɹ",
+   "gb": "hjuːmˈɛːɹəz"
+  },
+  {
+   "text": "The Breztri inhaler is used twice a day.",
+   "us": "ðə bɹɛztɹˈi ɪnhˈAləɹ",
+   "gb": "ðə bɹɛztɹˈiː"
+  },
+  {
+   "text": "Pembrolizumab and adalimumab are antibodies.",
+   "us": "pˌɛmbɹOlˈɪzumˌæb ænd ˌAdəlˈɪmjumˌæb",
+   "gb": "pˌɛmbɹQlˈɪzuːmˌab and ˌAdəlˈɪmjuːmˌab"
+  },
+  {
+   "text": "Prednisone can raise blood sugar.",
+   "us": "pɹˈɛdnəsˌOn",
+   "gb": "pɹˈɛdnɪsˌQn"
+  },
+  {
+   "text": "Eylea injections help vision.",
+   "us": "Ilˈiə ɪnʤˈɛkʃənz",
+   "gb": "Ilˈiːə"
+  },
+  {
+   "text": "Farxiga and Zyrtec are on the list.",
+   "us": "fɑɹsˈiɡə ænd zˈɜɹtˌɛk",
+   "gb": "fɑːsˈiːɡə and zˈɜːtˌɛk"
+  },
+  {
+   "text": "Tirzepatide is sold as Mounjaro.",
+   "us": "təɹzˈɛpətˌId ɪz sˈOld æz mWnʤˈɑɹO",
+   "gb": "təzˈɛpətˌId"
+  },
+  {
+   "text": "Keytruda is a cancer drug.",
+   "us": "kˌitɹˈudə ɪz",
+   "gb": "kˌiːtɹˈuːdə ɪz"
+  },
+  {
+   "text": "Ozempic is semaglutide.",
+   "us": "Ozˈɛmpɪk ɪz sˌɛməɡlˈutˌId",
+   "gb": "Qzˈɛmpɪk ɪz sˌɛməɡlˈuːtˌId"
   }
  ],
  "chunk_cases": [
