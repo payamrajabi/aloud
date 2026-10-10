@@ -552,6 +552,84 @@
       "gb" : "ðə nˈAdɪə ɒv hɪz kəɹˈɪə.",
       "text" : "the nadir of his career.",
       "us" : "ðə nˈAdəɹ ʌv hɪz kəɹˈɪɹ."
+    },
+    {
+      "area" : "plural-suffix",
+      "gb" : "ðˌɪs ɪz ɡɹˈAt.",
+      "text" : "This is great.",
+      "us" : "ðˌɪs ɪz ɡɹˈAt."
+    },
+    {
+      "area" : "plural-suffix",
+      "gb" : "ðˌɪs wˈʌn fˈɜːst, ðˈɛn ðˈat wˈʌn.",
+      "text" : "This one first, then that one.",
+      "us" : "ðˌɪs wˈʌn fˈɜɹst, ðˈɛn ðˈæt wˈʌn."
+    },
+    {
+      "area" : "plural-suffix",
+      "gb" : "vˈiːnəs and ˈɛːɹiːz ɹˈIz ɪn ði ˈiːst.",
+      "text" : "Venus and Aries rise in the east.",
+      "us" : "vˈinəs ænd ˈɛɹˌiz ɹˈIz ɪn ði ˈist."
+    },
+    {
+      "area" : "plural-suffix",
+      "gb" : "əkˈɪliːz wɒz fˈɑːst.",
+      "text" : "Achilles was fast.",
+      "us" : "əkˈɪliz wʌz fˈæst."
+    },
+    {
+      "area" : "plural-suffix",
+      "gb" : "ɡɹˈasjas, əmˈiːɡQ.",
+      "text" : "Gracias, amigo.",
+      "us" : "ɡɹˈɑsjəs, əmˈiɡO."
+    },
+    {
+      "area" : "plural-suffix",
+      "gb" : "ðə lˈiːənɪdz pˈiːk tənˈIt.",
+      "text" : "The Leonids peak tonight.",
+      "us" : "ðə lˈiənɪdz pˈik tənˈIt."
+    },
+    {
+      "area" : "plural-suffix",
+      "gb" : "ɹˈɑːʤɑːz ɹˈuːld ðə vˈali.",
+      "text" : "Rajas ruled the valley.",
+      "us" : "ɹˈɑʤəs ɹˈuld ðə vˈæli."
+    },
+    {
+      "area" : "plural-suffix",
+      "gb" : "ði ˈɪndəs flˈQz sˈWθ.",
+      "text" : "The Indus flows south.",
+      "us" : "ði ˈɪndəs flˈOz sˈWθ."
+    },
+    {
+      "area" : "plural-suffix",
+      "gb" : "ˈAlɪəs ɡɹˈAs ɪz ɐ nˈɒvᵊl.",
+      "text" : "Alias Grace is a novel.",
+      "us" : "ˈAliəs ɡɹˈAs ɪz ɐ nˈɑvᵊl."
+    },
+    {
+      "area" : "plural-suffix",
+      "gb" : "pˈapəs ɹˈQt əbˈWt ʤɪˈɒmɪtɹi.",
+      "text" : "Pappus wrote about geometry.",
+      "us" : "pˈæpəs ɹˈOt əbˈWt ʤiˈɑmətɹi."
+    },
+    {
+      "area" : "plural-suffix",
+      "gb" : "kəɹˈɛnz kəmplˈAn ɐ lˈɒt ɒnlˈIn.",
+      "text" : "Karens complain a lot online.",
+      "us" : "kəɹˈɛnz kəmplˈAn ɐ lˈɑt ˌɑnlˈIn."
+    },
+    {
+      "area" : "plural-suffix",
+      "gb" : "ɒndɹˈAəs mˈɛt ˌʌs at nˈuːn.",
+      "text" : "Andreas met us at noon.",
+      "us" : "ɑndɹˈAəs mˈɛt ˌʌs æt nˈun."
+    },
+    {
+      "area" : "plural-suffix",
+      "gb" : "hˈɛnɹiz and wˈɪlɪz ɑː ˈQld wˈɜːdz.",
+      "text" : "Henries and Willies are old words.",
+      "us" : "hˈɛnɹiz ænd wˈɪliz ɑɹ ˈOld wˈɜɹdz."
     }
   ],
   "speech_cases" : [

@@ -226,7 +226,14 @@ enum DictationTest {
         print("== must change (\(doc.must_change.count)) ==")
         for c in doc.must_change { check(c.in, want: c.out) }
         print("\n== must not change (\(doc.must_not_change.count)) ==")
-        for text in doc.must_not_change { check(text, want: text) }
+        for text in doc.must_not_change {
+            check(text, want: text)
+            let dropped = TranscriptCleaner.dropFillerSounds(text)
+            if dropped != text {
+                failures += 1
+                print("  ✗ \(text.debugDescription)\n      dropFillerSounds → \(dropped.debugDescription)")
+            }
+        }
         let fillerSounds = doc.filler_sounds ?? []
         print("\n== pre-model filler sounds (\(fillerSounds.count)) ==")
         for c in fillerSounds {

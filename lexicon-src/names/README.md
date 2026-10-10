@@ -8,7 +8,7 @@ This folder holds the names pack's sources: a ranked list of about 100,000 given
 **Phase 4 (assembly): 4,726 names researched, 2,853 corrections shipped.** The research batches n0001 to
 n0031 (ranks 1 to 4,988) and p0001 (105 Persian names, which win over an n-batch for the same
 name) are assembled by `tools/assemble.py` into `Lexicons/names.json` (pack id `names`, always
-on, case-sensitive, pronunciation only: `dictation: never`): 2,853 corrected names. It holds back
+on, exact-case with possessive endings only, pronunciation only: `dictation: never`): 2,853 corrected names. It holds back
 the corrected names that would change ordinary text (Core abbreviations: Jun, Thu; ordinary words
 that start sentences: Fanny, Axel, Dino, Tamer, Lino, Ze, Bento, Dolma, Muni; the place Port St.
 Lucie) and logs why in `names.source.json` ("dropped"), with every researched name's evidence,

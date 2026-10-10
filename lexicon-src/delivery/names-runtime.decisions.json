@@ -1,8 +1,9 @@
 {
-  "approved_runtime_sha256": "cf3dca6ad71960e70bb81a706c51dc3cc7e38a2c375946c825b2d9dd9a695867",
+  "approved_runtime_sha256": "1f632909bf74adfec25f433a435e1e25c72d71107bf597969849d2173422cb8a",
   "provenance": {
     "basis": "Reviewed stable existing owner decisions and original master dispositions; no names added or re-researched.",
-    "commit": "cbd4e2941b2c0e20a160d497d3fbb9ee0e343b1b"
+    "commit": "cbd4e2941b2c0e20a160d497d3fbb9ee0e343b1b",
+    "matching_change": "FIN-906 commit 53845e8: exact-case names now accept possessives only; readings and 5,000-rank scope unchanged."
   },
   "schema": 1,
   "scope": {

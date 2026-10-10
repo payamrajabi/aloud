@@ -1,9 +1,9 @@
 {
   "before": {
-    "Lexicons/names.json": "cf3dca6ad71960e70bb81a706c51dc3cc7e38a2c375946c825b2d9dd9a695867",
+    "Lexicons/names.json": "1f632909bf74adfec25f433a435e1e25c72d71107bf597969849d2173422cb8a",
     "Lexicons/tech-lexicon.json": "aa49bdac55d07e26ea9777bd2e22263ac0a0ea7fe49fc2dcff782386fbb138d9"
   },
-  "build_id": "a39774ecdf9f4eaeec64d21ecdf59d80d9464e5098165c231056897022113f07",
+  "build_id": "869ac451b2d356a4609cdeda48578252f64b8d9cd2cd1ddc2d04f805227c9788",
   "coverage": {
     "names": {
       "all_researched_dispositions": {
@@ -44,7 +44,7 @@
     "lexicon-src/decisions/ordinary-variants.json": "20ff7bac73e3f9fb14cfea2d3d6ed35c312fb91ec4f7b660b6b466a035c2d9aa",
     "lexicon-src/decisions/overrides.json": "96904d564b4f9a4222c2071688560e8ac7a9531d960b342a56a1fd5820006c29",
     "lexicon-src/decisions/strict-variant-review.json": "765f4e393e13ab23a57dd02bb314de28479b2242db3ef3723b2638d2bde6bffb",
-    "lexicon-src/delivery/names-runtime.decisions.json": "08def24f780b485c722f292016659ea5db1f2a503c797b2d3d0b65baa3448cc4",
+    "lexicon-src/delivery/names-runtime.decisions.json": "1839c111532e53f3ff4adf7f98ae44615ced2e7d19f095389a4a0da6fd8eba56",
     "lexicon-src/delivery/registry.json": "f014ce210f681c0850cd98b616929dc50d1956c775d463792681d99fa23c0d16",
     "lexicon-src/delivery/tech-runtime.decisions.json": "9110ee204e6c4831a7c42037ce57c24db166aeed79c204f49e312a79565a5d28",
     "lexicon-src/names/coverage.json": "576c46b2f7f6f30e6c8463672de68f01a7a588fa28ea876c4fde667e31635a68",
@@ -52,14 +52,14 @@
     "lexicon-src/names/manifest.tsv": "5cb61fa4ac827d8c12b42dcc3c0ae5eb4a6a62cab70de19d05bb71df2ffecb38",
     "lexicon-src/names/names.source.json": "bf139d14730d1d845987a365bf929e0d74391f3249cbb0de5f449bee3f511e1d",
     "lexicon-src/names/sources.lock.json": "69969bc28bb329e673e6725f2eca4e8bf47370601e1c5de7b43235a2e2502564",
-    "lexicon-src/names/tools/assemble.py": "09d59cd8038bd63399586ef0629cb3c924c09ef6e57448d8facb0332d8486745",
+    "lexicon-src/names/tools/assemble.py": "d68bbcf58ab53c2ff24b1fbbe7771e9528b367bbb1c4a54eacc02b0428dffebd",
     "lexicon-src/tech-lexicon-10k.source.json": "862e4f97dc803f4e07e435829c0233f7d59adba1fd56536f80ce85705e0363ef",
-    "lexicon-src/tools/build_runtime.py": "55d11af66bc107e40e25acf31adadcacc0db7d31f7bbc11459abc3d9075ecf65",
-    "lexicon-src/tools/check_packs.py": "1a8b989435d947ac720553e1a06a37bc76a324cbc957e60baae83d2fd1e677a9",
+    "lexicon-src/tools/build_runtime.py": "b47c21e623d987ff4eddb7af0e6730e134458e72f7cc3fe6a85a6719f3de3d50",
+    "lexicon-src/tools/check_packs.py": "d30ccaa13043248c33e966535baa3fb9acf3467b47773ed540666e1ede61140f",
     "lexicon-src/tools/vocab.json": "e74a2222b3b2a5b33390071f418e4a88e335d67aa5028f5caa6ad7248be82621"
   },
   "outputs": {
-    "Lexicons/names.json": "cf3dca6ad71960e70bb81a706c51dc3cc7e38a2c375946c825b2d9dd9a695867",
+    "Lexicons/names.json": "1f632909bf74adfec25f433a435e1e25c72d71107bf597969849d2173422cb8a",
     "Lexicons/tech-lexicon.json": "aa49bdac55d07e26ea9777bd2e22263ac0a0ea7fe49fc2dcff782386fbb138d9"
   },
   "preserved_peers": {
@@ -70,8 +70,8 @@
   "status": "validated; not installed or publicly released",
   "validation": [
     "3 files (irish-names, names, tech), 12892 spellings, 2 clashes, 2 listed decisions",
-    "NOTE: GUI: listed; split by casing: names reads \"Gui\"; tech reads any other casing (names Gui [case-sensitive] /ɡˈi/; tech GUI [case-insensitive] /ɡˈui/)",
-    "NOTE: PIR: listed; split by casing: names reads \"Pir\"; tech reads any other casing (names Pir [case-sensitive] /pˈɪɹ/; tech PIR [case-insensitive] /pˌiˌIˈɑɹ/)",
+    "NOTE: GUI: listed; split by casing: names reads \"Gui\"; tech reads any other casing (names Gui [name] /ɡˈi/; tech GUI [case-insensitive] /ɡˈui/)",
+    "NOTE: PIR: listed; split by casing: names reads \"Pir\"; tech reads any other casing (names Pir [name] /pˈɪɹ/; tech PIR [case-insensitive] /pˌiˌIˈɑɹ/)",
     "OK"
   ]
 }

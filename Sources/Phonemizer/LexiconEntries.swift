@@ -35,7 +35,8 @@ public struct LexiconEntry {
     }
 
     public var word: String
-    /// "case-sensitive", "case-insensitive" or "exact" (case-sensitive, no plural/possessive endings).
+    /// "case-sensitive", "case-insensitive", "exact" (no suffixes), or "name"
+    /// (exact casing with possessive endings only).
     public var match: String
     public var us: String
     public var gb: String?
@@ -73,10 +74,11 @@ public struct LexiconEntry {
         self.pack = pack
     }
 
-    /// As the original loader read it: "case-sensitive" and "exact" keep their casing,
+    /// As the original loader read it: "case-sensitive", "exact" and "name" keep their casing,
     /// anything else (including unknown values) matches any casing.
-    public var isCaseSensitive: Bool { match == "case-sensitive" || match == "exact" }
+    public var isCaseSensitive: Bool { match == "case-sensitive" || match == "exact" || match == "name" }
     public var isExact: Bool { match == "exact" }
+    public var isName: Bool { match == "name" }
     public var isEvidence: Bool { evidence != false }
     public var isUnit: Bool { unit == true }
     public var isCapsWord: Bool { capsWord == true }

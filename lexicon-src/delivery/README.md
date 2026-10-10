@@ -44,7 +44,9 @@ runtime hash makes unnoticed filtering or serialization changes fail closed.
 The stable `cbd4e29` names source preserves Payam's PAH-yuhm choice, Rayan's corresponding GB
 reading, Sui's owner hold, original research readings and before/after evidence. The delivery
 compiler uses that approved master directly. It never invokes the batch research/assembly tool,
-rejudges a name, or extends the corpus. Names remain case-sensitive and pronunciation-only.
+rejudges a name, or extends the corpus. Names keep exact casing, accept possessives only, and
+remain pronunciation-only. The FIN-906 matching change leaves all approved readings intact;
+it prevents short names from taking the initial letters of ordinary words such as "This".
 
 The first 5,000 ranked candidates currently have **4,650 research records and 350 without a
 research record**. Their 2,781 shipped corrections, 1,480 already-correct records, 13 held,

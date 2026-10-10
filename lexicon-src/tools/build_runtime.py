@@ -81,9 +81,9 @@ def validate(rows, pack, vocab):
         if not isinstance(word, str) or not word or word != word.strip():
             raise BuildError(f"{pack}: invalid word: {word}")
         match = entry["match"]
-        if match not in ("case-sensitive", "case-insensitive", "exact"):
+        if match not in ("case-sensitive", "case-insensitive", "exact", "name"):
             raise BuildError(f"{pack}/{word}: invalid match")
-        key = (match in ("case-sensitive", "exact"), word if match != "case-insensitive" else word.lower())
+        key = (match in ("case-sensitive", "exact", "name"), word if match != "case-insensitive" else word.lower())
         if key in seen:
             raise BuildError(f"{pack}/{word}: duplicate matching spelling")
         seen.add(key)
@@ -114,8 +114,8 @@ def validate(rows, pack, vocab):
             raise BuildError(f"{pack}/{word}: context gates must be spoken variants")
         if mode == "never" and (entry.get("spoken") or entry.get("spoken_context_only")):
             raise BuildError(f"{pack}/{word}: pronunciation-only entry cannot rewrite dictation")
-        if pack == "names" and (mode != "never" or match != "case-sensitive" or entry.get("pack_only")):
-            raise BuildError(f"{pack}/{word}: names must remain case-sensitive, always-on, pronunciation-only")
+        if pack == "names" and (mode != "never" or match != "name" or entry.get("pack_only")):
+            raise BuildError(f"{pack}/{word}: names must use possessive-only matching, be always-on, and pronunciation-only")
 
 
 def project_tech(entry):
@@ -215,7 +215,7 @@ def compile_names(master, decisions, manifest_bytes):
             continue
         if disposition != "corrected" or not entry.get("source") or entry.get("reads_as_written") is not True:
             raise BuildError(f"names/{name}: shipped correction lacks evidence or recorded validation")
-        row = {"word": name, "match": "case-sensitive", "us": entry.get("us"), "gb": entry.get("gb") or entry.get("us"), "dictation": "never"}
+        row = {"word": name, "match": "name", "us": entry.get("us"), "gb": entry.get("gb") or entry.get("us"), "dictation": "never"}
         after = entry.get("after", {})
         if any(after.get(field) != row[locale] for locale, field in (("us", "us"), ("gb", "gb"), ("us", "us_sentence"), ("gb", "gb_sentence"))):
             raise BuildError(f"names/{name}: committed before/after evidence disagrees with chosen reading")

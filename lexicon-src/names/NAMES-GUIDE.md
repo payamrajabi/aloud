@@ -221,8 +221,10 @@ will". Where `word_freq` is `rare` and the word is archaic or technical while th
 `notes`.
 
 ## Matching
-- An entry matches its exact, case-sensitive spelling: the capitalised name only. "Rose" never
-  touches "rose", and "ROSE" in all caps is left alone.
+- An entry matches its exact, case-sensitive spelling and a possessive ending (`'s`, `’s`,
+  `'`, `’`) only. The capitalised name "Rose" never touches "rose", and "ROSE" in all caps
+  is left alone. A short name cannot take a plural suffix from an ordinary word: "Thi"
+  must not change "This", nor "Venu" change "Venus".
 - Diacritic and transliteration variants are separate names, each researched for its own bearers:
   Jesús and Jesus, Zoë and Zoe, Muhammad, Mohammed, Mohamed and Muḥammad. One entry per input
   row, spelled exactly as the row spells it.

@@ -333,12 +333,20 @@ class NamesBuildTests(unittest.TestCase):
         rows, coverage = M.compile_names(self.master, self.decisions, self.manifest)
         approved = M.read_json(ROOT / "Lexicons/names.json")
         self.assertEqual(approved, rows)
+        self.assertEqual({"name"}, {row["match"] for row in rows})
         self.assertEqual(5000, coverage["ranked_candidates_with_research"] + coverage["ranked_candidates_without_research"])
         self.assertEqual(4726, sum(coverage["all_researched_dispositions"].values()))
         self.assertEqual(76, coverage["existing_special_candidates_outside_ranks"])
         self.assertEqual(72, coverage["existing_special_corrections_outside_ranks"])
         self.assertNotIn("Sui", {row["word"] for row in rows})
         self.assertIn("PAH-yuhm", next(row["respelling"] for row in self.master["entries"] if row["name"] == "Payam"))
+
+    def test_names_cannot_regress_to_plural_matching(self):
+        vocab = M.read_json(ROOT / "lexicon-src/tools/vocab.json")
+        row = M.read_json(ROOT / "Lexicons/names.json")[0]
+        for match in ("case-sensitive", "case-insensitive", "exact"):
+            with self.subTest(match=match), self.assertRaisesRegex(M.BuildError, "possessive-only"):
+                M.validate([{**row, "match": match}], "names", vocab)
 
     def test_scope_manifest_and_recorded_validation_cannot_be_bypassed(self):
         self.decisions["scope"]["rank_limit"] = 100000

@@ -345,7 +345,7 @@ enum LexiconFiles {
     }
 
     /// Every list, read once per launch and shared by reading and dictation.
-    static let shared = LexiconSet(directories: appDirectories, userDirectory: userDirectory)
+    static let shared = LexiconSet(directories: appDirectories, userDirectory: DebugScript.isTestRun ? nil : userDirectory)
 
     /// The saved field packs that are on: pack ids ("finance", "medicine"), none by default.
     static let enabledPacksKey = "enabledPacks"

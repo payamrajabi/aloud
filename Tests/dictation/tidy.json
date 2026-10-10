@@ -26,7 +26,14 @@
     { "in": "The total is 3. we need more.", "out": "The total is 3. We need more." },
     { "in": "Okay .  So the plan , um , is set .", "out": "Okay. So the plan, is set." },
     { "in": "Um, type `um` exactly.", "out": "Type `um` exactly." },
-    { "in": "The the path is /tmp/the/the.", "out": "The path is /tmp/the/the." }
+    { "in": "The the path is /tmp/the/the.", "out": "The path is /tmp/the/the." },
+    {"in": "yes. um. the next thing", "out": "Yes. The next thing"},
+    {"in": "yes. er. the next thing", "out": "Yes. The next thing"},
+    {"in": "That's fine. Ah. the next thing is pricing", "out": "That's fine. The next thing is pricing"},
+    {"in": "yes. er. um. the next thing", "out": "Yes. The next thing"},
+    {"in": "Is that right? Er. the plan changed.", "out": "Is that right? The plan changed."},
+    {"in": "Good.\nUm.\nThe next part.", "out": "Good.\n\nThe next part."},
+    {"in": "Mm-hmm, um yes.", "out": "Mm-hmm, yes."}
   ],
   "must_not_change": [
     "See you at 9 a.m. tomorrow.",
@@ -70,7 +77,13 @@
     "Use user-id and items[index] today.",
     "Use ```um\nthe the\n``` verbatim.",
     "Keep `AloudLiteral0Token` exact.",
-    "Keep ```um\nthe the exactly."
+    "Keep ```um\nthe the exactly.",
+    "Mm-hmm, yes.",
+    "Mm-hmm.",
+    "Uh-huh. Sounds good.",
+    "Uh-oh, that broke.",
+    "Um-hmm, sure.",
+    "Wait... the next one is better."
   ],
   "faithful": [
     { "in": "Use api_key and c++; compare x ≤ y.", "out": "Use api_key and c++! Compare x ≤ y." },

@@ -5,8 +5,9 @@ import Foundation
 ///
 ///     [ { "word": "Kubernetes", "match": "case-insensitive", "us": "kˌubəɹnˈɛTiz", "gb": "kˌuːbənˈɛtiːz" } ]
 ///
-/// `match` is "case-sensitive" (exact casing), "case-insensitive" (any casing) or
-/// "exact" (exact casing, no suffixes). `gb` is optional; British voices use `us` when
+/// `match` is "case-sensitive" (exact casing), "case-insensitive" (any casing),
+/// "exact" (exact casing, no suffixes), or "name" (exact casing, possessives only).
+/// `gb` is optional; British voices use `us` when
 /// it's missing. `unit` and `caps_word` limit where a key applies (below); other fields
 /// are ignored here (`LexiconEntry` describes the dictation fields). Phonemes are in the
 /// final form Kokoro reads (misaki's symbols, US flaps written T).
@@ -46,6 +47,7 @@ public final class CustomLexicon {
         let folded: [UInt32]
         let caseSensitive: Bool
         let allowSuffix: Bool
+        let possessiveOnly: Bool
         let unit: Bool
         let capsWord: Bool
         let gate: NSRegularExpression?
@@ -145,6 +147,7 @@ public final class CustomLexicon {
             idx.entries.append(Entry(key: e.word, scalars: scalars, folded: Scalars.fold(scalars),
                                      caseSensitive: e.isCaseSensitive,
                                      allowSuffix: !e.isExact && (e.word.last?.isLetter ?? false),
+                                     possessiveOnly: e.isName,
                                      unit: e.isUnit, capsWord: e.isCapsWord, gate: gate, us: e.us, gb: e.gb,
                                      rank: e.isUser ? 2 : e.isPackOnly ? 1 : 0))
         }
@@ -183,6 +186,7 @@ public final class CustomLexicon {
     }
 
     private static let suffixes: [[Unicode.Scalar]] = ["'s", "’s", "s'", "s’", "es", "s", "'", "’"].map { Array($0.unicodeScalars) }
+    private static let possessives: [[Unicode.Scalar]] = ["'s", "’s", "'", "’"].map { Array($0.unicodeScalars) }
 
     private struct Match {
         let start: Int, end: Int   // scalar offsets, end includes the suffix
@@ -285,7 +289,7 @@ public final class CustomLexicon {
                     continue
                 }
                 if e.allowSuffix {
-                    for suffix in Self.suffixes where end + suffix.count <= n {
+                    for suffix in (e.possessiveOnly ? Self.possessives : Self.suffixes) where end + suffix.count <= n {
                         var ok = true
                         for (j, c) in suffix.enumerated() where s[end + j] != c { ok = false; break }
                         if ok, Self.endsCleanly(s, at: end + suffix.count) {
