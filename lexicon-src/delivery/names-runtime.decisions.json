@@ -1,0 +1,16 @@
+{
+  "approved_runtime_sha256": "cf3dca6ad71960e70bb81a706c51dc3cc7e38a2c375946c825b2d9dd9a695867",
+  "provenance": {
+    "basis": "Reviewed stable existing owner decisions and original master dispositions; no names added or re-researched.",
+    "commit": "cbd4e2941b2c0e20a160d497d3fbb9ee0e343b1b"
+  },
+  "schema": 1,
+  "scope": {
+    "existing_special_batches": [
+      "p0001"
+    ],
+    "rank_limit": 5000,
+    "why": "Preserve existing approved Persian owner/regional corrections outside the ranked tranche; report them separately, never count them as first-5000 coverage."
+  },
+  "source_sha256": "bf139d14730d1d845987a365bf929e0d74391f3249cbb0de5f449bee3f511e1d"
+}

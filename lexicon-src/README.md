@@ -2,6 +2,11 @@
 
 `Lexicons/tech-lexicon.json` (the file the app ships) is generated from this folder.
 
+For offline builds of the approved existing tech and names material, use
+[`delivery/README.md`](delivery/README.md). It stages and validates all outputs, preserves
+reviewed safety decisions, and records reproducible hashes and recovery snapshots.
+The historical research scripts below are not needed for that delivery path.
+
 - `tech-lexicon-10k.source.json` holds every term with its research: pronunciation (`us`, `gb`, misaki phonemes), a respelling, the source and URL used, confidence, alternatives, the spoken variants used for dictation, and the dictation mode. It also keeps what the default pronunciation stack said before (`baseline_us`), its verdict, and what Aloud's dictation model heard when the voice said the term (`asr_heard`).
 - `GUIDE.md` is the brief each research batch followed: policy, notation and fields.
 - `decisions/`
