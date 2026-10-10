@@ -245,7 +245,16 @@ enum DictationTest {
         print("\n== faithfulness guard: reject (\(unfaithful.count)) ==")
         checkFaithfulness(unfaithful, wantFaithful: false)
 
-        let total = doc.must_change.count + doc.must_not_change.count + faithful.count + unfaithful.count
+        let stressInput = Array(repeating: "alpha beta", count: 5_000).joined(separator: " ")
+        let stressStart = Date()
+        let stressAccepted = TranscriptCleaner.isFaithful("Alpha beta", to: stressInput)
+        let stressDuration = Date().timeIntervalSince(stressStart)
+        let stressPassed = stressAccepted && stressDuration < 2
+        failures += stressPassed ? 0 : 1
+        print("\n== repeated-phrase stress (10,000 words) ==")
+        print("  \(stressPassed ? "✓" : "✗") \(String(format: "%.3f", stressDuration))s, \(stressAccepted ? "accepted" : "rejected")")
+
+        let total = doc.must_change.count + doc.must_not_change.count + faithful.count + unfaithful.count + 1
         print(failures == 0 ? "\nPASSED (\(total) checks)" : "\nFAILED: \(failures) of \(total) checks")
         return failures == 0 ? 0 : 1
     }

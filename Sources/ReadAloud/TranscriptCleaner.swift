@@ -417,41 +417,96 @@ final class TranscriptCleaner {
         let baseline = basicTidy(input)
         let source = words(baseline), result = words(output)
         guard !result.isEmpty else { return source.isEmpty }
-        if source == result { return true }
-        var withoutFillers = source
-        for (start, end) in fillerRanges(in: source, text: baseline).sorted(by: { $0.0 > $1.0 }) {
-            withoutFillers.removeSubrange(start..<end)
-        }
-        if withoutFillers == result { return true }
+        guard protectedSpans(in: baseline) == protectedSpans(in: output) else { return false }
+        if formattingWords(in: baseline) == formattingWords(in: output) { return true }
 
-        // A correction marker immediately follows a discarded version and precedes its
-        // replacement: "Tuesday, no, Wednesday" → "Wednesday". Try a few local
-        // correction removals, then require every remaining word to match exactly.
-        var candidates: Set<String> = [source.joined(separator: " ")]
-        var variants = [source]
-        for depth in 0..<4 {
-            var next: [[String]] = []
-            for words in variants {
-                let corrections = depth == 0 ? correctionRanges(in: source, text: baseline) : []
-                let fillers = depth == 0 ? fillerRanges(in: source, text: baseline) : []
-                for (start, end) in corrections + fillers + repeatedPhraseRanges(in: words) {
-                    var reduced = words
-                    reduced.removeSubrange(start..<end)
-                    guard !reduced.isEmpty else { continue }
-                    let key = reduced.joined(separator: " ")
-                    if candidates.insert(key).inserted { next.append(reduced) }
-                    if reduced == result { return true }
-                }
+        let fillers = fillerRanges(in: source, text: baseline)
+        if matches(result, source: source, removing: fillers) { return true }
+        for filler in fillers where matches(result, source: source, removing: [filler]) { return true }
+
+        // Permit one unmistakably isolated correction per pass. The discarded slip is
+        // exactly the token immediately before a comma-delimited correction cue.
+        // Longer guessed deletions and multiple corrections stay in the source text.
+        for correction in correctionRanges(in: source, text: baseline) {
+            if matches(result, source: source, removing: [correction]) { return true }
+            if matches(result, source: source, removing: [correction] + fillers) { return true }
+            for filler in fillers where matches(result, source: source, removing: [correction, filler]) {
+                return true
             }
-            variants = next
-            if variants.isEmpty { break }
         }
         return false
     }
 
-    /// Ranges include the discarded wording and the correction marker, but never the
-    /// replacement that follows. Keep this narrow so a standalone "no" or "actually"
-    /// cannot authorize arbitrary deletion elsewhere in the transcript.
+    private static func matches(_ result: [String], source: [String], removing ranges: [(Int, Int)]) -> Bool {
+        let sorted = ranges.sorted { $0.0 < $1.0 }
+        for pair in zip(sorted, sorted.dropFirst()) where pair.0.1 > pair.1.0 { return false }
+        var reduced = source
+        for (start, end) in sorted.reversed() { reduced.removeSubrange(start..<end) }
+        return collapseRepeatedPhrases(in: reduced) == result
+    }
+
+    /// Preserve notation whose meaning depends on punctuation or symbols that `words()`
+    /// intentionally ignores. URL text is exact apart from trailing sentence punctuation;
+    /// numeric spans preserve signs, decimal/grouping marks, currency, percent, and known
+    /// unit symbols. Whitespace inside a numeric span is formatting and is ignored.
+    private static func protectedSpans(in text: String) -> [String] {
+        let ns = text as NSString
+        let fullRange = NSRange(location: 0, length: ns.length)
+        var spans: [(range: NSRange, value: String)] = []
+        for match in protectedEmailPattern.matches(in: text, range: fullRange) {
+            spans.append((match.range, ns.substring(with: match.range)))
+        }
+        for match in protectedURLPattern.matches(in: text, range: fullRange) {
+            var value = ns.substring(with: match.range)
+            while let last = value.last, ".,!?;:".contains(last) { value.removeLast() }
+            guard !value.isEmpty else { continue }
+            let trimmedRange = NSRange(location: match.range.location, length: (value as NSString).length)
+            spans.append((trimmedRange, value))
+        }
+        for match in protectedNumberPattern.matches(in: text, range: fullRange) {
+            let value = ns.substring(with: match.range).filter { !$0.isWhitespace }
+            spans.append((match.range, value))
+        }
+        let ordered = spans.sorted {
+            $0.range.location == $1.range.location
+                ? $0.range.length > $1.range.length
+                : $0.range.location < $1.range.location
+        }
+        var selected: [(range: NSRange, value: String)] = []
+        var lastEnd = 0
+        for span in ordered {
+            if span.range.location < lastEnd { continue }
+            selected.append((span.range, span.value))
+            lastEnd = NSMaxRange(span.range)
+        }
+        return selected.sorted { $0.range.location < $1.range.location }.map(\.value)
+    }
+
+    /// Treat protected notation as one opaque word while comparing ordinary words. This
+    /// allows harmless spacing around a number and unit ("5 kg" / "5kg") while the
+    /// exact protected-span comparison above still catches notation changes.
+    private static func formattingWords(in text: String) -> [String] {
+        var normalized = text
+        for pattern in [protectedEmailPattern, protectedURLPattern, protectedNumberPattern] {
+            let ns = normalized as NSString
+            let range = NSRange(location: 0, length: ns.length)
+            for match in pattern.matches(in: normalized, range: range).reversed() {
+                normalized = (normalized as NSString).replacingCharacters(in: match.range, with: "protectedspan")
+            }
+        }
+        return words(normalized)
+    }
+
+    private static let protectedEmailPattern = try! NSRegularExpression(
+        pattern: "[\\p{L}\\p{N}._%+-]+@(?:[\\p{L}\\p{N}-]+\\.)+[A-Za-z]{2,}")
+    private static let protectedURLPattern = try! NSRegularExpression(
+        pattern: "(?i)(?:https?://|www\\.)[^\\s<>\"']+|(?<![@\\p{L}\\p{N}])(?:[\\p{L}\\p{N}-]+\\.)+[A-Za-z]{2,}(?:/[^\\s<>\"']*)?")
+    private static let protectedNumberPattern = try! NSRegularExpression(
+        pattern: "(?<![\\p{L}\\p{N}])(?:\\(\\s*(?:\\p{Sc}\\s*)?[+\\-−]?\\s*\\d+(?:[.,]\\d+)*(?:\\s*(?:%|‰|°\\s*[CFK]))?(?:\\s*(?:km/h|m/s|mi/h|ft/s|kg|mg|g|lbs?|oz|mL|ml|L|l|km|cm|mm|m|mi|ft|in|ms|min|sec|hr|h|s|µs|ns|GHz|MHz|kHz|Hz|MW|kW|mW|W|mV|V|mA|A|GB|MB|KB|B|Gbps|Mbps|kbps|bps|px)(?![\\p{L}\\p{N}]))?\\s*\\)|(?:[+\\-−]\\s*\\p{Sc}\\s*|\\p{Sc}\\s*[+\\-−]?\\s*|[+\\-−]\\s*)?\\d+(?:[.,]\\d+)*(?:\\s*(?:%|‰|°\\s*[CFK]))?(?:\\s*(?:km/h|m/s|mi/h|ft/s|kg|mg|g|lbs?|oz|mL|ml|L|l|km|cm|mm|m|mi|ft|in|ms|min|sec|hr|h|s|µs|ns|GHz|MHz|kHz|Hz|MW|kW|mW|W|mV|V|mA|A|GB|MB|KB|B|Gbps|Mbps|kbps|bps|px)(?![\\p{L}\\p{N}]))?(?:\\s*\\p{Sc})?)(?![\\p{L}\\p{N}])")
+
+    /// Ranges include one discarded word and an isolated correction cue. The cue must
+    /// have commas on both sides, so "Tuesday, no, Wednesday" qualifies while sentence
+    /// boundaries, "No invoices are approved", and ordinary "actually" uses do not.
     private static func correctionRanges(in words: [String], text: String) -> [(Int, Int)] {
         var ranges: [(Int, Int)] = []
         let ns = text as NSString
@@ -470,10 +525,13 @@ final class TranscriptCleaner {
             guard i > 0, end < words.count else { continue } // a correction needs old and new wording
             let gapStart = NSMaxRange(tokenRanges[i - 1])
             let gap = ns.substring(with: NSRange(location: gapStart, length: tokenRanges[i].location - gapStart))
-            guard gap.contains(",") || gap.contains(".") || gap.contains("\n") else { continue }
-            for discardedCount in 1...min(4, i) {
-                ranges.append((i - discardedCount, end))
-            }
+            let afterStart = NSMaxRange(tokenRanges[end - 1])
+            let after = ns.substring(with: NSRange(location: afterStart, length: tokenRanges[end].location - afterStart))
+            let separatedBefore = gap.contains(",")
+            let separatedAfter = after.contains(",")
+            guard separatedBefore, separatedAfter else { continue }
+            ranges.append((i - 1, end))
+            if ranges.count == 8 { return ranges }
         }
         return ranges
     }
@@ -499,6 +557,7 @@ final class TranscriptCleaner {
                 }())
                 if (before.contains(",") && after.contains(",")) || sentenceOpeningAnd {
                     ranges.append((i, i + 1))
+                    if ranges.count == 8 { return ranges }
                 }
             } else if words[i] == "you", i + 1 < words.count, words[i + 1] == "know", i > 0 {
                 let before = ns.substring(with: NSRange(location: NSMaxRange(tokenRanges[i - 1]),
@@ -509,7 +568,10 @@ final class TranscriptCleaner {
                                                            length: tokenRanges[end].location - NSMaxRange(tokenRanges[end - 1])))
                     return after.contains(",")
                 }()
-                if before.contains(",") && terminal { ranges.append((i, end)) }
+                if before.contains(",") && terminal {
+                    ranges.append((i, end))
+                    if ranges.count == 8 { return ranges }
+                }
             }
         }
         return ranges
@@ -521,24 +583,35 @@ final class TranscriptCleaner {
         return tokenPattern.matches(in: text, range: NSRange(location: 0, length: ns.length)).map(\.range)
     }
 
-    /// A repeated phrase is a stutter only when the exact same two or more words occur
-    /// consecutively. Single doubled words are handled by basicTidy's narrower grammar-
-    /// aware rules, which preserve meaningful doubles such as "had had" and "that that".
-    private static func repeatedPhraseRanges(in words: [String]) -> [(Int, Int)] {
-        var ranges: [(Int, Int)] = []
-        guard words.count >= 4 else { return ranges }
-        for start in 0..<(words.count - 3) {
-            let maxLength = min(8, (words.count - start) / 2)
-            guard maxLength >= 2 else { continue }
-            for length in 2...maxLength {
-                let middle = start + length
-                let end = middle + length
-                if Array(words[start..<middle]) == Array(words[middle..<end]) {
-                    ranges.append((middle, end))
+    /// Collapses exact adjacent repeats of two to eight words in one linear scan.
+    /// Single doubled words stay to the grammar-aware stammer rules above.
+    private static func collapseRepeatedPhrases(in words: [String]) -> [String] {
+        var output: [String] = []
+        var i = 0
+        while i < words.count {
+            let maxLength = min(8, (words.count - i) / 2)
+            var repeatedLength = 0
+            if maxLength >= 2 {
+                for length in 2...maxLength {
+                    let first = words[i..<(i + length)]
+                    let second = words[(i + length)..<(i + 2 * length)]
+                    if first.elementsEqual(second) { repeatedLength = length; break }
                 }
             }
+            guard repeatedLength > 0 else {
+                output.append(words[i])
+                i += 1
+                continue
+            }
+            let phrase = Array(words[i..<(i + repeatedLength)])
+            output.append(contentsOf: phrase)
+            i += repeatedLength * 2
+            while i + repeatedLength <= words.count,
+                  phrase.elementsEqual(words[i..<(i + repeatedLength)]) {
+                i += repeatedLength
+            }
         }
-        return ranges
+        return output
     }
 
     /// Joins two stretches of text with a space, or a blank line for a new paragraph.
