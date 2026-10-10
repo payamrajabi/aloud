@@ -43,9 +43,11 @@ enum G2PTest {
         let absent: String?
     }
 
+    /// The reference pipeline and the shipped one, with the app's lists and the packs that
+    /// are on (`--packs`).
     static func phonemizers() throws -> (raw: [Bool: Phonemizer], shipped: [Bool: Phonemizer]) {
         let data = try G2PData.load(from: G2PData.defaultDirectory())
-        let custom = CustomLexicon(LexiconFiles.shared)
+        let custom = CustomLexicon(LexiconFiles.shared, packs: LexiconFiles.packs)
         for p in custom.problems { print("lexicon problem: \(p)") }
         var raw: [Bool: Phonemizer] = [:], shipped: [Bool: Phonemizer] = [:]
         for b in [false, true] {
@@ -55,12 +57,18 @@ enum G2PTest {
         return (raw, shipped)
     }
 
-    static func phonemizeLines(british: Bool, raw: Bool) -> Int32 {
+    /// `explain` adds a third column: each word, "=", and the source that read it
+    /// ("Payam=guesser Rose=gold").
+    static func phonemizeLines(british: Bool, raw: Bool, explain: Bool = false) -> Int32 {
         do {
             let p = try phonemizers()
             let ph = (raw ? p.raw : p.shipped)[british]!
             while let line = readLine(strippingNewline: true) {
-                print("\(line)\t\(ph.phonemize(line, unknown: "❓"))")
+                let ps = ph.phonemize(line, unknown: "❓")
+                guard explain else { print("\(line)\t\(ps)"); continue }
+                let sources = ph.explain(line).filter { !$0.phonemes.isEmpty || $0.word.contains(where: \.isLetter) }
+                    .map { "\($0.word.replacingOccurrences(of: " ", with: "_"))=\($0.source)" }
+                print("\(line)\t\(ps)\t\(sources.joined(separator: " "))")
             }
             return 0
         } catch {

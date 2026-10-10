@@ -1,0 +1,22 @@
+{
+  "about": "Field packs (FIN-890): .build/release/ReadAloud --speech-test Tests/g2p/pack-readings.json. Reads with the fixture lists in pack-fixtures/ instead of the app's (tech-lexicon.json is the tech pack; finance.json and medicine.json have pack_only entries) and pack-fixtures/user/ standing in for your own folder. Each case says which packs are on. The fixture readings are plain words (bps in the tech list is 'bee pee ess', in finance 'basis points') so the cases can say them.",
+  "lexicon_dirs": ["pack-fixtures"],
+  "user_lexicon_dir": "pack-fixtures/user",
+  "speech_cases": [
+    {"area": "pack off", "text": "Spreads widened ten bps.", "says": "Spreads widened ten bee pee ess.", "packs": []},
+    {"area": "pack off", "text": "Spreads widened ten bps.", "says": "Spreads widened ten bee pee ess.", "packs": ["medicine"]},
+    {"area": "pack on", "text": "Spreads widened ten bps.", "says": "Spreads widened ten basis points.", "packs": ["finance"]},
+    {"area": "pack on", "text": "Spreads widened ten bps.", "says": "Spreads widened ten basis points.", "packs": ["finance", "medicine"]},
+    {"area": "pack off", "text": "Take it BID.", "not_says": "Take it bee eye dee.", "packs": []},
+    {"area": "pack off", "text": "Take it BID.", "not_says": "Take it bee eye dee.", "packs": ["finance"]},
+    {"area": "pack on", "text": "Take it BID.", "says": "Take it bee eye dee.", "packs": ["medicine"]},
+    {"area": "case rule", "text": "Place a bid.", "not_says": "Place a bee eye dee.", "packs": ["medicine"]},
+    {"area": "general", "text": "EBITDA rose.", "says": "ebb bit dah rose.", "packs": []},
+    {"area": "general", "text": "Take atorvastatin daily.", "says": "Take otter vast satin daily.", "packs": []},
+    {"area": "general", "text": "Take atorvastatin daily.", "says": "Take otter vast satin daily.", "packs": ["finance"]},
+    {"area": "yours", "text": "Take it PRN.", "says": "Take it as needed.", "packs": ["medicine"]},
+    {"area": "yours", "text": "Take it PRN.", "says": "Take it as needed.", "packs": []},
+    {"area": "yours", "text": "Use the drops OD.", "says": "Use the drops right eye.", "packs": ["medicine"]}
+  ],
+  "frozen_cases": []
+}

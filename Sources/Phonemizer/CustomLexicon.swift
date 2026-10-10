@@ -5,8 +5,9 @@ import Foundation
 ///
 ///     [ { "word": "Kubernetes", "match": "case-insensitive", "us": "kˌubəɹnˈɛTiz", "gb": "kˌuːbənˈɛtiːz" } ]
 ///
-/// `match` is "case-sensitive" (exact casing), "case-insensitive" (any casing) or
-/// "exact" (exact casing, no suffixes). `gb` is optional; British voices use `us` when
+/// `match` is "case-sensitive" (exact casing), "case-insensitive" (any casing), "exact"
+/// (exact casing, no suffixes) or "name" (exact casing, possessive endings only: "Payam's",
+/// never "Thi" + s for "This"). `gb` is optional; British voices use `us` when
 /// it's missing. `unit` and `caps_word` limit where a key applies (below); other fields
 /// are ignored here (`LexiconEntry` describes the dictation fields). Phonemes are in the
 /// final form Kokoro reads (misaki's symbols, US flaps written T).
@@ -31,6 +32,14 @@ import Foundation
 /// Keys are now indexed by their first two (lower-cased) characters, and only the
 /// keys in the bucket for the text at a word start are compared, longest first, with
 /// the same boundary, case and suffix rules the expression had.
+///
+/// Field packs: the index holds `LexiconSet.entries(for:)` for the packs that are on, so
+/// a pack-only entry ("BID" read B-I-D) is there only while its pack is, and then in place
+/// of the general entry with its spelling. Two keys of the same length that both match
+/// differ only in case rules ("=BID" and "~bid"); then your own entry is tried first, then
+/// a pack's, then a general one, so the precedence holds across case rules too. Between
+/// two general entries the case-sensitive one is tried first: it reads its own casing and
+/// the other reads the rest (the names pack's "Pir" and the tech list's "PIR").
 public final class CustomLexicon {
     struct Entry {
         let key: String
@@ -38,11 +47,15 @@ public final class CustomLexicon {
         let folded: [UInt32]
         let caseSensitive: Bool
         let allowSuffix: Bool
+        /// Only possessive endings ('s, ’s, ', ’): a name's entry.
+        let possessiveOnly: Bool
         let unit: Bool
         let capsWord: Bool
         let gate: NSRegularExpression?
         let us: String
         let gb: String?
+        /// 2 for your own entries, 1 for a pack's pack-only entries, 0 for the rest.
+        let rank: UInt8
     }
 
     private struct Index {
@@ -53,12 +66,17 @@ public final class CustomLexicon {
     }
 
     private var source = LexiconSet()
+    private var packs = LexiconPacks()
     private var index: Index?
     private var indexProblems: [String] = []
     private let lock = NSLock()
 
     public var problems: [String] { source.problems + indexProblems }
     public var count: Int { source.count }
+    public var enabledPacks: LexiconPacks {
+        lock.lock(); defer { lock.unlock() }
+        return packs
+    }
 
     /// Keys that only apply in some contexts: the text right after the key must match.
     static let contextGates: [String: String] = [
@@ -70,8 +88,9 @@ public final class CustomLexicon {
 
     public init() {}
 
-    public init(_ set: LexiconSet) {
+    public init(_ set: LexiconSet, packs: LexiconPacks = LexiconPacks()) {
         self.source = set
+        self.packs = packs
     }
 
     /// Loads every *.json file in each directory, in order: later files override
@@ -92,6 +111,15 @@ public final class CustomLexicon {
         index = nil
     }
 
+    /// Switches field packs on or off. The index is rebuilt on the next `mark` (or
+    /// `prepare`), so the change applies from the next sentence read.
+    public func setEnabledPacks(_ packs: LexiconPacks) {
+        lock.lock(); defer { lock.unlock() }
+        guard packs != self.packs else { return }
+        self.packs = packs
+        index = nil
+    }
+
     /// Builds the index now rather than on the first `mark` (it takes a few milliseconds).
     public func prepare() {
         _ = currentIndex()
@@ -100,7 +128,8 @@ public final class CustomLexicon {
     private func currentIndex() -> Index {
         lock.lock(); defer { lock.unlock() }
         if let index { return index }
-        let built = Self.build(source.entries, problems: &indexProblems)
+        indexProblems = []
+        let built = Self.build(source.entries(for: packs), problems: &indexProblems)
         index = built
         return built
     }
@@ -119,12 +148,22 @@ public final class CustomLexicon {
             idx.entries.append(Entry(key: e.word, scalars: scalars, folded: Scalars.fold(scalars),
                                      caseSensitive: e.isCaseSensitive,
                                      allowSuffix: !e.isExact && (e.word.last?.isLetter ?? false),
-                                     unit: e.isUnit, capsWord: e.isCapsWord, gate: gate, us: e.us, gb: e.gb))
+                                     possessiveOnly: e.isName,
+                                     unit: e.isUnit, capsWord: e.isCapsWord, gate: gate, us: e.us, gb: e.gb,
+                                     rank: e.isUser ? 2 : e.isPackOnly ? 1 : 0))
         }
         // The old expression tried keys longest first (in characters), then alphabetically.
-        let lengths = idx.entries.map { $0.key.count }
+        // Between keys of one length, yours come first, then a pack's (see above); then a
+        // case-sensitive key before one that matches any casing, so the narrower key reads
+        // its own casing whatever the alphabet says (the names pack's "Pir" before the tech
+        // list's "PIR", which still reads "PIR" and "pir").
+        let lengths = idx.entries.map { $0.key.count }, ranks = idx.entries.map(\.rank)
+        let narrow = idx.entries.map(\.caseSensitive)
         let order = idx.entries.indices.sorted {
-            lengths[$0] != lengths[$1] ? lengths[$0] > lengths[$1] : idx.entries[$0].key < idx.entries[$1].key
+            if lengths[$0] != lengths[$1] { return lengths[$0] > lengths[$1] }
+            if ranks[$0] != ranks[$1] { return ranks[$0] > ranks[$1] }
+            if narrow[$0] != narrow[$1] { return narrow[$0] }
+            return idx.entries[$0].key < idx.entries[$1].key
         }
         idx.entries = order.map { idx.entries[$0] }
         for (i, e) in idx.entries.enumerated() {
@@ -148,6 +187,7 @@ public final class CustomLexicon {
     }
 
     private static let suffixes: [[Unicode.Scalar]] = ["'s", "’s", "s'", "s’", "es", "s", "'", "’"].map { Array($0.unicodeScalars) }
+    private static let possessives: [[Unicode.Scalar]] = ["'s", "’s", "'", "’"].map { Array($0.unicodeScalars) }
 
     private struct Match {
         let start: Int, end: Int   // scalar offsets, end includes the suffix
@@ -250,7 +290,7 @@ public final class CustomLexicon {
                     continue
                 }
                 if e.allowSuffix {
-                    for suffix in Self.suffixes where end + suffix.count <= n {
+                    for suffix in (e.possessiveOnly ? Self.possessives : Self.suffixes) where end + suffix.count <= n {
                         var ok = true
                         for (j, c) in suffix.enumerated() where s[end + j] != c { ok = false; break }
                         if ok, Self.endsCleanly(s, at: end + suffix.count) {

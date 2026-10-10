@@ -67,7 +67,7 @@ Accessibility → Aloud).
 | Settings | Right-click the menu bar icon → Settings… (⌘,). Shortcuts can be a key combination, or a tap or double-tap of any modifier key (left/right ⌥ ⌘ ⌃ ⇧, or fn) |
 | Speakers and microphones | Settings lists every connected device. Drag them into order and Aloud uses the highest one that's connected, whatever macOS is set to. Until you do, it follows macOS |
 | Voice and dictation models | Both download on first launch. Settings shows their progress and lets you remove either one; Aloud then asks before downloading it again the next time you use it |
-| Clean-up model | A preview, not offered to everyone yet: Settings → Downloads shows Clean-up (about 2.7 GB) only on Macs that already have the model, or after `defaults write co.payamrajabi.readaloud offerCleanup -bool YES` on a Mac with 16 GB or more. Once it's there, every dictation is tidied; remove it to go back to the raw transcript |
+| Clean-up model | Optional, for everyone: Settings → Downloads → Clean-up → Download (about 2.7 GB; best with 16 GB of memory). Never downloaded automatically. Once it's there, every dictation is tidied while you talk; if the model is still downloading, fails to load or takes more than 6 s after you stop, the raw transcript is typed instead. Remove it to go back to the raw transcript |
 | Updates | Aloud checks once a day. Right after launch it shows the update window; otherwise it sends a notification, and the menu item becomes Update to Aloud x.y… |
 | Copy last dictation | Right-click the menu bar icon → Copy Last Dictation |
 | Voice, speed | Menus in the player or the right-click menu |
@@ -221,6 +221,20 @@ research behind every term (sources, confidence, alternatives, what the dictatio
 heard), the decisions on disputed terms and everyday-word clashes, and the pipeline
 scripts. Only `Lexicons/` ships in the app.
 
+Every file in `Lexicons/` is a field pack named after the file (`finance.json` is
+"finance", `tech-lexicon.json` is "tech"), and all of them ship. Entries marked
+`"pack_only": true` read a spelling the field's way (medicine "BID" as B-I-D) and apply
+only while their pack is on: the `enabledPacks` setting (a list of pack names, none by
+default; there's no Settings control yet), or `--packs finance,medicine` in the test
+modes below. Your own folder still wins over every pack. In dictation a term that needs
+context needs it from its own pack. Before adding a pack, check the lists agree:
+
+```bash
+python3 lexicon-src/tools/check_packs.py
+.build/debug/ReadAloud --speech-test Tests/g2p/pack-readings.json        # packs on and off, with fixture packs
+.build/debug/ReadAloud --test-dictation Tests/dictation/packs.json       # per-pack dictation context
+```
+
 ## Developer test modes
 
 ```bash
@@ -232,6 +246,7 @@ echo "Siobhan's K8s cluster" | .build/debug/ReadAloud --phonemize [--gb]    # wh
 READALOUD_MODELS_DIR=/tmp/models .build/debug/ReadAloud --download-voice   # test the first-launch download
 .build/debug/ReadAloud --test-gestures                                     # tap / double-tap / hold detection
 .build/debug/ReadAloud --clean-file ramble.txt --trace                     # tidy raw dictation text, time the wait after "stop"
+.build/debug/ReadAloud --test-tidy Tests/dictation/tidy.json               # clean-up's rule-based fallback (no model needed)
 .build/debug/ReadAloud --script "1:settings;3:settingsshot=/tmp/s.png;4:quit"  # screenshot the Settings window
 ALOUD_TRIAL_START=2026-01-01 .build/debug/ReadAloud --script "1:menu;2:quit"     # pretend the free week ran out
 .build/debug/ReadAloud --check-license "<license or activation link>"          # check a license offline

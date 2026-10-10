@@ -1375,7 +1375,7 @@
      "pause": 0.75
     },
     {
-     "speech": "of seats: 120 at the library, 80 at the hall",
+     "speech": "# of seats: 120 at the library, 80 at the hall",
      "pause": 0.75
     },
     {
@@ -1638,6 +1638,78 @@
     },
     {
      "speech": "Officials expect the change to start in May.",
+     "pause": 0.5
+    }
+   ]
+  },
+  {
+   "name": "html: the Claude app's viewer copy (Chromium) reads headings, lists and a quote, with escaped <u> tags silent",
+   "format": "html",
+   "input": "<meta charset='utf-8'><h1 style=\"font-size: 2em; font-weight: 600; color: rgb(20, 20, 19);\">Pour-Over Coffee at Home</h1><p style=\"margin: 0.5em 0px; color: rgb(20, 20, 19);\">Pour-over is the simplest way to make a clean, bright cup. It takes about four minutes.</p><h2 style=\"font-weight: 600;\">What You Need</h2><p>Gather these before you start:</p><ul><li>A kettle, ideally one with a <strong>thin spout</strong></li><li>Fresh beans, ground <em>medium-fine</em></li></ul><h3 style=\"font-weight: 600;\">Brew</h3><ol><li>Heat the water until it's just off the boil.</li><li>Wait &lt;u&gt;thirty seconds&lt;/u&gt; while the coffee blooms.</li></ol><h4>A Note on Grind Size</h4><p>If it stalls, grind <del>much</del> a little coarser.</p><blockquote><p>Good coffee is mostly patience.</p></blockquote><hr><div class=\"code-block\"><div class=\"toolbar\"><button aria-label=\"Run\"></button><button aria-label=\"Copy\"></button></div><pre><code><span style=\"color: rgb(0,92,197);\">brew-log</span> add --dose 20</code></pre></div><p><a href=\"guide.md\">the full brewing guide</a>.</p><p><a href=\"carafe.jpg\">A glass carafe of coffee on a wooden scale</a></p>",
+   "chunks": [
+    {
+     "speech": "Pour-Over Coffee at Home.",
+     "pause": 0.8,
+     "speed": 0.88
+    },
+    {
+     "speech": "Pour-over is the simplest way to make a clean, bright cup.",
+     "pause": 0.25
+    },
+    {
+     "speech": "It takes about four minutes.",
+     "pause": 1.2
+    },
+    {
+     "speech": "What You Need.",
+     "pause": 0.7,
+     "speed": 0.92
+    },
+    {
+     "speech": "Gather these before you start:",
+     "pause": 0.45
+    },
+    {
+     "speech": "A kettle, ideally one with a [thin spout](+1).",
+     "pause": 0.4
+    },
+    {
+     "speech": "Fresh beans, ground [medium-fine](+1).",
+     "pause": 1.0
+    },
+    {
+     "speech": "Brew.",
+     "pause": 0.6,
+     "speed": 0.95
+    },
+    {
+     "speech": "1. Heat the water until it's just off the boil.",
+     "pause": 0.4
+    },
+    {
+     "speech": "2. Wait thirty seconds while the coffee blooms.",
+     "pause": 0.9
+    },
+    {
+     "speech": "A Note on Grind Size.",
+     "pause": 0.5,
+     "speed": 0.97
+    },
+    {
+     "speech": "If it stalls, grind a little coarser.",
+     "pause": 0.75
+    },
+    {
+     "speech": "Good coffee is mostly patience.",
+     "pause": 1.6,
+     "speed": 0.95
+    },
+    {
+     "speech": "the full brewing guide.",
+     "pause": 0.75
+    },
+    {
+     "speech": "A glass carafe of coffee on a wooden scale",
      "pause": 0.5
     }
    ]

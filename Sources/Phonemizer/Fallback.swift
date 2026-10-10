@@ -40,6 +40,14 @@ final class Fallback {
         return (ps, ps == nil ? nil : 1)
     }
 
+    /// `--phonemize --explain`: which guesser `callAsFunction` used for `text`.
+    func source(of text: String) -> String {
+        guard text.range(of: "[A-Za-z]", options: .regularExpression) != nil else { return "rule" }
+        let word = String(text.replacingOccurrences(of: "’", with: "'").filter { $0.isLetter || $0.isNumber || "'-.".contains($0) })
+        let plain = word.folding(options: .diacriticInsensitive, locale: nil)
+        return (Self.cmuWord(word, data: data) ?? Self.cmuWord(plain, data: data)) != nil ? "cmudict" : "guesser"
+    }
+
     static func cmuWord(_ word: String, data: G2PData) -> String? {
         guard let arpa = data.cmudict[word.lowercased()] else { return nil }
         return demoteExtraPrimaries(arpaToMisaki(arpa.split(separator: " ").map(String.init)))

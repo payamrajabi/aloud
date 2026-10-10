@@ -24,7 +24,15 @@ final class Lexicon {
     static let symbols = ["%": "percent", "&": "and", "+": "plus", "@": "at", "=": "equals", "×": "times",
                           "÷": "divided by", "±": "plus or minus", "≠": "not equal to", "≈": "approximately",
                           "≤": "less than or equal to", "≥": "greater than or equal to", "→": "to",
-                          "←": "left arrow", "↑": "up arrow", "↓": "down arrow", "−": "minus"]
+                          "←": "left arrow", "↑": "up arrow", "↓": "down arrow", "−": "minus",
+                          // Signs and Greek letters 1.5 spoke and 1.6 dropped. "Ω" after a number is
+                          // "ohms" (TextNormalizer); "§" and "¶" are read there too. ™, ℠ and ® aren't
+                          // here: nobody reads "Acme trademark" aloud, so the normalizer drops them
+                          // (ShorthandRules.signs), as it drops a "©" next to the word copyright.
+                          "©": "copyright", "π": "pi", "∞": "infinity",
+                          "√": "square root of", "∑": "sum of", "Ω": "omega", "Δ": "delta", "α": "alpha", "β": "beta",
+                          "γ": "gamma", "δ": "delta", "ε": "epsilon", "θ": "theta", "λ": "lambda", "μ": "mu",
+                          "σ": "sigma", "Σ": "sigma", "τ": "tau", "φ": "phi", "ω": "omega"]
 
     let british: Bool
     private let golds: [String: GoldEntry]
@@ -136,6 +144,10 @@ final class Lexicon {
     func isShoutedWord(_ token: String) -> Bool {
         guard token.count > 1, token.contains(where: { "AEIOUY".contains($0) }) else { return false }
         let lower = token.pyLower.replacingOccurrences(of: "’", with: "'")
+        // A Roman numeral no rule read ("XVIII" with no "CHAPTER" before it) is spelled, as it
+        // is in mixed case: lower-cased, it was a made-up word (ɛksvˈii). One that is also a
+        // word stays a word ("MIX", "DIV"). (Core readings R14, FIN-889.)
+        if golds[lower] == nil, RomanPass.isNumeral(token) { return false }
         if let upper = golds[token] {
             guard golds[lower] != nil, !Self.shoutedAcronyms.contains(token) else { return false }
             if token.count == 2 { return Self.shoutedPairs.contains(token) }
@@ -333,6 +345,10 @@ final class Lexicon {
         let digitsOnly = word.isAsciiDigits
         if digitsOnly, let suffix, Lexicon.ordinals.contains(suffix), let n = Int(word) {
             extend(NumberWords.ordinal(n), escape: true)
+        } else if digitsOnly, word.count > 1, word.hasPrefix("0"), suffix == nil, currency == nil {
+            // A code, PIN, ZIP or phone number ("012345", "007", "02139"): digit by digit. Read as
+            // a value it was a different number ("twelve thousand three hundred…").
+            word.forEach { extend(String($0), first: false) }
         } else if result.isEmpty, word.count == 4, currency.flatMap({ Lexicon.currencies[$0] }) == nil, digitsOnly, let n = Int(word) {
             extend(NumberWords.year(n), escape: true)
         } else if !isHead, !word.contains(".") {
@@ -351,7 +367,9 @@ final class Lexicon {
             } else {
                 extend(num)
             }
-        } else if word.filter({ $0 == "." }).count > 1 || !isHead {
+        } else if word.filter({ $0 == "." }).count > 1 {
+            // Versions and addresses ("1.2.3", "192.168.0.1"). A number with one point is a decimal
+            // wherever it is: after a hyphen ("5.25%-5.5%") it lost its "point" and read "five five".
             var first = true
             for num in word.replacingOccurrences(of: ",", with: "").split(separator: ".", omittingEmptySubsequences: false).map(String.init) {
                 if num.isEmpty {
@@ -363,7 +381,9 @@ final class Lexicon {
                 first = false
             }
         } else if let currency, let units = Lexicon.currencies[currency], Lexicon.isCurrency(word) {
-            let pieces = word.replacingOccurrences(of: ",", with: "").split(separator: ".", omittingEmptySubsequences: false).map(String.init)
+            var pieces = word.replacingOccurrences(of: ",", with: "").split(separator: ".", omittingEmptySubsequences: false).map(String.init)
+            // "$1.5" is a dollar fifty, not "one dollar and five cents".
+            if pieces.count == 2, pieces[1].count == 1 { pieces[1] += "0" }
             // nil: too big for an Int, so not 0 or 1 (it was read as "zero dollars").
             func value(_ s: String) -> Int? { s.isEmpty ? 0 : Int(s) }
             var pairs: [(String, String)] = Array(zip(pieces, [units.0, units.1]))
@@ -454,7 +474,8 @@ final class Lexicon {
     /// The pronunciation of one token (or several merged ones), or nil if unknown.
     func callAsFunction(_ tk: MToken, ctx: TokenContext) -> (String?, Int?) {
         var word = (tk.alias ?? tk.text).replacingOccurrences(of: "\u{2018}", with: "'").replacingOccurrences(of: "\u{2019}", with: "'")
-        word = word.precomposedStringWithCompatibilityMapping
+        // A sign read as a word keeps its form: compatibility mapping made "™" the letters "TM".
+        if Lexicon.symbols[word] == nil { word = word.precomposedStringWithCompatibilityMapping }
         word = word.map(Lexicon.numericIfNeeded).joined()
         let stress: Double? = word == word.pyLower ? nil : (word == word.pyUpper ? 2 : 0.5)
         var (ps, rating) = getWord(word, tag: tk.tag, stress: stress, ctx: ctx)

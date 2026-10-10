@@ -180,11 +180,31 @@ final class PlayerModel: ObservableObject {
 
     /// Reads `raw`, with its structure from the app's `html` when there is some (else from
     /// Markdown, else guessed from the plain text).
+    /// "heading 1 ×1, heading 2 ×3, paragraph ×12, list item ×6": what the reading found.
+    private static func summary(_ doc: NarrationDoc) -> String {
+        var counts: [String: Int] = [:]
+        for block in doc.blocks {
+            let name: String
+            switch block.kind {
+            case .heading(let level): name = "heading \(level)"
+            case .paragraph: name = block.quoteDepth > 0 ? "quote" : "paragraph"
+            case .listItem: name = "list item"
+            case .tableRow: name = "table row"
+            case .code: name = "code"
+            case .rule: name = "rule"
+            }
+            counts[name, default: 0] += 1
+        }
+        return counts.sorted { $0.key < $1.key }.map { "\($0.key) ×\($0.value)" }.joined(separator: ", ")
+    }
+
     func load(_ raw: String, html: String? = nil) {
         guard Licensing.shared.allowUse() else { return }
         stop()
-        let plan = NarrationPlanner.plan(NarrationDoc.parse(raw, html: html))
+        let doc = NarrationDoc.parse(raw, html: html)
+        let plan = NarrationPlanner.plan(doc)
         let allChunks = plan.chunks
+        ReadingLog.logger.info("plan: \(Self.summary(doc), privacy: .public); \(allChunks.count) pieces")
         guard !allChunks.isEmpty else {
             message = "There's nothing readable in that selection."
             return

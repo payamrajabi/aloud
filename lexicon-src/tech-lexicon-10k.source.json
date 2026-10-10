@@ -12146,22 +12146,6 @@
 "asr_heard": "antler"
 },
 {
-"word": "Anton",
-"match": "case-sensitive",
-"us": "ˈæntɑn",
-"gb": "ˈantɒn",
-"category": "typography",
-"respelling": "AN-tahn",
-"source": "Google Fonts display typeface; said like the name Anton.",
-"confidence": "high",
-"dictation": "never",
-"baseline_us": "ˈæntˌɔn",
-"verdict": "partial",
-"batch": "b121",
-"evidence": false,
-"asr_heard": "Anton"
-},
-{
 "word": "Anton Osika",
 "match": "case-insensitive",
 "us": "ˈæntɑn ˈOsɪkə",
@@ -32626,22 +32610,6 @@
 "batch": "b092",
 "evidence": false,
 "asr_heard": "cat woo"
-},
-{
-"word": "Catalina",
-"match": "case-sensitive",
-"us": "kˌæTᵊlˈinə",
-"gb": "kˌatəlˈiːnə",
-"category": "product",
-"respelling": "kat-uh-LEE-nuh",
-"source": "macOS 10.15 name; ordinary place name",
-"confidence": "high",
-"dictation": "never",
-"baseline_us": "kˌæTᵊlˈinə",
-"verdict": "right",
-"batch": "b105",
-"evidence": false,
-"asr_heard": "Catalina"
 },
 {
 "word": "Catalyst",
@@ -89032,23 +89000,6 @@
 "asr_heard": "hugging face hub"
 },
 {
-"word": "Hugo",
-"match": "case-sensitive",
-"us": "hjˈuɡO",
-"gb": "hjˈuːɡQ",
-"category": "engineering",
-"respelling": "HYOO-goh",
-"source": "Static site generator; said like the name Hugo.",
-"url": "https://gohugo.io/",
-"confidence": "high",
-"dictation": "never",
-"baseline_us": "hjˈuɡO",
-"verdict": "right",
-"batch": "b100",
-"evidence": true,
-"asr_heard": "Hugo"
-},
-{
 "word": "Hulu",
 "match": "case-insensitive",
 "us": "hˈulˌu",
@@ -99784,27 +99735,6 @@
 "batch": "b064",
 "evidence": true,
 "asr_heard": "Seiju Jutsu"
-},
-{
-"word": "Jules",
-"match": "case-sensitive",
-"us": "ʤˈulz",
-"gb": "ʤˈuːlz",
-"category": "ai",
-"respelling": "JOOLZ",
-"source": "Google's coding agent; said like the name Jules.",
-"url": "https://jules.google/",
-"confidence": "high",
-"spoken_variants": [
-"jewels"
-],
-"dictation": "context",
-"dictation_note": "'Jules' is a common name",
-"baseline_us": "ʤˈulz",
-"verdict": "right",
-"batch": "b108",
-"evidence": true,
-"asr_heard": "Jules"
 },
 {
 "word": "Julia",
@@ -131349,23 +131279,6 @@
 "batch": "b034",
 "evidence": false,
 "asr_heard": "okay x"
-},
-{
-"word": "Ola",
-"match": "case-sensitive",
-"us": "ˈOlə",
-"gb": "ˈQlə",
-"category": "company",
-"respelling": "OH-luh",
-"source": "Indian ride-hailing company; Spanish/Hindi 'ola', OH-luh.",
-"confidence": "high",
-"dictation": "context",
-"dictation_note": "Ola is also a given name and Spanish 'hola'; only in company context.",
-"baseline_us": "ˈOlə",
-"verdict": "right",
-"batch": "b034",
-"evidence": false,
-"asr_heard": "Ola"
 },
 {
 "word": "Ola Källenius",
@@ -163385,23 +163298,6 @@
 "asr_heard": "Simpson's paradox"
 },
 {
-"word": "Sina",
-"match": "case-sensitive",
-"us": "sˈinə",
-"gb": "sˈiːnə",
-"category": "company",
-"respelling": "SEE-nuh",
-"source": "Chinese internet company (新浪, Weibo parent); English 'SEE-nuh'.",
-"confidence": "high",
-"dictation": "never",
-"dictation_note": "Also a personal name.",
-"baseline_us": "sˈinə",
-"verdict": "right",
-"batch": "b036",
-"evidence": false,
-"asr_heard": "See Sina"
-},
-{
 "word": "Sinatra",
 "match": "case-sensitive",
 "us": "sənˈɑtɹə",
@@ -185417,24 +185313,6 @@
 "batch": "b102",
 "evidence": false,
 "asr_heard": "Veo 3"
-},
-{
-"word": "Vera",
-"match": "case-sensitive",
-"us": "vˈɪɹə",
-"gb": "vˈɪəɹə",
-"category": "hardware",
-"respelling": "VEER-uh",
-"source": "NVIDIA Vera CPU, named after astronomer Vera Rubin; Dictionary.com gives the given name as US 'veer-uh' /ˈvɪər ə/. Jensen Huang's own usage not checked.",
-"url": "https://www.dictionary.com/browse/vera",
-"confidence": "medium",
-"alternatives": "'VAIR-uh' also heard.",
-"dictation": "never",
-"baseline_us": "vˈɛɹə",
-"verdict": "partial",
-"batch": "b114",
-"evidence": false,
-"asr_heard": "Vera"
 },
 {
 "word": "Vera Rubin",

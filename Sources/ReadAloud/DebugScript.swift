@@ -12,12 +12,15 @@ import CSherpaOnnx
 ///   --mute                                              silence output
 ///   --trace                                             print player state twice a second
 ///   --download-voice                                    download the voice model and exit
-///   --phonemize [--gb] [--raw] < lines.txt               print each line's phonemes
+///   --phonemize [--gb] [--raw] [--explain] < lines.txt   print each line's phonemes (--explain: and each word's source)
 ///   --g2p-test Tests/g2p/regression.json [--verbose]    pronunciation regression suite
+///   --speech-test Tests/g2p/core-readings.json [--verbose] [--freeze]   reading tests written as plain words
 ///   --test-narration Tests/narration/cases.json [--verbose]   what the player shows and says for Markdown, HTML, plain text
 ///   --bench-lexicon [lexicon.json] [--article f.txt]    custom lexicon load and matching times (made-up 10,000 entries by default)
 ///   --correct-dictation "text" [--lexicon f.json]       what dictation would type, and why (reads lines from stdin without text)
 ///   --test-dictation Tests/dictation/regression.json    dictation corrector regression suite
+///   --test-tidy Tests/dictation/tidy.json               clean-up fallback (rule-based tidy-up) regression suite
+///   --packs finance,medicine                            switch field packs on for any of the above (and --say, --read)
 ///   --render-phonemes "ðə kwˈɪk" [--voice v] [--out f.wav] [--raw]   synthesize exact phonemes
 ///   --clean "text" | --clean-file path [--piece-words 30]  tidy dictation text as if it arrived in pieces, print timing
 ///   --test-gestures                                     check modifier tap / double-tap / hold detection and exit
@@ -31,6 +34,8 @@ import CSherpaOnnx
 ///   --script "2:seek=30;4:pause;5:play;8:open;9:snapshot=/tmp/p.png;10:quit"
 enum DebugScript {
     static let args = CommandLine.arguments
+    /// A regression suite: these read only the app's own lexicons, never the user's folder.
+    static let isTestRun = ["--g2p-test", "--speech-test", "--test-dictation", "--test-narration"].contains { args.contains($0) }
 
     static func value(_ flag: String) -> String? {
         guard let i = args.firstIndex(of: flag), i + 1 < args.count else { return nil }
@@ -241,11 +246,15 @@ enum DebugScript {
         }
         if args.contains("--phonemize") {
             // Reads lines from stdin and prints "line<TAB>phonemes". --gb for British,
-            // --raw to skip text normalization and custom lexicons (the reference pipeline).
-            exit(G2PTest.phonemizeLines(british: args.contains("--gb"), raw: args.contains("--raw")))
+            // --raw to skip text normalization and custom lexicons (the reference pipeline),
+            // --explain to add which source read each word.
+            exit(G2PTest.phonemizeLines(british: args.contains("--gb"), raw: args.contains("--raw"), explain: args.contains("--explain")))
         }
         if let path = value("--g2p-test") {
             exit(G2PTest.run(path: path, verbose: args.contains("--verbose")))
+        }
+        if let path = value("--speech-test") {
+            exit(SpeechTest.run(path: path, verbose: args.contains("--verbose"), freeze: args.contains("--freeze")))
         }
         if let path = value("--test-narration") {
             exit(NarrationTest.run(path: path, verbose: args.contains("--verbose")))
@@ -256,6 +265,9 @@ enum DebugScript {
         }
         if let path = value("--test-dictation") {
             exit(DictationTest.run(path: path, lexicon: value("--lexicon"), verbose: args.contains("--verbose")))
+        }
+        if let path = value("--test-tidy") {
+            exit(DictationTest.runTidy(path: path, verbose: args.contains("--verbose")))
         }
         if args.contains("--bench-lexicon") {
             let path = value("--bench-lexicon").flatMap { $0.hasPrefix("--") ? nil : $0 }

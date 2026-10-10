@@ -4276,7 +4276,7 @@
   },
   {
    "text": "A 3mm screw.",
-   "us": "θɹˈi mˈɪləmˌiTəɹz"
+   "us": "θɹˈi mˈɪləmˌiTəɹ skɹˈu"
   },
   {
    "text": "Resolution in px.",
@@ -4387,12 +4387,12 @@
   {
    "text": "On 2024-03-15 we met.",
    "us": "mˈɑɹʧ fˌɪftˈinθ, twˈɛnti twˈɛnti fˈɔɹ",
-   "gb": "mˈɑːʧ fˌɪftˈiːnθ, twˈɛnti twˈɛnti fˈɔː"
+   "gb": "ðə fˌɪftˈiːnθ ɒv mˈɑːʧ, twˈɛnti twˈɛnti fˈɔː"
   },
   {
    "text": "Call 1-800-555-1234 now.",
-   "us": "kˈɔl wˌʌnˌAt",
-   "gb": "kˈɔːl wˌʌnˌAt",
+   "us": "kˈɔl wˈʌn ˈAt hˈʌndɹəd, fˈIv fˈIv fˈIv, wˈʌn tˈu θɹˈi fˈɔɹ nˈW",
+   "gb": "kˈɔːl wˈʌn ˈAt hˈʌndɹəd, fˈIv fˈIv fˈIv, wˈʌn tˈuː θɹˈiː fˈɔː nˈW",
    "absent": "tə"
   },
   {
@@ -4534,19 +4534,19 @@
   },
   {
    "text": "A 100Mbps link.",
-   "us": "wˈʌn hˈʌndɹəd mˈɛɡəbˌɪts",
-   "gb": "wˈʌn hˈʌndɹəd mˈɛɡəbɪts"
+   "us": "wˈʌn hˈʌndɹəd mˈɛɡəbˌɪt pɜɹ sˈɛkənd lˈɪŋk",
+   "gb": "wˈʌn hˈʌndɹəd mˈɛɡəbɪt pɜː sˈɛkᵊnd lˈɪŋk"
   },
   {
    "text": "Call me at 555-1234 tomorrow.",
-   "us": "kˈɔl mˌi æt fˈIv hˈʌndɹəd",
-   "gb": "kˈɔːl mˌiː at fˈIv hˈʌndɹəd",
+   "us": "kˈɔl mˌi æt fˈIv fˈIv fˈIv, wˈʌn tˈu θɹˈi fˈɔɹ",
+   "gb": "kˈɔːl mˌiː at fˈIv fˈIv fˈIv, wˈʌn tˈuː θɹˈiː fˈɔː",
    "absent": "tə tw"
   },
   {
    "text": "My number is 867-5309.",
-   "us": "ˈAt hˈʌndɹəd sˈɪksti",
-   "gb": "ˈAt hˈʌndɹəd sˈɪksti",
+   "us": "ˈAt sˈɪks sˈɛvən, fˈIv θɹˈi ˈO nˈIn",
+   "gb": "ˈAt sˈɪks sˈɛvᵊn, fˈIv θɹˈiː ˈQ nˈIn",
    "absent": " tə "
   },
   {
@@ -4606,8 +4606,8 @@
   },
   {
    "text": "I love Yves St. Laurent bags.",
-   "us": "sˈAnt lˈɔɹənt",
-   "gb": "sˈAnt lˈɔːɹənt",
+   "us": "sˈAnt lɔɹˈɑn",
+   "gb": "sˈAnt lɒɹˈɑːn",
    "absent": "stɹˈi"
   },
   {
@@ -4816,6 +4816,476 @@
    "text": "HE LED THE TEAM.",
    "us": "hi lˈɛd ðə tˈim",
    "gb": "hiː lˈɛd ðə tˈiːm"
+  },
+  {
+   "text": "The deal is worth £2.3bn.",
+   "us": "tˈu pYnt θɹˈi bˈɪljən pˈWndz",
+   "gb": "tˈuː pYnt θɹˈiː bˈɪljən pˈWndz"
+  },
+  {
+   "text": "It made 8.1bn last year.",
+   "us": "ˈAt pYnt wˈʌn bˈɪljən",
+   "gb": "ˈAt pYnt wˈʌn bˈɪljən"
+  },
+  {
+   "text": "I bought a laptop with 16gb of RAM.",
+   "us": "sˌɪkstˈin ɡˈɪɡəbˌIts",
+   "gb": "sˌɪkstˈiːn ɡˈɪɡəbIts"
+  },
+  {
+   "text": "It runs at 2ghz.",
+   "us": "tˈu ɡˈɪɡəhəɹts",
+   "gb": "tˈuː ɡˈɪɡəhəːts"
+  },
+  {
+   "text": "Press Ctrl+C to copy.",
+   "us": "kəntɹˈOl plˈʌs sˈi",
+   "gb": "kəntɹˈQl plˈʌs sˈiː"
+  },
+  {
+   "text": "Press Cmd+Q to quit.",
+   "us": "kəmˈænd plˈʌs kjˈu",
+   "gb": "kəmˈɑːnd plˈʌs kjˈuː"
+  },
+  {
+   "text": "Visit www.google.com now.",
+   "us": "dˈʌbᵊlju dˈʌbᵊlju dˈʌbᵊlju dˈɑt ɡˈuɡᵊl dˈɑt kˈɑm",
+   "gb": "dˈʌbᵊljuː dˈʌbᵊljuː dˈʌbᵊljuː dˈɒt ɡˈuːɡᵊl dˈɒt kˈɒm"
+  },
+  {
+   "text": "Try www.bbc.co.uk today.",
+   "us": "dˈɑt bˌibˌisˈi dˈɑt kˈO dˈɑt jˌukˈA",
+   "gb": "dˈɒt bˌiːbˌiːsˈiː dˈɒt kˈQ dˈɒt jˌuːkˈA"
+  },
+  {
+   "text": "Open localhost:3000 in a browser.",
+   "us": "lˈOkəl hˈOst kˈOlən θɹˈi θˈWzᵊnd",
+   "gb": "lˈQkᵊl hˈQst kˈQlən θɹˈiː θˈWzᵊnd"
+  },
+  {
+   "text": "See src/components/App.tsx for details.",
+   "us": "ˌɛsˌɑɹsˈi slˈæʃ kəmpˈOnənts slˈæʃ ˈæp dˈɑt tˌiˌɛsˈɛks",
+   "gb": "ˌɛsˌɑːsˈiː slˈaʃ kəmpˈQnənts slˈaʃ ˈap dˈɒt tˌiːˌɛsˈɛks"
+  },
+  {
+   "text": "Llama-3 is open.",
+   "us": "lˈɑmə θɹˈi",
+   "gb": "lˈɑːmə θɹˈiː",
+   "absent": "mˈInəs"
+  },
+  {
+   "text": "Your verification code is 012345.",
+   "us": "zˈɪɹO wˈʌn tˈu θɹˈi fˈɔɹ fˈIv",
+   "gb": "zˈɪəɹQ wˈʌn tˈuː θɹˈiː fˈɔː fˈIv",
+   "absent": "θˈWzᵊnd"
+  },
+  {
+   "text": "Call me on 07700 900123.",
+   "us": "ˈO sˈɛvən sˈɛvən ˈO ˈO, nˈIn ˈO ˈO, wˈʌn tˈu θɹˈi",
+   "gb": "ˈQ sˈɛvᵊn sˈɛvᵊn ˈQ ˈQ, nˈIn ˈQ ˈQ, wˈʌn tˈuː θɹˈiː",
+   "absent": "zˈɪ"
+  },
+  {
+   "text": "Agent 007 is back.",
+   "us": "zˈɪɹO zˈɪɹO sˈɛvən ɪz",
+   "gb": "zˈɪəɹQ zˈɪəɹQ sˈɛvᵊn ɪz"
+  },
+  {
+   "text": "Cambridge, MA 02139",
+   "us": "mˌæsəʧˈusəts ˈO tˈu wˈʌn θɹˈi nˈIn",
+   "gb": "mˌasəʧˈuːsɪts ˈQ tˈuː wˈʌn θɹˈiː nˈIn"
+  },
+  {
+   "text": "Meet at 05:30 tomorrow.",
+   "us": "æt fˈIv θˈɜɹTi",
+   "gb": "at fˈIv θˈɜːti",
+   "absent": "zˈɪ"
+  },
+  {
+   "text": "The firm raised $40m in funding.",
+   "us": "fˈɔɹTi mˈɪljᵊn dˈɑləɹz",
+   "gb": "fˈɔːti mˈɪljən dˈɒləz"
+  },
+  {
+   "text": "It costs $9.99/month.",
+   "us": "nˈIn nˈIndi nˈIn ɐ mˈʌnθ",
+   "gb": "nˈIn nˈInti nˈIn ɐ mˈʌnθ"
+  },
+  {
+   "text": "I earn $15/hour.",
+   "us": "fˌɪftˈin dˈɑləɹz ɐn ˈWəɹ",
+   "gb": "fˌɪftˈiːn dˈɒləz ɐn ˈWə"
+  },
+  {
+   "text": "It costs $10-$20.",
+   "us": "tˈɛn tə twˈɛnti dˈɑləɹz",
+   "gb": "tˈɛn tə twˈɛnti dˈɒləz"
+  },
+  {
+   "text": "It costs $1.5-$2.5 million.",
+   "us": "wˈʌn pYnt fˈIv tə tˈu pYnt fˈIv mˈɪljᵊn dˈɑləɹz",
+   "gb": "wˈʌn pYnt fˈIv tə tˈuː pYnt fˈIv mˈɪljən dˈɒləz"
+  },
+  {
+   "text": "Rates are 5.25%-5.5% now.",
+   "us": "pəɹsˈɛnt tə fˈIv pYnt fˈIv pəɹsˈɛnt",
+   "gb": "pəsˈɛnt tə fˈIv pYnt fˈIv pəsˈɛnt"
+  },
+  {
+   "text": "A 0.5mm-1.5mm gap.",
+   "us": "mˈɪləmˌiTəɹz tə wˈʌn pYnt fˈIv mˈɪləmˌiTəɹz",
+   "gb": "mˈɪlɪmˌiːtəz tə wˈʌn pYnt fˈIv mˈɪlɪmˌiːtəz"
+  },
+  {
+   "text": "World War II ended in 1945.",
+   "us": "wˈɜɹld wˈɔɹ tˈu ˈɛndᵻd",
+   "gb": "wˈɜːld wˈɔː tˈuː ˈɛndɪd"
+  },
+  {
+   "text": "Queen Elizabeth II died in 2022.",
+   "us": "əlˈɪzəbəθ ðə sˈɛkənd dˈId",
+   "gb": "ɪlˈɪzəbəθ ðə sˈɛkᵊnd dˈId"
+  },
+  {
+   "text": "King Henry VIII had six wives.",
+   "us": "hˈɛnɹi ði ˈAθ hæd",
+   "gb": "hˈɛnɹi ði ˈAtθ had"
+  },
+  {
+   "text": "Rocky III was a hit.",
+   "us": "ɹˈɑki θɹˈi wʌz",
+   "gb": "ɹˈɒki θɹˈiː wɒz"
+  },
+  {
+   "text": "Phase III trials begin.",
+   "us": "fˈAz θɹˈi tɹˈIᵊlz",
+   "gb": "fˈAz θɹˈiː tɹˈIəlz"
+  },
+  {
+   "text": "Read Chapter IV first.",
+   "us": "ʧˈæptəɹ fˈɔɹ fˈɜɹst",
+   "gb": "ʧˈaptə fˈɔː fˈɜːst"
+  },
+  {
+   "text": "I MIX THE CIVIC DID I.",
+   "us": "ˌI mˈɪks ðə sˈɪvɪk dˈɪd ˌI",
+   "gb": "ˌI mˈɪks ðə sˈɪvɪk dˈɪd ˌI"
+  },
+  {
+   "text": "This is the level I want.",
+   "us": "lˈɛvᵊl ˌI wˈɑnt",
+   "gb": "lˈɛvᵊl ˌI wˈɒnt"
+  },
+  {
+   "text": "Use Python 3.10 now.",
+   "us": "θɹˈi pYnt wˈʌn zˈɪɹO",
+   "gb": "θɹˈiː pYnt wˈʌn zˈɪəɹQ"
+  },
+  {
+   "text": "At 10.30am we leave.",
+   "us": "tˈɛn θˈɜɹTi ˌAˈɛm",
+   "gb": "tˈɛn θˈɜːti ˌAˈɛm",
+   "absent": "pYnt"
+  },
+  {
+   "text": "Latency is 5 µs.",
+   "us": "fˈIv mˈIkɹOsˌɛkəndz",
+   "gb": "fˈIv mˈIkɹəsˌɛkəndz"
+  },
+  {
+   "text": "Take 500 µg daily.",
+   "us": "mˈIkɹOɡɹˌæmz",
+   "gb": "mˈIkɹQɡɹamz"
+  },
+  {
+   "text": "See § 4.2 of the contract.",
+   "us": "sˈi sˈɛkʃən fˈɔɹ pYnt tˈu",
+   "gb": "sˈiː sˈɛkʃᵊn fˈɔː pYnt tˈuː"
+  },
+  {
+   "text": "© 2024 Acme Inc.",
+   "us": "kˈɑpiɹˌIt twˈɛnti twˈɛnti fˈɔɹ",
+   "gb": "kˈɒpɪɹIt twˈɛnti twˈɛnti fˈɔː"
+  },
+  {
+   "text": "Acme® is a brand.",
+   "us": "ˈækmi ɪz ɐ",
+   "gb": "ˈakmi ɪz ɐ"
+  },
+  {
+   "text": "Aloud™ is great.",
+   "us": "əlˈWd ɪz ɡɹˈAt",
+   "gb": "əlˈWd ɪz ɡɹˈAt",
+   "absent": "tˌiˈɛm"
+  },
+  {
+   "text": "The value of π is about 3.14.",
+   "us": "ʌv pˈI ɪz",
+   "gb": "ɒv pˈI ɪz"
+  },
+  {
+   "text": "The resistance is 10 Ω.",
+   "us": "tˈɛn ˈOmz",
+   "gb": "tˈɛn ˈQmz"
+  },
+  {
+   "text": "The value is ∞.",
+   "us": "ɪz ɪnfˈɪnəTi.",
+   "gb": "ɪz ɪnfˈɪnɪti."
+  },
+  {
+   "text": "Δ is change.",
+   "us": "dˈɛltə ɪz",
+   "gb": "dˈɛltə ɪz"
+  },
+  {
+   "text": "Add 2 tbsp olive oil.",
+   "us": "tˈu tˈAbəlspˌunz",
+   "gb": "tˈuː tˈAblspuːnz"
+  },
+  {
+   "text": "Add 1/8 cup of water.",
+   "us": "wˈʌn ˈAθ kˈʌp",
+   "gb": "wˈʌn ˈAtθ kˈʌp"
+  },
+  {
+   "text": "Mix 1 1/2 cups flour.",
+   "us": "wˈʌn ænd ɐ hˈæf kˈʌps",
+   "gb": "wˈʌn and ɐ hˈɑːf kˈʌps"
+  },
+  {
+   "text": "He rated it 8/10.",
+   "us": "ˈAt ˈWt ʌv tˈɛn",
+   "gb": "ˈAt ˈWt ɒv tˈɛn",
+   "absent": "tˈɛnθ"
+  },
+  {
+   "text": "See pages 123-145 for details.",
+   "us": "twˈɛnti θɹˈi tə wˈʌn hˈʌndɹəd fˈɔɹTi fˈIv",
+   "gb": "twˈɛnti θɹˈiː tə wˈʌn hˈʌndɹəd fˈɔːti fˈIv"
+  },
+  {
+   "text": "He is 5'11\" tall.",
+   "us": "fˈIv fˈʊt əlˈɛvᵊn tˈɔl",
+   "gb": "fˈIv fˈʊt ɪlˈɛvᵊn tˈɔːl",
+   "absent": "hˈʌndɹəd"
+  },
+  {
+   "text": "The area is 50 km².",
+   "us": "fˈɪfti skwˈɛɹ kəlˈɑməTəɹz",
+   "gb": "fˈɪfti skwˈɛː kˈɪləmˌiːtəz"
+  },
+  {
+   "text": "The software is provided on an \"AS IS\" basis.",
+   "us": "“æz ɪz”",
+   "gb": "“az ɪz”"
+  },
+  {
+   "text": "US ECONOMY ADDS 200,000 JOBS",
+   "us": "jˌuˈɛs ikˈɑnəmi",
+   "gb": "jˌuːˈɛs ɪkˈɒnəmi"
+  },
+  {
+   "text": "TELL US WHAT YOU THINK",
+   "us": "tˈɛl ˌʌs wˌʌt",
+   "gb": "tˈɛl ˌʌs wˌɒt"
+  },
+  {
+   "text": "Park on Elm St. Bring cash.",
+   "us": "ˈɛlm stɹˈit. bɹˈɪŋ",
+   "gb": "ˈɛlm stɹˈiːt. bɹˈɪŋ",
+   "absent": "sˈAnt"
+  },
+  {
+   "text": "We hiked near Mount St. Helens.",
+   "us": "mˈWnt sˈAnt hˈɛlənz",
+   "gb": "mˈWnt sˈAnt hˈɛlɪnz"
+  },
+  {
+   "text": "The bill passed the House 218-212.",
+   "us": "ˌAtˈin tə tˈu hˈʌndɹəd twˈɛlv",
+   "gb": "ˌAtˈiːn tə tˈuː hˈʌndɹəd twˈɛlv"
+  },
+  {
+   "text": "Elizabeth II's reign was long.",
+   "us": "ðə sˈɛkəndz ɹˈAn",
+   "gb": "ðə sˈɛkᵊndz ɹˈAn"
+  },
+  {
+   "text": "Bring pens, paper, etc. Then go.",
+   "us": "ɛtsˈɛTəɹə. ðˈɛn",
+   "gb": "ɛtsˈɛtəɹə. ðˈɛn"
+  },
+  {
+   "text": "I met Payam yesterday.",
+   "us": "pæjˈɑm",
+   "gb": "pajˈɑːm"
+  },
+  {
+   "text": "Payman called this morning.",
+   "us": "pˌAmˈɑn",
+   "gb": "pˌAmˈɑːn"
+  },
+  {
+   "text": "Peyman Moaadi starred in the film.",
+   "us": "pˌAmˈɑn",
+   "gb": "pˌAmˈɑːn"
+  },
+  {
+   "text": "Ask Pejman about the trip.",
+   "us": "pˌɛʒmˈɑn",
+   "gb": "pˌɛʒmˈɑːn"
+  },
+  {
+   "text": "Dariush sang at the concert.",
+   "us": "dɑɹjˈuʃ",
+   "gb": "dɑːjˈuːʃ"
+  },
+  {
+   "text": "Shirin baked bread for us.",
+   "us": "ʃiɹˈin",
+   "gb": "ʃiːɹˈiːn"
+  },
+  {
+   "text": "Niloufar arrived late.",
+   "us": "nˌilufˈɑɹ",
+   "gb": "nˌiːluːfˈɑː"
+  },
+  {
+   "text": "The prophet Muḥammad was born in Mecca.",
+   "us": "mOhˈɑməd",
+   "gb": "mʊhˈɑːməd"
+  },
+  {
+   "text": "Khalid runs the shop.",
+   "us": "kˈɑlɪd",
+   "gb": "kˈɑːlɪd"
+  },
+  {
+   "text": "I spoke to Hassan.",
+   "us": "hˈɑsən",
+   "gb": "hˈɑːsən"
+  },
+  {
+   "text": "Mustafa Kemal founded the republic.",
+   "us": "mˌustəfˈɑ",
+   "gb": "mˌuːstəfˈɑː"
+  },
+  {
+   "text": "Ahmed is on call tonight.",
+   "us": "ˈɑhmɛd",
+   "gb": "ˈɑːhmɛd"
+  },
+  {
+   "text": "José plays guitar.",
+   "us": "hˌOsˈA",
+   "gb": "hˌQsˈA"
+  },
+  {
+   "text": "Juan Carlos was king.",
+   "us": "hwˈɑn",
+   "gb": "hwˈɑːn"
+  },
+  {
+   "text": "Jesús fixed the sink.",
+   "us": "hAsˈus",
+   "gb": "hAsˈuːs"
+  },
+  {
+   "text": "João lives in Lisbon.",
+   "us": "ʒuˈW",
+   "gb": "ʒuːˈW"
+  },
+  {
+   "text": "Maria will drive.",
+   "us": "məɹˈiə",
+   "gb": "məɹˈiːə"
+  },
+  {
+   "text": "Gabriel García Márquez wrote it.",
+   "us": "ɡˌɑbɹiˈɛl",
+   "gb": "ɡˌɑːbɹiˈɛl"
+  },
+  {
+   "text": "Rahul joined the team.",
+   "us": "ɹˈɑhʊl",
+   "gb": "ɹˈɑːhʊl"
+  },
+  {
+   "text": "Thanks, Deepak.",
+   "us": "dˈipək",
+   "gb": "dˈiːpək"
+  },
+  {
+   "text": "Professor Zhang gave the talk.",
+   "us": "ʤˈɑŋ",
+   "gb": "ʤˈɑːŋ"
+  },
+  {
+   "text": "Xiao is from Chengdu.",
+   "us": "ʃjˈW",
+   "gb": "ʃjˈW"
+  },
+  {
+   "text": "Thanh opened a bakery.",
+   "us": "tˈɑn",
+   "gb": "tˈɑːn"
+  },
+  {
+   "text": "Pierre took the train.",
+   "us": "pjˈɛɹ",
+   "gb": "pjˈɛː"
+  },
+  {
+   "text": "Hans and Greta went home.",
+   "us": "hˈɑns",
+   "gb": "hˈans"
+  },
+  {
+   "text": "Ivan read the report.",
+   "us": "ivˈɑn",
+   "gb": "ivˈɑːn"
+  },
+  {
+   "text": "Giuseppe Verdi wrote operas.",
+   "us": "ʤuzˈɛpA",
+   "gb": "ʤuzˈɛpA"
+  },
+  {
+   "text": "Tunde called from Lagos.",
+   "us": "tˈundA",
+   "gb": "tˈuːndA"
+  },
+  {
+   "text": "Reza made tea.",
+   "us": "ɹɛzˈɑ",
+   "gb": "ɹɛzˈɑː"
+  },
+  {
+   "text": "Mohammed is here.",
+   "us": "mOhˈæmɪd",
+   "gb": "mQhˈamɪd"
+  },
+  {
+   "text": "Pir Pagaro spoke.",
+   "us": "pˈɪɹ pɑɡ",
+   "gb": "pˈɪə",
+   "absent": "pˌiˌIˈɑɹ"
+  },
+  {
+   "text": "The PIR sensor fired.",
+   "us": "ðə pˌiˌIˈɑɹ",
+   "gb": "ðə pˌiːˌIˈɑː"
+  },
+  {
+   "text": "Gui left early.",
+   "us": "ɡˈi lˈɛft",
+   "gb": "ɡˈiː lˈɛft"
+  },
+  {
+   "text": "The GUI froze in a gui app.",
+   "us": "ðə ɡˈui fɹˈOz ɪn ɐ ɡˈui",
+   "gb": "ðə ɡˈuːi"
   }
  ],
  "chunk_cases": [
@@ -4859,6 +5329,85 @@
    ]
   },
   {
+   "text": "We're #1 again.",
+   "chunks": [
+    "We're #1 again."
+   ]
+  },
+  {
+   "text": "I write C# daily.",
+   "chunks": [
+    "I write C# daily."
+   ]
+  },
+  {
+   "text": "The # of items is low.",
+   "chunks": [
+    "The # of items is low."
+   ]
+  },
+  {
+   "text": "We need ~5 people.",
+   "chunks": [
+    "We need ~5 people."
+   ]
+  },
+  {
+   "text": "Dial #31# now.",
+   "chunks": [
+    "Dial #31# now."
+   ]
+  },
+  {
+   "text": "Now ~~$10~~ $8.",
+   "chunks": [
+    "Now $8."
+   ]
+  },
+  {
+   "text": "Press * then 2.",
+   "chunks": [
+    "Press * then 2."
+   ]
+  },
+  {
+   "text": "Press # to finish.",
+   "chunks": [
+    "Press # to finish."
+   ]
+  },
+  {
+   "text": "## Setup steps",
+   "chunks": [
+    "Setup steps."
+   ]
+  },
+  {
+   "text": "Follow #blessed on Instagram.",
+   "chunks": [
+    "Follow blessed on Instagram."
+   ]
+  },
+  {
+   "text": "Attn. Maria Lopez",
+   "chunks": [
+    "Attn. Maria Lopez"
+   ]
+  },
+  {
+   "text": "The barn was built ca. 1850. It still stands.",
+   "chunks": [
+    "The barn was built ca. 1850.",
+    "It still stands."
+   ]
+  },
+  {
+   "text": "She said no. 2 days later, she called.",
+   "chunks": [
+    "She said no. 2 days later, she called."
+   ]
+  },
+  {
    "text": "We hiked Mount St. Helens last year.",
    "chunks": [
     "We hiked Mount St. Helens last year."
@@ -4882,6 +5431,86 @@
    "chunks": [
     "I met the Gov.",
     "Yesterday he resigned."
+   ]
+  },
+  {
+   "text": "Det. Olivia Benson took the call.",
+   "chunks": [
+    "Det. Olivia Benson took the call."
+   ]
+  },
+  {
+   "text": "The Rt. Rev. Anne Hollis preached.",
+   "chunks": [
+    "The Rt. Rev. Anne Hollis preached."
+   ]
+  },
+  {
+   "text": "Sr. Mary Joseph taught us Latin.",
+   "chunks": [
+    "Sr. Mary Joseph taught us Latin."
+   ]
+  },
+  {
+   "text": "Lts. Kim and Park were decorated.",
+   "chunks": [
+    "Lts. Kim and Park were decorated."
+   ]
+  },
+  {
+   "text": "Fr. Brown solved the case.",
+   "chunks": [
+    "Fr. Brown solved the case."
+   ]
+  },
+  {
+   "text": "Mx. Taylor replied first.",
+   "chunks": [
+    "Mx. Taylor replied first."
+   ]
+  },
+  {
+   "text": "The Hon. Jane Doe presided.",
+   "chunks": [
+    "The Hon. Jane Doe presided."
+   ]
+  },
+  {
+   "text": "Brig. Gen. Chuck Yeager broke the sound barrier.",
+   "chunks": [
+    "Brig. Gen. Chuck Yeager broke the sound barrier."
+   ]
+  },
+  {
+   "text": "Msgr. James Kelly gave the homily.",
+   "chunks": [
+    "Msgr. James Kelly gave the homily."
+   ]
+  },
+  {
+   "text": "Drs. Smith and Jones agreed.",
+   "chunks": [
+    "Drs. Smith and Jones agreed."
+   ]
+  },
+  {
+   "text": "Insp. Morse drank real ale.",
+   "chunks": [
+    "Insp. Morse drank real ale."
+   ]
+  },
+  {
+   "text": "His father was Ken Griffey Sr. He played in Seattle.",
+   "chunks": [
+    "His father was Ken Griffey Sr.",
+    "He played in Seattle."
+   ]
+  },
+  {
+   "text": "We met the Det. Then we left.",
+   "chunks": [
+    "We met the Det.",
+    "Then we left."
    ]
   },
   {
@@ -4919,10 +5548,253 @@
    ]
   },
   {
+   "text": "She's 5 ft. 4 in. and fast.",
+   "chunks": [
+    "She's 5 ft. 4 in. and fast."
+   ]
+  },
+  {
+   "text": "He is 6 ft 2 in. He plays guard.",
+   "chunks": [
+    "He is 6 ft 2 in.",
+    "He plays guard."
+   ]
+  },
+  {
+   "text": "The room is 10 x 12 ft. It has a window.",
+   "chunks": [
+    "The room is 10 x 12 ft.",
+    "It has a window."
+   ]
+  },
+  {
    "text": "Who won? No. 1 seed Duke.",
    "chunks": [
     "Who won?",
     "No. 1 seed Duke."
+   ]
+  },
+  {
+   "text": "Call 416-555-0199 ext. 23 today. Ask for Sam.",
+   "chunks": [
+    "Call 416-555-0199 ext. 23 today.",
+    "Ask for Sam."
+   ]
+  },
+  {
+   "text": "Call 1.800.555.0199 for help. Ask for Sam.",
+   "chunks": [
+    "Call 1.800.555.0199 for help.",
+    "Ask for Sam."
+   ]
+  },
+  {
+   "text": "Call +44 (0)20 7946 0958 today. Ask for Sam.",
+   "chunks": [
+    "Call +44 (0)20 7946 0958 today.",
+    "Ask for Sam."
+   ]
+  },
+  {
+   "text": "Ring me on 07700 900 123. Text HOME to 741741 now.",
+   "chunks": [
+    "Ring me on 07700 900 123.",
+    "Text HOME to 741741 now."
+   ]
+  },
+  {
+   "text": "Call 416.555.0199 today. Dial x4567 for sales.",
+   "chunks": [
+    "Call 416.555.0199 today.",
+    "Dial x4567 for sales."
+   ]
+  },
+  {
+   "text": "Park on Elm St. Bring cash.",
+   "chunks": [
+    "Park on Elm St.",
+    "Bring cash."
+   ]
+  },
+  {
+   "text": "Walk down High St. Turn left at the bank.",
+   "chunks": [
+    "Walk down High St.",
+    "Turn left at the bank."
+   ]
+  },
+  {
+   "text": "We met on Baker St. Sherlock lived there.",
+   "chunks": [
+    "We met on Baker St.",
+    "Sherlock lived there."
+   ]
+  },
+  {
+   "text": "We hiked near Mount St. Helens yesterday.",
+   "chunks": [
+    "We hiked near Mount St. Helens yesterday."
+   ]
+  },
+  {
+   "text": "He lives at Port St. Lucie now.",
+   "chunks": [
+    "He lives at Port St. Lucie now."
+   ]
+  },
+  {
+   "text": "Send it to 12 Elm Rd. Suite 3, Austin.",
+   "chunks": [
+    "Send it to 12 Elm Rd. Suite 3, Austin."
+   ]
+  },
+  {
+   "text": "Ring Apt. 4B when you arrive.",
+   "chunks": [
+    "Ring Apt. 4B when you arrive."
+   ]
+  },
+  {
+   "text": "We stayed in Sault Ste. Marie last week.",
+   "chunks": [
+    "We stayed in Sault Ste. Marie last week."
+   ]
+  },
+  {
+   "text": "The White House is at 1600 Pennsylvania Ave. NW in Washington.",
+   "chunks": [
+    "The White House is at 1600 Pennsylvania Ave. NW in Washington."
+   ]
+  },
+  {
+   "text": "Turn left on Elm Rd. Then go straight.",
+   "chunks": [
+    "Turn left on Elm Rd.",
+    "Then go straight."
+   ]
+  },
+  {
+   "text": "The deal is worth £2.3bn. Visit www.google.com now.",
+   "chunks": [
+    "The deal is worth £2.3bn.",
+    "Visit www.google.com now."
+   ]
+  },
+  {
+   "text": "Use Python 3.10 now. Phase III trials begin.",
+   "chunks": [
+    "Use Python 3.10 now.",
+    "Phase III trials begin."
+   ]
+  },
+  {
+   "text": "See col. B in the tracker for owners.",
+   "chunks": [
+    "See col. B in the tracker for owners."
+   ]
+  },
+  {
+   "text": "Mgr: Tom, Asst. Mgr: Ana",
+   "chunks": [
+    "Mgr: Tom, Asst. Mgr: Ana"
+   ]
+  },
+  {
+   "text": "Fmr. Rep. Liz Cheney campaigned in Ripon, Wis., on Thursday.",
+   "chunks": [
+    "Fmr. Rep. Liz Cheney campaigned in Ripon, Wis., on Thursday."
+   ]
+  },
+  {
+   "text": "Dem. Rep. Jasmine Crockett (Texas) spoke at 3.",
+   "chunks": [
+    "Dem. Rep. Jasmine Crockett (Texas) spoke at 3."
+   ]
+  },
+  {
+   "text": "Kamala Harris picked Minn. Gov. Tim Walz as her running mate.",
+   "chunks": [
+    "Kamala Harris picked Minn. Gov. Tim Walz as her running mate."
+   ]
+  },
+  {
+   "text": "Ill. Gov. JB Pritzker called the raids illegal.",
+   "chunks": [
+    "Ill. Gov. JB Pritzker called the raids illegal."
+   ]
+  },
+  {
+   "text": "The Inflation Reduction Act (Pub. L. 117-169) passed in Aug. 2022.",
+   "chunks": [
+    "The Inflation Reduction Act (Pub. L. 117-169) passed in Aug. 2022."
+   ]
+  },
+  {
+   "text": "They sat 3 pts back after Wk. 9.",
+   "chunks": [
+    "They sat 3 pts back after Wk. 9."
+   ]
+  },
+  {
+   "text": "The hurricane made landfall near Ft. Myers at 3 a.m.",
+   "chunks": [
+    "The hurricane made landfall near Ft. Myers at 3 a.m."
+   ]
+  },
+  {
+   "text": "Ft. Sumter fell on April 13, 1861.",
+   "chunks": [
+    "Ft. Sumter fell on April 13, 1861."
+   ]
+  },
+  {
+   "text": "The Natl. Weather Service issued a warning.",
+   "chunks": [
+    "The Natl. Weather Service issued a warning."
+   ]
+  },
+  {
+   "text": "Supporters marched down Martin Luther King Jr. Dr. to the courthouse.",
+   "chunks": [
+    "Supporters marched down Martin Luther King Jr. Dr. to the courthouse."
+   ]
+  },
+  {
+   "text": "Agenda: I. Intro, II. Q3 results, III. Hiring.",
+   "chunks": [
+    "Agenda: I. Intro, II. Q3 results, III. Hiring."
+   ]
+  },
+  {
+   "text": "Old Town Road (feat. Billy Ray Cyrus) topped the chart.",
+   "chunks": [
+    "Old Town Road (feat. Billy Ray Cyrus) topped the chart."
+   ]
+  },
+  {
+   "text": "Despacito ft. Justin Bieber topped the charts.",
+   "chunks": [
+    "Despacito ft. Justin Bieber topped the charts."
+   ]
+  },
+  {
+   "text": "Ship it to the bar on N. Charles St. today.",
+   "chunks": [
+    "Ship it to the bar on N. Charles St. today."
+   ]
+  },
+  {
+   "text": "We met at the old Ft. Then we left.",
+   "chunks": [
+    "We met at the old Ft.",
+    "Then we left."
+   ]
+  },
+  {
+   "text": "He is John Smith Jr. Dr. Lee is his doctor.",
+   "chunks": [
+    "He is John Smith Jr.",
+    "Dr. Lee is his doctor."
    ]
   }
  ]

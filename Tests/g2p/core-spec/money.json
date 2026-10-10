@@ -1,0 +1,904 @@
+{
+ "area": "money",
+ "speech_cases": [
+  {
+   "text": "A sandwich is $4.99.",
+   "says": "A sandwich is four ninety-nine.",
+   "note": "Price style: dollars, then cents, no currency words. Today: 'four dollars and ninety-nine cents'."
+  },
+  {
+   "text": "Parking is $12.50, cash only.",
+   "says": "Parking is twelve fifty, cash only.",
+   "note": "Price style before a comma. Today: 'twelve dollars and fifty cents'."
+  },
+  {
+   "text": "Add a cookie for $4.05.",
+   "says": "Add a cookie for four oh five.",
+   "note": "Cents 01 to 09 read 'oh' and the digit. Today: 'four dollars and five cents'."
+  },
+  {
+   "text": "Subtotal: $23.47",
+   "says": "Subtotal: twenty-three forty-seven",
+   "note": "Receipt line with no final punctuation. Today: 'twenty-three dollars and forty-seven cents'."
+  },
+  {
+   "text": "Stamps are now $0.73 each.",
+   "says": "Stamps are now seventy-three cents each.",
+   "note": "Under a dollar: cents only. Works today."
+  },
+  {
+   "text": "Lunch was $4.00.",
+   "says": "Lunch was four dollars.",
+   "note": "Whole amounts keep 'dollars'. Works today."
+  },
+  {
+   "text": "The hardcover is $129.99.",
+   "says": "The hardcover is one hundred twenty-nine ninety-nine.",
+   "voice": "us",
+   "note": "Price style below 1,000. US only: British 'one hundred and twenty-nine' is the numbers area's call. Today: '… dollars and ninety-nine cents'."
+  },
+  {
+   "text": "The repair came to $200.75.",
+   "says": "The repair came to two hundred dollars and seventy-five cents.",
+   "note": "NEW RULE: whole hundreds with cents keep the full form, because price style would say 'two hundred seventy-five', which a listener hears as 275. Works today."
+  },
+  {
+   "text": "The laptop is $1,299.99 at launch.",
+   "says": "The laptop is one thousand two hundred ninety-nine dollars and ninety-nine cents at launch.",
+   "voice": "us",
+   "note": "1,000 or more with cents: full form (today's reading). US only because of the British 'and'."
+  },
+  {
+   "text": "A pint costs £4.99.",
+   "says": "A pint costs four pounds ninety-nine.",
+   "note": "Pounds and euros keep the currency word, with no 'and' and no 'pence'. Today: 'four pounds and ninety-nine pence'."
+  },
+  {
+   "text": "Milk is £1.05 now.",
+   "says": "Milk is one pound five now.",
+   "note": "Singular 'pound'; single-digit pence without 'oh'. Today: 'one pound and five pence'."
+  },
+  {
+   "text": "Crisps are £0.85 a bag.",
+   "says": "Crisps are eighty-five pence a bag.",
+   "note": "Pence only. Works today."
+  },
+  {
+   "text": "It sold for £2,500.75.",
+   "says": "It sold for two thousand five hundred pounds seventy-five.",
+   "note": "British style at any size: 'pounds' already marks where the pence start. Today: '… pounds and seventy-five pence'."
+  },
+  {
+   "text": "A coffee is €3.50 in Paris.",
+   "says": "A coffee is three euros fifty in Paris.",
+   "note": "Today: 'three euros and fifty cents'."
+  },
+  {
+   "text": "Entry is 5 € per person.",
+   "says": "Entry is five euros per person.",
+   "note": "Symbol after the number, spaced. Today 'euros' is lost."
+  },
+  {
+   "text": "The menu is 12,50 € tonight.",
+   "says": "The menu is twelve euros fifty tonight.",
+   "note": "Decimal comma: one comma and exactly two digits, only before a currency sign or code. Today: 'one thousand two hundred fifty', and 'euros' is lost."
+  },
+  {
+   "text": "A ticket is ¥1,200.",
+   "says": "A ticket is one thousand two hundred yen.",
+   "note": "Works today."
+  },
+  {
+   "text": "The app is $4.99 CAD.",
+   "says": "The app is four ninety-nine Canadian.",
+   "note": "Dollar price with cents, then a code: the country word follows the price. Today: 'four dollars and ninety-nine cents cad' (cad as in CAD software)."
+  },
+  {
+   "text": "Shipping is $15 CAD.",
+   "says": "Shipping is fifteen Canadian dollars.",
+   "note": "Whole dollar amount, then a code: the country word goes before 'dollars'. Today: 'fifteen dollars cad'."
+  },
+  {
+   "text": "The plan is $20 USD a month.",
+   "says": "The plan is twenty U S dollars a month.",
+   "note": "'U S' is written as two letters (no abbreviations in 'says'); see the review note on spacing. Today: 'twenty dollars U S D a month'."
+  },
+  {
+   "text": "It costs 100 CAD.",
+   "says": "It costs one hundred Canadian dollars.",
+   "note": "Bare number, then CAD: needs the price cue 'costs' (CAD is also software). See 'Module 3 CAD for beginners'. Today: 'one hundred cad'."
+  },
+  {
+   "text": "It costs CAD 100.",
+   "says": "It costs one hundred Canadian dollars.",
+   "note": "A code before a plain number needs a price cue ('costs'). See 'Take CAD 101 next term' and 'Wichita USD 259'. Today: 'cad one hundred'."
+  },
+  {
+   "text": "The fee is USD1,500.",
+   "says": "The fee is one thousand five hundred U S dollars.",
+   "note": "Code glued to a money-shaped number. Today: 'U S D one five zero zero'."
+  },
+  {
+   "text": "We paid 50 GBP for it.",
+   "says": "We paid fifty pounds for it.",
+   "note": "Bare number after the price cue 'paid', then a code, then 'for'. Today: 'fifty G B P'."
+  },
+  {
+   "text": "The total is €9.99 EUR.",
+   "says": "The total is nine euros ninety-nine.",
+   "note": "A code naming the same currency as the symbol is silent. Today: '… ninety-nine cents euro'."
+  },
+  {
+   "text": "Lunch was ¥80 CNY.",
+   "says": "Lunch was eighty yuan.",
+   "note": "The code says ¥ means yuan here, not yen. Today: 'eighty yen C N Y'."
+  },
+  {
+   "text": "The fare is CHF 4.50.",
+   "says": "The fare is four Swiss francs fifty.",
+   "note": "Money-shaped (two decimals), so no cue is needed. Non-dollar currencies put the cents after the name. Today: 'C H F four point five zero'."
+  },
+  {
+   "text": "Tacos are $50 MXN here.",
+   "says": "Tacos are fifty Mexican pesos here.",
+   "note": "$ is also the peso sign, so the code decides. 'here' must be in the list of words allowed after a code. Today: 'fifty dollars M X N'."
+  },
+  {
+   "text": "The round closed at $2.5M CAD.",
+   "says": "The round closed at two point five million Canadian dollars.",
+   "note": "Magnitude, then a code. Today: 'two point five million dollars cad'."
+  },
+  {
+   "text": "A coffee is C$4.99.",
+   "says": "A coffee is four ninety-nine Canadian.",
+   "note": "Today: 'C four point nine nine', with 'dollars' lost."
+  },
+  {
+   "text": "Dinner was CA$12.99.",
+   "says": "Dinner was twelve ninety-nine Canadian.",
+   "note": "Today: 'C A twelve point nine nine'."
+  },
+  {
+   "text": "They raised US$1.2bn.",
+   "says": "They raised one point two billion U S dollars.",
+   "note": "Today: 'U S one point two billion', with 'dollars' lost."
+  },
+  {
+   "text": "The fee is A$20.",
+   "says": "The fee is twenty Australian dollars.",
+   "note": "Today: 'a twenty' (A read as the article), with 'dollars' lost."
+  },
+  {
+   "text": "A pie is NZ$6.",
+   "says": "A pie is six New Zealand dollars.",
+   "note": "Today: 'N Z six'."
+  },
+  {
+   "text": "Dim sum was HK$80.",
+   "says": "Dim sum was eighty Hong Kong dollars.",
+   "note": "Today: 'H K eighty'."
+  },
+  {
+   "text": "Lunch was S$12.",
+   "says": "Lunch was twelve Singapore dollars.",
+   "note": "S$ counts only before a digit. See 'Use S$ for the string.' Today: 'S twelve'."
+  },
+  {
+   "text": "Tea was NT$60.",
+   "says": "Tea was sixty New Taiwan dollars.",
+   "note": "CHANGED from 'Taiwan dollars': NT$ is the New Taiwan dollar, so this spells out the currency's own name rather than guessing. Today: 'N T sixty'."
+  },
+  {
+   "text": "Tacos were MX$80.",
+   "says": "Tacos were eighty Mexican pesos.",
+   "note": "Today: 'M X eighty'."
+  },
+  {
+   "text": "A beer is R$15.",
+   "says": "A beer is fifteen reais.",
+   "note": "The stack reads 'reais' as ray-ICE, which is right. Today: 'R fifteen'."
+  },
+  {
+   "text": "A ticket is ₽500.",
+   "says": "A ticket is five hundred rubles.",
+   "note": "Today the currency is lost."
+  },
+  {
+   "text": "Entry was 500 ₽.",
+   "says": "Entry was five hundred rubles.",
+   "note": "Symbol after the number. Today both the currency and the full stop are lost."
+  },
+  {
+   "text": "Tea is ₺40.",
+   "says": "Tea is forty lira.",
+   "note": "Today the currency is lost (also for ₪ ₱ ฿ ₴)."
+  },
+  {
+   "text": "Falafel is ₪30.",
+   "says": "Falafel is thirty shekels."
+  },
+  {
+   "text": "Jeepney fare is ₱13.",
+   "says": "Jeepney fare is thirteen pesos."
+  },
+  {
+   "text": "Pho is ₫50,000.",
+   "says": "Pho is fifty thousand dong.",
+   "note": "Today: 'five zero zero zero zero'."
+  },
+  {
+   "text": "A ride is ₦5,000.",
+   "says": "A ride is five thousand naira.",
+   "note": "Today: 'five zero zero zero'."
+  },
+  {
+   "text": "A massage is ฿300.",
+   "says": "A massage is three hundred baht."
+  },
+  {
+   "text": "Borscht is ₴200.",
+   "says": "Borscht is two hundred hryvnias."
+  },
+  {
+   "text": "Coffee is ₡2,000.",
+   "says": "Coffee is two thousand colones.",
+   "note": "The stack reads the plain word 'colones' as 'colons' (kˈOlənz). It needs a custom lexicon entry (US kəlˈOnAs) before this case means anything. Today: 'two zero zero zero'."
+  },
+  {
+   "text": "He sent ₿0.25.",
+   "says": "He sent zero point two five bitcoin.",
+   "note": "Crypto amounts read as decimals; 'bitcoin' never takes an s. Today 'bitcoin' is lost."
+  },
+  {
+   "text": "Bread is 5 zł.",
+   "says": "Bread is five zlotys.",
+   "note": "Today 'zł' is misread as a stray word."
+  },
+  {
+   "text": "A beer is 60 kr.",
+   "says": "A beer is sixty kroner.",
+   "note": "'kroner' (Danish, Norwegian) and 'kronor' (Swedish) differ by one vowel and both mean crowns. The stack reads 'kroner' as 'krona' (kɹˈOnə), so it needs a lexicon entry. Today 'kr' is a stray sound."
+  },
+  {
+   "text": "The meal was R1,500.",
+   "says": "The meal was one thousand five hundred rand.",
+   "note": "R is rand only with a money-shaped number or a price verb before it. See 'The R100 airship' and 'Upgrade from R12 to R13'. Today: 'R one five zero zero'."
+  },
+  {
+   "text": "The fare is Fr. 20.",
+   "says": "The fare is twenty francs.",
+   "note": "'Fr.' before a number needs a price cue ('fare is') or a money-shaped number. See 'Compare Sappho Fr. 31'. Today: 'fr twenty'."
+  },
+  {
+   "text": "Chai is Rs. 20.",
+   "says": "Chai is twenty rupees.",
+   "note": "Also covers 'Rs 20' and 'Rs.20'. Today: 'R's twenty'."
+  },
+  {
+   "text": "The fee is ₹1,00,000.",
+   "says": "The fee is one lakh rupees.",
+   "note": "Indian grouping is read in lakh and crore. Today: 'one hundred thousand rupees'."
+  },
+  {
+   "text": "The car is ₹12,50,000.",
+   "says": "The car is twelve lakh fifty thousand rupees.",
+   "note": "Today: 'one million two hundred fifty thousand rupees'."
+  },
+  {
+   "text": "The flat costs Rs 50 lakh.",
+   "says": "The flat costs fifty lakh rupees.",
+   "note": "Spaced 'lakh' is a magnitude; the currency word follows it. Today: 'R's fifty lakh', with 'rupees' lost."
+  },
+  {
+   "text": "The plan costs ₹1.5 lakh crore.",
+   "says": "The plan costs one point five lakh crore rupees.",
+   "note": "Currency word after the whole magnitude chain. Today: 'one rupee and fifty paisa lakh crore'."
+  },
+  {
+   "text": "The film earned ₹2 crore.",
+   "says": "The film earned two crore rupees.",
+   "note": "Today: 'two rupees crore'."
+  },
+  {
+   "text": "Revenue hit $1.2B.",
+   "says": "Revenue hit one point two billion dollars.",
+   "note": "Sentence-final. Works today (since the fix3/reading merge)."
+  },
+  {
+   "text": "A $5MM deal fell through.",
+   "says": "A five million dollar deal fell through.",
+   "note": "MM = million. Attributive: singular 'dollar'. Today: 'five million dollars deal'."
+  },
+  {
+   "text": "She earns $50K a year.",
+   "says": "She earns fifty thousand dollars a year.",
+   "note": "Works today."
+  },
+  {
+   "text": "It cost £3bn.",
+   "says": "It cost three billion pounds.",
+   "note": "Works today."
+  },
+  {
+   "text": "It cost $500mn.",
+   "says": "It cost five hundred million dollars.",
+   "note": "Works today."
+  },
+  {
+   "text": "It cost €2.4m.",
+   "says": "It cost two point four million euros.",
+   "note": "A lowercase m right after a currency amount means million. Works today."
+  },
+  {
+   "text": "It cost $1.5 bn.",
+   "says": "It cost one point five billion dollars.",
+   "note": "Spaced 'bn'. Works today."
+  },
+  {
+   "text": "The city signed a $5-million contract.",
+   "says": "The city signed a five million dollar contract.",
+   "note": "Hyphenated magnitude (Canadian Press style), used before a noun. Today: 'five million dollars contract'."
+  },
+  {
+   "text": "It costs $9.99/mo.",
+   "says": "It costs nine ninety-nine a month.",
+   "note": "Today: 'nine dollars and ninety-nine cents per month'."
+  },
+  {
+   "text": "It pays $20/hr.",
+   "says": "It pays twenty dollars an hour.",
+   "note": "Time units take 'a' or 'an'. Today: 'twenty dollars per hour'."
+  },
+  {
+   "text": "Rent is $2,400/mo.",
+   "says": "Rent is two thousand four hundred dollars a month.",
+   "note": "Today 'per month'."
+  },
+  {
+   "text": "The job pays $90K/yr.",
+   "says": "The job pays ninety thousand dollars a year.",
+   "note": "Today 'per year'."
+  },
+  {
+   "text": "Support is $12/seat.",
+   "says": "Support is twelve dollars per seat.",
+   "note": "Non-time units take 'per'. Works today."
+  },
+  {
+   "text": "It costs $8/user/month.",
+   "says": "It costs eight dollars per user per month.",
+   "note": "With two or more slashes, every one reads 'per'. Today: 'per user month'."
+  },
+  {
+   "text": "It costs $10 per user per month.",
+   "says": "It costs ten dollars per user per month.",
+   "note": "Works today."
+  },
+  {
+   "text": "Apples are $1.99/lb.",
+   "says": "Apples are one ninety-nine per pound.",
+   "note": "Unit names are singular after 'per'. Today: 'one dollar and ninety-nine cents per pound'."
+  },
+  {
+   "text": "Power costs $0.15/kWh.",
+   "says": "Power costs fifteen cents per kilowatt hour.",
+   "note": "Today: 'zero point one five K W H'."
+  },
+  {
+   "text": "Gas is $1.65/L here.",
+   "says": "Gas is one sixty-five per liter here.",
+   "note": "Today: 'one point six five L'."
+  },
+  {
+   "text": "Offices rent at €300/m².",
+   "says": "Offices rent at three hundred euros per square meter.",
+   "note": "Real-estate rent. Today: 'three hundred M euros squared'."
+  },
+  {
+   "text": "Prices: $10/adult, $5/child.",
+   "says": "Prices: ten dollars per adult, five dollars per child.",
+   "note": "Today: 'ten adult dollars'."
+  },
+  {
+   "text": "Tickets cost $10–20.",
+   "says": "Tickets cost ten to twenty dollars.",
+   "note": "Currency word once, after the range. Today: 'ten dollars to twenty dollars'."
+  },
+  {
+   "text": "Tickets cost $10-$20.",
+   "says": "Tickets cost ten to twenty dollars.",
+   "note": "Today: 'ten dollars to twenty dollars'."
+  },
+  {
+   "text": "Tickets cost £5–£10.",
+   "says": "Tickets cost five to ten pounds.",
+   "note": "Today: 'five pounds to ten pounds'."
+  },
+  {
+   "text": "Expect to pay €20-30 a night.",
+   "says": "Expect to pay twenty to thirty euros a night.",
+   "note": "Today: 'twenty euros to thirty euros'."
+  },
+  {
+   "text": "Deals range from $4.99–$9.99.",
+   "says": "Deals range from four ninety-nine to nine ninety-nine.",
+   "note": "Price style on both ends, no currency word. Today: dollars and cents on both."
+  },
+  {
+   "text": "Mains are £4.99–£9.99.",
+   "says": "Mains are four pounds ninety-nine to nine pounds ninety-nine.",
+   "note": "British style keeps the currency word on both ends. Today: '… and ninety-nine pence' on both."
+  },
+  {
+   "text": "The round raised $5–10M.",
+   "says": "The round raised five to ten million dollars.",
+   "note": "A magnitude on the second number applies to both. Works today."
+  },
+  {
+   "text": "Salaries run $85K–$95K.",
+   "says": "Salaries run eighty-five to ninety-five thousand dollars.",
+   "note": "The same magnitude on both ends is said once, as in '$5–10M'. Works today."
+  },
+  {
+   "text": "Tickets cost $10 to $20.",
+   "says": "Tickets cost ten dollars to twenty dollars.",
+   "note": "A written 'to' reads as written. Works today."
+  },
+  {
+   "text": "The total is $20 - $5 = $15.",
+   "says": "The total is twenty dollars minus five dollars equals fifteen dollars.",
+   "note": "A spaced hyphen before '=' is a minus. Today the fix3 money range rule reads it 'to'."
+  },
+  {
+   "text": "Tickets are $20 - $25 at the door.",
+   "says": "Tickets are twenty to twenty-five dollars at the door.",
+   "note": "A spaced hyphen between two rising amounts, with no operator after, is a range. Today: 'twenty dollars to twenty-five dollars'."
+  },
+  {
+   "text": "The balance is -$4.99.",
+   "says": "The balance is minus four ninety-nine.",
+   "note": "Today: 'minus four dollars and ninety-nine cents'."
+  },
+  {
+   "text": "The change was −£20.",
+   "says": "The change was minus twenty pounds.",
+   "note": "Unicode minus sign. Works today."
+  },
+  {
+   "text": "It costs ~$5.",
+   "says": "It costs about five dollars.",
+   "note": "Today the tilde is an unknown sound."
+  },
+  {
+   "text": "It costs ≈$5.",
+   "says": "It costs approximately five dollars.",
+   "note": "Today: 'approximately five', with 'dollars' lost."
+  },
+  {
+   "text": "He handed me a $5 bill.",
+   "says": "He handed me a five dollar bill.",
+   "note": "Today: 'a five dollars bill'."
+  },
+  {
+   "text": "She had a £10 note.",
+   "says": "She had a ten pound note.",
+   "note": "Today: 'a ten pounds note'."
+  },
+  {
+   "text": "He paid in $20 bills.",
+   "says": "He paid in twenty dollar bills.",
+   "note": "Bills, notes and coins need no determiner. Today: 'twenty dollars bills'."
+  },
+  {
+   "text": "It's a $10-a-month plan.",
+   "says": "It's a ten dollar a month plan.",
+   "note": "Today: 'ten A month dollars plan'."
+  },
+  {
+   "text": "Pick the $20/month plan.",
+   "says": "Pick the twenty dollar a month plan.",
+   "note": "A per-unit price used before a noun. Today: 'twenty dollars per month plan'."
+  },
+  {
+   "text": "Our under-$50 gift guide is live.",
+   "says": "Our under fifty dollar gift guide is live.",
+   "note": "Today 'dollars' is lost after 'under-'."
+  },
+  {
+   "text": "The fine is up to $10,000.",
+   "says": "The fine is up to ten thousand dollars.",
+   "note": "Works today."
+  }
+ ],
+ "frozen_cases": [
+  {
+   "text": "Run echo $HOME to see your home folder.",
+   "note": "Shell variable."
+  },
+  {
+   "text": "Add the tools folder to your $PATH.",
+   "note": "Shell variable."
+  },
+  {
+   "text": "In awk, use $NF for the last field.",
+   "note": "A dollar sign before letters is never money."
+  },
+  {
+   "text": "Replace the match with $1 and $2.",
+   "note": "NEW. Regex backreferences already read 'one dollar and two dollars'; the money rules must not make them worse."
+  },
+  {
+   "text": "Lock the cell with $A$1.",
+   "note": "NEW. Spreadsheet absolute reference: '$1' after a letter is not money."
+  },
+  {
+   "text": "In Excel, type =A$1*2 to lock the row.",
+   "note": "NEW. Spreadsheet mixed reference: 'A$1' after '=' is not Australian dollars (the old prefix rule would have read 'one Australian dollar')."
+  },
+  {
+   "text": "Sum the range C$2:C$10.",
+   "note": "NEW. Spreadsheet range: 'C$2' before ':' is not Canadian dollars."
+  },
+  {
+   "text": "Set A$ to the user's name.",
+   "note": "NEW. BASIC string variable: A$ with no digit."
+  },
+  {
+   "text": "A$AP Rocky played two encores.",
+   "note": "'A$' before a letter. Today's reading is itself imperfect; frozen only as a guard. Re-freeze deliberately if a names entry lands."
+  },
+  {
+   "text": "Ke$ha released a new single.",
+   "note": "$ inside a word. Today's reading is imperfect; frozen only as a guard."
+  },
+  {
+   "text": "Win CA$H prizes every week.",
+   "note": "NEW. CA$ before a letter."
+  },
+  {
+   "text": "Some forums still call it M$ Office.",
+   "note": "$ after a letter, with no digit."
+  },
+  {
+   "text": "Use S$ for the string.",
+   "note": "S$ with no digit after it."
+  },
+  {
+   "text": "The US$ weakened again.",
+   "note": "US$ with no amount."
+  },
+  {
+   "text": "We use CAD software for every drawing.",
+   "note": "CAD as software: no amount nearby."
+  },
+  {
+   "text": "The team built 3 CAD models.",
+   "note": "Bare number, code, then a noun."
+  },
+  {
+   "text": "Module 3 CAD for beginners starts Monday.",
+   "note": "NEW. Bare number + CAD + 'for' with no price cue: a course, not money. The old code-after rule allowed 'for' and would have read 'three Canadian dollars for beginners'."
+  },
+  {
+   "text": "She sells $20 CAD templates online.",
+   "note": "NEW. Even after a symbol amount, a code followed by a noun is not money (the old rule applied any code after a symbol amount)."
+  },
+  {
+   "text": "Take CAD 101 next term.",
+   "note": "Course code: no price cue, not money-shaped. Today's 'cad one hundred one' is itself imperfect; frozen only as a guard."
+  },
+  {
+   "text": "Wichita USD 259 approved a new budget.",
+   "note": "NEW. Kansas school districts are named 'USD 259': a code before a plain number needs a price cue."
+  },
+  {
+   "text": "Target INR 2.0 to 3.0 on warfarin.",
+   "note": "NEW. INR is also a blood test: one decimal is not money-shaped, and two decimals don't count for INR either."
+  },
+  {
+   "text": "Admitted for CHF 2 weeks ago.",
+   "note": "NEW. CHF is also heart failure; 'for' is not a price cue."
+  },
+  {
+   "text": "Runway 27 ILS is closed.",
+   "note": "NEW. ILS is also the landing system. The old rule allowed 'is' after a code and would have read 'twenty-seven shekels'."
+  },
+  {
+   "text": "The USD/CAD pair fell overnight.",
+   "note": "Currency pair with no amount."
+  },
+  {
+   "text": "EUR/USD rose 0.3% today.",
+   "note": "Currency pair. The number belongs to the percent."
+  },
+  {
+   "text": "I opened 3 EUR/USD trades today.",
+   "note": "NEW. Bare number, then a pair: '/' before letters is not a per-unit price. The old rule took '/' as punctuation after a code."
+  },
+  {
+   "text": "The EUR fell against the dollar.",
+   "note": "Code with no amount."
+  },
+  {
+   "text": "We accept USD, EUR and GBP.",
+   "note": "Codes in a list, with no amounts."
+  },
+  {
+   "text": "PHP 8 is faster than PHP 7.",
+   "note": "PHP before a number is a version."
+  },
+  {
+   "text": "We hired 2 PHP developers.",
+   "note": "PHP after a number and followed by a noun."
+  },
+  {
+   "text": "The transfer was 0.5 BTC.",
+   "note": "MOVED from speech cases. BTC stays with the tech lexicon's letters ('B T C'), which is how crypto readers say it, so Core doesn't pick 'bitcoin'."
+  },
+  {
+   "text": "CNY 2025 falls in late January.",
+   "note": "CNY is also Chinese New Year; a year after it is never yuan."
+  },
+  {
+   "text": "Happy 2025 CNY to all our friends!",
+   "note": "NEW. Year + CNY + 'to' is Chinese New Year. The old code-after rule would have read 'twenty twenty-five yuan'."
+  },
+  {
+   "text": "TRY 3 TIMES BEFORE CALLING.",
+   "note": "Shouted 'try' (the Turkish lira code) before a number."
+  },
+  {
+   "text": "ALL 50 STATES SIGNED.",
+   "note": "ALL is the Albanian lek code."
+  },
+  {
+   "text": "TOP 10 TIPS FOR SAVING MONEY.",
+   "note": "TOP is the Tongan pa'anga code."
+  },
+  {
+   "text": "RUB 2 DROPS INTO YOUR PALMS.",
+   "note": "NEW. Shouted 'rub' (the ruble code) before a number with no price cue."
+  },
+  {
+   "text": "Euro 2024 starts in June.",
+   "note": "The football tournament."
+  },
+  {
+   "text": "UEFA EURO 2024 starts in June.",
+   "note": "NEW. EURO is not EUR + amount: the code must end at a word boundary."
+  },
+  {
+   "text": "The R100 airship crashed in 1930.",
+   "note": "R + digits with no separator and no price verb is a name."
+  },
+  {
+   "text": "R2-D2 beeped twice.",
+   "note": "R + digit inside a name."
+  },
+  {
+   "text": "Upgrade from R12 to R13 first.",
+   "note": "NEW. Software releases: 'from' and 'to' are not price cues (the old R cue list included 'from')."
+  },
+  {
+   "text": "We talked about R2 for an hour.",
+   "note": "NEW. 'about' is not a price cue (the old R cue list included 'about')."
+  },
+  {
+   "text": "Connect it with an RS-232 cable.",
+   "note": "NEW. RS in capitals, before a hyphen and digits, is a serial port, not rupees."
+  },
+  {
+   "text": "Compare Sappho Fr. 31 with Catullus 51.",
+   "note": "NEW. 'Fr.' is also 'fragment' in classics. Today's reading of 'Fr.' is itself imperfect; frozen only as a guard."
+  },
+  {
+   "text": "She ran a 5K on Sunday.",
+   "note": "K after a number with no currency is a race."
+  },
+  {
+   "text": "Use the MM/DD format.",
+   "note": "MM with no amount."
+  },
+  {
+   "text": "Groups of 10-20 people.",
+   "note": "A range with no currency keeps the existing range reading."
+  },
+  {
+   "text": "They won 3-2 in extra time.",
+   "note": "A score."
+  },
+  {
+   "text": "Limit 2 per user.",
+   "note": "'per' after a bare number."
+  },
+  {
+   "text": "We split it 50/50.",
+   "note": "NEW (replaces 'Rated 4.8/5', which reads badly today: 'four point eight five'). A slash after a bare number is not a per-unit price."
+  },
+  {
+   "text": "Open /user/settings to change it.",
+   "note": "A path."
+  },
+  {
+   "text": "The $5 can buy you lunch.",
+   "note": "NEW. 'can' is a verb here, so the attributive noun list must not include it."
+  },
+  {
+   "text": "Keep the $20 you found.",
+   "note": "NEW. Determiner + amount + pronoun stays plural."
+  },
+  {
+   "text": "Every $1 invested returns $4.",
+   "note": "NEW. Determiner + amount + participle stays as today ('one dollar invested')."
+  },
+  {
+   "text": "The net loss was ($50) in May.",
+   "note": "NEW. Accounting parentheses: Core reads 'fifty dollars'; the finance pack decides any change."
+  },
+  {
+   "text": "It's 99p at the shop.",
+   "note": "Pence written with 'p' keeps today's reading ('ninety-nine p'), which is how Britons say it."
+  },
+  {
+   "text": "It's 4.99 dollars online.",
+   "note": "NEW. A written currency word is not price style: only symbols and codes trigger it."
+  },
+  {
+   "text": "The S&P 500 rose 2% today.",
+   "note": "Index name with a number and no currency."
+  }
+ ],
+ "rules": [
+  {
+   "name": "Money pass (placement)",
+   "where": "Sources/Phonemizer/TextNormalizer.swift and Phonemizer.phonemize. fix3/reading (merged at b06b926) already added money rules at the top of TextNormalizer.rules: per-unit, range and scale, with the tables currencyWords, scaleWords and perUnits. Turn those into one money pass, called right after linkLabels/foldMicroSign and before custom.mark. Extend them; don't build a second MoneyReader beside them.",
+   "trigger": "One pass finds whole money expressions. Shape: an optional sign or approximation (- − ~ ≈), then a prefix (an X$ prefix, a symbol, an ISO code, Rs, Fr., kr or strict R) or no prefix, then AMOUNT, an optional MAGNITUDE, an optional range tail, an optional code after, and an optional per-unit chain. The suffix form is AMOUNT MAGNITUDE? + an optional space + (a suffix symbol, a code, kr, zł, Fr. or CHF). AMOUNT is one of: \\.\\d{2} | \\d{1,3}(,\\d{3})+(\\.\\d+)? | \\d+(\\.\\d+)? | Indian grouping (rule 11) | a decimal comma before a suffix currency (rule 17). Left boundary for a bare symbol: not after a letter, digit, '$' or '_', and a digit (or '.' + digit) must come next. That keeps $HOME, $NF, $A$1, Ke$ha and $$ out.",
+   "reads_as": "Plain words, plus digits the lexicon reads as cardinals. For example '$4.99 CAD' becomes '4 99 Canadian', '$4.05' becomes '4 oh 5', '£3bn' becomes '3 billion pounds' and '$1,299.99' becomes '1,299 dollars and 99 cents'. Rules 2 to 17 give the words.",
+   "risks": "It must run before custom.mark. Otherwise the tech lexicon has already marked CAD as 'cad', EUR as 'euro' and USD/GBP/JPY/SGD/PHP as letters, and its unit:true mm/ms/GB/MB entries can grab magnitude letters. The fix3 rules run after both mark and unshout, which is why '$4.99 CAD' still ends 'cad' today. It must also run before the '-$' minus rule, the units rule and the generic range rule. Keep a thousands separator on amounts of 1,000 or more: '1500 dollars' reads 'fifteen hundred' and '2024 dollars' 'twenty twenty-four' (checked). In a shouted sentence, inserted lower-case words ('dollars') stop unshout from lower-casing the rest, so output words in the case of the sentence around them. For US dollars, output 'U S' (two letters) or 'U.S.': 'US' reads jˌuˈɛs, but unshout can turn a shouted 'US' into 'us', and the isCountry check on shouted 'US' crashes today (see review notes)."
+  },
+  {
+   "name": "Price style for dollars",
+   "where": "The money pass. Mirror it in Lexicon.getNumber's '$' currency branch so amounts the pass misses read the same.",
+   "trigger": "A dollar-family amount ($, an X$ prefix, or a dollar code: USD CAD AUD NZD HKD SGD TWD). It needs exactly two decimals, no magnitude, dollars from 0 to 999, and dollars that are not a whole hundred (100, 200 … 900).",
+   "reads_as": "'<dollars> <cents>': '$4.99' is 'four ninety-nine', '$12.50' 'twelve fifty' and '$129.99' 'one hundred twenty-nine ninety-nine'. Cents 01 to 09 read 'oh <digit>' ('$4.05' is 'four oh five', '$1.01' 'one oh one'). Zero dollars read '<cents> cents' ('$0.73' and '$.73' are 'seventy-three cents'; '$0.01' is 'one cent'). Cents of .00, or no decimals, read '<n> dollars' or 'one dollar'. With a code or prefix, the country word goes after the price ('four ninety-nine Canadian'), before 'dollars' for whole amounts ('fifteen Canadian dollars') and after 'cents' for cents-only amounts ('ninety-nine cents Canadian'). A sign reads 'minus four ninety-nine'.",
+   "risks": "Whole hundreds are excluded because '$200.75' as price style is 'two hundred seventy-five', which a listener hears as $275. That is the same 'eight fifty' ($8.50 or $850) trap that makes speakers switch to the full form; those amounts go to rule 4. The rule applies to exactly two decimals only. Every $ amount with cents read today ('four dollars and ninety-nine cents') changes, which is intended."
+  },
+  {
+   "name": "British style for pounds, euros and every non-dollar currency",
+   "where": "The money pass, plus Lexicon.getNumber's currency branch for £ € ¥ ₹ ₩ and the new symbols.",
+   "trigger": "An amount with exactly two decimals in £, €, or any currency that isn't a dollar (symbol, code or word), at any size.",
+   "reads_as": "'<units> <unit word> <subunits>', with no 'and' and no subunit word: '£4.99' is 'four pounds ninety-nine'; '£1.05' 'one pound five' (01 to 09 read as the bare digit, with no 'oh'); '€3.50' 'three euros fifty'; 'CHF 4.50' 'four Swiss francs fifty'; '£2,500.75' 'two thousand five hundred pounds seventy-five'. The unit is singular when the units are 1. Under one unit, the existing subunit words stay: '£0.85' is 'eighty-five pence', '€0.80' 'eighty cents' and '₹0.50' 'fifty paise'. Whole amounts read '<n> <units>'.",
+   "risks": "Every £ and € amount read today ('… and ninety-nine pence/cents') changes, which is intended. '99p' is a separate written form and stays 'ninety-nine p'. Invariant units (yen, won, lira, baht, dong, naira, rand, bitcoin, lakh, crore) take no plural s: extend Lexicon.currencyPlurals."
+  },
+  {
+   "name": "Large and unusual amounts",
+   "where": "The money pass, and Lexicon.getNumber (Lexicon.isCurrency already rejects three or more decimals).",
+   "trigger": "(a) A dollar-family amount of 1,000 or more, or a whole hundred from 100 to 900, with non-zero cents. (b) One decimal digit with no magnitude ('$2.5'). (c) Three or more decimals ('$3.459'). (d) ₿ amounts. BTC is no longer here: it stays with the tech lexicon's letters.",
+   "reads_as": "(a) The full form, which is today's reading: '$1,299.99' is 'one thousand two hundred ninety-nine dollars and ninety-nine cents', and '$200.75' 'two hundred dollars and seventy-five cents'. (b) A decimal plus the currency: 'two point five dollars'. Today it is 'two dollars and five cents', which is wrong. (c) As a fallback only, 'three point four five nine dollars'. There is no speech test, because no reading is natural (see open questions). (d) A decimal plus 'bitcoin', which never takes a plural.",
+   "risks": "(b) When a spaced magnitude follows ('$2.5 million'), rule 10 wins. (c) Fuel prices are the main source. For £ and €, rule 3 stays clear at any size, because the currency word sits between the units and the subunits."
+  },
+  {
+   "name": "New currency symbols",
+   "where": "The money pass, plus Lexicon.currencies and currencyPlurals, and Tokenizer.currencySymbols, prefixChars and the '$' tag, so the G2P path never drops the currency. Add them to TextNormalizer's currencies class and currencyWords too.",
+   "trigger": "₽ ₺ ₪ ₱ ₫ ₦ ฿ ₴ ₡ ₿ directly before an amount (one optional space), or directly after one (one optional space) when end of text, a space or punctuation follows.",
+   "reads_as": "₽ rubles (ruble), ₺ lira, ₪ shekels (shekel), ₱ pesos (peso), ₫ dong, ₦ naira, ฿ baht, ₴ hryvnias (hryvnia), ₡ colones (colón), ₿ bitcoin. Whole amounts read '<n> <unit>'. Decimals follow rule 3, and ₿ follows rule 4. '₫50,000' is 'fifty thousand dong'; '500 ₽.' is 'five hundred rubles.' (keep the full stop).",
+   "risks": "฿ was sometimes used for bitcoin in older crypto text; Thai baht wins, since that is the character's Unicode name. The plain words 'colones' (read as 'colons') and 'kroner'/'kronor' (read as 'krona') need custom lexicon entries. The suffix form must not take the symbol when a letter follows it. Today '500 ₽.' loses both the currency and the full stop."
+  },
+  {
+   "name": "Word currencies: Rs, kr, zł, Fr., R (rand)",
+   "where": "The money pass.",
+   "trigger": "Rs: (?<![\\p{L}\\p{N}])Rs\\.?\\s?(?=\\d), case-sensitive, so capital 'RS-232' never matches. kr (lowercase): AMOUNT\\s?kr\\.?(?!\\p{L}) or kr\\.?\\s?AMOUNT. zł: AMOUNT\\s?zł(?!\\p{L}). Fr./SFr.: directly before or after an amount, AND either a price cue before it or a money-shaped amount ('Fr. 20.50', 'Fr. 20.–'). R (rand): (?<![\\p{L}\\p{N}$])R\\s?AMOUNT(?![\\p{L}\\-]), only if the amount is money-shaped (a comma or space thousands separator, exactly two decimals, or a magnitude: 'R1,500', 'R1 500', 'R2bn') OR a price cue is within the two words before. PRICE CUES, shared with rules 8 and 9: cost(s/ing), price(s/d), pay(s/ing), paid, fee(s), fare(s), worth, earn(s/ed), spend(s), spent, save(s/d), charge(s/d), total, subtotal, balance, deposit, budget, salary, rent, refund, owe(s/d), 'sold for', 'bought for', 'sells for'. A cue may be followed by is/was/of/':' and by about, around, roughly, only, just, nearly, almost, under, over or 'up to'. Bare prepositions and adverbs (for, at, from, about, around, under, over, only, just) are NOT cues on their own.",
+   "reads_as": "Rs reads rupees ('Rs. 20' is 'twenty rupees'; Indian grouping and lakh/crore apply). kr reads kroner, singular krone. zł reads zlotys, singular zloty. Fr. reads francs, and SFr. Swiss francs. R reads rand, which never takes a plural.",
+   "risks": "The previous cue list (for, at, from, about, around, under, over, only, just…) would have read 'Upgrade from R12 to R13' (AutoCAD and MATLAB releases) as 'twelve rand' and 'We talked about R2' as 'two rand'. The near-misses 'R100 airship', 'R2-D2' and road numbers (R702) stay because they aren't money-shaped. 'Fr.' is also 'fragment' in classics ('Sappho Fr. 31') and a title ('Fr. Brown'). Capital 'Kr' (krypton) isn't matched. A period after 'kr.' can be the full stop: keep it when the text ends or a capital follows."
+  },
+  {
+   "name": "Prefixed dollars",
+   "where": "The money pass.",
+   "trigger": "(US|C|CA|CAD|Can|A|AU|AUD|NZ|HK|S|SG|NT|MX|Mex|R)\\$ followed directly by a digit (or '.' + digit), case-sensitive. The prefix must start the text or follow whitespace or one of ( [ \" ' “ ‘ ~ ≈ - − – — /. Never after '=', ':', '$' or a letter or digit. The amount must not be followed by ':' or by a letter + digit (spreadsheet ranges).",
+   "reads_as": "Dollar-family readings (rules 2, 4 and 10) with a country word: US is 'U S'; C, CA, CAD and Can are 'Canadian'; A, AU and AUD 'Australian'; NZ 'New Zealand'; HK 'Hong Kong'; S and SG 'Singapore'; NT 'New Taiwan'. MX and Mex read 'Mexican pesos' and R$ reads 'reais'; both use British style for cents. 'C$5' is 'five Canadian dollars', 'C$4.99' 'four ninety-nine Canadian' and 'US$1.2bn' 'one point two billion U S dollars'.",
+   "risks": "Without the boundary, spreadsheet references would read as money: '=A$1*2' as 'one Australian dollar' and 'C$2:C$10' as 'two Canadian dollars'. '$A$1' is blocked by the '$' before the A. The digit lookahead keeps 'A$AP', 'Ke$ha', 'CA$H', BASIC 'A$'/'S$' and a bare 'US$' untouched. 'C$' is also the Nicaraguan córdoba; Canadian wins in English text."
+  },
+  {
+   "name": "ISO code after an amount",
+   "where": "The money pass. It has to see the code before custom.mark rewrites it.",
+   "trigger": "AMOUNT (with or without a symbol or magnitude), one optional space, then a code from USD CAD AUD NZD HKD SGD TWD EUR GBP JPY CNY RMB INR KRW CHF SEK NOK DKK MXN PHP BRL ZAR RUB TRY ILS PLN THB VND NGN UAH, then a word boundary. The code must be followed by end of text, by . , ; : ! ? ) ] \" ', or by one of these words: per, a, an, each, every, for, in, on, at, to, from, or, and, plus, with, without, including, excluding, only, net, gross, total, is, was, are, were, will, would, which, that, back, off, more, less, here, there, now, today, apiece, upfront, monthly, yearly, annually. A '/' or '-' counts only when a per-unit unit follows it. This applies after a symbol amount too. After a bare number, the codes that also mean other things (CAD, CHF, CNY, ILS, AUD, INR, PHP) also need a price cue (rule 6 list) before the number, or a money-shaped number (separator, two decimals or magnitude). BTC, ETH and CRC are never codes here.",
+   "reads_as": "If the symbol and the code name the same currency (£ GBP, € EUR, ¥ JPY, ₹ INR, ₩ KRW, ₽ RUB), the code is silent. $ with a dollar code gives the country word (USD 'U S', CAD 'Canadian', AUD 'Australian', NZD 'New Zealand', HKD 'Hong Kong', SGD 'Singapore', TWD 'New Taiwan'). $ with MXN or PHP reads 'Mexican pesos' or 'Philippine pesos'. ¥ with CNY or RMB reads 'yuan'. A bare number takes the code's name: EUR euros, GBP pounds, JPY yen, CNY/RMB yuan, INR rupees, KRW won, CHF Swiss francs, SEK Swedish kronor, NOK Norwegian kroner, DKK Danish kroner, MXN Mexican pesos, PHP Philippine pesos, BRL reais, ZAR rand, RUB rubles, TRY lira, ILS shekels, PLN zlotys, THB baht, VND dong, NGN naira, UAH hryvnias. If the symbol and code don't match ('£5 USD'), the code reads as it does today.",
+   "risks": "The previous version applied any code after a symbol amount and took '/', '-', 'for' and 'is' as allowed followers. That reads '$20 CAD templates' as 'twenty Canadian dollars templates', '3 EUR/USD trades' as 'three euros/USD trades', 'Module 3 CAD for beginners' as money, 'Runway 27 ILS is closed' as 'twenty-seven shekels' and 'Happy 2025 CNY to all' as yuan. All five are now frozen cases. Pairs with no amount ('USD/CAD') never match."
+  },
+  {
+   "name": "ISO code before an amount",
+   "where": "The money pass.",
+   "trigger": "A code, then an optional space or nothing, then AMOUNT. Codes: USD EUR GBP JPY CNY RMB INR AUD NZD CAD HKD SGD TWD CHF SEK NOK DKK MXN BRL ZAR KRW RUB PLN THB. It applies only when the amount is money-shaped (thousands separator, exactly two decimals, or a magnitude), or when a price cue (rule 6 list) is within the two words before the code. For INR, two decimals don't count as money-shaped. CNY never applies before a bare number from 1900 to 2099. PHP, TRY, ALL, TOP, BTC, ETH and CRC never apply. The code must end at a word boundary or a digit, so 'EURO 2024' is not EUR.",
+   "reads_as": "'<amount> <code name>', following the names in rule 8 and rules 2 to 4: 'CAD 100' after 'costs' is 'one hundred Canadian dollars'; 'USD1,500' 'one thousand five hundred U S dollars'; 'EUR1.2bn' 'one point two billion euros'; 'USD 4.99' 'four ninety-nine U S'.",
+   "risks": "The old trigger needed a cue only for CAD and CNY. That would have read 'Wichita USD 259' (Kansas school districts are named 'USD 259') as dollars, 'Target INR 2.0 to 3.0' (a blood test) as rupees, 'Admitted for CHF 2 weeks ago' (heart failure) as francs and 'RUB 2 DROPS' as rubles; 'Take CAD 101', 'CNY 2025' and 'PHP 8' must also stay. The cost is some misses: 'Convert USD 100 now' keeps today's reading."
+  },
+  {
+   "name": "Magnitudes",
+   "where": "Extend fix3's scale pattern and scaleWords in TextNormalizer to every prefix the money pass knows. Today the pattern covers glued k K m M b B T mm MM and spaced mn bn tn trn plus the words, after $ £ € ¥ ₹ ₩ only.",
+   "trigger": "Directly after any currency amount: a symbol, an X$ prefix, Rs, strict R, or a code before or after. Add: mln and bln (glued or spaced); hyphenated -thousand, -million, -billion and -trillion ('$5-million'); spaced lakh and crore, including chains ('lakh crore'); and a magnitude before a code after it ('$2.5M CAD'). A glued scale letter must not be followed by a letter, a digit or a superscript (² ³).",
+   "reads_as": "'<number> <magnitude words> <currency plural>', with the number read as written: '$2.5M' is 'two point five million dollars', '$5MM' 'five million dollars', '₹2 crore' 'two crore rupees', '₹1.5 lakh crore' 'one point five lakh crore rupees' and '$2.5M CAD' 'two point five million Canadian dollars'. Lakh and crore never take a plural. fix3 already reads '$1.2B.', '$500mn', '€2.4m', '$1.5 bn', '$50K' and '£3bn' correctly; those are regression guards now.",
+   "risks": "Never on bare numbers ('5K race', '2.5M users'). After a currency amount, a lowercase m or mm cannot mean metres or millimetres. Today fix3 reads '€12m²' as 'twelve million euros two' (the superscript is not excluded), '₹2 crore' as 'two rupees crore' and '₹1.5 lakh crore' as 'one rupee and fifty paisa lakh crore'."
+  },
+  {
+   "name": "Indian grouping",
+   "where": "The money pass.",
+   "trigger": "An amount matching \\d{1,2}(,\\d{2})+,\\d{3}(\\.\\d{1,2})? (at least one two-digit group), with ₹, Rs, Rs. or INR before it, or 'rupees' after it.",
+   "reads_as": "Lakh and crore: crore = n / 10^7, lakh = (n / 10^5) % 100, thousand = (n / 1000) % 100, rest = n % 1000. '₹1,00,000' is 'one lakh rupees'; '₹12,50,000' 'twelve lakh fifty thousand rupees'; '₹1,25,00,000' 'one crore twenty-five lakh rupees'.",
+   "risks": "Western grouping never has two-digit groups, so the two can't clash. Bare numbers in Indian grouping ('1,00,000 people') are the numbers area's call; today they read 'one hundred thousand'."
+  },
+  {
+   "name": "Per-unit prices",
+   "where": "Extend fix3's per-unit rule and its perUnits table in TextNormalizer.",
+   "trigger": "Right after a money expression: '/', ' / ' or ' per ', then a unit from a closed list. This can repeat. Time units: mo, mth, month, hr, hour, h, yr, year, annum, wk, week, day, night, min, minute, qtr, quarter. Other units: user, seat, person, head, adult, child, kid, guest, share, unit, item, piece, ticket, license, visit, session, page, word, mile, km, lb, kg, g, oz, gal, gallon, L, l, liter, litre, kWh, GB, MB, TB, m², sq ft, sqft. There is no open 'any lowercase word' slot.",
+   "reads_as": "A single time unit reads 'a' or 'an' + the singular: '$9.99/mo' is 'nine ninety-nine a month', '$20/hr' 'twenty dollars an hour', '$90K/yr' 'ninety thousand dollars a year'. Other units read 'per' + the singular full name: '$12/seat' 'twelve dollars per seat', '$1.99/lb' 'one ninety-nine per pound', '$0.15/kWh' 'fifteen cents per kilowatt hour', '€300/m²' 'three hundred euros per square meter'. With two or more denominators, or after a written 'per', every one reads 'per': '$8/user/month' is 'eight dollars per user per month'. Before a listed noun, the currency word is singular (rule 16).",
+   "risks": "Today fix3 reads every unit as 'per' and only the first slash ('$8/user/month' becomes 'per user month'). kWh, L, m², adult and child aren't in its table ('$0.15/kWh' becomes 'zero point one five K W H'). An open word slot would read '$5/free over $50' as 'five dollars per free'. '4.8/5', '50/50' and '/user/settings' have no money before them, so they are unaffected."
+  },
+  {
+   "name": "Money ranges",
+   "where": "Replace fix3's money range rule in TextNormalizer. It must come before the generic range rule.",
+   "trigger": "Money A, then an en dash (spaced or not) or a hyphen (spaced or not), then money B or a bare amount: '$10–20', '$10-$20', '$20 - $25', '£5–£10', '€20-30', '$5–10M', '$85K–$95K', '$4.99–$9.99'. B must be at least A once magnitudes are applied, the currencies must match, and no operator may follow (TextNormalizer.isSum).",
+   "reads_as": "'<A> to <B> <currency>', with the currency word said once at the end ('ten to twenty dollars', 'five to ten pounds'). A magnitude written only on B is shared ('$5–10M' is 'five to ten million dollars'). The same magnitude on both ends is said once ('$85K–$95K' is 'eighty-five to ninety-five thousand dollars', as today). Different magnitudes are both read ('$500K–$1M' is 'five hundred thousand to one million dollars'). Price-style amounts carry no currency word ('four ninety-nine to nine ninety-nine'). British-style amounts keep it on both ends ('four pounds ninety-nine to nine pounds ninety-nine'). With an operator after ('$20 - $5 = $15'), the hyphen reads 'minus'.",
+   "risks": "fix3's rule has no isSum check and no order check, so today '$20 - $5 = $15' reads 'twenty dollars to five dollars equals fifteen dollars', and a falling pair reads 'to'. A falling pair with no operator should stay as written. A written 'to' ('$10 to $20') reads as written. Today fix3 reads '$10-$20' as 'ten dollars to twenty dollars'."
+  },
+  {
+   "name": "Negative amounts",
+   "where": "TextNormalizer.rules: the existing '-$' rule (?<![\\p{L}\\d])-(?=[$£€¥₹₩]\\d) and the U+2212 rule's lookahead [$£€¥₹₩]?. Or the money pass, if it takes over the sign.",
+   "trigger": "A hyphen, U+2212 or another dash form, not after a letter or digit, directly before any currency symbol, an X$ prefix or Rs, which is then followed by a digit. Extend the character class with ₽ ₺ ₪ ₱ ₫ ₦ ฿ ₴ ₡ ₿ and the prefixes.",
+   "reads_as": "'minus ' + the amount: '-$4.99' is 'minus four ninety-nine', '−£20' 'minus twenty pounds', '-C$5' 'minus five Canadian dollars'.",
+   "risks": "Accounting parentheses ('($50)') stay 'fifty dollars' (frozen); that belongs to the finance pack. A hyphen after a letter ('under-$50') is not a minus. An en dash after a word ('fell to –$5') is handled by the en-dash rule and must keep working with the new symbols."
+  },
+  {
+   "name": "Approximate amounts",
+   "where": "The money pass.",
+   "trigger": "'~' or '≈' directly before a money expression (one optional space), not after a letter, digit, '/' or '~'.",
+   "reads_as": "'~' reads 'about' and '≈' 'approximately': '~$5' is 'about five dollars' and '≈$5' 'approximately five dollars'. Today '~' is an unknown sound, and '≈$5' reads 'approximately five' with 'dollars' lost.",
+   "risks": "'~/Documents' and '~user' have no amount. A bare '~5' is the numbers area's call; use the same word for '~' there."
+  },
+  {
+   "name": "Attributive singular",
+   "where": "The money pass.",
+   "trigger": "(a) A determiner (a, an, the, this, that, these, those, each, every, another, its, their, our, your, his, her, my, or a number word from one to ten), then a whole or magnitude amount with no cents, then a noun from a closed list, singular or plural: bill, note, coin, fee, fine, charge, surcharge, deposit, refund, rebate, discount, credit, voucher, coupon, gift, card, prize, bonus, tip, raise, bet, budget, deal, loan, payment, donation, grant, investment, contract, settlement, fund, check, cheque, ticket, purchase, order, increase, cut, hole, shortfall, deficit, surplus, package, bailout, valuation, round, offer, bid, tax, levy, subsidy, salary, stipend, plan, subscription, tier. (b) bills, notes or coins with no determiner ('in $20 bills'). (c) The same with a per-unit or '-a-month' compound between the amount and the noun ('a $10-a-month plan', 'the $20/month plan'). (d) A hyphenated 'under-', 'over-' or 'sub-' before the amount ('our under-$50 gift guide').",
+   "reads_as": "The currency word becomes singular: 'a $5 bill' is 'a five dollar bill', 'a £10 note' 'a ten pound note', 'in $20 bills' 'in twenty dollar bills', 'a $5MM deal' 'a five million dollar deal', 'a $5-million contract' 'a five million dollar contract', 'a $10-a-month plan' 'a ten dollar a month plan', 'the $20/month plan' 'the twenty dollar a month plan', 'under-$50 gift guide' 'under fifty dollar gift guide'. Invariant units don't change.",
+   "risks": "Leave verb homographs out of the list: can, will, may, must, left, owed and so on. 'The $5 can buy you lunch' must stay plural (frozen). A pronoun or participle after the amount keeps it plural ('Keep the $20 you found', 'Every $1 invested'; both frozen). Price-style amounts have no currency word to change ('a $4.99 coffee'). Today 'under-$50' also loses 'dollars' entirely."
+  },
+  {
+   "name": "Suffix currency and decimal comma",
+   "where": "The money pass.",
+   "trigger": "A suffix currency sign or word (€ and the new symbols, kr, zł, Fr., CHF, or an ISO code) after an amount, glued or spaced. Inside that construction, an amount matching ^\\d+,\\d{2}$ (one comma, then exactly two digits) is a decimal.",
+   "reads_as": "'5 €' and '5€' are 'five euros'; '12,50 €' 'twelve euros fifty'; '19,99 zł' 'nineteen zlotys ninety-nine'; '500 ₽.' 'five hundred rubles.'",
+   "risks": "English thousands groups always have three digits, so ',dd' can't clash. European dot grouping ('1.000 kr') is deliberately not handled, because fuel prices are written '1.659 €/l' with three decimals. Without a currency after it, '4,99' keeps today's reading. Today '5 €' drops 'euros' and '12,50 €' reads 'one thousand two hundred fifty'."
+  }
+ ],
+ "open_questions": [
+  "Dollar prices of 1,000 or more with cents, and whole hundreds with cents: should '$1,299.99' and '$200.75' use the full form ('one thousand two hundred ninety-nine dollars and ninety-nine cents', 'two hundred dollars and seventy-five cents'), which is today's reading? Recommended: yes. Price style ('two hundred seventy-five') sounds like a different number ($275), and people switch to the full form when a short price could be misheard. Pounds and euros keep 'four pounds ninety-nine' at any size, because the currency word marks the split.",
+  "British voice reading a dollar price: 'four ninety-nine' (same as the US voice) or 'four dollars ninety-nine'? Recommended: 'four ninety-nine' for both voices. The style follows the currency, not the voice.",
+  "Indian digit grouping: should '₹1,00,000' be 'one lakh rupees' or 'one hundred thousand rupees'? Recommended: 'one lakh'. Also decide whether plain numbers in that grouping ('1,00,000 people') get lakh too; that is the numbers area's call, and the recommendation is yes.",
+  "'kr' doesn't say which country. Read it 'kroner' (Danish, Norwegian) or 'kronor' (Swedish)? Recommended: 'kroner'. The two words differ by one vowel and mean the same thing; text that names the country uses SEK, NOK or DKK, which are read exactly.",
+  "Short or full names: GBP as 'pounds', BRL/R$ as 'reais', INR as 'rupees'. NT$/TWD changed to 'New Taiwan dollars', because NT is the currency's own name. Recommended: short names everywhere else, and a country word only where the unit name is shared (dollars, pesos, francs, kronor, kroner).",
+  "Single-digit pence: '£1.05' as 'one pound five' or 'one pound oh five'? Recommended: 'one pound five'. The 'oh' belongs to dollar price style ('four oh five').",
+  "Amounts used before a noun: should 'a $5 bill', 'in $20 bills', 'a $10-a-month plan' and 'our under-$50 gift guide' use a singular 'dollar'? Recommended: yes, limited to a fixed noun list with no verb lookalikes, so that 'The $5 can buy you lunch' stays plural.",
+  "A dollar amount with one decimal and no magnitude ('$2.5'): 'two point five dollars' (as written) or 'two fifty' (assuming 50 cents)? Recommended: 'two point five dollars', which never guesses. Today it is 'two dollars and five cents', which is wrong.",
+  "Three-decimal prices, mostly fuel ('$3.459 a gallon'): there's no single natural reading ('three forty-five and nine tenths', 'three forty-six', 'three point four five nine dollars'). Recommended: 'three point four five nine dollars' as a fallback (today drops 'dollars'), with no speech test. The case was removed as ambiguous.",
+  "BTC after an amount: the tech lexicon's letters ('zero point five B T C') or 'bitcoin'? Recommended: keep the letters (now a frozen case), since crypto readers say both. ₿ has no letters to read, so it says 'bitcoin'.",
+  "Per-unit wording: fix3 reads every unit as 'per' ('twenty dollars per hour'). The brief's '$9.99/mo → nine ninety-nine a month' changes time units to 'a'/'an' ('an hour', 'a month', 'a night') and keeps 'per' for everything else ('per pound', 'per seat'). Confirm that change.",
+  "A spaced hyphen between two amounts ('Tickets are $20 - $25 at the door'): today fix3 already reads 'to'. Recommended: read it as a range ('twenty to twenty-five dollars') when the amounts rise and no operator follows, and as 'minus' when an operator follows ('$20 - $5 = $15'). The previous recommendation to leave it alone assumed a reading that today's build no longer gives.",
+  "'~' before money: 'about' or 'approximately'? '≈' already reads 'approximately'. Recommended: 'about' for '~'. The numbers area should use the same word for a bare '~5'.",
+  "'$1' in code ('awk {print $1}') reads 'one dollar' today. Recommended: out of scope for Core money. It belongs to the tech pack; the money rules only promise not to make it worse (frozen case 'Replace the match with $1 and $2.')."
+ ],
+ "review_notes": [
+  "CRASH, outside money but found while testing it: the app traps (exit 133, both voices) on any shouted 'US' that follows a character other than a letter, a space or the listed punctuation. Repros: 'TOP 10 US CITIES.', 'ALL 50 US STATES.', 'GET 50 US DOLLARS TODAY.', 'SAVE 20% US WIDE.', 'THEM, US AND YOU.'. Cause: Sources/Phonemizer/Phonemizer.swift:163 in isCountry. When s[j] is not a letter, the loop leaves k == j, so s[(k + 1)...j] is an invalid range. A guard such as `guard k < j else { return false }` would fix it. The bug came in with 52f33ff (fix3/reading). Add 'TOP 10 US CITIES.' as a frozen case only after the fix, because today it would crash the harness. The money pass makes this more likely: a shouted 'SAVE $50 USD' could emit 'US'.",
+  "The ground moved under the set. fix3/reading was merged at b06b926 (14:59) and added money per-unit, range and scale rules to TextNormalizer. I re-measured every case on that build and rewrote every 'Today:' note from real output. Several old notes were wrong: '$1.2B.', '$500mn', '€2.4m', '$1.5 bn', '$50K', '£3bn', '$5–10M', '$85K–$95K' and '$12/seat' already pass. '$20/hr' reads 'twenty dollars per hour', not 'M R'. '$10-$20' reads 'ten dollars to twenty dollars', not 'ten twenty'. '₹1.5 lakh crore' gives 'fifty paisa', not 'five paisa'. On this build 14 of 102 US cases and 14 of 100 GB cases pass (19 and 18 ignoring spaces). In the real harness (--speech-test on a scratch copy), 28 of 202 speech checks pass and all 118 frozen readings are stable.",
+  "Removed as ambiguous: 'Gas hit $3.459 a gallon.' (nobody says 'three point four five nine dollars'; see open questions). Moved to frozen: 'The transfer was 0.5 BTC.' ('B T C' is a fine reading), and BTC is dropped from the code rules. Changed: NT$ now reads 'New Taiwan dollars'. Corrected the spaced-hyphen recommendation, which assumed a reading today's build no longer gives.",
+  "New rule exception: dollar amounts that are a whole hundred with cents ('$200.75') keep the full form, because price style ('two hundred seventy-five') sounds like $275. Added a case for it, which already passes today. Rule 2 now excludes these amounts and rule 4(a) includes them.",
+  "Tightened triggers. Each change has a frozen near-miss that the old wording would have rewritten. R and Fr.: bare prepositions are no longer price cues (would have hit 'Upgrade from R12 to R13', 'We talked about R2', 'Sappho Fr. 31'). X$ prefixes: left boundary and no ':' after (would have hit '=A$1*2', 'C$2:C$10'). Code after an amount: the follow-word condition now applies after symbol amounts too, '/' and '-' count only before a unit, and CAD/CHF/CNY/ILS/AUD/INR/PHP after a bare number need a cue (would have hit '$20 CAD templates', '3 EUR/USD trades', 'Module 3 CAD for beginners', 'Runway 27 ILS is closed', 'Happy 2025 CNY to all'). Code before an amount: every code needs money shape or a cue (would have hit 'Wichita USD 259', 'Target INR 2.0', 'Admitted for CHF 2 weeks ago', 'RUB 2 DROPS'). Per-unit: a closed unit list, not 'any lowercase word' (would have hit '$5/free'). Attributive: no verb lookalikes ('The $5 can buy you lunch').",
+  "26 new frozen cases. Spreadsheet references: '$A$1', '=A$1*2', 'C$2:C$10'. Code-like: 'Set A$', 'CA$H', regex '$1 and $2'. Codes: 'Module 3 CAD', '$20 CAD templates', 'Wichita USD 259', 'Target INR', 'Admitted for CHF', 'Runway 27 ILS', '3 EUR/USD trades', 'Happy 2025 CNY', 'UEFA EURO 2024', 'RUB 2 DROPS'. R and Fr.: 'R12 to R13', 'about R2', 'RS-232', 'Sappho Fr. 31'. Plurals: 'The $5 can', 'Keep the $20 you found', 'Every $1 invested'. Others: accounting '($50)', '4.99 dollars', '50/50', '0.5 BTC'. I dropped six weak or duplicate frozen cases ('4K', 'M5', '2.5 points', 'Chapter 11', 'listed in USD', and 'Rated 4.8/5', which reads badly today as 'four point eight five'). Total: 59 frozen.",
+  "Added real-world positives: a receipt 'Subtotal: $23.47'; '$200.75'; '£2,500.75'; '€9.99 EUR' (silent code); '$2.5M CAD'; 'CA$12.99'; 'HK$80'; '500 ₽.'; '₹2 crore'; 'Rs 50 lakh'; '$5-million contract'; '$2,400/mo'; '$0.15/kWh'; '$1.65/L'; '€300/m²'; '$10/adult, $5/child'; '€20-30 a night'; '£4.99–£9.99'; '$85K–$95K'; '$20 - $5 = $15'; '$20 - $25 at the door'; 'in $20 bills'; '$10-a-month plan'; '$20/month plan'; 'under-$50 gift guide'.",
+  "Bugs in today's fix3 rules, now covered by cases: the range rule has no isSum or order check ('$20 - $5 = $15' reads 'to'). Per-unit reads only the first slash and its table lacks kWh, L, m², adult and child. The scale rule reads '€12m²' as 'twelve million euros two' and '€300/m²' as 'three hundred M euros squared'. '₹2 crore' reads 'two rupees crore'. Placement: the fix3 money rules run after custom.mark and unshout, so extending them where they are will not fix any code case ('$4.99 CAD' still ends 'cad'). The money pass has to move before mark.",
+  "Count: 102 speech cases, above the 40–80 aim. 17 of them are regression guards that already pass and can be dropped if the set is too long. I removed 14 redundant ones ('$.99', '$18.00', '€0.50', '₩10,000', 'AU$1,200', '$2.5M last year', '$4.5 billion', 'Grab 2 for $5', 'Was £12', '1,000 USD', 'Save $5', '$1.01', '$95/night', '99¢'). No duplicates with the money cases in Tests/g2p/core-readings.json.",
+  "Harness spacing (checked): SpeechTest.loose keeps word spaces, so a hyphenated number word ('ninety-nine', one word) never matches digits ('99', two words). Every 'says' with a compound number fails even when the audio is the same. Ignoring spaces, all of 21–99 match in the US voice. In the GB voice only 'ninety-nine' differs: Vendor/g2p/gb_gold.json reads it nˌIntɪnˈIn, but '99' reads nˈInti nˈIn. Recommendation: have loose() drop all whitespace, and drop or fix that gold entry. 'U S' (jˈu ˈɛs) against 'US' (jˌuˈɛs) also matches only once spaces are ignored.",
+  "Every 'says' was run through --phonemize in both voices and the hard rules were checked by script (no digits, symbols, abbreviations or Roman numerals; only the money span differs from 'text'). Two plain words are misread by the stack: 'colones' as 'colons' and 'kroner' as 'krona'; both need lexicon entries. These are correct in both voices: reais (ray-ICE), hryvnias, zlotys, lakh, crore, rubles, shekels, lira, naira, baht, dong, yuan, bitcoin, Canadian, Australian, New Zealand, Hong Kong, Singapore, New Taiwan, Mexican pesos, Swiss francs, rand, kilowatt hour, liter, square meter.",
+  "Frozen cases whose current reading is itself imperfect, frozen only as guards (re-freeze deliberately if another area fixes them): 'A$AP Rocky', 'Ke$ha', 'Compare Sappho Fr. 31' ('fr'), 'Take CAD 101' ('cad one hundred one').",
+  "Scratch files (no repo file was edited): .../scratchpad/money-review/money-reviewed.json (cases with notes), money-harness.json (harness format, frozen phonemes filled by --freeze), cases.py, check.py, run3.txt (per-case today and says phonemes, both voices).",
+  "Sources for the 'full form when ambiguous' proposal: italki thread on 'eight fifty' meaning $8.50 or $850 (https://italki.com/vi/post/question-303411); Cambridge Dictionary blog 'Three for a quid' (https://dictionaryblog.cambridge.org/2015/03/11/three-for-a-quid-talking-about-money/); nVoq dictation guide on saying 'dollars' and 'cents' for accuracy (https://support.nvoq.com/v1/docs/numbers-dollars-cents)."
+ ]
+}

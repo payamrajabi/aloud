@@ -1,0 +1,741 @@
+{
+ "area": "Phone numbers, extensions, emergency and service short codes, SMS short codes and keypad keys (ISBNs parked: see open question 8)",
+ "speech_cases": [
+  {
+   "text": "Call (416) 555-0199 today.",
+   "says": "Call four one six, five five five, oh one nine nine today.",
+   "note": "Area code in brackets. Each digit is said on its own, 0 is 'oh', and groups are separated by a pause."
+  },
+  {
+   "text": "Call 416-555-0199 today.",
+   "says": "Call four one six, five five five, oh one nine nine today.",
+   "note": "Today: 'four hundred sixteen five fifty-five one ninety-nine'."
+  },
+  {
+   "text": "Call 416.555.0199 today.",
+   "says": "Call four one six, five five five, oh one nine nine today.",
+   "note": "Dots separate the groups. Never read them as 'point' or 'dot'."
+  },
+  {
+   "text": "Call 416 555 0199 today.",
+   "says": "Call four one six, five five five, oh one nine nine today.",
+   "note": "All spaces, so it needs the cue 'Call'."
+  },
+  {
+   "text": "Call 416 555-0199 today.",
+   "says": "Call four one six, five five five, oh one nine nine today.",
+   "note": "A space then a hyphen, which is common. It counts as the spaced form, so it needs a cue."
+  },
+  {
+   "text": "Call (416)555-0199 today.",
+   "says": "Call four one six, five five five, oh one nine nine today.",
+   "note": "No space after the bracket."
+  },
+  {
+   "text": "Our number is 212-555-0147.",
+   "says": "Our number is two one two, five five five, oh one four seven.",
+   "note": "At the end of a sentence. This was 212-555-0100, but a round line number is often said 'oh one hundred', so that reading was ambiguous (open question 6)."
+  },
+  {
+   "text": "Customer service: 800-555-0199.",
+   "says": "Customer service: eight hundred, five five five, oh one nine nine.",
+   "note": "The toll-free area code 800 is said 'eight hundred'."
+  },
+  {
+   "text": "Call 1-800-555-0199 ext. 23 today.",
+   "says": "Call one eight hundred, five five five, oh one nine nine, extension twenty-three today.",
+   "note": "The case from the brief. Today 'ext' is read 'ekst'."
+  },
+  {
+   "text": "Call 1 (800) 555-0199 for help.",
+   "says": "Call one eight hundred, five five five, oh one nine nine for help."
+  },
+  {
+   "text": "Call 1.800.555.0199 for help.",
+   "says": "Call one eight hundred, five five five, oh one nine nine for help.",
+   "note": "Dotted, with the leading 1."
+  },
+  {
+   "text": "Call our help line at 1 800 555 0199.",
+   "says": "Call our help line at one eight hundred, five five five, oh one nine nine.",
+   "note": "All spaces, with the leading 1."
+  },
+  {
+   "text": "Call 1-888-555-0123 for help.",
+   "says": "Call one eight eight eight, five five five, oh one two three for help.",
+   "note": "Only area codes of the form N00 say 'hundred'. 888 is read digit by digit (open question 1)."
+  },
+  {
+   "text": "Call 1-900-555-0147 to vote.",
+   "says": "Call one nine hundred, five five five, oh one four seven to vote.",
+   "note": "This was 555-0110, but 'one one' invites a British 'double one'."
+  },
+  {
+   "text": "Call +1 416 555 0199 today.",
+   "says": "Call plus one, four one six, five five five, oh one nine nine today.",
+   "note": "The tech lexicon's exact key '+1' must not split the number. On today's build it does: 'plus one four hundred sixteen…'."
+  },
+  {
+   "text": "Call +1-416-555-0199 today.",
+   "says": "Call plus one, four one six, five five five, oh one nine nine today.",
+   "note": "A hyphen after +1, as many websites print it."
+  },
+  {
+   "text": "Call 1-416-555-0199 from abroad.",
+   "says": "Call one four one six, five five five, oh one nine nine from abroad."
+  },
+  {
+   "text": "Call +14165550199 today.",
+   "says": "Call plus one, four one six, five five five, oh one nine nine today.",
+   "note": "Compact E.164, the way phones store numbers. Today only the 0 is wrong ('zero')."
+  },
+  {
+   "text": "Call our office (416-555-0199) today.",
+   "says": "Call our office (four one six, five five five, oh one nine nine) today.",
+   "note": "Inside parentheses."
+  },
+  {
+   "text": "Call 416-555-0199, then press 2.",
+   "says": "Call four one six, five five five, oh one nine nine, then press two.",
+   "note": "Before a comma."
+  },
+  {
+   "text": "Call 416-555-0199 or 416-555-0142.",
+   "says": "Call four one six, five five five, oh one nine nine or four one six, five five five, oh one four two.",
+   "note": "Two numbers in one sentence."
+  },
+  {
+   "text": "Call 416–555–0199 today.",
+   "says": "Call four one six, five five five, oh one nine nine today.",
+   "note": "En dashes as separators."
+  },
+  {
+   "text": "Call 416‑555‑0199 today.",
+   "says": "Call four one six, five five five, oh one nine nine today.",
+   "note": "Non-breaking hyphens (U+2011), common in Word and web copy."
+  },
+  {
+   "text": "Phone: (416) 555-0199",
+   "says": "Phone: four one six, five five five, oh one nine nine",
+   "note": "An email-signature label, with no final punctuation."
+  },
+  {
+   "text": "Call me at 555-0199 tomorrow.",
+   "says": "Call me at five five five, oh one nine nine tomorrow.",
+   "note": "A seven-digit local number straight after 'Call me at'."
+  },
+  {
+   "text": "My number is 555-0123.",
+   "says": "My number is five five five, oh one two three.",
+   "note": "A seven-digit local number straight after 'number is'."
+  },
+  {
+   "text": "Call 555-1212 for directory help.",
+   "says": "Call five five five, one two one two for directory help.",
+   "note": "Today: 'five hundred fifty-five twelve twelve'."
+  },
+  {
+   "text": "CALL US AT 416-555-0199.",
+   "says": "CALL US AT FOUR ONE SIX, FIVE FIVE FIVE, OH ONE NINE NINE.",
+   "note": "Shouted. The phone words must be written in capitals, or the sentence stops counting as shouted and 'US' and 'AT' get spelled out."
+  },
+  {
+   "text": "FOR HELP CALL 1-800-555-0199 EXT. 23 OR VISIT US.",
+   "says": "FOR HELP CALL ONE EIGHT HUNDRED, FIVE FIVE FIVE, OH ONE NINE NINE, EXTENSION TWENTY-THREE OR VISIT US.",
+   "note": "Shouted, with an extension. Today 'EXT.' is spelled out as 'E X T'."
+  },
+  {
+   "text": "Call 1-800-FLOWERS today.",
+   "says": "Call one eight hundred flowers today.",
+   "note": "A vanity number. Works today and must keep working."
+  },
+  {
+   "text": "Press 1 for English.",
+   "says": "Press one for English.",
+   "note": "A keypad digit. Works today."
+  },
+  {
+   "text": "Call 416-555-0199 ext. 23 today.",
+   "says": "Call four one six, five five five, oh one nine nine, extension twenty-three today.",
+   "note": "No-break spaces (U+00A0) around 'ext.'."
+  },
+  {
+   "text": "Reach us at 613-555-0142, ext 4567.",
+   "says": "Reach us at six one three, five five five, oh one four two, extension four five six seven.",
+   "note": "'ext' with no period. An extension of three or more digits is read one digit at a time (open question 4)."
+  },
+  {
+   "text": "Call 416-555-0199 x23 for sales.",
+   "says": "Call four one six, five five five, oh one nine nine, extension twenty-three for sales.",
+   "note": "'x' straight after a phone number."
+  },
+  {
+   "text": "Call (416) 555-0199 x 214 for billing.",
+   "says": "Call four one six, five five five, oh one nine nine, extension two one four for billing.",
+   "note": "'x', a space, then the extension."
+  },
+  {
+   "text": "Call (212) 555-0123, ext. 7.",
+   "says": "Call two one two, five five five, oh one two three, extension seven."
+  },
+  {
+   "text": "Ext. 23 is the front desk.",
+   "says": "Extension twenty-three is the front desk.",
+   "note": "'Ext.' with its period, at the start of a sentence."
+  },
+  {
+   "text": "Ask for ext. 105.",
+   "says": "Ask for extension one oh five."
+  },
+  {
+   "text": "Dial x4567 for sales.",
+   "says": "Dial extension four five six seven for sales.",
+   "note": "A bare 'x' extension counts only straight after a form of 'dial'."
+  },
+  {
+   "text": "Get a 1-800 number.",
+   "says": "Get a one eight hundred number.",
+   "note": "Today the range rule reads this as 'one to eight hundred'."
+  },
+  {
+   "text": "Area code 416 covers Toronto.",
+   "says": "Area code four one six covers Toronto."
+  },
+  {
+   "text": "Is that the 212 area code?",
+   "says": "Is that the two one two area code?"
+  },
+  {
+   "text": "Call 911 or go to the nearest hospital.",
+   "says": "Call nine one one or go to the nearest hospital.",
+   "note": "Today: 'nine hundred eleven'."
+  },
+  {
+   "text": "She called 911 right away.",
+   "says": "She called nine one one right away."
+  },
+  {
+   "text": "The 911 dispatcher answered.",
+   "says": "The nine one one dispatcher answered."
+  },
+  {
+   "text": "911 calls doubled last year.",
+   "says": "Nine one one calls doubled last year.",
+   "note": "At the start of a sentence, before a phone noun. Allowed for 911, 999 and 000 only."
+  },
+  {
+   "text": "Call or text 988 any time.",
+   "says": "Call or text nine eight eight any time.",
+   "note": "The original follow-word list had no 'any', so its own rule would have missed this case."
+  },
+  {
+   "text": "Call 311 to report a pothole.",
+   "says": "Call three one one to report a pothole."
+  },
+  {
+   "text": "Dial 999 in an emergency.",
+   "says": "Dial nine nine nine in an emergency."
+  },
+  {
+   "text": "Dial 999 and ask for the police.",
+   "says": "Dial nine nine nine and ask for the police."
+  },
+  {
+   "text": "He made a 999 call.",
+   "says": "He made a nine nine nine call."
+  },
+  {
+   "text": "Ring 101 if it isn't urgent.",
+   "says": "Ring one oh one if it isn't urgent.",
+   "note": "The UK police non-emergency number."
+  },
+  {
+   "text": "Anyone with information should call police on 101.",
+   "says": "Anyone with information should call police on one oh one.",
+   "note": "The British 'call police on' form. It needs the 'on' extension of the dialling rule."
+  },
+  {
+   "text": "Call 111 for medical advice.",
+   "says": "Call one one one for medical advice.",
+   "note": "NHS 111."
+  },
+  {
+   "text": "In Europe, dial 112.",
+   "says": "In Europe, dial one one two."
+  },
+  {
+   "text": "In Australia, call 000.",
+   "says": "In Australia, call triple zero.",
+   "note": "Australia's official name for its emergency number (open question 3)."
+  },
+  {
+   "text": "IN AN EMERGENCY, DIAL 911.",
+   "says": "IN AN EMERGENCY, DIAL NINE ONE ONE.",
+   "note": "Shouted."
+  },
+  {
+   "text": "Call 020 7946 0958 today.",
+   "says": "Call oh two oh, seven nine four six, oh nine five eight today.",
+   "note": "London, from Ofcom's drama range. Today it reads 'zero two zero…' (from the merged rule)."
+  },
+  {
+   "text": "Call +44 20 7946 0958 today.",
+   "says": "Call plus four four, two oh, seven nine four six, oh nine five eight today."
+  },
+  {
+   "text": "Call +44 (0)20 7946 0958 today.",
+   "says": "Call plus four four, two oh, seven nine four six, oh nine five eight today.",
+   "note": "The trunk 0 in brackets is not spoken. Today: 'plus forty-four (zero twenty seventy-nine…'."
+  },
+  {
+   "text": "Text 07700 900123 today.",
+   "says": "Text oh seven seven oh oh, nine oh oh, one two three today.",
+   "note": "A UK mobile. Ofcom reserves only this mobile range, so the doubled digits can't be avoided (open question 2). The six-digit block is said as three and three."
+  },
+  {
+   "text": "Ring me on 07700 900 123.",
+   "says": "Ring me on oh seven seven oh oh, nine oh oh, one two three.",
+   "note": "5-3-3 grouping."
+  },
+  {
+   "text": "Call +44 7700 900123 from abroad.",
+   "says": "Call plus four four, seven seven oh oh, nine oh oh, one two three from abroad.",
+   "note": "The merged rule allows only 1-4 digits per group, so today this reads 'seventy-seven hundred, nine hundred thousand…'."
+  },
+  {
+   "text": "Call 0161 496 0756 for Manchester.",
+   "says": "Call oh one six one, four nine six, oh seven five six for Manchester.",
+   "note": "This was 0161 496 0000, but four zeros invite 'double oh, double oh'."
+  },
+  {
+   "text": "Call 0131 496 0123 (Edinburgh).",
+   "says": "Call oh one three one, four nine six, oh one two three (Edinburgh).",
+   "note": "This replaced Leeds 0113, whose 'one one' invites 'double one'. Ofcom drama range."
+  },
+  {
+   "text": "Call 029 2018 0456 in Cardiff.",
+   "says": "Call oh two nine, two oh one eight, oh four five six in Cardiff.",
+   "note": "3-4-4 grouping, from Ofcom's drama range."
+  },
+  {
+   "text": "Call 01632 960123 today.",
+   "says": "Call oh one six three two, nine six oh, one two three today.",
+   "note": "5-6 grouping."
+  },
+  {
+   "text": "Call free on 0800 123 4567.",
+   "says": "Call free on oh eight hundred, one two three, four five six seven.",
+   "note": "UK freephone 0800 is said 'oh eight hundred'."
+  },
+  {
+   "text": "Call 0161 496 0123, ext. 214.",
+   "says": "Call oh one six one, four nine six, oh one two three, extension two one four."
+  },
+  {
+   "text": "Call +61 3 7010 1234 today.",
+   "says": "Call plus six one, three, seven oh one oh, one two three four today.",
+   "note": "ACMA's creative-works range. This was +61 2 5550 1234, but 'five five five' invites 'triple five'."
+  },
+  {
+   "text": "Call (02) 7010 1234 today.",
+   "says": "Call oh two, seven oh one oh, one two three four today.",
+   "note": "An Australian landline with the area code in brackets (ACMA range)."
+  },
+  {
+   "text": "Call 1800 160 401 for free.",
+   "says": "Call one eight hundred, one six oh, four oh one for free.",
+   "note": "Australian freecall, from ACMA's fiction list. Needs a cue (here 'Call')."
+  },
+  {
+   "text": "Call 0491 570 156 today.",
+   "says": "Call oh four nine one, five seven oh, one five six today.",
+   "note": "An Australian mobile from ACMA's fiction list."
+  },
+  {
+   "text": "Call 13 11 14 any time.",
+   "says": "Call thirteen eleven fourteen any time.",
+   "note": "Australian 13 numbers are said in pairs. Works today, and no phone rule may touch it."
+  },
+  {
+   "text": "Call +353 20 910 1234 in Ireland.",
+   "says": "Call plus three five three, two oh, nine one oh, one two three four in Ireland.",
+   "note": "ComReg's drama range."
+  },
+  {
+   "text": "Call +81 3-1234-5678 in Tokyo.",
+   "says": "Call plus eight one, three, one two three four, five six seven eight in Tokyo.",
+   "note": "Passes today through the merged rule. Keep it as a regression guard."
+  },
+  {
+   "text": "Text HOME to 741741 now.",
+   "says": "Text HOME to seven four one seven four one now.",
+   "note": "Today: 'seven hundred forty-one thousand…'."
+  },
+  {
+   "text": "Text STOP to 12345 to opt out.",
+   "says": "Text STOP to one two three four five to opt out."
+  },
+  {
+   "text": "Press # to finish.",
+   "says": "Press pound to finish.",
+   "says_gb": "Press hash to finish.",
+   "note": "Today '#' is silent."
+  },
+  {
+   "text": "Press * then 2.",
+   "says": "Press star then two.",
+   "note": "Today '*' is silent."
+  }
+ ],
+ "frozen_cases": [
+  {
+   "text": "On 2024-03-15 we met.",
+   "note": "An ISO date. The date rule reads it, not the phone rule."
+  },
+  {
+   "text": "The 1990-2000 decade was calm.",
+   "note": "Year range."
+  },
+  {
+   "text": "Wait 5-10 minutes.",
+   "note": "Range."
+  },
+  {
+   "text": "The score was 3-2.",
+   "note": "Score."
+  },
+  {
+   "text": "Win 2-1 at home.",
+   "note": "Score."
+  },
+  {
+   "text": "COVID-19 cases rose."
+  },
+  {
+   "text": "FIPS 140-2 applies.",
+   "note": "Must not become a phone number. Today's reading ('one hundred forty-two') is poor in its own right. Re-freeze if another area fixes it."
+  },
+  {
+   "text": "Open 24/7."
+  },
+  {
+   "text": "Call between 9-5 on weekdays.",
+   "note": "A cue word before a range. It stays a range."
+  },
+  {
+   "text": "Take it 1-2 times a day.",
+   "note": "Starts like '1-800' but is a range."
+  },
+  {
+   "text": "It rose 200-300 points.",
+   "note": "Two round 3-digit numbers: a range."
+  },
+  {
+   "text": "SKU 1234-5678 is out of stock.",
+   "note": "A 4-4 part number."
+  },
+  {
+   "text": "The meeting runs 10:30-11:45.",
+   "note": "Time range."
+  },
+  {
+   "text": "It cost $555.",
+   "note": "Money."
+  },
+  {
+   "text": "It cost $911.",
+   "note": "Money, not the emergency number."
+  },
+  {
+   "text": "He scored 911 points.",
+   "note": "A count, with no dialling cue."
+  },
+  {
+   "text": "Only 999 left in stock.",
+   "note": "A count."
+  },
+  {
+   "text": "Police received 999 complaints.",
+   "note": "A count. 'complaints' is not a phone noun."
+  },
+  {
+   "text": "Call 100 customers today.",
+   "note": "A cue verb, but 100 is not a service number."
+  },
+  {
+   "text": "We called 112 customers.",
+   "note": "A cue verb and a service number, but a noun follows, so it is a count."
+  },
+  {
+   "text": "She owns 101 dogs.",
+   "note": "101 with no cue. Replaces 'Rooms 101 and 102', which an addresses rule may want to read 'one oh one'."
+  },
+  {
+   "text": "Count 1-2-3 and jump."
+  },
+  {
+   "text": "Dial 9-1-1 now.",
+   "note": "Already reads 'nine one one'."
+  },
+  {
+   "text": "Page 416 has the table.",
+   "note": "Could be an area code, but the words 'area code' are absent."
+  },
+  {
+   "text": "In 1800 the city grew.",
+   "note": "A year, not the Australian 1800 prefix."
+  },
+  {
+   "text": "In 1800 160 ships sailed.",
+   "note": "A year then a count: 1800 plus a single 3-digit group, not the 4-3-3 freecall shape."
+  },
+  {
+   "text": "Call 1-2 friends today.",
+   "note": "A cue verb, then '1-' and one digit: a range, not a '1-800' prefix."
+  },
+  {
+   "text": "The 1,800 fans cheered."
+  },
+  {
+   "text": "Use x23 as the seed.",
+   "note": "'x' plus digits, with no phone number or 'dial' before it."
+  },
+  {
+   "text": "Use the ext4 file system.",
+   "note": "'ext' joined to a digit is the file system."
+  },
+  {
+   "text": "The next 23 days matter.",
+   "note": "'ext' inside a word."
+  },
+  {
+   "text": "Text 23 to vote.",
+   "note": "No keyword between 'Text' and the number."
+  },
+  {
+   "text": "Text me in 10 minutes."
+  },
+  {
+   "text": "The temperature hit +12 today.",
+   "note": "'+' with too few digits."
+  },
+  {
+   "text": "Revenue grew +44% this year.",
+   "note": "'+44' before % is not a country code."
+  },
+  {
+   "text": "Dial extension 23 for sales.",
+   "note": "Already in words."
+  },
+  {
+   "text": "Look up the ISBN first."
+  },
+  {
+   "text": "Dial 0 for the operator.",
+   "note": "Moved from the speech cases, because people say both 'zero' and 'oh' here. A lone keypad digit stays as it is."
+  },
+  {
+   "text": "Never forget 9/11.",
+   "note": "Moved from the speech cases. The date, not the emergency number. Reads 'nine eleven' today."
+  },
+  {
+   "text": "Highway 401 was jammed.",
+   "note": "Moved from the speech cases. Reads 'four oh one' through the tech lexicon's key '401'."
+  },
+  {
+   "text": "Give it a +1 if you agree.",
+   "note": "Moved from the speech cases. The lexicon's 'plus one'."
+  },
+  {
+   "text": "You can call x86 code from Rust.",
+   "note": "'call' then 'x' and digits is an architecture, not an extension. The drafted 'x' rule allowed 'call' as the verb."
+  },
+  {
+   "text": "Calling x64 libraries is slow.",
+   "note": "The same, with 'Calling'."
+  },
+  {
+   "text": "You can call x264 from the command line.",
+   "note": "A three-digit 'x' code after 'call' is the video codec."
+  },
+  {
+   "text": "EXT. 10 DOWNING STREET - DAY",
+   "note": "A screenplay slugline. 'EXT.' means exterior, not extension."
+  },
+  {
+   "text": "Doors: int. 6, ext. 2.",
+   "note": "'ext.' as exterior in a spec list. Today's reading ('ekst two') is mediocre. This case only guards against 'extension two'."
+  },
+  {
+   "text": "The server runs on ext 4.",
+   "note": "A bare 'ext' and a digit after 'on', which the drafted rule allowed. Today it reads 'ekst four', which is how many Linux users say it."
+  },
+  {
+   "text": "The US has over 300 area codes.",
+   "note": "A count before 'area codes'. The drafted 'NNN area code' trigger would have read it 'three oh oh'."
+  },
+  {
+   "text": "Text messages fell to 1200 a day.",
+   "note": "'Text … to' and digits, but no keyword in capitals. The drafted short-code rule (any 1-3 words) would have matched it."
+  },
+  {
+   "text": "SMS volume grew to 25000 per day.",
+   "note": "The same, with 'SMS'."
+  },
+  {
+   "text": "The 112 calls we logged were all spam.",
+   "note": "112 before a plural phone noun is a count."
+  },
+  {
+   "text": "112 calls came in before noon.",
+   "note": "112 at the start of a sentence is a count."
+  },
+  {
+   "text": "Volunteers called 211 on Monday.",
+   "note": "A minor service number after 'called', then 'on': a count."
+  },
+  {
+   "text": "We called 112 in the first hour.",
+   "note": "112 after 'called', then 'in' (but not 'in an emergency'): a count."
+  },
+  {
+   "text": "Take the 112 line to the airport.",
+   "note": "A bus or tram line. The drafted noun list included 'line'."
+  },
+  {
+   "text": "We handle 1-800 calls an hour.",
+   "note": "'1-800' before plural 'calls', with no determiner: a range."
+  },
+  {
+   "text": "We received 866 calls on Monday.",
+   "note": "A toll-free prefix without '1-', before a plural noun: a count."
+  },
+  {
+   "text": "# Press releases",
+   "note": "A Markdown heading. The '#' comes before 'Press', not after it."
+  },
+  {
+   "text": "Press *Enter* to continue.",
+   "note": "Markdown emphasis. The '*' is joined to the word."
+  }
+ ],
+ "rules": [
+  {
+   "name": "Phone pass: placement, boundaries, output (replaces the merged rule)",
+   "where": "New static TextNormalizer.phoneNumbers(_:), called in Phonemizer.phonemize after linkLabels and foldMicroSign and before custom.mark. Gate it on `normalizes`. It replaces the leading-0 and '+' phone rule merged in 52f33ff (TextNormalizer.swift:419): remove that rule or fold it in here.",
+   "trigger": "One pre-pass, in this order: international '+', North American, national numbers with a trunk 0, Australian 1800/1300, cued local and spaced forms, '1-800 number' mentions, extension tails (attached to the number just matched), standalone extensions, area codes, emergency and service numbers, SMS short codes. Keypad keys need the voice; see that rule. The pass must run before the custom lexicon, because the tech lexicon has exact keys that would be marked inside numbers ('+1' plus one, '401', '403', '404', '429', '502', '503', '1099'), and a marked span splits the digit run. Confirmed on today's build: '+1 416 555 0199' reads 'plus one four hundred sixteen…' because '+1' is marked before the merged rule runs. Separator class: hyphen-minus, U+2010, U+2011, U+2012, en dash, '.', space, U+00A0, U+202F and U+2009. A match may not start after a letter, digit, '.', ',', '/', '-', '–', '$', '£', '€', '#', '@' or '_' (':' is allowed only before '+', for 'Tel:+44 …'). It may not end before a digit, a letter (except an extension form), '%', or one of [.,:/-] followed by a digit. Never rewrite a token that is an exact key in the custom lexicon (x86, x64, x264).",
+   "reads_as": "Words, never digits. The lexicon reads a lone '0' as 'zero', which is what the merged rule produces today ('zero seven seven zero zero…'). Each digit becomes one to nine, and 0 becomes 'oh'. Digits within a group are joined by spaces, and groups by ', ', which gives Kokoro's short pause. An extension of one or two digits uses NumberWords.cardinal ('twenty-three', hyphenated, as the 'says' lines are written). Surrounding text and sentence punctuation are untouched. In a shouted sentence (no lower-case letter between sentence ends, the ShoutedSentences test) the words are written in capitals ('FOUR ONE SIX, …, EXTENSION TWENTY-THREE'). Otherwise they are lower case.",
+   "risks": "The pass is skipped when normalize=false. Its words reach the custom lexicon as words, and no lexicon key matches lower-case number words. The later ISO-date and range rules never see the digits. The merged rule's floor of 8 digits is not enough on its own. On today's build it reads dates, 24-hour times and number lists as phone numbers (see review notes). The trunk-0 rule below closes that."
+  },
+  {
+   "name": "North American 10-digit numbers (NANP)",
+   "where": "TextNormalizer.phoneNumbers",
+   "trigger": "An optional prefix: '+1' or '1' followed by one separator ('+1 (' is allowed). Then an area code [2-9]\\d\\d, either in brackets with an optional space after ('(416) 555-0199', '(416)555-0199') or followed by a separator. Then an exchange [2-9]\\d\\d, a separator and four digits. With no cue, no prefix and no brackets, the separator between area code and exchange must be a hyphen-family character, or dots throughout. The all-space form '416 555 0199' and the mixed form '416 555-0199' need a cue (the local-number rule's cues) or a '1 ' or '+1 ' prefix. The match must not continue into another hyphen-digit or dot-digit group, and must not start after '.', which keeps out IP addresses, ISBNs and longer chains.",
+   "reads_as": "'four one six, five five five, oh one nine nine'. A '1' prefix joins the area code with no pause ('one four one six', 'one eight hundred'). '+1' reads 'plus one,' followed by a pause. An area code of the form N00 (800, 900, and 500/600/700) reads 'N hundred'. Every other area code, including toll-free 888/877/866/855/844/833, is read digit by digit. Exchanges and line numbers are always read digit by digit, even round ones (exchange 800, line 0100 or 1200). The tests avoid round ones (open question 6).",
+   "risks": "Low risk. A 3-3-4 pattern with hyphens or dots is almost always a phone number, and when it is some other ID, reading it digit by digit is still good. These never match: dates (4-2-2 and 2-2-4), SSNs (3-2-4), IP octets, SI-spaced numbers (3-digit groups only), Canadian SINs (3-3-3), and the placeholder '123-456-7890' (its exchange starts with 1). Vanity numbers ('1-800-FLOWERS') don't match because letters follow, so they keep today's correct reading."
+  },
+  {
+   "name": "Toll-free prefix named as a kind of number ('a 1-800 number')",
+   "where": "TextNormalizer.phoneNumbers",
+   "trigger": "'1-' followed by 800, 833, 844, 855, 866, 877, 888 or 900, a space, and a singular noun: number, line, hotline or call. Plural 'numbers' counts only after a determiner. Without the '1-' ('888 number'), the prefix needs a determiner straight before it (a/an/the/your/our/their/this/that) and a singular noun after it (number, line, hotline). Tightened: the draft accepted plural 'calls'/'lines' and bare prefixes, so 'We handle 1-800 calls an hour' and 'We received 866 calls' would have been rewritten.",
+   "reads_as": "'one eight hundred number', 'one nine hundred line', 'an eight eight eight number'. '800 number' keeps 'eight hundred number'.",
+   "risks": "Counts and ranges stay as they are: 'We handle 1-800 calls an hour', 'We received 866 calls on Monday', 'Take it 1-2 times a day', 'Call 1-2 friends today' (all frozen)."
+  },
+  {
+   "name": "Seven-digit local numbers and spaced 3-3-4 numbers need an adjacent cue",
+   "where": "TextNormalizer.phoneNumbers",
+   "trigger": "Local form: [2-9]\\d\\d, a hyphen-family separator or a space, then \\d{4}. Also the spaced and mixed NANP forms. These count only when the number comes straight after a cue: (a) a label and colon (Phone:, Tel:, Telephone:, Cell:, Mobile:, Fax:, Home:, Work:, Office:, Direct:, Main:); (b) call, text, ring, phone, dial or reach in any tense, optionally followed by me/us/him/her/them/you and then at/on; (c) 'number', 'number is', 'number:', 'no.' or 'No.'; (d) at/on when a verb from (b) is within the previous 3 words ('call the office at 555-0199'). Tightened from 'a cue anywhere in the previous 4 words', which let a noun reach a range: 'Call volumes run 275-1150 a day' (not round, and 'Call' is 3 words back). Still reject pairs where both parts are multiples of 10.",
+   "reads_as": "'five five five, oh one nine nine'.",
+   "risks": "Without a cue, '555-1234' keeps today's number reading. That miss is deliberate: order and part numbers share the shape. With a cue, an order or ticket number ('Order number 555-1234') is read digit by digit, which is still a good reading. regression.json's 'My number is 867-5309.' will change (see review notes)."
+  },
+  {
+   "name": "International numbers with '+' (E.164)",
+   "where": "TextNormalizer.phoneNumbers",
+   "trigger": "'+' (or fullwidth '＋') not after a letter or digit (':' is allowed), then a country code of 1-3 digits. Then either (a) 1-5 written groups of 1-6 digits, or (b) a compact run of 8-15 digits. For (a): an optional '(0)' or ' (0) ' trunk marker may follow the country code; the total, including the country code, is 8-15 digits; and at least one national group has 3 or more digits, or there are 4 or more groups. The merged rule allows only 1-4 digits per group, so '+44 7700 900123' still reads 'seventy-seven hundred, nine hundred thousand…' today. Split the country code with the E.164 table: 1 and 7 have one digit; 20, 27, 30-34, 36, 39, 40, 41, 43-49, 51-58, 60-66, 81, 82, 84, 86, 90-95 and 98 have two; all others have three.",
+   "reads_as": "'plus', the country code digit by digit, a pause, then each written group digit by digit with 'oh': 'plus four four, two oh, seven nine four six, oh nine five eight'. '(0)' is silent. Country code 1 uses the NANP reading, including 'eight hundred' and the 3-3-4 grouping of a compact '+1' plus ten digits. A compact '+44' may take UK grouping. Other compact numbers read the national part in one run. Grouping only changes the pauses, and the harness compares words.",
+   "risks": "Rejected: '+12', '+44%', '+5 10 15' and '+20 30 40 50'. 'Give it a +1' is left to the lexicon (frozen). French pairs ('+33 1 99 00 12 34') meet the 4-groups clause and are read digit by digit. That is untested, because English readers also say the pairs."
+  },
+  {
+   "name": "National numbers with a trunk 0 (UK, Australia, Ireland, New Zealand) and Australian 1800/1300",
+   "where": "TextNormalizer.phoneNumbers (replaces the merged rule's '0' branch)",
+   "trigger": "A first group of 2-5 digits starting with 0 and then 1-9, optionally in brackets ('(020)', '(02)'). Then 1-3 more groups of 3-6 digits, separated by spaces or the hyphen family. The total is 10-11 digits, or 9 when there are 3 or more groups. Later groups of 2 digits are never accepted. The merged rule accepts them, and on today's build it reads '01-02-2024', 'Dated 05 06 2023', a timetable '0645 0715', a shift '0700-1500' and a lotto list '04 11 23 35 42' as strings of digits with 'zero'. Covers UK 3-4-4, 4-3-4, 5-6 and 5-3-3, and Australian 2-4-4 and 4-3-3. Australian freecall and local-rate numbers ('1800' or '1300', a separator, \\d{3}, a separator, \\d{3}) count only after a cue (the local-number rule's cues, plus 'freecall', 'free call' and 'on'). Without one, a year followed by an SI-spaced number ('By 1800 250 000 people') has the same shape.",
+   "reads_as": "'oh two oh, seven nine four six, oh nine five eight'. A written 6-digit block is spoken as 3 + 3. A first group of '0800' reads 'oh eight hundred' (0300 and 0500 are open question 7). '1800' reads 'one eight hundred'. Australian 13 numbers written in pairs ('13 11 14') don't match and keep 'thirteen eleven fourteen' (speech case).",
+   "risks": "Rejected: '0800 hours', '04 11 23 35 42', '01 02 2024', '0700-1500' and ZIP+4 '02134-5678'. A code with a leading 0 that isn't a phone number ('Account 01234 567890') is read digit by digit, which is still good. The '00 44 …' international-access form is not covered."
+  },
+  {
+   "name": "Extensions after a phone number",
+   "where": "TextNormalizer.phoneNumbers, as an optional tail on every phone match",
+   "trigger": "Straight after a matched number: an optional ',' or ';', optional spaces (U+00A0 included), then one of 'ext.', 'ext', 'Ext.', 'Ext', 'EXT.', 'EXT', 'extn', 'extn.', 'ext:', 'x', 'X' or the word 'extension'. Then an optional space or '.', and 1-6 digits not followed by a digit or a letter.",
+   "reads_as": "', extension ' and the number. The pause comma is added even when the source has none. One or two digits are read as a number with NumberWords.cardinal ('extension twenty-three', 'extension seven'). Three to six digits are read digit by digit with 'oh' ('extension four five six seven', 'extension two one four'). In a shouted sentence: 'EXTENSION TWENTY-THREE'.",
+   "risks": "Exists only after a matched phone number. Today 'ext.' is read 'ekst' and 'EXT.' is spelled 'E X T'."
+  },
+  {
+   "name": "Standalone extensions ('Ext. 23', 'Dial x4567')",
+   "where": "TextNormalizer.phoneNumbers",
+   "trigger": "(a) 'ext.', 'Ext.', 'extn.', 'ext:' or 'Ext:'. Not 'EXT.' in capitals, which is a screenplay slugline ('EXT. 10 DOWNING STREET - DAY'). Not after a letter ('next.', 'text.'). Not within 3 words after 'int.' or 'Int.' (an interior/exterior pair, as in 'Doors: int. 6, ext. 2.'). Then an optional space, 1-6 digits and a word boundary, not followed by a capitalised word. (b) A bare 'ext' or 'Ext', a space and digits, only straight after call/dial/ring/reach in any tense, or 'ask for'. Not after 'at', 'on' or 'press': 'runs on ext 4' is the file system. (c) 'x' or 'X' joined to 2-6 digits, only straight after dial/dials/dialed/dialled/dialing/dialling. The draft also allowed 'call' and 'reach', which rewrites 'call x86 code' and 'call x264'. Never 'ext' joined to a digit ('ext4'), and never a token the custom lexicon knows.",
+   "reads_as": "'Extension twenty-three' (capitalised when the source is 'Ext.') and 'extension four five six seven', with the same number reading as the extension rule.",
+   "risks": "A spec sheet that writes 'ext.' for exterior with no 'int.' nearby ('ext. 2 doors') would still read 'extension two'. That is rare. Not verified: whether NLTokenizer in TextPrep.chunks ends a sentence after 'ext.'."
+  },
+  {
+   "name": "Area codes named as such",
+   "where": "TextNormalizer.phoneNumbers",
+   "trigger": "'area code', 'area codes', 'dialling code', 'dialing code' or 'STD code' (any case), an optional ':' and '(', then 2-5 digits and an optional ')'. Or a determiner or possessive (the/a/an/that/this/my/your/our/their/his/her/its), then [2-9]\\d\\d, then the singular 'area code'. Tightened: the draft accepted any 3 digits before 'area code(s)', so 'The US has over 300 area codes' would have read 'three oh oh area codes' (frozen).",
+   "reads_as": "Digit by digit with 'oh': 'area code four one six', 'the two one two area code', 'dialling code oh one six one'.",
+   "risks": "The literal phrase is required. 'Page 416' is untouched (frozen). In 'Area codes 416, 647 and 437', only the first number is read digit by digit. That miss is acceptable."
+  },
+  {
+   "name": "Emergency and service short numbers (tiered)",
+   "where": "TextNormalizer.phoneNumbers",
+   "trigger": "(A) A dialling cue straight before the number: call/calls/called/calling, dial (any form), ring/rings/rang/ringing, phone/phoned/phoning, or text/texted/texting. 'or call' and 'or text' may come in between. The British form is also accepted: a cue verb, up to 2 words ('police', 'the police', 'us'), then 'on'. What may follow depends on the tier. Tier 1 (911, 999): sentence punctuation, the end of the text, or now, immediately, right, straight, first, again, instead, if, for, to, or, and, in, on, from, when, about, with, at, as, any, anytime, today, tonight. Tier 2 (112, 000): the same list without in, on, at, with, as and about, plus the phrases 'in an emergency', 'in emergencies' and 'in case'. Tier 3 (111, 101, 988, 211, 311, 411, 511, 611, 711, 811): punctuation or end, now, immediately, right away, first, again, instead, if, for, to, or, and, when, any time, anytime, today, tonight. (B) A phone-noun cue: for 911, 999 and 000, the start of a sentence or a determiner, then the number, then call(s), caller(s), dispatcher(s), dispatch, operator(s), centre(s)/center(s), line, hotline or emergency. For 112, only a/an/the before it and a singular noun after it (call, caller, dispatcher, operator, centre/center, emergency number). Never 'service(s)' or 'system', which match 'Porsche 911 service' and bus services. The draft had one flat list and missed 'any', so its own 'Call or text 988 any time' failed.",
+   "reads_as": "Digit by digit with 'oh': 'nine one one', 'one oh one', 'nine eight eight'. '000' reads 'triple zero' (open question 3). '9-1-1' already reads 'nine one one' and is left alone (frozen).",
+   "risks": "Counts are blocked by the tiers and nouns: 'We called 112 customers', 'Volunteers called 211 on Monday', 'We called 112 in the first hour', 'The 112 calls we logged…', '112 calls came in…', 'Take the 112 line…' (all frozen). Never cued, so unaffected: '9/11', '$911', '911 points', '999 complaints'. Misses that are acceptable: 'Calls to 911 rose', 'He called 999 in a panic' (112 and 000 only)."
+  },
+  {
+   "name": "SMS short codes",
+   "where": "TextNormalizer.phoneNumbers",
+   "trigger": "'Text', 'text', 'TEXT', 'txt' or 'SMS' as the verb: at the start of a sentence or straight after please/just/or/and/then/','/':'. Then a keyword of one or two tokens, each in capitals (2+ letters) or in quotes, then 'to', then 4-6 digits and a boundary, not followed by '%', 'per' or a unit. Tightened: the draft accepted any 1-3 words, which rewrites 'Text messages fell to 1200 a day' and 'SMS volume grew to 25000 per day' (both frozen).",
+   "reads_as": "The keyword is untouched, and the code is read digit by digit with 'oh': 'Text HOME to seven four one seven four one'.",
+   "risks": "'Text 23 to vote' (no keyword) and 'Text me in 10 minutes' are unaffected (frozen)."
+  },
+  {
+   "name": "ISBNs (parked: the rule is safe, but its tests break the 'says' rules)",
+   "where": "TextNormalizer.phoneNumbers, if adopted. The label stays as text, so the tech lexicon's 'ISBN' entry still reads it.",
+   "trigger": "'ISBN' (case-sensitive), an optional '-10'/'-13' or ' 10'/' 13', an optional ':', spaces, then a body of 10 or 13 significant characters: digits, with a final 'X' allowed, and optional hyphens or spaces between groups.",
+   "reads_as": "'-13' reads ' thirteen' (today it is 'minus thirteen'). Each written group is read digit by digit with 'oh' and 'X' as 'ex', with pauses between groups.",
+   "risks": "There are no speech cases. Every realistic case keeps the label 'ISBN' on the 'says' side, which the hard rules forbid. Written as 'I S B N', it phonemizes as four words (checked) and fails the compare. No phone rule can match an ISBN's group shapes, so nothing needs protecting meanwhile. Today's reading ('nine hundred seventy-eight zero…') stays poor until this is decided (open question 8)."
+  },
+  {
+   "name": "Keypad keys '#' and '*'",
+   "where": "TextPrep.speechText (it strips [*#] before the phonemizer, so it must exempt this pattern) and Phonemizer.phonemize, where `british` is known",
+   "trigger": "A standalone '#' or '*' (space or punctuation on both sides) straight after press/presses/pressed/pressing/hit/tap/enter/dial (including 'then press'), or before 'key' or 'button'.",
+   "reads_as": "'#' is 'pound' in the US voice and 'hash' in the GB voice. '*' is 'star'.",
+   "risks": "Markdown is unaffected: '# Press releases' (the '#' comes before the verb), '*Enter*' (joined to the word) and '#1' (frozen where today's reading is right). --speech-test calls phonemize directly, so a passing case does not prove the app speaks it until speechText is fixed as well."
+  }
+ ],
+ "open_questions": [
+  "Toll-free prefixes other than 800 and 900: read '1-888', '1-877' and '1-866' digit by digit ('one eight eight eight'), or chunked ('one eight eighty-eight')? Recommendation: digit by digit. Only N00 prefixes say 'hundred'.",
+  "British 'double' and 'triple': many British (and Australian) speakers say 'oh seven seven double oh, nine double oh'. Should the GB voice do this? Recommendation: no, digit by digit in both voices. I replaced every test number that could avoid doubled digits. Five cases still have them: the three UK mobiles (Ofcom reserves only 07700 900xxx), 'one one one' (NHS 111, always said that way) and 'nine nine nine'. If the answer is yes, add says_gb to the three mobile cases.",
+  "Australia's 000: read 'triple zero', its official name, rather than 'oh oh oh'? Recommendation: yes, for that one number only.",
+  "Extensions of three or more digits: 'extension four five six seven' or 'extension forty-five sixty-seven'? Recommendation: digit by digit from three digits up, and one or two digits as a number.",
+  "Seven-digit numbers with no cue straight before them (a song lyric such as 'Jenny 867-5309', or 'Order 555-1234'): leave them read as numbers, as today? Recommendation: leave them. A false positive is worse than a miss.",
+  "Round line numbers and exchanges: Americans often say '555-0100' as 'oh one hundred', '555-1200' as 'twelve hundred' and exchange 800 as 'eight hundred'. Recommendation: always digit by digit, which is never wrong. The tests now avoid round numbers rather than assert either reading.",
+  "UK 0300 and 0500 numbers: by analogy with 0800 ('oh eight hundred'), Britons probably say 'oh three hundred'. I could only infer this, not source it. Recommendation: keep only 0800 as 'hundred' until it's confirmed, and leave 0300 digit by digit.",
+  "ISBNs: the rule is safe and today's reading is clearly wrong, but every test has to keep the label 'ISBN' on the 'says' side. Allow labels that the custom lexicon spells out (the three dropped cases: 'ISBN 978-0-306-40615-7 is the code.', 'ISBN 0-8044-2957-X is old.', 'ISBN-13: 978-0-306-40615-7'), or leave ISBNs out of Core? Recommendation: allow the label and restore the cases.",
+  "Australian 1300 numbers: 'one three hundred' or 'thirteen hundred'? Both are heard. Recommendation: no test until it's decided. The rule reads '1300' digit by digit, and Australian 13 xx xx pairs stay as today."
+ ],
+ "review_notes": [
+  "The build changed while I was reviewing. Commit 52f33ff merged a phone rule for numbers that start with 0 or '+' (TextNormalizer.swift:419), plus a lexicon change that reads numbers with a leading zero digit by digit (Lexicon.swift:343). I re-checked everything on the release binary rebuilt at 14:59. Effects: UK and Australian numbers are now read digit by digit but with 'zero', not 'oh'. '+1 …' still breaks, because the merged rule runs after the custom lexicon marks '+1'. '+44 7700 900123' still breaks, because groups are limited to 4 digits. '+44 (0)20 …' still breaks, because '(0)' isn't handled. The rules above replace the merged rule rather than add a second one.",
+  "Live false positives of the merged rule on today's build. They are not frozen, because freezing would lock them in. '01-02-2024' and 'Dated 05 06 2023' read 'zero one, zero two, two zero two four'. 'Trains leave at 0645 0715 and 0745', 'Shifts run 0700-1500' and 'Open 0800-1800 daily' read as strings of digits with 'zero'. 'Lotto numbers: 04 11 23 35 42' reads 'zero four, one one, two three…'. 'Shifts start at 0800 hours' now reads 'zero eight zero zero hours' through the lexicon change. The tightened trunk-0 rule (later groups of 3-6 digits) fixes the phone side. The dates and times owners should check these too. I removed the lotto and '0800 hours' cases from frozen for this reason.",
+  "Harness run on the reviewed set (phone-review/phone-review-test.json in the scratchpad): 8 of 160 speech checks pass today. They are '1-800-FLOWERS', 'Press 1', '13 11 14' and '+81 Tokyo' in both voices; the Tokyo case passes thanks to the merged rule. The other 152 fail as expected. All 59 frozen cases were frozen and re-checked in both voices with no change. Every 'says' line was run through --phonemize in both voices: no unknown words, no digits, symbols, abbreviations or Roman numerals. Capitals in the shouted lines read as words, and 'US' after CALL or VISIT stays the pronoun under the new unshout check (isCountry).",
+  "Changed expectations or numbers: 212-555-0100 became 0147 (people often say a round line number as 'oh one hundred'). 1-900-555-0110 became 0147, 0161 496 0000 became 0756, Leeds 0113 became Edinburgh 0131 (an Ofcom drama range), '+61 2 5550 1234' became '+61 3 7010 1234', and '(02) 5550' became '(02) 7010' (ACMA ranges). The old numbers invited a British or Australian 'double' or 'triple', which would make the expected reading ambiguous.",
+  "Removed as ambiguous or against the rules. '+33 1 99 00 12 34': English readers say the pairs as well as single digits, and today's 'zero' reading isn't worth freezing. The three ISBN cases: 'ISBN' is an abbreviation on the 'says' side, which the hard rules forbid; this is now open question 8. Moved to frozen: 'Dial 0 for the operator' (people say both 'zero' and 'oh'), 'Never forget 9/11', 'Highway 401 was jammed' and 'Give it a +1' (near-misses that already read right, and frozen pins their exact phonemes). Dropped duplicate or off-topic frozen cases to make room: 'Scores were 100-200 apart', 'The 2019-2020 season', 'Rate it 1-5 stars', 'Work 9-5', 'Pi is 3.14159', 'The 0.5 mg dose', 'Born in 1990', 'Set x to 23', 'Call me in 5 minutes', 'Exit 23 is closed'. Replaced 'Rooms 101 and 102', since an addresses rule may want 'one oh one' there.",
+  "New positives: mixed '416 555-0199', '(416)555-0199', '1.800.555.0199', '1 800 555 0199', '+1-416-555-0199', a 'Phone:' signature label, '555-1212', 'x 214' with a space, the Cardiff 3-4-4 range, 'Call 13 11 14 any time' (a guard), 'Call 911 or go to…', '911 calls doubled…', 'Dial 999 and ask for…', and the British 'call police on 101'.",
+  "Attacks on the drafted rules that found real false positives, now tightened and frozen (18 new negatives). 'call'/'reach' before 'x' and digits: 'You can call x86 code', 'Calling x64 libraries', 'call x264'. Screenplay 'EXT. 10 DOWNING STREET - DAY'. 'Doors: int. 6, ext. 2.' 'runs on ext 4' (bare 'ext' after 'on'). Any 3 digits before 'area codes': 'over 300 area codes'. Any 1-3 words after 'Text': 'Text messages fell to 1200', 'SMS volume grew to 25000'. Emergency counts: 'The 112 calls we logged', '112 calls came in', 'Volunteers called 211 on Monday', 'We called 112 in the first hour', 'Take the 112 line'. Toll-free plurals: 'We handle 1-800 calls an hour', 'We received 866 calls'. Markdown: '# Press releases', 'Press *Enter*'. Also '1800 160 ships' and 'Call 1-2 friends'. Found but not frozen, because today's reading is poor: 'Call volumes run 275-1150 a day' (the 4-word cue window), 'By 1800 250 000 people' (Australian 1800 shape with SI spacing), 'The 911 service history' (the Porsche, via the noun 'service').",
+  "regression.json has four lexicon_cases that encode today's readings and will fail once this lands. Rewrite them: 'Call 1-800-555-1234 now.' (wants 'wˌʌnˌAt'), 'Call me at 555-1234 tomorrow.' (wants 'five hundred'), 'My number is 867-5309.' (the 'number is' cue now makes it a phone number), and 'Call me on 07700 900123.' (encodes the merged rule's 'zero'; it becomes 'oh').",
+  "GB caveat for frozen counts: '911 points', '999 complaints', '101 dogs' and '112 customers' read without 'and' in the GB voice today ('nine hundred ninety-nine'). If the numbers area adds the British 'and', re-freeze them. That is not a phone regression.",
+  "Harness caveat, kept from the draft: loose() keeps the spaces between words, so 'twenty-three' is one token and '23' read by the lexicon is two ('twenty three'). The extension 'says' lines use hyphens because the rule should emit NumberWords.cardinal. That is also why 'Dial extension 23 for sales.' is frozen rather than a speech case, and why the lotto list couldn't be turned into a speech case.",
+  "Still open from the draft: TextPrep.speechText strips '#' and '*', so the keypad rule needs a change there. Not verified: whether NLTokenizer splits a sentence after 'ext.'. That needs a chunk_cases entry.",
+  "Sources: Wikipedia's 'Fictitious telephone number' (Ofcom drama ranges, including 0131/0161 496 0xxx, 029 2018 0xxx and 0808 157 0xxx; ACMA's (02)/(03) 7010 and 5550 ranges, 0491 570 156, 1800 160 401 and 1300 975 707-711; ComReg's 020 91x). Ofcom's and ACMA's own pages were unreachable (403 and timeout). The draft's sources still apply: Snap Recordings' number-reading guidelines, numbersupermarket.co.uk and dial800.com. The 0300 reading is inferred from 0800 only.",
+  "Linear: I am a subagent with no Linear issue of my own. The parent session owns FIN-889 and FIN-888 sync. Nothing in the repo was edited. Working files are in the scratchpad: phone-review/cases.py, check.py, final-cases.json and phone-review-test.json."
+ ]
+}
