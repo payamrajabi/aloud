@@ -15,6 +15,8 @@ final class TranscriptCleaner {
     static let fileName = "Qwen3.5-4B-Q4_K_M.gguf"
     static let downloadURL = URL(string: "https://huggingface.co/unsloth/Qwen3.5-4B-GGUF/resolve/main/\(fileName)")!
     static let downloadSize = "2.7 GB"
+    /// Without the optional model the caller types the original transcript.
+    static let removeConfirmation = "Dictation will go back to typing exactly what Aloud heard. It won't download again unless you click Download here."
 
     static var modelDirectory: URL { ModelStore.root.appendingPathComponent(modelName) }
     static var modelPath: URL { modelDirectory.appendingPathComponent(fileName) }

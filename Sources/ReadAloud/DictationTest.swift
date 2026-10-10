@@ -243,6 +243,17 @@ enum DictationTest {
             if !ok || verbose { print("  \(ok ? "✓" : "✗") \(c.in.debugDescription) → \(got.debugDescription), want \(c.out.debugDescription)") }
         }
 
+        // Preserve the shipped removal contract: an absent model leaves the raw transcript.
+        let removalCopy = TranscriptCleaner.removeConfirmation.lowercased()
+        if ["tidy", "tidying", "clean"].contains(where: { removalCopy.contains($0) }) {
+            failures += 1
+            print("  ✗ Remove confirmation promises cleanup while its model is absent")
+        }
+        if !removalCopy.contains("exactly what aloud heard") {
+            failures += 1
+            print("  ✗ Remove confirmation must explain the original-transcript fallback")
+        }
+
         func checkFaithfulness(_ cases: [TidyDoc.Case], wantFaithful: Bool) {
             for c in cases {
                 let got = TranscriptCleaner.isFaithful(c.out, to: c.in)
@@ -280,7 +291,7 @@ enum DictationTest {
         print("\n== repeated-stammer stress (3,000 words) ==")
         print("  \(stammerPassed ? "✓" : "✗") \(String(format: "%.3f", stammerDuration))s, \(stammerAccepted ? "accepted" : "rejected")")
 
-        let total = doc.must_change.count + doc.must_not_change.count + faithful.count + unfaithful.count + fillerSounds.count + 2
+        let total = doc.must_change.count + doc.must_not_change.count + faithful.count + unfaithful.count + fillerSounds.count + 4
         print(failures == 0 ? "\nPASSED (\(total) checks)" : "\nFAILED: \(failures) of \(total) checks")
         return failures == 0 ? 0 : 1
     }
