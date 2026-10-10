@@ -511,10 +511,13 @@ final class TranscriptCleaner {
         }
         sub(filler + "[ \\t]*,?[ \\t]*", "")
         t = dropStammers(t)
-        sub("[ \\t]+([,.?!])", "$1")  // "then ." → "then."
+        // "then ." → "then.", but a dot that starts a word (".env", ".NET") keeps its space.
+        sub("[ \\t]+([,?!]|\\.(?!\\w))", "$1")
         sub(",([.?!])", "$1")         // "I think, ." once the "um" between went
         sub("[ \\t]{2,}", " ")
-        sub("^[\\s,.;:]+", "")        // "Um. So…" or "Um, so…" opened the text
+        // "Um. So…" or "Um, so…" opened the text. A dot straight before a letter or digit
+        // belongs to the word (".env"), so it stays.
+        sub("^(?:[\\s,;:]|\\.(?!\\w))+", "")
         return capitaliseSentences(t.trimmingCharacters(in: .whitespacesAndNewlines))
     }
 
@@ -551,7 +554,13 @@ final class TranscriptCleaner {
                 let before = ns.substring(to: found[k].location)
                 let startsSentence = before.range(of: "(?:^|[.?!\\n])[\"“‘'(\\s]*$", options: .regularExpression) != nil
                 let repeats = (k + 1...end).map { ns.substring(with: found[$0]) }
-                if isStammer(first, repeats: repeats, comma: comma, startsSentence: startsSentence) {
+                let after = ns.substring(from: NSMaxRange(found[end]))
+                let following = Following(
+                    hyphenated: after.range(of: "^-\\w", options: .regularExpression) != nil,
+                    word: after.range(of: "^[ \\t]+\\w+", options: .regularExpression)
+                        .map { after[$0].trimmingCharacters(in: .whitespaces).lowercased() },
+                    previousWord: k > 0 ? ns.substring(with: found[k - 1]).lowercased() : nil)
+                if isStammer(first, repeats: repeats, comma: comma, startsSentence: startsSentence, following: following) {
                     let from = NSMaxRange(found[k])
                     cuts.append(NSRange(location: from, length: NSMaxRange(found[end]) - from))
                 }
@@ -567,7 +576,28 @@ final class TranscriptCleaner {
 
     private static let wordPattern = try! NSRegularExpression(pattern: "\\w+(?:['’]\\w+)*")
 
-    private static func isStammer(_ first: String, repeats: [String], comma: Bool, startsSentence: Bool) -> Bool {
+    /// What surrounds a doubled word, for the few doubles that are real: "to to-do", "to to
+    /// do", "Part I I".
+    private struct Following {
+        /// The second word starts a hyphenated compound ("to to-do list").
+        let hyphenated: Bool
+        /// The word after the repeat, lowercased.
+        let word: String?
+        /// The word before the first one, lowercased.
+        let previousWord: String?
+    }
+
+    /// Words that a Roman numeral follows ("Part I I", "Henry I I", "World War I I"), where
+    /// a doubled "I" is two numerals or a numeral and a pronoun, not a stammer.
+    private static let numeralLeaders: Set<String> = [
+        "part", "chapter", "act", "scene", "book", "volume", "vol", "phase", "type", "class", "level", "stage",
+        "step", "section", "article", "appendix", "category", "tier", "grade", "episode", "season", "war",
+        "world", "pope", "king", "queen", "henry", "richard", "george", "louis", "edward", "james", "charles",
+        "william", "elizabeth", "rocky", "apollo", "generation", "gen",
+    ]
+
+    private static func isStammer(_ first: String, repeats: [String], comma: Bool, startsSentence: Bool,
+                                  following: Following) -> Bool {
         let word = first.lowercased().replacingOccurrences(of: "’", with: "'")
         guard !word.contains(where: \.isNumber) else { return false }
         // The same spelling, or "The the" at the start of a sentence.
@@ -576,6 +606,10 @@ final class TranscriptCleaner {
         }
         guard sameWord else { return false }
         if word.contains("'") { return true }
+        // "Move it to to do", "add it to to-do items": a To Do column or list, not a stammer.
+        if word == "to", following.hyphenated || following.word == "do" { return false }
+        // "Part I I", "Henry I I": numerals and titles, not a stammer.
+        if word == "i", following.hyphenated || following.previousWord.map(numeralLeaders.contains) == true { return false }
         return (comma ? stammerWordsAcrossComma : stammerWords).contains(word)
     }
 

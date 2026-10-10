@@ -31,7 +31,14 @@
     { "in": "It's done. (mostly.) the rest is next week.", "out": "It's done. (Mostly.) The rest is next week." },
     { "in": "He's taller than I. we left early.", "out": "He's taller than I. We left early." },
     { "in": "The total is 3. we need more.", "out": "The total is 3. We need more." },
-    { "in": "Okay .  So the plan , um , is set .", "out": "Okay. So the plan, is set." }
+    { "in": "Okay .  So the plan , um , is set .", "out": "Okay. So the plan, is set." },
+    { "in": "Um, .env holds the keys.", "out": ".env holds the keys." },
+    { "in": "um. .gitignore is missing", "out": ".gitignore is missing" },
+    { "in": "um so I work in .NET and add it to .gitignore .", "out": "So I work in .NET and add it to .gitignore." },
+    { "in": "i i think we should go", "out": "I think we should go" },
+    { "in": "We went to to the store.", "out": "We went to the store." },
+    { "in": "I I I think so.", "out": "I think so." },
+    { "in": "Hmm, move it to to do.", "out": "Move it to to do." }
   ],
   "must_not_change": [
     "See you at 9 a.m. tomorrow.",
@@ -72,6 +79,16 @@
     "Uh-oh, that broke.",
     "Um-hmm, sure.",
     "Wait... the next one is better.",
-    "Paragraph one ends here.\n\nParagraph two starts here."
+    "Paragraph one ends here.\n\nParagraph two starts here.",
+    ".env holds the keys.",
+    ".NET is great.",
+    "I work in .NET and add it to .gitignore.",
+    "Add .env, .gitignore and .DS_Store to the list.",
+    "Is .env in the repo? .gitignore says no.",
+    "Move it to to do.",
+    "Put the card in the to to-do list.",
+    "I want to to-do list these.",
+    "Read Part I I and then the appendix.",
+    "Wait... .env is missing."
   ]
 }

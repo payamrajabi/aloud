@@ -119,7 +119,8 @@ struct SettingsView: View {
                          symbol: "text.badge.checkmark",
                          installed: TranscriptCleaner.isInstalled, progress: dictation.cleanupProgress,
                          canRemove: TranscriptCleaner.isInstalled, busy: dictation.isCleanupBusy,
-                         download: { dictation.downloadCleanupModel() }, remove: { dictation.removeCleanupModel() })
+                         download: { dictation.downloadCleanupModel() }, remove: { dictation.removeCleanupModel() },
+                         afterRemoving: "Dictation will go back to typing what Aloud heard, with only basic tidying. It won't download again unless you click Download here.")
             } header: {
                 Text("Downloads")
             } footer: {
@@ -388,6 +389,8 @@ private struct ModelRow: View {
     let busy: Bool
     let download: () -> Void
     let remove: () -> Void
+    /// What the Remove confirmation says happens afterwards.
+    var afterRemoving = "Aloud will ask before downloading it again the next time you use it."
     @State private var confirmingRemove = false
 
     var body: some View {
@@ -432,7 +435,7 @@ private struct ModelRow: View {
         .confirmationDialog("Remove the \(title.lowercased()) model?", isPresented: $confirmingRemove) {
             Button("Remove", role: .destructive, action: remove)
         } message: {
-            Text("Aloud will ask before downloading it again the next time you use it.")
+            Text(afterRemoving)
         }
     }
 }
