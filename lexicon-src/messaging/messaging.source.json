@@ -1,5 +1,6 @@
 {
-"about": "FIN-896 messaging & internet shorthand pack: the master list behind Lexicons/messaging.json (build.py projects it), with each entry's reading, evidence and the stack's reading before the pack (before_us). The pack is on by default and every entry is general (heard by everyone); its context-dependent readings are Sources/Phonemizer/Packs/MessagingPass.swift. Tests: Tests/g2p/messaging-readings.json.",
+"about": "FIN-896 messaging & internet shorthand pack: the master list behind Lexicons/messaging.json (lexicon-src/tools/build_pack.py messaging projects it), with each entry's reading, evidence and the stack's reading before the pack (before_us). The pack is on by default and every entry is general (heard by everyone); its context-dependent readings are Sources/Phonemizer/Packs/MessagingPass.swift. Tests: Tests/g2p/messaging-readings.json.",
+"default_on": true,
 "decisions": {
  "owner": [
   "Payam, 2026-10-09: emoji are never read aloud.",

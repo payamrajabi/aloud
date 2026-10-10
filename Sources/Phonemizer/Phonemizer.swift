@@ -55,6 +55,8 @@ public final class Phonemizer {
             t = AddressPass.apply(t, british: british)
             t = TitlePass.apply(t, british: british)
             t = ShorthandPass.apply(t, british: british)
+            // The academic pack's reading rules (FIN-895): Eq., ed./eds., viz., fl., citations.
+            t = AcademicPass.apply(t, british: british)
             t = MeasuresPass.apply(t, british: british)
         }
         // Hand-written terms first, on the raw text; then normalize everything else.

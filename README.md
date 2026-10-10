@@ -201,7 +201,12 @@ context needs it from its own pack. The messaging pack (`messaging.json`, FIN-89
 everyone: "lol" as the word, "omg" as letters, "u" and "ur" as you and your, hashtags as
 "hashtag …", @mentions as "at …", and emoji and emoticons silent
 (`Sources/Phonemizer/Packs/MessagingPass.swift`; its source and decisions are in
-`lexicon-src/messaging/`). Before adding a pack, check the lists agree:
+`lexicon-src/messaging/`). The academic pack (`academic.json`, FIN-895) reads citations
+for everyone ("Eq. 4", "(eds.)", "3rd ed.", "ibid.", "viz.", "fl. 1200", "c. 300 BCE", and
+"[12]" as nothing; `Sources/Phonemizer/Packs/AcademicPass.swift`); its one field-only entry,
+"OR" as O-R (odds ratio), waits for `--packs academic`. A pack's shipped file is built from
+its source: `python3 -I lexicon-src/tools/build_pack.py messaging` (or `academic`).
+Before adding a pack, check the lists agree:
 
 ```bash
 python3 lexicon-src/tools/check_packs.py
