@@ -24,7 +24,9 @@
     { "in": "It's done. (mostly.) the rest is next week.", "out": "It's done. (Mostly.) The rest is next week." },
     { "in": "He's taller than I. we left early.", "out": "He's taller than I. We left early." },
     { "in": "The total is 3. we need more.", "out": "The total is 3. We need more." },
-    { "in": "Okay .  So the plan , um , is set .", "out": "Okay. So the plan, is set." }
+    { "in": "Okay .  So the plan , um , is set .", "out": "Okay. So the plan, is set." },
+    { "in": "Um, type `um` exactly.", "out": "Type `um` exactly." },
+    { "in": "The the path is /tmp/the/the.", "out": "The path is /tmp/the/the." }
   ],
   "must_not_change": [
     "See you at 9 a.m. tomorrow.",
@@ -59,7 +61,16 @@
     "I got an A a week ago.",
     "Call 555 555 1234, extension 4 4 2.",
     "The ER was busy.",
-    "Paragraph one ends here.\n\nParagraph two starts here."
+    "Paragraph one ends here.\n\nParagraph two starts here.",
+    "Type `um` exactly.",
+    "Type `the the` exactly.",
+    "Email ah@example.com today.",
+    "Open /tmp/um/ah today.",
+    "Read api_um and user_ah today.",
+    "Use user-id and items[index] today.",
+    "Use ```um\nthe the\n``` verbatim.",
+    "Keep `AloudLiteral0Token` exact.",
+    "Keep ```um\nthe the exactly."
   ],
   "faithful": [
     { "in": "Use api_key and c++; compare x ≤ y.", "out": "Use api_key and c++! Compare x ≤ y." },
@@ -76,7 +87,10 @@
     { "in": "Use C++ and C#; then set $HOME and run --dry-run for @alex.", "out": "Use C++ and C#! Then set $HOME; and run --dry-run, for @alex!" },
     { "in": "Keep `--dry-run` exact. Require ≥ 5, allow ±0.2, ratio 3/4, and value 1e-3.", "out": "Keep `--dry-run` exact! Require ≥ 5; allow ±0.2. Ratio 3/4; and value 1e-3." },
     { "in": "Visit https://Example.com/a today.", "out": "Visit https://Example.com/a today!" },
-    { "in": "Keep the awkward grammar as spoken", "out": "Keep the awkward grammar as spoken." }
+    { "in": "Keep the awkward grammar as spoken", "out": "Keep the awkward grammar as spoken." },
+    { "in": "Um, type `um` exactly.", "out": "Type `um` exactly!" },
+    { "in": "Use api_key, like, here.", "out": "Use api_key here." },
+    { "in": "Use user-id and items[index] today.", "out": "Use user-id; and items[index] today!" }
   ],
   "unfaithful": [
     { "in": "Use c++ for rendering", "out": "Use c for rendering" },
@@ -123,6 +137,35 @@
     { "in": "Visit https://example.com/a today", "out": "Visit https://example.com/b today" },
     { "in": "We will ship the patch", "out": "We will" },
     { "in": "She had had enough", "out": "She had enough" },
-    { "in": "Do not remove the word no", "out": "Do remove the word" }
+    { "in": "Do not remove the word no", "out": "Do remove the word" },
+    { "in": "Set api_key and user id.", "out": "Set api key and user_id." },
+    { "in": "Open /Users/me/config.", "out": "Open Users/me/config/." },
+    { "in": "Compute x+y z.", "out": "Compute x y+z." },
+    { "in": "Compute x−y z.", "out": "Compute x y−z." },
+    { "in": "Compare x + y z.", "out": "Compare x y + z." },
+    { "in": "Read *warning and info.", "out": "Read warning and *info." },
+    { "in": "Use user-id here.", "out": "Use user id here." },
+    { "in": "Compare x-y and z.", "out": "Compare x y and z." },
+    { "in": "Read items[index] now.", "out": "Read items index now." },
+    { "in": "Read items[index] now.", "out": "Read items [index] now." },
+    { "in": "Use api_key here.", "out": "Use api_ key here." },
+    { "in": "Type `um` exactly.", "out": "Type `` exactly." },
+    { "in": "Type `the the` exactly.", "out": "Type `the` exactly." },
+    { "in": "Email ah@example.com today.", "out": "Email @example.com today." },
+    { "in": "Open /tmp/um/ah today.", "out": "Open /tmp/ah today." },
+    { "in": "Run fn() here.", "out": "Run fn here." },
+    { "in": "Use ```um\nthe the\n``` verbatim.", "out": "Use ```the\n``` verbatim." },
+    { "in": "Type `um exactly.", "out": "Type ` exactly." },
+    { "in": "api_key aloudliteral0token", "out": "aloudliteral0token api_key" }
+  ],
+  "filler_sounds": [
+    { "in": "Um, type `um` exactly.", "out": "type `um` exactly." },
+    { "in": "Um, email um@example.com today.", "out": "email um@example.com today." },
+    { "in": "Um, open /tmp/um/ah today.", "out": "open /tmp/um/ah today." },
+    { "in": "Um, read api_um and user_uh today.", "out": "read api_um and user_uh today." },
+    { "in": "Type `um` exactly.", "out": "Type `um` exactly." },
+    { "in": "Use ```um\nthe the\n``` verbatim.", "out": "Use ```um\nthe the\n``` verbatim." },
+    { "in": "Type `um exactly.", "out": "Type `um exactly." },
+    { "in": "Keep ```um\nthe the exactly.", "out": "Keep ```um\nthe the exactly." }
   ]
 }

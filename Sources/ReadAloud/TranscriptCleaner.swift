@@ -414,24 +414,26 @@ final class TranscriptCleaner {
     /// This deliberately rejects uncertain omissions: raw speech is safer than a fluent
     /// sentence whose meaning may have drifted.
     static func isFaithful(_ output: String, to input: String) -> Bool {
+        // Check raw notation before a deterministic deletion can erase part of it.
+        guard protectedSpans(in: input) == protectedSpans(in: output) else { return false }
         let baseline = basicTidy(input)
-        let source = words(baseline), result = words(output)
-        // Symbols can carry meaning even outside a recognized numeric or code
-        // span (lowercase c++, ${HOME}, api_key, x ≤ y, a filesystem path).
-        // Preserve their ordered signature rather than guessing every syntax.
-        guard meaningfulSymbols(in: baseline) == meaningfulSymbols(in: output) else { return false }
-        guard protectedSpans(in: baseline) == protectedSpans(in: output) else { return false }
+        let prefix = placeholderPrefix(avoiding: input + output)
+        let sourceText = maskedProtectedText(baseline, prefix: prefix)
+        let resultText = maskedProtectedText(output, prefix: prefix)
+        let source = words(sourceText), result = words(resultText)
         guard !result.isEmpty else { return source.isEmpty }
-        if formattingWords(in: baseline) == formattingWords(in: output) { return true }
+        if source == result { return true }
 
-        let fillers = fillerRanges(in: source, text: baseline)
+        // Opaque notation tokens stay interleaved with the words. A symbol cannot
+        // migrate to another word or across a word that the speaker kept.
+        let fillers = fillerRanges(in: source, text: sourceText)
         if matches(result, source: source, removing: fillers) { return true }
         for filler in fillers where matches(result, source: source, removing: [filler]) { return true }
 
         // Permit one unmistakably isolated correction per pass. The discarded slip is
         // exactly the token immediately before a comma-delimited correction cue.
         // Longer guessed deletions and multiple corrections stay in the source text.
-        for correction in correctionRanges(in: source, text: baseline) {
+        for correction in correctionRanges(in: source, text: sourceText) {
             if matches(result, source: source, removing: [correction]) { return true }
             if matches(result, source: source, removing: [correction] + fillers) { return true }
             for filler in fillers where matches(result, source: source, removing: [correction, filler]) {
@@ -439,12 +441,6 @@ final class TranscriptCleaner {
             }
         }
         return false
-    }
-
-    private static func meaningfulSymbols(in text: String) -> [String] {
-        let ns = text as NSString
-        return meaningfulSymbolPattern.matches(in: text, range: NSRange(location: 0, length: ns.length))
-            .map { ns.substring(with: $0.range) }
     }
 
     private static let meaningfulSymbolPattern = try! NSRegularExpression(
@@ -463,6 +459,10 @@ final class TranscriptCleaner {
     /// sentence punctuation; numeric spans preserve signs, decimals, currencies, percentages,
     /// common units, and accounting negatives while ignoring internal whitespace.
     private static func protectedSpans(in text: String) -> [String] {
+        protectedRanges(in: text).map(\.value)
+    }
+
+    private static func protectedRanges(in text: String) -> [(range: NSRange, value: String)] {
         let ns = text as NSString
         let fullRange = NSRange(location: 0, length: ns.length)
         var spans: [(range: NSRange, value: String)] = []
@@ -482,6 +482,26 @@ final class TranscriptCleaner {
             let value = ns.substring(with: match.range).filter { !$0.isWhitespace }
             spans.append((match.range, value))
         }
+        // Preserve symbol-bearing tokens as written, rather than maintaining a
+        // growing list of programming languages, identifier styles, and paths.
+        for match in nonWhitespacePattern.matches(in: text, range: fullRange) {
+            var range = match.range
+            var value = ns.substring(with: range)
+            while let first = value.first, "\"“‘'".contains(first) {
+                range.location += (String(first) as NSString).length
+                range.length -= (String(first) as NSString).length
+                value.removeFirst()
+            }
+            while let last = value.last, "\"”’'.,;:?!…".contains(last) {
+                range.length -= (String(last) as NSString).length
+                value.removeLast()
+            }
+            guard !value.isEmpty else { continue }
+            let valueRange = NSRange(location: 0, length: (value as NSString).length)
+            let hasSymbol = meaningfulSymbolPattern.firstMatch(in: value, range: valueRange) != nil
+            let hasJoinedPunctuation = joinedPunctuationPattern.firstMatch(in: value, range: valueRange) != nil
+            if hasSymbol || hasJoinedPunctuation { spans.append((range, value)) }
+        }
         let ordered = spans.sorted {
             $0.range.location == $1.range.location
                 ? $0.range.length > $1.range.length
@@ -494,22 +514,55 @@ final class TranscriptCleaner {
             selected.append((span.range, span.value))
             lastEnd = NSMaxRange(span.range)
         }
-        return selected.sorted { $0.range.location < $1.range.location }.map(\.value)
+        return selected
     }
 
-    /// Treat protected notation as one opaque word while comparing ordinary words. This
-    /// allows harmless spacing around a number and unit ("5 kg" / "5kg") while the
-    /// exact protected-span comparison above still catches notation changes.
-    private static func formattingWords(in text: String) -> [String] {
-        var normalized = text
-        for pattern in protectedFormattingPatterns {
-            let ns = normalized as NSString
-            let range = NSRange(location: 0, length: ns.length)
-            for match in pattern.matches(in: normalized, range: range).reversed() {
-                normalized = (normalized as NSString).replacingCharacters(in: match.range, with: "protectedspan")
-            }
+    private static let nonWhitespacePattern = try! NSRegularExpression(pattern: "\\S+")
+    private static let joinedPunctuationPattern = try! NSRegularExpression(
+        pattern: "[\\p{L}\\p{N}][\\-:][\\p{L}\\p{N}]|[\\p{L}\\p{N}][\\[\\]{}]|[\\[\\]{}][\\p{L}\\p{N}]|[\\p{L}\\p{N}]\\([^)]*\\)")
+
+    private static func placeholderPrefix(avoiding text: String) -> String {
+        var prefix = "AloudLiteral"
+        while text.range(of: prefix, options: .caseInsensitive) != nil { prefix += "X" }
+        return prefix
+    }
+
+    private static func replacingRanges(_ text: String, with replacements: [(NSRange, String)]) -> String {
+        let ns = text as NSString
+        var result = "", end = 0
+        for (range, replacement) in replacements {
+            result += ns.substring(with: NSRange(location: end, length: range.location - end))
+            result += replacement
+            end = NSMaxRange(range)
         }
-        return words(normalized)
+        result += ns.substring(from: end)
+        return result
+    }
+
+    /// Keep numbers and technical notation opaque during comparison, so harmless
+    /// numeric spacing is allowed while the position of each literal stays fixed.
+    private static func maskedProtectedText(_ text: String, prefix: String) -> String {
+        replacingRanges(text, with: protectedRanges(in: text).enumerated().map {
+            ($0.element.range, "\(prefix)\($0.offset)Token")
+        })
+    }
+
+    /// Deterministic filler/stammer rules operate only on ordinary speech. Restore
+    /// every protected span exactly, including spelling, symbols, and whitespace.
+    private static func preservingProtectedSpans(_ text: String, transform: (String) -> String) -> String {
+        let spans = protectedRanges(in: text)
+        guard !spans.isEmpty else { return transform(text) }
+        let prefix = placeholderPrefix(avoiding: text)
+        let keys = spans.indices.map { "\(prefix)\($0)Token" }
+        let originals = Dictionary(uniqueKeysWithValues: zip(keys, spans.map { (text as NSString).substring(with: $0.range) }))
+        let masked = replacingRanges(text, with: zip(spans, keys).map { ($0.0.range, $0.1) })
+        let changed = transform(masked)
+        let pattern = try! NSRegularExpression(pattern: NSRegularExpression.escapedPattern(for: prefix) + "[0-9]+Token")
+        let ns = changed as NSString
+        let replacements = pattern.matches(in: changed, range: NSRange(location: 0, length: ns.length)).map {
+            ($0.range, originals[ns.substring(with: $0.range)]!)
+        }
+        return replacingRanges(changed, with: replacements)
     }
 
     private static let protectedEmailPattern = try! NSRegularExpression(
@@ -517,12 +570,12 @@ final class TranscriptCleaner {
     private static let protectedURLPattern = try! NSRegularExpression(
         pattern: "(?i)(?:https?://|www\\.)[^\\s<>\"']+|(?<![@\\p{L}\\p{N}])(?:[\\p{L}\\p{N}-]+\\.)+[A-Za-z]{2,}(?:/[^\\s<>\"']*)?")
     private static let protectedNumberPattern = try! NSRegularExpression(
-        pattern: "(?<![\\p{L}\\p{N}])(?:\\(\\s*(?:\\p{Sc}\\s*)?[+\\-−]?\\s*\\d+(?:[.,]\\d+)*(?:\\s*(?:%|‰|°\\s*[CFK]))?(?:\\s*(?:km/h|m/s|mi/h|ft/s|kg|mg|g|lbs?|oz|mL|ml|L|l|km|cm|mm|m|mi|ft|in|ms|min|sec|hr|h|s|µs|ns|GHz|MHz|kHz|Hz|MW|kW|mW|W|mV|V|mA|A|GB|MB|KB|B|Gbps|Mbps|kbps|bps|px)(?![\\p{L}\\p{N}]))?\\s*\\)|(?:[+\\-−]\\s*\\p{Sc}\\s*|\\p{Sc}\\s*[+\\-−]?\\s*|[+\\-−]\\s*)?\\d+(?:[.,]\\d+)*(?:\\s*(?:%|‰|°\\s*[CFK]))?(?:\\s*(?:km/h|m/s|mi/h|ft/s|kg|mg|g|lbs?|oz|mL|ml|L|l|km|cm|mm|m|mi|ft|in|ms|min|sec|hr|h|s|µs|ns|GHz|MHz|kHz|Hz|MW|kW|mW|W|mV|V|mA|A|GB|MB|KB|B|Gbps|Mbps|kbps|bps|px)(?![\\p{L}\\p{N}]))?(?:\\s*\\p{Sc})?)(?![\\p{L}\\p{N}])")
+        pattern: "(?<![\\p{L}\\p{N}])(?:\\(\\s*(?:\\p{Sc}\\s*)?[+\\-−]?\\s*\\d+(?:[.,]\\d+)*(?:\\s*(?:%|‰|°\\s*[CFK]))?(?:\\s*(?:km/h|m/s|mi/h|ft/s|kg|mg|g|lbs?|oz|mL|ml|L|l|km|cm|mm|m|mi|ft|in|ms|min|sec|hr|h|s|µs|ns|GHz|MHz|kHz|Hz|MW|kW|mW|W|mV|V|mA|A|GB|MB|KB|B|Gbps|Mbps|kbps|bps|px)(?![\\p{L}\\p{N}]|\\.[\\p{L}]))?\\s*\\)|(?:[+\\-−]\\s*\\p{Sc}\\s*|\\p{Sc}\\s*[+\\-−]?\\s*|[+\\-−]\\s*)?\\d+(?:[.,]\\d+)*(?:\\s*(?:%|‰|°\\s*[CFK]))?(?:\\s*(?:km/h|m/s|mi/h|ft/s|kg|mg|g|lbs?|oz|mL|ml|L|l|km|cm|mm|m|mi|ft|in|ms|min|sec|hr|h|s|µs|ns|GHz|MHz|kHz|Hz|MW|kW|mW|W|mV|V|mA|A|GB|MB|KB|B|Gbps|Mbps|kbps|bps|px)(?![\\p{L}\\p{N}]|\\.[\\p{L}]))?(?:\\s*\\p{Sc})?)(?![\\p{L}\\p{N}])")
 
     /// Preserve concise technical notation that the ordinary word tokenizer loses.
     /// These spans are compared exactly, including their punctuation and spacing.
     private static let protectedCodePattern = try! NSRegularExpression(
-        pattern: "(?<!`)`[^`\\n]+`(?!`)")
+        pattern: "(?s)(?<!`)(`+)(?!`).*?(?:\\1(?!`)|$)")
     private static let protectedEnvironmentPattern = try! NSRegularExpression(
         pattern: "(?<![\\p{L}\\p{N}])\\$[A-Za-z_][A-Za-z0-9_]*")
     private static let protectedLanguagePattern = try! NSRegularExpression(
@@ -548,14 +601,6 @@ final class TranscriptCleaner {
         protectedOperatorExpressionPattern, protectedComparisonPattern,
         protectedVariableExponentPattern, protectedFractionPattern, protectedExponentPattern
     ]
-    private static let protectedFormattingPatterns = [
-        protectedEmailPattern, protectedURLPattern, protectedCodePattern,
-        protectedEnvironmentPattern, protectedLanguagePattern, protectedFlagPattern,
-        protectedMentionPattern, protectedOperatorExpressionPattern,
-        protectedComparisonPattern, protectedVariableExponentPattern,
-        protectedFractionPattern, protectedExponentPattern, protectedNumberPattern
-    ]
-
     /// Ranges include one discarded word and an isolated correction cue. The cue must
     /// have commas on both sides, so "Tuesday, no, Wednesday" qualifies while sentence
     /// boundaries, "No invoices are approved", and ordinary "actually" uses do not.
@@ -709,8 +754,10 @@ final class TranscriptCleaner {
     /// Um, uh and hmm never mean anything, so they go before the model sees the text
     /// (it's more reliable at the judgement calls when these are already gone).
     static func dropFillerSounds(_ text: String) -> String {
-        text.replacingOccurrences(of: "\\b(?:[Uu]m+|[Uu]h+|[Ee]rm|[Hh]mm+)\\b[,.]?\\s*", with: "", options: .regularExpression)
-            .trimmingCharacters(in: .whitespacesAndNewlines)
+        preservingProtectedSpans(text) { speech in
+            speech.replacingOccurrences(of: "\\b(?:[Uu]m+|[Uu]h+|[Ee]rm|[Hh]mm+)\\b[,.]?\\s*", with: "", options: .regularExpression)
+                .trimmingCharacters(in: .whitespacesAndNewlines)
+        }
     }
 
     /// The fallback when the model's reply can't be trusted: drop filler sounds and
@@ -721,19 +768,21 @@ final class TranscriptCleaner {
     /// keeps its spelling, and doubled words that can be grammar ("had had", "that that",
     /// "what it is is") stay.
     static func basicTidy(_ text: String) -> String {
-        var t = text
-        func sub(_ pattern: String, _ template: String) {
-            t = t.replacingOccurrences(of: pattern, with: template, options: .regularExpression)
+        preservingProtectedSpans(text) { speech in
+            var t = speech
+            func sub(_ pattern: String, _ template: String) {
+                t = t.replacingOccurrences(of: pattern, with: template, options: .regularExpression)
+            }
+            // Filler sounds and the comma after them. A full stop after one stays: it ends the
+            // sentence ("and then um. The next thing"). "ER", the hospital, isn't one.
+            sub("\\b(?:[Uu]m+|[Uu]h+|[Ee]rm|[Ee]r|[Aa]h|[Hh]mm+)\\b[ \\t]*,?[ \\t]*", "")
+            t = dropStammers(t)
+            sub("[ \\t]+([,.?!])", "$1")  // "then ." → "then."
+            sub(",([.?!])", "$1")         // "I think, ." once the "um" between went
+            sub("[ \\t]{2,}", " ")
+            sub("^[\\s,.;:]+", "")        // "Um. So…" or "Um, so…" opened the text
+            return capitaliseSentences(t.trimmingCharacters(in: .whitespacesAndNewlines))
         }
-        // Filler sounds and the comma after them. A full stop after one stays: it ends the
-        // sentence ("and then um. The next thing"). "ER", the hospital, isn't one.
-        sub("\\b(?:[Uu]m+|[Uu]h+|[Ee]rm|[Ee]r|[Aa]h|[Hh]mm+)\\b[ \\t]*,?[ \\t]*", "")
-        t = dropStammers(t)
-        sub("[ \\t]+([,.?!])", "$1")  // "then ." → "then."
-        sub(",([.?!])", "$1")         // "I think, ." once the "um" between went
-        sub("[ \\t]{2,}", " ")
-        sub("^[\\s,.;:]+", "")        // "Um. So…" or "Um, so…" opened the text
-        return capitaliseSentences(t.trimmingCharacters(in: .whitespacesAndNewlines))
     }
 
     /// Words people stammer on that are never doubled in grammatical English, so "the the"
@@ -766,8 +815,12 @@ final class TranscriptCleaner {
                 end += 1
             }
             if end > k {
-                let before = ns.substring(to: found[k].location)
-                let startsSentence = before.range(of: "(?:^|[.?!\\n])[\"“‘'(\\s]*$", options: .regularExpression) != nil
+                // Only the gap since the preceding word can start this sentence.
+                // Reading the whole prefix for each stammer becomes quadratic.
+                let beforeStart = k == 0 ? 0 : NSMaxRange(found[k - 1])
+                let before = ns.substring(with: NSRange(location: beforeStart, length: found[k].location - beforeStart))
+                let boundary = k == 0 ? "(?:^|[.?!\\n])" : "[.?!\\n]"
+                let startsSentence = before.range(of: boundary + "[\"“‘'(\\s]*$", options: .regularExpression) != nil
                 let repeats = (k + 1...end).map { ns.substring(with: found[$0]) }
                 if isStammer(first, repeats: repeats, comma: comma, startsSentence: startsSentence) {
                     let from = NSMaxRange(found[k])
@@ -776,11 +829,7 @@ final class TranscriptCleaner {
             }
             k = end + 1
         }
-        var out = text
-        for cut in cuts.reversed() {
-            out = (out as NSString).replacingCharacters(in: cut, with: "")
-        }
-        return out
+        return replacingRanges(text, with: cuts.map { ($0, "") })
     }
 
     private static let wordPattern = try! NSRegularExpression(pattern: "\\w+(?:['’]\\w+)*")

@@ -196,6 +196,7 @@ enum DictationTest {
         let must_not_change: [String]
         let faithful: [Case]?
         let unfaithful: [Case]?
+        let filler_sounds: [Case]?
     }
 
     /// The cleanup fallback and the lexical faithfulness guard for model output.
@@ -226,6 +227,14 @@ enum DictationTest {
         for c in doc.must_change { check(c.in, want: c.out) }
         print("\n== must not change (\(doc.must_not_change.count)) ==")
         for text in doc.must_not_change { check(text, want: text) }
+        let fillerSounds = doc.filler_sounds ?? []
+        print("\n== pre-model filler sounds (\(fillerSounds.count)) ==")
+        for c in fillerSounds {
+            let got = TranscriptCleaner.dropFillerSounds(c.in)
+            let ok = got == c.out && TranscriptCleaner.dropFillerSounds(got) == got
+            failures += ok ? 0 : 1
+            if !ok || verbose { print("  \(ok ? "✓" : "✗") \(c.in.debugDescription) → \(got.debugDescription), want \(c.out.debugDescription)") }
+        }
 
         func checkFaithfulness(_ cases: [TidyDoc.Case], wantFaithful: Bool) {
             for c in cases {
@@ -254,7 +263,17 @@ enum DictationTest {
         print("\n== repeated-phrase stress (10,000 words) ==")
         print("  \(stressPassed ? "✓" : "✗") \(String(format: "%.3f", stressDuration))s, \(stressAccepted ? "accepted" : "rejected")")
 
-        let total = doc.must_change.count + doc.must_not_change.count + faithful.count + unfaithful.count + 1
+        let stammerInput = Array(repeating: "the the alpha", count: 1_000).joined(separator: " ")
+        let stammerOutput = Array(repeating: "the alpha", count: 1_000).joined(separator: " ")
+        let stammerStart = Date()
+        let stammerAccepted = TranscriptCleaner.isFaithful(stammerOutput, to: stammerInput)
+        let stammerDuration = Date().timeIntervalSince(stammerStart)
+        let stammerPassed = stammerAccepted && stammerDuration < 2
+        failures += stammerPassed ? 0 : 1
+        print("\n== repeated-stammer stress (3,000 words) ==")
+        print("  \(stammerPassed ? "✓" : "✗") \(String(format: "%.3f", stammerDuration))s, \(stammerAccepted ? "accepted" : "rejected")")
+
+        let total = doc.must_change.count + doc.must_not_change.count + faithful.count + unfaithful.count + fillerSounds.count + 2
         print(failures == 0 ? "\nPASSED (\(total) checks)" : "\nFAILED: \(failures) of \(total) checks")
         return failures == 0 ? 0 : 1
     }
