@@ -224,7 +224,15 @@ enum DictationTest {
         print("== must change (\(doc.must_change.count)) ==")
         for c in doc.must_change { check(c.in, want: c.out) }
         print("\n== must not change (\(doc.must_not_change.count)) ==")
-        for text in doc.must_not_change { check(text, want: text) }
+        for text in doc.must_not_change {
+            check(text, want: text)
+            // The filler pass that runs before the model must leave these alone too.
+            let dropped = TranscriptCleaner.dropFillerSounds(text)
+            if dropped != text {
+                failures += 1
+                print("  ✗ \(text.debugDescription)\n      dropFillerSounds → \(dropped.debugDescription)")
+            }
+        }
         let total = doc.must_change.count + doc.must_not_change.count
         print(failures == 0 ? "\nPASSED (\(total) checks)" : "\nFAILED: \(failures) of \(total) checks")
         return failures == 0 ? 0 : 1

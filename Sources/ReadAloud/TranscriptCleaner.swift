@@ -475,9 +475,16 @@ final class TranscriptCleaner {
     /// Um, uh and hmm never mean anything, so they go before the model sees the text
     /// (it's more reliable at the judgement calls when these are already gone).
     static func dropFillerSounds(_ text: String) -> String {
-        text.replacingOccurrences(of: "\\b(?:[Uu]m+|[Uu]h+|[Ee]rm|[Hh]mm+)\\b[,.]?\\s*", with: "", options: .regularExpression)
+        text.replacingOccurrences(of: "\(fillerBoundaryStart)(?:[Uu]m+|[Uu]h+|[Ee]rm|[Hh]mm+)\(fillerBoundaryEnd)[,.]?\\s*", with: "", options: .regularExpression)
             .trimmingCharacters(in: .whitespacesAndNewlines)
     }
+
+    /// A filler is a whole word on its own. A hyphen doesn't end it: the "hmm" in "Mm-hmm"
+    /// and the "uh" in "Uh-huh" or "uh-oh" are part of other words and must stay.
+    private static let fillerBoundaryStart = "(?<![\\w-])"
+    private static let fillerBoundaryEnd = "(?!\\w|-\\w)"
+    /// Everything basicTidy treats as a filler sound. "ER", the hospital, isn't one.
+    private static let fillerWords = "(?:[Uu]m+|[Uu]h+|[Ee]rm|[Ee]r|[Aa]h|[Hh]mm+)"
 
     /// The fallback when the model's reply can't be trusted: drop filler sounds and
     /// obvious stammers, and capitalise sentences. Pauses stay where they were.
@@ -493,7 +500,16 @@ final class TranscriptCleaner {
         }
         // Filler sounds and the comma after them. A full stop after one stays: it ends the
         // sentence ("and then um. The next thing"). "ER", the hospital, isn't one.
-        sub("\\b(?:[Uu]m+|[Uu]h+|[Ee]rm|[Ee]r|[Aa]h|[Hh]mm+)\\b[ \\t]*,?[ \\t]*", "")
+        let filler = fillerBoundaryStart + fillerWords + fillerBoundaryEnd
+        // A filler that is a sentence of its own ("yes. Um. The next") takes its full stop
+        // with it, or the two stops would read as trailing off ("Yes.. the") and the next
+        // word would stay lowercase. A run of them ("yes. er. um. the") goes one by one.
+        for _ in 0..<5 {
+            let before = t
+            sub("([.?!][ \\t]*(?:\\n[ \\t]*)*)" + filler + "[ \\t]*,?[ \\t]*\\.(?!\\.)", "$1")
+            if t == before { break }
+        }
+        sub(filler + "[ \\t]*,?[ \\t]*", "")
         t = dropStammers(t)
         sub("[ \\t]+([,.?!])", "$1")  // "then ." → "then."
         sub(",([.?!])", "$1")         // "I think, ." once the "um" between went

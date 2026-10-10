@@ -9,6 +9,13 @@
     { "in": "So, um, I think, uh, we're done.", "out": "So, I think, we're done." },
     { "in": "and then um. the next thing", "out": "And then. The next thing" },
     { "in": "I think, um.", "out": "I think." },
+    { "in": "yes. um. the next thing", "out": "Yes. The next thing" },
+    { "in": "yes. er. the next thing", "out": "Yes. The next thing" },
+    { "in": "That's fine. Ah. the next thing is pricing", "out": "That's fine. The next thing is pricing" },
+    { "in": "yes. er. um. the next thing", "out": "Yes. The next thing" },
+    { "in": "Is that right? Er. the plan changed.", "out": "Is that right? The plan changed." },
+    { "in": "Good.\nUm.\nThe next part.", "out": "Good.\n\nThe next part." },
+    { "in": "Mm-hmm, um yes.", "out": "Mm-hmm, yes." },
     { "in": "Hmm, the the design review is on Monday", "out": "The design review is on Monday" },
     { "in": "The the design review is on Monday.", "out": "The design review is on Monday." },
     { "in": "I I I think it's it's fine.", "out": "I think it's fine." },
@@ -59,6 +66,12 @@
     "I got an A a week ago.",
     "Call 555 555 1234, extension 4 4 2.",
     "The ER was busy.",
+    "Mm-hmm, yes.",
+    "Mm-hmm.",
+    "Uh-huh. Sounds good.",
+    "Uh-oh, that broke.",
+    "Um-hmm, sure.",
+    "Wait... the next one is better.",
     "Paragraph one ends here.\n\nParagraph two starts here."
   ]
 }
