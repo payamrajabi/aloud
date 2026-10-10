@@ -22,6 +22,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
     private(set) lazy var settings = SettingsWindow(player: model, dictation: dictation)
 
     func applicationDidFinishLaunching(_ notification: Notification) {
+        _ = Licensing.shared  // before "didWelcome" is set below, so it can tell new installs from early users
         setUpStatusItem()
         nowPlaying = NowPlaying(model: model)
         pill = OnScreenPill(dictation: dictation, player: model)
@@ -51,6 +52,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
             }
         }
         DebugScript.run(model: model, app: self)
+    }
+
+    /// aloud://activate?license=… from the thank-you page or the purchase email.
+    func application(_ application: NSApplication, open urls: [URL]) {
+        DispatchQueue.main.async { urls.forEach { Licensing.shared.handle($0) } }
     }
 
     func applicationWillTerminate(_ notification: Notification) {
@@ -151,6 +157,14 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
 
     /// `pausing`: the same (or no) selection pauses a playing session. Modifier taps only ever start or resume.
     func readSelection(pausing: Bool = true) {
+        let licensing = Licensing.shared
+        // An expired trial still permits stopping audio already in progress.
+        if pausing, model.isPlaying, !licensing.isUnlocked {
+            model.pause()
+            self.pill?.reader.show(.controls)
+            return
+        }
+        guard licensing.allowUse() else { return }
         guard SelectionReader.isTrusted else {
             model.message = "Aloud needs Accessibility access to read your selection. Turn it on in System Settings → Privacy & Security → Accessibility, then try again."
             showPlayer()
@@ -346,6 +360,21 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
         update.target = self
         menu.addItem(update)
         menu.addItem(.separator())
+
+        let licensing = Licensing.shared
+        licensing.refresh()
+        if let trial = licensing.menuTitle {
+            menu.addItem(NSMenuItem(title: trial, action: nil, keyEquivalent: ""))
+            let buy = NSMenuItem(title: "Buy Aloud…", action: #selector(buyAloud), keyEquivalent: "")
+            buy.target = self
+            menu.addItem(buy)
+            if licensing.status == .expired {
+                let enter = NSMenuItem(title: "Enter License…", action: #selector(enterLicense), keyEquivalent: "")
+                enter.target = self
+                menu.addItem(enter)
+            }
+            menu.addItem(.separator())
+        }
         menu.addItem(NSMenuItem(title: "Quit Aloud", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
     }
 
@@ -356,6 +385,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
     }
 
     @objc private func toggleDictation() { dictation.toggle() }
+
+    @objc private func buyAloud() { Licensing.shared.buy() }
+
+    @objc private func enterLicense() { Licensing.shared.promptForLicense() }
 
     @objc private func copyLastDictation() { dictation.copyLastTranscript() }
 

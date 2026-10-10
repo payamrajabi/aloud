@@ -199,6 +199,7 @@ final class PlayerModel: ObservableObject {
     }
 
     func load(_ raw: String, html: String? = nil) {
+        guard Licensing.shared.allowUse() else { return }
         stop()
         let doc = NarrationDoc.parse(raw, html: html)
         let plan = NarrationPlanner.plan(doc)
@@ -268,6 +269,7 @@ final class PlayerModel: ObservableObject {
 
     func play() {
         guard hasSession, !isPlaying else { return }
+        guard Licensing.shared.allowUse() else { return }
         if isAtEnd { resumePoint = (0, 0) }  // finished: start over
         if !KokoroEngine.isModelInstalled {
             message = nil
@@ -315,6 +317,7 @@ final class PlayerModel: ObservableObject {
     /// Jumps to the start of a sentence and plays from there.
     func jump(to index: Int) {
         guard hasSession else { return }
+        guard Licensing.shared.allowUse() else { return }
         let i = min(max(index, 0), chunks.count - 1)
         isPlaying = true
         startPlayback(at: i, fraction: 0)
@@ -366,6 +369,12 @@ final class PlayerModel: ObservableObject {
     // MARK: - Playback internals
 
     private func startPlayback(at index: Int, fraction: Double) {
+        // Scrubbing, voice changes and audio-route callbacks also restart playback here.
+        // Passive callbacks stop quietly; explicit read/play/jump actions offer the purchase UI.
+        guard Licensing.shared.isUnlocked else {
+            pause()
+            return
+        }
         defer { notify() }
         outputWasBuiltIn = AudioDevices.preferredDevice(.output)?.isBuiltIn ?? false
         token += 1
