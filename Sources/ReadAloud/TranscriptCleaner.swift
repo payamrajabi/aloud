@@ -116,12 +116,22 @@ final class TranscriptCleaner {
         lock.unlock()
         queue.async {
             self.pass(session: s, final: true)
+            guard self.isCurrentSession(s) else { return }
             var text = s == self.queueSession && self.engine != nil
                 ? Self.join(self.settled, self.open, paragraph: self.openBreak) : nil
             if let t = text { text = self.paragraphs(t) }
             self.scheduleUnload()
-            DispatchQueue.main.async { completion(text?.isEmpty == true ? nil : text) }
+            DispatchQueue.main.async {
+                guard self.isCurrentSession(s) else { return }
+                completion(text?.isEmpty == true ? nil : text)
+            }
         }
+    }
+
+    private func isCurrentSession(_ value: Int) -> Bool {
+        lock.lock()
+        defer { lock.unlock() }
+        return value == session
     }
 
     // MARK: - Cleaning
@@ -152,6 +162,9 @@ final class TranscriptCleaner {
         let input = Self.join(open, raw, paragraph: false)
         let started = Date()
         let reply = clean(input, context: settled)
+        // Inference may finish after cancellation or the next recording starts.
+        // Its text belongs only to the session that submitted it.
+        guard isCurrentSession(s) else { return }
         let accepted = reply.map { Self.isFaithful($0, to: input) } ?? false
         // If the model's edit is untrusted, preserve its source text rather than
         // applying deletions we cannot verify.
