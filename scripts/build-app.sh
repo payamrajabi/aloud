@@ -116,6 +116,11 @@ cat > "$APP/Contents/Info.plist" <<PLIST
   <key>LSMinimumSystemVersion</key><string>14.0</string>
   <key>LSUIElement</key><true/>
   <key>NSHighResolutionCapable</key><true/>
+  <key>CFBundleURLTypes</key>
+  <array><dict>
+    <key>CFBundleURLName</key><string>Aloud license</string>
+    <key>CFBundleURLSchemes</key><array><string>aloud</string></array>
+  </dict></array>
   <key>NSMicrophoneUsageDescription</key><string>Aloud listens only while you dictate, and transcribes on your Mac.</string>
   <key>SUFeedURL</key><string>$FEED_URL</string>
   <key>SUPublicEDKey</key><string>5vUlD146c8QQ89zPzk3BgpG7ivGEHbrUiH1SBSRSL6M=</string>

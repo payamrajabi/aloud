@@ -146,6 +146,36 @@ update can ever reach existing installs again.
 
 The landing page lives in `docs/` and is served at https://aloudformac.com by Vercel.
 
+## Selling Aloud
+
+Aloud is free for 7 days from first launch, then a one-time purchase (people who
+installed it while it was free keep it free; `Licensing.earlyUsersFree`). Stripe
+Managed Payments is the intended merchant-of-record integration. Checkout explicitly
+requests `managed_payments[enabled]=true`; it never falls back to standard Checkout.
+Stripe handles sales tax, VAT and GST compliance in its supported countries (80+),
+not every country worldwide. Account activation, terms acceptance and product
+eligibility must be verified before sales. See [payment setup](docs/PAYMENT-SETUP.md).
+
+- **Buying:** the app's Buy Aloud… opens https://aloudformac.com/buy (`docs/api/buy.mjs`),
+  which starts a Stripe Checkout for the price named by `ALOUD_PRICE_LOOKUP_KEY`
+  (`aloud_launch`, $9.99, or `aloud_regular`, $19). Moving off the launch price is a
+  change to that Vercel setting plus the prices on the landing page, not a release.
+- **Unlocking:** Checkout returns to `/thanks`, which fetches the license from
+  `/api/license` and opens `aloud://activate?license=…`, so the app unlocks itself.
+  Stripe also calls `/api/webhook`, which emails the license (via Resend) with a link
+  to `/activate#…`. `/restore` emails it again.
+- **Licenses** are the purchase details signed with Ed25519, checked offline by
+  `Licensing.swift` against the public key built into the app. Nothing is stored on
+  a server: the same purchase always produces the same license. The private key is
+  `LICENSE_SIGNING_KEY` on Vercel; its correspondence to the app's public key has not
+  been verified by this branch. Preserve and securely back up the approved issuer key:
+  replacing it would prevent new licenses from unlocking existing installs.
+- **Setup:** `./scripts/stripe-setup.sh --plan` prints the offline plan. `--check`
+  inspects an already authorized test account using GET requests only. The script
+  cannot create credentials, products, prices or webhooks, or enable live payments.
+  The required settings and real sandbox acceptance steps are in
+  [PAYMENT-SETUP.md](docs/PAYMENT-SETUP.md).
+
 ## License
 
 MIT for this app's code. The download also bundles or fetches Kokoro, misaki's
@@ -218,4 +248,6 @@ READALOUD_MODELS_DIR=/tmp/models .build/debug/ReadAloud --download-voice   # tes
 .build/debug/ReadAloud --clean-file ramble.txt --trace                     # tidy raw dictation text, time the wait after "stop"
 .build/debug/ReadAloud --test-tidy Tests/dictation/tidy.json               # clean-up's rule-based fallback (no model needed)
 .build/debug/ReadAloud --script "1:settings;3:settingsshot=/tmp/s.png;4:quit"  # screenshot the Settings window
+ALOUD_TRIAL_START=2026-01-01 .build/debug/ReadAloud --script "1:menu;2:quit"     # pretend the free week ran out
+.build/debug/ReadAloud --check-license "<license or activation link>"          # check a license offline
 ```

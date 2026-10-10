@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Thanks for buying Aloud</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<style>
+  :root { --bg: #f5f5f7; --surface: #fff; --ink: #1d1d1f; --muted: #6e6e73; --line: rgba(0,0,0,.09); --cta: #1d1d1f; --cta-ink: #fff; --code: #f5f5f7; --bad: #c4321f; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0c0c0d; --surface: #1c1c1e; --ink: #f5f5f7; --muted: #98989d; --line: rgba(255,255,255,.12); --cta: #f5f5f7; --cta-ink: #1d1d1f; --code: #2c2c2e; --bad: #ff6b5a; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px 16px; background: var(--bg); color: var(--ink);
+         font: 16px/1.5 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  .card { width: 100%; max-width: 30rem; background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 32px 28px; text-align: center; }
+  .card img { width: 64px; height: 64px; }
+  h1 { font: 600 26px/1.2 -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif; margin: 12px 0 8px; text-wrap: balance; }
+  p { color: var(--muted); margin: 0 0 16px; }
+  .btn { display: inline-block; background: var(--cta); color: var(--cta-ink); text-decoration: none; font-weight: 600; border: 0; cursor: pointer;
+         padding: 12px 22px; border-radius: 999px; font-size: 16px; font-family: inherit; }
+  .key { font: 12px/1.45 ui-monospace, Menlo, monospace; word-break: break-all; background: var(--code); border-radius: 10px; padding: 10px 12px; text-align: left; color: var(--ink); user-select: all; margin: 0 0 8px; }
+  .small { font-size: 13px; }
+  .small a, p a { color: inherit; }
+  input { width: 100%; font: inherit; padding: 11px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); margin: 0 0 12px; }
+  .error { color: var(--bad); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main class="card">
+  <img src="assets/icon.svg" alt="">
+  <div id="waiting">
+    <h1>Finishing your purchase…</h1>
+    <p>This only takes a moment.</p>
+  </div>
+  <div id="done" hidden>
+    <h1 id="title">Thanks for buying Aloud!</h1>
+    <p id="instructions">Aloud should unlock by itself. If it doesn’t, click the button.</p>
+    <p><a class="btn" id="open" href="#">Unlock Aloud</a></p>
+    <p class="small" id="delivery">Your license works on all your Macs. Save the copy below. A backup email is sent separately to <b id="email"></b>; if it doesn’t arrive, use <a href="/restore">Find your license</a> or contact support.</p>
+    <p class="key" id="key"></p>
+    <p class="small" id="download-tip">Don’t have Aloud on this Mac? <a href="/download">Download it</a>, open it, then click Unlock Aloud again.</p>
+  </div>
+  <div id="problem" hidden>
+    <h1>We couldn’t confirm your purchase</h1>
+    <p id="reason"></p>
+    <p class="small">If your bank shows a charge, try <a href="/restore">Find your license</a> or write to <a href="mailto:payam.rajabi@gmail.com">payam.rajabi@gmail.com</a>. Please don’t pay again while we check.</p>
+  </div>
+</main>
+<script type="module">
+  import { initThanksPage } from './assets/payment-pages.mjs';
+  initThanksPage({ document, location, history });
+</script>
+</body>
+</html>
