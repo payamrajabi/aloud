@@ -1,0 +1,344 @@
+{
+  "about" : "Drugs pack must-not-change set (FIN-893): ordinary sentences whose words are also brand names, given names that drug brands borrow, or everyday words that are also generic drug names. Frozen before Lexicons/drugs.json was added; every reading must stay the same. .build/release/ReadAloud --speech-test Tests/g2p/drugs-negatives.json",
+  "frozen_cases" : [
+    {
+      "area" : "brand-word",
+      "gb" : "ɹɪfɹˈɛʃ ðə pˈAʤ and tɹˈI əɡˈɛn.",
+      "text" : "Refresh the page and try again.",
+      "us" : "ɹəfɹˈɛʃ ðə pˈAʤ ænd tɹˈI əɡˈɛn."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "ɐ kˈQld dɹˈɪŋk wɪl ɹɪfɹˈɛʃ juː.",
+      "text" : "A cold drink will refresh you.",
+      "us" : "ɐ kˈOld dɹˈɪŋk wɪl ɹəfɹˈɛʃ ju."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "hˈɛðə kˈɔːld ðɪs mˈɔːnɪŋ.",
+      "text" : "Heather called this morning.",
+      "us" : "hˈɛðəɹ kˈɔld ðɪs mˈɔɹnɪŋ."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "ðə hˈɪlz wɜː pˈɜːpᵊl wɪð hˈɛðə.",
+      "text" : "The hills were purple with heather.",
+      "us" : "ðə hˈɪlz wɜɹ pˈɜɹpᵊl wɪð hˈɛðəɹ."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "ˈɛlə sˈaŋ ði ˈQpᵊnɪŋ sˈɒŋ.",
+      "text" : "Ella sang the opening song.",
+      "us" : "ˈɛlə sˈæŋ ði ˈOpᵊnɪŋ sˈɔŋ."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "nˈɪki and hˈAli ɑː kˈʌzᵊnz.",
+      "text" : "Nikki and Hailey are cousins.",
+      "us" : "nˈɪki ænd hˈAli ɑɹ kˈʌzᵊnz."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "hˈAli mˈuːvd tə dˈɛnvə.",
+      "text" : "Hailey moved to Denver.",
+      "us" : "hˈAli mˈuvd tə dˈɛnvəɹ."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "sIˈiːdə ʤˈYnd ðə tˈiːm ɪn mˈA.",
+      "text" : "Syeda joined the team in May.",
+      "us" : "sIˈidə ʤˈYnd ðə tˈim ɪn mˈA."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "ɒlˈɛɡɹə ɪz ɐ lˈʌvli nˈAm.",
+      "text" : "Allegra is a lovely name.",
+      "us" : "ɑlˈɛɡɹə ɪz ɐ lˈʌvli nˈAm."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "lˈaɹɪn wˈAvd fɹɒm ðə pˈɔːʧ.",
+      "text" : "Larin waved from the porch.",
+      "us" : "lˈæɹɪn wˈAvd fɹʌm ðə pˈɔɹʧ."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "ðə nˈIt wˈɔː ˈɑːmə.",
+      "text" : "The knight wore armour.",
+      "us" : "ðə nˈIt wˈɔɹ ˈɑɹməɹ."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "ˈɑːmə plˈAtɪŋ pɹətˈɛkts ðə hˈʌl.",
+      "text" : "Armour plating protects the hull.",
+      "us" : "ˈɑɹməɹ plˈATɪŋ pɹətˈɛkts ðə hˈʌl."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "sˈɛnə lˈiːvz ɑː ɐ lˈaksətɪv.",
+      "text" : "Senna leaves are a laxative.",
+      "us" : "sˈɛnə lˈivz ɑɹ ɐ lˈæksəTɪv."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "ˈAtən sˈɛnə wˈʌn ˈɪn mˈɒnəkQ.",
+      "text" : "Ayrton Senna won in Monaco.",
+      "us" : "ˈAɹtən sˈɛnə wˈʌn ˈɪn mˈɑnəkO."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "ðə dˈAli ʃˈQ stˈɑːts at ɪlˈɛvᵊn.",
+      "text" : "The Daily Show starts at eleven.",
+      "us" : "ðə dˈAli ʃˈO stˈɑɹts æt əlˈɛvᵊn."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "dˈAli wˈɔːks hˈɛlp.",
+      "text" : "Daily walks help.",
+      "us" : "dˈAli wˈɔks hˈɛlp."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "mˈaksɪməm spˈiːd ɪz sˈɪksti.",
+      "text" : "Maximum speed is sixty.",
+      "us" : "mˈæksəməm spˈid ɪz sˈɪksti."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "wˌiː hˈɪt ðə mˈaksɪməm.",
+      "text" : "We hit the maximum.",
+      "us" : "wˌi hˈɪt ðə mˈæksəməm."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "bˈAə ɪz bˈAst ɪn lˈAvəkˌuːzᵊn.",
+      "text" : "Bayer is based in Leverkusen.",
+      "us" : "bˈAəɹ ɪz bˈAst ɪn lˈAvəɹkˌuzən."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "bˈQtɒks ɪz pˈɒpjʊlə ɪn hˈɒlɪwʊd.",
+      "text" : "Botox is popular in Hollywood.",
+      "us" : "bˈOtˌɑks ɪz pˈɑpjələɹ ɪn hˈɑliwˌʊd."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "tˈɪəz ɹˈQld dˌWn hɜː fˈAs.",
+      "text" : "Tears rolled down her face.",
+      "us" : "tˈɪɹz ɹˈOld dˌWn hɜɹ fˈAs."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "ʃˌiː wˈIpt əwˈA hɜː tˈɪəz.",
+      "text" : "She wiped away her tears.",
+      "us" : "ʃˌi wˈIpt əwˈA hɜɹ tˈɪɹz."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "plˈan bˈiː ɪz ɹˈɛdi ɪf ðə fˈɜːst plˈan fˈAlz.",
+      "text" : "Plan B is ready if the first plan fails.",
+      "us" : "plˈæn bˈi ɪz ɹˈɛdi ɪf ðə fˈɜɹst plˈæn fˈAlz."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "wˌiː nˈiːd ɐ plˈan bˈiː.",
+      "text" : "We need a plan B.",
+      "us" : "wˌi nˈid ɐ plˈæn bˈi."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "ðə nˈɜːs kˈAm at nˈIt.",
+      "text" : "The nurse came at night.",
+      "us" : "ðə nˈɜɹs kˈAm æt nˈIt."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "nˈIt nˈɜːs ɪz ɐ kˈQld ɹˈɛmɪdi.",
+      "text" : "Night Nurse is a cold remedy.",
+      "us" : "nˈIt nˈɜɹs ɪz ɐ kˈOld ɹˈɛmədi."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "ˈasɪd ɹˈAn dˈamɪʤd ðə stˈaʧuː.",
+      "text" : "Acid rain damaged the statue.",
+      "us" : "ˈæsəd ɹˈAn dˈæmɪʤd ðə stˈæʧu."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "ˈIən ðə ʃˈɜːt bɪfˈɔː dˈɪnə.",
+      "text" : "Iron the shirt before dinner.",
+      "us" : "ˈIəɹn ðə ʃˈɜɹt bəfˈɔɹ dˈɪnəɹ."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "ðə ɹˈɪŋ ɪz mˌAd ɒv sˈɪlvə and zˈɪŋk.",
+      "text" : "The ring is made of silver and zinc.",
+      "us" : "ðə ɹˈɪŋ ɪz mˌAd ʌv sˈɪlvəɹ ænd zˈɪŋk."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "ˈQmɪɡə ɪz ðə lˈɑːst lˈɛtə.",
+      "text" : "Omega is the last letter.",
+      "us" : "OmˈAɡə ɪz ðə lˈæst lˈɛTəɹ."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "ɐn ˈɛnɪmə wɒz ˈɔːdəd.",
+      "text" : "An enema was ordered.",
+      "us" : "ɐn ˈɛnəmə wʌz ˈɔɹdəɹd."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "ði ˌɛsˌɛsdˈiː ɪz ˈɔːlmQst fˈʊl.",
+      "text" : "The SSD is almost full.",
+      "us" : "ði ˌɛsˌɛsdˈi ɪz ˈɔlmOst fˈʊl."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "ʃˌiː bˈɔːt ɐ njˈuː ˌɛsˌɛsdˈiː.",
+      "text" : "She bought a new SSD.",
+      "us" : "ʃˌi bˈɔt ɐ nˈu ˌɛsˌɛsdˈi."
+    },
+    {
+      "area" : "brand-word",
+      "gb" : "sˈQdɪəm lˈɛvᵊlz wɜː nˈɔːmᵊl.",
+      "text" : "Sodium levels were normal.",
+      "us" : "sˈOdiəm lˈɛvᵊlz wɜɹ nˈɔɹmᵊl."
+    },
+    {
+      "area" : "generic-word",
+      "gb" : "tˈuː mˈʌʧ kˈafiːn kˈiːps mˌiː əwˈAk.",
+      "text" : "Too much caffeine keeps me awake.",
+      "us" : "tˈu mˈʌʧ kæfˈin kˈips mˌi əwˈAk."
+    },
+    {
+      "area" : "generic-word",
+      "gb" : "nˈɪkətiːn ɪz ədˈɪktɪv.",
+      "text" : "Nicotine is addictive.",
+      "us" : "nˈɪkətˌin ɪz ədˈɪktɪv."
+    },
+    {
+      "area" : "generic-word",
+      "gb" : "tˈAk ɐn ˈaspɹɪn wɪð wˈɔːtə.",
+      "text" : "Take an aspirin with water.",
+      "us" : "tˈAk ɐn ˈæspəɹən wɪð wˈɔTəɹ."
+    },
+    {
+      "area" : "generic-word",
+      "gb" : "ˈɪnsjʊlɪn kˈiːps blˈʌd ʃˈʊɡə ɪn ʧˈɛk.",
+      "text" : "Insulin keeps blood sugar in check.",
+      "us" : "ˈɪnsələn kˈips blˈʌd ʃˈʊɡəɹ ɪn ʧˈɛk."
+    },
+    {
+      "area" : "generic-word",
+      "gb" : "lˈɪθɪəm bˌatəɹˈiːz pˈWə fˈQnz.",
+      "text" : "Lithium batteries power phones.",
+      "us" : "lˈɪθiəm bˈæTəɹiz pˈWəɹ fˈOnz."
+    },
+    {
+      "area" : "generic-word",
+      "gb" : "mˈɔːfiːn ˈiːzd ðə pˈAn.",
+      "text" : "Morphine eased the pain.",
+      "us" : "mˈɔɹfˌin ˈizd ðə pˈAn."
+    },
+    {
+      "area" : "generic-word",
+      "gb" : "pˌɛnɪsˈɪlɪn ʧˈAnʤd mˈɛdɪsɪn.",
+      "text" : "Penicillin changed medicine.",
+      "us" : "pˌɛnəsˈɪlən ʧˈAnʤd mˈɛdəsᵊn."
+    },
+    {
+      "area" : "generic-word",
+      "gb" : "tɛstˈɒstəɹQn and pɹəʤˈɛstəɹQn ɑː hˈɔːmQnz.",
+      "text" : "Testosterone and progesterone are hormones.",
+      "us" : "tɛstˈɑstəɹˌOn ænd pɹOʤˈɛstəɹˌOn ɑɹ hˈɔɹmˌOnz."
+    },
+    {
+      "area" : "generic-word",
+      "gb" : "ðə θˈIɹYd sˈɪts ɪn ðə nˈɛk.",
+      "text" : "The thyroid sits in the neck.",
+      "us" : "ðə θˈIɹˌYd sˈɪts ɪn ðə nˈɛk."
+    },
+    {
+      "area" : "generic-word",
+      "gb" : "flˈʊəɹId pɹətˈɛkts tˈiːθ.",
+      "text" : "Fluoride protects teeth.",
+      "us" : "flˈʊɹˌId pɹətˈɛkts tˈiθ."
+    },
+    {
+      "area" : "generic-word",
+      "gb" : "hˈIdɹəʤən pəɹˈɒksId blˈiːʧɪz hˈɛː.",
+      "text" : "Hydrogen peroxide bleaches hair.",
+      "us" : "hˈIdɹəʤən pəɹˈɑksˌId blˈiʧᵻz hˈɛɹ."
+    },
+    {
+      "area" : "generic-word",
+      "gb" : "kˈQdiːn ɪz ɐn ˈQpɪYd.",
+      "text" : "Codeine is an opioid.",
+      "us" : "kˈOdˌin ɪz ɐn ˈOpiˌYd."
+    },
+    {
+      "area" : "generic-word",
+      "gb" : "pətˈasɪəm and kˈalsɪəm ɑː mˈɪnəɹəlz.",
+      "text" : "Potassium and calcium are minerals.",
+      "us" : "pətˈæsiəm ænd kˈælsiəm ɑɹ mˈɪnəɹᵊlz."
+    },
+    {
+      "area" : "generic-word",
+      "gb" : "maɡnˈiːzɪəm bˈɜːnz bɹˈItli.",
+      "text" : "Magnesium burns brightly.",
+      "us" : "mæɡnˈiziəm bˈɜɹnz bɹˈItli."
+    },
+    {
+      "area" : "generic-word",
+      "gb" : "mˈɛθədQn klˈɪnɪks ˈQpᵊnd dˌWntˈWn.",
+      "text" : "Methadone clinics opened downtown.",
+      "us" : "mˈɛθədˌOn klˈɪnɪks ˈOpᵊnd dˌWntˈWn."
+    },
+    {
+      "area" : "generic-word",
+      "gb" : "ˌɛpɪnˈɛfɹɪn ɪz ədɹˈɛnəlɪn.",
+      "text" : "Epinephrine is adrenaline.",
+      "us" : "ˌɛpənˈɛfɹən ɪz ədɹˈɛnᵊlən."
+    },
+    {
+      "area" : "near-word",
+      "gb" : "ðə stˈatɪn dɪbˈAt kəntˈɪnjuːz.",
+      "text" : "The statin debate continues.",
+      "us" : "ðə stˈætᵊn dəbˈAt kəntˈɪnjuz."
+    },
+    {
+      "area" : "near-word",
+      "gb" : "hˌiː lˈɪvz ɪn lˈatɪn əmˈɛɹɪkə.",
+      "text" : "He lives in Latin America.",
+      "us" : "hˌi lˈɪvz ɪn lˈætᵊn əmˈɛɹəkə."
+    },
+    {
+      "area" : "near-word",
+      "gb" : "ðə vˈɪtəmɪn ˈIl ɪz ˌɒn ðə lˈɛft.",
+      "text" : "The vitamin aisle is on the left.",
+      "us" : "ðə vˈITəmən ˈIl ɪz ˌɔn ðə lˈɛft."
+    },
+    {
+      "area" : "near-word",
+      "gb" : "tˈAk tˈuː tˈablɪts dˈAli.",
+      "text" : "Take two tablets daily.",
+      "us" : "tˈAk tˈu tˈæbləts dˈAli."
+    },
+    {
+      "area" : "near-word",
+      "gb" : "lˈɪɹɪk ʃˈiːts wɜː hˈandɪd ˈWt.",
+      "text" : "Lyric sheets were handed out.",
+      "us" : "lˈɪɹɪk ʃˈits wɜɹ hˈændᵻd ˈWt."
+    },
+    {
+      "area" : "near-word",
+      "gb" : "ʤˈuːnɪə vˈɑːsɪti wˈʌn.",
+      "text" : "Junior varsity won.",
+      "us" : "ʤˈunjəɹ vˈɑɹsəTi wˈʌn."
+    }
+  ],
+  "speech_cases" : [
+
+  ]
+}

@@ -1,0 +1,1273 @@
+rank	word	kind	display	today_us	today_gb	today_source	zipf	dictionary_word	given_name_rank	other_lists
+1	atorvastatin	generic	atorvastatin	ˌAtəɹvˈæstAtɪn	ˌAtəvˈastAtɪn	guesser	1.93			
+2	sodium	generic	sodium	sˈOdiəm	sˈQdɪəm	gold	3.87	yes		
+3	levothyroxine	generic	levothyroxine	lˌɛvəθˈIɹɑksin	lˌɛvəθˈIɹɒksin	guesser	1.76			
+4	amlodipine	generic	amlodipine	æmlˈɑdəpˌIn	amlˈɒdəpˌIn	guesser	1.79			
+5	metformin	generic	metformin	mˈɛtfˌɔɹmɪn	mˈɛtfˌɔːmɪn	guesser	2.55			
+6	lisinopril	generic	lisinopril	lˈɪzənəpɹɪl	lˈɪzənəpɹɪl	guesser	1.67			
+7	calcium	generic	calcium	kˈælsiəm	kˈalsɪəm	gold	3.82	yes		
+8	losartan	generic	losartan	ləsˈɑɹtən	ləsˈɑːtən	guesser	1.64			
+9	metoprolol	generic	metoprolol	mətˈɑpɹəlɑl	mɪtˈɒpɹəlɒl	gold	1.84			
+10	albuterol	generic	albuterol	ælbjˈuTəɹˌɔl	albjˈuːtəɹɒl	gold	2.06			
+11	hydrochlorothiazide	generic	hydrochlorothiazide	hˌIdɹOklˈɔɹəθiəzˌId	hˌIdɹQklˈɔːɹəθiəzˌId	guesser	1.92			
+12	gabapentin	generic	gabapentin	ɡˌɑbəpˈɛntɪn	ɡˌɒbəpˈɛntɪn	guesser	2.26			
+13	potassium	generic	potassium	pətˈæsiəm	pətˈasɪəm	gold	3.58	yes		
+14	omeprazole	generic	omeprazole	ˈOmpɹəzˌOl	ˈQmpɹəzˌQl	guesser	2.0			
+15	rosuvastatin	generic	rosuvastatin	ɹˌOsəvˈæstAtɪn	ɹˌQsəvˈastAtɪn	guesser	1.52			
+16	dextroamphetamine	generic	dextroamphetamine	dɛkstɹˈOmfətəmˌin	dɛkstɹˈQmfətəmˌiːn	guesser	1.75			
+17	acetaminophen	generic	acetaminophen	əsˌiTəmˈɪnəfən	əsˌiːtəmˈɪnəfɛn	gold	2.69			
+18	insulin	generic	insulin	ˈɪnsələn	ˈɪnsjʊlɪn	gold	3.81	yes		
+19	amphetamine	generic	amphetamine	æmpfˈɛTəmˌin	amfˈɛtəmiːn	gold	2.93	yes		
+20	amoxicillin	generic	amoxicillin	əmˌɑksəsˈɪlɪn	əmˌɒksɪsˈɪlɪn	gold	2.26			
+21	sertraline	generic	sertraline	sˈɜɹtɹəlˌIn	sˈɜːtɹəlˌIn	guesser	2.14			
+22	fluticasone	generic	fluticasone	flˈutəkəsˌOn	flˈuːtəkəsˌQn	guesser	1.64			
+23	pantoprazole	generic	pantoprazole	pˈæntəpɹˌæzˌOl	pˈantəpɹˌazˌQl	guesser	1.26			
+24	sulfate	generic	sulfate	sˈʌlfˌAt	sˈʌlfAt	gold	3.19			
+25	sulfate	salt	sulfate	sˈʌlfˌAt	sˈʌlfAt	gold	3.19			
+26	besylate	salt	besylate	bˈɛzəlˌAt	bˈɛzəlˌAt	guesser				
+27	escitalopram	generic	escitalopram	ˌɛsətˈæləpɹˌæm	ˌɛsətˈaləpɹˌam	guesser	1.63			
+28	semaglutide	generic	semaglutide	sˌɛməɡlˈutˌId	sˌɛməɡlˈuːtˌId	guesser				
+29	estradiol	generic	estradiol	ˌɛstɹədˈIɔl	ɪstɹˈAdiəl	gold	2.73	yes		
+30	trazodone	generic	trazodone	tɹɑzOdˈOni	tɹɒzQdˈQni	guesser	1.92			
+31	bupropion	generic	bupropion	bjupɹˈOpiən	bjuːpɹˈQpɪən	gold	2.04			
+32	apixaban	generic	apixaban	əpˈɪksəbˌæn	əpˈɪksəbˌan	guesser	1.18			
+33	furosemide	generic	furosemide	fjʊɹˈOsəmˌId	fjˈʊɹQsmˌId	gold	2.14			
+34	tamsulosin	generic	tamsulosin	tˈæmsəlˌOsən	tˈamsəlˌQsən	guesser	1.51			
+35	oxycodone	generic	oxycodone	ˌɑksikˈOdˌOn	ˌɒksɪkˈQdQn	gold	2.59			
+36	montelukast	generic	montelukast	mˌɑntɪlˈukəst	mˌɒntɪlˈuːkəst	guesser	1.5			
+37	hydrocodone	generic	hydrocodone	hˈIdɹOkOdˌOni	hˈIdɹQkQdˌQni	guesser	2.39			
+38	chloride	generic	chloride	klˈɔɹˌId	klˈɔːɹId	gold	3.39	yes		
+39	succinate	salt	succinate	sˈʌksənˌAt	sˈʌksɪnAt	gold	2.21	yes		
+40	fluoxetine	generic	fluoxetine	fluˈɑksətˌin	fluːˈɒksɪtiːn	gold	2.19			
+41	prednisone	generic	prednisone	pɹˈɛdnəzˌOn	pɹˈɛdnɪzQn	gold	2.56			
+42	ibuprofen	generic	ibuprofen	ˌIbjupɹˈOfən	ˌIbjuːpɹˈQfᵊn	gold	2.93			
+43	simvastatin	generic	simvastatin	sˈɪmvəstˌAtɪn	sˈɪmvəstˌAtɪn	guesser	1.98			
+44	famotidine	generic	famotidine	fəmˈɑtədˌin	fəmˈɒtədˌiːn	guesser	1.29			
+45	aspartate	salt	aspartate	əspˈɑɹtˌAt	əspˈɑːtAt	gold	2.36	yes		
+46	saccharate	generic	saccharate	sˈækəɹˌAt	sˈakəɹˌAt	guesser		yes		
+47	empagliflozin	generic	empagliflozin	ɛmpˈæɡləflˌOzɪn	ɛmpˈaɡləflˌQzɪn	guesser	1.19			
+48	glargine	generic	glargine	ɡlˈɑɹʤən	ɡlˈɑːʤən	guesser	1.73			
+49	duloxetine	generic	duloxetine	djulˈɑksətˌin	djulˈɒksətˌiːn	guesser	1.65			
+50	meloxicam	generic	meloxicam	məlˈɑksɪkəm	məlˈɒksɪkəm	guesser	1.46			
+51	carvedilol	generic	carvedilol	kɑɹvˈɛdələl	kɑːvˈɛdələl	guesser	1.41			
+52	tartrate	salt	tartrate	tˈɑɹtɹˌAt	tˈɑːtɹAt	gold	2.08	yes		
+53	ethinyl	generic	ethinyl	ˈɛθɪnəl	ˈɛθɪnəl	guesser	1.55			
+54	ondansetron	generic	ondansetron	ɑndˈænsətɹɑn	ɒndˈansətɹɒn	guesser	1.62			
+55	tramadol	generic	tramadol	tɹˈæmədˌɔl	tɹˈamədˌɔːl	guesser	2.32			
+56	hydroxyzine	generic	hydroxyzine	hˌIdɹˈɔksizˌin	hˌIdɹˈɔːksizˌiːn	guesser	1.72			
+57	buspirone	generic	buspirone	buspɪɹˈOni	buspɪɹˈQni	guesser	1.64			
+58	clopidogrel	generic	clopidogrel	klˈɑpɪdˌɔɡɹəl	klˈɒpɪdˌɔːɡɹəl	guesser	1.98			
+59	propionate	salt	propionate	pɹˈOpiənˌAt	pɹˈQpɪənAt	gold	2.15	yes		
+60	alprazolam	generic	alprazolam	ælpɹˈAzəlˌæm	alpɹˈAzəlam	gold	2.1			
+61	cetirizine	generic	cetirizine	sˈɛtəɹˌIzˌin	sˈɛtəɹˌIzˌiːn	guesser	1.51			
+62	azithromycin	generic	azithromycin	əzˌɪθɹəmˈIsən	əzˌɪθɹəmˈIsən	guesser	2.03			
+63	valsartan	generic	valsartan	vɔlsˈɑɹtən	vɔlsˈɑːtən	guesser	1.54			
+64	eliquis	brand	Eliquis	ɪlˈɪkwɪ	ɪlˈɪkwɪ	guesser	1.08			
+65	cyclobenzaprine	generic	cyclobenzaprine	sˌIkləbˈɛnzəpɹˌin	sˌIkləbˈɛnzəpɹˌiːn	guesser	1.27			
+66	venlafaxine	generic	venlafaxine	vˌɛnləfˈæksin	vˌɛnləfˈaksin	guesser	1.86			
+67	allopurinol	generic	allopurinol	ˌælOpjˈʊɹinɑl	ˌalQpjˈʊəɹɪnɒl	gold	1.89			
+68	fumarate	salt	fumarate	fˈuməɹˌAt	fjˈuːməɹAt	gold	2.0	yes		
+69	methylphenidate	generic	methylphenidate	mˌɛθəlfˈɛnədAt	mˌiːθIlfˈɛnɪdAt	gold	2.22			
+70	spironolactone	generic	spironolactone	spˌIɹənOlˈæktOn	spˌIɹənQlˈaktQn	gold	2.2			
+71	tirzepatide	generic	tirzepatide	tˈɜɹzˌɛpətˌId	tˈɜːzˌɛpətˌId	guesser				
+72	clonazepam	generic	clonazepam	klˈOnəzpˌæm	klˈQnəzpˌam	guesser	2.09			
+73	quetiapine	generic	quetiapine	kwˈiʃəpˌIn	kwˈiːʃəpˌIn	guesser	1.78			
+74	ergocalciferol	generic	ergocalciferol	ˌɜɹɡəkˌælsˈɪfəɹɑl	ˌɜːɡQkalsˈɪfəɹɒl	gold	1.05			
+75	clavulanate	generic	clavulanate	klˈævjələnˌAt	klˈavjələnˌAt	guesser	1.24			
+76	glipizide	generic	glipizide	ɡlˈɪpɪzˌId	ɡlˈɪpɪzˌId	guesser	1.37			
+77	latanoprost	generic	latanoprost	lɑtɑnˈOpɹOst	lɒtɒnˈQpɹQst	guesser	1.29			
+78	zolpidem	generic	zolpidem	zˈOlpɪdəm	zˈQlpɪdəm	guesser	2.1			
+79	diclofenac	generic	diclofenac	dIklˈɑfənæk	dIklˈɒfənak	guesser	1.97			
+80	vilanterol	generic	vilanterol	vilˈæntəɹˌɔl	vilˈantəɹˌɔːl	guesser				
+81	doxycycline	generic	doxycycline	dˌɑksisˈIklin	dˌɒksɪsˈIkliːn	gold	2.25			
+82	pregabalin	generic	pregabalin	pɹˈɛɡəbəlɪn	pɹˈɛɡəbəlɪn	guesser	1.73			
+83	lamotrigine	generic	lamotrigine	ləmˈɑtɹəʤˌin	ləmˈɒtɹəʤˌiːn	guesser	1.87			
+84	budesonide	generic	budesonide	bˈʌdɪsənˌId	bˈʌdɪsənˌId	guesser	1.59			
+85	pravastatin	generic	pravastatin	pɹˈɑvəstˌAtɪn	pɹˈɒvəstˌAtɪn	guesser	1.3			
+86	citalopram	generic	citalopram	sˈɪtəlOpɹˌæm	sˈɪtəlQpɹˌam	guesser	2.0			
+87	ezetimibe	generic	ezetimibe	ɪzˈɛtəmˌIb	ɪzˈɛtəmˌIb	guesser	1.54			
+88	triamcinolone	generic	triamcinolone	tɹIˌæmsənˈɑlOn	tɹIˌamsənˈɒlQn	guesser	1.76			
+89	cephalexin	generic	cephalexin	sˌɛfəlˈɛksɪn	sˌɛfəlˈɛksɪn	guesser	1.59			
+90	oxalate	salt	oxalate	ˈɑksəlˌAt	ˈɒksəlAt	gold	2.34	yes		
+91	lorazepam	generic	lorazepam	lɔɹˈæzəpæm	lɔːɹˈAzɪpam	gold	2.25			
+92	norethindrone	generic	norethindrone	nˈɔɹɪθɪndɹˌOn	nˈɔːɹɪθɪndɹˌQn	guesser	1.3			
+93	aspirin	generic	aspirin	ˈæspəɹən	ˈaspɹɪn	gold	3.34	yes		
+94	clonidine	generic	clonidine	klˈɑnɪdˌin	klˈɒnɪdˌiːn	cmudict	2.08			
+95	formoterol	generic	formoterol	fɔɹmˈɑtəɹˌɔl	fɔːmˈɒtəɹˌɔːl	guesser	1.31			
+96	alendronate	generic	alendronate	əlˈɛndɹənˌAt	əlˈɛndɹənˌAt	guesser	1.36			
+97	atenolol	generic	atenolol	ətˈɛnəlɑl	ətˈɛnəlɒl	gold	1.8			
+98	aripiprazole	generic	aripiprazole	əɹˈɪpɪpɹəzˌOl	əɹˈɪpɪpɹəzˌQl	guesser	1.59			
+99	tizanidine	generic	tizanidine	tɪzˈænədˌin	tɪzˈanədˌiːn	guesser	1.27			
+100	propranolol	generic	propranolol	pɹOpɹˈænəlˌɑl	pɹQpɹˈanəlɒl	gold	2.24			
+101	phosphate	generic	phosphate	fˈɑsfˌAt	fˈɒsfAt	gold	3.42	yes		
+102	lispro	generic	lispro	lˈɪspɹO	lˈɪspɹQ	guesser	1.03			
+103	acid	generic	acid	ˈæsəd	ˈasɪd	gold	4.45	yes		tech
+104	mirtazapine	generic	mirtazapine	məɹtˈæzəpˌin	mətˈazəpˌiːn	guesser	1.71			
+105	finasteride	generic	finasteride	fˈInəstəɹˌId	fˈInəstəɹˌId	guesser	2.12			
+106	umeclidinium	generic	umeclidinium	ˌʌmˌɛklɪdˈɪniəm	ˌʌmˌɛklɪdˈɪniəm	guesser				
+107	celecoxib	generic	celecoxib	sˌɛləkˈɑksɪb	sˌɛləkˈɒksɪb	guesser	1.66			
+108	dulaglutide	generic	dulaglutide	djˈuləɡlˌutˌId	djˈuːləɡlˌuːtˌId	guesser				
+109	dapagliflozin	generic	dapagliflozin	dəpˈæɡləflˌOzɪn	dəpˈaɡləflˌQzɪn	guesser	1.13			
+110	bisulfate	salt	bisulfate	bIsˈʌlfˌAt	bˈɪsəlfAt	gold	1.25			
+111	trimethoprim	generic	trimethoprim	tɹImˈɛθəpɹˌɪm	tɹImˈɛθQpɹɪm	gold	1.91			
+112	phosphate	salt	phosphate	fˈɑsfˌAt	fˈɒsfAt	gold	3.42	yes		
+113	rivaroxaban	generic	rivaroxaban	ɹˌIvəɹˈɑksəbən	ɹˌIvəɹˈɒksəbən	guesser	1.36			
+114	topiramate	generic	topiramate	tˈɑpɹəmˌAt	tˈɒpɹəmˌAt	guesser	1.76			
+115	lisdexamfetamine	generic	lisdexamfetamine	lˌɪsdɪɡzˈæmfətəmˌin	lˌɪsdɪɡzˈamfətəmˌiːn	guesser	1.06			
+116	jardiance	brand	Jardiance	ʤˈɑɹdiəns	ʤˈɑːdiəns	guesser				
+117	loratadine	generic	loratadine	lˈɔɹətədˌIn	lˈɔːɹətədˌIn	guesser	1.54			
+118	ozempic	brand	Ozempic	Ozˈɛmpɪk	Qzˈɛmpɪk	lexicon				tech
+119	levetiracetam	generic	levetiracetam	ləvˈɛʃəɹəstəm	ləvˈɛʃəɹəstəm	guesser	1.44			
+120	cholecalciferol	generic	cholecalciferol	kˌOləkˌælsˈɪfəɹɔl	kˌɒlɪkalsˈɪfəɹɒl	gold	1.49			
+121	baclofen	generic	baclofen	bˈækləfən	bˈakləfən	guesser	1.89			
+122	methylprednisolone	generic	methylprednisolone	mˌɛθɪlpɹˈɛdnəsˌOlˌOn	mˌɛθɪlpɹˈɛdnəsˌQlˌQn	guesser	1.84			
+123	diltiazem	generic	diltiazem	dɪltˈiəzˌɛm	dɪltˈiːəzˌɛm	cmudict	1.7			
+124	acetonide	salt	acetonide	əsˈɛtənˌId	əsˈɛtənˌId	guesser	1.52			
+125	amitriptyline	generic	amitriptyline	ˌæmətɹˈɪptələn	ˌamɪtɹˈɪptɪliːn	gold	2.08			
+126	ellipta	device	Ellipta	ɪlˈɪptə	ɪlˈɪptə	guesser				
+127	folic	generic	folic	fˈɑlɪk	fˈɒlɪk	cmudict	2.71			
+128	aspart	generic	aspart	ˈæspˌɑɹt	ˈaspˌɑːt	guesser	1.24			
+129	olmesartan	generic	olmesartan	ˌOlmɛsˈɑɹtən	ˌQlmɛsˈɑːtən	guesser	1.03			
+130	fenofibrate	generic	fenofibrate	fənˈɑfəbɹˌAt	fənˈɒfəbɹˌAt	guesser	1.39			
+131	timolol	generic	timolol	tˈIməlɔl	tˈɪməlɒl	gold	1.45			
+132	prednisolone	generic	prednisolone	pɹˈɛdnɪsəlOn	pɹɛdnˈɪsəlQn	guesser	2.13			
+133	warfarin	generic	warfarin	wˈɔɹfəɹən	wˈɔːfəɹɪn	gold	2.64			
+134	donepezil	generic	donepezil	dOnApɛzˈil	dQnApɛzˈiːl	guesser	1.65			
+135	hydralazine	generic	hydralazine	hˈIdɹələzˌin	hˈIdɹələzˌiːn	guesser	1.42			
+136	valacyclovir	generic	valacyclovir	vˌæləsˈIkləvəɹ	vˌaləsˈIkləvə	guesser	1.3			
+137	acetate	generic	acetate	ˈæsətˌAt	ˈasɪtAt	gold	3.15	yes		
+138	acetate	salt	acetate	ˈæsətˌAt	ˈasɪtAt	gold	3.15	yes		
+139	paroxetine	generic	paroxetine	pəɹˈɑksətˌin	pəɹˈɒksətˌiːn	guesser	1.98			
+140	methocarbamol	generic	methocarbamol	mˌɛθəkˈɑɹbəməl	mˌɛθəkˈɑːbəməl	guesser	1.25			
+141	sulfamethoxazole	generic	sulfamethoxazole	sˌʌlfəməθˈɑksəzˌOl	sˌʌlfəmˌɛθˈɒksəzˌQl	gold	1.68			
+142	buprenorphine	generic	buprenorphine	bjˈupɹənəɹfˌin	bjˈuːpɹənəfˌiːn	cmudict	2.21			
+143	naproxen	generic	naproxen	nəpɹˈɑksᵊn	napɹˈɒksɛn	gold	2.16			
+144	ketoconazole	generic	ketoconazole	kətˈɑkənəzˌOl	kətˈɒkənəzˌQl	guesser	1.96			
+145	oxybutynin	generic	oxybutynin	ˌɑksibjˈutənɪn	ˌɒksibjˈuːtənɪn	guesser	1.39			
+146	nitrofurantoin	generic	nitrofurantoin	nˌItɹOfjəɹˈæntˌOən	nˌItɹQfjʊɹˈantQɪn	gold	1.48			
+147	sitagliptin	generic	sitagliptin	sˈɪtəɡlˌɪptɪn	sˈɪtəɡlˌɪptɪn	guesser	1.41			
+148	ciprofloxacin	generic	ciprofloxacin	sˌɪpɹOflˈɑksəsɪn	sˌɪpɹQflˈɒksəsɪn	guesser	2.1			
+149	naloxone	generic	naloxone	nəlˈɑksˌOn	nəlˈɒksQn	gold	2.52			
+150	dexamethasone	generic	dexamethasone	dˌɛksəmˈɛθəzˌOn	dˌɛksəmˈɛθəzQn	gold	2.33			
+151	maleate	salt	maleate	məlˈiət	məlˈiːAt	gold	1.51	yes		
+152	ipratropium	generic	ipratropium	ˌIpɹətɹˈOpiəm	ˌIpɹətɹˈQpiəm	guesser	1.46			
+153	clindamycin	generic	clindamycin	klˈɪndəmˌIsɪn	klˈɪndəmˌIsɪn	guesser	2.13			
+154	isosorbide	generic	isosorbide	ˈIsəɹbˌId	ˈIsəbˌId	guesser	1.54			
+155	fluconazole	generic	fluconazole	flˈukənəzˌOl	flˈuːkənəzˌQl	guesser	1.93			
+156	mupirocin	generic	mupirocin	mjˌupəɹˈOsən	mjˌuːpəɹˈQsən	guesser	1.12			
+157	olanzapine	generic	olanzapine	Olɑnzɑpˈini	Qlɒnzɒpˈiːni	guesser	1.93			
+158	glimepiride	generic	glimepiride	ɡlˈImpəɹˌId	ɡlˈImpəɹˌId	guesser	1.34			
+159	nifedipine	generic	nifedipine	nˌIfˈɛdəpˌin	nIfˈɛdɪpiːn	gold	1.72			
+160	benazepril	generic	benazepril	bˌɛnəzˈɛpɹəl	bˌɛnəzˈɛpɹəl	guesser	1.13			
+161	testosterone	generic	testosterone	tɛstˈɑstəɹˌOn	tɛstˈɒstəɹQn	gold	3.6	yes		
+162	memantine	generic	memantine	mˈɛməntˌIn	mˈɛməntˌIn	guesser	1.75			
+163	azelastine	generic	azelastine	ɑzɛlɑstˈini	ɒzɛlɒstˈiːni	guesser	1.05			
+164	hydrobromide	salt	hydrobromide	hIdɹˈɑbɹəmˌId	hIdɹˈɒbɹəmˌId	guesser	1.29	yes		
+165	risperidone	generic	risperidone	ɹɪspˈɛɹədˌOn	ɹɪspˈɛɹədˌQn	guesser	1.97			
+166	solostar	device	Solostar	sˈɑləstˌɑɹ	sˈɒləstˌɑː	guesser				
+167	esomeprazole	generic	esomeprazole	isˈʌmpɹəzˌOl	isˈʌmpɹəzˌQl	guesser	1.37			
+168	sumatriptan	generic	sumatriptan	sˌumətɹˈɪptˌæn	sˌuːmətɹˈɪptən	gold	1.68			
+169	hyclate	salt	hyclate	hˈIklˌAt	hˈIklˌAt	guesser				
+170	lantus	brand	Lantus	lˈæntəs	lˈantəs	guesser	1.7			
+171	metronidazole	generic	metronidazole	mˌɛtɹənˈIdəzˌOl	mˌɛtɹənˈIdəzQl	gold	2.13			
+172	chlorthalidone	generic	chlorthalidone	klˈɔɹθˌælɪdˌOn	klˈɔːθˌalɪdˌQn	guesser	1.06			
+173	monohydrate	salt	monohydrate	mˌɑnəhˈIdɹˌAt	mɒnQhˈIdɹAt	gold	2.04	yes		
+174	hydrocortisone	generic	hydrocortisone	hˌIdɹOkˈɔɹTəzˌOn	hˌIdɹQkˈɔːtɪzQn	gold	2.19			
+175	norgestimate	generic	norgestimate	nˌɔɹʤˈɛstəmˌAt	nˌɔːʤˈɛstəmˌAt	guesser				
+176	pioglitazone	generic	pioglitazone	piˌɑɡlətəzˈOni	piˌɒɡlətəzˈQni	guesser	1.48			
+177	nystatin	generic	nystatin	nIstˈætᵊn	nIstˈatɪn	gold	1.54			
+178	dorzolamide	generic	dorzolamide	dɔɹzˈɑləmˌId	dɔːzˈɒləmˌId	guesser				
+179	cefdinir	generic	cefdinir	sˈɛfdɪnɪɹ	sˈɛfdɪnɪə	guesser				
+180	divalproex	generic	divalproex	dɪvˈælpɹˌOˌɛks	dɪvˈalpɹˌQˌɛks	guesser	1.16			
+181	irbesartan	generic	irbesartan	ˈɜɹbəsˌɑɹtən	ˈɜːbəsˌɑːtən	guesser	1.3			
+182	degludec	generic	degludec	dɪɡlˈudɪk	dɪɡlˈuːdɪk	guesser				
+183	promethazine	generic	promethazine	pɹOmˈɛθəzˌin	pɹQmˈɛθəziːn	gold	2.01			
+184	magnesium	generic	magnesium	mæɡnˈiziəm	maɡnˈiːzɪəm	gold	3.49	yes		
+185	ropinirole	generic	ropinirole	ɹOpinˈɪɹOl	ɹQpinˈɪɹQl	guesser	1.37			
+186	hydroxychloroquine	generic	hydroxychloroquine	hIdɹˌɑksiklˈɔɹəkwˌin	hIdɹˌɒksɪklˈɔːɹəkwɪn	gold	1.8			
+187	mesylate	salt	mesylate	mˈɛzəlˌAt	mˈɛzəlˌAt	guesser	1.55			
+188	clotrimazole	generic	clotrimazole	klˈɑtɹəməzˌOl	klˈɒtɹəməzˌQl	guesser	1.58			
+189	levocetirizine	generic	levocetirizine	ləvˈɑsətəɹˌIzən	ləvˈɒsətəɹˌIzən	guesser				
+190	docusate	generic	docusate	dˈɑkjəzˌAt	dˈɒkjəzˌAt	guesser				
+191	clobetasol	generic	clobetasol	klˈObtəsˌɑl	klˈQbtəsˌɒl	guesser	1.19			
+192	diazepam	generic	diazepam	dIˈæzəpˌæm	dIˈAzɪpam	gold	2.61			
+193	propanediol	generic	propanediol	pɹˌɑpənˈidiəl	pɹˌɒpənˈiːdiəl	guesser	1.42			
+194	sacubitril	generic	sacubitril	sˈækjˌubɪtɹɪl	sˈakjˌuːbɪtɹɪl	guesser				
+195	triamterene	generic	triamterene	tɹIˈæmtəɹˌin	tɹIˈamtəɹˌiːn	guesser	1.22			
+196	ferrous	generic	ferrous	fˈɛɹəs	fˈɛɹəs	gold	2.79	yes		
+197	xarelto	brand	Xarelto	zəɹˈɛltO	zəɹˈɛltQ	guesser	1.54			
+198	brimonidine	generic	brimonidine	bɹɪmˈɑnədˌin	bɹɪmˈɒnədˌiːn	guesser	1.13			
+199	bromide	generic	bromide	bɹˈOmˌId	bɹˈQmId	gold	2.7	yes		
+200	bromide	salt	bromide	bɹˈOmˌId	bɹˈQmId	gold	2.7	yes		
+201	benzonatate	generic	benzonatate	bˈɛnzənətˌAt	bˈɛnzənətˌAt	guesser				
+202	ventolin	brand	Ventolin	vˈɛntələn	vˈɛntQlɪn	gold	1.79			
+203	betamethasone	generic	betamethasone	bɪtˈAmθəsən	bɪtˈAmθəsən	guesser	1.7			
+204	lidocaine	generic	lidocaine	lˈIdəkˌAn	lˈIdəkAn	gold	2.54			
+205	cyanocobalamin	generic	cyanocobalamin	sˌIənOkˌObˈæləmən	sˌIənQkəbˈaləmɪn	gold	1.44			
+206	meclizine	generic	meclizine	mˈɛkləzˌin	mˈɛkləzˌiːn	guesser	1.39			
+207	methotrexate	generic	methotrexate	mˌɛθətɹˈɛksˌAt	mˌɛθQtɹˈɛksAt	gold	2.48			
+208	trelegy	brand	Trelegy	tɹˈɛləʤi	tɹˈɛləʤi	guesser				
+209	ketorolac	generic	ketorolac	kˌitəɹˈOlˌæk	kˌiːtəɹˈQlˌak	guesser	1.39			
+210	glycol	generic	glycol	ɡlˈIkˌɔl	ɡlˈIkɒl	gold	2.87	yes		
+211	prazosin	generic	prazosin	pɹəzˈOzɪn	pɹəzˈQzɪn	guesser	1.56			
+212	tiotropium	generic	tiotropium	tˌIətɹˈOpiəm	tˌIətɹˈQpiəm	guesser	1.07			
+213	progesterone	generic	progesterone	pɹOʤˈɛstəɹˌOn	pɹəʤˈɛstəɹQn	gold	3.01	yes		
+214	thyroid	generic	thyroid	θˈIɹˌYd	θˈIɹYd	gold	3.53	yes		
+215	ofloxacin	generic	ofloxacin	OflˌɑksˈAsən	QflˌɒksˈAsən	guesser	1.46			
+216	farxiga	brand	Farxiga	fˈɑɹksɪɡə	fˈɑːksɪɡə	guesser				
+217	polymyxin	generic	polymyxin	pˌɑlimˈɪksᵊn	pˌɒlɪmˈɪksɪn	gold	1.48			
+218	adalimumab	generic	adalimumab	ədˈæləmjˌuməb	ədˈaləmjˌuːməb	guesser	1.51			
+219	trulicity	brand	Trulicity	tɹulˈɪsəti	tɹulˈɪsəti	guesser				
+220	morphine	generic	morphine	mˈɔɹfˌin	mˈɔːfiːn	gold	3.37	yes		
+221	codeine	generic	codeine	kˈOdˌin	kˈQdiːn	gold	2.88	yes		
+222	atomoxetine	generic	atomoxetine	ˌAtəmˈɑksətin	ˌAtəmˈɒksətin	guesser	1.45			
+223	dexmethylphenidate	generic	dexmethylphenidate	dˌɛksməθˈɪlfənɪdˌAt	dˌɛksməθˈɪlfənɪdˌAt	guesser				
+224	mounjaro	brand	Mounjaro	mWnʤˈɑɹO	mWnʤˈɑːɹQ	lexicon				tech
+225	cyclosporine	generic	cyclosporine	sˌIklOspˈɔɹən	sɪklˈɔːspəɹˌiːn	gold	2.1			
+226	cryst	generic	cryst	kɹˈɪst	kɹˈɪst	guesser	1.32			
+227	polyethylene	generic	polyethylene	pˌɑliˈɛθəlin	pˌɒlɪˈɛθɪliːn	gold	2.97	yes		
+228	dicyclomine	generic	dicyclomine	dIsˈɪkləmˌin	dIsˈɪkləmˌiːn	guesser	1.13			
+229	tadalafil	generic	tadalafil	tˈædələfɪl	tˈadələfɪl	guesser	1.61			
+230	lovastatin	generic	lovastatin	lOvˈæstətɪn	lQvˈastətɪn	cmudict	1.57			
+231	tenofovir	generic	tenofovir	tˌɛnəfˈOvəɹ	tˌɛnəfˈQvə	guesser	1.85			
+232	synthroid	brand	Synthroid	sˈɪnθɹˌYd	sˈɪnθɹˌYd	guesser	1.77			
+233	mirabegron	generic	mirabegron	mɪɹˈæbəɡɹɑn	mɪɹˈabəɡɹɒn	guesser				
+234	torsemide	generic	torsemide	tˈɔɹsmˌId	tˈɔːsmˌId	guesser	1.01			
+235	evolocumab	generic	evolocumab	ɪvˈɑləkjˌuməb	ɪvˈɒləkjˌuːməb	guesser	1.49			
+236	desvenlafaxine	generic	desvenlafaxine	dɪsvˌɛnləfˈæksIn	dɪsvˌɛnləfˈaksIn	guesser				
+237	temazepam	generic	temazepam	tˌɛməzˈɛpəm	təmˈAzɪpam	guesser	1.69			
+238	lithium	generic	lithium	lˈɪθiəm	lˈɪθɪəm	gold	3.56	yes		
+239	verapamil	generic	verapamil	vəɹˈæpəməl	vəɹˈapəmɪl	gold	1.95			
+240	ethyl	generic	ethyl	ˈɛθᵊl	ˈiːθIl	gold	2.93	yes		
+241	acyclovir	generic	acyclovir	AsˈIkləvˌɪɹ	AsˈIkləvɪə	gold	2.04			
+242	emtricitabine	generic	emtricitabine	ɛmtɹˈɪsətəbˌin	ɛmtɹˈɪsətəbˌiːn	guesser	1.42			
+243	linaclotide	generic	linaclotide	lInˈæklətˌId	lInˈaklətˌId	guesser				
+244	mononitrate	salt	mononitrate	mənˈɑnətɹˌAt	mənˈɒnətɹˌAt	guesser	1.28	yes		
+245	oxcarbazepine	generic	oxcarbazepine	ˌɑkskɑɹbˈAzəpˌIn	ˌɒkskɑːbˈAzəpˌIn	guesser	1.34			
+246	nitroglycerin	generic	nitroglycerin	nˌItɹOɡlˈɪsəɹən	nˌItɹQɡlˈɪsəɹən	gold	2.42	yes		
+247	kwikpen	device	Kwikpen	kwˈɪkpən	kwˈɪkpən	guesser				
+248	guanfacine	generic	guanfacine	ɡwˌɑnfəsˈini	ɡwˌɒnfəsˈiːni	guesser	1.13			
+249	enalapril	generic	enalapril	ɪnˈæləpɹɪl	ɪnˈaləpɹɪl	guesser	1.8			
+250	nortriptyline	generic	nortriptyline	nˈɔɹtɹɪptəlˌIn	nˈɔːtɹɪptəlˌIn	guesser	1.57			
+251	doxazosin	generic	doxazosin	dˌɑksəzˈOsən	dˌɒksəzˈQsən	guesser	1.35			
+252	chlorhexidine	generic	chlorhexidine	klˈɔɹhˌɛksədˌIn	klɔːhˈɛksɪdiːn	guesser	1.94			
+253	ritonavir	generic	ritonavir	ɹˈɪtənəvˌɪɹ	ɹˈɪtənəvˌɪə	guesser	1.83			
+254	januvia	brand	Januvia	ʤənˈuviə	ʤənˈuːviə	guesser	1.48			
+255	levofloxacin	generic	levofloxacin	lˌɛvOflˈɑksəsɪn	lˌɛvQflˈɒksəsɪn	guesser	1.56			
+256	nirmatrelvir	generic	nirmatrelvir	nˈɜɹmətɹˌɛlvəɹ	nˈɜːmətɹˌɛlvə	guesser				
+257	dextromethorphan	generic	dextromethorphan	dɛkstɹˈɑməθɔɹfən	dɛkstɹˈɒməθɔːfən	guesser	1.91			
+258	sucralfate	generic	sucralfate	sˈukɹəlfˌAt	sjˈuːkɹᵊlfˌAt	gold	1.44			
+259	tretinoin	generic	tretinoin	tɹˌɛtˈɪnəwən	tɹˌɛtˈɪnQɪn	gold	2.12			
+260	levonorgestrel	generic	levonorgestrel	lˌivənɔɹʤˈɛstɹəl	lˌiːvQnɔːʤˈɛstɹᵊl	gold	1.86			
+261	tromethamine	salt	tromethamine	tɹəmˈɛθəmˌin	tɹəmˈɛθəmˌiːn	guesser				
+262	entresto	brand	Entresto	ɛntɹˈɛstO	ɛntɹˈɛstQ	guesser				
+263	erythromycin	generic	erythromycin	ɪɹˌɪθɹəmˈIsɪn	ɪɹˌɪθɹQmˈIsɪn	gold	2.24			
+264	amiodarone	generic	amiodarone	ˌæmiOdɑɹˈOni	ˌamiQdɑɹˈQni	guesser	2.02			
+265	symbicort	brand	Symbicort	sˈɪmbɪkˌɔɹt	sˈɪmbɪkˌɔːt	guesser	1.35			
+266	pancrelipase	generic	pancrelipase	pænkɹˈɛləpˌAs	pankɹˈɛləpˌAs	guesser				
+267	sildenafil	generic	sildenafil	sˌɪldˈɛnəfəl	sɪldˈɛnəfɪl	gold	2.07			
+268	anastrozole	generic	anastrozole	ænˈæstɹəzˌOl	ˈanəstɹəzˌQl	gold	1.73			
+269	methadone	generic	methadone	mˈɛθədˌOn	mˈɛθədQn	gold	2.98	yes		
+270	glycopyrrolate	generic	glycopyrrolate	ɡlˌIkOpˈɪɹəlˌAt	ɡlˌIkQpˈɪɹəlˌAt	guesser				
+271	nebivolol	generic	nebivolol	nəbˈɪvəlɔl	nəbˈɪvəlɔl	guesser	1.08			
+272	pamoate	salt	pamoate	pˈæmOˌAt	pˈamQˌAt	guesser	1.09			
+273	dimesylate	salt	dimesylate	dˈImsəlˌAt	dˈImsəlˌAt	guesser				
+274	mesalamine	generic	mesalamine	mˌɛzələmˈin	mˌɛzələmˈiːn	guesser	1.1			
+275	oseltamivir	generic	oseltamivir	Osˈɛltəmɪvəɹ	Qsˈɛltəmɪvə	guesser	1.74			
+276	bumetanide	generic	bumetanide	bjˈumtənˌId	bjˈuːmtənˌId	guesser	1.19			
+277	metoclopramide	generic	metoclopramide	mˌitəklˈɑpɹəmˌId	mˌiːtəklˈɒpɹəmˌId	guesser	1.73			
+278	colchicine	generic	colchicine	kˈɑlʧəsˌin	kˈɒlʧɪsiːn	gold	2.17	yes		
+279	gluconate	generic	gluconate	ɡlˈukənˌAt	ɡlˈuːkənˌAt	guesser	1.97			
+280	carbidopa	generic	carbidopa	kɑɹbidˈOpə	kɑːbidˈQpə	guesser	1.47			
+281	tacrolimus	generic	tacrolimus	təkɹˈɑləməs	təkɹˈɒləməs	guesser	1.82			
+282	levodopa	generic	levodopa	lˌɛvədˈOpə	lˌiːvQdˈQpə	gold	2.01			
+283	gluconate	salt	gluconate	ɡlˈukənˌAt	ɡlˈuːkənˌAt	guesser	1.97			
+284	rimegepant	generic	rimegepant	ɹImˈɛʤpənt	ɹImˈɛʤpənt	guesser				
+285	drospirenone	generic	drospirenone	dɹOspˈɪɹənˌOn	dɹQspˈɪɹənˌQn	guesser	1.46			
+286	telmisartan	generic	telmisartan	tˌɛlmɪsˈɑɹtən	tˌɛlmɪsˈɑːtən	guesser	1.27			
+287	shingrix	brand	Shingrix	ʃˈɪŋɡɹɪks	ʃˈɪŋɡɹɪks	guesser				
+288	etonogestrel	generic	etonogestrel	ɪtˈɑnəʤəstɹəl	ɪtˈɒnəʤəstɹəl	guesser				
+289	medoxomil	salt	medoxomil	mədˈɑksəməl	mədˈɒksəməl	guesser				
+290	phentermine	generic	phentermine	fˌɛntˈɜɹmˌin	fˈɛntəmˌiːn	gold	2.0			
+291	lansoprazole	generic	lansoprazole	lˈænsəpɹˌæzˌOl	lˈansəpɹˌazˌQl	guesser	1.46			
+292	bisoprolol	generic	bisoprolol	bˌIsəpɹˈOləl	bˌIsəpɹˈQləl	guesser	1.42			
+293	carbamazepine	generic	carbamazepine	kˌɑɹbəmˈæzəpin	kˌɑːbəmˈAzɪpiːn	gold	2.01			
+294	flecainide	generic	flecainide	flˈɛkənˌId	flˈɛkənˌId	guesser	1.27			
+295	medroxyprogesterone	generic	medroxyprogesterone	mˌɛdɹəksˈIpɹəʤˌɛstəɹˌOn	mˌɛdɹəksˈIpɹəʤˌɛstəɹˌQn	guesser	1.61			
+296	neomycin	generic	neomycin	nˌiOmˈIsᵊn	nˌiːQmˈIsɪn	gold	1.78			
+297	myrbetriq	brand	Myrbetriq	məɹbˈɛtɹɪk	məbˈɛtɹɪk	guesser				
+298	pramipexole	generic	pramipexole	pɹˌAmɪpˈɛksˌOl	pɹˌAmɪpˈɛksˌQl	guesser	1.32			
+299	rizatriptan	generic	rizatriptan	ɹˌIzətɹˈɪptən	ɹˌIzətɹˈɪptən	guesser	1.09			
+300	carbonate	generic	carbonate	kˈɑɹbənˌAt	kˈɑːbənAt	gold	3.22	yes		
+301	carbonate	salt	carbonate	kˈɑɹbənˌAt	kˈɑːbənAt	gold	3.22	yes		
+302	epinephrine	generic	epinephrine	ˌɛpənˈɛfɹən	ˌɛpɪnˈɛfɹɪn	gold	2.71	yes		
+303	solifenacin	generic	solifenacin	səlˈɪfənəsən	səlˈɪfənəsən	guesser				
+304	mometasone	generic	mometasone	mˈɑmətəsən	mˈɒmətəsən	guesser	1.31			
+305	terazosin	generic	terazosin	tˌɛɹəzˈOzɪn	tˌɛɹəzˈQzɪn	guesser	1.19			
+306	dupilumab	generic	dupilumab	dupˈɪljumˌæb	dupˈɪljumˌab	guesser				
+307	ramipril	generic	ramipril	ɹˈæmɪpɹɪl	ɹˈamɪpɹɪl	guesser	1.53			
+308	respimat	device	Respimat	ɹˈɛspəmˌæt	ɹˈɛspəmˌat	guesser				
+309	calcitriol	generic	calcitriol	kˈælsətɹiəl	kˈalsətɹiəl	guesser	1.66			
+310	dihydrochloride	salt	dihydrochloride	dˌɪhˈIdɹOklˌɔɹId	dˌɪhˈIdɹQklˌɔːɹId	guesser	1.23			
+311	benztropine	generic	benztropine	bˈɛnztɹəpˌIn	bˈɛnztɹəpˌIn	guesser				
+312	omega	generic	omega	OmˈAɡə	ˈQmɪɡə	gold	3.78	yes		
+313	linzess	brand	Linzess	lˈɪnzəs	lˈɪnzəs	guesser				
+314	vyvanse	brand	Vyvanse	vˈIvˌæns	vˈIvˌans	guesser	1.91			
+315	citrate	generic	citrate	sˈɪtɹˌAt	sˈɪtɹAt	gold	2.87	yes		
+316	citrate	salt	citrate	sˈɪtɹˌAt	sˈɪtɹAt	gold	2.87	yes		
+317	pseudoephedrine	generic	pseudoephedrine	sˌudOˈɛfədɹᵊn	sjˌuːdQˈɛfɪdɹiːn	gold	2.19	yes		
+318	protease	generic	protease	pɹˈOTiˌAz	pɹˈQtɪAz	gold	2.78	yes		
+319	liothyronine	generic	liothyronine	lˌIəθˈIɹənˌIn	lˌIəθˈIɹənˌIn	guesser				
+320	humalog	brand	Humalog	hjˈuməlˌɔɡ	hjˈuːməlˌɔːɡ	guesser	1.24			
+321	flexpen	device	Flexpen	flˈɛkspˌɛn	flˈɛkspˌɛn	guesser				
+322	loperamide	generic	loperamide	lOpˈɛɹəmˌId	lQpˈɛɹəmId	gold	1.68			
+323	dexlansoprazole	generic	dexlansoprazole	dɛkslˈænsəpɹəzˌOl	dɛkslˈansəpɹəzˌQl	guesser				
+324	labetalol	generic	labetalol	lɑbɛtɑlˈɔl	lɒbɛtɒlˈɔːl	guesser	1.46			
+325	ciclopirox	generic	ciclopirox	sˈɪkləpˌIɹɑks	sˈɪkləpˌIɹɒks	guesser				
+326	minoxidil	generic	minoxidil	mənˈɑksədˌɪl	mɪnˈɒksɪdɪl	gold	1.99			
+327	lactulose	generic	lactulose	lˈæktjəlOs	lˈaktjʊlQz	gold	1.53			
+328	suboxone	brand	Suboxone	sˌʌbəksˈOni	sˌʌbəksˈQni	guesser	2.14			
+329	amylase	generic	amylase	ˈæməlˌAs	ˈamɪlAz	gold	2.31	yes		
+330	lipase	generic	lipase	lˈɪpˌAs	lˈIpAz	gold	2.29	yes		
+331	valproate	generic	valproate	vælpɹˈOˌAt	vˈalpɹQAt	gold	1.9			
+332	arexvy	brand	Arexvy	əɹˈɛksvi	əɹˈɛksvi	guesser				
+333	ticagrelor	generic	ticagrelor	tˈɪkəɡɹˌɛləɹ	tˈɪkəɡɹˌɛlə	guesser	1.19			
+334	moxifloxacin	generic	moxifloxacin	mˌɑksəflˈɑksən	mˌɒksəflˈɒksən	guesser	1.28			
+335	flextouch	device	Flextouch	flˈɛkstˌWʧ	flˈɛkstˌWʧ	guesser				
+336	diphenhydramine	generic	diphenhydramine	dˌIfɛnhˈIdɹəmin	dˌIfɛnhˈIdɹəmiːn	gold	2.06			
+337	fluoride	generic	fluoride	flˈʊɹˌId	flˈʊəɹId	gold	3.25	yes		
+338	breo	brand	Breo	bɹˈiO	bɹˈiːQ	guesser				
+339	butalbital	generic	butalbital	bjutˈælbətəl	bjutˈalbətəl	guesser	1.14			
+340	caffeine	generic	caffeine	kæfˈin	kˈafiːn	gold	3.67	yes		
+341	spiriva	brand	Spiriva	spɪɹˈivə	spɪɹˈiːvə	guesser				
+342	novolog	brand	Novolog	nˈɑvəlˌɔɡ	nˈɒvəlˌɔːɡ	guesser	1.06			
+343	terbinafine	generic	terbinafine	tˈɜɹbɪnəfˌIn	tˈɜːbɪnəfˌIn	guesser	1.44			
+344	lactate	generic	lactate	lˈæktˌAt	laktˈAt	gold	2.72	yes		
+345	lactate	salt	lactate	lˈæktˌAt	laktˈAt	gold	2.72	yes		
+346	alfuzosin	generic	alfuzosin	ˌælfjˈuzOsɪn	ˌalfjˈuːzQsɪn	guesser	1.14			
+347	furoate	salt	furoate	fjˈʊɹOˌAt	fjˈʊɹQˌAt	guesser	1.27			
+348	melatonin	generic	melatonin	mˌɛlətˈOnən	mˌɛlətˈQnɪn	gold	2.96			
+349	iron	generic	iron	ˈIəɹn	ˈIən	gold	4.74	yes		
+350	tresiba	brand	Tresiba	tɹɛsˈibə	tɹɛsˈiːbə	guesser				
+351	guaifenesin	generic	guaifenesin	ɡwˌIfˈɛnəsɪn	ɡwˌIfənˈiːzɪn	gold	1.49			
+352	brompheniramine	generic	brompheniramine	bɹˌɑmfənˈɪɹəmˌin	bɹˌɒmfənˈɪɹəmˌiːn	guesser				
+353	cyproheptadine	generic	cyproheptadine	sˌIpɹOhˈɛptədˌin	sˌIpɹQhˈɛptədˌiːn	guesser	1.32			
+354	fexofenadine	generic	fexofenadine	fɛksOfənˈAdin	fɛksQfənˈAdin	guesser	1.28			
+355	letrozole	generic	letrozole	lˈɛtɹəzˌOl	lˈɛtɹəzˌQl	guesser	1.73			
+356	detemir	generic	detemir	dˈɛtəmɪɹ	dˈɛtəmɪə	guesser				
+357	basaglar	brand	Basaglar	bˈAsəɡləɹ	bˈAsəɡlə	guesser				
+358	haloperidol	generic	haloperidol	hˌælOpˈɛɹədɔl	hˌalQpˈɛɹɪdɒl	gold	2.0			
+359	icosapent	generic	icosapent	ˌIkOsˈApənt	ˌIkQsˈApənt	guesser				
+360	paxlovid	brand	Paxlovid	pˈæksləvɪd	pˈaksləvɪd	guesser				
+361	ubrogepant	generic	ubrogepant	jubɹˈɑʤpənt	jubɹˈɒʤpənt	guesser				
+362	repatha	brand	Repatha	ɹipˈæθə	ɹipˈaθə	guesser				
+363	linagliptin	generic	linagliptin	lˈɪnəɡlˌɪptɪn	lˈɪnəɡlˌɪptɪn	guesser				
+364	penicillin	generic	penicillin	pˌɛnəsˈɪlən	pˌɛnɪsˈɪlɪn	gold	3.04	yes		
+365	paliperidone	generic	paliperidone	pˌælɪpˈɛɹədˌOn	pˌalɪpˈɛɹədˌQn	guesser	1.26			
+366	cefuroxime	generic	cefuroxime	sɪfjˈʊɹɑksˌIm	sɪfjˈʊɹɒksˌIm	guesser	1.4			
+367	lurasidone	generic	lurasidone	lʊɹɑsidˈOni	lʊɹɒsidˈQni	guesser				
+368	doxepin	generic	doxepin	dˈɑksɪpɪn	dˈɒksɪpɪn	guesser	1.65			
+369	midodrine	generic	midodrine	mˈɪdədɹˌIn	mˈɪdədɹˌIn	guesser	1.06			
+370	nabumetone	generic	nabumetone	nˈæbjumtˌOn	nˈabjumtˌQn	guesser				
+371	norelgestromin	generic	norelgestromin	nˌɔɹəlʤˈɛstɹəmɪn	nˌɔːɹəlʤˈɛstɹəmɪn	guesser				
+372	heparin	generic	heparin	hˈɛpəɹən	hˈɛpəɹɪn	gold	2.63	yes		
+373	peroxide	generic	peroxide	pəɹˈɑksˌId	pəɹˈɒksId	gold	3.13	yes		
+374	clozapine	generic	clozapine	klˈOzəpˌin	klˈQzəpiːn	gold	1.99			
+375	cariprazine	generic	cariprazine	kˈɛɹəpɹəzˌin	kˈɛɹəpɹəzˌiːn	guesser				
+376	vraylar	brand	Vraylar	vɹˈAləɹ	vɹˈAlə	guesser				
+377	tdap	brand	Tdap	tˈidˌipˌi	tˈiːdˌiːpˌiː	guesser	1.82			
+378	nicotine	generic	nicotine	nˈɪkətˌin	nˈɪkətiːn	gold	3.52	yes		
+379	benzoate	generic	benzoate	bˈɛnzOˌAt	bˈɛnzQAt	guesser	2.25	yes		
+380	mycophenolate	generic	mycophenolate	mˌIkəfˈɛnəlˌAt	mˌIkəfˈɛnəlˌAt	guesser	1.35			
+381	digoxin	generic	digoxin	dəʤˈɑksən	dɪʤˈɒksɪn	gold	2.28			
+382	aerosphere	device	Aerosphere	ˈɛɹOsfˌɪɹ	ˈɛːɹQsfɪə	guesser		yes		
+383	sennosides	generic	sennosides	sˈɛnəsˌIdz	sˈɛnəsˌIdz	guesser				
+384	restasis	brand	Restasis	ɹistˈAsəs	ɹistˈAsəs	guesser	1.07			
+385	benzoyl	generic	benzoyl	bˈɛnzəwəl	bˈɛnzQɪl	gold	2.34	yes		
+386	anoro	brand	Anoro	ɑnˈɔɹO	ɒnˈɔːɹQ	guesser				
+387	humulin	brand	Humulin	hjˌumjˈulɪn	hjˌuːmjˈuːlɪn	cmudict	1.11			
+388	cypionate	salt	cypionate	sˈɪpiənˌAt	sˈɪpiənˌAt	guesser	1.24			
+389	tradjenta	brand	Tradjenta	tɹəʤˈɛntə	tɹəʤˈɛntə	guesser				
+390	lacosamide	generic	lacosamide	ləkˈɑsəmˌId	ləkˈɒsəmˌId	guesser				
+391	ceftriaxone	generic	ceftriaxone	sˌɛftɹiˈæksən	sˌɛftɹiˈaksən	guesser	1.89			
+392	liraglutide	generic	liraglutide	lˌɪɹˈæɡlətˌId	lˌɪɹˈaɡlətˌId	guesser	1.56			
+393	abrysvo	brand	Abrysvo	əbɹˈɪsvO	əbɹˈɪsvQ	guesser				
+394	isotretinoin	generic	isotretinoin	ˌIsətɹˈɛtənYn	ˌIsətɹˈɛtənYn	guesser	1.79			
+395	fluorouracil	generic	fluorouracil	flˌʊɹˈʊɹəsɪl	flˌʊɹˈʊɹəsɪl	guesser	1.84			
+396	bictegravir	generic	bictegravir	bˈɪktəɡɹəvˌɪɹ	bˈɪktəɡɹəvˌɪə	guesser				
+397	biktarvy	brand	Biktarvy	bɪktˈɑɹvi	bɪktˈɑːvi	guesser				
+398	vascepa	brand	Vascepa	vɑsʧˈɛpə	vɒsʧˈɛpə	guesser				
+399	dipropionate	salt	dipropionate	dɪpɹˈOpiənˌAt	dɪpɹˈQpiənˌAt	guesser	1.57			
+400	fentanyl	generic	fentanyl	fˈɛntənˌɪl	fˈɛntənɪl	gold	2.86			
+401	breztri	brand	Breztri	bɹˈɛztɹi	bɹˈɛztɹi	guesser				
+402	mofetil	salt	mofetil	mˈOftɪl	mˈQftɪl	guesser	1.15			
+403	palmitate	salt	palmitate	pˈɑlmətˌAt	pˈalmɪtAt	gold	1.98	yes		
+404	primidone	generic	primidone	pɹˈɪmɪdˌOn	pɹˈɪmɪdˌQn	guesser	1.3			
+405	ammonium	generic	ammonium	əmˈOniəm	əmˈQnɪəm	gold	3.03	yes		
+406	bimatoprost	generic	bimatoprost	bImˈAtəpɹˌOst	bImˈAtəpɹˌQst	guesser	1.11			
+407	boostrix	brand	Boostrix	bˈustɹɪks	bˈuːstɹɪks	guesser				
+408	rybelsus	brand	Rybelsus	ɹˈɪbəlsəs	ɹˈɪbəlsəs	guesser				
+409	adderall	brand	Adderall	ˈædəɹˌɔl	ˈadəɹɔːl	gold	2.87			
+410	desogestrel	generic	desogestrel	dˈɛsəʤəstɹəl	dˈɛsəʤəstɹəl	guesser				
+411	klor-con	brand	Klor-Con	klˈɔɹkˌɑn	klˈɔːkˌɒn	guesser				
+412	lumigan	brand	Lumigan	lˈumɪɡən	lˈuːmɪɡən	guesser	1.22			
+413	naltrexone	generic	naltrexone	næltɹˈɛksˌOn	naltɹˈɛksQn	gold	2.13			
+414	gemtesa	brand	Gemtesa	ʤɛmtˈɛsə	ʤɛmtˈɛsə	guesser				
+415	vibegron	generic	vibegron	vˈIbɡɹˌɑn	vˈIbɡɹˌɒn	guesser				
+416	epoetin	generic	epoetin	ɪpˈOətɪn	ɪpˈQətɪn	guesser	1.16			
+417	invega	brand	Invega	ˌɪnvˈAɡə	ˌɪnvˈAɡə	guesser	1.36			
+418	ranolazine	generic	ranolazine	ɹˈænələzˌin	ɹˈanələzˌiːn	guesser	1.13			
+419	sucrose	generic	sucrose	sˈukɹˌOs	sjˈuːkɹQz	gold	2.76	yes		
+420	senna	generic	senna	sˈɛnə	sˈɛnə	gold	2.94	yes		
+421	axetil	salt	axetil	ˈæksətəl	ˈaksətəl	guesser				
+422	levalbuterol	generic	levalbuterol	ləvˌælbjˈutəɹˌɔl	ləvˌalbjˈuːtəɹˌɔːl	guesser				
+423	toujeo	brand	Toujeo	tˌuʤˈAO	tˌuːʤˈAQ	guesser				
+424	janumet	brand	Janumet	ʤˈænjəmˌɛt	ʤˈanjəmˌɛt	guesser				
+425	methimazole	generic	methimazole	mˈɛθəməzˌOl	mˈɛθəməzˌQl	guesser	1.29			
+426	venofer	brand	Venofer	vˈɛnəfəɹ	vˈɛnəfə	guesser				
+427	hydromorphone	generic	hydromorphone	hˌIdɹOmˈɔɹfˌOn	hˌIdɹQmˈɔːfˌQn	guesser	1.98			
+428	tobramycin	generic	tobramycin	tˌObɹəmˈIsɪn	tˌɒbɹəmˈIsɪn	gold	1.38			
+429	wegovy	brand	Wegovy	wiɡˈOvi	wiɡˈQvi	lexicon				tech
+430	beclomethasone	generic	beclomethasone	bɪklˈʌmθəsˌOn	bɪklˈʌmθəsˌQn	guesser	1.04			
+431	brilinta	brand	Brilinta	bɹɪlˈɪntə	bɹɪlˈɪntə	guesser				
+432	olopatadine	generic	olopatadine	ˌOləpˈætədˌIn	ˌQləpˈatədˌIn	guesser				
+433	concerta	brand	Concerta	kənʧˈɛɹtə	kənʧˈɛːtə	guesser	1.56			
+434	phenazopyridine	generic	phenazopyridine	fˌinəzˈɑpˌɪɹɪdˌIn	fˌiːnəzˈɒpˌɪɹɪdˌIn	guesser	1.1			
+435	sotalol	generic	sotalol	sˈɑtəlˌɑl	sˈɒtəlˌɒl	guesser	1.36			
+436	senna	brand	Senna	sˈɛnə	sˈɛnə	gold	2.94	yes		
+437	atropine	generic	atropine	ˈætɹəpˌin	ˈatɹəpiːn	gold	2.51	yes		
+438	carboxymethylcellulose	generic	carboxymethylcellulose	kˌɑɹbɑksimˈɛθɪlsəlˌu	kˌɑːbɒksimˈɛθɪlsəlˌuː	guesser				
+439	ziprasidone	generic	ziprasidone	zɪpɹˈæsɪdˌOn	zɪpɹˈasɪdˌQn	guesser	1.27			
+440	prochlorperazine	generic	prochlorperazine	pɹˌOklɔɹpˈɛɹəzˌin	pɹˌQklɔːpˈɛɹəziːn	gold	1.34			
+441	indomethacin	generic	indomethacin	ˌɪndəmˈɛθəsən	ˌɪndQmˈɛθəsɪn	gold	1.9			
+442	refresh	brand	Refresh	ɹˈifɹˌɛʃ	ɹˈiːfɹɛʃ	gold	3.65	yes		
+443	humira	brand	Humira	humˈɪɹə	humˈɪɹə	guesser	1.93			
+444	varenicline	generic	varenicline	vəɹˈɛnɪklˌIn	vəɹˈɛnɪklˌIn	guesser	1.58			
+445	phenytoin	generic	phenytoin	fˈɛnətˌOən	fˈɛnɪtQɪn	gold	2.07			
+446	eszopiclone	generic	eszopiclone	ˌɛsəpiklˈOn	ˌɛsəpiklˈQn	guesser				
+447	gemfibrozil	generic	gemfibrozil	ɡˈɛmfɪbɹOzəl	ɡˈɛmfɪbɹQzəl	cmudict	1.3			
+448	dutasteride	generic	dutasteride	dutˈæstəɹˌId	dutˈastəɹˌId	guesser	1.44			
+449	hydroquinone	generic	hydroquinone	hˌIdɹəkwˈɪnˌOn	hˌIdɹəkwˈɪnQn	gold	2.0	yes		
+450	incruse	brand	Incruse	ɪnkɹˈuz	ɪnkɹˈuːz	guesser				
+451	trintellix	brand	Trintellix	tɹɪntˈɛlɪks	tɹɪntˈɛlɪks	guesser				
+452	vortioxetine	generic	vortioxetine	vˌɔɹʃiˈɑksətin	vˌɔːʃiˈɒksətin	guesser				
+453	fluocinonide	generic	fluocinonide	fluˈɑsənənˌId	fluˈɒsənənˌId	guesser				
+454	creon	brand	Creon	kɹˈiən	kɹˈiːən	guesser	2.11			
+455	dolutegravir	generic	dolutegravir	dəlˈutəɡɹˌAvəɹ	dəlˈuːtəɡɹˌAvə	guesser	1.16			
+456	gavilyte-g	brand	Gavilyte-G	ɡˈævəlˌItɡ	ɡˈavəlˌItɡ	guesser				
+457	sevelamer	generic	sevelamer	sˈɛvəlˌAməɹ	sˈɛvəlˌAmə	guesser	1.02			
+458	levemir	brand	Levemir	lˈɛvəmɪɹ	lˈɛvəmɪə	guesser				
+459	autoinjector	device	Autoinjector	ˌɔtOɪnʤˈɛktəɹ	ˌɔːtQɪnʤˈɛktə	guesser	1.04			
+460	propylene	generic	propylene	pɹˈOpəlˌin	pɹˈQpɪliːn	gold	2.6	yes		
+461	methenamine	generic	methenamine	məθˈɛnəmˌin	məθˈɛnəmˌiːn	guesser		yes		
+462	handihaler	device	Handihaler	hˈændihˌAləɹ	hˈandihˌAlə	guesser				
+463	hippurate	generic	hippurate	hˈɪpjəɹət	hˈɪpjʊɹAt	guesser		yes		
+464	enoxaparin	generic	enoxaparin	ɪnɑksəpˈɛɹɪn	ɪnɒksəpˈɛɹɪn	guesser	1.36			
+465	estrogens	generic	estrogens	ˈɛstɹəʤᵊnz	ˈiːstɹəʤᵊnz	gold	2.42			
+466	brexpiprazole	generic	brexpiprazole	bɹˌɛkspɪpɹəzˈOl	bɹˌɛkspɪpɹəzˈQl	guesser				
+467	rexulti	brand	Rexulti	ɹɪɡzˈʌlti	ɹɪɡzˈʌlti	guesser				
+468	cilostazol	generic	cilostazol	sˌɪləstˈAzəl	sˌɪləstˈAzəl	guesser	1.12			
+469	tolterodine	generic	tolterodine	tˈOltəɹədˌIn	tˈQltəɹədˌIn	guesser				
+470	ibandronate	generic	ibandronate	IbˈændɹənˌAt	IbˈandɹənˌAt	guesser				
+471	dupixent	brand	Dupixent	dupˈɪksənt	dupˈɪksənt	guesser				
+472	dulera	brand	Dulera	djˈuləɹə	djˈuːləɹə	guesser				
+473	sulfadiazine	generic	sulfadiazine	sˌʌlfədˈIəzˌin	səlfˈAdiəzˌiːn	gold	1.35	yes		
+474	silver	generic	silver	sˈɪlvəɹ	sˈɪlvə	gold	4.81	yes	14605	
+475	diphenoxylate	generic	diphenoxylate	dˌɪfənˈɑksəlˌAt	dˌɪfənˈɒksəlˌAt	guesser				
+476	olodaterol	generic	olodaterol	ˌOlOdˈætəɹəl	ˌQlQdˈatəɹəl	guesser				
+477	nurtec	brand	Nurtec	nˈɜɹtˌɛk	nˈɜːtˌɛk	guesser				
+478	zonisamide	generic	zonisamide	zənˈɪsəmˌId	zənˈɪsəmˌId	guesser				
+479	stiolto	brand	Stiolto	stiˈOltO	stiˈQltQ	guesser				
+480	dabigatran	generic	dabigatran	dˈæbəɡˌAtɹən	dˈabəɡˌAtɹən	guesser	1.49			
+481	etexilate	generic	etexilate	ɪtˈɛksəlˌAt	ɪtˈɛksəlˌAt	guesser				
+482	cholestyramine	generic	cholestyramine	ʧOlˈɛstɪɹəmˌIn	ʧQlˈɛstɪɹəmˌIn	cmudict	1.21			
+483	combivent	brand	Combivent	kəmbˈIvənt	kəmbˈIvənt	guesser	1.13			
+484	methadose	brand	Methadose	mˈɛθədˌOs	mˈɛθədˌQs	guesser				
+485	amantadine	generic	amantadine	ɑmɑntɑdˈini	ɒmɒntɒdˈiːni	guesser	1.8			
+486	arnuity	brand	Arnuity	ɑɹnˈuɪti	ɑːnˈuːɪti	guesser				
+487	premarin	brand	Premarin	pɹˈɛməɹɪn	pɹˈɛməɹɪn	cmudict	1.7			
+488	tosylate	salt	tosylate	tˈɑsəlˌAt	tˈQsIlAt	gold	1.01			
+489	rivastigmine	generic	rivastigmine	ɹˈIvəstˌɪɡmˌin	ɹˈIvəstˌɪɡmˌiːn	guesser	1.33			
+490	norgestrel	generic	norgestrel	nˈɔɹɡɪstɹəl	nˈɔːɡɪstɹəl	guesser	1.2			
+491	ascorbic	generic	ascorbic	əskˈɔɹbɪk	əskˈɔːbɪk	cmudict	2.4	yes		
+492	fluvoxamine	generic	fluvoxamine	fluvˈɑksəmˌin	fluvˈɒksəmˌiːn	gold	1.54			
+493	oxide	generic	oxide	ˈɑksˌId	ˈɒksId	gold	3.66	yes		
+494	novolin	brand	Novolin	nˈɑvəlɪn	nˈɒvəlɪn	guesser				
+495	raloxifene	generic	raloxifene	ɹælˈɑksəfˌin	ɹəlˈɒksəfˌiːn	gold	1.71			
+496	netarsudil	generic	netarsudil	nˌɛtəɹsˈudəl	nˌɛtəsˈuːdəl	guesser				
+497	breyna	brand	Breyna	bɹˈAnə	bɹˈAnə	guesser				
+498	fluocinolone	generic	fluocinolone	fluˈɑsənOlˌOn	fluˈɒsənQlˌQn	guesser	1.11			
+499	metolazone	generic	metolazone	mˌɛtOlɑzˈOni	mˌɛtQlɒzˈQni	guesser				
+500	ketotifen	generic	ketotifen	kˈitOtˌIfən	kˈiːtQtˌIfən	guesser				
+501	sulfasalazine	generic	sulfasalazine	sˌʌlfəsˈæləzˌin	sˌʌlfəsələzˌiːn	gold	1.51			
+502	olamine	generic	olamine	ˈɑləmˌin	ˈɒləmˌiːn	guesser				
+503	cefadroxil	generic	cefadroxil	sˌɛfədɹˈɑksəl	sˌɛfədɹˈɒksəl	guesser	1.08			
+504	leflunomide	generic	leflunomide	ləflˈunəmˌId	ləflˈuːnəmˌId	guesser	1.27			
+505	iohexol	generic	iohexol	ˌIOhˈɛksɑl	ˌIQhˈɛksɒl	guesser				
+506	omnipaque	brand	Omnipaque	ɑmnˈɪpək	ɒmnˈɪpək	guesser				
+507	decanoate	salt	decanoate	dikˈænOˌAt	dikˈanQˌAt	guesser	1.48			
+508	cinacalcet	generic	cinacalcet	sˌɪnəkˈælsət	sˌɪnəkˈalsət	guesser				
+509	epogen	brand	Epogen	ˈɛpəʤɛn	ˈɛpəʤɛn	cmudict	1.03			
+510	clobazam	generic	clobazam	klˈɑbəzəm	klˈɒbəzəm	guesser				
+511	valproic	generic	valproic	vælpɹˈOɪk	valpɹˈQɪk	guesser	1.79			
+512	ursodiol	generic	ursodiol	əɹsˈOdiəl	əsˈQdiəl	guesser				
+513	propofol	generic	propofol	pɹəpˈOfəl	pɹəpˈQfəl	guesser	2.43			
+514	minocycline	generic	minocycline	mˈɪnəsˌIklˌIn	mˈɪnəsˌIklˌIn	guesser	1.78			
+515	hydroxyurea	generic	hydroxyurea	hˌIdɹˌɔksiɛɹˈAə	hˌIdɹˌɔːksiɛɹˈAə	guesser	1.63			
+516	fludrocortisone	generic	fludrocortisone	flˈudɹOkˌɔɹtəzən	flˈuːdɹQkˌɔːtəzən	guesser	1.15			
+517	thiamine	generic	thiamine	θˈIəmˌin	θˈIəmiːn	gold	2.27	yes		
+518	midazolam	generic	midazolam	mˌɪdəzˈOləm	mˌɪdəzˈQləm	guesser	2.33			
+519	sulfacetamide	generic	sulfacetamide	sˌʌlfəsˈɛtəmˌId	sˌʌlfəsˈɛtəmˌId	guesser				
+520	vilazodone	generic	vilazodone	vilɑzOdˈOni	vilɒzQdˈQni	guesser				
+521	vancomycin	generic	vancomycin	vˌæŋkəmˈIsɪn	vˌaŋkəmˈIsɪn	gold	2.28			
+522	prilocaine	generic	prilocaine	pɹˈɪləkˌAn	pɹˈɪləkˌAn	guesser	1.22			
+523	banophen	brand	Banophen	bˈænəfən	bˈanəfən	guesser				
+524	candesartan	generic	candesartan	kˌændɪsˈɑɹtən	kˌandɪsˈɑːtən	guesser	1.23			
+525	gentamicin	generic	gentamicin	ʤˌɛntəmˈIsən	ʤˌɛntəmˈIsɪn	gold	2.03			
+526	dinitrate	salt	dinitrate	dˈɪnətɹˌAt	dˈɪnətɹˌAt	guesser	1.23	yes		
+527	alafenamide	salt	alafenamide	əlˈæfənəmˌId	əlˈafənəmˌId	guesser				
+528	colestipol	generic	colestipol	kˈOlstˌɪpˌɑl	kˈQlstˌɪpˌɒl	cmudict				
+529	cefpodoxime	generic	cefpodoxime	sˌɛfpədˈɑksIm	sˌɛfpədˈɒksIm	guesser				
+530	proxetil	salt	proxetil	pɹˈɑksətəl	pɹˈɒksətəl	guesser				
+531	phenobarbital	generic	phenobarbital	fˌinObˈɑɹbətˌɔl	fˌiːnQbˈɑːbɪtᵊl	gold	2.07	yes		
+532	trospium	generic	trospium	tɹˈɑspiəm	tɹˈɒspiəm	guesser				
+533	synjardy	brand	Synjardy	sˈɪnʤˌɑɹdi	sˈɪnʤˌɑːdi	guesser				
+534	polacrilex	generic	polacrilex	pəlˈækɹəlɛks	pəlˈakɹəlɛks	guesser				
+535	abilify	brand	Abilify	əbˈɪləfˌI	əbˈɪləfˌI	guesser	1.8			
+536	victoza	brand	Victoza	viktˈOzə	viktˈQzə	guesser				
+537	ubrelvy	brand	Ubrelvy	jˈubɹˌɛlvi	jˈuːbɹˌɛlvi	guesser				
+538	megestrol	generic	megestrol	mˈɛʤəstɹɑl	mˈɛʤəstɹɒl	guesser	1.16			
+539	desmopressin	generic	desmopressin	dˌɛzmOpɹˈɛsɪn	dˌɛzmQpɹˈɛsɪn	guesser	1.23			
+540	valerate	salt	valerate	vˈæləɹAt	vˈaləɹAt	guesser	1.55	yes		
+541	lifitegrast	generic	lifitegrast	lˈɪfətɡɹˌæst	lˈɪfətɡɹˌast	guesser				
+542	xiidra	brand	Xiidra	zˈidɹə	zˈiːdɹə	guesser				
+543	emgality	brand	Emgality	ɛmɡˈæləti	ɛmɡˈaləti	guesser				
+544	galcanezumab	generic	galcanezumab	ɡɑlkɑnˈɛzumæb	ɡɒlkɒnˈɛzumab	guesser				
+545	sulfur	generic	sulfur	sˈʌlfəɹ	sˈʌlfə	gold	3.43			
+546	lubiprostone	generic	lubiprostone	lˈubɪpɹˌOstˌOn	lˈuːbɪpɹˌQstˌQn	guesser				
+547	lamivudine	generic	lamivudine	lˈæməvjˌudˌIn	lˈaməvjˌuːdˌIn	guesser	1.71			
+548	sodium	brand	Sodium	sˈOdiəm	sˈQdɪəm	gold	3.87	yes		
+549	oxycontin	brand	Oxycontin	ˌɑksəkˈɑntən	ˌɒksəkˈɒntən	guesser	2.49			
+550	rifaximin	generic	rifaximin	ɹIfˈæksəmən	ɹIfˈaksəmən	guesser	1.1			
+551	xifaxan	brand	Xifaxan	zˈifæksən	zˈiːfaksən	guesser				
+552	bisacodyl	generic	bisacodyl	bˌIsəkˈOdəl	bˌIsəkˈQdəl	guesser	1.2			
+553	retin-a	brand	Retin-A	ɹˌɛtᵊnˈA	ɹˈɛtənə	gold		yes		
+554	nystop	brand	Nystop	nˈIstˌɑp	nˈIstˌɒp	guesser				
+555	simethicone	generic	simethicone	sɪmˈɛθəkˌOn	sɪmˈɛθəkˌQn	guesser	1.14			
+556	brinzolamide	generic	brinzolamide	bɹɪnzˈɑləmˌId	bɹɪnzˈɒləmˌId	guesser				
+557	enbrel	brand	Enbrel	ˈɛnbɹəl	ˈɛnbɹəl	guesser	1.51			
+558	etanercept	generic	etanercept	ɪtˈænəɹsˌɛpt	ɪtˈanəsˌɛpt	guesser	1.53			
+559	denosumab	generic	denosumab	dɪnˈOsəmæb	dɪnˈQsəmab	guesser	1.15			
+560	scopolamine	generic	scopolamine	skəpˈɑləmˌin	skəpˈɒləmiːn	gold	2.07	yes		
+561	dextrose	generic	dextrose	dˈɛkstɹˌOs	dˈɛkstɹQz	gold	2.31	yes		
+562	aimovig	brand	Aimovig	ˈAmˌuvɪɡ	ˈAmˌuːvɪɡ	guesser				
+563	erenumab	generic	erenumab	ˈɛɹɪnumæb	ˈɛɹɪnumab	guesser				
+564	azathioprine	generic	azathioprine	əzˌæθiəpɹˌin	əzˌaθiəpɹˌiːn	guesser	1.85			
+565	travoprost	generic	travoprost	tɹˈAvOpɹˌOst	tɹˈAvQpɹˌQst	guesser				
+566	combigan	brand	Combigan	kˈɑmbɪɡən	kˈɒmbɪɡən	guesser				
+567	cilexetil	generic	cilexetil	sɪlˈɛksətəl	sɪlˈɛksətəl	guesser				
+568	fiasp	brand	Fiasp	fiˈæsp	fiˈasp	guesser				
+569	pradaxa	brand	Pradaxa	pɹədˈæksə	pɹədˈaksə	guesser	1.62			
+570	qvar	brand	Qvar	kvˈɑɹ	kvˈɑː	guesser				
+571	redihaler	device	Redihaler	ɹˈɛdɪhələɹ	ɹˈɛdɪhələ	guesser				
+572	tamoxifen	generic	tamoxifen	təmˈɑksəfən	təmˈɒksɪfɛn	gold	2.43			
+573	prolia	brand	Prolia	pɹˈOljə	pɹˈQljə	guesser				
+574	modafinil	generic	modafinil	mOdɑfinˈil	mQdɒfinˈiːl	guesser	2.25			
+575	systane	brand	Systane	sɪstˈAn	sɪstˈAn	guesser				
+576	acetazolamide	generic	acetazolamide	əsˌɛtəzˈɑləmˌId	əsˌɛtəzˈɒləmˌId	guesser	1.56			
+577	glucagon	generic	glucagon	ɡlˈukəɡˌɑn	ɡlˈuːkəɡɒn	gold	2.3			
+578	fluorometholone	generic	fluorometholone	flˌʊɹˈɑməθˌɔlˌOn	flˌʊɹˈɒməθˌɔːlˌQn	guesser				
+579	bicarbonate	generic	bicarbonate	bˌIkˈɑɹbənət	bIkˈɑːbənət	gold	2.73	yes		
+580	bicarbonate	salt	bicarbonate	bˌIkˈɑɹbənət	bIkˈɑːbənət	gold	2.73	yes		
+581	m-pap	brand	M-Pap	ˈɛmpˌæp	ˈɛmpˌap	gold				
+582	permethrin	generic	permethrin	pˌɜɹmˈɛθɹən	pəːmˈɛθɹɪn	gold	1.92			
+583	gavilyte-c	brand	Gavilyte-C	ɡˈævəlˌItk	ɡˈavəlˌItk	guesser				
+584	alirocumab	generic	alirocumab	ˌæləɹˈɑkjəmˌæb	ˌaləɹˈɒkjəmˌab	guesser	1.35			
+585	praluent	brand	Praluent	pɹˈæljuənt	pɹˈaljuənt	guesser				
+586	junel	brand	Junel	ʤˈunəl	ʤˈuːnəl	guesser				
+587	chlorpromazine	generic	chlorpromazine	klˌɔɹpɹˈɑməzin	klɔːpɹˈQməzɪn	gold	1.88			
+588	finerenone	generic	finerenone	fˌɪnəɹənˈOni	fˌɪnəɹənˈQni	guesser				
+589	kerendia	brand	Kerendia	kəɹˈɛndiə	kəɹˈɛndiə	guesser				
+590	lenalidomide	generic	lenalidomide	lɛnˈælədəmˌId	lɛnˈalədəmˌId	guesser	1.39			
+591	roflumilast	generic	roflumilast	ɹOflˈuməlˌæst	ɹQflˈuːməlˌast	guesser				
+592	bacitracin	generic	bacitracin	bˌæsɪtɹˈAsɪn	bˌasɪtɹˈAsən	gold	1.59	yes		
+593	armour	brand	Armour	ˈɑɹməɹ	ˈɑːmə	gold	3.75			
+594	fluphenazine	generic	fluphenazine	flˈufənəzˌin	flˈuːfənəzˌiːn	guesser	1.13			
+595	admelog	brand	Admelog	ˈædməlˌɑɡ	ˈadməlˌɒɡ	guesser				
+596	pentoxifylline	generic	pentoxifylline	pɛntˈɑksəfɪlˌIn	pɛntˈɒksəfɪlˌIn	guesser	1.41			
+597	mircera	brand	Mircera	mɪɹʧˈɛɹə	mɪəʧˈɛɹə	guesser				
+598	succinylcholine	generic	succinylcholine	sˌʌksənᵊlkˈOlin	sˌʌksɪnIlkˈQliːn	gold	1.69			
+599	nyamyc	brand	Nyamyc	nˌIˈæmɪk	nˌIˈamɪk	guesser				
+600	cefazolin	generic	cefazolin	sɪfˈæzəlɪn	sɪfˈazəlɪn	guesser	1.22			
+601	diprivan	brand	Diprivan	dɪpɹivˈɑn	dɪpɹivˈɒn	guesser				
+602	descovy	brand	Descovy	dˈɛskəvi	dˈɛskəvi	guesser				
+603	myristate	generic	myristate	mˈɪɹɪstˌAt	mIɹˈɪstAt	guesser	1.25	yes		
+604	xtampza	brand	Xtampza	ɛkstˈæmpzə	ɛkstˈampzə	guesser				
+605	dilt-xr	brand	Dilt-XR	dˈɪltˌɛksˈɑɹ	dˈɪltˌɛksˈɑː	guesser+lexicon				
+606	abiraterone	generic	abiraterone	ˌæbəɹˈætəɹˌOn	ˌabəɹˈatəɹˌQn	guesser	1.39			
+607	carisoprodol	generic	carisoprodol	kˌɛɹəsˈɑpɹədˌɔl	kˌɛɹəsˈɒpɹədˌɔːl	guesser	1.34			
+608	indapamide	generic	indapamide	ɪndˈæpəmˌId	ɪndˈapəmˌId	guesser	1.14			
+609	glyburide	generic	glyburide	ɡlˈIbˌɛɹId	ɡlˈIbˌɛɹId	guesser	1.48			
+610	botox	brand	Botox	bˈOtˌɑks	bˈQtɒks	gold	3.11			
+611	onabotulinumtoxina	generic	onabotulinumtoxina	ˌɑnəbˌɑʧəlɪnəmtˈɑksɪnə	ˌɒnəbˌɒʧəlɪnəmtˈɒksɪnə	guesser				
+612	qelbree	brand	Qelbree	kˈɛlbɹˌi	kˈɛlbɹˌiː	guesser				
+613	viloxazine	generic	viloxazine	vilOɡzˈAzin	vilQɡzˈAzin	guesser				
+614	prasugrel	generic	prasugrel	pɹˈæʒəɡɹɛl	pɹˈaʒəɡɹɛl	guesser	1.15			
+615	rilpivirine	generic	rilpivirine	ɹɪlpˈɪvəɹˌin	ɹɪlpˈɪvəɹˌiːn	guesser	1.09			
+616	repaglinide	generic	repaglinide	ɹipˈæɡlənˌId	ɹipˈaɡlənˌId	guesser				
+617	nitrate	generic	nitrate	nˈItɹˌAt	nˈItɹAt	gold	3.25	yes		
+618	nitrate	salt	nitrate	nˈItɹˌAt	nˈItɹAt	gold	3.25	yes		
+619	etabonate	generic	etabonate	ɪtˈæbənˌAt	ɪtˈabənˌAt	guesser				
+620	loteprednol	generic	loteprednol	lˈOtpɹˌɛdnˌɔl	lˈQtpɹˌɛdnˌɔːl	guesser				
+621	canagliflozin	generic	canagliflozin	kənˈæɡləflˌOzɪn	kənˈaɡləflˌQzɪn	guesser	1.18			
+622	cyclosilicate	generic	cyclosilicate	sˌIkləsˈɪləkˌAt	sˌIkləsˈɪləkˌAt	guesser				
+623	lokelma	brand	Lokelma	lOkˈɛlmə	lQkˈɛlmə	guesser				
+624	zirconium	generic	zirconium	zəɹkˈOniəm	zəːkˈQnɪəm	gold	2.45	yes		
+625	movantik	brand	Movantik	məvˈæntɪk	məvˈantɪk	guesser				
+626	naloxegol	generic	naloxegol	nəlˈɑksɪɡɑl	nəlˈɒksɪɡɒl	guesser				
+627	terconazole	generic	terconazole	tˈɜɹkənəzˌOl	tˈɜːkənəzˌQl	guesser				
+628	jantoven	brand	Jantoven	ʤˈæntˌOvən	ʤˈantˌQvən	guesser				
+629	focalin	brand	Focalin	fˈOkəlɪn	fˈQkəlɪn	guesser				
+630	sprintec	brand	Sprintec	spɹˈɪntˌɛk	spɹˈɪntˌɛk	guesser				
+631	ssd	brand	Ssd	ˌɛsˌɛsdˈi	ˌɛsˌɛsdˈiː	lexicon	3.21			tech
+632	multivitamin	brand	Multivitamin	mˌʌltivˈITəmᵊn	mˌʌltɪvˈɪtəmɪn	gold	2.46			
+633	phenylephrine	generic	phenylephrine	fˌɛnəlˈɛfɹən	fˌiːnIlˈɛfɹɪn	gold	1.76			
+634	clarithromycin	generic	clarithromycin	klˌɛɹɪθɹˈɑmɪsɪn	klˌɛɹɪθɹˈɒmɪsɪn	guesser	1.93			
+635	procto-med	brand	Procto-Med	pɹˈɑktˌOmd	pɹˈɒktˌQmd	guesser				
+636	rhopressa	brand	Rhopressa	ɹOpɹˈɛsə	ɹQpɹˈɛsə	guesser				
+637	febuxostat	generic	febuxostat	fəbˈʌksOstˌæt	fəbˈʌksQstˌat	guesser				
+638	darunavir	generic	darunavir	dəɹˈʌnəvəɹ	dəɹˈʌnəvə	guesser	1.1			
+639	eplerenone	generic	eplerenone	ˈɛpləɹənˌOn	ˈɛpləɹənˌQn	guesser				
+640	alafen	generic	alafen	ˈæləfən	ˈaləfən	guesser				
+641	pilocarpine	generic	pilocarpine	pˌIlOkˈɑɹpin	pˌIlQkˈɑːpiːn	gold	1.61	yes		
+642	tivicay	brand	Tivicay	tˈɪvikA	tˈɪvikA	guesser				
+643	belsomra	brand	Belsomra	bˈɛlsəmɹə	bˈɛlsəmɹə	guesser				
+644	suvorexant	generic	suvorexant	suvˈɔɹɪɡzənt	suvˈɔːɹɪɡzənt	guesser				
+645	caplyta	brand	Caplyta	kəplˈItə	kəplˈItə	guesser				
+646	lumateperone	generic	lumateperone	lˌumətˈɛpəɹˌOn	lˌuːmətˈɛpəɹˌQn	guesser				
+647	invokana	brand	Invokana	ˌɪnvOkˈænə	ˌɪnvQkˈanə	guesser				
+648	atogepant	generic	atogepant	ətˈɑʤpənt	ətˈɒʤpənt	guesser				
+649	qulipta	brand	Qulipta	kjulˈɪptə	kjulˈɪptə	guesser				
+650	doxercalciferol	generic	doxercalciferol	dˌɑksəɹkˈælsɪfəɹˌɔl	dˌɒksəkˈalsɪfəɹˌɔːl	guesser				
+651	rocklatan	brand	Rocklatan	ɹˈɑklətən	ɹˈɒklətən	guesser				
+652	dofetilide	generic	dofetilide	dəfˈɛtəlˌId	dəfˈɛtəlˌId	guesser				
+653	protamine	generic	protamine	pɹˈOTəmˌin	pɹˈQtəmiːn	gold	1.38	yes		
+654	xulane	brand	Xulane	zulˈAn	zulˈAn	guesser				
+655	constulose	brand	Constulose	kˈɑnsʧəlˌOz	kˈɒnsʧəlˌQz	guesser				
+656	felodipine	generic	felodipine	fəlˈɑdəpˌIn	fəlˈɒdəpˌIn	guesser	1.04			
+657	nadolol	generic	nadolol	nɑdOlˈɔl	nɒdQlˈɔːl	guesser	1.32			
+658	ingrezza	brand	Ingrezza	ˌɪŋɡɹˈɛzə	ˌɪŋɡɹˈɛzə	guesser				
+659	valbenazine	generic	valbenazine	vˈælbənəzˌin	vˈalbənəzˌiːn	guesser				
+660	pyridostigmine	generic	pyridostigmine	pˌɪɹədOstˈɪɡmˌin	pˌɪɹɪdQstˈɪɡmiːn	gold	1.09			
+661	triprolidine	generic	triprolidine	tɹIpɹˈɑlədˌin	tɹIpɹˈɒlədˌiːn	guesser				
+662	ramelteon	generic	ramelteon	ɹəmˈɛlʃən	ɹəmˈɛlʃən	guesser				
+663	pitavastatin	generic	pitavastatin	pətˈævəstˌAtɪn	pətˈavəstˌAtɪn	guesser				
+664	dronedarone	generic	dronedarone	dɹOnˈɛdəɹˌOn	dɹQnˈɛdəɹˌQn	guesser				
+665	multaq	brand	Multaq	mˈʌltˌæk	mˈʌltˌak	guesser				
+666	enulose	brand	Enulose	ˈɛnjəlˌOz	ˈɛnjəlˌQz	guesser				
+667	rabeprazole	generic	rabeprazole	ɹəbˈɛpɹəzˌOl	ɹəbˈɛpɹəzˌQl	guesser	1.29			
+668	etodolac	generic	etodolac	ˌitədˈOlək	ˌiːtədˈQlək	guesser	1.07			
+669	simbrinza	brand	Simbrinza	sɪmbɹˈɪnzə	sɪmbɹˈɪnzə	guesser				
+670	zenpep	brand	Zenpep	zˈɛnpˌɛp	zˈɛnpˌɛp	guesser				
+671	antiseptic	generic	antiseptic	ˌæntəsˈɛptɪk	ˌantɪsˈɛptɪk	gold	2.81	yes		
+672	zinc	generic	zinc	zˈɪŋk	zˈɪŋk	gold	3.65	yes		
+673	trihexyphenidyl	generic	trihexyphenidyl	tɹˌIhˌɛksəfˈɛnɪdəl	tɹˌIhˌɛksəfˈɛnɪdəl	guesser	1.01			
+674	atrovent	brand	Atrovent	ˈAtɹəvənt	ˈAtɹəvənt	guesser	1.24			
+675	silodosin	generic	silodosin	sˌIlədˈOsən	sˌIlədˈQsən	guesser				
+676	sublocade	brand	Sublocade	sˈʌbləkˌAd	sˈʌbləkˌAd	guesser				
+677	imiquimod	generic	imiquimod	ˌɪmˈɪkwəmɑd	ˌɪmˈɪkwəmɒd	guesser	1.41			
+678	bunod	generic	bunod	bˈunəd	bˈuːnəd	guesser				
+679	latanoprostene	generic	latanoprostene	lɑtɑnˈOpɹOstˌin	lɒtɒnˈQpɹQstˌiːn	guesser				
+680	vyzulta	brand	Vyzulta	vɪzˈʌltə	vɪzˈʌltə	guesser				
+681	alphagan	brand	Alphagan	ˈælfəɡən	ˈalfəɡən	guesser				
+682	ertugliflozin	generic	ertugliflozin	əɹʧˈʌɡləflˌOzɪn	əʧˈʌɡləflˌQzɪn	guesser				
+683	austedo	brand	Austedo	ɔstˈAdO	ɔstˈAdQ	guesser				
+684	deutetrabenazine	generic	deutetrabenazine	dutˌɛtɹəbˈɛnəzˌin	dutˌɛtɹəbˈɛnəzˌiːn	guesser				
+685	desonide	generic	desonide	dˈɛsənˌId	dˈɛsənˌId	guesser				
+686	estarylla	brand	Estarylla	ɛstɑɹˈɪlə	ɛstɑɹˈɪlə	guesser				
+687	misoprostol	generic	misoprostol	mɪsOpɹˈɑstəl	mɪsQpɹˈɒstəl	guesser	1.92			
+688	loestrin	brand	Loestrin	lˈOstɹɪn	lˈQstɹɪn	guesser				
+689	twinrix	brand	Twinrix	twˈɪnɹɪks	twˈɪnɹɪks	guesser				
+690	depo-medrol	brand	Depo-Medrol	dˌipOmˈɛdɹəl	dˌiːpQmˈɛdɹəl	guesser				
+691	avastin	brand	Avastin	əvˈæstɪn	əvˈastɪn	guesser	1.63			
+692	briviact	brand	Briviact	bɹˈɪviˌækt	bɹˈɪviˌakt	guesser				
+693	vivitrol	brand	Vivitrol	vˈɪvətɹɑl	vˈɪvətɹɒl	guesser	1.25			
+694	otezla	brand	Otezla	Otˈɛzlə	Qtˈɛzlə	guesser				
+695	steglatro	brand	Steglatro	stɛɡlˈɑtɹO	stɛɡlˈɒtɹQ	guesser				
+696	soliqua	brand	Soliqua	sOlˈikwə	sQlˈiːkwə	guesser				
+697	cartia	brand	Cartia	kˈɑɹʃə	kˈɑːʃə	guesser				
+698	rinvoq	brand	Rinvoq	ɹˈɪnvɑk	ɹˈɪnvɒk	guesser				
+699	belbuca	brand	Belbuca	bɛlbˈukə	bɛlbˈuːkə	guesser				
+700	zepbound	brand	Zepbound	zˈɛpbˌWnd	zˈɛpbˌWnd	lexicon				tech
+701	dovato	brand	Dovato	dOvˈɑtO	dQvˈɒtQ	guesser				
+702	xtandi	brand	Xtandi	ɛkstˈændi	ɛkstˈandi	guesser				
+703	adacel	brand	Adacel	ˈædəsˌɛl	ˈadəsˌɛl	guesser				
+704	solu-medrol	brand	Solu-Medrol	sˈɑljumˌidɹəl	sˈɒljumˌiːdɹəl	guesser				
+705	santyl	brand	Santyl	sˈæntɪl	sˈantɪl	guesser				
+706	alvesco	brand	Alvesco	ɑlvˈɛskO	ɒlvˈɛskQ	guesser				
+707	malate	salt	malate	mˈælˌAt	mˈAlət	gold	2.22	yes		
+708	revlimid	brand	Revlimid	ɹivlˈIməd	ɹivlˈIməd	guesser				
+709	jornay	brand	Jornay	ʤəɹnˈA	ʤənˈA	guesser				
+710	xigduo	brand	Xigduo	zˈɪɡduO	zˈɪɡduQ	guesser				
+711	aflibercept	generic	aflibercept	ˈæfləbəɹsˌɛpt	ˈafləbəsˌɛpt	guesser	1.08			
+712	eylea	brand	Eylea	ˈAliə	ˈAliə	guesser				
+713	omalizumab	generic	omalizumab	Omˌælɪzˈuməb	Qmˌalɪzˈuːməb	guesser	1.18			
+714	xolair	brand	Xolair	zˈOlˌɛɹ	zˈQlˌɛː	guesser				
+715	blisovi	brand	Blisovi	blɪsˈOvi	blɪsˈQvi	guesser				
+716	bcise	brand	Bcise	bˌisˈIs	bˌiːsˈIs	guesser				
+717	bydureon	brand	Bydureon	bIdˈʊɹiən	bIdˈʊɹiən	guesser				
+718	zafemy	brand	Zafemy	zˈAfəmi	zˈAfəmi	guesser				
+719	ajovy	brand	Ajovy	əʤˈOvi	əʤˈQvi	guesser				
+720	pulmicort	brand	Pulmicort	pˈʊlmɪkˌɔɹt	pˈʊlmɪkˌɔːt	guesser	1.09			
+721	nexium	brand	Nexium	nˈɛksiəm	nˈɛksiəm	guesser	2.0			
+722	xcopri	brand	Xcopri	ɛkskˈOpɹi	ɛkskˈQpɹi	guesser				
+723	larin	brand	Larin	lˈæɹɪn	lˈaɹɪn	guesser	1.79	yes		
+724	rytary	brand	Rytary	ɹˈɪtəɹi	ɹˈɪtəɹi	guesser				
+725	flexhaler	device	Flexhaler	flˈɛkshˌAləɹ	flˈɛkshˌAlə	guesser				
+726	yuvafem	brand	Yuvafem	jˈuvəfˌɛm	jˈuːvəfˌɛm	guesser				
+727	gavilax	brand	Gavilax	ɡˈævilˌæks	ɡˈavilˌaks	guesser				
+728	ztlido	brand	Ztlido	ztlˈidO	ztlˈiːdQ	guesser				
+729	trulance	brand	Trulance	tɹˈuləns	tɹˈuːləns	guesser				
+730	quillivant	brand	Quillivant	kwˈɪlɪvənt	kwˈɪlɪvənt	guesser				
+731	tri-sprintec	brand	Tri-Sprintec	tɹˈIspɹˌɪntˌɛk	tɹˈIspɹˌɪntˌɛk	guesser				
+732	quillichew	brand	Quillichew	kwˈɪlɪʧju	kwˈɪlɪʧju	guesser				
+733	genvoya	brand	Genvoya	ʤɛnvˈYə	ʤɛnvˈYə	guesser				
+734	tiadylt	brand	Tiadylt	tˈIədˌɪlt	tˈIədˌɪlt	guesser				
+735	jentadueto	brand	Jentadueto	ʤɛntɑdwˈɛtO	ʤɛntɒdwˈɛtQ	guesser				
+736	narcan	brand	Narcan	nˈɑɹkən	nˈɑːkən	guesser	2.09			
+737	triumeq	brand	Triumeq	tɹˈIumˌɛk	tɹˈIumˌɛk	guesser				
+738	lagevrio	brand	Lagevrio	lɑʤˈɛvɹiO	lɒʤˈɛvɹiQ	guesser				
+739	acid	brand	Acid	ˈæsəd	ˈasɪd	gold	4.45	yes		tech
+740	semglee	brand	Semglee	sˈɛmɡli	sˈɛmɡli	guesser				
+741	spravato	brand	Spravato	spɹɑvˈɑtO	spɹɒvˈɒtQ	guesser				
+742	aristada	brand	Aristada	ɑɹistˈɑdə	ɑɹistˈɒdə	guesser				
+743	lauroxil	salt	lauroxil	lɔɹˈɑksəl	lɔɹˈɒksəl	guesser				
+744	slynd	brand	Slynd	slˈɪnd	slˈɪnd	guesser				
+745	hailey	brand	Hailey	hˈAli	hˈAli	cmudict	3.06		3690	
+746	stelara	brand	Stelara	stɛlˈɑɹə	stɛlˈɑɹə	guesser	1.1			
+747	vemlidy	brand	Vemlidy	vˈɛmlɪdi	vˈɛmlɪdi	guesser				
+748	natroba	brand	Natroba	nɑtɹˈObə	nɒtɹˈQbə	guesser				
+749	abatacept	generic	abatacept	ˌæbətˈɑsəpt	ˌabətˈɒsəpt	guesser	1.02			
+750	orencia	brand	Orencia	ɔɹˈɛnʧə	ɔɹˈɛnʧə	guesser				
+751	westab	brand	Westab	wˈɛstˌæb	wˈɛstˌab	guesser				
+752	epidiolex	brand	Epidiolex	ɪpˈɪdiOlˌɛks	ɪpˈɪdiQlˌɛks	guesser	1.38			
+753	senexon-s	brand	Senexon-S	sˈɛnəksənz	sˈɛnəksənz	guesser				
+754	dotti	brand	Dotti	dˈɑti	dˈɒti	guesser	1.53			
+755	xeljanz	brand	Xeljanz	zˈɛlʤənz	zˈɛlʤənz	guesser				
+756	azstarys	brand	Azstarys	ˈæstəɹiz	ˈastəɹiz	guesser				
+757	nuedexta	brand	Nuedexta	nˌudˈɛkstə	nˌuːdˈɛkstə	guesser				
+758	orgovyx	brand	Orgovyx	ˈɔɹɡOvˌɪks	ˈɔːɡQvˌɪks	guesser				
+759	zubsolv	brand	Zubsolv	zəbsˈɑlv	zəbsˈɒlv	guesser				
+760	levoxyl	brand	Levoxyl	lˈɛvəksɪl	lˈɛvəksɪl	guesser				
+761	lybalvi	brand	Lybalvi	lˈIbɑlvi	lˈIbɒlvi	guesser				
+762	skyrizi	brand	Skyrizi	skˈIɹˌIzi	skˈIɹˌIzi	guesser				
+763	veltassa	brand	Veltassa	vɛltˈæsə	vɛltˈasə	guesser				
+764	sutab	brand	Sutab	sˈutˌæb	sˈuːtˌab	guesser				
+765	baqsimi	brand	Baqsimi	bæksˈimi	baksˈiːmi	guesser				
+766	disoproxil	salt	disoproxil	dˌɪsəpɹˈɑksəl	dˌɪsəpɹˈɒksəl	guesser				
+767	velphoro	brand	Velphoro	vˈɛlfəɹO	vˈɛlfəɹQ	guesser				
+768	histex	brand	Histex	hˈɪstɛks	hˈɪstɛks	guesser				
+769	clenpiq	brand	Clenpiq	klˈɛnpɪk	klˈɛnpɪk	guesser				
+770	vienva	brand	Vienva	vˈinvə	vˈiːnvə	guesser				
+771	valtoco	brand	Valtoco	vɔltˈOkO	vɔltˈQkQ	guesser				
+772	asmanex	brand	Asmanex	ˈæsmənˌɛks	ˈasmənˌɛks	guesser				
+773	ofev	brand	Ofev	Ofˈɛv	Qfˈɛv	guesser				
+774	auvelity	brand	Auvelity	ɑvˈɛləti	ɒvˈɛləti	guesser				
+775	hydrochloride	salt	hydrochloride	hˌIdɹəklˈɔɹˌId	hˌIdɹQklˈɔːɹId	gold	2.62	yes		
+776	mili	brand	Mili	mˈIli	mˈIli	guesser	2.43			
+777	zemplar	brand	Zemplar	zˈɛmpləɹ	zˈɛmplə	guesser				
+778	gvoke	brand	Gvoke	ʤˌivˈOk	ʤˌiːvˈQk	guesser				
+779	mycophenolic	brand	Mycophenolic	mˌIkOfənˈɑlɪk	mˌIkQfənˈɒlɪk	guesser	1.13			
+780	klayesta	brand	Klayesta	klˈAstə	klˈAstə	guesser				
+781	lyrica	brand	Lyrica	lˈɪɹɪkə	lˈɪɹɪkə	guesser	2.06			
+782	nexplanon	brand	Nexplanon	nˈɛksplˌænən	nˈɛksplˌanən	guesser				
+783	m-natal	brand	M-Natal	ˈɛmnˌATᵊl	ˈɛmnˌAtᵊl	gold				
+784	norethindron-ethinyl	brand	Norethindron-Ethinyl	nˌɔɹiθˈɪndɹənˌɛθɪni	nˌɔːɹiθˈɪndɹənˌɛθɪni	guesser				
+785	aurovela	brand	Aurovela	ˌɔɹOvˈɛlə	ˌɔːɹQvˈɛlə	guesser				
+786	symtuza	brand	Symtuza	sɪmtˈuzə	sɪmtˈuːzə	guesser				
+787	imbruvica	brand	Imbruvica	ˌɪmbɹˈuvɪkə	ˌɪmbɹˈuːvɪkə	guesser				
+788	taltz	brand	Taltz	tˈælts	tˈalts	guesser				
+789	odefsey	brand	Odefsey	Odˈɛfsi	Qdˈɛfsi	guesser				
+790	bupivacaine	brand	Bupivacaine	bjˈupɪvəkˌAn	bjˈuːpɪvəkˌAn	guesser	1.61			
+791	retacrit	brand	Retacrit	ɹitˈækɹɪt	ɹitˈakɹɪt	guesser				
+792	miebo	brand	Miebo	mˈibO	mˈiːbQ	guesser				
+793	aptiom	brand	Aptiom	ˈæpʃəm	ˈapʃəm	guesser				
+794	dilantin	brand	Dilantin	dˌIlˈæntɪn	dIlˈantɪn	gold	1.77			
+795	ibrance	brand	Ibrance	ˈIbɹəns	ˈIbɹəns	guesser				
+796	livalo	brand	Livalo	lɪvˈɑlO	lɪvˈɒlQ	guesser				
+797	tri-lo-mili	brand	Tri-Lo-Mili	tɹˈIlˌOmˌili	tɹˈIlˌQmˌiːli	guesser				
+798	glyxambi	brand	Glyxambi	ɡlɪɡzˈæmbi	ɡlɪɡzˈambi	guesser				
+799	nuplazid	brand	Nuplazid	nuplˈAzəd	nuplˈAzəd	guesser				
+800	disodium	salt	disodium	dɪsˈOdiəm	dɪsˈQdiəm	guesser	1.94	yes		
+801	infliximab	generic	infliximab	ɪnflˈɪksɪmˌæb	ɪnflˈɪksɪmˌab	guesser	1.74			
+802	prempro	brand	Prempro	pɹˈɛmpɹO	pɹˈɛmpɹQ	guesser				
+803	procrit	brand	Procrit	pɹOkɹˌɪt	pɹQkɹˌɪt	guesser	1.09			
+804	bevespi	brand	Bevespi	bɛvˈɛspi	bɛvˈɛspi	guesser				
+805	dexilant	brand	Dexilant	dˈɛksələnt	dˈɛksələnt	guesser				
+806	jakafi	brand	Jakafi	ʤəkˈɑfi	ʤəkˈɒfi	guesser				
+807	juluca	brand	Juluca	ʤˈuləkə	ʤˈuːləkə	guesser				
+808	tocilizumab	generic	tocilizumab	tˌɑsəlɪzˈuməb	tˌɒsəlɪzˈuːməb	guesser	1.11			
+809	proair	brand	Proair	pɹˈOˌɛɹ	pɹˈQˌɛː	guesser				
+810	trijardy	brand	Trijardy	tɹˈIʤˌɑɹdi	tɹˈIʤˌɑːdi	guesser				
+811	prezcobix	brand	Prezcobix	pɹɛzkˈObɪks	pɹɛzkˈQbɪks	guesser				
+812	actemra	brand	Actemra	æktˈɛmɹə	aktˈɛmɹə	guesser				
+813	risperdal	brand	Risperdal	ɹɪspˈɜɹdəl	ɹɪspˈɜːdəl	guesser	1.9			
+814	prevident	brand	Prevident	pɹˈɛvədənt	pɹˈɛvədənt	guesser				
+815	fycompa	brand	Fycompa	fIkˈɑmpə	fIkˈɒmpə	guesser				
+816	comirnaty	brand	Comirnaty	kəmˈɜɹnəti	kəmˈɜːnəti	guesser				
+817	motegrity	brand	Motegrity	mOtˈɛɡɹəti	mQtˈɛɡɹəti	guesser				
+818	brukinsa	brand	Brukinsa	bɹukˈɪnsə	bɹukˈɪnsə	guesser				
+819	nayzilam	brand	Nayzilam	nˈAzɪlˌæm	nˈAzɪlˌam	guesser				
+820	namzaric	brand	Namzaric	nˈæmzəɹɪk	nˈamzəɹɪk	guesser				
+821	parsabiv	brand	Parsabiv	pˌɑɹsəbˈiv	pˌɑːsəbˈiːv	guesser				
+822	jublia	brand	Jublia	ʤˈubliə	ʤˈuːbliə	guesser				
+823	calquence	brand	Calquence	kˈælkwəns	kˈalkwəns	guesser				
+824	mirena	brand	Mirena	mɪɹˈAnə	mɪɹˈAnə	guesser	2.0			
+825	prolensa	brand	Prolensa	pɹˌOlˈɛnsə	pɹˌQlˈɛnsə	guesser				
+826	dilaudid	brand	Dilaudid	dIlˈɔdəd	dIlˈɔːdəd	guesser	1.88			
+827	clickject	device	Clickject	klˈɪkʤˌɛkt	klˈɪkʤˌɛkt	guesser				
+828	nuvaring	brand	Nuvaring	nuvˈɛɹɪŋ	nuvˈɛɹɪŋ	guesser	1.51			
+829	vitafol	brand	Vitafol	vˈɪtəfɑl	vˈɪtəfɒl	guesser				
+830	leuprolide	generic	leuprolide	lˈupɹəlˌId	lˈuːpɹəlˌId	guesser				
+831	jencycla	brand	Jencycla	ʤˈɛnsˌIklə	ʤˈɛnsˌIklə	guesser				
+832	sudogest	brand	Sudogest	sˈudəʤəst	sˈuːdəʤəst	guesser				
+833	cequa	brand	Cequa	sˈikwə	sˈiːkwə	guesser				
+834	trihydrate	salt	trihydrate	tɹˈIhˌIdɹˌAt	tɹˈIhˌIdɹˌAt	guesser	1.59	yes		
+835	aranesp	brand	Aranesp	əɹˈAnsp	əɹˈAnsp	guesser				
+836	venclexta	brand	Venclexta	vɛnklˈɛkstə	vɛnklˈɛkstə	guesser				
+837	loryna	brand	Loryna	lˈɔɹɪnə	lˈɔːɹɪnə	guesser				
+838	opsumit	brand	Opsumit	əpsˈumɪt	əpsˈuːmɪt	guesser				
+839	flovent	brand	Flovent	flˈʌvənt	flˈʌvənt	guesser				
+840	sps	brand	Sps	ˌɛspˌiˈɛs	ˌɛspˌiːˈɛs	guesser	2.87			
+841	derma-smoothe-fs	brand	Derma-Smoothe-FS	dˌɜɹməzmˈuðz	dˌɜːməzmˈuːðz	guesser				
+842	savella	brand	Savella	səvˈɛlə	səvˈɛlə	guesser	1.02			
+843	lyumjev	brand	Lyumjev	ljˈumʤˌɛv	ljˈuːmʤˌɛv	guesser				
+844	unithroid	brand	Unithroid	jˈunɪθɹˌYd	jˈuːnɪθɹˌYd	guesser				
+845	opzelura	brand	Opzelura	ˌɑpzəlˈʊɹə	ˌɒpzəlˈʊɹə	guesser				
+846	vyndamax	brand	Vyndamax	vˈɪndəmˌæks	vˈɪndəmˌaks	guesser				
+847	nexletol	brand	Nexletol	nˈɛksəltəl	nˈɛksəltəl	guesser				
+848	mepolizumab	generic	mepolizumab	mˌɛpəlˈɪzumˌæb	mˌɛpəlˈɪzumˌab	guesser				
+849	nucala	brand	Nucala	nukˈɑlə	nukˈɒlə	guesser				
+850	nexlizet	brand	Nexlizet	nˈɛkslˌIzət	nˈɛkslˌIzət	guesser				
+851	edisylate	salt	edisylate	ˈɛdəsəlˌAt	ˈɛdəsəlˌAt	guesser				
+852	lamictal	brand	Lamictal	ləmˈɪktəl	ləmˈɪktəl	guesser	1.77			
+853	tagrisso	brand	Tagrisso	tɑɡɹˈisO	tɒɡɹˈiːsQ	guesser				
+854	tegretol	brand	Tegretol	tˈɛɡɹətɑl	tˈɛɡɹətɒl	guesser	1.62			
+855	tobradex	brand	Tobradex	tˈɑbɹədˌɛks	tˈɒbɹədˌɛks	guesser				
+856	gammagard	brand	Gammagard	ɡˈæməɡˌɑɹd	ɡˈaməɡˌɑːd	guesser				
+857	pomalyst	brand	Pomalyst	pˈOməlɪst	pˈQməlɪst	guesser				
+858	lexiscan	brand	Lexiscan	lˈɛksɪskˌæn	lˈɛksɪskˌan	guesser				
+859	benlysta	brand	Benlysta	bɛnlˈɪstə	bɛnlˈɪstə	guesser				
+860	tyrvaya	brand	Tyrvaya	təɹvˈɑjə	təvˈɒjə	guesser				
+861	gadavist	brand	Gadavist	ɡˈædəvɪst	ɡˈadəvɪst	guesser				
+862	butrans	brand	Butrans	bˈʌtɹənz	bˈʌtɹənz	guesser				
+863	verzenio	brand	Verzenio	vəɹzˈiniO	vəzˈiːniQ	guesser				
+864	erleada	brand	Erleada	əɹlˈidə	əlˈiːdə	guesser				
+865	rynex	brand	Rynex	ɹˈɪnəks	ɹˈɪnəks	guesser				
+866	veozah	brand	Veozah	viˈOzə	viˈQzə	guesser				
+867	eucrisa	brand	Eucrisa	jukɹˈisə	jukɹˈiːsə	guesser				
+868	fiber-lax	brand	Fiber-Lax	fˈIbəɹlˌæks	fˈIbəlˌaks	gold				
+869	lotemax	brand	Lotemax	lˈOtmˌæks	lˈQtmˌaks	guesser				
+870	robafen	brand	Robafen	ɹˈɑbəfən	ɹˈɒbəfən	guesser				
+871	estring	brand	Estring	ˈɛstəɹɪŋ	ˈɛstəɹɪŋ	guesser				
+872	keppra	brand	Keppra	kˈɛpɹə	kˈɛpɹə	guesser	1.5			
+873	depakote	brand	Depakote	dˈɛpəkˌOt	dˈɛpəkˌQt	guesser	1.7			
+874	vimpat	brand	Vimpat	vˈɪmpæt	vˈɪmpat	guesser				
+875	gamunex-c	brand	Gamunex-C	ɡˈæmjunˌɛksk	ɡˈamjunˌɛksk	guesser				
+876	kesimpta	brand	Kesimpta	kɪsˈɪmptə	kɪsˈɪmptə	guesser				
+877	tymlos	brand	Tymlos	tˈɪmlOz	tˈɪmlQz	guesser				
+878	brixadi	brand	Brixadi	bɹɪksˈɑdi	bɹɪksˈɒdi	guesser				
+879	ella	brand	Ella	ˈɛlə	ˈɛlə	cmudict	3.63		1093	
+880	tirosint	brand	Tirosint	tˈIɹəsɪnt	tˈIɹəsɪnt	guesser				
+881	keytruda	brand	Keytruda	kˌitɹˈudə	kˌiːtɹˈuːdə	guesser	1.42			
+882	pembrolizumab	generic	pembrolizumab	pˌɛmbɹəlˈIzˌumæb	pˌɛmbɹəlˈIzˌuːmab	guesser	1.59			
+883	m-dryl	brand	M-Dryl	ˈɛmdɹˌɪl	ˈɛmdɹˌɪl	guesser				
+884	lupron	brand	Lupron	lˈupɹən	lˈuːpɹən	guesser	1.55			
+885	apri	brand	Apri	ˈApɹˌI	ˈApɹˌI	guesser	1.68			
+886	trikafta	brand	Trikafta	tɹɪkˈæftə	tɹɪkˈaftə	guesser				
+887	isentress	brand	Isentress	ˈIzəntɹɪs	ˈIzəntɹɪs	guesser				
+888	edarbi	brand	Edarbi	ɛdˈɑɹbi	ɛdˈɑːbi	guesser				
+889	relistor	brand	Relistor	ɹilˈɪstəɹ	ɹilˈɪstə	guesser				
+890	benralizumab	generic	benralizumab	bˌɛnɹəlɪzˈuməb	bˌɛnɹəlɪzˈuːməb	guesser				
+891	fasenra	brand	Fasenra	fəsˈɛnɹə	fəsˈɛnɹə	guesser				
+892	nubeqa	brand	Nubeqa	nubˈAkə	nubˈAkə	guesser				
+893	auryxia	brand	Auryxia	ɔɹˈɪksiə	ɔɹˈɪksiə	guesser				
+894	dimaphen	brand	Dimaphen	dImˈæfən	dImˈafən	guesser				
+895	aviane	brand	Aviane	ˌAviˈæn	ˌAviˈan	guesser				
+896	cryselle	brand	Cryselle	kɹɪsˈɛl	kɹɪsˈɛl	guesser				
+897	neupro	brand	Neupro	nˈupɹO	nˈuːpɹQ	guesser				
+898	nikki	brand	Nikki	nˈɪki	nˈɪki	cmudict	3.67		2462	
+899	paclitaxel	generic	paclitaxel	pˈæklətˌæksəl	pˈaklətˌaksəl	guesser	2.16			
+900	econtra	brand	Econtra	ikˈɑntɹə	ikˈɒntɹə	guesser				
+901	corlanor	brand	Corlanor	kˈɔɹlənəɹ	kˈɔːlənə	guesser				
+902	euthyrox	brand	Euthyrox	jˈuθəɹˌɑks	jˈuːθəɹˌɒks	guesser				
+903	envarsus	brand	Envarsus	ɛnvˈɑɹsəs	ɛnvˈɑːsəs	guesser				
+904	cabenuva	brand	Cabenuva	kˌɑbɛnˈuvə	kˌɒbɛnˈuːvə	guesser				
+905	tri-lo-marzia	brand	Tri-Lo-Marzia	tɹˈIlˌOmˌɑɹziə	tɹˈIlˌQmˌɑːziə	guesser				
+906	xylocaine-mpf	brand	Xylocaine-MPF	zˈIlOkˌAnmpf	zˈIlQkˌAnmpf	guesser				
+907	microgestin	brand	Microgestin	mˈIkɹOʤˌɛstən	mˈIkɹQʤˌɛstən	guesser				
+908	ferosul	brand	Ferosul	fˈɛɹəsəl	fˈɛɹəsəl	guesser				
+909	nephplex	brand	Nephplex	nˈɛfplˌɛks	nˈɛfplˌɛks	guesser				
+910	nortrel	brand	Nortrel	nˈɔɹtɹəl	nˈɔːtɹəl	guesser				
+911	hectorol	brand	Hectorol	hˈɛktəɹəl	hˈɛktəɹəl	guesser				
+912	airsupra	brand	Airsupra	ˈɛɹsˌʌpɹə	ˈɛːsˌʌpɹə	guesser				
+913	proctozone-hc	brand	Proctozone-HC	pɹˌɑktəzˈOnihk	pɹˌɒktəzˈQnihk	guesser				
+914	genteal	brand	Genteal	ʤɛntˈil	ʤɛntˈiːl	guesser				
+915	dok	brand	Dok	dˈɑk	dˈɒk	guesser	2.33			
+916	cosentyx	brand	Cosentyx	kˈOsəntˌɪks	kˈQsəntˌɪks	guesser				
+917	besilate	salt	besilate	bˈɛzəlˌAt	bˈɛzəlˌAt	guesser				
+918	norditropin	brand	Norditropin	nˌɔɹdˈɪtɹəpɪn	nˌɔːdˈɪtɹəpɪn	guesser				
+919	dayvigo	brand	Dayvigo	dˈAvɪɡˌO	dˈAvɪɡˌQ	guesser				
+920	hizentra	brand	Hizentra	hɪzˈɛntɹə	hɪzˈɛntɹə	guesser				
+921	eluryng	brand	Eluryng	ɪlˈʊɹɪŋ	ɪlˈʊɹɪŋ	guesser				
+922	certolizumab	generic	certolizumab	sˈɜɹtəlˌIzumˌæb	sˈɜːtəlˌIzumˌab	guesser				
+923	cimzia	brand	Cimzia	sˈɪmziə	sˈɪmziə	guesser	1.27			
+924	bicillin	brand	Bicillin	bIsˈɪlɪn	bIsˈɪlɪn	guesser				
+925	forteo	brand	Forteo	fˈɔɹtiO	fˈɔːtiQ	guesser				
+926	enanthate	salt	enanthate	ɪnˈænθˌAt	ɪnˈanθˌAt	guesser	1.55			
+927	benzathine	salt	benzathine	bˈɛnzəθˌin	bˈɛnzəθˌiːn	guesser				
+928	faricimab	generic	faricimab	fəɹˈɪsəmˌæb	fəɹˈɪsəmˌab	guesser				
+929	vabysmo	brand	Vabysmo	vəbˈɪsmO	vəbˈɪsmQ	guesser				
+930	heather	brand	Heather	hˈɛðəɹ	hˈɛðə	gold	3.87	yes	1756	
+931	tremfya	brand	Tremfya	tɹˈɛmfjə	tɹˈɛmfjə	guesser				
+932	daily	brand	Daily	dˈAli	dˈAli	gold	5.07	yes		
+933	tezepelumab	generic	tezepelumab	tˌɛzəpˈɛljumˌæb	tˌɛzəpˈɛljumˌab	guesser				
+934	tezspire	brand	Tezspire	tˈɛspˌIɹ	tˈɛspˌIə	guesser				
+935	meglumine	salt	meglumine	mˈɛɡlumˌIn	mˈɛɡlumˌIn	guesser				
+936	pataday	brand	Pataday	pˈætədˌA	pˈatədˌA	guesser				
+937	quviviq	brand	Quviviq	kwvˈɪvɪk	kwvˈɪvɪk	guesser				
+938	proteinase	generic	proteinase	pɹˈOtˌinˌAz	pɹˈQtiːnAz	gold	1.97	yes		
+939	isibloom	brand	Isibloom	ˈɪzəblˌum	ˈɪzəblˌuːm	guesser				
+940	kisqali	brand	Kisqali	kɪskˈɑli	kɪskˈɒli	guesser				
+941	fanapt	brand	Fanapt	fˈænəpt	fˈanəpt	guesser				
+942	dyanavel	brand	Dyanavel	dIˈænəvəl	dIˈanəvəl	guesser				
+943	plenvu	brand	Plenvu	plˈɛnvu	plˈɛnvu	guesser				
+944	depo-provera	brand	Depo-Provera	dˈipOpɹˌOvˌɛɹə	dˈiːpQpɹˌQvˌɛɹə	guesser				
+945	errin	brand	Errin	ˈɛɹɪn	ˈɛɹɪn	guesser	1.12			
+946	xdemvy	brand	Xdemvy	ˈɛksdˌɛmvi	ˈɛksdˌɛmvi	guesser				
+947	edarbyclor	brand	Edarbyclor	ˈɛdəɹbikləɹ	ˈɛdəbiklə	guesser				
+948	vanacof	brand	Vanacof	vˈænəkˌɔf	vˈanəkˌɔːf	guesser				
+949	ethylsuccinate	salt	ethylsuccinate	ˌiθɪlsˈuʧənˌAt	ˌiːθɪlsˈuːʧənˌAt	guesser				
+950	oxtellar	brand	Oxtellar	ˌɑkstˈɛləɹ	ˌɒkstˈɛlə	guesser				
+951	remicade	brand	Remicade	ɹˌɛməkˈAd	ɹˌɛməkˈAd	guesser	1.53			
+952	mapap	brand	Mapap	mˈApˌæp	mˈApˌap	guesser				
+953	privigen	brand	Privigen	pɹˈɪvɪɡən	pɹˈɪvɪɡən	guesser				
+954	tri-estarylla	brand	Tri-Estarylla	tɹˈIstˌɛɹˌɪlə	tɹˈIstˌɛɹˌɪlə	guesser				
+955	smoflipid	brand	Smoflipid	smˈɑfləpɪd	smˈɒfləpɪd	guesser				
+956	promacta	brand	Promacta	pɹOmˈæktə	pɹQmˈaktə	guesser				
+957	golimumab	generic	golimumab	ɡˌɑləmjˈuməb	ɡˌɒləmjˈuːməb	guesser				
+958	simponi	brand	Simponi	simpˈOni	simpˈQni	guesser				
+959	fetzima	brand	Fetzima	fˈɛtzɪmə	fˈɛtzɪmə	guesser				
+960	zoryve	brand	Zoryve	zˈɔɹiv	zˈɔːɹiv	guesser				
+961	trileptal	brand	Trileptal	tɹIlˈɛptəl	tɹIlˈɛptəl	guesser	1.09			
+962	mintox	brand	Mintox	mˈɪntˌɑks	mˈɪntˌɒks	guesser				
+963	protonix	brand	Protonix	pɹOtˈɑnɪks	pɹQtˈɒnɪks	guesser	1.22			
+964	mavyret	brand	Mavyret	mˈævIɹɪt	mˈavIɹɪt	guesser				
+965	adempas	brand	Adempas	ədˈɛmpəz	ədˈɛmpəz	guesser				
+966	xultophy	brand	Xultophy	zˈʌltəfi	zˈʌltəfi	guesser				
+967	trastuzumab	generic	trastuzumab	tɹˌæstˈuzumæb	tɹˌastˈuːzumab	guesser	1.93			
+968	endocet	brand	Endocet	ˌɛndOsˈɛt	ˌɛndQsˈɛt	guesser				
+969	sulfonate	salt	sulfonate	sˈʌlfənˌAt	sˈʌlfənˌAt	gold	2.01	yes		
+970	diclegis	brand	Diclegis	dˈIkləʤəs	dˈIkləʤəs	guesser				
+971	havrix	brand	Havrix	hˈævɹɪks	hˈavɹɪks	guesser				
+972	kurvelo	brand	Kurvelo	kəɹvˈɛlO	kəvˈɛlQ	guesser				
+973	verquvo	brand	Verquvo	vəɹkwvO	vəkwvQ	guesser				
+974	renvela	brand	Renvela	ɹɛnvˈɛlə	ɹɛnvˈɛlə	guesser				
+975	kapspargo	brand	Kapspargo	kˌæpspˈɑɹɡO	kˌapspˈɑːɡQ	guesser				
+976	claravis	brand	Claravis	klˈɛɹəvɪs	klˈɛɹəvɪs	guesser				
+977	mono-linyah	brand	Mono-Linyah	mˌɑnOlˈɪnjə	mˌɒnQlˈɪnjə	guesser				
+978	enema	brand	Enema	ˈɛnəmə	ˈɛnɪmə	gold	2.85	yes		
+979	elmiron	brand	Elmiron	ˈɛlməɹˌɑn	ˈɛlməɹˌɒn	guesser				
+980	sprycel	brand	Sprycel	spɹˈɪsəl	spɹˈɪsəl	guesser				
+981	genotropin	brand	Genotropin	ʤənˈɑtɹəpɪn	ʤənˈɒtɹəpɪn	guesser				
+982	xopenex	brand	Xopenex	zˈOpənəks	zˈQpənəks	guesser				
+983	crestor	brand	Crestor	kɹˈɛstəɹ	kɹˈɛstə	guesser	1.79			
+984	cabometyx	brand	Cabometyx	kˌæbəmˈɛtɪks	kˌabəmˈɛtɪks	guesser				
+985	clariscan	brand	Clariscan	klˈɛɹɪskˌæn	klˈɛɹɪskˌan	guesser				
+986	xyosted	brand	Xyosted	zˈIɑstɪd	zˈIɒstɪd	guesser				
+987	voquezna	brand	Voquezna	vOkwˈɛznə	vQkwˈɛznə	guesser				
+988	viibryd	brand	Viibryd	vˈIbɹɪd	vˈIbɹɪd	guesser				
+989	entyvio	brand	Entyvio	ɛntˈɪviO	ɛntˈɪviQ	guesser	1.16			
+990	vedolizumab	generic	vedolizumab	vˌɛdOlizˈuməb	vˌɛdQlizˈuːməb	guesser	1.01			
+991	pifeltro	brand	Pifeltro	pɪfˈɛltɹO	pɪfˈɛltɹQ	guesser				
+992	promethegan	brand	Promethegan	pɹəmˈɛθəɡən	pɹəmˈɛθəɡən	guesser				
+993	se-natal	brand	Se-Natal	sˈinˌAtəl	sˈiːnˌAtəl	guesser				
+994	solu-cortef	brand	Solu-Cortef	sˈOlukˌɔɹtˌɛf	sˈQlukˌɔːtˌɛf	guesser				
+995	uptravi	brand	Uptravi	ˈʌptɹˌɑvi	ˈʌptɹˌɒvi	guesser				
+996	bystolic	brand	Bystolic	bɪstˈɑlɪk	bɪstˈɒlɪk	guesser	1.01			
+997	infuvite	brand	Infuvite	ˈɪnfjuvˌIt	ˈɪnfjuvˌIt	guesser				
+998	lutera	brand	Lutera	lutˈɛɹə	lutˈɛɹə	guesser				
+999	butalb-acetaminoph-caff-codein	brand	Butalb-Acetaminoph-Caff-Codein	bjutˈælbəstˌAmənˌɔfɪk	bjutˈalbəstˌAmənˌɔːfɪk	guesser				
+1000	sronyx	brand	Sronyx	ʃɹˈɑnɪks	ʃɹˈɒnɪks	guesser				
+1001	xylocaine	brand	Xylocaine	zˈIləkˌAn	zˈIləkˌAn	guesser	1.4			
+1002	low-ogestrel	brand	Low-Ogestrel	lˌOˈɑʤɪstɹəl	lˌQˈɒʤɪstɹəl	guesser				
+1003	ibsrela	brand	Ibsrela	ˌɪbzɹˈɛlə	ˌɪbzɹˈɛlə	guesser				
+1004	uzedy	brand	Uzedy	ˈuzədi	ˈuːzədi	guesser				
+1005	bridion	brand	Bridion	bɹˈɪdiən	bɹˈɪdiən	guesser				
+1006	lynparza	brand	Lynparza	lˌɪnpˈɑɹzə	lˌɪnpˈɑːzə	guesser				
+1007	kristalose	brand	Kristalose	kɹˈɪstəlˌOs	kɹˈɪstəlˌQs	guesser				
+1008	suprep	brand	Suprep	sˈupɹˌɛp	sˈuːpɹˌɛp	guesser				
+1009	tri-lo-estarylla	brand	Tri-Lo-Estarylla	tɹIlˌOɪstəɹˈɪlə	tɹIlˌQɪstəɹˈɪlə	guesser				
+1010	copaxone	brand	Copaxone	kˈOpˌæksən	kˈQpˌaksən	guesser	1.42			
+1011	bitartrate	salt	bitartrate	bItˈɑɹtɹˌAt	bˈɪtətɹˌAt	gold	1.47	yes		
+1012	matzim	brand	Matzim	mɑtsˈim	mɒtsˈiːm	guesser				
+1013	prevalite	brand	Prevalite	pɹˈɛvəlˌIt	pɹˈɛvəlˌIt	guesser				
+1014	incassia	brand	Incassia	ˌɪnkˈæʃiə	ˌɪnkˈaʃiə	guesser				
+1015	latuda	brand	Latuda	lɑtˈudə	lɒtˈuːdə	guesser				
+1016	twirla	brand	Twirla	twˈɜɹlə	twˈɜːlə	guesser				
+1017	rituximab	generic	rituximab	ɹɪtˈʌksɪməb	ɹɪtˈʌksɪməb	guesser	2.0			
+1018	zenatane	brand	Zenatane	zˌɛnətˈɑnA	zˌɛnətˈɒnA	guesser				
+1019	pulmozyme	brand	Pulmozyme	pˈʊlmOzˌIm	pˈʊlmQzˌIm	cmudict				
+1020	rasuvo	brand	Rasuvo	ɹɑsˈuvO	ɹɒsˈuːvQ	guesser				
+1021	xgeva	brand	Xgeva	ɛksɡˈAvə	ɛksɡˈAvə	guesser				
+1022	climara	brand	Climara	klɪmˈɑɹə	klɪmˈɑɹə	guesser				
+1023	mitigare	brand	Mitigare	mˈɪtiɡˌɑɹi	mˈɪtiɡˌɑɹi	guesser				
+1024	cal-gest	brand	Cal-Gest	kˈælʤˌɛst	kˈalʤˌɛst	guesser				
+1025	celestone	brand	Celestone	ʧɛlɛstˈOni	ʧɛlɛstˈQni	guesser				
+1026	injectafer	brand	Injectafer	ˌɪnʤˈɛktəfəɹ	ˌɪnʤˈɛktəfə	guesser				
+1027	tenivac	brand	Tenivac	tˈɛnɪvæk	tˈɛnɪvak	guesser				
+1028	octagam	brand	Octagam	ɑktˈæɡəm	ɒktˈaɡəm	guesser				
+1029	xr-odt	brand	XR-ODT	ˌɛksˈɑɹˌOdˌitˈi	ˌɛksˈɑːˌQdˌiːtˈiː	lexicon+letters				
+1030	viberzi	brand	Viberzi	vibˈɛɹzi	vibˈɛːzi	guesser				
+1031	kevzara	brand	Kevzara	kˌɛvzˈɑɹə	kˌɛvzˈɑɹə	guesser				
+1032	elinest	brand	Elinest	ˈɛlInəst	ˈɛlInəst	guesser				
+1033	diacetate	salt	diacetate	dIˈæsətˌAt	dIˈasətˌAt	guesser	1.62	yes		
+1034	paragard	brand	Paragard	pˈɛɹəɡˌɑɹd	pˈɛɹəɡˌɑːd	guesser	1.04			
+1035	lenvima	brand	Lenvima	lɛnvˈimə	lɛnvˈiːmə	guesser				
+1036	hyaluronidase	generic	hyaluronidase	hIˈæljəɹˌɑnədˌAs	hIˈaljəɹˌɒnədˌAs	guesser	1.82	yes		
+1037	syeda	brand	Syeda	sIˈidə	sIˈiːdə	guesser	1.42		15266	
+1038	xphozah	brand	Xphozah	ɛksfˈOzə	ɛksfˈQzə	guesser				
+1039	octreotide	generic	octreotide	ɑktɹˈiətˌId	ɒktɹˈiːətˌId	guesser	1.49			
+1040	suflave	brand	Suflave	səflˈAv	səflˈAv	guesser				
+1041	celebrex	brand	Celebrex	sˈɛləbɹˌɛks	sˈɛləbɹˌɛks	guesser	1.71			
+1042	diovan	brand	Diovan	dˈiOvən	dˈiːQvən	guesser	1.66			
+1043	zarxio	brand	Zarxio	zˈɑɹksiO	zˈɑːksiQ	guesser				
+1044	xhance	brand	Xhance	zˈæns	zˈans	guesser				
+1045	dentagel	brand	Dentagel	dˈɛntəʤəl	dˈɛntəʤəl	guesser				
+1046	amitiza	brand	Amitiza	ˌæmɪtˈizə	ˌamɪtˈiːzə	guesser				
+1047	dificid	brand	Dificid	dˈɪfəsəd	dˈɪfəsəd	guesser				
+1048	amjevita	brand	Amjevita	ˌæmʤəvˈItə	ˌamʤəvˈItə	guesser				
+1049	vestura	brand	Vestura	vɛstˈʊɹə	vɛstˈʊɹə	guesser				
+1050	konvomep	brand	Konvomep	kˈɑnvOmˌɛp	kˈɒnvQmˌɛp	guesser				
+1051	horizant	brand	Horizant	hˈɔɹəzənt	hˈɔːɹəzənt	guesser				
+1052	camzyos	brand	Camzyos	kˈæmziOz	kˈamziQz	guesser				
+1053	ilevro	brand	Ilevro	ˌɪlˈɛvɹO	ˌɪlˈɛvɹQ	guesser				
+1054	lo-zumandimine	brand	Lo-Zumandimine	lˌOzumˈændəmˌin	lˌQzumˈandəmˌiːn	guesser				
+1055	toprol	brand	Toprol	təpɹˈOl	təpɹˈQl	guesser	1.04			
+1056	lyllana	brand	Lyllana	lˌɪlˈænə	lˌɪlˈanə	guesser				
+1057	pentasa	brand	Pentasa	pɛntˈɑsə	pɛntˈɒsə	guesser				
+1058	azopt	brand	Azopt	əzˈɑpt	əzˈɒpt	guesser				
+1059	ranibizumab	generic	ranibizumab	ɹˌænɪbˈɪzumæb	ɹˌanɪbˈɪzumab	guesser	1.18			
+1060	clinolipid	brand	Clinolipid	klInˈɑləpəd	klInˈɒləpəd	guesser				
+1061	imvexxy	brand	Imvexxy	ɪmvˈɛksi	ɪmvˈɛksi	guesser				
+1062	vtama	brand	Vtama	vˈitˌɑmə	vˈiːtˌɒmə	guesser				
+1063	endacof-dm	brand	Endacof-DM	ˈɛndəkˌɔfdˌiˈɛm	ˈɛndəkˌɔːfdˌiːˈɛm	guesser+lexicon				
+1064	avonex	brand	Avonex	ˈævənɛks	ˈavənɛks	guesser	1.32			
+1065	perseris	brand	Perseris	pəɹsˈɛɹɪs	pəsˈɛɹɪs	guesser				
+1066	tyvaso	brand	Tyvaso	tˈIvəsO	tˈIvəsQ	guesser				
+1067	altavera	brand	Altavera	ˌɑltɑvˈɛɹə	ˌɒltɒvˈɛɹə	guesser				
+1068	capmist	brand	Capmist	kˈæpməst	kˈapməst	guesser				
+1069	ec-naproxen	brand	Ec-Naproxen	ˈɛknəpɹˌɑksən	ˈɛknəpɹˌɒksən	guesser				
+1070	infed	brand	Infed	ɪnfˌɛd	ɪnfˌɛd	guesser				
+1071	apidra	brand	Apidra	əpˈɪdɹə	əpˈɪdɹə	guesser				
+1072	lessina	brand	Lessina	lɛsˈinə	lɛsˈiːnə	guesser				
+1073	epclusa	brand	Epclusa	ɪpklˈusə	ɪpklˈuːsə	guesser				
+1074	nivolumab	generic	nivolumab	nˈIvOlˌumæb	nˈIvQlˌuːmab	guesser	1.71			
+1075	haloette	brand	Haloette	hˈælOɛt	hˈalQɛt	guesser				
+1076	daratumumab	generic	daratumumab	dˈɛɹətˌuməb	dˈɛɹətˌuːməb	guesser				
+1077	darzalex	brand	Darzalex	dˈɑɹzəlˌɛks	dˈɑːzəlˌɛks	guesser				
+1078	rayaldee	brand	Rayaldee	ɹˌAˈɑldi	ɹˌAˈɒldi	guesser				
+1079	topamax	brand	Topamax	təpˈæmæks	təpˈamaks	guesser	1.58			
+1080	sunosi	brand	Sunosi	sənˈOsi	sənˈQsi	guesser				
+1081	eysuvis	brand	Eysuvis	ˌAsˈuvɪs	ˌAsˈuːvɪs	guesser				
+1082	winlevi	brand	Winlevi	wɪnlˈɛvi	wɪnlˈɛvi	guesser				
+1083	maximum	brand	Maximum	mˈæksəməm	mˈaksɪməm	gold	4.6	yes		
+1084	glatopa	brand	Glatopa	ɡlɑtˈOpə	ɡlɒtˈQpə	guesser				
+1085	wellbutrin	brand	Wellbutrin	wˈɛlbjutɹɪn	wˈɛlbjutɹɪn	guesser	2.22			
+1086	lialda	brand	Lialda	liˈɑldə	liˈɒldə	guesser				
+1087	travatan	brand	Travatan	tɹˈævətən	tɹˈavətən	guesser				
+1088	tri-linyah	brand	Tri-Linyah	tɹˈIlˌɪnjə	tɹˈIlˌɪnjə	guesser				
+1089	activase	brand	Activase	ˈæktɪvˌAz	ˈaktɪvˌAz	cmudict				
+1090	nextstellis	brand	Nextstellis	nˌɛkstˈɛlɪs	nˌɛkstˈɛlɪs	guesser				
+1091	definity	brand	Definity	dɪfˈɪnəti	dɪfˈɪnəti	guesser	1.02			
+1092	ultra-filtered	brand	Ultra-Filtered	ˌʌltɹəfˈɪltəɹd	ˌʌltɹəfˈɪltəd	gold				
+1093	opdivo	brand	Opdivo	ˈɑpdɪvˌO	ˈɒpdɪvˌQ	guesser	1.3			
+1094	hemifumarate	salt	hemifumarate	hˌɛməfjˈuməɹˌAt	hˌɛməfjˈuːməɹˌAt	guesser				
+1095	penfill	device	Penfill	pˈɛnfˌɪl	pˈɛnfˌɪl	guesser				
+1096	emicizumab	generic	emicizumab	ˌɛməsˈɪzumˌæb	ˌɛməsˈɪzumˌab	guesser				
+1097	hemlibra	brand	Hemlibra	hˈɛmlɪbɹə	hˈɛmlɪbɹə	guesser				
+1098	pertuzumab	generic	pertuzumab	pəɹtˈuzumˌæb	pətˈuːzumˌab	guesser				
+1099	nplate	brand	NPlate	ˈɛnplˌAt	ˈɛnplˌAt	gold				
+1100	romiplostim	generic	romiplostim	ɹˌɑmɪplˈɑstəm	ɹˌɒmɪplˈɒstəm	guesser				
+1101	eligard	brand	Eligard	ˈɛlɪɡəɹd	ˈɛlɪɡəd	guesser				
+1102	gammaked	brand	Gammaked	ɡˈæmˌAkt	ɡˈamˌAkt	guesser				
+1103	erbumine	salt	erbumine	əɹbjˈumən	əbjˈuːmən	guesser				
+1104	bound	generic	bound	bˈWnd	bˈWnd	gold	4.46	yes		
+1105	perjeta	brand	Perjeta	pˈɜɹʤˌɛtə	pˈɜːʤˌɛtə	guesser				
+1106	prevacid	brand	Prevacid	pɹˈɛvəsɪd	pɹˈɛvəsɪd	guesser	1.41			
+1107	ocrelizumab	generic	ocrelizumab	Okɹˌilˈɪzumæb	Qkɹˌiːlˈɪzumab	guesser				
+1108	ocrevus	brand	Ocrevus	Okɹˈivəs	Qkɹˈiːvəs	guesser				
+1109	durvalumab	generic	durvalumab	dˈɜɹvəlˌumˌæb	dˈɜːvəlˌuːmˌab	guesser				
+1110	imfinzi	brand	Imfinzi	ˌɪmfˈɪnzi	ˌɪmfˈɪnzi	guesser				
+1111	deruxtecan	generic	deruxtecan	dəɹˈʌkstəkən	dəɹˈʌkstəkən	guesser				
+1112	enhertu	brand	Enhertu	ɪnhˈɜɹʧu	ɪnhˈɜːʧu	guesser				
+1113	abraxane	brand	Abraxane	ˌæbɹəksˈAn	ˌabɹəksˈAn	guesser				
+1114	cimerli	brand	Cimerli	sɪmˈɜɹlˌi	sɪmˈɜːlˌiː	guesser				
+1115	sandostatin	brand	Sandostatin	sˈændəstˌAtɪn	sˈandəstˌAtɪn	guesser				
+1116	atezolizumab	generic	atezolizumab	ətˌɛzəlˈIzumˌæb	ətˌɛzəlˈIzumˌab	guesser				
+1117	tecentriq	brand	Tecentriq	tˈisəntɹˌɪk	tˈiːsəntɹˌɪk	guesser				
+1118	carfilzomib	generic	carfilzomib	kɑɹfˈɪlzəmɪb	kɑːfˈɪlzəmɪb	guesser				
+1119	kyprolis	brand	Kyprolis	kɪpɹˈOlɪs	kɪpɹˈQlɪs	guesser				
+1120	lanreotide	generic	lanreotide	lˈænɹiətˌId	lˈanɹiətˌId	guesser				
+1121	rituxan	brand	Rituxan	ɹɪtˈʌksən	ɹɪtˈʌksən	guesser	1.14			
+1122	vedotin	generic	vedotin	vAdˈOtɪn	vAdˈQtɪn	guesser				
+1123	undecanoate	salt	undecanoate	ˌʌndɪkˈænOˌAt	ˌʌndɪkˈanQˌAt	guesser				
+1124	zaditor	brand	Zaditor	zˈædətəɹ	zˈadətə	guesser				
+1125	colace	brand	Colace	kOlˈɑʧi	kQlˈɒʧi	guesser	1.38			
+1126	pressair	device	Pressair	pɹˈɛsˌɛɹ	pɹˈɛsˌɛː	guesser				
+1127	efgartigimod	generic	efgartigimod	ɛfɡˈɑɹtəʤəməd	ɛfɡˈɑːtəʤəməd	guesser				
+1128	vyvgart	brand	Vyvgart	vˈɪvɡˌɑɹt	vˈɪvɡˌɑːt	guesser				
+1129	digihaler	device	Digihaler	dˈɪʤɪhˌAləɹ	dˈɪʤɪhˌAlə	guesser				
+1130	diskus	device	Diskus	dˈɪskəs	dˈɪskəs	guesser	1.09			
+1131	govitecan	generic	govitecan	ɡOvˈItkˌæn	ɡQvˈItkˌan	guesser				
+1132	sacituzumab	generic	sacituzumab	sˈæsɪtˌuzumˌæb	sˈasɪtˌuːzumˌab	guesser				
+1133	trodelvy	brand	Trodelvy	tɹˈɑdəlvi	tɹˈɒdəlvi	guesser				
+1134	prilosec	brand	Prilosec	pɹəlˈOsɛk	pɹəlˈQsɛk	guesser	1.76			
+1135	pegcetacoplan	generic	pegcetacoplan	pˌɛɡsətˈækəplən	pˌɛɡsətˈakəplən	guesser				
+1136	eculizumab	generic	eculizumab	ɪkjˌulɪzˈuməb	ɪkjˌuːlɪzˈuːməb	guesser				
+1137	soliris	brand	Soliris	sOlˈɪɹɪs	sQlˈɪɹɪs	guesser				
+1138	krystexxa	brand	Krystexxa	kɹɪstˈɛksə	kɹɪstˈɛksə	guesser				
+1139	pegloticase	generic	pegloticase	pɛɡlˈɑtɪkˌAs	pɛɡlˈɒtɪkˌAs	guesser				
+1140	tepezza	brand	Tepezza	tApˈAtsə	tApˈAtsə	guesser				
+1141	teprotumumab	generic	teprotumumab	tˌɛpɹOtˈuməb	tˌɛpɹQtˈuːməb	guesser				
+1142	syfovre	brand	Syfovre	sˈɪfəvɹə	sˈɪfəvɹə	guesser				
+1143	luspatercept	generic	luspatercept	ləspˈætəɹsˌɛpt	ləspˈatəsˌɛpt	guesser				
+1144	reblozyl	brand	Reblozyl	ɹiblˈOzəl	ɹiblˈQzəl	guesser				
+1145	inclisiran	generic	inclisiran	ɪnklˈɪzɪɹən	ɪnklˈɪzɪɹən	guesser				
+1146	leqvio	brand	Leqvio	lˈɛkviO	lˈɛkviQ	guesser				
+1147	ravulizumab	generic	ravulizumab	ɹˌævjəlɪzˈuməb	ɹˌavjəlɪzˈuːməb	guesser				
+1148	ultomiris	brand	Ultomiris	ˌʌltəmˈIɹəs	ˌʌltəmˈIɹəs	guesser				
+1149	enfortumab	generic	enfortumab	ɛnfˈɔɹʧuməb	ɛnfˈɔːʧuməb	guesser				
+1150	padcev	brand	Padcev	pˈædsɛv	pˈadsɛv	guesser				
+1151	ipilimumab	generic	ipilimumab	ˌɪpˈɪləmjˌuməb	ˌɪpˈɪləmjˌuːməb	guesser	1.67			
+1152	yervoy	brand	Yervoy	jˈɜɹvˌY	jˈɜːvˌY	guesser				
+1153	cemiplimab	generic	cemiplimab	sˌɛmiplˈImˌæb	sˌɛmiplˈImˌab	guesser				
+1154	libtayo	brand	Libtayo	libtˈɑjO	libtˈɒjQ	guesser				
+1155	senokot	brand	Senokot	sˈɛnəkˌɑt	sˈɛnəkˌɒt	guesser				
+1156	ilumya	brand	Ilumya	ˌɪlˈumjə	ˌɪlˈuːmjə	guesser				
+1157	tildrakizumab	generic	tildrakizumab	tˈɪldɹəkˌIzˌumæb	tˈɪldɹəkˌIzˌuːmab	guesser				
+1158	podhaler	device	Podhaler	pˈɑdhələɹ	pˈɒdhələ	guesser				
+1159	mucinex	brand	Mucinex	mjˈusənɛks	mjˈuːsənɛks	guesser	1.64			
+1160	polatuzumab	generic	polatuzumab	pˌɑlətˈuzumˌæb	pˌɒlətˈuːzumˌab	guesser				
+1161	polivy	brand	Polivy	pˈɑlɪvi	pˈɒlɪvi	guesser				
+1162	amvuttra	brand	Amvuttra	æmvˈʌtɹə	amvˈʌtɹə	guesser				
+1163	vutrisiran	generic	vutrisiran	vutɹˈɪʒəɹən	vutɹˈɪʒəɹən	guesser				
+1164	teclistamab	generic	teclistamab	tˈɛklɪstˌæməb	tˈɛklɪstˌaməb	guesser				
+1165	tecvayli	brand	Tecvayli	tˌɛkvˈAli	tˌɛkvˈAli	guesser				
+1166	opdualag	brand	Opdualag	ˈɑpʤuəlˌæɡ	ˈɒpʤuəlˌaɡ	guesser				
+1167	relatlimab	generic	relatlimab	ɹilˈætlɪmˌæb	ɹilˈatlɪmˌab	guesser				
+1168	lumify	brand	Lumify	lˈuməfˌI	lˈuːməfˌI	guesser				
+1169	elahere	brand	Elahere	ˈɛləhˌɪɹ	ˈɛləhˌɪə	guesser				
+1170	mirvetuximab	generic	mirvetuximab	mˈɜɹvətˌʌksɪməb	mˈɜːvətˌʌksɪməb	guesser				
+1171	soravtansine	generic	soravtansine	sɔɹˈævtənsˌin	sɔɹˈavtənsˌiːn	guesser				
+1172	pepcid	brand	Pepcid	pˈɛpsɪd	pˈɛpsɪd	cmudict	1.47			
+1173	fluzone	brand	Fluzone	fluzˈOni	fluzˈQni	guesser				
+1174	afrin	brand	Afrin	ˈæfɹɪn	ˈafɹɪn	guesser	2.35			
+1175	cepacol	brand	Cepacol	sˈɛpəkˌɑl	sˈɛpəkˌɒl	guesser				
+1176	miralax	brand	Miralax	mˈɪɹəlˌæks	mˈɪɹəlˌaks	guesser	1.19			
+1177	spikevax	brand	Spikevax	spˈIkvˌæks	spˈIkvˌaks	guesser				
+1178	prevnar	brand	Prevnar	pɹˈɛvnəɹ	pɹˈɛvnə	guesser				
+1179	fluad	brand	Fluad	flˈuəd	flˈuːəd	guesser				
+1180	abreva	brand	Abreva	ɑbɹˈAvə	ɒbɹˈAvə	guesser				
+1181	advil	brand	Advil	ˈædvˌɪl	ˈadvˌɪl	cmudict	2.59			
+1182	aleve	brand	Aleve	əlˈiv	əlˈiːv	cmudict	1.92			
+1183	alka-seltzer	brand	Alka-Seltzer	ˈælkəsˌɛltzəɹ	ˈalkəsˌɛltzə	guesser				
+1184	allegra	brand	Allegra	ɑlˈɛɡɹə	ɒlˈɛɡɹə	cmudict	2.57		16855	
+1185	anadin	brand	Anadin	ˈænədɪn	ˈanədɪn	guesser				
+1186	anbesol	brand	Anbesol	ˈænbəsˌɑl	ˈanbəsˌɒl	guesser				
+1187	aspercreme	brand	Aspercreme	ˈæspəɹkɹˌim	ˈaspəkɹˌiːm	guesser				
+1188	bayer	brand	Bayer	bˈAəɹ	bˈAə	cmudict	3.26			
+1189	beechams	brand	Beechams	bˈiʧəmz	bˈiːʧəmz	guesser				
+1190	benadryl	brand	Benadryl	bɪnˈædɹəl	bɪnˈadɹəl	guesser	2.57			
+1191	bengay	brand	Bengay	bˈɛŋɡA	bˈɛŋɡA	guesser	1.4			
+1192	benylin	brand	Benylin	bˈɛnəlɪn	bˈɛnəlɪn	guesser				
+1193	bonine	brand	Bonine	bOnˈini	bQnˈiːni	cmudict	1.22			
+1194	buscopan	brand	Buscopan	bˈʌskəpˌæn	bˈʌskəpˌan	guesser	1.03			
+1195	calpol	brand	Calpol	kˈælpɔl	kˈalpɔl	guesser	1.61			
+1196	canesten	brand	Canesten	kˈænɪstən	kˈanɪstən	guesser				
+1197	chloraseptic	brand	Chloraseptic	klˌɔɹəsˈɛptɪk	klˌɔːɹəsˈɛptɪk	guesser				
+1198	citrucel	brand	Citrucel	sˈɪtɹəsˌɛl	sˈɪtɹəsˌɛl	cmudict				
+1199	claritin	brand	Claritin	klˈɛɹɪtɪn	klˈɛɹɪtɪn	cmudict	1.93			
+1200	clarityn	brand	Clarityn	klˈɛɹɪtɪn	klˈɛɹɪtɪn	guesser				
+1201	coricidin	brand	Coricidin	kˌɔɹəsˈIdən	kˌɔːɹəsˈIdən	guesser				
+1202	cortizone	brand	Cortizone	kˈɔɹtəzˌOn	kˈɔːtəzˌQn	guesser				
+1203	day nurse	brand	Day nurse	dˈA nˈɜɹs	dˈA nˈɜːs	gold				
+1204	dayquil	brand	DayQuil	dˈAkwɪl	dˈAkwɪl	guesser	1.43			
+1205	debrox	brand	Debrox	dˈɛbɹɑks	dˈɛbɹɒks	guesser				
+1206	delsym	brand	Delsym	dˈɛlsɪm	dˈɛlsɪm	guesser				
+1207	dimetapp	brand	Dimetapp	dˈImətˌæp	dˈImətˌap	cmudict				
+1208	dioralyte	brand	Dioralyte	dˈIəɹəlˌIt	dˈIəɹəlˌIt	guesser				
+1209	dramamine	brand	Dramamine	dɹˈæməmˌin	dɹˈaməmiːn	gold	1.9			
+1210	dulcolax	brand	Dulcolax	dˈʌlkəlˌæks	dˈʌlkəlˌaks	guesser	1.44			
+1211	emergen-c	brand	Emergen-C	ˈiməɹʤˌɛnsˌi	ˈiːməʤˌɛnsˌiː	guesser				
+1212	ex-lax	brand	Ex-Lax	ˌɛkslˈæks	ˌɛkslˈaks	gold				
+1213	excedrin	brand	Excedrin	ɛksˈɛdɹən	ɛksˈɛdɹən	cmudict	1.82			
+1214	flonase	brand	Flonase	flˈɑnəs	flˈɒnəs	guesser	1.67			
+1215	fybogel	brand	Fybogel	fˈIbˌOɡəl	fˈIbˌQɡəl	guesser				
+1216	gas-x	brand	Gas-X	ɡˈæsˈɛks	ɡˈasˈɛks	gold+lexicon				
+1217	gaviscon	brand	Gaviscon	ɡˈævəskɑn	ɡˈavəskɒn	guesser	1.38			
+1218	germolene	brand	Germolene	ʤˈɜɹməlˌin	ʤˈɜːməlˌiːn	guesser				
+1219	imodium	brand	Imodium	ˌɪmˈOdiəm	ˌɪmˈQdiəm	guesser	1.84			
+1220	kaopectate	brand	Kaopectate	kˌiOpˈɛktAt	kˌiːQpˈɛktAt	guesser				
+1221	lamisil	brand	Lamisil	lɑmisˈil	lɒmisˈiːl	guesser	1.3			
+1222	lemsip	brand	Lemsip	lˈɛmsɪp	lˈɛmsɪp	guesser	1.23			
+1223	lotrimin	brand	Lotrimin	lˈɑtɹəmɪn	lˈɒtɹəmɪn	guesser				
+1224	lyclear	brand	Lyclear	lˈIklˌɪɹ	lˈIklˌɪə	guesser				
+1225	maalox	brand	Maalox	mˈAlɑks	mˈAlɒks	cmudict	1.42			
+1226	metamucil	brand	Metamucil	mˌɛtəmjˈusəl	mˌɛtəmjˈuːsəl	cmudict	1.77			
+1227	midol	brand	Midol	mˈɪdəl	mˈɪdəl	guesser	1.81			
+1228	monistat	brand	Monistat	mˈɑnəstˌæt	mˈɒnəstˌat	guesser	1.33			
+1229	motrin	brand	Motrin	mˈɑtɹɪn	mˈɒtɹɪn	cmudict	2.07			
+1230	movicol	brand	Movicol	mˈuvɪkˌɑl	mˈuːvɪkˌɒl	guesser				
+1231	mylanta	brand	Mylanta	mɪlˈæntə	mɪlˈantə	guesser	1.23			
+1232	nasacort	brand	Nasacort	nˈæsəkˌɔɹt	nˈasəkˌɔːt	guesser				
+1233	neosporin	brand	Neosporin	nˌiOspˈɔɹɪn	nˌiːQspˈɔːɹɪn	guesser	1.9			
+1234	nicoderm	brand	NicoDerm	nˈɪkədˌɜɹm	nˈɪkədˌɜːm	cmudict				
+1235	nicorette	brand	Nicorette	nˈɪkəɹˌɛt	nˈɪkəɹˌɛt	cmudict	1.68			
+1236	night nurse	brand	Night nurse	nˈIt nˈɜɹs	nˈIt nˈɜːs	gold				
+1237	nurofen	brand	Nurofen	nˈʊɹOfən	njˈʊəɹQfɛn	guesser	1.74			
+1238	nyquil	brand	NyQuil	nˈɪkwɪl	nˈɪkwɪl	guesser	2.1			
+1239	nytol	brand	Nytol	nˈItəl	nˈItəl	guesser				
+1240	olbas	brand	Olbas	ˈOlbəz	ˈQlbəz	guesser				
+1241	orajel	brand	Orajel	ˈɔɹəʤəl	ˈɔːɹəʤəl	guesser	1.14			
+1242	pedialyte	brand	Pedialyte	pˈidiəlˌIt	pˈiːdiəlˌIt	guesser	1.64			
+1243	pepto-bismol	brand	Pepto-Bismol	pˈɛptObˌɪzməl	pˈɛptQbˌɪzməl	guesser				
+1244	piriteze	brand	Piriteze	pˌɪɹɪtˈAzi	pˌɪɹɪtˈAzi	guesser				
+1245	piriton	brand	Piriton	pˈɪɹɪtɑn	pˈɪɹɪtɒn	guesser				
+1246	plan b	brand	Plan b	plˈæn bˈi	plˈan bˈiː	gold+letters				
+1247	polysporin	brand	Polysporin	pˌɑlˌispˈɔɹɪn	pˌɒlˌiːspˈɔːɹɪn	guesser				
+1248	primatene	brand	Primatene	pɹˈImətˌin	pɹˈImətˌiːn	guesser				
+1249	rennie	brand	Rennie	ɹˈɛni	ɹˈɛni	cmudict	2.89			
+1250	rhinocort	brand	Rhinocort	ɹˈInəkˌɔɹt	ɹˈInəkˌɔːt	guesser				
+1251	robitussin	brand	Robitussin	ɹˌɑbɪtˈʌsɪn	ɹˌɒbɪtˈʌsɪn	cmudict	1.68			
+1252	rogaine	brand	Rogaine	ɹOɡˈAn	ɹˈQɡAn	cmudict	2.11			
+1253	rolaids	brand	Rolaids	ɹˈOlˌAdz	ɹˈQlˌAdz	guesser	1.45			
+1254	salonpas	brand	Salonpas	səlˈɑnpəz	səlˈɒnpəz	guesser				
+1255	solpadeine	brand	Solpadeine	sˈOlpədˌIn	sˈQlpədˌIn	guesser				
+1256	sominex	brand	Sominex	sˈʌmɪnɛks	sˈʌmɪnɛks	guesser				
+1257	strepsils	brand	Strepsils	stɹˈɛpsəlz	stɹˈɛpsəlz	guesser				
+1258	sudafed	brand	Sudafed	sˈudəfˌɛd	sˈuːdəfˌɛd	cmudict	1.75			
+1259	sudocrem	brand	Sudocrem	sˈudəkɹˌɛm	sˈuːdəkɹˌɛm	guesser	1.01			
+1260	tagamet	brand	Tagamet	tˈæɡəmət	tˈaɡəmɛt	gold	1.34			
+1261	theraflu	brand	Theraflu	θˈɛɹəflu	θˈɛɹəflu	guesser	1.3			
+1262	tinactin	brand	Tinactin	tInˈæktɪn	tInˈaktɪn	guesser				
+1263	tums	brand	Tums	tˈʌmz	tˈʌmz	gold	2.27			
+1264	tylenol	brand	Tylenol	tˈIlənɔl	tˈIlənɒl	gold	2.8			
+1265	unisom	brand	Unisom	jˈunəsˌɑm	jˈuːnəsˌɒm	cmudict	1.5			
+1266	vicks	brand	Vicks	vˈɪks	vˈɪks	cmudict	2.17			
+1267	visine	brand	Visine	visˈini	visˈiːni	guesser	1.72			
+1268	voltaren	brand	Voltaren	vˈOltəɹən	vˈQltəɹən	cmudict	1.49			
+1269	xyzal	brand	Xyzal	zˈIzəl	zˈIzəl	guesser				
+1270	zantac	brand	Zantac	zˈæntæk	zˈantak	gold	1.87			
+1271	zyrtec	brand	Zyrtec	zˈɪɹtˌɛk	zˈɪətˌɛk	guesser	1.84			
+1272	zzzquil	brand	ZzzQuil	zkwˈɪl	zkwˈɪl	guesser	1.04			

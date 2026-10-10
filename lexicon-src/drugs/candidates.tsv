@@ -1,0 +1,1273 @@
+rank	word	kind	score	meps_rx	partd_claims	medicaid_claims	partb_spend_musd	examples	generic_of	why
+1	atorvastatin	generic	202547311	115678209	73479970	13389132	0.0	Atorvastatin | Atorvastatin Calcium | Amlodipine/Atorvastatin		clincalc-top300,fin-888,top-500-generic
+2	sodium	generic	182810277	2687203	132185012	47938062	525.3	Levothyroxine Sodium | Pantoprazole Sodium | Montelukast Sodium		clincalc-top300,partb-top,top-500-generic
+3	levothyroxine	generic	139718857	82380627	48650486	8687744	0.0	Levothyroxine | Levothyroxine Sodium		clincalc-top300,top-500-generic
+4	amlodipine	generic	136051567	73972963	53042670	9035934	0.0	Amlodipine | Amlodipine Besylate | Amlodipine; Benazepril		clincalc-top300,top-500-generic
+5	metformin	generic	129738705	82288616	36856771	10593318	0.0	Metformin | Metformin HCl | Sitagliptin Phos/Metformin HCl		clincalc-top300,top-500-generic
+6	lisinopril	generic	126965899	75852004	41894385	9219510	0.0	Lisinopril | Hydrochlorothiazide; Lisinopril | Lisinopril/Hydrochlorothiazide		clincalc-top300,top-500-generic
+7	calcium	generic	126673629	3517929	105318794	17836906	0.0	Atorvastatin Calcium | Rosuvastatin Calcium | Calcium		clincalc-top300,top-500-generic
+8	losartan	generic	115985063	66749284	41854369	7381410	0.0	Losartan | Losartan Potassium | Hydrochlorothiazide; Losartan		clincalc-top300,top-500-generic
+9	metoprolol	generic	113171547	58193752	48241504	6736291	0.0	Metoprolol | Metoprolol Succinate | Metoprolol Tartrate		clincalc-top300,top-500-generic
+10	albuterol	generic	110976266	65758420	22516041	22701805	0.0	Albuterol | Albuterol Sulfate | Albuterol; Ipratropium		clincalc-top300,top-500-generic
+11	hydrochlorothiazide	generic	97683036	53323835	37313220	7045981	0.0	Hydrochlorothiazide | Hydrochlorothiazide; Lisinopril | Hydrochlorothiazide; Losartan		clincalc-top300,top-500-generic
+12	gabapentin	generic	96546720	46839967	36865920	12840833	0.0	Gabapentin | Gabapentin Enacarbil		clincalc-top300,top-500-generic
+13	potassium	generic	91608827	14928020	61277441	15403366	0.0	Losartan Potassium | Potassium Chloride | Amoxicillin/Potassium Clav		clincalc-top300,top-500-generic
+14	omeprazole	generic	88280450	49784460	28994582	9501408	0.0	Omeprazole | Omeprazole/Sodium Bicarbonate | Omeprazole Magnesium		clincalc-top300,top-500-generic
+15	rosuvastatin	generic	88154361	53688649	30868104	3597608	0.0	Rosuvastatin | Rosuvastatin Calcium		clincalc-top300,top-500-generic
+16	dextroamphetamine	generic	86884596	75550834	2605424	8728338	0.0	Dextroamphetamine; Dextroamphetamine Saccharate; Amphetamine; Amphetamine Aspartate | Dextroamphetamine/Amphetamine | Dextroamphetamine		clincalc-top300,top-500-generic
+17	acetaminophen	generic	85746297	36779555	32891819	16074923	0.0	Hydrocodone/Acetaminophen | Acetaminophen; Hydrocodone | Acetaminophen		clincalc-top300,top-500-generic
+18	insulin	generic	85501846	53303341	23572209	8626296	0.0	Insulin Glargine | Insulin Lispro | Insulin Glargine,Hum.Rec.Anlog		clincalc-top300,top-500-generic
+19	amphetamine	generic	84885894	73692092	2512781	8681021	0.0	Dextroamphetamine; Dextroamphetamine Saccharate; Amphetamine; Amphetamine Aspartate | Dextroamphetamine/Amphetamine | Amphetamine		clincalc-top300,top-500-generic
+20	amoxicillin	generic	71774966	34641091	17199019	19934856	0.0	Amoxicillin | Amoxicillin/Potassium Clav | Amoxicillin; Clavulanate		clincalc-top300,top-500-generic
+21	sertraline	generic	70114232	44634055	16161912	9318265	0.0	Sertraline | Sertraline HCl		clincalc-top300,top-500-generic
+22	fluticasone	generic	69578922	33374783	23058839	13145300	0.0	Fluticasone Propionate | Fluticasone | Fluticasone/Umeclidin/Vilanter		clincalc-top300,top-500-generic
+23	pantoprazole	generic	66543589	34940431	25612576	5990582	0.0	Pantoprazole | Pantoprazole Sodium		clincalc-top300,top-500-generic
+24	sulfate	generic	65736276	7114660	31041720	27579896	0.0	Albuterol Sulfate | Ferrous Sulfate | Morphine Sulfate		clincalc-top300,top-500-generic
+25	sulfate	salt	62387220	7114660	29161948	26110612	0.0	Albuterol Sulfate | Ferrous Sulfate | Morphine Sulfate		top-60-salt
+26	besylate	salt	61295184	0	52372951	8922233	0.0	Amlodipine Besylate | Amlodipine Besylate/Benazepril | Amlodipine Besylate/Valsartan		top-60-salt
+27	escitalopram	generic	61220154	41773078	12705284	6741792	0.0	Escitalopram | Escitalopram Oxalate		clincalc-top300,top-500-generic
+28	semaglutide	generic	57469841	40938165	11880490	4651186	0.0	Semaglutide | semaglutide		clincalc-top300,fin-888,top-500-generic
+29	estradiol	generic	57129303	42971683	5639427	8518193	0.0	Estradiol | Ethinyl Estradiol; Norethindrone | Ethinyl Estradiol; Norgestimate		clincalc-top300,top-500-generic
+30	trazodone	generic	52626541	26159531	18424765	8042245	0.0	Trazodone HCl | Trazodone		clincalc-top300,top-500-generic
+31	bupropion	generic	51946954	34895515	9895855	7155584	0.0	Bupropion | Bupropion HCl | Dextromethorphan HBr/Bupropion		clincalc-top300,top-500-generic
+32	apixaban	generic	47965964	21857073	24061332	2047559	0.0	Apixaban		clincalc-top300,top-500-generic
+33	furosemide	generic	46776475	20051956	23564693	3159826	0.0	Furosemide		clincalc-top300,top-500-generic
+34	tamsulosin	generic	46456646	22619048	21636671	2200927	0.0	Tamsulosin HCl | Tamsulosin | Dutasteride/Tamsulosin HCl		clincalc-top300,top-500-generic
+35	oxycodone	generic	45788556	21396788	18960189	5431579	0.0	Oxycodone | Oxycodone HCl | Oxycodone HCl/Acetaminophen		clincalc-top300,top-500-generic
+36	montelukast	generic	44620634	25780477	12473122	6367035	0.0	Montelukast | Montelukast Sodium		clincalc-top300,top-500-generic
+37	hydrocodone	generic	44233349	19132427	20169043	4931879	0.0	Hydrocodone/Acetaminophen | Acetaminophen; Hydrocodone | Hydrocodone Bitartrate		clincalc-top300,top-500-generic
+38	chloride	generic	44107806	14928020	22559376	6620410	0.0	Potassium Chloride | Oxybutynin Chloride | 0.9 % Sodium Chloride		clincalc-top300,top-500-generic
+39	succinate	salt	43998365	0	36755337	7243028	0.0	Metoprolol Succinate | Sumatriptan Succinate | Desvenlafaxine Succinate		top-60-salt
+40	fluoxetine	generic	43898319	29517275	7506539	6874505	0.0	Fluoxetine | Fluoxetine HCl | Olanzapine/Fluoxetine HCl		clincalc-top300,top-500-generic
+41	prednisone	generic	39850966	17833596	15814810	6202560	0.0	Prednisone		clincalc-top300,top-500-generic
+42	ibuprofen	generic	38827004	16850357	7605947	14370700	0.0	Ibuprofen | Hydrocodone/Ibuprofen | Ibuprofen/FAmotidine		clincalc-top300,top-500-generic
+43	simvastatin	generic	38552055	21477295	15325783	1748977	0.0	Simvastatin | Ezetimibe/Simvastatin		clincalc-top300,top-500-generic
+44	famotidine	generic	38169981	17038530	14065315	7066136	0.0	Famotidine | Famotidine/PF | Ibuprofen/FAmotidine		clincalc-top300,top-500-generic
+45	aspartate	salt	36846046	36846046	0	0	0.0	Dextroamphetamine; Dextroamphetamine Saccharate; Amphetamine; Amphetamine Aspartate		top-60-salt
+46	saccharate	generic	36846046	36846046	0	0	0.0	Dextroamphetamine; Dextroamphetamine Saccharate; Amphetamine; Amphetamine Aspartate		clincalc-top300,top-500-generic
+47	empagliflozin	generic	35791073	20797026	12115680	2878367	0.0	Empagliflozin | Empagliflozin/Metformin HCl | Empagliflozin/Linagliptin		clincalc-top300,top-500-generic
+48	glargine	generic	35764756	21364477	10668481	3731798	0.0	Insulin Glargine | Insulin Glargine,Hum.Rec.Anlog | Insulin Glargine-Yfgn		clincalc-top300,top-500-generic
+49	duloxetine	generic	35538864	17860263	13124600	4554001	0.0	Duloxetine | Duloxetine HCl		clincalc-top300,top-500-generic
+50	meloxicam	generic	35419461	19699161	12102303	3617997	0.0	Meloxicam | Meloxicam, Submicronized		clincalc-top300,top-500-generic
+51	carvedilol	generic	35343681	17059037	15885186	2399458	0.0	Carvedilol | Carvedilol Phosphate		clincalc-top300,top-500-generic
+52	tartrate	salt	35069735	0	30140116	4929619	0.0	Metoprolol Tartrate | Zolpidem Tartrate | Brimonidine Tartrate		top-60-salt
+53	ethinyl	generic	35068824	30080330	258582	4729912	0.0	Ethinyl Estradiol; Norethindrone | Ethinyl Estradiol; Norgestimate | Ethinyl Estradiol; Levonorgestrel		clincalc-top300,top-500-generic
+54	ondansetron	generic	34114910	13794023	9139615	11181272	0.0	Ondansetron | Ondansetron HCl | Ondansetron HCl/PF		clincalc-top300,top-500-generic
+55	tramadol	generic	30429892	14950504	13450703	2028685	0.0	Tramadol HCl | Tramadol | Tramadol HCl/Acetaminophen		clincalc-top300,top-500-generic
+56	hydroxyzine	generic	30246051	14857240	6281237	9107574	0.0	Hydroxyzine | Hydroxyzine HCl | Hydroxyzine Pamoate		clincalc-top300,top-500-generic
+57	buspirone	generic	29852621	16706971	7847445	5298205	0.0	Buspirone | Buspirone HCl		clincalc-top300,top-500-generic
+58	clopidogrel	generic	29790066	14613273	13594375	1582418	0.0	Clopidogrel Bisulfate | Clopidogrel		clincalc-top300,top-500-generic
+59	propionate	salt	29434542	0	16220627	13213915	0.0	Fluticasone Propionate | Clobetasol Propionate | Halobetasol Propionate		top-60-salt
+60	alprazolam	generic	27403972	12541989	11711922	3150061	0.0	Alprazolam		clincalc-top300,top-500-generic
+61	cetirizine	generic	26641366	14363214	26642	12251510	0.0	Cetirizine | Cetirizine HCl | Cetirizine HCl/Pseudoephedrine		clincalc-top300,top-500-generic
+62	azithromycin	generic	26639003	11392296	8790821	6455886	0.0	Azithromycin		clincalc-top300,top-500-generic
+63	valsartan	generic	26294656	13818329	10803991	1672336	0.0	Valsartan | Sacubitril/Valsartan | Sacubitril; Valsartan		clincalc-top300,top-500-generic
+64	eliquis	brand	26108891	0	24061332	2047559	0.0	Eliquis	apixaban	top-500-brand
+65	cyclobenzaprine	generic	25971720	13771868	7407401	4792451	0.0	Cyclobenzaprine | Cyclobenzaprine HCl		clincalc-top300,top-500-generic
+66	venlafaxine	generic	25627723	16273306	6174532	3179885	0.0	Venlafaxine | Venlafaxine HCl | Venlafaxine Besylate		clincalc-top300,top-500-generic
+67	allopurinol	generic	25570220	14851781	9710041	1008398	0.0	Allopurinol		clincalc-top300,top-500-generic
+68	fumarate	salt	25336408	0	14989047	10347361	0.0	Quetiapine Fumarate | Budesonide/Formoterol Fumarate | Bisoprolol Fumarate		top-60-salt
+69	methylphenidate	generic	25298144	18572946	920194	5805004	0.0	Methylphenidate | Methylphenidate HCl | Methyl Salicylate/Menthol		clincalc-top300,top-500-generic
+70	spironolactone	generic	25293696	13427856	9296370	2569470	0.0	Spironolactone | Spironolact/Hydrochlorothiazid		clincalc-top300,top-500-generic
+71	tirzepatide	generic	25018265	18694230	5105750	1218285	0.0	Tirzepatide | tirzepatide		clincalc-top300,fin-888,top-500-generic
+72	clonazepam	generic	24671650	11861002	8859699	3950949	0.0	Clonazepam		clincalc-top300,top-500-generic
+73	quetiapine	generic	24603583	8669046	9863943	6070594	0.0	Quetiapine Fumarate | Quetiapine		clincalc-top300,top-500-generic
+74	ergocalciferol	generic	24079398	14478963	1731570	7868865	0.0	Ergocalciferol | Ergocalciferol (Vitamin D2)		clincalc-top300,top-500-generic
+75	clavulanate	generic	23493716	9669779	7731631	6092306	0.0	Amoxicillin/Potassium Clav | Amoxicillin; Clavulanate		clincalc-top300,top-500-generic
+76	glipizide	generic	22515148	12809578	8037108	1668462	0.0	Glipizide | Glipizide/Metformin HCl		clincalc-top300,top-500-generic
+77	latanoprost	generic	22466550	10260351	11239843	966356	0.0	Latanoprost | Netarsudil Mesylat/Latanoprost | Latanoprost/PF		clincalc-top300,top-500-generic
+78	zolpidem	generic	22297832	12744221	7940675	1612936	0.0	Zolpidem | Zolpidem Tartrate		clincalc-top300,top-500-generic
+79	diclofenac	generic	22293939	10486740	7481333	4325866	0.0	Diclofenac Sodium | Diclofenac | Diclofenac Potassium		clincalc-top300,top-500-generic
+80	vilanterol	generic	22139081	10440723	10424255	1274103	0.0	Fluticasone/Umeclidin/Vilanter | Fluticasone; Umeclidinium; Vilanterol | Fluticasone; Vilanterol		clincalc-top300,top-500-generic
+81	doxycycline	generic	22110005	9807852	8616947	3685206	0.0	Doxycycline | Doxycycline Hyclate | Doxycycline Monohydrate		clincalc-top300,top-500-generic
+82	pregabalin	generic	21876899	12188941	7578719	2109239	0.0	Pregabalin		clincalc-top300,top-500-generic
+83	lamotrigine	generic	21629794	12624285	4397432	4608077	0.0	Lamotrigine		clincalc-top300,top-500-generic
+84	budesonide	generic	21625408	11469861	5733838	4421709	0.0	Budesonide; Formoterol | Budesonide/Formoterol Fumarate | Budesonide		clincalc-top300,top-500-generic
+85	pravastatin	generic	21528792	11270967	9395079	862746	0.0	Pravastatin | Pravastatin Sodium		clincalc-top300,top-500-generic
+86	citalopram	generic	21364475	12500214	6745805	2118456	0.0	Citalopram | Citalopram Hydrobromide		clincalc-top300,top-500-generic
+87	ezetimibe	generic	20859987	10693931	9123087	1042969	0.0	Ezetimibe | Ezetimibe/Simvastatin | Bempedoic Acid/Ezetimibe		clincalc-top300,top-500-generic
+88	triamcinolone	generic	20437498	7330181	6900330	6206987	0.0	Triamcinolone Acetonide | Triamcinolone | Nystatin/Triamcinolone Acet		clincalc-top300,top-500-generic
+89	cephalexin	generic	20049048	8216856	7489860	4342332	0.0	Cephalexin		clincalc-top300,top-500-generic
+90	oxalate	salt	19840496	0	13041599	6798897	0.0	Escitalopram Oxalate | Naloxegol Oxalate		top-60-salt
+91	lorazepam	generic	19572228	9095808	8140331	2336089	0.0	Lorazepam		clincalc-top300,top-500-generic
+92	norethindrone	generic	19474791	15813213	355261	3306317	0.0	Ethinyl Estradiol; Norethindrone | Norethindrone | Norethindrone-E.Estradiol-Iron		clincalc-top300,top-500-generic
+93	aspirin	generic	18983393	12818517	141360	6023516	0.0	Aspirin | Aspirin/Dipyridamole | Butalbital/Aspirin/Caffeine		clincalc-top300,top-500-generic
+94	clonidine	generic	18307687	8393718	3973347	5940622	0.0	Clonidine HCl | Clonidine | Clonidine HCl/PF		clincalc-top300,top-500-generic
+95	formoterol	generic	18285203	8871759	5556613	3856831	0.0	Budesonide; Formoterol | Budesonide/Formoterol Fumarate | Budesonide; Glycopyrrolate; Formoterol		clincalc-top300,top-500-generic
+96	alendronate	generic	17743833	8209512	8818421	715900	0.0	Alendronate Sodium | Alendronate | Alendronate Sodium/Vitamin D3		clincalc-top300,top-500-generic
+97	atenolol	generic	17727891	9934162	6812238	981491	0.0	Atenolol | Atenolol/Chlorthalidone		clincalc-top300,top-500-generic
+98	aripiprazole	generic	17649215	8246931	4202898	5199386	0.0	Aripiprazole | Aripiprazole Lauroxil | Aripiprazole Lauroxil,Submicr.		clincalc-top300,top-500-generic
+99	tizanidine	generic	17391643	8036601	6985252	2369790	0.0	Tizanidine HCl | Tizanidine		clincalc-top300,top-500-generic
+100	propranolol	generic	17173448	10263169	4164278	2746001	0.0	Propranolol | Propranolol HCl		clincalc-top300,top-500-generic
+101	phosphate	generic	17036424	1313968	6941018	8781438	0.0	Sitagliptin Phosphate | Clindamycin Phosphate | Oseltamivir Phosphate		clincalc-top300,top-500-generic
+102	lispro	generic	16932809	10412617	4103269	2416923	0.0	Insulin Lispro | Insulin Lispro Protamin/Lispro | Insulin Lispro-Aabc		clincalc-top300,top-500-generic
+103	acid	generic	16797269	8244970	3153046	5399253	0.0	Folic Acid | Omega-3 Acid Ethyl Esters | Ascorbic Acid		clincalc-top300,top-500-generic
+104	mirtazapine	generic	16709224	5605882	8340645	2762697	0.0	Mirtazapine		clincalc-top300,top-500-generic
+105	finasteride	generic	16621977	8845007	7381373	395597	0.0	Finasteride		clincalc-top300,top-500-generic
+106	umeclidinium	generic	16365376	6642602	8487189	1235585	0.0	Fluticasone/Umeclidin/Vilanter | Fluticasone; Umeclidinium; Vilanterol | Umeclidinium Brm/Vilanterol Tr		clincalc-top300,top-500-generic
+107	celecoxib	generic	15813521	8925992	5715345	1172184	0.0	Celecoxib | Tramadol HCl/Celecoxib		clincalc-top300,top-500-generic
+108	dulaglutide	generic	15622470	9211040	4305141	2106289	0.0	Dulaglutide		clincalc-top300,top-500-generic
+109	dapagliflozin	generic	15553392	8017363	6255531	1280498	0.0	Dapagliflozin | Dapagliflozin Propanediol | Dapaglifloz Propaned/Metformin		clincalc-top300,top-500-generic
+110	bisulfate	salt	15176793	0	13594375	1582418	0.0	Clopidogrel Bisulfate		top-60-salt
+111	trimethoprim	generic	14965087	6117860	5349271	3497956	0.0	Sulfamethoxazole/Trimethoprim | Sulfamethoxazole; Trimethoprim | Polymyxin B; Trimethoprim		clincalc-top300,top-500-generic
+112	phosphate	salt	14940115	1313968	5778696	7847451	0.0	Sitagliptin Phosphate | Clindamycin Phosphate | Oseltamivir Phosphate		top-60-salt
+113	rivaroxaban	generic	14835508	7423624	6660246	751638	0.0	Rivaroxaban		clincalc-top300,top-500-generic
+114	topiramate	generic	14483006	8077536	3373229	3032241	0.0	Topiramate		clincalc-top300,top-500-generic
+115	lisdexamfetamine	generic	14188562	9929931	409947	3848684	0.0	Lisdexamfetamine | Lisdexamfetamine Dimesylate		clincalc-top300,top-500-generic
+116	jardiance	brand	14088667	0	11368280	2720387	0.0	Jardiance	empagliflozin	top-500-brand
+117	loratadine	generic	13975761	7717060	0	6258701	0.0	Loratadine | Loratadine; Pseudoephedrine | Loratadine/Pseudoephedrine		clincalc-top300,top-500-generic
+118	ozempic	brand	13729757	0	10417182	3312575	0.0	Ozempic	semaglutide	fin-888,top-500-brand
+119	levetiracetam	generic	13647128	5508579	4892448	3246101	0.0	Levetiracetam | Levetiracetam In NaCl (Iso-Os)		clincalc-top300,top-500-generic
+120	cholecalciferol	generic	13641222	13351090	0	290132	0.0	Cholecalciferol | Calcium Phosphate; Cholecalciferol | Cholecalciferol (Vitamin D3)		clincalc-top300,top-500-generic
+121	baclofen	generic	13525715	6027670	5181892	2316153	0.0	Baclofen		clincalc-top300,top-500-generic
+122	methylprednisolone	generic	13372930	4523154	5899981	2949795	0.0	Methylprednisolone | Methylprednisolone Acetate | Methylprednisolone Sod Succ/PF		clincalc-top300,top-500-generic
+123	diltiazem	generic	13303602	6250456	6482880	570266	0.0	Diltiazem HCl | Diltiazem		clincalc-top300,top-500-generic
+124	acetonide	salt	13291429	0	6982581	6308848	0.0	Triamcinolone Acetonide | Fluocinolone Acetonide | Fluocinolone Acetonide Oil		top-60-salt
+125	amitriptyline	generic	13259294	7533045	3711204	2015045	0.0	Amitriptyline | Amitriptyline HCl | Perphenazine/Amitriptyline HCl		clincalc-top300,top-500-generic
+126	ellipta	device	13223993	0	11764039	1459954	0.0	Trelegy Ellipta | Breo Ellipta | Anoro Ellipta	vilanterol | fluticasone | umeclidinium	top-25-device
+127	folic	generic	13213617	7503346	1157794	4552477	0.0	Folic Acid | PNV,Calcium 72/Iron/Folic Acid | PNV No.95/Ferrous Fum/Folic Ac		clincalc-top300,top-500-generic
+128	aspart	generic	13180389	8979716	3056899	1143774	0.0	Insulin Aspart | Insulin Aspart (Niacinamide) | Insulin Aspart Prot/Insuln Asp		clincalc-top300,top-500-generic
+129	olmesartan	generic	13138775	7659035	5003329	476411	0.0	Olmesartan | Olmesartan Medoxomil | Olmesartan/Hydrochlorothiazide		clincalc-top300,top-500-generic
+130	fenofibrate	generic	13135144	7367061	4577864	1190219	0.0	Fenofibrate | Fenofibrate Nanocrystallized | Fenofibrate,Micronized		clincalc-top300,top-500-generic
+131	timolol	generic	13023882	5353358	7113565	556959	0.0	Timolol | Dorzolamide HCl/Timolol Maleat | Timolol Maleate		clincalc-top300,top-500-generic
+132	prednisolone	generic	12866034	5786309	3898288	3181437	0.0	Prednisolone | Prednisolone Acetate | Prednisolone Sodium Phosphate		clincalc-top300,top-500-generic
+133	warfarin	generic	12513434	6951088	5034389	527957	0.0	Warfarin | Warfarin Sodium		clincalc-top300,top-500-generic
+134	donepezil	generic	12474890	3899860	8247973	327057	0.0	Donepezil HCl | Donepezil | Memantine HCl/Donepezil HCl		clincalc-top300,top-500-generic
+135	hydralazine	generic	12407801	5391649	6102363	913789	0.0	Hydralazine HCl | Hydralazine | Isosorbide Dinit/Hydralazine		clincalc-top300,top-500-generic
+136	valacyclovir	generic	12250080	6942446	3303226	2004408	0.0	Valacyclovir | Valacyclovir HCl		clincalc-top300,top-500-generic
+137	acetate	generic	12189235	0	7879432	4309803	1017.4	Prednisolone Acetate | Medroxyprogesterone Acetate | Flecainide Acetate		partb-top,top-500-generic
+138	acetate	salt	12189235	0	7879432	4309803	0.0	Prednisolone Acetate | Medroxyprogesterone Acetate | Flecainide Acetate		top-60-salt
+139	paroxetine	generic	12017168	7173801	3479484	1363883	0.0	Paroxetine | Paroxetine HCl | Paroxetine Mesylate		clincalc-top300,top-500-generic
+140	methocarbamol	generic	11852694	6573637	3191039	2088018	0.0	Methocarbamol		clincalc-top300,top-500-generic
+141	sulfamethoxazole	generic	11823753	4636824	4744486	2442443	0.0	Sulfamethoxazole/Trimethoprim | Sulfamethoxazole; Trimethoprim		clincalc-top300,top-500-generic
+142	buprenorphine	generic	11801716	0	2920967	8880749	0.0	Buprenorphine HCl/Naloxone HCl | Buprenorphine HCl | Buprenorphine		top-500-generic
+143	naproxen	generic	11764079	5874206	2989449	2900424	0.0	Naproxen | Naproxen Sodium | Naproxen/Esomeprazole Mag		clincalc-top300,top-500-generic
+144	ketoconazole	generic	11460099	4820501	4250231	2389367	0.0	Ketoconazole		clincalc-top300,top-500-generic
+145	oxybutynin	generic	11453593	4908779	5422689	1122125	0.0	Oxybutynin Chloride | Oxybutynin		clincalc-top300,top-500-generic
+146	nitrofurantoin	generic	11406070	4576845	4877133	1952092	0.0	Nitrofurantoin Monohyd/M-Cryst | Nitrofurantoin | Nitrofurantoin Macrocrystal		clincalc-top300,top-500-generic
+147	sitagliptin	generic	11389010	5147491	5165775	1075744	0.0	Sitagliptin | Sitagliptin Phosphate | Sitagliptin Phos/Metformin HCl		clincalc-top300,top-500-generic
+148	ciprofloxacin	generic	11201229	4207830	5184370	1809029	0.0	Ciprofloxacin HCl | Ciprofloxacin | Ciprofloxacin HCl/Dexameth		clincalc-top300,top-500-generic
+149	naloxone	generic	11098207	0	2556790	8541417	0.0	Buprenorphine HCl/Naloxone HCl | Naloxone HCl | Pentazocine HCl/Naloxone HCl		top-500-generic
+150	dexamethasone	generic	11083776	3412566	3634321	4036889	0.0	Dexamethasone | Dexamethasone Sodium Phosphate | Neomycin/Polymyxin B/Dexametha		clincalc-top300,top-500-generic
+151	maleate	salt	11051354	0	9348554	1702800	0.0	Dorzolamide HCl/Timolol Maleat | Timolol Maleate | Enalapril Maleate		top-60-salt
+152	ipratropium	generic	10789005	5356846	3537445	1894714	0.0	Albuterol; Ipratropium | Ipratropium Bromide | Ipratropium/Albuterol Sulfate		clincalc-top300,top-500-generic
+153	clindamycin	generic	10716807	4386928	2861821	3468058	0.0	Clindamycin | Clindamycin HCl | Clindamycin Phosphate		clincalc-top300,top-500-generic
+154	isosorbide	generic	10682438	4573683	5429993	678762	0.0	Isosorbide Mononitrate | Isosorbide | Isosorbide Dinitrate		clincalc-top300,top-500-generic
+155	fluconazole	generic	10672240	3157604	3765230	3749406	0.0	Fluconazole | Fluconazole In NaCl,Iso-Osm		clincalc-top300,top-500-generic
+156	mupirocin	generic	10552305	3716448	3983304	2852553	0.0	Mupirocin | Mupirocin Calcium		clincalc-top300,top-500-generic
+157	olanzapine	generic	10476655	3642411	4075338	2758906	0.0	Olanzapine | Olanzapine/Samidorphan Malate | Olanzapine/Fluoxetine HCl		clincalc-top300,top-500-generic
+158	glimepiride	generic	10459376	5109702	4600920	748754	0.0	Glimepiride | Pioglitazone HCl/Glimepiride		clincalc-top300,top-500-generic
+159	nifedipine	generic	10454446	5474488	3861285	1118673	0.0	Nifedipine		clincalc-top300,top-500-generic
+160	benazepril	generic	10259922	5649390	4107545	502987	0.0	Benazepril | Amlodipine; Benazepril | Benazepril HCl		clincalc-top300,top-500-generic
+161	testosterone	generic	10097098	7644915	1740041	712142	0.0	Testosterone | Testosterone Cypionate | Testosterone Enanthate		clincalc-top300,top-500-generic
+162	memantine	generic	10061550	3378922	6412261	270367	0.0	Memantine HCl | Memantine | Memantine HCl/Donepezil HCl		clincalc-top300,top-500-generic
+163	azelastine	generic	10045122	5148696	3400993	1495433	0.0	Azelastine | Azelastine HCl | Azelastine/Fluticasone		clincalc-top300,top-500-generic
+164	hydrobromide	salt	10031943	0	7465993	2565950	0.0	Citalopram Hydrobromide | Vortioxetine Hydrobromide | Eletriptan Hydrobromide		top-60-salt
+165	risperidone	generic	9735985	2272519	3928999	3534467	0.0	Risperidone | Risperidone Microspheres		clincalc-top300,top-500-generic
+166	solostar	device	9465353	0	7007842	2457511	0.0	Lantus Solostar | Toujeo Solostar | Toujeo Max Solostar	insulin | glargine | lispro	top-25-device
+167	esomeprazole	generic	9429201	5677193	3025858	726150	0.0	Esomeprazole | Esomeprazole Magnesium | Naproxen/Esomeprazole Mag		clincalc-top300,top-500-generic
+168	sumatriptan	generic	9389658	5831978	1929165	1628515	0.0	Sumatriptan | Sumatriptan Succinate | Sumatriptan Succ/Naproxen Sod		clincalc-top300,top-500-generic
+169	hyclate	salt	9377898	0	6668225	2709673	0.0	Doxycycline Hyclate		top-60-salt
+170	lantus	brand	9291464	0	6687532	2603932	0.0	Lantus Solostar | Lantus	glargine | insulin	top-500-brand
+171	metronidazole	generic	9287950	3599381	2273727	3414842	0.0	Metronidazole | Metronidazole/Sodium Chloride | Bismuth/Metronid/Tetracycline		clincalc-top300,top-500-generic
+172	chlorthalidone	generic	9010316	4931283	3355725	723308	0.0	Chlorthalidone | Atenolol/Chlorthalidone | Azilsartan Med/Chlorthalidone		clincalc-top300,top-500-generic
+173	monohydrate	salt	8881957	0	6137329	2744628	0.0	Nitrofurantoin Monohyd/M-Cryst | Doxycycline Monohydrate | Tirofiban HCl Monohydrate		top-60-salt
+174	hydrocortisone	generic	8856451	1946974	3538583	3370894	0.0	Hydrocortisone | Neomycin/Polymyxin B/Hydrocort | Hydrocortisone/Acetic Acid		clincalc-top300,top-500-generic
+175	norgestimate	generic	8751896	6753928	102738	1895230	0.0	Ethinyl Estradiol; Norgestimate | Norgestimate-Ethinyl Estradiol | L-Norgest/E.Estradiol-E.Estrad		clincalc-top300,top-500-generic
+176	pioglitazone	generic	8705534	4851829	3272304	581401	0.0	Pioglitazone | Pioglitazone HCl | Pioglitazone HCl/Metformin HCl		clincalc-top300,top-500-generic
+177	nystatin	generic	8665642	2074092	4171054	2420496	0.0	Nystatin | Nystatin/Triamcinolone Acet		clincalc-top300,top-500-generic
+178	dorzolamide	generic	8536840	4033108	4163255	340477	0.0	Dorzolamide HCl/Timolol Maleat | Dorzolamide; Timolol | Dorzolamide		clincalc-top300,top-500-generic
+179	cefdinir	generic	8414916	3282421	2313999	2818496	0.0	Cefdinir		clincalc-top300,top-500-generic
+180	divalproex	generic	8178666	0	5154658	3024008	0.0	Divalproex Sodium		top-500-generic
+181	irbesartan	generic	8126853	4753049	3135893	237911	0.0	Irbesartan | Irbesartan/Hydrochlorothiazide		clincalc-top300,top-500-generic
+182	degludec	generic	8111656	5466073	2378459	267124	0.0	Insulin Degludec | Insulin Degludec/Liraglutide		clincalc-top300,top-500-generic
+183	promethazine	generic	8086566	3989762	1338213	2758591	0.0	Promethazine HCl | Promethazine | Dextromethorphan; Promethazine		clincalc-top300,top-500-generic
+184	magnesium	generic	8052264	3265004	3033100	1754160	0.0	Esomeprazole Magnesium | Magnesium Salts | Magnesium Oxide		clincalc-top300,top-500-generic
+185	ropinirole	generic	8026829	3839677	3480847	706305	0.0	Ropinirole HCl | Ropinirole		clincalc-top300,top-500-generic
+186	hydroxychloroquine	generic	8008436	4708302	2547277	752857	0.0	Hydroxychloroquine | Hydroxychloroquine Sulfate		clincalc-top300,top-500-generic
+187	mesylate	salt	7944495	0	6131960	1812535	0.0	Benztropine Mesylate | Doxazosin Mesylate | Dabigatran Etexilate Mesylate		top-60-salt
+188	clotrimazole	generic	7856701	3254440	2831615	1770646	0.0	Clotrimazole | Clotrimazole/Betamethasone Dip | Betamethasone; Clotrimazole		clincalc-top300,top-500-generic
+189	levocetirizine	generic	7779809	4423398	2327230	1029181	0.0	Levocetirizine | Levocetirizine Dihydrochloride		clincalc-top300,top-500-generic
+190	docusate	generic	7778968	4456771	0	3322197	0.0	Docusate | Docusate Sodium | Senna; Docusate		clincalc-top300,top-500-generic
+191	clobetasol	generic	7770819	3823176	2811540	1136103	0.0	Clobetasol Propionate | Clobetasol | Clobetasol Propionate/Emoll		clincalc-top300,top-500-generic
+192	diazepam	generic	7698025	3346943	3013050	1338032	0.0	Diazepam		clincalc-top300,top-500-generic
+193	propanediol	generic	7533947	0	6253582	1280365	0.0	Dapagliflozin Propanediol | Dapaglifloz Propaned/Metformin		top-500-generic
+194	sacubitril	generic	7510875	2846804	3898977	765094	0.0	Sacubitril/Valsartan | Sacubitril; Valsartan		clincalc-top300,top-500-generic
+195	triamterene	generic	7499664	4440459	2800332	258873	0.0	Hydrochlorothiazide; Triamterene | Triamterene/Hydrochlorothiazid | Triamterene		clincalc-top300,top-500-generic
+196	ferrous	generic	7456244	7114660	0	341584	0.0	Ferrous Sulfate | PNV No.95/Ferrous Fum/Folic Ac | Ferrous Gluconate		clincalc-top300,top-500-generic
+197	xarelto	brand	7411884	0	6660246	751638	0.0	Xarelto	rivaroxaban	top-500-brand
+198	brimonidine	generic	7368330	2999164	3990378	378788	0.0	Brimonidine | Brimonidine Tartrate | Brimonidine Tartrate/Timolol		clincalc-top300,top-500-generic
+199	bromide	generic	7343422	0	5561249	1782173	0.0	Ipratropium Bromide | Tiotropium Bromide | Umeclidinium Bromide		top-500-generic
+200	bromide	salt	7343212	0	5561094	1782118	0.0	Ipratropium Bromide | Tiotropium Bromide | Umeclidinium Bromide		top-60-salt
+201	benzonatate	generic	7247244	4617060	177697	2452487	0.0	Benzonatate | Alogliptin Benz/Metformin HCl | Alogliptin Benz/Pioglitazone		clincalc-top300,top-500-generic
+202	ventolin	brand	7239156	0	2272575	4966581	0.0	Ventolin HFA	albuterol	top-500-brand
+203	betamethasone	generic	7198002	2691662	3198066	1308274	0.0	Clotrimazole/Betamethasone Dip | Betamethasone; Clotrimazole | Betamethasone Dipropionate		clincalc-top300,top-500-generic
+204	lidocaine	generic	7163481	1031385	2765038	3367058	0.0	Lidocaine | Lidocaine HCl | Lidocaine/Prilocaine		clincalc-top300,top-500-generic
+205	cyanocobalamin	generic	7161066	5432400	350939	1377727	0.0	Cyanocobalamin | Cyanocobalamin (Vitamin B-12) | Cyanocobalamin/Folic Ac/Vit B6		clincalc-top300,top-500-generic
+206	meclizine	generic	7154988	3246111	3025148	883729	0.0	Meclizine HCl | Meclizine		clincalc-top300,top-500-generic
+207	methotrexate	generic	7135191	4014149	2521430	599612	0.0	Methotrexate | Methotrexate Sodium | Methotrexate Sodium/PF		clincalc-top300,top-500-generic
+208	trelegy	brand	7016476	0	6250872	765604	0.0	Trelegy Ellipta	fluticasone | umeclidinium | vilanterol	top-500-brand
+209	ketorolac	generic	6935750	2383165	1684170	2868415	0.0	Ketorolac Tromethamine | Ketorolac | Phenylephrine/Ketorolac		clincalc-top300,top-500-generic
+210	glycol	generic	6922447	2397384	367737	4157326	0.0	Polyethylene Glycol 3350 | Betamethasone/Propylene Glyc | Propylene Glycol/PEG 400		clincalc-top300,top-500-generic
+211	prazosin	generic	6885421	3554064	1287778	2043579	0.0	Prazosin | Prazosin HCl		clincalc-top300,top-500-generic
+212	tiotropium	generic	6837624	3084835	2763203	989586	0.0	Tiotropium | Tiotropium Bromide | Tiotropium Br/Olodaterol HCl		clincalc-top300,top-500-generic
+213	progesterone	generic	6820204	5468709	752890	598605	0.0	Progesterone | Progesterone, Micronized | Estrogen,Con/M-Progest Acet		clincalc-top300,top-500-generic
+214	thyroid	generic	6799681	6060183	477511	261987	0.0	Thyroid | Thyroid,Pork		clincalc-top300,top-500-generic
+215	ofloxacin	generic	6733724	3766397	1475339	1491988	0.0	Ofloxacin		clincalc-top300,top-500-generic
+216	farxiga	brand	6709760	0	5634650	1075110	0.0	Farxiga	dapagliflozin | propanediol	top-500-brand
+217	polymyxin	generic	6492130	2491013	2064853	1936264	0.0	Neomycin/Polymyxin B/Dexametha | Polymyxin B; Trimethoprim | Polymyxin B Sulf/Trimethoprim		clincalc-top300,top-500-generic
+218	adalimumab	generic	6432190	5198809	703100	530281	0.0	Adalimumab | Adalimumab-Atto | Adalimumab-Bwwd		clincalc-top300,fin-888,top-500-generic
+219	trulicity	brand	6411430	0	4305141	2106289	0.0	Trulicity	dulaglutide	top-500-brand
+220	morphine	generic	6269239	2684279	2640552	944408	0.0	Morphine Sulfate | Morphine | Morphine Sulfate/PF		clincalc-top300,top-500-generic
+221	codeine	generic	6229712	2992154	2379231	858327	0.0	Acetaminophen With Codeine | Acetaminophen; Codeine | Codeine; Guaifenesin		clincalc-top300,top-500-generic
+222	atomoxetine	generic	6212079	4208253	327499	1676327	0.0	Atomoxetine | Atomoxetine HCl		clincalc-top300,top-500-generic
+223	dexmethylphenidate	generic	6155307	4033754	83406	2038147	0.0	Dexmethylphenidate | Dexmethylphenidate HCl | Serdexmethylphen/Dexmethylphen		clincalc-top300,top-500-generic
+224	mounjaro	brand	6051542	0	5105397	946145	0.0	Mounjaro	tirzepatide	fin-888,top-500-brand
+225	cyclosporine	generic	5959004	3231769	2340742	386493	0.0	Cyclosporine | Cyclosporine, Modified		clincalc-top300,top-500-generic
+226	cryst	generic	5957639	0	4188607	1769032	0.0	Nitrofurantoin Monohyd/M-Cryst		top-500-generic
+227	polyethylene	generic	5947545	2397384	0	3550161	0.0	Polyethylene Glycol 3350 | Polyethylene Glycol 400		clincalc-top300,top-500-generic
+228	dicyclomine	generic	5939805	2210374	2350765	1378666	0.0	Dicyclomine HCl | Dicyclomine		clincalc-top300,top-500-generic
+229	tadalafil	generic	5918967	5478136	380660	60171	0.0	Tadalafil | Macitentan/Tadalafil		clincalc-top300,top-500-generic
+230	lovastatin	generic	5854345	3113073	2542461	198811	0.0	Lovastatin		clincalc-top300,top-500-generic
+231	tenofovir	generic	5820758	2603696	1699014	1518048	0.0	Emtricitabine; Tenofovir | Bictegrav/Emtricit/Tenofov Ala | Emtricitabine/Tenofov Alafenam		clincalc-top300,top-500-generic
+232	synthroid	brand	5779963	0	4990576	789387	0.0	Synthroid	levothyroxine | sodium	top-500-brand
+233	mirabegron	generic	5742891	1764668	3722825	255398	0.0	Mirabegron		clincalc-top300,top-500-generic
+234	torsemide	generic	5737166	2417567	3010513	309086	0.0	Torsemide		clincalc-top300,top-500-generic
+235	evolocumab	generic	5706933	3521049	2011984	173900	0.0	Evolocumab		clincalc-top300,top-500-generic
+236	desvenlafaxine	generic	5623373	3875578	976313	771482	0.0	Desvenlafaxine | Desvenlafaxine Succinate		clincalc-top300,top-500-generic
+237	temazepam	generic	5587983	3020872	2218789	348322	0.0	Temazepam		clincalc-top300,top-500-generic
+238	lithium	generic	5581354	3301040	1140790	1139524	0.0	Lithium | Lithium Carbonate | Lithium Citrate		clincalc-top300,top-500-generic
+239	verapamil	generic	5577786	3686373	1622308	269105	0.0	Verapamil | Verapamil HCl | Hydrocortisone/Aloe Vera		clincalc-top300,top-500-generic
+240	ethyl	generic	5556243	1842160	2982213	731870	0.0	Icosapent Ethyl | Omega-3-acid Ethyl Esters | Omega-3 Acid Ethyl Esters		clincalc-top300,top-500-generic
+241	acyclovir	generic	5544626	2696267	2010785	837574	0.0	Acyclovir | Acyclovir Sodium | Acyclovir/Hydrocortisone		clincalc-top300,top-500-generic
+242	emtricitabine	generic	5465828	2603696	1507301	1354831	0.0	Emtricitabine; Tenofovir | Bictegrav/Emtricit/Tenofov Ala | Emtricitabine/Tenofov Alafenam		clincalc-top300,top-500-generic
+243	linaclotide	generic	5463445	2163073	2506531	793841	0.0	Linaclotide		clincalc-top300,top-500-generic
+244	mononitrate	salt	5447739	0	4862596	585143	0.0	Isosorbide Mononitrate | Thiamine Mononitrate (Vit B1)		top-60-salt
+245	oxcarbazepine	generic	5356081	2224620	1288863	1842598	0.0	Oxcarbazepine		clincalc-top300,top-500-generic
+246	nitroglycerin	generic	5316109	2390279	2543848	381982	0.0	Nitroglycerin | Nitroglycerin In 5 % Dextrose		clincalc-top300,top-500-generic
+247	kwikpen	device	5289568	0	4081624	1207944	0.0	Basaglar Kwikpen U-100 | Humalog Kwikpen U-100 | Humulin 70/30 Kwikpen	insulin | lispro | glargine	top-25-device
+248	guanfacine	generic	5206900	826201	252301	4128398	0.0	Guanfacine HCl | Guanfacine		clincalc-top300,top-500-generic
+249	enalapril	generic	5102601	2548322	2063807	490472	0.0	Enalapril | Enalapril Maleate | Enalapril/Hydrochlorothiazide		clincalc-top300,top-500-generic
+250	nortriptyline	generic	5085372	3297511	1280031	507830	0.0	Nortriptyline | Nortriptyline HCl		clincalc-top300,top-500-generic
+251	doxazosin	generic	5051219	2661285	2212882	177052	0.0	Doxazosin | Doxazosin Mesylate		clincalc-top300,top-500-generic
+252	chlorhexidine	generic	5009145	1048173	2604862	1356110	0.0	Chlorhexidine Gluconate | Chlorhexidine		clincalc-top300,top-500-generic
+253	ritonavir	generic	4912609	2609803	2012756	290050	0.0	Nirmatrelvir; Ritonavir | Nirmatrelvir/Ritonavir | Ritonavir		clincalc-top300,top-500-generic
+254	januvia	brand	4862708	0	4027317	835391	0.0	Januvia	sitagliptin	top-500-brand
+255	levofloxacin	generic	4862681	1796203	2506284	560194	0.0	Levofloxacin | Levofloxacin In Dextrose 5 %		clincalc-top300,top-500-generic
+256	nirmatrelvir	generic	4838703	2609803	1956793	272107	0.0	Nirmatrelvir; Ritonavir | Nirmatrelvir/Ritonavir		clincalc-top300,top-500-generic
+257	dextromethorphan	generic	4825720	2475919	244748	2105053	0.0	Dextromethorphan; Promethazine | Promethazine/Dextromethorphan | Brompheniramine; Dextromethorphan; Pseudoephedrine		clincalc-top300,top-500-generic
+258	sucralfate	generic	4781213	1625940	2358705	796568	0.0	Sucralfate		clincalc-top300,top-500-generic
+259	tretinoin	generic	4744580	3140210	271443	1332927	0.0	Tretinoin | Tretinoin Microspheres | Clindamycin/Tretinoin		clincalc-top300,top-500-generic
+260	levonorgestrel	generic	4720163	3541217	64307	1114639	0.0	Ethinyl Estradiol; Levonorgestrel | Levonorgestrel/Ethin.Estradiol | Levonorgestrel		clincalc-top300,top-500-generic
+261	tromethamine	salt	4713508	0	1826262	2887246	0.0	Ketorolac Tromethamine | Fosfomycin Tromethamine | Fostemsavir Tromethamine		top-60-salt
+262	entresto	brand	4664071	0	3898977	765094	0.0	Entresto | Entresto Sprinkle	sacubitril | valsartan	top-500-brand
+263	erythromycin	generic	4649498	1966938	1536972	1145588	0.0	Erythromycin Base | Erythromycin | Erythromycin Base In Ethanol		clincalc-top300,top-500-generic
+264	amiodarone	generic	4565588	1201279	3133867	230442	0.0	Amiodarone HCl | Amiodarone | Amiodarone In Dextrose,Iso-Osm		clincalc-top300,top-500-generic
+265	symbicort	brand	4554177	0	1913647	2640530	0.0	Symbicort	budesonide | formoterol	top-500-brand
+266	pancrelipase	generic	4538121	4538121	0	0	0.0	Pancrelipase Lipase; Pancrelipase Protease; Pancrelipase Amylase		clincalc-top300,top-500-generic
+267	sildenafil	generic	4468657	3545862	838936	83859	0.0	Sildenafil | Sildenafil Citrate		clincalc-top300,top-500-generic
+268	anastrozole	generic	4448373	2505483	1704262	238628	0.0	Anastrozole		clincalc-top300,top-500-generic
+269	methadone	generic	4446498	0	558224	3888274	0.0	Methadone HCl		top-500-generic
+270	glycopyrrolate	generic	4407294	2060689	1801040	545565	0.0	Budesonide; Glycopyrrolate; Formoterol | Budesonide/Glycopyr/Formoterol | Glycopyrrolate		clincalc-top300,top-500-generic
+271	nebivolol	generic	4332199	2808667	1428343	95189	0.0	Nebivolol | Nebivolol HCl		clincalc-top300,top-500-generic
+272	pamoate	salt	4277692	0	1592624	2685068	0.0	Hydroxyzine Pamoate | Imipramine Pamoate | Triptorelin Pamoate		top-60-salt
+273	dimesylate	salt	4258631	0	409947	3848684	0.0	Lisdexamfetamine Dimesylate		top-60-salt
+274	mesalamine	generic	4246054	3385888	653228	206938	0.0	Mesalamine | Mesalamine W/Cleansing Wipes		clincalc-top300,top-500-generic
+275	oseltamivir	generic	4227292	2075218	639302	1512772	0.0	Oseltamivir Phosphate | Oseltamivir		clincalc-top300,top-500-generic
+276	bumetanide	generic	4180853	1462843	2403773	314237	0.0	Bumetanide		clincalc-top300,top-500-generic
+277	metoclopramide	generic	4130387	2134983	1095227	900177	0.0	Metoclopramide | Metoclopramide HCl		clincalc-top300,top-500-generic
+278	colchicine	generic	4116388	2253946	1569469	292973	0.0	Colchicine | Probenecid/Colchicine		clincalc-top300,top-500-generic
+279	gluconate	generic	4109195	0	2607476	1501719	0.0	Chlorhexidine Gluconate | Sodium Ferric Gluconat/Sucrose | Calcium Gluconate		top-500-generic
+280	carbidopa	generic	4079699	0	3884416	195283	0.0	Carbidopa/Levodopa | Carbidopa/Levodopa/Entacapone | Carbidopa		top-500-generic
+281	tacrolimus	generic	4072867	2592550	670966	809351	0.0	Tacrolimus		clincalc-top300,top-500-generic
+282	levodopa	generic	4040784	0	3859561	181223	0.0	Carbidopa/Levodopa | Carbidopa/Levodopa/Entacapone | Levodopa		top-500-generic
+283	gluconate	salt	4033179	0	2607476	1425703	0.0	Chlorhexidine Gluconate | Calcium Gluconate | Ferrous Gluconate		top-60-salt
+284	rimegepant	generic	4003024	3155302	426648	421074	0.0	Rimegepant | Rimegepant Sulfate		clincalc-top300,top-500-generic
+285	drospirenone	generic	3998731	3110100	37262	851369	0.0	Drospirenone; Ethinyl Estradiol | Ethinyl Estradiol/Drospirenone | Drospirenone		clincalc-top300,top-500-generic
+286	telmisartan	generic	3978133	2293870	1574052	110211	0.0	Telmisartan | Telmisartan/Hydrochlorothiazid | Telmisartan/Amlodipine		clincalc-top300,top-500-generic
+287	shingrix	brand	3945932	0	3945932	0	0.0	Shingrix	varicella-zoster ge/as01b/pf	top-500-brand
+288	etonogestrel	generic	3916272	3372586	8405	535281	0.0	Ethinyl Estradiol; Etonogestrel | Etonogestrel/Ethinyl Estradiol | Etonogestrel		clincalc-top300,top-500-generic
+289	medoxomil	salt	3914580	0	3599411	315169	0.0	Olmesartan Medoxomil | Azilsartan Medoxomil		top-60-salt
+290	phentermine	generic	3875329	3766803	1850	106676	0.0	Phentermine | Phentermine HCl		clincalc-top300,top-500-generic
+291	lansoprazole	generic	3844951	2231384	1240804	372763	0.0	Lansoprazole | Lansoprazole/Amoxiciln/Clarith | Hum Prothrombin Cplx(PCC)-Lans		clincalc-top300,top-500-generic
+292	bisoprolol	generic	3809518	1943969	1660299	205250	0.0	Bisoprolol | Bisoprolol Fumarate | Bisoprolol/Hydrochlorothiazide		clincalc-top300,top-500-generic
+293	carbamazepine	generic	3787148	1893437	1339939	553772	0.0	Carbamazepine		clincalc-top300,top-500-generic
+294	flecainide	generic	3729086	2344551	1287139	97396	0.0	Flecainide | Flecainide Acetate		clincalc-top300,top-500-generic
+295	medroxyprogesterone	generic	3701707	1744510	397209	1559988	0.0	Medroxyprogesterone Acetate | Medroxyprogesterone		clincalc-top300,top-500-generic
+296	neomycin	generic	3690158	1009977	1714883	965298	0.0	Neomycin/Polymyxin B/Dexametha | Dexamethasone; Neomycin; Polymyxin B | Neomycin/Polymyxin B/Hydrocort		clincalc-top300,top-500-generic
+297	myrbetriq	brand	3658895	0	3453189	205706	0.0	Myrbetriq	mirabegron	top-500-brand
+298	pramipexole	generic	3638634	1619372	1789104	230158	0.0	Pramipexole Di-HCl | Pramipexole		clincalc-top300,top-500-generic
+299	rizatriptan	generic	3597853	2077661	739330	780862	0.0	Rizatriptan | Rizatriptan Benzoate		clincalc-top300,top-500-generic
+300	carbonate	generic	3563968	0	1986261	1577707	0.0	Lithium Carbonate | Sevelamer Carbonate | Calcium Carbonate		top-500-generic
+301	carbonate	salt	3563733	0	1986261	1577472	0.0	Lithium Carbonate | Sevelamer Carbonate | Calcium Carbonate		top-60-salt
+302	epinephrine	generic	3534421	1835102	583085	1116234	0.0	Epinephrine | Lidocaine HCl/Epinephrine | Lidocaine HCl/Epinephrine/PF		clincalc-top300,top-500-generic
+303	solifenacin	generic	3510138	1910370	1384915	214853	0.0	Solifenacin | Solifenacin Succinate		clincalc-top300,top-500-generic
+304	mometasone	generic	3464989	809234	1438847	1216908	0.0	Mometasone Furoate | Mometasone/Formoterol | Mometasone		clincalc-top300,top-500-generic
+305	terazosin	generic	3451369	2049140	1320017	82212	0.0	Terazosin | Terazosin HCl		clincalc-top300,top-500-generic
+306	dupilumab	generic	3437480	2557601	450526	429353	0.0	Dupilumab		clincalc-top300,top-500-generic
+307	ramipril	generic	3406675	1772326	1541164	93185	0.0	Ramipril		clincalc-top300,top-500-generic
+308	respimat	device	3393013	0	2586081	806932	0.0	Spiriva Respimat | Stiolto Respimat | Combivent Respimat	tiotropium | olodaterol | albuterol	top-25-device
+309	calcitriol	generic	3389678	1578254	1333054	478370	0.0	Calcitriol		clincalc-top300,top-500-generic
+310	dihydrochloride	salt	3387820	0	2344593	1043227	0.0	Levocetirizine Dihydrochloride | Sapropterin Dihydrochloride | Momelotinib Dihydrochloride		top-60-salt
+311	benztropine	generic	3384904	0	1944678	1440226	0.0	Benztropine Mesylate		top-500-generic
+312	omega	generic	3319032	1842160	951879	524993	0.0	Omega-3-acid Ethyl Esters | Omega-3 Acid Ethyl Esters | Omega-3/DHA/EPA/Fish Oil		clincalc-top300,top-500-generic
+313	linzess	brand	3300372	0	2506531	793841	0.0	Linzess	linaclotide	top-500-brand
+314	vyvanse	brand	3292622	0	212410	3080212	0.0	Vyvanse	lisdexamfetamine	top-500-brand
+315	citrate	generic	3262687	0	2089982	1172705	0.0	Sildenafil Citrate | Fentanyl Citrate/PF | Potassium Citrate		top-500-generic
+316	citrate	salt	3262687	0	2089982	1172705	0.0	Sildenafil Citrate | Fentanyl Citrate/PF | Potassium Citrate		top-60-salt
+317	pseudoephedrine	generic	3254867	1456955	2142	1795770	0.0	Brompheniramine/Pseudoephed/DM | Loratadine; Pseudoephedrine | Brompheniramine; Dextromethorphan; Pseudoephedrine		clincalc-top300,top-500-generic
+318	protease	generic	3250454	1512707	1373818	363929	0.0	Pancrelipase Lipase; Pancrelipase Protease; Pancrelipase Amylase | Lipase/Protease/Amylase | Insulin Aspart Prot/Insuln Asp		clincalc-top300,top-500-generic
+319	liothyronine	generic	3241700	2328557	757453	155690	0.0	Liothyronine | Liothyronine Sodium		clincalc-top300,top-500-generic
+320	humalog	brand	3230873	0	2312821	918052	0.0	Humalog Kwikpen U-100 | Humalog | Humalog Kwikpen U-200	lispro | insulin | protamine	top-500-brand
+321	flexpen	device	3145246	0	2543841	601405	0.0	Novolog Flexpen | Levemir Flexpen | Novolog Mix 70-30 Flexpen	insulin | aspart | detemir	top-25-device
+322	loperamide	generic	3097355	1765230	897042	435083	0.0	Loperamide | Loperamide HCl | Loperamide HCl/Simethicone		clincalc-top300,top-500-generic
+323	dexlansoprazole	generic	3085969	2022254	882900	180815	0.0	Dexlansoprazole		clincalc-top300,top-500-generic
+324	labetalol	generic	3074230	1425356	1035716	613158	0.0	Labetalol HCl | Labetalol		clincalc-top300,top-500-generic
+325	ciclopirox	generic	3044383	1228557	1407421	408405	0.0	Ciclopirox | Ciclopirox Olamine | Ciclopirox/Urea/Camph/Men/Euc		clincalc-top300,top-500-generic
+326	minoxidil	generic	2937412	2173804	603619	159989	0.0	Minoxidil		clincalc-top300,top-500-generic
+327	lactulose	generic	2898579	0	2019249	879330	0.0	Lactulose		top-500-generic
+328	suboxone	brand	2855443	0	149372	2706071	0.0	Suboxone	buprenorphine | naloxone	top-500-brand
+329	amylase	generic	2849340	1512707	1045960	290673	0.0	Pancrelipase Lipase; Pancrelipase Protease; Pancrelipase Amylase | Lipase/Protease/Amylase		clincalc-top300,top-500-generic
+330	lipase	generic	2849340	1512707	1045960	290673	0.0	Pancrelipase Lipase; Pancrelipase Protease; Pancrelipase Amylase | Lipase/Protease/Amylase		clincalc-top300,top-500-generic
+331	valproate	generic	2837435	2837435	0	0	0.0	Valproate		clincalc-top300,top-500-generic
+332	arexvy	brand	2835981	0	2835981	0	0.0	Arexvy	rsvpref3 antigen/as01e/pf	top-500-brand
+333	ticagrelor	generic	2812447	1556746	1029007	226694	0.0	Ticagrelor		clincalc-top300,top-500-generic
+334	moxifloxacin	generic	2810794	1396789	1116730	297275	0.0	Moxifloxacin HCl | Moxifloxacin | Moxifloxacin/Sod.Ace,Sul/Water		clincalc-top300,top-500-generic
+335	flextouch	device	2791111	0	2580103	211008	0.0	Tresiba Flextouch U-100 | Tresiba Flextouch U-200 | Fiasp Flextouch	insulin | degludec | aspart	top-25-device
+336	diphenhydramine	generic	2782205	913286	61959	1806960	0.0	Diphenhydramine HCl | Diphenhydramine | Diphenhydramine HCl/Zinc Acet		clincalc-top300,top-500-generic
+337	fluoride	generic	2772529	1262528	555503	954498	0.0	Sodium Fluoride | Fluoride (Sodium) | Pedi Multivit No.17 W-Fluoride		clincalc-top300,top-500-generic
+338	breo	brand	2714362	0	2617269	97093	0.0	Breo Ellipta	fluticasone | vilanterol	top-500-brand
+339	butalbital	generic	2699096	1242180	897810	559106	0.0	Butalb/Acetaminophen/Caffeine | Acetaminophen; Butalbital; Caffeine | Butalbital/Aspirin/Caffeine		clincalc-top300,top-500-generic
+340	caffeine	generic	2697355	1242180	893981	561194	0.0	Butalb/Acetaminophen/Caffeine | Acetaminophen; Butalbital; Caffeine | Butalbital/Aspirin/Caffeine		clincalc-top300,top-500-generic
+341	spiriva	brand	2690921	0	1895519	795402	0.0	Spiriva Respimat | Spiriva Handihaler	tiotropium	top-500-brand
+342	novolog	brand	2687180	0	2154741	532439	0.0	Novolog Flexpen | Novolog | Novolog Mix 70-30 Flexpen	aspart | insulin | protease	top-500-brand
+343	terbinafine	generic	2666393	1372774	799100	494519	0.0	Terbinafine | Terbinafine HCl		clincalc-top300,top-500-generic
+344	lactate	generic	2606200	869412	1346480	390308	0.0	Ammonium Lactate | Lactate | Haloperidol Lactate		clincalc-top300,top-500-generic
+345	lactate	salt	2606200	869412	1346480	390308	0.0	Ammonium Lactate | Lactate | Haloperidol Lactate		top-60-salt
+346	alfuzosin	generic	2585415	1406964	1096845	81606	0.0	Alfuzosin | Alfuzosin HCl		clincalc-top300,top-500-generic
+347	furoate	salt	2562237	0	1718669	843568	0.0	Mometasone Furoate | Fluticasone Furoate		top-60-salt
+348	melatonin	generic	2479007	2474197	0	4810	0.0	Melatonin		clincalc-top300,top-500-generic
+349	iron	generic	2475564	0	86669	2388895	0.0	Iron Sucrose Complex | PNV,Calcium 72/Iron/Folic Acid | PNV 67/Iron Ps/Folate No.1/DHA		top-500-generic
+350	tresiba	brand	2427849	0	2227336	200513	0.0	Tresiba Flextouch U-100 | Tresiba Flextouch U-200 | Tresiba	degludec | insulin	top-500-brand
+351	guaifenesin	generic	2385271	1017178	223	1367870	0.0	Codeine; Guaifenesin | Guaifenesin | Guaifenesin/Dextromethorphan		clincalc-top300,top-500-generic
+352	brompheniramine	generic	2375814	702499	917	1672398	0.0	Brompheniramine/Pseudoephed/DM | Brompheniramine; Dextromethorphan; Pseudoephedrine | Brompheniram/Phenylephrine/DM		clincalc-top300,top-500-generic
+353	cyproheptadine	generic	2328074	1222740	229286	876048	0.0	Cyproheptadine | CyproHEPtadine HCl		clincalc-top300,top-500-generic
+354	fexofenadine	generic	2314195	1556203	0	757992	0.0	Fexofenadine | Fexofenadine HCl | Fexofenadine/Pseudoephedrine		clincalc-top300,top-500-generic
+355	letrozole	generic	2308083	1296962	863082	148039	0.0	Letrozole | Ribociclib Succinate/Letrozole		clincalc-top300,top-500-generic
+356	detemir	generic	2295670	1310970	707782	276918	0.0	Insulin Detemir		clincalc-top300,top-500-generic
+357	basaglar	brand	2293996	0	1779494	514502	0.0	Basaglar Kwikpen U-100 | Basaglar Tempo Pen U-100	glargine | insulin	top-500-brand
+358	haloperidol	generic	2285062	0	1329281	955781	0.0	Haloperidol | Haloperidol Decanoate | Haloperidol Lactate		top-500-generic
+359	icosapent	generic	2278598	0	2030537	248061	0.0	Icosapent Ethyl		top-500-generic
+360	paxlovid	brand	2228900	0	1956793	272107	0.0	Paxlovid | Paxlovid (Eua)	nirmatrelvir | ritonavir	top-500-brand
+361	ubrogepant	generic	2225342	1621728	328213	275401	0.0	Ubrogepant		clincalc-top300,top-500-generic
+362	repatha	brand	2185884	0	2011984	173900	0.0	Repatha Sureclick | Repatha Pushtronex	evolocumab	top-500-brand
+363	linagliptin	generic	2152765	0	1840805	311960	0.0	Linagliptin | Linagliptin/Metformin HCl | Empagliflozin/Linagliptin		top-500-generic
+364	penicillin	generic	2134493	985826	476564	672103	0.0	Penicillin V Potassium | Penicillin V | Penicillin G Benzathine		clincalc-top300,top-500-generic
+365	paliperidone	generic	2131017	0	1091524	1039493	0.0	Paliperidone Palmitate | Paliperidone		top-500-generic
+366	cefuroxime	generic	2000715	609282	1149864	241569	0.0	Cefuroxime Axetil | Cefuroxime | Cefuroxime Sodium		clincalc-top300,top-500-generic
+367	lurasidone	generic	1969701	0	853871	1115830	0.0	Lurasidone HCl		top-500-generic
+368	doxepin	generic	1967425	0	1271244	696181	0.0	Doxepin HCl		top-500-generic
+369	midodrine	generic	1942030	0	1625675	316355	0.0	Midodrine HCl		top-500-generic
+370	nabumetone	generic	1901169	1038359	584375	278435	0.0	Nabumetone		clincalc-top300,top-500-generic
+371	norelgestromin	generic	1855029	1194977	9474	650578	0.0	Ethinyl Estradiol; Norelgestromin | Norelgestromin/Ethin.Estradiol		clincalc-top300,top-500-generic
+372	heparin	generic	1853365	0	45160	1808205	0.0	Heparin Sodium,Porcine | Heparin Sodium,Porcine/Ns/PF | Taurolidine In Heparin Sodium		top-500-generic
+373	peroxide	generic	1823922	666496	39928	1117498	0.0	Benzoyl Peroxide | Clindamycin Phos/Benzoyl Perox | Carbamide Peroxide		clincalc-top300,top-500-generic
+374	clozapine	generic	1814508	0	1180978	633530	0.0	Clozapine		top-500-generic
+375	cariprazine	generic	1810123	0	766962	1043161	0.0	Cariprazine HCl		top-500-generic
+376	vraylar	brand	1810123	0	766962	1043161	0.0	Vraylar	cariprazine	top-500-brand
+377	tdap	brand	1787640	0	1787640	0	0.0	Boostrix Tdap | Adacel Tdap	diphth,pertuss(acell),tet vac | diph,pertuss(acell),tet vac/pf	top-500-brand
+378	nicotine	generic	1768974	0	12316	1756658	0.0	Nicotine | Nicotine Polacrilex		top-500-generic
+379	benzoate	generic	1755384	0	818115	937269	0.0	Rizatriptan Benzoate | Alogliptin Benzoate | Amlodipine Benzoate		top-500-generic
+380	mycophenolate	generic	1745210	735030	581962	428218	0.0	Mycophenolate Mofetil | Mycophenolate Sodium | Mycophenolate Mofetil HCl		clincalc-top300,top-500-generic
+381	digoxin	generic	1731447	0	1580892	150555	0.0	Digoxin		top-500-generic
+382	aerosphere	device	1722426	0	1556217	166209	0.0	Breztri Aerosphere | Bevespi Aerosphere	formoterol | glycopyrrolate | budesonide	top-25-device
+383	sennosides	generic	1710834	0	0	1710834	0.0	Sennosides | Sennosides/Docusate Sodium		top-500-generic
+384	restasis	brand	1702828	0	1440983	261845	0.0	Restasis | Restasis Multidose	cyclosporine	top-500-brand
+385	benzoyl	generic	1692601	666496	40138	985967	0.0	Benzoyl Peroxide | Clindamycin Phos/Benzoyl Perox | Erythromycin/Benzoyl Peroxide		clincalc-top300,top-500-generic
+386	anoro	brand	1692431	0	1383988	308443	0.0	Anoro Ellipta	brm | umeclidinium | vilanterol	top-500-brand
+387	humulin	brand	1679944	0	1223833	456111	0.0	Humulin N | Humulin 70-30 | Humulin R	insulin	top-500-brand
+388	cypionate	salt	1676962	0	1124147	552815	0.0	Testosterone Cypionate | Estradiol Cypionate		top-60-salt
+389	tradjenta	brand	1651322	0	1446832	204490	0.0	Tradjenta	linagliptin	top-500-brand
+390	lacosamide	generic	1650003	0	931819	718184	0.0	Lacosamide		top-500-generic
+391	ceftriaxone	generic	1647767	0	362623	1285144	0.0	Ceftriaxone Sodium | Ceftriaxone In Is-Osm Dextrose		top-500-generic
+392	liraglutide	generic	1638340	826310	409040	402990	0.0	Liraglutide | Insulin Degludec/Liraglutide		clincalc-top300,top-500-generic
+393	abrysvo	brand	1637581	0	1628562	9019	0.0	Abrysvo	rsv vacc, pref a and pref b/pf	top-500-brand
+394	isotretinoin	generic	1623990	1369345	17201	237444	0.0	Isotretinoin | Isotretinoin, Micronized		clincalc-top300,top-500-generic
+395	fluorouracil	generic	1609139	798275	678749	132115	0.0	Fluorouracil		clincalc-top300,top-500-generic
+396	bictegravir	generic	1602261	0	840772	761489	0.0	Bictegrav/Emtricit/Tenofov Ala		top-500-generic
+397	biktarvy	brand	1602261	0	840772	761489	0.0	Biktarvy	alafen | bictegravir | emtricitabine	top-500-brand
+398	vascepa	brand	1588154	0	1474990	113164	0.0	Vascepa	ethyl | icosapent	top-500-brand
+399	dipropionate	salt	1584314	0	1052871	531443	0.0	Betamethasone Dipropionate | Beclomethasone Dipropionate | Alclometasone Dipropionate		top-60-salt
+400	fentanyl	generic	1583811	0	837184	746627	0.0	Fentanyl | Fentanyl Citrate/PF | Fentanyl Citrate		top-500-generic
+401	breztri	brand	1578801	0	1431108	147693	0.0	Breztri Aerosphere	budesonide | formoterol | glycopyrrolate	top-500-brand
+402	mofetil	salt	1578678	735030	518400	325248	0.0	Mycophenolate Mofetil | Mycophenolate Mofetil HCl		top-60-salt
+403	palmitate	salt	1565802	0	699587	866215	0.0	Paliperidone Palmitate | Clindamycin Palmitate HCl | Vit A Palmitate/Vit C/Vit D3		top-60-salt
+404	primidone	generic	1546249	0	1427565	118684	0.0	Primidone		top-500-generic
+405	ammonium	generic	1544617	0	1270511	274106	0.0	Ammonium Lactate | Ammonium Chloride		top-500-generic
+406	bimatoprost	generic	1530503	0	1476293	54210	0.0	Bimatoprost		top-500-generic
+407	boostrix	brand	1522277	0	1522277	0	0.0	Boostrix Tdap	diphth,pertuss(acell),tet vac	top-500-brand
+408	rybelsus	brand	1503153	0	1251733	251420	0.0	Rybelsus	semaglutide	top-500-brand
+409	adderall	brand	1494516	0	52915	1441601	0.0	Adderall XR | Adderall	amphetamine | dextroamphetamine	top-500-brand
+410	desogestrel	generic	1470344	1194184	22470	253690	0.0	Desogestrel; Ethinyl Estradiol | Desogestrel-Ethinyl Estradiol | Desog-E.Estradiol/E.Estradiol		clincalc-top300,top-500-generic
+411	klor-con	brand	1463174	0	1276488	186686	0.0	Klor-Con M20 | Klor-Con M10 | Klor-Con 10	chloride | potassium	top-500-brand
+412	lumigan	brand	1457395	0	1407999	49396	0.0	Lumigan	bimatoprost	top-500-brand
+413	naltrexone	generic	1429330	0	512892	916438	0.0	Naltrexone HCl | Naltrexone Microspheres | Naltrexone HCl/Bupropion HCl		top-500-generic
+414	gemtesa	brand	1428314	0	1361795	66519	0.0	Gemtesa	vibegron	top-500-brand
+415	vibegron	generic	1428314	0	1361795	66519	0.0	Vibegron		top-500-generic
+416	epoetin	generic	1413256	0	170740	1242516	0.0	Epoetin Alfa | Methoxy PEG-Epoetin Beta | Epoetin Alfa-Epbx		top-500-generic
+417	invega	brand	1411380	0	698813	712567	0.0	Invega Sustenna | Invega Trinza | Invega	paliperidone	top-500-brand
+418	ranolazine	generic	1403213	0	1248804	154409	0.0	Ranolazine		top-500-generic
+419	sucrose	generic	1401119	0	80	1401039	0.0	Iron Sucrose Complex | Sodium Ferric Gluconat/Sucrose		top-500-generic
+420	senna	generic	1398549	1398549	0	0	0.0	Senna; Docusate		clincalc-top300,top-500-generic
+421	axetil	salt	1390004	0	1149804	240200	0.0	Cefuroxime Axetil		top-60-salt
+422	levalbuterol	generic	1383729	897717	288881	197131	0.0	Levalbuterol | Levalbuterol Tartrate | Levalbuterol HCl		clincalc-top300,top-500-generic
+423	toujeo	brand	1379198	0	1277067	102131	0.0	Toujeo Solostar | Toujeo Max Solostar	glargine | insulin	top-500-brand
+424	janumet	brand	1364259	0	1126872	237387	0.0	Janumet | Janumet XR	metformin | phosphate | sitagliptin	top-500-brand
+425	methimazole	generic	1346857	0	943504	403353	0.0	Methimazole		top-500-generic
+426	venofer	brand	1332899	0	80	1332819	0.0	Venofer	iron | sucrose	top-500-brand
+427	hydromorphone	generic	1328125	0	791757	536368	0.0	Hydromorphone HCl | Hydromorphone HCl/PF		top-500-generic
+428	tobramycin	generic	1327564	0	870551	457013	0.0	Tobramycin/Dexamethasone | Tobramycin | Tobramycin Sulfate		top-500-generic
+429	wegovy	brand	1298766	0	211575	1087191	0.0	Wegovy	semaglutide	fin-888,top-500-brand
+430	beclomethasone	generic	1287574	754575	234101	298898	0.0	Beclomethasone | Beclomethasone Dipropionate		clincalc-top300,top-500-generic
+431	brilinta	brand	1255701	0	1029007	226694	0.0	Brilinta	ticagrelor	top-500-brand
+432	olopatadine	generic	1253426	725038	53147	475241	0.0	Olopatadine | Olopatadine HCl | Olopatadine HCl/Mometasone		clincalc-top300,top-500-generic
+433	concerta	brand	1229334	0	19317	1210017	0.0	Concerta	methylphenidate	top-500-brand
+434	phenazopyridine	generic	1219985	640512	54740	524733	0.0	Phenazopyridine | Phenazopyridine HCl		clincalc-top300,top-500-generic
+435	sotalol	generic	1209321	0	1148328	60993	0.0	Sotalol HCl		top-500-generic
+436	senna	brand	1206429	0	0	1206429	0.0	Senna | Senna Lax | Senna Plus	sennosides | docusate | sodium	top-500-brand
+437	atropine	generic	1195932	0	958149	237783	0.0	Diphenoxylate HCl/Atropine | Atropine Sulfate | Difenoxin HCl/Atropine Sulfate		top-500-generic
+438	carboxymethylcellulose	generic	1171866	0	0	1171866	0.0	Carboxymethylcellulose Sodium | Carboxymethylcellulos/Glycerin | Carboxymethylcell/Glycerin/PF		top-500-generic
+439	ziprasidone	generic	1158902	0	639925	518977	0.0	Ziprasidone HCl | Ziprasidone Mesylate		top-500-generic
+440	prochlorperazine	generic	1158893	0	771125	387768	0.0	Prochlorperazine Maleate | Prochlorperazine Edisylate | Prochlorperazine		top-500-generic
+441	indomethacin	generic	1158869	720259	266083	172527	0.0	Indomethacin		clincalc-top300,top-500-generic
+442	refresh	brand	1134913	0	0	1134913	0.0	Refresh Tears | Refresh Plus | Refresh Optive	carboxymethylcellulose | sodium | glycerin	top-500-brand
+443	humira	brand	1129776	0	652028	477748	0.0	Humira(Cf) Pen | Humira Pen | Humira(Cf)	adalimumab	fin-888,top-500-brand
+444	varenicline	generic	1096261	0	660035	436226	0.0	Varenicline Tartrate		top-500-generic
+445	phenytoin	generic	1088944	0	841330	247614	0.0	Phenytoin Sodium Extended | Phenytoin | Phenytoin Sodium		top-500-generic
+446	eszopiclone	generic	1067355	0	843540	223815	0.0	Eszopiclone		top-500-generic
+447	gemfibrozil	generic	1052163	0	754049	298114	0.0	Gemfibrozil		top-500-generic
+448	dutasteride	generic	1049589	0	1008876	40713	0.0	Dutasteride | Dutasteride/Tamsulosin HCl		top-500-generic
+449	hydroquinone	generic	1029876	1025108	0	4768	0.0	Hydroquinone		clincalc-top300,top-500-generic
+450	incruse	brand	1013867	0	852329	161538	0.0	Incruse Ellipta	umeclidinium	top-500-brand
+451	trintellix	brand	1011390	0	610008	401382	0.0	Trintellix	vortioxetine	top-500-brand
+452	vortioxetine	generic	1011390	0	610008	401382	0.0	Vortioxetine Hydrobromide		top-500-generic
+453	fluocinonide	generic	1004247	0	746657	257590	0.0	Fluocinonide | Fluocinonide/Emollient Base		top-500-generic
+454	creon	brand	993707	0	775061	218646	0.0	Creon	amylase | lipase | protease	top-500-brand
+455	dolutegravir	generic	992122	0	688744	303378	0.0	Dolutegravir Sodium | Dolutegravir Sodium/Lamivudine | Abacavir/Dolutegravir/Lamivudi		top-500-generic
+456	gavilyte-g	brand	990336	0	728607	261729	0.0	Gavilyte-G	kcl | sodium | sulfate	top-500-brand
+457	sevelamer	generic	988521	0	831282	157239	0.0	Sevelamer Carbonate | Sevelamer HCl		top-500-generic
+458	levemir	brand	984700	0	707782	276918	0.0	Levemir Flexpen | Levemir | Levemir Flextouch	detemir | insulin	top-500-brand
+459	autoinjector	device	981464	0	540926	440538	0.0	Aimovig Autoinjector | Ajovy Autoinjector | Taltz Autoinjector	erenumab | fremanezumab | ixekizumab	top-25-device
+460	propylene	generic	974902	0	367737	607165	0.0	Betamethasone/Propylene Glyc | Propylene Glycol/PEG 400 | Propylene Glycol		top-500-generic
+461	methenamine	generic	961262	0	894700	66562	0.0	Methenamine Hippurate | Methenamine Mandelate | Methenam/Sod Phos/Mblue/Hyoscy		top-500-generic
+462	handihaler	device	956778	0	619477	337301	0.0	Spiriva Handihaler	tiotropium	top-25-device
+463	hippurate	generic	950941	0	887845	63096	0.0	Methenamine Hippurate		top-500-generic
+464	enoxaparin	generic	948593	0	533899	414694	0.0	Enoxaparin Sodium		top-500-generic
+465	estrogens	generic	936231	0	707868	228363	0.0	Estrogens, Conjugated | Estrogen,Con/M-Progest Acet | Estrogens,Esterified		top-500-generic
+466	brexpiprazole	generic	930357	0	598492	331865	0.0	Brexpiprazole		top-500-generic
+467	rexulti	brand	930357	0	598492	331865	0.0	Rexulti	brexpiprazole	top-500-brand
+468	cilostazol	generic	902605	0	795710	106895	0.0	Cilostazol		top-500-generic
+469	tolterodine	generic	894714	0	810996	83718	0.0	Tolterodine Tartrate		top-500-generic
+470	ibandronate	generic	888352	0	858931	29421	0.0	Ibandronate Sodium		top-500-generic
+471	dupixent	brand	879879	0	450526	429353	0.0	Dupixent Pen	dupilumab	top-500-brand
+472	dulera	brand	865121	0	369910	495211	0.0	Dulera	formoterol | mometasone	top-500-brand
+473	sulfadiazine	generic	858013	0	629060	228953	0.0	Silver Sulfadiazine | Sulfadiazine		top-500-generic
+474	silver	generic	857231	0	628610	228621	0.0	Silver Sulfadiazine | Silver Nitrate		top-500-generic
+475	diphenoxylate	generic	848861	0	741981	106880	0.0	Diphenoxylate HCl/Atropine		top-500-generic
+476	olodaterol	generic	847847	0	708004	139843	0.0	Tiotropium Br/Olodaterol HCl | Olodaterol HCl		top-500-generic
+477	nurtec	brand	847722	0	426648	421074	0.0	Nurtec ODT	rimegepant	top-500-brand
+478	zonisamide	generic	842322	0	421239	421083	0.0	Zonisamide		top-500-generic
+479	stiolto	brand	833372	0	695441	137931	0.0	Stiolto Respimat	olodaterol | tiotropium	top-500-brand
+480	dabigatran	generic	821482	0	781528	39954	0.0	Dabigatran Etexilate Mesylate		top-500-generic
+481	etexilate	generic	821482	0	781528	39954	0.0	Dabigatran Etexilate Mesylate		top-500-generic
+482	cholestyramine	generic	817491	0	702229	115262	0.0	Cholestyramine (With Sugar) | Cholestyramine		top-500-generic
+483	combivent	brand	811023	0	602035	208988	0.0	Combivent Respimat	albuterol | ipratropium	top-500-brand
+484	methadose	brand	807399	0	439	806960	0.0	Methadose	methadone	top-500-brand
+485	amantadine	generic	797480	0	557873	239607	0.0	Amantadine HCl		top-500-generic
+486	arnuity	brand	786857	0	659581	127276	0.0	Arnuity Ellipta	fluticasone	top-500-brand
+487	premarin	brand	780804	0	610592	170212	0.0	Premarin*	estrogens	top-500-brand
+488	tosylate	salt	778442	0	476732	301710	0.0	Lumateperone Tosylate | Valbenazine Tosylate | Naldemedine Tosylate		top-60-salt
+489	rivastigmine	generic	773896	0	753622	20274	0.0	Rivastigmine | Rivastigmine Tartrate		top-500-generic
+490	norgestrel	generic	771407	582944	15690	172773	0.0	Ethinyl Estradiol; Norgestrel | Norgestrel-Ethinyl Estradiol | Norgestrel		clincalc-top300,top-500-generic
+491	ascorbic	generic	766305	741624	0	24681	0.0	Ascorbic Acid		clincalc-top300,top-500-generic
+492	fluvoxamine	generic	764764	0	427554	337210	0.0	Fluvoxamine Maleate		top-500-generic
+493	oxide	generic	748301	0	0	748301	0.0	Magnesium Oxide | Zinc Oxide | Calamine/Zinc Oxide		top-500-generic
+494	novolin	brand	747613	0	634815	112798	0.0	Novolin 70-30 | Novolin 70-30 Flexpen | Novolin R	insulin	top-500-brand
+495	raloxifene	generic	738254	0	710154	28100	0.0	Raloxifene HCl		top-500-generic
+496	netarsudil	generic	737310	0	683416	53894	0.0	Netarsudil Mesylate | Netarsudil Mesylat/Latanoprost		top-500-generic
+497	breyna	brand	736801	0	554739	182062	0.0	Breyna	budesonide | formoterol	top-500-brand
+498	fluocinolone	generic	727199	0	420108	307091	0.0	Fluocinolone Acetonide | Fluocinolone Acetonide Oil | Fluocinolone/Shower Cap		top-500-generic
+499	metolazone	generic	724993	0	646377	78616	0.0	Metolazone		top-500-generic
+500	ketotifen	generic	721611	0	0	721611	0.0	Ketotifen Fumarate		top-500-generic
+501	sulfasalazine	generic	701300	0	583061	118239	0.0	Sulfasalazine		top-500-generic
+502	olamine	generic	700530	0	563677	136853	0.0	Ciclopirox Olamine | Eltrombopag Olamine		top-500-generic
+503	cefadroxil	generic	699083	0	537342	161741	0.0	Cefadroxil		top-500-generic
+504	leflunomide	generic	693833	0	578502	115331	0.0	Leflunomide		top-500-generic
+505	iohexol	generic	683196	0	0	683196	0.0	Iohexol		top-500-generic
+506	omnipaque	brand	683196	0	0	683196	0.0	Omnipaque*	iohexol	top-500-brand
+507	decanoate	salt	681938	0	396086	285852	0.0	Haloperidol Decanoate | Fluphenazine Decanoate		top-60-salt
+508	cinacalcet	generic	675149	0	288620	386529	0.0	Cinacalcet HCl		top-500-generic
+509	epogen	brand	674546	0	16346	658200	0.0	Epogen	epoetin	top-500-brand
+510	clobazam	generic	669738	0	183581	486157	0.0	Clobazam		top-500-generic
+511	valproic	generic	668329	0	362633	305696	0.0	Valproic Acid (As Sodium Salt) | Valproic Acid		top-500-generic
+512	ursodiol	generic	667566	0	488896	178670	0.0	Ursodiol		top-500-generic
+513	propofol	generic	666951	0	0	666951	0.0	Propofol		top-500-generic
+514	minocycline	generic	665771	0	353998	311773	0.0	Minocycline HCl | Minocycline HCl Microspheres		top-500-generic
+515	hydroxyurea	generic	665749	0	526088	139661	0.0	Hydroxyurea		top-500-generic
+516	fludrocortisone	generic	663706	0	497178	166528	0.0	Fludrocortisone Acetate		top-500-generic
+517	thiamine	generic	661170	607639	273	53258	0.0	Thiamine | Thiamine HCl | Thiamine Mononitrate (Vit B1)		clincalc-top300,top-500-generic
+518	midazolam	generic	658148	0	90157	567991	0.0	Midazolam HCl | Midazolam HCl/PF | Midazolam		top-500-generic
+519	sulfacetamide	generic	655194	558534	36100	60560	0.0	Sulfacetamide; Sulfur | Sulfacetamide Sodium | Sulfacetamide Sodium/Sulfur		clincalc-top300,top-500-generic
+520	vilazodone	generic	654036	0	361136	292900	0.0	Vilazodone HCl		top-500-generic
+521	vancomycin	generic	648480	0	406242	242238	0.0	Vancomycin HCl | Vancomycin/Water For Inj (PEG) | Vancomycin HCl In 5 % Dextrose		top-500-generic
+522	prilocaine	generic	647779	0	421178	226601	0.0	Lidocaine/Prilocaine		top-500-generic
+523	banophen	brand	647277	0	0	647277	0.0	Banophen | Banophen Anti-Itch	diphenhydramine | acetaminophen | zinc	top-500-brand
+524	candesartan	generic	643092	0	613773	29319	0.0	Candesartan Cilexetil | Candesartan/Hydrochlorothiazid		top-500-generic
+525	gentamicin	generic	641163	0	405115	236048	0.0	Gentamicin Sulfate | Gentamicin In NaCl, Iso-Osm | Gentamicin Sulfate/PF		top-500-generic
+526	dinitrate	salt	628955	0	539459	89496	0.0	Isosorbide Dinitrate		top-60-salt
+527	alafenamide	salt	628570	0	367649	260921	0.0	Emtricitabine/Tenofov Alafenam | Tenofovir Alafenamide		top-60-salt
+528	colestipol	generic	624426	0	529167	95259	0.0	Colestipol HCl		top-500-generic
+529	cefpodoxime	generic	621783	0	528117	93666	0.0	Cefpodoxime Proxetil		top-500-generic
+530	proxetil	salt	621783	0	528117	93666	0.0	Cefpodoxime Proxetil		top-60-salt
+531	phenobarbital	generic	621778	0	399060	222718	0.0	Phenobarbital | Phenobarbital Sodium | Phenobarb/Hyoscy/Atropine/Scop		top-500-generic
+532	trospium	generic	620283	0	577885	42398	0.0	Trospium Chloride | Xanomeline Tart/Trospium Chlor		top-500-generic
+533	synjardy	brand	619953	0	498133	121820	0.0	Synjardy XR | Synjardy	empagliflozin | metformin	top-500-brand
+534	polacrilex	generic	616836	0	0	616836	0.0	Nicotine Polacrilex		top-500-generic
+535	abilify	brand	604621	0	254033	350588	0.0	Abilify Maintena | Abilify Asimtufii | Abilify	aripiprazole	top-500-brand
+536	victoza	brand	604041	0	289589	314452	0.0	Victoza 3-Pak | Victoza 2-Pak	liraglutide	top-500-brand
+537	ubrelvy	brand	603614	0	328213	275401	0.0	Ubrelvy	ubrogepant	top-500-brand
+538	megestrol	generic	603353	0	492517	110836	0.0	Megestrol Acetate		top-500-generic
+539	desmopressin	generic	600691	0	215439	385252	0.0	Desmopressin Acetate | Desmopressin (Nonrefrigerated)		top-500-generic
+540	valerate	salt	591410	0	319288	272122	0.0	Betamethasone Valerate | Estradiol Valerate | Hydrocortisone Valerate		top-60-salt
+541	lifitegrast	generic	589915	0	477354	112561	0.0	Lifitegrast		top-500-generic
+542	xiidra	brand	589915	0	477354	112561	0.0	Xiidra	lifitegrast	top-500-brand
+543	emgality	brand	588204	0	305786	282418	0.0	Emgality Pen	galcanezumab	top-500-brand
+544	galcanezumab	generic	588204	0	305786	282418	0.0	Galcanezumab-Gnlm		top-500-generic
+545	sulfur	generic	587202	558534	263	28405	0.0	Sulfacetamide; Sulfur | Sulfacetamide Sodium/Sulfur | Salicylic Acid/Sulfur		clincalc-top300,top-500-generic
+546	lubiprostone	generic	578060	0	446905	131155	0.0	Lubiprostone		top-500-generic
+547	lamivudine	generic	577865	0	389460	188405	0.0	Dolutegravir Sodium/Lamivudine | Abacavir/Dolutegravir/Lamivudi | Lamivudine		top-500-generic
+548	sodium	brand	572882	0	217818	355064	0.0	Sodium Fluoride* | Sodium Fluoride 5000 Plus | Sodium Fluoride 5000 Dry Mouth	fluoride | sodium | acid	top-500-brand
+549	oxycontin	brand	568913	0	474072	94841	0.0	Oxycontin	oxycodone	top-500-brand
+550	rifaximin	generic	568534	0	416690	151844	0.0	Rifaximin		top-500-generic
+551	xifaxan	brand	568534	0	416690	151844	0.0	Xifaxan	rifaximin	top-500-brand
+552	bisacodyl	generic	566547	0	0	566547	0.0	Bisacodyl		top-500-generic
+553	retin-a	brand	564364	0	32185	532179	0.0	Retin-A | Retin-A Micro	tretinoin	top-500-brand
+554	nystop	brand	563320	0	440088	123232	0.0	Nystop	nystatin	top-500-brand
+555	simethicone	generic	561102	0	0	561102	0.0	Simethicone | Mag Hydrox/Aluminum Hyd/Simeth | Loperamide HCl/Simethicone		top-500-generic
+556	brinzolamide	generic	558575	0	525705	32870	0.0	Brinzolamide/Brimonidine Tart | Brinzolamide		top-500-generic
+557	enbrel	brand	558475	0	409277	149198	0.0	Enbrel Sureclick | Enbrel | Enbrel Mini	etanercept	top-500-brand
+558	etanercept	generic	558475	0	409277	149198	0.0	Etanercept		top-500-generic
+559	denosumab	generic	551805	0	468512	83293	2430.9	Denosumab | Denosumab*		partb-top,top-500-generic
+560	scopolamine	generic	550875	0	400551	150324	0.0	Scopolamine | Phenobarb/Hyoscy/Atropine/Scop		top-500-generic
+561	dextrose	generic	538092	0	84254	453838	0.0	Dextrose 5 % In Water | Cefazolin Sodium/Dextrose,Iso | Ceftriaxone In Is-Osm Dextrose		top-500-generic
+562	aimovig	brand	535950	0	337872	198078	0.0	Aimovig Autoinjector	erenumab	top-500-brand
+563	erenumab	generic	535950	0	337872	198078	0.0	Erenumab-Aooe		top-500-generic
+564	azathioprine	generic	535373	0	397668	137705	0.0	Azathioprine | Azathioprine Sodium		top-500-generic
+565	travoprost	generic	522256	0	497738	24518	0.0	Travoprost		top-500-generic
+566	combigan	brand	521863	0	465280	56583	0.0	Combigan	brimonidine | timolol	top-500-brand
+567	cilexetil	generic	521623	0	496692	24931	0.0	Candesartan Cilexetil		top-500-generic
+568	fiasp	brand	512173	0	487776	24397	0.0	Fiasp Flextouch | Fiasp | Fiasp Penfill	aspart | insulin	top-500-brand
+569	pradaxa	brand	511866	0	481836	30030	0.0	Pradaxa	dabigatran | etexilate	top-500-brand
+570	qvar	brand	511143	0	222782	288361	0.0	Qvar Redihaler	beclomethasone	top-500-brand
+571	redihaler	device	511143	0	222782	288361	0.0	Qvar Redihaler	beclomethasone	top-25-device
+572	tamoxifen	generic	507551	0	383722	123829	0.0	Tamoxifen Citrate		top-500-generic
+573	prolia	brand	505077	0	450858	54219	2430.9	Prolia | Prolia*	denosumab	partb-top,top-500-brand
+574	modafinil	generic	500038	0	369161	130877	0.0	Modafinil		top-500-generic
+575	systane	brand	493510	0	0	493510	0.0	Systane | Systane Complete | Systane Balance	glycol | propylene | minerals	otc-us,top-500-brand
+576	acetazolamide	generic	491735	0	333080	158655	0.0	Acetazolamide | Acetazolamide Sodium		top-500-generic
+577	glucagon	generic	491292	0	232783	258509	0.0	Glucagon | Glucagon HCl		top-500-generic
+578	fluorometholone	generic	490858	0	417600	73258	0.0	Fluorometholone | Fluorometholone Acetate		top-500-generic
+579	bicarbonate	generic	484568	0	127637	356931	0.0	Sodium Bicarbonate | Omeprazole/Sodium Bicarbonate | Potassium Bicarbonate/Cit Ac		top-500-generic
+580	bicarbonate	salt	484568	0	127637	356931	0.0	Sodium Bicarbonate | Omeprazole/Sodium Bicarbonate | Potassium Bicarbonate/Cit Ac		top-60-salt
+581	m-pap	brand	482749	0	0	482749	0.0	M-Pap	acetaminophen	top-500-brand
+582	permethrin	generic	477572	0	208267	269305	0.0	Permethrin		top-500-generic
+583	gavilyte-c	brand	475444	0	380623	94821	0.0	Gavilyte-C	kcl | sodium | sulfate	top-500-brand
+584	alirocumab	generic	473770	0	442806	30964	0.0	Alirocumab		top-500-generic
+585	praluent	brand	473770	0	442806	30964	0.0	Praluent Pen	alirocumab	top-500-brand
+586	junel	brand	471769	0	27142	444627	0.0	Junel Fe | Junel | Junel Fe 24	estradiol | norethindrone | ethyl	top-500-brand
+587	chlorpromazine	generic	471339	0	248177	223162	0.0	Chlorpromazine HCl		top-500-generic
+588	finerenone	generic	471255	0	403577	67678	0.0	Finerenone		top-500-generic
+589	kerendia	brand	471255	0	403577	67678	0.0	Kerendia	finerenone	top-500-brand
+590	lenalidomide	generic	464361	0	437910	26451	0.0	Lenalidomide		top-500-generic
+591	roflumilast	generic	461745	0	387514	74231	0.0	Roflumilast		top-500-generic
+592	bacitracin	generic	460680	0	71602	389078	0.0	Bacitracin | Neomycin/Bacitracin/Polymyxinb | Bacitracin Zinc		top-500-generic
+593	armour	brand	458108	0	308847	149261	0.0	Armour Thyroid	thyroid	top-500-brand
+594	fluphenazine	generic	456115	0	299526	156589	0.0	Fluphenazine HCl | Fluphenazine Decanoate		top-500-generic
+595	admelog	brand	446524	0	198533	247991	0.0	Admelog Solostar | Admelog	insulin | lispro	top-500-brand
+596	pentoxifylline	generic	444083	0	361831	82252	0.0	Pentoxifylline		top-500-generic
+597	mircera	brand	443498	0	0	443498	0.0	Mircera	epoetin	top-500-brand
+598	succinylcholine	generic	443213	0	49378	393835	0.0	Methylprednisolone Sod Succ/PF | Methylprednisolone Sod Succ | Hydrocortisone Sodium Succ/PF		top-500-generic
+599	nyamyc	brand	439394	0	349852	89542	0.0	Nyamyc	nystatin	top-500-brand
+600	cefazolin	generic	437387	0	83975	353412	0.0	Cefazolin Sodium | Cefazolin Sodium/Dextrose,Iso		top-500-generic
+601	diprivan	brand	436223	0	0	436223	0.0	Diprivan	propofol	top-500-brand
+602	descovy	brand	429137	0	238782	190355	0.0	Descovy	emtricitabine | tenofovir	top-500-brand
+603	myristate	generic	420364	0	371096	49268	0.0	Oxycodone Myristate		top-500-generic
+604	xtampza	brand	420364	0	371096	49268	0.0	Xtampza ER	myristate | oxycodone	top-500-brand
+605	dilt-xr	brand	413539	0	383212	30327	0.0	Dilt-XR	diltiazem	top-500-brand
+606	abiraterone	generic	412544	0	393327	19217	0.0	Abiraterone Acetate | Abiraterone Acet,Submicronized | Niraparib/Abiraterone		top-500-generic
+607	carisoprodol	generic	411248	0	348381	62867	0.0	Carisoprodol		top-500-generic
+608	indapamide	generic	410953	0	370726	40227	0.0	Indapamide		top-500-generic
+609	glyburide	generic	410625	0	254891	155734	0.0	Glyburide | Glyburide/Metformin HCl | Glyburide,Micronized		top-500-generic
+610	botox	brand	406787	0	90229	316558	478.6	Botox | Botox Cosmetic | Botox*	onabotulinumtoxina	partb-top,top-500-brand
+611	onabotulinumtoxina	generic	406787	0	90229	316558	478.6	Onabotulinumtoxina | Onabotulinumtoxina*		partb-top,top-500-generic
+612	qelbree	brand	406498	0	11851	394647	0.0	Qelbree	viloxazine	top-500-brand
+613	viloxazine	generic	406498	0	11851	394647	0.0	Viloxazine HCl		top-500-generic
+614	prasugrel	generic	406003	0	333274	72729	0.0	Prasugrel HCl		top-500-generic
+615	rilpivirine	generic	405104	0	264933	140171	0.0	Emtricitab/Rilpiviri/Tenof Ala | Dolutegravir/Rilpivirine | Cabotegravir/Rilpivirine		top-500-generic
+616	repaglinide	generic	402962	0	360327	42635	0.0	Repaglinide		top-500-generic
+617	nitrate	generic	401852	0	181086	220766	0.0	Econazole Nitrate | Miconazole Nitrate | Oxiconazole Nitrate		top-500-generic
+618	nitrate	salt	401852	0	181086	220766	0.0	Econazole Nitrate | Miconazole Nitrate | Oxiconazole Nitrate		top-60-salt
+619	etabonate	generic	398501	0	347223	51278	0.0	Loteprednol Etabonate | Tobramycin/Lotepred Etab		top-500-generic
+620	loteprednol	generic	398501	0	347223	51278	0.0	Loteprednol Etabonate | Tobramycin/Lotepred Etab		top-500-generic
+621	canagliflozin	generic	396342	0	282231	114111	0.0	Canagliflozin | Canagliflozin/Metformin HCl		top-500-generic
+622	cyclosilicate	generic	395823	0	334671	61152	0.0	Sodium Zirconium Cyclosilicate		top-500-generic
+623	lokelma	brand	395823	0	334671	61152	0.0	Lokelma	cyclosilicate | sodium | zirconium	top-500-brand
+624	zirconium	generic	395823	0	334671	61152	0.0	Sodium Zirconium Cyclosilicate		top-500-generic
+625	movantik	brand	393420	0	336315	57105	0.0	Movantik	naloxegol	top-500-brand
+626	naloxegol	generic	393420	0	336315	57105	0.0	Naloxegol Oxalate		top-500-generic
+627	terconazole	generic	391501	0	128154	263347	0.0	Terconazole		top-500-generic
+628	jantoven	brand	391424	0	368987	22437	0.0	Jantoven	sodium | warfarin	top-500-brand
+629	focalin	brand	391220	0	4843	386377	0.0	Focalin XR | Focalin	dexmethylphenidate	top-500-brand
+630	sprintec	brand	391175	0	19885	371290	0.0	Sprintec	estradiol | ethinyl | norgestimate	top-500-brand
+631	ssd	brand	389665	0	287522	102143	0.0	Ssd	silver | sulfadiazine	top-500-brand
+632	multivitamin	brand	385605	0	286	385319	0.0	Multivitamin With Fluoride	fluoride	top-500-brand
+633	phenylephrine	generic	384243	0	1792	382451	0.0	Brompheniram/Phenylephrine/DM | Chlorpheniramine/Phenyleph/DM | Phenylephrine HCl		top-500-generic
+634	clarithromycin	generic	383349	0	197128	186221	0.0	Clarithromycin | Lansoprazole/Amoxiciln/Clarith | Vonoprazan/Amoxicillin/Clarith		top-500-generic
+635	procto-med	brand	381249	0	257304	123945	0.0	Procto-Med HC	hydrocortisone	top-500-brand
+636	rhopressa	brand	381248	0	353836	27412	0.0	Rhopressa	netarsudil	top-500-brand
+637	febuxostat	generic	379963	0	340761	39202	0.0	Febuxostat		top-500-generic
+638	darunavir	generic	374553	0	254468	120085	0.0	Darunavir/Cob/Emtri/Tenof Alaf | Darunavir/Cobicistat | Darunavir		top-500-generic
+639	eplerenone	generic	372708	0	321153	51555	0.0	Eplerenone		top-500-generic
+640	alafen	generic	370713	0	222482	148231	0.0	Elviteg/Cob/Emtri/Tenof Alafen | Darunavir/Cob/Emtri/Tenof Alaf		top-500-generic
+641	pilocarpine	generic	368110	0	316606	51504	0.0	Pilocarpine HCl		top-500-generic
+642	tivicay	brand	367359	0	255766	111593	0.0	Tivicay | Tivicay Pd	dolutegravir | sodium	top-500-brand
+643	belsomra	brand	364140	0	315401	48739	0.0	Belsomra	suvorexant	top-500-brand
+644	suvorexant	generic	364140	0	315401	48739	0.0	Suvorexant		top-500-generic
+645	caplyta	brand	364083	0	159224	204859	0.0	Caplyta	lumateperone	top-500-brand
+646	lumateperone	generic	364083	0	159224	204859	0.0	Lumateperone Tosylate		top-500-generic
+647	invokana	brand	362556	0	255843	106713	0.0	Invokana	canagliflozin	top-500-brand
+648	atogepant	generic	362291	0	209816	152475	0.0	Atogepant		top-500-generic
+649	qulipta	brand	362291	0	209816	152475	0.0	Qulipta	atogepant	top-500-brand
+650	doxercalciferol	generic	361711	0	1274	360437	0.0	Doxercalciferol		top-500-generic
+651	rocklatan	brand	356062	0	329580	26482	0.0	Rocklatan	latanoprost | netarsudil	top-500-brand
+652	dofetilide	generic	351754	0	335875	15879	0.0	Dofetilide		top-500-generic
+653	protamine	generic	349312	0	282462	66850	0.0	Insulin Lispro Protamin/Lispro | Protamine Sulfate		top-500-generic
+654	xulane	brand	344208	0	4153	340055	0.0	Xulane	estradiol | ethinyl | norelgestromin	top-500-brand
+655	constulose	brand	343548	0	228452	115096	0.0	Constulose	lactulose	top-500-brand
+656	felodipine	generic	343173	0	326120	17053	0.0	Felodipine		top-500-generic
+657	nadolol	generic	340167	0	262420	77747	0.0	Nadolol		top-500-generic
+658	ingrezza	brand	334702	0	256085	78617	0.0	Ingrezza | Ingrezza Initiation Pk(Tardiv) | Ingrezza Sprinkle	valbenazine	top-500-brand
+659	valbenazine	generic	334702	0	256085	78617	0.0	Valbenazine Tosylate		top-500-generic
+660	pyridostigmine	generic	333740	0	278003	55737	0.0	Pyridostigmine Bromide		top-500-generic
+661	triprolidine	generic	333409	0	0	333409	0.0	Triprolidine HCl | Triprolidine/Phenylephrine/DM | Triprolidine/Pseudoephedrine		top-500-generic
+662	ramelteon	generic	331670	0	223709	107961	0.0	Ramelteon		top-500-generic
+663	pitavastatin	generic	331534	0	315177	16357	0.0	Pitavastatin Calcium | Pitavastatin Magnesium		top-500-generic
+664	dronedarone	generic	331418	0	318776	12642	0.0	Dronedarone HCl		top-500-generic
+665	multaq	brand	331418	0	318776	12642	0.0	Multaq	dronedarone	top-500-brand
+666	enulose	brand	325829	0	236911	88918	0.0	Enulose	lactulose	top-500-brand
+667	rabeprazole	generic	325322	0	288664	36658	0.0	Rabeprazole Sodium		top-500-generic
+668	etodolac	generic	324991	0	266365	58626	0.0	Etodolac		top-500-generic
+669	simbrinza	brand	322778	0	301984	20794	0.0	Simbrinza	brimonidine | brinzolamide	top-500-brand
+670	zenpep	brand	322740	0	259162	63578	0.0	Zenpep	amylase | lipase | protease	top-500-brand
+671	antiseptic	generic	322533	0	322516	17	0.0	Alcohol Antiseptic Pads		top-500-generic
+672	zinc	generic	322307	0	654	321653	0.0	Bacitracin Zinc | Zinc Oxide | B Comp No3/Folic/C/Biotin/Zinc		top-500-generic
+673	trihexyphenidyl	generic	320879	0	207570	113309	0.0	Trihexyphenidyl HCl		top-500-generic
+674	atrovent	brand	317169	0	200254	116915	0.0	Atrovent HFA	ipratropium	top-500-brand
+675	silodosin	generic	315120	0	304390	10730	0.0	Silodosin		top-500-generic
+676	sublocade	brand	310840	0	24923	285917	0.0	Sublocade	buprenorphine	top-500-brand
+677	imiquimod	generic	308142	0	213473	94669	0.0	Imiquimod		top-500-generic
+678	bunod	generic	307268	0	292207	15061	0.0	Latanoprostene Bunod		top-500-generic
+679	latanoprostene	generic	307268	0	292207	15061	0.0	Latanoprostene Bunod		top-500-generic
+680	vyzulta	brand	307268	0	292207	15061	0.0	Vyzulta	bunod | latanoprostene	top-500-brand
+681	alphagan	brand	305815	0	256839	48976	0.0	Alphagan P	brimonidine	top-500-brand
+682	ertugliflozin	generic	305086	0	41400	263686	0.0	Ertugliflozin Pidolate | Ertugliflozin/Metformin | Ertugliflozin/Sitagliptin Phos		top-500-generic
+683	austedo	brand	304187	0	245380	58807	0.0	Austedo | Austedo XR | Austedo XR Titration Kt(Wk1-4)	deutetrabenazine	top-500-brand
+684	deutetrabenazine	generic	304187	0	245380	58807	0.0	Deutetrabenazine		top-500-generic
+685	desonide	generic	303487	0	176861	126626	0.0	Desonide		top-500-generic
+686	estarylla	brand	303407	0	11845	291562	0.0	Estarylla	estradiol | ethinyl | norgestimate	top-500-brand
+687	misoprostol	generic	302844	0	128688	174156	0.0	Misoprostol | Diclofenac Sodium/Misoprostol		top-500-generic
+688	loestrin	brand	301850	0	3942	297908	0.0	Lo Loestrin Fe | Loestrin Fe | Loestrin	estradiol | norethindrone | ethyl	top-500-brand
+689	twinrix	brand	298054	0	298054	0	0.0	Twinrix	hepatitis a and b vaccine/pf	top-500-brand
+690	depo-medrol	brand	295889	0	914	294975	0.0	Depo-Medrol	methylprednisolone	top-500-brand
+691	avastin	brand	291206	0	1712	289494	0.0	Avastin	bevacizumab	top-500-brand
+692	briviact	brand	290574	0	137123	153451	0.0	Briviact*	brivaracetam	top-500-brand
+693	vivitrol	brand	286377	0	44521	241856	0.0	Vivitrol	naltrexone	top-500-brand
+694	otezla	brand	284782	0	213396	71386	0.0	Otezla	apremilast	top-500-brand
+695	steglatro	brand	284571	0	38152	246419	0.0	Steglatro	ertugliflozin | pidolate	top-500-brand
+696	soliqua	brand	281347	0	273407	7940	0.0	Soliqua 100-33	glargine | insulin | lixisenatide	top-500-brand
+697	cartia	brand	279533	0	258636	20897	0.0	Cartia Xt	diltiazem	top-500-brand
+698	rinvoq	brand	278532	0	193904	84628	0.0	Rinvoq | Rinvoq Lq	upadacitinib	top-500-brand
+699	belbuca	brand	275886	0	217647	58239	0.0	Belbuca	buprenorphine	top-500-brand
+700	zepbound	brand	272493	0	353	272140	0.0	Zepbound	tirzepatide	fin-888,top-500-brand
+701	dovato	brand	270474	0	176933	93541	0.0	Dovato	dolutegravir | lamivudine | sodium	top-500-brand
+702	xtandi	brand	267120	0	255669	11451	0.0	Xtandi	enzalutamide	top-500-brand
+703	adacel	brand	265363	0	265363	0	0.0	Adacel Tdap	diph,pertuss(acell),tet vac/pf	top-500-brand
+704	solu-medrol	brand	264136	0	14318	249818	0.0	Solu-Medrol* | Solu-Medrol	methylprednisolone | sodium | succinylcholine	top-500-brand
+705	santyl	brand	260947	0	260947	0	0.0	Santyl	clostridium | collagenase | histrelin	top-500-brand
+706	alvesco	brand	259332	0	217395	41937	0.0	Alvesco	ciclesonide	top-500-brand
+707	malate	salt	255888	0	142063	113825	0.0	Olanzapine/Samidorphan Malate | Cabozantinib S-Malate | Almotriptan Malate		top-60-salt
+708	revlimid	brand	254520	0	239843	14677	0.0	Revlimid	lenalidomide	top-500-brand
+709	jornay	brand	254485	0	2964	251521	0.0	Jornay PM	methylphenidate	top-500-brand
+710	xigduo	brand	251597	0	215012	36585	0.0	Xigduo XR	dapagliflozin | metformin | propanediol	top-500-brand
+711	aflibercept	generic	247168	0	32770	214398	3031.1	Aflibercept | Aflibercept-Ayyh		partb-top
+712	eylea	brand	247147	0	32770	214377	3031.1	Eylea | Eylea Hd	aflibercept	partb-top,top-500-brand
+713	omalizumab	generic	245703	0	95356	150347	414.9	Omalizumab		partb-top
+714	xolair	brand	245703	0	95356	150347	414.9	Xolair	omalizumab	partb-top,top-500-brand
+715	blisovi	brand	245458	0	9464	235994	0.0	Blisovi Fe | Blisovi 24 Fe	estradiol | norethindrone	top-500-brand
+716	bcise	brand	242101	0	178931	63170	0.0	Bydureon Bcise	exenatide	top-500-brand
+717	bydureon	brand	242101	0	178931	63170	0.0	Bydureon Bcise	exenatide	top-500-brand
+718	zafemy	brand	240591	0	4351	236240	0.0	Zafemy	estradiol | ethinyl | norelgestromin	top-500-brand
+719	ajovy	brand	239462	0	89892	149570	0.0	Ajovy Autoinjector	fremanezumab	top-500-brand
+720	pulmicort	brand	236261	0	122138	114123	0.0	Pulmicort Flexhaler | Pulmicort	budesonide	top-500-brand
+721	nexium	brand	233312	0	97946	135366	0.0	Nexium | Nexium I.V.	esomeprazole | magnesium | sodium	otc-us,top-500-brand
+722	xcopri	brand	232592	0	117028	115564	0.0	Xcopri	cenobamate	top-500-brand
+723	larin	brand	232166	0	12195	219971	0.0	Larin Fe | Larin | Larin 24 Fe	estradiol | norethindrone | ethyl	top-500-brand
+724	rytary	brand	231384	0	224759	6625	0.0	Rytary	carbidopa | levodopa	top-500-brand
+725	flexhaler	device	230637	0	121500	109137	0.0	Pulmicort Flexhaler	budesonide	top-25-device
+726	yuvafem	brand	230017	0	203105	26912	0.0	Yuvafem	estradiol	top-500-brand
+727	gavilax	brand	226718	0	0	226718	0.0	Gavilax	glycol | polyethylene	top-500-brand
+728	ztlido	brand	225995	0	81208	144787	0.0	Ztlido	lidocaine	top-500-brand
+729	trulance	brand	225953	0	155096	70857	0.0	Trulance	plecanatide	top-500-brand
+730	quillivant	brand	222680	0	308	222372	0.0	Quillivant XR	methylphenidate	top-500-brand
+731	tri-sprintec	brand	220868	0	11352	209516	0.0	Tri-Sprintec	estradiol | ethinyl | norgestimate	top-500-brand
+732	quillichew	brand	219919	0	644	219275	0.0	Quillichew ER	methylphenidate	top-500-brand
+733	genvoya	brand	217732	0	131432	86300	0.0	Genvoya	alafen | cobicistat | elviteg	top-500-brand
+734	tiadylt	brand	216548	0	200287	16261	0.0	Tiadylt ER	diltiazem	top-500-brand
+735	jentadueto	brand	216016	0	144706	71310	0.0	Jentadueto | Jentadueto XR	linagliptin | metformin	top-500-brand
+736	narcan	brand	214017	0	9543	204474	0.0	Narcan	naloxone	top-500-brand
+737	triumeq	brand	213507	0	143167	70340	0.0	Triumeq | Triumeq Pd	abacavir | dolutegravir | lamivudine	top-500-brand
+738	lagevrio	brand	211699	0	206734	4965	0.0	Lagevrio (Eua)	molnupiravir	top-500-brand
+739	acid	brand	209284	0	62806	146478	0.0	Mycophenolic Acid | Selenious Acid | Acid Reducer	mycophenolate | sodium | selenium	top-500-brand
+740	semglee	brand	208962	0	148782	60180	0.0	Semglee (Yfgn) Pen | Semglee (Yfgn)	glargine | insulin	top-500-brand
+741	spravato	brand	208714	0	84544	124170	0.0	Spravato	esketamine	top-500-brand
+742	aristada	brand	207287	0	91330	115957	0.0	Aristada | Aristada Initio	aripiprazole	top-500-brand
+743	lauroxil	salt	207287	0	91330	115957	0.0	Aripiprazole Lauroxil | Aripiprazole Lauroxil,Submicr.		top-60-salt
+744	slynd	brand	205271	0	6063	199208	0.0	Slynd	drospirenone	top-500-brand
+745	hailey	brand	204132	0	9754	194378	0.0	Hailey Fe | Hailey 24 Fe | Hailey	estradiol | norethindrone | ethyl	top-500-brand
+746	stelara	brand	200635	0	132865	67770	0.0	Stelara*	ustekinumab	top-500-brand
+747	vemlidy	brand	199433	0	128867	70566	0.0	Vemlidy	tenofovir	top-500-brand
+748	natroba	brand	197214	0	580	196634	0.0	Natroba	spinosad	top-500-brand
+749	abatacept	generic	196547	0	138533	58014	930.4	Abatacept | Abatacept/Maltose | Abatacept*		partb-top
+750	orencia	brand	196547	0	138533	58014	930.4	Orencia Clickject | Orencia | Orencia*	abatacept | maltose	partb-top,top-500-brand
+751	westab	brand	195186	0	19402	175784	0.0	Westab Plus | Westab Max | Westab One	folic | acid | iron	top-500-brand
+752	epidiolex	brand	194423	0	43893	150530	0.0	Epidiolex	cannabidiol	top-500-brand
+753	senexon-s	brand	193178	0	0	193178	0.0	Senexon-S	docusate | sennosides | sodium	top-500-brand
+754	dotti	brand	192574	0	122816	69758	0.0	Dotti	estradiol	top-500-brand
+755	xeljanz	brand	187937	0	142979	44958	0.0	Xeljanz XR | Xeljanz	tofacitinib	top-500-brand
+756	azstarys	brand	187035	0	4949	182086	0.0	Azstarys	dexmethylphenidate | serdexmethylphen	top-500-brand
+757	nuedexta	brand	185783	0	158337	27446	0.0	Nuedexta	dextromethorphan | quinidine	top-500-brand
+758	orgovyx	brand	185462	0	180761	4701	0.0	Orgovyx	relugolix	top-500-brand
+759	zubsolv	brand	184523	0	49425	135098	0.0	Zubsolv	buprenorphine | naloxone	top-500-brand
+760	levoxyl	brand	182648	0	157517	25131	0.0	Levoxyl	levothyroxine | sodium	top-500-brand
+761	lybalvi	brand	182078	0	78389	103689	0.0	Lybalvi	olanzapine | samidorphan	top-500-brand
+762	skyrizi	brand	180675	0	121579	59096	0.0	Skyrizi Pen | Skyrizi On-Body | Skyrizi*	risankizumab	top-500-brand
+763	veltassa	brand	180581	0	163389	17192	0.0	Veltassa	calcium | patiromer | sorbitex	top-500-brand
+764	sutab	brand	180258	0	156816	23442	0.0	Sutab	sulfate | chloride | magnesium	top-500-brand
+765	baqsimi	brand	179844	0	43157	136687	0.0	Baqsimi	glucagon	top-500-brand
+766	disoproxil	salt	179569	0	83897	95672	0.0	Tenofovir Disoproxil Fumarate		top-60-salt
+767	velphoro	brand	176391	0	156980	19411	0.0	Velphoro	oxyhydroxide | sucroferric	top-500-brand
+768	histex	brand	176390	0	0	176390	0.0	Histex Pd | Histex | Histex Pdx	triprolidine	top-500-brand
+769	clenpiq	brand	175489	0	154263	21226	0.0	Clenpiq	citric | magnesium | picosulf	top-500-brand
+770	vienva	brand	174566	0	9836	164730	0.0	Vienva	estradiol | ethinyl | levonorgestrel	top-500-brand
+771	valtoco	brand	174107	0	20987	153120	0.0	Valtoco	diazepam	top-500-brand
+772	asmanex	brand	172605	0	65255	107350	0.0	Asmanex HFA | Asmanex	mometasone	top-500-brand
+773	ofev	brand	170802	0	161717	9085	0.0	Ofev	esylate | nintedanib	top-500-brand
+774	auvelity	brand	168788	0	73075	95713	0.0	Auvelity	bupropion | dextromethorphan	top-500-brand
+775	hydrochloride	salt	167540	0	25201	142339	0.0	Etelcalcetide Hydrochloride | Ozanimod Hydrochloride | Asciminib Hydrochloride		top-60-salt
+776	mili	brand	167448	0	6349	161099	0.0	Mili	estradiol | ethinyl | norgestimate	top-500-brand
+777	zemplar	brand	166927	0	32	166895	0.0	Zemplar | Zemplar*	paricalcitol	top-500-brand
+778	gvoke	brand	164451	0	106219	58232	0.0	Gvoke Hypopen 2-Pack | Gvoke Hypopen 1-Pack | Gvoke	glucagon	top-500-brand
+779	mycophenolic	brand	163320	0	62806	100514	0.0	Mycophenolic Acid	mycophenolate | sodium	top-500-brand
+780	klayesta	brand	162943	0	129701	33242	0.0	Klayesta	nystatin	top-500-brand
+781	lyrica	brand	162275	0	66024	96251	0.0	Lyrica | Lyrica Cr	pregabalin	top-500-brand
+782	nexplanon	brand	160697	0	393	160304	0.0	Nexplanon	etonogestrel	top-500-brand
+783	m-natal	brand	158599	0	21359	137240	0.0	M-Natal Plus	acid | folic | iron	top-500-brand
+784	norethindron-ethinyl	brand	156523	0	21076	135447	0.0	Norethindron-Ethinyl Estradiol	estradiol | ethyl | norethindrone	top-500-brand
+785	aurovela	brand	153814	0	5975	147839	0.0	Aurovela Fe | Aurovela 24 Fe | Aurovela	estradiol | norethindrone | ethyl	top-500-brand
+786	symtuza	brand	152981	0	91050	61931	0.0	Symtuza	alafen | cobicistat | darunavir	top-500-brand
+787	imbruvica	brand	151964	0	146416	5548	0.0	Imbruvica	ibrutinib	top-500-brand
+788	taltz	brand	151783	0	80003	71780	0.0	Taltz Autoinjector | Taltz Autoinjector (2 Pack) | Taltz Autoinjector (3 Pack)	ixekizumab	top-500-brand
+789	odefsey	brand	151567	0	97021	54546	0.0	Odefsey	alafen | emtricitabine | rilpivirine	top-500-brand
+790	bupivacaine	brand	151442	0	845	150597	0.0	Bupivacaine HCl | Bupivacaine HCl-Epinephrine	bupivacaine hcl/pf | bupivacaine hcl | bupivacaine hcl/epinephrine/pf	top-500-brand
+791	retacrit	brand	151273	0	47809	103464	0.0	Retacrit	alfa-ngpt | epoetin	top-500-brand
+792	miebo	brand	151159	0	134845	16314	0.0	Miebo	perfluorohexyloctane	top-500-brand
+793	aptiom	brand	149987	0	83810	66177	0.0	Aptiom	eslicarbazepine	top-500-brand
+794	dilantin	brand	149300	0	125399	23901	0.0	Dilantin	phenytoin | sodium	top-500-brand
+795	ibrance	brand	149015	0	131537	17478	0.0	Ibrance	palbociclib	top-500-brand
+796	livalo	brand	148263	0	143372	4891	0.0	Livalo	calcium | pitavastatin	top-500-brand
+797	tri-lo-mili	brand	147808	0	5121	142687	0.0	Tri-Lo-Mili	estradiol | ethinyl | norgestimate	top-500-brand
+798	glyxambi	brand	147150	0	136734	10416	0.0	Glyxambi	empagliflozin | linagliptin	top-500-brand
+799	nuplazid	brand	146168	0	143328	2840	0.0	Nuplazid	pimavanserin	top-500-brand
+800	disodium	salt	146018	0	112596	33422	0.0	Balsalazide Disodium | Pemetrexed Disodium | Fostamatinib Disodium		top-60-salt
+801	infliximab	generic	144362	0	30200	114162	366.7	Infliximab | Infliximab-Dyyb | Infliximab-Abda		partb-top
+802	prempro	brand	144136	0	88870	55266	0.0	Prempro	acetaminophen | estrogens | progesterone	top-500-brand
+803	procrit	brand	143939	0	106585	37354	0.0	Procrit	epoetin	top-500-brand
+804	bevespi	brand	143625	0	125109	18516	0.0	Bevespi Aerosphere	formoterol | fum | glycopyrrolate	top-500-brand
+805	dexilant	brand	141793	0	86176	55617	0.0	Dexilant	dexlansoprazole	top-500-brand
+806	jakafi	brand	141094	0	130891	10203	0.0	Jakafi	ruxolitinib	top-500-brand
+807	juluca	brand	140782	0	112878	27904	0.0	Juluca	dolutegravir | rilpivirine	top-500-brand
+808	tocilizumab	generic	139917	0	92670	47247	463.2	Tocilizumab | Tocilizumab-Aazg		partb-top
+809	proair	brand	139741	0	60265	79476	0.0	Proair Respiclick | Proair Digihaler | Proair HFA	albuterol	top-500-brand
+810	trijardy	brand	138277	0	112533	25744	0.0	Trijardy XR	empagliflozin | linagliptin | metformin	top-500-brand
+811	prezcobix	brand	138157	0	99872	38285	0.0	Prezcobix	cobicistat | darunavir	top-500-brand
+812	actemra	brand	138081	0	91107	46974	463.2	Actemra Actpen | Actemra* | Actemra (J3262)	tocilizumab	partb-top,top-500-brand
+813	risperdal	brand	137575	0	90252	47323	0.0	Risperdal Consta | Risperdal	risperidone	top-500-brand
+814	prevident	brand	136779	0	136779	0	0.0	Prevident | Prevident 5000 Sensitive | Prevident 5000 Dry Mouth	fluoride | nitrofurantoin | potassium	top-500-brand
+815	fycompa	brand	136570	0	59762	76808	0.0	Fycompa	perampanel	top-500-brand
+816	comirnaty	brand	136470	0	0	136470	696.3	Comirnaty 2024-2025 | Comirnaty 2023-2024 | Comirnaty *	covid vac 24-25 (12up)(pfi)/pf | covid vac 23-24(12up)(raxt)/pf | covid vac (12up)(raxt)/pf*	partb-top,top-500-brand
+817	motegrity	brand	135734	0	91612	44122	0.0	Motegrity	prucalopride	top-500-brand
+818	brukinsa	brand	134178	0	130764	3414	0.0	Brukinsa	zanubrutinib	top-500-brand
+819	nayzilam	brand	133668	0	39175	94493	0.0	Nayzilam	midazolam	top-500-brand
+820	namzaric	brand	131640	0	129758	1882	0.0	Namzaric	donepezil | memantine	top-500-brand
+821	parsabiv	brand	131394	0	0	131394	0.0	Parsabiv	etelcalcetide	top-500-brand
+822	jublia	brand	128669	0	101398	27271	0.0	Jublia	efinaconazole	top-500-brand
+823	calquence	brand	127232	0	122397	4835	0.0	Calquence	acalabrutinib	top-500-brand
+824	mirena	brand	123977	0	664	123313	0.0	Mirena	levonorgestrel	top-500-brand
+825	prolensa	brand	123778	0	122194	1584	0.0	Prolensa	bromfenac | sodium	top-500-brand
+826	dilaudid	brand	123648	0	757	122891	0.0	Dilaudid	hydromorphone	top-500-brand
+827	clickject	device	121867	0	94624	27243	0.0	Orencia Clickject	abatacept	top-25-device
+828	nuvaring	brand	120488	0	520	119968	0.0	Nuvaring	estradiol | ethinyl | etonogestrel	top-500-brand
+829	vitafol	brand	119976	0	212	119764	0.0	Vitafol Ultra | Vitafol Gummies | Vitafol Fe Plus	dha | iron | folate	top-500-brand
+830	leuprolide	generic	119470	0	41112	78358	213.2	Leuprolide Acetate | Leuprolide Mesylate | Leuprolide Acetate*		partb-top
+831	jencycla	brand	119384	0	6733	112651	0.0	Jencycla	norethindrone	top-500-brand
+832	sudogest	brand	119086	0	0	119086	0.0	Sudogest | Sudogest Cold And Allergy	pseudoephedrine | chlorpheniramine	top-500-brand
+833	cequa	brand	119005	0	90056	28949	0.0	Cequa	cyclosporine	top-500-brand
+834	trihydrate	salt	118417	0	88126	30291	0.0	Ampicillin Trihydrate		top-60-salt
+835	aranesp	brand	117617	0	27006	90611	0.0	Aranesp	darbepoetin | polysorbat	top-500-brand
+836	venclexta	brand	117438	0	112302	5136	0.0	Venclexta | Venclexta Starting Pack	venetoclax	top-500-brand
+837	loryna	brand	117360	0	4438	112922	0.0	Loryna	drospirenone | estradiol | ethinyl	top-500-brand
+838	opsumit	brand	115123	0	97146	17977	0.0	Opsumit	macitentan	top-500-brand
+839	flovent	brand	114936	0	32938	81998	0.0	Flovent HFA | Flovent Diskus	fluticasone	top-500-brand
+840	sps	brand	114642	0	100224	14418	0.0	Sps*	polystyrene | sodium | sorbitex	top-500-brand
+841	derma-smoothe-fs	brand	114571	0	487	114084	0.0	Derma-Smoothe-FS	fluocinolone | shower	top-500-brand
+842	savella	brand	114042	0	82321	31721	0.0	Savella	milnacipran	top-500-brand
+843	lyumjev	brand	113784	0	99910	13874	0.0	Lyumjev Kwikpen U-100 | Lyumjev | Lyumjev Kwikpen U-200	insulin | lispro	top-500-brand
+844	unithroid	brand	113546	0	94138	19408	0.0	Unithroid	levothyroxine | sodium	top-500-brand
+845	opzelura	brand	111521	0	50464	61057	0.0	Opzelura	ruxolitinib	top-500-brand
+846	vyndamax	brand	110521	0	109373	1148	0.0	Vyndamax	tafamidis	top-500-brand
+847	nexletol	brand	109933	0	99877	10056	0.0	Nexletol	acid | bempedoic	top-500-brand
+848	mepolizumab	generic	109751	0	72258	37493	267.3	Mepolizumab		partb-top
+849	nucala	brand	109751	0	72258	37493	267.3	Nucala	mepolizumab	partb-top,top-500-brand
+850	nexlizet	brand	108574	0	97223	11351	0.0	Nexlizet	acid | bempedoic | ezetimibe	top-500-brand
+851	edisylate	salt	108304	0	1200	107104	0.0	Prochlorperazine Edisylate		top-60-salt
+852	lamictal	brand	108251	0	60781	47470	0.0	Lamictal | Lamictal XR | Lamictal ODT	lamotrigine	top-500-brand
+853	tagrisso	brand	106506	0	96403	10103	0.0	Tagrisso	osimertinib	top-500-brand
+854	tegretol	brand	106462	0	49748	56714	0.0	Tegretol XR | Tegretol	carbamazepine	top-500-brand
+855	tobradex	brand	104202	0	81124	23078	0.0	Tobradex | Tobradex St	dexamethasone | tobramycin	top-500-brand
+856	gammagard	brand	103802	0	56537	47265	765.1	Gammagard Liquid | Gammagard S-D	immun glob g(igg)/gly/iga ov50 | immun glob g/gly/gluc/iga 0-50	partb-top,top-500-brand
+857	pomalyst	brand	103331	0	98648	4683	0.0	Pomalyst	pomalidomide	top-500-brand
+858	lexiscan	brand	102541	0	0	102541	0.0	Lexiscan	regadenoson	top-500-brand
+859	benlysta	brand	102171	0	44771	57400	0.0	Benlysta*	belimumab	top-500-brand
+860	tyrvaya	brand	101409	0	90460	10949	0.0	Tyrvaya	varenicline	top-500-brand
+861	gadavist	brand	101372	0	0	101372	0.0	Gadavist	gadobutrol	top-500-brand
+862	butrans	brand	99701	0	25786	73915	0.0	Butrans	buprenorphine	top-500-brand
+863	verzenio	brand	99669	0	71933	27736	0.0	Verzenio	abemaciclib	top-500-brand
+864	erleada	brand	99234	0	95580	3654	0.0	Erleada	apalutamide	top-500-brand
+865	rynex	brand	98845	0	0	98845	0.0	Rynex DM | Rynex Pe | Rynex Pse	brompheniramine | phenylephrine | pseudoephedrine	top-500-brand
+866	veozah	brand	98370	0	52827	45543	0.0	Veozah	fezolinetant	top-500-brand
+867	eucrisa	brand	97728	0	10592	87136	0.0	Eucrisa	crisaborole	top-500-brand
+868	fiber-lax	brand	97693	0	0	97693	0.0	Fiber-Lax	calcium | polycarbophil	top-500-brand
+869	lotemax	brand	97385	0	80056	17329	0.0	Lotemax Sm | Lotemax	etabonate | loteprednol	top-500-brand
+870	robafen	brand	97360	0	0	97360	0.0	Robafen DM | Robafen Cf | Robafen	guaifenesin | dextromethorphan	top-500-brand
+871	estring	brand	95900	0	90750	5150	0.0	Estring	estradiol	top-500-brand
+872	keppra	brand	95852	0	51298	44554	0.0	Keppra* | Keppra XR	levetiracetam	top-500-brand
+873	depakote	brand	95611	0	35026	60585	0.0	Depakote Sprinkle | Depakote | Depakote ER	divalproex | sodium	top-500-brand
+874	vimpat	brand	95505	0	44046	51459	0.0	Vimpat*	lacosamide	top-500-brand
+875	gamunex-c	brand	95240	0	63697	31543	0.0	Gamunex-C	immune globul g/gly/iga avg 46	top-500-brand
+876	kesimpta	brand	95024	0	59976	35048	0.0	Kesimpta Pen	ofatumumab	top-500-brand
+877	tymlos	brand	93936	0	88564	5372	0.0	Tymlos	abaloparatide	top-500-brand
+878	brixadi	brand	93154	0	7546	85608	0.0	Brixadi	buprenorphine	top-500-brand
+879	ella	brand	93081	0	0	93081	0.0	Ella	ulipristal	top-500-brand
+880	tirosint	brand	92896	0	63867	29029	0.0	Tirosint	levothyroxine | sodium	top-500-brand
+881	keytruda	brand	92113	0	11882	80231	5988.5	Keytruda	pembrolizumab	fin-888,partb-top,top-500-brand
+882	pembrolizumab	generic	92113	0	11882	80231	5988.5	Pembrolizumab | pembrolizumab		fin-888,partb-top
+883	m-dryl	brand	91597	0	0	91597	0.0	M-Dryl	diphenhydramine	top-500-brand
+884	lupron	brand	91058	0	31744	59314	0.0	Lupron Depot | Lupron Depot-Ped	leuprolide	top-500-brand
+885	apri	brand	90354	0	6043	84311	0.0	Apri	desogestrel | estradiol | ethinyl	top-500-brand
+886	trikafta	brand	88008	0	27275	60733	0.0	Trikafta	elexacaftor/tezacaftor/ivacaft	top-500-brand
+887	isentress	brand	86258	0	64814	21444	0.0	Isentress | Isentress Hd	potassium | raltegravir	top-500-brand
+888	edarbi	brand	85621	0	80628	4993	0.0	Edarbi	azilsartan	top-500-brand
+889	relistor	brand	84920	0	56864	28056	0.0	Relistor*	methylnaltrexone	top-500-brand
+890	benralizumab	generic	84770	0	53831	30939	241.3	Benralizumab | Benralizumab*		partb-top
+891	fasenra	brand	84770	0	53831	30939	241.3	Fasenra Pen | Fasenra | Fasenra*	benralizumab	partb-top,top-500-brand
+892	nubeqa	brand	83864	0	78077	5787	0.0	Nubeqa	darolutamide	top-500-brand
+893	auryxia	brand	83592	0	72567	11025	0.0	Auryxia	ferric	top-500-brand
+894	dimaphen	brand	83355	0	0	83355	0.0	Dimaphen DM	brompheniramine | phenylephrine	top-500-brand
+895	aviane	brand	83335	0	4989	78346	0.0	Aviane	estradiol | ethinyl | levonorgestrel	top-500-brand
+896	cryselle	brand	83238	0	7915	75323	0.0	Cryselle	estradiol | ethinyl | norgestrel	top-500-brand
+897	neupro	brand	82750	0	77655	5095	0.0	Neupro	rotigotine	top-500-brand
+898	nikki	brand	82031	0	3369	78662	0.0	Nikki	drospirenone | estradiol | ethinyl	top-500-brand
+899	paclitaxel	generic	82007	0	3331	78676	263.1	Paclitaxel | Paclitaxel Protein-Bound | Paclitaxel Protein-Bound*		partb-top
+900	econtra	brand	81572	0	0	81572	0.0	Econtra One-Step	levonorgestrel	top-500-brand
+901	corlanor	brand	81314	0	50208	31106	0.0	Corlanor	ivabradine	top-500-brand
+902	euthyrox	brand	81142	0	69130	12012	0.0	Euthyrox	levothyroxine | sodium	top-500-brand
+903	envarsus	brand	80918	0	19015	61903	0.0	Envarsus XR	tacrolimus	top-500-brand
+904	cabenuva	brand	80832	0	33649	47183	0.0	Cabenuva	cabotegravir | rilpivirine	top-500-brand
+905	tri-lo-marzia	brand	80613	0	2707	77906	0.0	Tri-Lo-Marzia	estradiol | ethinyl | norgestimate	top-500-brand
+906	xylocaine-mpf	brand	79852	0	902	78950	0.0	Xylocaine-MPF | Xylocaine-MPF With Epinephrine	lidocaine | epinephrine	top-500-brand
+907	microgestin	brand	79576	0	5077	74499	0.0	Microgestin | Microgestin Fe | Microgestin 24 Fe	estradiol | norethindrone | ethyl	top-500-brand
+908	ferosul	brand	79304	0	0	79304	0.0	Ferosul	ferrous	top-500-brand
+909	nephplex	brand	78927	0	0	78927	0.0	Nephplex Rx	biotin | compounding | folic	top-500-brand
+910	nortrel	brand	78798	0	13939	64859	0.0	Nortrel	estradiol | ethinyl | norethindrone	top-500-brand
+911	hectorol	brand	78435	0	0	78435	0.0	Hectorol	doxercalciferol	top-500-brand
+912	airsupra	brand	78305	0	46082	32223	0.0	Airsupra	albuterol | budesonide	top-500-brand
+913	proctozone-hc	brand	78124	0	53297	24827	0.0	Proctozone-HC	hydrocortisone	top-500-brand
+914	genteal	brand	77804	0	0	77804	0.0	Genteal Tears | Genteal Tears Severe	hypromellose | dextran | glycerin	top-500-brand
+915	dok	brand	77503	0	0	77503	0.0	Dok	docusate | sodium	top-500-brand
+916	cosentyx	brand	77192	0	36837	40355	0.0	Cosentyx Unoready Pen | Cosentyx	secukinumab	top-500-brand
+917	besilate	salt	75929	0	63081	12848	0.0	Bepotastine Besilate		top-60-salt
+918	norditropin	brand	75870	0	4541	71329	0.0	Norditropin Flexpro	somatropin	top-500-brand
+919	dayvigo	brand	74743	0	57890	16853	0.0	Dayvigo	lemborexant	top-500-brand
+920	hizentra	brand	74170	0	24207	49963	317.9	Hizentra	immun glob g(igg)/pro/iga 0-50	partb-top,top-500-brand
+921	eluryng	brand	74093	0	2065	72028	0.0	Eluryng	estradiol | ethinyl | etonogestrel	top-500-brand
+922	certolizumab	generic	73888	0	39382	34506	397.7	Certolizumab PEGol | Certolizumab Pegol*		partb-top
+923	cimzia	brand	73888	0	39382	34506	397.7	Cimzia (2 Pack) | Cimzia | Cimzia*	certolizumab	partb-top,top-500-brand
+924	bicillin	brand	73784	0	4605	69179	0.0	Bicillin L-A | Bicillin C-R	penicillin | benztropine	top-500-brand
+925	forteo	brand	73661	0	67653	6008	0.0	Forteo	teriparatide	top-500-brand
+926	enanthate	salt	73242	0	47090	26152	0.0	Testosterone Enanthate		top-60-salt
+927	benzathine	salt	72845	0	4605	68240	0.0	Penicillin G Benzathine		top-60-salt
+928	faricimab	generic	72747	0	8421	64326	1918.2	Faricimab-Svoa		partb-top
+929	vabysmo	brand	72747	0	8421	64326	1918.2	Vabysmo	faricimab	partb-top,top-500-brand
+930	heather	brand	72704	0	5775	66929	0.0	Heather	norethindrone	top-500-brand
+931	tremfya	brand	72689	0	46093	26596	0.0	Tremfya* | Tremfya Pen	guselkumab	top-500-brand
+932	daily	brand	72636	0	0	72636	0.0	Pataday Once Daily Relief | Pataday Twice Daily Relief | Lastacaft Once Daily Relief	olopatadine | alcaftadine | folic	top-500-brand
+933	tezepelumab	generic	72477	0	41254	31223	218.5	Tezepelumab-Ekko		partb-top
+934	tezspire	brand	72477	0	41254	31223	218.5	Tezspire	tezepelumab	partb-top,top-500-brand
+935	meglumine	salt	70888	0	13334	57554	0.0	Gadoterate Meglumine | Tafamidis Meglumine | Delafloxacin Meglumine		top-60-salt
+936	pataday	brand	70158	0	0	70158	0.0	Pataday Once Daily Relief | Pataday Twice Daily Relief | Pataday	olopatadine	otc-us,top-500-brand
+937	quviviq	brand	70065	0	46269	23796	0.0	Quviviq	daridorexant	top-500-brand
+938	proteinase	generic	69158	0	33676	35482	263.1	Alpha-1-Proteinase Inhibitor | Paclitaxel Protein-Bound | Perflutren Protein-A Microsphr		partb-top
+939	isibloom	brand	68985	0	5283	63702	0.0	Isibloom	desogestrel | estradiol | ethinyl	top-500-brand
+940	kisqali	brand	68947	0	54066	14881	0.0	Kisqali | Kisqali Femara Co-Pack	ribociclib | letrozole	top-500-brand
+941	fanapt	brand	68572	0	41979	26593	0.0	Fanapt	iloperidone	top-500-brand
+942	dyanavel	brand	67901	0	1567	66334	0.0	Dyanavel XR	amphetamine	top-500-brand
+943	plenvu	brand	67705	0	55988	11717	0.0	Plenvu	asb | kcl | nacl	top-500-brand
+944	depo-provera	brand	67665	0	178	67487	0.0	Depo-Provera	medroxyprogesterone	top-500-brand
+945	errin	brand	67642	0	4727	62915	0.0	Errin	norethindrone	top-500-brand
+946	xdemvy	brand	66213	0	61184	5029	0.0	Xdemvy	lotilaner	top-500-brand
+947	edarbyclor	brand	66177	0	60706	5471	0.0	Edarbyclor	azilsartan | chlorthalidone | medroxyprogesterone	top-500-brand
+948	vanacof	brand	65807	0	0	65807	0.0	Vanacof | Vanacof DM	chlophedianol | dexchlorpheniramine | pseudoephedrine	top-500-brand
+949	ethylsuccinate	salt	64823	0	7325	57498	0.0	Erythromycin Ethylsuccinate		top-60-salt
+950	oxtellar	brand	64797	0	18806	45991	0.0	Oxtellar XR	oxcarbazepine	top-500-brand
+951	remicade	brand	64193	0	17640	46553	0.0	Remicade	infliximab	top-500-brand
+952	mapap	brand	64050	0	0	64050	0.0	Mapap	acetaminophen	top-500-brand
+953	privigen	brand	63160	0	41807	21353	440.2	Privigen	immun glob g(igg)/pro/iga 0-50	partb-top,top-500-brand
+954	tri-estarylla	brand	63111	0	3858	59253	0.0	Tri-Estarylla	estradiol | ethinyl | norgestimate	top-500-brand
+955	smoflipid	brand	62553	0	230	62323	0.0	Smoflipid	emulsions | fatty | fish	top-500-brand
+956	promacta	brand	61837	0	45852	15985	0.0	Promacta	eltrombopag | olamine	top-500-brand
+957	golimumab	generic	61529	0	31835	29694	330.0	Golimumab		partb-top
+958	simponi	brand	61529	0	31835	29694	330.0	Simponi | Simponi Aria	golimumab	partb-top,top-500-brand
+959	fetzima	brand	61529	0	39287	22242	0.0	Fetzima	levomilnacipran	top-500-brand
+960	zoryve	brand	61493	0	29028	32465	0.0	Zoryve	roflumilast	top-500-brand
+961	trileptal	brand	60891	0	10640	50251	0.0	Trileptal	oxcarbazepine	top-500-brand
+962	mintox	brand	60183	0	0	60183	0.0	Mintox Maximum Strength | Mintox Plus	aluminum | hydrochlorothiazide | hydroxyzine	top-500-brand
+963	protonix	brand	59996	0	11919	48077	0.0	Protonix IV | Protonix	pantoprazole | sodium	top-500-brand
+964	mavyret	brand	59909	0	12457	47452	0.0	Mavyret	glecaprevir | pibrentasvir	top-500-brand
+965	adempas	brand	59273	0	50847	8426	0.0	Adempas	riociguat	top-500-brand
+966	xultophy	brand	59028	0	57197	1831	0.0	Xultophy 100-3.6	degludec | insulin | liraglutide	top-500-brand
+967	trastuzumab	generic	58941	0	6553	52388	581.5	Fam-Trastuzumab Deruxtecn-Nxki | Trastuzumab-Qyyp | Trastuzumab-Anns		partb-top
+968	endocet	brand	58838	0	44724	14114	0.0	Endocet	acetaminophen | oxycodone	top-500-brand
+969	sulfonate	salt	58727	0	50770	7957	0.0	Sodium Polystyrene Sulfonate		top-60-salt
+970	diclegis	brand	58534	0	36	58498	0.0	Diclegis	doxylamine | vits	top-500-brand
+971	havrix	brand	58473	0	58473	0	0.0	Havrix	hepatitis a virus vaccine/pf	top-500-brand
+972	kurvelo	brand	58190	0	4326	53864	0.0	Kurvelo	estradiol | ethinyl | levonorgestrel	top-500-brand
+973	verquvo	brand	58118	0	49590	8528	0.0	Verquvo	vericiguat	top-500-brand
+974	renvela	brand	57690	0	27433	30257	0.0	Renvela	sevelamer	top-500-brand
+975	kapspargo	brand	57538	0	44309	13229	0.0	Kapspargo Sprinkle	metoprolol	top-500-brand
+976	claravis	brand	57419	0	4013	53406	0.0	Claravis	isotretinoin	top-500-brand
+977	mono-linyah	brand	56927	0	4082	52845	0.0	Mono-Linyah	estradiol | ethinyl | norgestimate	top-500-brand
+978	enema	brand	56776	0	0	56776	0.0	Enema Disposable | Enema | Pedia-Lax Enema	sodium | minerals	top-500-brand
+979	elmiron	brand	56141	0	42953	13188	0.0	Elmiron	pentosan | polysulfate | sodium	top-500-brand
+980	sprycel	brand	56130	0	38789	17341	0.0	Sprycel	dasatinib	top-500-brand
+981	genotropin	brand	56111	0	11033	45078	0.0	Genotropin	somatropin	top-500-brand
+982	xopenex	brand	55933	0	15310	40623	0.0	Xopenex HFA | Xopenex	levalbuterol	top-500-brand
+983	crestor	brand	55701	0	54565	1136	0.0	Crestor	calcium | rosuvastatin	top-500-brand
+984	cabometyx	brand	55547	0	50232	5315	0.0	Cabometyx	cabozantinib	top-500-brand
+985	clariscan	brand	55522	0	0	55522	0.0	Clariscan	gadoterate	top-500-brand
+986	xyosted	brand	55499	0	36669	18830	0.0	Xyosted	testosterone	top-500-brand
+987	voquezna	brand	54754	0	38101	16653	0.0	Voquezna | Voquezna Triple Pak | Voquezna Dual Pak	vonoprazan | amoxicillin | clarithromycin	top-500-brand
+988	viibryd	brand	54469	0	13120	41349	0.0	Viibryd	vilazodone	top-500-brand
+989	entyvio	brand	54454	0	18679	35775	769.4	Entyvio | Entyvio Pen	vedolizumab	partb-top,top-500-brand
+990	vedolizumab	generic	54454	0	18679	35775	769.4	Vedolizumab		partb-top
+991	pifeltro	brand	54452	0	42316	12136	0.0	Pifeltro	doravirine	top-500-brand
+992	promethegan	brand	54022	0	18532	35490	0.0	Promethegan	promethazine	top-500-brand
+993	se-natal	brand	53051	0	1245	51806	0.0	Se-Natal 19	iron | acid | folic	top-500-brand
+994	solu-cortef	brand	52810	0	15174	37636	0.0	Solu-Cortef	hydrocortisone | sodium | succinylcholine	top-500-brand
+995	uptravi	brand	52302	0	39389	12913	0.0	Uptravi* | Uptravi	selexipag	top-500-brand
+996	bystolic	brand	52117	0	41207	10910	0.0	Bystolic	nebivolol	top-500-brand
+997	infuvite	brand	51759	0	0	51759	0.0	Infuvite Adult | Infuvite Pediatric	infusn | infusion	top-500-brand
+998	lutera	brand	51682	0	1633	50049	0.0	Lutera	estradiol | ethinyl | levonorgestrel	top-500-brand
+999	butalb-acetaminoph-caff-codein	brand	51403	0	40311	11092	0.0	Butalb-Acetaminoph-Caff-Codein	acetaminophen | butalbital | caffeine	top-500-brand
+1000	sronyx	brand	51319	0	1775	49544	0.0	Sronyx	estradiol | ethinyl | levonorgestrel	top-500-brand
+1001	xylocaine	brand	50874	0	383	50491	0.0	Xylocaine* | Xylocaine With Epinephrine | Xylocaine	lidocaine | epinephrine	top-500-brand
+1002	low-ogestrel	brand	50777	0	3362	47415	0.0	Low-Ogestrel	estradiol | ethinyl | norgestrel	top-500-brand
+1003	ibsrela	brand	50702	0	32759	17943	0.0	Ibsrela	tenapanor	top-500-brand
+1004	uzedy	brand	50627	0	20266	30361	0.0	Uzedy	risperidone	top-500-brand
+1005	bridion	brand	50379	0	0	50379	0.0	Bridion	sodium | sugammadex	top-500-brand
+1006	lynparza	brand	50375	0	41444	8931	0.0	Lynparza	olaparib	top-500-brand
+1007	kristalose	brand	50238	0	6944	43294	0.0	Kristalose	lactulose	top-500-brand
+1008	suprep	brand	49810	0	36099	13711	0.0	Suprep	sodium	top-500-brand
+1009	tri-lo-estarylla	brand	49690	0	2654	47036	0.0	Tri-Lo-Estarylla	estradiol | ethinyl | norgestimate	top-500-brand
+1010	copaxone	brand	49666	0	40460	9206	0.0	Copaxone	glatiramer	top-500-brand
+1011	bitartrate	salt	49646	0	40419	9227	0.0	Hydrocodone Bitartrate | Cysteamine Bitartrate | Norepinephrine Bitartrate/D5W		top-60-salt
+1012	matzim	brand	49592	0	47025	2567	0.0	Matzim La	diltiazem	top-500-brand
+1013	prevalite	brand	48991	0	42666	6325	0.0	Prevalite	cholestyramine	top-500-brand
+1014	incassia	brand	48652	0	3887	44765	0.0	Incassia	norethindrone	top-500-brand
+1015	latuda	brand	48581	0	24193	24388	0.0	Latuda	lurasidone	top-500-brand
+1016	twirla	brand	48371	0	0	48371	0.0	Twirla	estradiol | ethinyl | levonorgestrel	top-500-brand
+1017	rituximab	generic	48051	0	9503	38548	437.0	Rituximab-Pvvr | Rituximab | Rituximab-Abbs		partb-top
+1018	zenatane	brand	47910	0	3444	44466	0.0	Zenatane	isotretinoin	top-500-brand
+1019	pulmozyme	brand	47214	0	443	46771	0.0	Pulmozyme	dornase	top-500-brand
+1020	rasuvo	brand	46757	0	31894	14863	0.0	Rasuvo	methotrexate	top-500-brand
+1021	xgeva	brand	46728	0	17654	29074	0.0	Xgeva	denosumab	top-500-brand
+1022	climara	brand	46629	0	30454	16175	0.0	Climara | Climara Pro	estradiol | levonorgestrel	top-500-brand
+1023	mitigare	brand	46560	0	44946	1614	0.0	Mitigare	colchicine	top-500-brand
+1024	cal-gest	brand	45987	0	0	45987	0.0	Cal-Gest	calcium	top-500-brand
+1025	celestone	brand	45489	0	34	45455	0.0	Celestone	betamethasone	top-500-brand
+1026	injectafer	brand	45142	0	0	45142	0.0	Injectafer	carboxymaltose | ferric	top-500-brand
+1027	tenivac	brand	45113	0	45113	0	0.0	Tenivac	tetanus-diphtheria toxoids/pf	top-500-brand
+1028	octagam	brand	45068	0	29794	15274	229.7	Octagam	immun globg(igg)/malt/iga ov50	partb-top,top-500-brand
+1029	xr-odt	brand	44746	0	2268	42478	0.0	Adzenys XR-ODT | Cotempla XR-ODT	amphetamine | methylphenidate	top-500-brand
+1030	viberzi	brand	44682	0	34827	9855	0.0	Viberzi	eluxadoline	top-500-brand
+1031	kevzara	brand	44269	0	37496	6773	0.0	Kevzara	sarilumab	top-500-brand
+1032	elinest	brand	44072	0	3265	40807	0.0	Elinest	estradiol | ethinyl | norgestrel	top-500-brand
+1033	diacetate	salt	43933	0	28642	15291	0.0	Diflorasone Diacetate		top-60-salt
+1034	paragard	brand	43624	0	0	43624	0.0	Paragard T 380-A | Paragard T 380a (Single Hand)	copper	top-500-brand
+1035	lenvima	brand	43007	0	37139	5868	0.0	Lenvima	lenvatinib	top-500-brand
+1036	hyaluronidase	generic	42608	0	12957	29651	2530.4	Daratumumab-Hyaluronidase-Fihj | IgG/Hyaluronidase,Recombinant | Efgartigimod-Hyaluronidas-Qvfc		partb-top
+1037	syeda	brand	42097	0	2523	39574	0.0	Syeda	drospirenone | estradiol | ethinyl	top-500-brand
+1038	xphozah	brand	41568	0	34525	7043	0.0	Xphozah	tenapanor	top-500-brand
+1039	octreotide	generic	41240	0	25511	15729	450.5	Octreotide Acetate | Octreotide Acetate,Mi-Spheres | Octreotide Acetate,mi-Spheres		partb-top
+1040	suflave	brand	41135	0	30370	10765	0.0	Suflave	magnesium | potassium | sodium	top-500-brand
+1041	celebrex	brand	41123	0	11915	29208	0.0	Celebrex	celecoxib	top-500-brand
+1042	diovan	brand	40876	0	33456	7420	0.0	Diovan | Diovan HCT	valsartan | hydrochlorothiazide	top-500-brand
+1043	zarxio	brand	40816	0	24638	16178	0.0	Zarxio	filgrastim	top-500-brand
+1044	xhance	brand	40460	0	25053	15407	0.0	Xhance	fluticasone	top-500-brand
+1045	dentagel	brand	40357	0	19961	20396	0.0	Dentagel	fluoride	top-500-brand
+1046	amitiza	brand	40262	0	6887	33375	0.0	Amitiza	lubiprostone	top-500-brand
+1047	dificid	brand	40094	0	34589	5505	0.0	Dificid	fidaxomicin	top-500-brand
+1048	amjevita	brand	39972	0	26448	13524	0.0	Amjevita(Cf) Autoinjector | Amjevita(Cf)	adalimumab	top-500-brand
+1049	vestura	brand	39871	0	1256	38615	0.0	Vestura	drospirenone | estradiol | ethinyl	top-500-brand
+1050	konvomep	brand	39732	0	10159	29573	0.0	Konvomep	omeprazole | sodium	top-500-brand
+1051	horizant	brand	39721	0	28883	10838	0.0	Horizant	enacarbil | gabapentin	top-500-brand
+1052	camzyos	brand	39523	0	35896	3627	0.0	Camzyos	mavacamten	top-500-brand
+1053	ilevro	brand	39382	0	37389	1993	0.0	Ilevro	nepafenac	top-500-brand
+1054	lo-zumandimine	brand	39306	0	2217	37089	0.0	Lo-Zumandimine	drospirenone | estradiol | ethinyl	top-500-brand
+1055	toprol	brand	38961	0	37862	1099	0.0	Toprol XL	metoprolol	top-500-brand
+1056	lyllana	brand	38813	0	24542	14271	0.0	Lyllana	estradiol	top-500-brand
+1057	pentasa	brand	38481	0	22117	16364	0.0	Pentasa	mesalamine	top-500-brand
+1058	azopt	brand	38304	0	30493	7811	0.0	Azopt	brinzolamide	top-500-brand
+1059	ranibizumab	generic	38240	0	1373	36867	216.9	Ranibizumab | Ranibizumab-Eqrn | Ranibizumab-Nuna		partb-top
+1060	clinolipid	brand	38239	0	24025	14214	0.0	Clinolipid	emulsions | fatty | olive	top-500-brand
+1061	imvexxy	brand	38037	0	34317	3720	0.0	Imvexxy	estradiol	top-500-brand
+1062	vtama	brand	37477	0	18599	18878	0.0	Vtama	tapinarof	top-500-brand
+1063	endacof-dm	brand	37045	0	0	37045	0.0	Endacof-DM	brompheniramine | phenylephrine	top-500-brand
+1064	avonex	brand	37037	0	31616	5421	0.0	Avonex Pen (4 Pack) | Avonex (4 Pack)	interferon	top-500-brand
+1065	perseris	brand	36745	0	17530	19215	0.0	Perseris	risperidone	top-500-brand
+1066	tyvaso	brand	36723	0	30696	6027	0.0	Tyvaso Dpi | Tyvaso Refill Kit | Tyvaso	treprostinil | accessories | nebivolol	top-500-brand
+1067	altavera	brand	36673	0	2999	33674	0.0	Altavera	estradiol | ethinyl | levonorgestrel	top-500-brand
+1068	capmist	brand	36544	0	0	36544	0.0	Capmist DM	guaifenesin | pseudoephedrine	top-500-brand
+1069	ec-naproxen	brand	36517	0	22834	13683	0.0	Ec-Naproxen	naproxen	top-500-brand
+1070	infed	brand	36028	0	0	36028	0.0	Infed	dextran | iron	top-500-brand
+1071	apidra	brand	35962	0	10263	25699	0.0	Apidra Solostar | Apidra	glulisine | insulin	top-500-brand
+1072	lessina	brand	35755	0	2315	33440	0.0	Lessina	estradiol | ethinyl | levonorgestrel	top-500-brand
+1073	epclusa	brand	35441	0	31431	4010	0.0	Epclusa	sofosbuvir | velpatasvir	top-500-brand
+1074	nivolumab	generic	35162	0	4303	30859	2295.9	Nivolumab | Nivolumab-Relatlimab-Rmbw		partb-top
+1075	haloette	brand	35083	0	913	34170	0.0	Haloette	estradiol | ethinyl | etonogestrel	top-500-brand
+1076	daratumumab	generic	35044	0	9069	25975	2530.4	Daratumumab-Hyaluronidase-Fihj | Daratumumab		partb-top
+1077	darzalex	brand	35044	0	9069	25975	2530.4	Darzalex Faspro | Darzalex	daratumumab | hyaluronidase	partb-top,top-500-brand
+1078	rayaldee	brand	34957	0	31494	3463	0.0	Rayaldee	calcifediol	top-500-brand
+1079	topamax	brand	34864	0	21528	13336	0.0	Topamax	topiramate	top-500-brand
+1080	sunosi	brand	34766	0	20031	14735	0.0	Sunosi	solriamfetol	top-500-brand
+1081	eysuvis	brand	34756	0	25219	9537	0.0	Eysuvis	etabonate | loteprednol	top-500-brand
+1082	winlevi	brand	34740	0	1883	32857	0.0	Winlevi	clascoterone	top-500-brand
+1083	maximum	brand	34608	0	0	34608	0.0	Mintox Maximum Strength	aluminum | hydrochlorothiazide | hydroxyzine	top-500-brand
+1084	glatopa	brand	34591	0	30739	3852	0.0	Glatopa	glatiramer	top-500-brand
+1085	wellbutrin	brand	34565	0	24744	9821	0.0	Wellbutrin XL | Wellbutrin SR	bupropion	top-500-brand
+1086	lialda	brand	34529	0	4327	30202	0.0	Lialda	mesalamine	top-500-brand
+1087	travatan	brand	34502	0	21212	13290	0.0	Travatan Z	travoprost	top-500-brand
+1088	tri-linyah	brand	34362	0	2756	31606	0.0	Tri-Linyah	estradiol | ethinyl | norgestimate	top-500-brand
+1089	activase	brand	34326	0	0	34326	0.0	Cathflo Activase | Activase	alteplase	top-500-brand
+1090	nextstellis	brand	34325	0	267	34058	0.0	Nextstellis	drospirenone | estetrol	top-500-brand
+1091	definity	brand	34298	0	0	34298	0.0	Definity | Definity RT	lipid | perflutren	top-500-brand
+1092	ultra-filtered	brand	34275	0	0	34275	0.0	Rhogam Ultra-Filtered Plus | Micrhogam Ultra-Filtered Plus	rho(d) immune globulin	top-500-brand
+1093	opdivo	brand	34159	0	4120	30039	1933.8	Opdivo	nivolumab	partb-top
+1094	hemifumarate	salt	32289	0	31067	1222	0.0	Aliskiren Hemifumarate		top-60-salt
+1095	penfill	device	31938	0	15148	16790	0.0	Novolog Penfill | Fiasp Penfill	aspart | insulin	top-25-device
+1096	emicizumab	generic	30662	0	0	30662	230.0	Emicizumab-Kxwh		partb-top
+1097	hemlibra	brand	30662	0	0	30662	230.0	Hemlibra	emicizumab	partb-top
+1098	pertuzumab	generic	27183	0	1757	25426	297.1	Pertuzumab | Pertuzumab-Trastuzumab-Hy-Zzxf		partb-top
+1099	nplate	brand	25862	0	1734	24128	362.5	NPlate	romiplostim	partb-top
+1100	romiplostim	generic	25862	0	1734	24128	362.5	Romiplostim		partb-top
+1101	eligard	brand	25785	0	9193	16592	213.2	Eligard | Eligard*	leuprolide	partb-top
+1102	gammaked	brand	23742	0	20035	3707	545.0	Gammaked | Gammaked*	immune globul g/gly/iga avg 46 | immune globul g/gly/iga avg 46*	partb-top
+1103	erbumine	salt	22254	0	20287	1967	0.0	Perindopril Erbumine		top-60-salt
+1104	bound	generic	22058	0	1127	20931	263.1	Paclitaxel Protein-Bound | Paclitaxel Protein-Bound* | Sirolimus Protein-Bound		partb-top
+1105	perjeta	brand	20503	0	1480	19023	297.1	Perjeta	pertuzumab	partb-top
+1106	prevacid	brand	20347	0	8816	11531	0.0	Prevacid | Prevacid 24hr	lansoprazole	otc-us
+1107	ocrelizumab	generic	19609	0	5163	14446	668.7	Ocrelizumab		partb-top
+1108	ocrevus	brand	19609	0	5163	14446	668.7	Ocrevus	ocrelizumab	partb-top
+1109	durvalumab	generic	18992	0	2290	16702	843.1	Durvalumab		partb-top
+1110	imfinzi	brand	18992	0	2290	16702	843.1	Imfinzi	durvalumab	partb-top
+1111	deruxtecan	generic	18403	0	1011	17392	581.5	Fam-Trastuzumab Deruxtecn-Nxki		partb-top
+1112	enhertu	brand	18403	0	1011	17392	581.5	Enhertu	deruxtecan | trastuzumab	partb-top
+1113	abraxane	brand	17823	0	984	16839	263.1	Abraxane | Abraxane*	bound | paclitaxel | proteinase	partb-top
+1114	cimerli	brand	17644	0	139	17505	216.9	Cimerli	ranibizumab	partb-top
+1115	sandostatin	brand	17531	0	9723	7808	450.5	Sandostatin Lar Depot | Sandostatin	octreotide	partb-top
+1116	atezolizumab	generic	14803	0	2145	12658	677.7	Atezolizumab		partb-top
+1117	tecentriq	brand	14803	0	2145	12658	677.7	Tecentriq	atezolizumab	partb-top
+1118	carfilzomib	generic	14749	0	1643	13106	396.7	Carfilzomib		partb-top
+1119	kyprolis	brand	14749	0	1643	13106	396.7	Kyprolis	carfilzomib	partb-top
+1120	lanreotide	generic	14496	0	7428	7068	353.7	Lanreotide Acetate | Lanreotide Acetate*		partb-top
+1121	rituxan	brand	13996	0	3345	10651	437.0	Rituxan | Rituxan Hycela	rituximab | hyaluronidase	partb-top
+1122	vedotin	generic	13745	0	732	13013	842.7	Enfortumab Vedotin-Ejfv | Brentuximab Vedotin | Polatuzumab Vedotin-Piiq		partb-top
+1123	undecanoate	salt	13435	0	9169	4266	0.0	Testosterone Undecanoate		top-60-salt
+1124	zaditor	brand	13412	0	0	13412	0.0	Zaditor	ketotifen	otc-us
+1125	colace	brand	12890	0	0	12890	0.0	Colace Clear | Colace | Colace 2-In-1	docusate | sodium | sennosides	otc-us
+1126	pressair	device	11958	0	7642	4316	0.0	Tudorza Pressair | Duaklir Pressair	aclidinium | bromide | formoterol	top-25-device
+1127	efgartigimod	generic	11467	0	7266	4201	416.6	Efgartigimod Alfa-Fcab | Efgartigimod-Hyaluronidas-Qvfc		partb-top
+1128	vyvgart	brand	11467	0	7266	4201	416.6	Vyvgart | Vyvgart Hytrulo	efgartigimod | hyaluronidase	partb-top
+1129	digihaler	device	11449	0	4966	6483	0.0	Proair Digihaler | Armonair Digihaler	albuterol | fluticasone	top-25-device
+1130	diskus	device	10774	0	5772	5002	0.0	Flovent Diskus	fluticasone	top-25-device
+1131	govitecan	generic	8952	0	319	8633	272.3	Sacituzumab Govitecan-Hziy		partb-top
+1132	sacituzumab	generic	8952	0	319	8633	272.3	Sacituzumab Govitecan-Hziy		partb-top
+1133	trodelvy	brand	8952	0	319	8633	272.3	Trodelvy	govitecan | sacituzumab	partb-top
+1134	prilosec	brand	8233	0	3254	4979	0.0	Prilosec	magnesium | omeprazole	otc-us
+1135	pegcetacoplan	generic	8132	0	2539	5593	403.9	PEGcetacoplan/PF | PEGcetacoplan | Pegcetacoplan/PF		partb-top
+1136	eculizumab	generic	8040	0	4569	3471	337.4	Eculizumab		partb-top
+1137	soliris	brand	8040	0	4569	3471	337.4	Soliris	eculizumab	partb-top
+1138	krystexxa	brand	8015	0	4801	3214	282.8	Krystexxa	pegloticase	partb-top
+1139	pegloticase	generic	8015	0	4801	3214	282.8	PEGloticase | Pegloticase		partb-top
+1140	tepezza	brand	7635	0	2708	4927	246.5	Tepezza	teprotumumab	partb-top
+1141	teprotumumab	generic	7635	0	2708	4927	246.5	Teprotumumab-Trbw		partb-top
+1142	syfovre	brand	7150	0	1835	5315	403.9	Syfovre	pegcetacoplan	partb-top
+1143	luspatercept	generic	6841	0	3028	3813	755.3	Luspatercept-Aamt		partb-top
+1144	reblozyl	brand	6841	0	3028	3813	755.3	Reblozyl	luspatercept	partb-top
+1145	inclisiran	generic	6717	0	4425	2292	296.3	Inclisiran Sodium		partb-top
+1146	leqvio	brand	6717	0	4425	2292	296.3	Leqvio	inclisiran | sodium	partb-top
+1147	ravulizumab	generic	6366	0	3951	2415	609.3	Ravulizumab-Cwvz		partb-top
+1148	ultomiris	brand	6366	0	3951	2415	609.3	Ultomiris	ravulizumab	partb-top
+1149	enfortumab	generic	5905	0	381	5524	641.2	Enfortumab Vedotin-Ejfv		partb-top
+1150	padcev	brand	5905	0	381	5524	641.2	Padcev	enfortumab | vedotin	partb-top
+1151	ipilimumab	generic	5812	0	623	5189	508.6	Ipilimumab		partb-top
+1152	yervoy	brand	5812	0	623	5189	508.6	Yervoy	ipilimumab	partb-top
+1153	cemiplimab	generic	5334	0	1232	4102	348.1	Cemiplimab-Rwlc		partb-top
+1154	libtayo	brand	5334	0	1232	4102	348.1	Libtayo	cemiplimab	partb-top
+1155	senokot	brand	4840	0	0	4840	0.0	Senokot	sennosides	otc-uk,otc-us
+1156	ilumya	brand	4332	0	2020	2312	413.4	Ilumya	tildrakizumab	partb-top
+1157	tildrakizumab	generic	4332	0	2020	2312	413.4	Tildrakizumab-Asmn		partb-top
+1158	podhaler	device	1966	0	1054	912	0.0	Tobi Podhaler	tobramycin	top-25-device
+1159	mucinex	brand	1835	0	0	1835	0.0	Mucinex	guaifenesin	otc-us
+1160	polatuzumab	generic	1816	0	200	1616	201.5	Polatuzumab Vedotin-Piiq		partb-top
+1161	polivy	brand	1816	0	200	1616	201.5	Polivy	polatuzumab | vedotin	partb-top
+1162	amvuttra	brand	1345	0	1192	153	229.0	Amvuttra	sodium | vutrisiran	partb-top
+1163	vutrisiran	generic	1345	0	1192	153	229.0	Vutrisiran Sodium		partb-top
+1164	teclistamab	generic	1261	0	66	1195	199.9	Teclistamab-Cqyv		partb-top
+1165	tecvayli	brand	1261	0	66	1195	199.9	Tecvayli	teclistamab	partb-top
+1166	opdualag	brand	1003	0	183	820	362.1	Opdualag	nivolumab | relatlimab	partb-top
+1167	relatlimab	generic	1003	0	183	820	362.1	Nivolumab-Relatlimab-Rmbw		partb-top
+1168	lumify	brand	980	0	0	980	0.0	Lumify	brimonidine	otc-us
+1169	elahere	brand	831	0	0	831	213.0	Elahere	mirvetuximab | soravtansine	partb-top
+1170	mirvetuximab	generic	831	0	0	831	213.0	Mirvetuximab Soravtansine-Gynx		partb-top
+1171	soravtansine	generic	831	0	0	831	213.0	Mirvetuximab Soravtansine-Gynx		partb-top
+1172	pepcid	brand	624	0	517	107	0.0	Pepcid	famotidine	otc-us
+1173	fluzone	brand	232	0	0	232	560.4	Fluzone High-Dose * | Fluzone Quad 2023-2024	flu vacc ts(65yr up)/pf* | flu vacc qs2023-24(6mos up)/pf	partb-top
+1174	afrin	brand	31	0	0	31	0.0	Afrin	oxymetazoline	otc-us
+1175	cepacol	brand	28	0	0	28	0.0	Cepacol Sore Throat | Cepacol	benzocaine | menthol	otc-us
+1176	miralax	brand	26	0	0	26	0.0	Miralax	glycol | polyethylene	otc-us
+1177	spikevax	brand	0	0	0	0	596.8	Spikevax	covid vac (12up)(andu)/pf	partb-top
+1178	prevnar	brand	0	0	0	0	524.7	Prevnar 20	pneumoc 20-val conj-dip crm/pf	partb-top
+1179	fluad	brand	0	0	0	0	302.9	Fluad *	flu vacc ts(65up)/mf59c/pf*	partb-top
+1180	abreva	brand	0	0	0	0	0.0	Abreva		otc-us
+1181	advil	brand	0	0	0	0	0.0	Advil		otc-us
+1182	aleve	brand	0	0	0	0	0.0	Aleve		otc-us
+1183	alka-seltzer	brand	0	0	0	0	0.0	Alka-Seltzer		otc-us
+1184	allegra	brand	0	0	0	0	0.0	Allegra		otc-us
+1185	anadin	brand	0	0	0	0	0.0	Anadin		otc-uk
+1186	anbesol	brand	0	0	0	0	0.0	Anbesol		otc-us
+1187	aspercreme	brand	0	0	0	0	0.0	Aspercreme		otc-us
+1188	bayer	brand	0	0	0	0	0.0	Bayer		otc-us
+1189	beechams	brand	0	0	0	0	0.0	Beechams		otc-uk
+1190	benadryl	brand	0	0	0	0	0.0	Benadryl		otc-us
+1191	bengay	brand	0	0	0	0	0.0	Bengay		otc-us
+1192	benylin	brand	0	0	0	0	0.0	Benylin		otc-uk
+1193	bonine	brand	0	0	0	0	0.0	Bonine		otc-us
+1194	buscopan	brand	0	0	0	0	0.0	Buscopan		otc-uk
+1195	calpol	brand	0	0	0	0	0.0	Calpol		otc-uk
+1196	canesten	brand	0	0	0	0	0.0	Canesten		otc-uk
+1197	chloraseptic	brand	0	0	0	0	0.0	Chloraseptic		otc-us
+1198	citrucel	brand	0	0	0	0	0.0	Citrucel		otc-us
+1199	claritin	brand	0	0	0	0	0.0	Claritin		otc-us
+1200	clarityn	brand	0	0	0	0	0.0	Clarityn		otc-uk
+1201	coricidin	brand	0	0	0	0	0.0	Coricidin		otc-us
+1202	cortizone	brand	0	0	0	0	0.0	Cortizone		otc-us
+1203	day nurse	brand	0	0	0	0	0.0	Day Nurse		otc-uk
+1204	dayquil	brand	0	0	0	0	0.0	DayQuil		otc-us
+1205	debrox	brand	0	0	0	0	0.0	Debrox		otc-us
+1206	delsym	brand	0	0	0	0	0.0	Delsym		otc-us
+1207	dimetapp	brand	0	0	0	0	0.0	Dimetapp		otc-us
+1208	dioralyte	brand	0	0	0	0	0.0	Dioralyte		otc-uk
+1209	dramamine	brand	0	0	0	0	0.0	Dramamine		otc-us
+1210	dulcolax	brand	0	0	0	0	0.0	Dulcolax		otc-us
+1211	emergen-c	brand	0	0	0	0	0.0	Emergen-C		otc-us
+1212	ex-lax	brand	0	0	0	0	0.0	Ex-Lax		otc-us
+1213	excedrin	brand	0	0	0	0	0.0	Excedrin		otc-us
+1214	flonase	brand	0	0	0	0	0.0	Flonase		otc-us
+1215	fybogel	brand	0	0	0	0	0.0	Fybogel		otc-uk
+1216	gas-x	brand	0	0	0	0	0.0	Gas-X		otc-us
+1217	gaviscon	brand	0	0	0	0	0.0	Gaviscon		otc-uk,otc-us
+1218	germolene	brand	0	0	0	0	0.0	Germolene		otc-uk
+1219	imodium	brand	0	0	0	0	0.0	Imodium		otc-us
+1220	kaopectate	brand	0	0	0	0	0.0	Kaopectate		otc-us
+1221	lamisil	brand	0	0	0	0	0.0	Lamisil		otc-us
+1222	lemsip	brand	0	0	0	0	0.0	Lemsip		otc-uk
+1223	lotrimin	brand	0	0	0	0	0.0	Lotrimin		otc-us
+1224	lyclear	brand	0	0	0	0	0.0	Lyclear		otc-uk
+1225	maalox	brand	0	0	0	0	0.0	Maalox		otc-us
+1226	metamucil	brand	0	0	0	0	0.0	Metamucil		otc-us
+1227	midol	brand	0	0	0	0	0.0	Midol		otc-us
+1228	monistat	brand	0	0	0	0	0.0	Monistat		otc-us
+1229	motrin	brand	0	0	0	0	0.0	Motrin		otc-us
+1230	movicol	brand	0	0	0	0	0.0	Movicol		otc-uk
+1231	mylanta	brand	0	0	0	0	0.0	Mylanta		otc-us
+1232	nasacort	brand	0	0	0	0	0.0	Nasacort		otc-us
+1233	neosporin	brand	0	0	0	0	0.0	Neosporin		otc-us
+1234	nicoderm	brand	0	0	0	0	0.0	NicoDerm		otc-us
+1235	nicorette	brand	0	0	0	0	0.0	Nicorette		otc-us
+1236	night nurse	brand	0	0	0	0	0.0	Night Nurse		otc-uk
+1237	nurofen	brand	0	0	0	0	0.0	Nurofen		otc-uk
+1238	nyquil	brand	0	0	0	0	0.0	NyQuil		otc-us
+1239	nytol	brand	0	0	0	0	0.0	Nytol		otc-us
+1240	olbas	brand	0	0	0	0	0.0	Olbas		otc-uk
+1241	orajel	brand	0	0	0	0	0.0	Orajel		otc-us
+1242	pedialyte	brand	0	0	0	0	0.0	Pedialyte		otc-us
+1243	pepto-bismol	brand	0	0	0	0	0.0	Pepto-Bismol		otc-us
+1244	piriteze	brand	0	0	0	0	0.0	Piriteze		otc-uk
+1245	piriton	brand	0	0	0	0	0.0	Piriton		otc-uk
+1246	plan b	brand	0	0	0	0	0.0	Plan B		otc-us
+1247	polysporin	brand	0	0	0	0	0.0	Polysporin		otc-us
+1248	primatene	brand	0	0	0	0	0.0	Primatene		otc-us
+1249	rennie	brand	0	0	0	0	0.0	Rennie		otc-uk
+1250	rhinocort	brand	0	0	0	0	0.0	Rhinocort		otc-us
+1251	robitussin	brand	0	0	0	0	0.0	Robitussin		otc-us
+1252	rogaine	brand	0	0	0	0	0.0	Rogaine		otc-us
+1253	rolaids	brand	0	0	0	0	0.0	Rolaids		otc-us
+1254	salonpas	brand	0	0	0	0	0.0	Salonpas		otc-us
+1255	solpadeine	brand	0	0	0	0	0.0	Solpadeine		otc-uk
+1256	sominex	brand	0	0	0	0	0.0	Sominex		otc-us
+1257	strepsils	brand	0	0	0	0	0.0	Strepsils		otc-uk
+1258	sudafed	brand	0	0	0	0	0.0	Sudafed		otc-us
+1259	sudocrem	brand	0	0	0	0	0.0	Sudocrem		otc-uk
+1260	tagamet	brand	0	0	0	0	0.0	Tagamet		otc-us
+1261	theraflu	brand	0	0	0	0	0.0	Theraflu		otc-us
+1262	tinactin	brand	0	0	0	0	0.0	Tinactin		otc-us
+1263	tums	brand	0	0	0	0	0.0	Tums		otc-us
+1264	tylenol	brand	0	0	0	0	0.0	Tylenol		otc-us
+1265	unisom	brand	0	0	0	0	0.0	Unisom		otc-us
+1266	vicks	brand	0	0	0	0	0.0	Vicks		otc-us
+1267	visine	brand	0	0	0	0	0.0	Visine		otc-us
+1268	voltaren	brand	0	0	0	0	0.0	Voltaren		otc-us
+1269	xyzal	brand	0	0	0	0	0.0	Xyzal		otc-us
+1270	zantac	brand	0	0	0	0	0.0	Zantac		otc-us
+1271	zyrtec	brand	0	0	0	0	0.0	Zyrtec		otc-us
+1272	zzzquil	brand	0	0	0	0	0.0	ZzzQuil		otc-us

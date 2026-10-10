@@ -1,0 +1,32 @@
+{
+ "files": {
+  "clincalc_top300_2024.html": {
+   "bytes": 182693,
+   "fetched": "2026-10-09T23:52:14Z",
+   "sha256": "c677268bb1a37a6c48c20ab014d770843a4bcd4224ab3377292fe63335349dff",
+   "url": "https://clincalc.com/DrugStats/Top300Drugs.aspx",
+   "what": "ClinCalc DrugStats Database, The Top 300 of 2024 (from AHRQ MEPS 2024 prescribed medicines; US outpatient prescriptions, all ages and payers)"
+  },
+  "cms_medicaid_2024.csv": {
+   "bytes": 5377188,
+   "fetched": "2026-10-09T23:52:14Z",
+   "sha256": "29294c174ee7ad6cbe97008b85af3f2887ff2600e6bb95503064fd5f27ae6624",
+   "url": "https://data.cms.gov/sites/default/files/2026-06/ae1c5e06-957d-42dd-b783-e7fe598c01c9/DSD_MCD_RY26_P06_V20_D24_BGM.csv",
+   "what": "CMS Medicaid Spending by Drug, 2020-2024 (claims by brand and generic name; covers OTC drugs too)"
+  },
+  "cms_partb_2024.csv": {
+   "bytes": 319191,
+   "fetched": "2026-10-09T23:52:14Z",
+   "sha256": "986deefa094dca8f4e50abde43263910eeb667de305366f397f7af04d8a8734e",
+   "url": "https://data.cms.gov/sites/default/files/2026-06/6616fc91-eb70-404c-9f27-1448e47a3a73/DSD_PTB_RY26_P06_V10_DYT24_HCPCS-%20260602.csv",
+   "what": "CMS Medicare Part B Spending by Drug, 2020-2024 (infused and clinic-given drugs: biologics, cancer drugs)"
+  },
+  "cms_partd_2024.csv": {
+   "bytes": 5326806,
+   "fetched": "2026-10-09T23:52:14Z",
+   "sha256": "5dcc9d7bd7d7f88d9f6b24485c06d961ed6d70f9aa6deffa50dd47a6854c2a55",
+   "url": "https://data.cms.gov/sites/default/files/2026-06/98218f98-166c-4723-8438-c344a4ef96a6/DSD_PTD_RY26_P04_V10_DY24_BGM.csv",
+   "what": "CMS Medicare Part D Spending by Drug, 2020-2024 (claims by brand and generic name; Medicare outpatient)"
+  }
+ }
+}
