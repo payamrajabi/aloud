@@ -33,7 +33,7 @@
       "brand_listed_as": "Vemlidy®",
       "generic_monograph": "Tenofovir alafenamide",
       "generic_pronounced": [
-       "ten of' oh vir al\" a fen' a mide"
+       "ten of' oh vir al'' a fen' a mide"
       ],
       "url": "https://medlineplus.gov/druginfo/meds/a602018.html"
      }
@@ -183,7 +183,7 @@
       "brand_listed_as": "Epidiolex®",
       "generic_monograph": "Cannabidiol",
       "generic_pronounced": [
-       "kan\" a bi dye' ol"
+       "kan'' a bi dye' ol"
       ],
       "url": "https://medlineplus.gov/druginfo/meds/a618051.html"
      }
@@ -306,8 +306,8 @@
       "brand_listed_as": "Azstarys®",
       "generic_monograph": "Serdexmethylphenidate and Dexmethylphenidate",
       "generic_pronounced": [
-       "ser\" dex meth\" ill fen' i date",
-       "dex\" meth ill fen' i date"
+       "ser'' dex meth'' ill fen' i date",
+       "dex'' meth ill fen' i date"
       ],
       "url": "https://medlineplus.gov/druginfo/meds/a621026.html"
      }
@@ -369,7 +369,7 @@
       "brand_listed_as": "Orgovyx®",
       "generic_monograph": "Relugolix",
       "generic_pronounced": [
-       "rel\" ue goe' lix"
+       "rel'' ue goe' lix"
       ],
       "url": "https://medlineplus.gov/druginfo/meds/a621006.html"
      }
@@ -490,7 +490,7 @@
       "generic_monograph": "Olanzapine and Samidorphan",
       "generic_pronounced": [
        "oh lan' za peen",
-       "sam\" i dor' fan"
+       "sam'' i dor' fan"
       ],
       "url": "https://medlineplus.gov/druginfo/meds/a621051.html"
      }
@@ -530,7 +530,7 @@
       "brand_listed_as": "Skyrizi®",
       "generic_monograph": "Risankizumab-rzaa Injection",
       "generic_pronounced": [
-       "ris\" an kiz' ue mab"
+       "ris'' an kiz' ue mab"
       ],
       "url": "https://medlineplus.gov/druginfo/meds/a619035.html"
      }
@@ -751,8 +751,8 @@
       "brand_listed_as": "Vienva®",
       "generic_monograph": "Ethinyl Estradiol and Levonorgestrel (Oral Contraceptives)",
       "generic_pronounced": [
-       "eth′ i nil es″ tra dye′ ol",
-       "lee″ voe nor jes′ trel"
+       "eth' i nil es'' tra dye' ol",
+       "lee'' voe nor jes' trel"
       ],
       "url": "https://medlineplus.gov/druginfo/meds/a625049.html"
      }
@@ -911,7 +911,7 @@
       "brand_listed_as": "Auvelity®",
       "generic_monograph": "Dextromethorphan and Bupropion",
       "generic_pronounced": [
-       "dex\" troe meth or' fan and bue proe' pee on"
+       "dex'' troe meth or' fan and bue proe' pee on"
       ],
       "url": "https://medlineplus.gov/druginfo/meds/a622070.html"
      },
@@ -950,7 +950,7 @@
       "brand_listed_as": "Mili®",
       "generic_monograph": "Ethinyl Estradiol and Norgestimate (Oral Contraceptives)",
       "generic_pronounced": [
-       "eth′ i nil es″ tra dye′ ol"
+       "eth' i nil es'' tra dye' ol"
       ],
       "url": "https://medlineplus.gov/druginfo/meds/a625050.html"
      }
@@ -1209,7 +1209,7 @@
       "generic_monograph": "Ethinyl Estradiol and Norethindrone (Oral Contraceptives)",
       "generic_pronounced": [
        "ess' troe jen",
-       "nor eth′ in drone"
+       "nor eth' in drone"
       ],
       "url": "https://medlineplus.gov/druginfo/meds/a601050.html"
      }
@@ -1321,7 +1321,7 @@
       "brand_listed_as": "Taltz®",
       "generic_monograph": "Ixekizumab Injection",
       "generic_pronounced": [
-       "ix\" ee kiz' ue mab"
+       "ix'' ee kiz' ue mab"
       ],
       "url": "https://medlineplus.gov/druginfo/meds/a616025.html"
      }
@@ -1352,9 +1352,9 @@
       "brand_listed_as": "Odefsey®",
       "generic_monograph": "Emtricitabine, Rilpivirine, and Tenofovir alafenamide",
       "generic_pronounced": [
-       "em″ trye sye′ ta been",
-       "ril″ pi vir′ een",
-       "ten of′ oh vir al″ a fen′ a mide"
+       "em'' trye sye' ta been",
+       "ril'' pi vir' een",
+       "ten of' oh vir al'' a fen' a mide"
       ],
       "url": "https://medlineplus.gov/druginfo/meds/a625075.html"
      }

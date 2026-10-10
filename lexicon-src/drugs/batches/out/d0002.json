@@ -1,0 +1,1592 @@
+[
+ {
+  "rank": 51,
+  "word": "carvedilol",
+  "kind": "generic",
+  "spelling": "carvedilol",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "kˈɑɹvədˌɪlɔl",
+  "gb": "kˈɑːvədˌɪlɒl",
+  "respelling": "KAR-vuh-dil-ol",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "kar' ve dil ol",
+    "url": "https://medlineplus.gov/druginfo/meds/a697042.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˈkɑɹ.vəˌdɪl.ɔl/",
+    "url": "https://en.wiktionary.org/wiki/carvedilol"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ˈkär-və-ˌdil-ˌȯl (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/carvedilol"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "kɑɹvˈɛdəlˌɔl",
+    "gb": "kɑːvˈɛdəlɒl",
+    "context": "kar-VED-ih-lol: the American Heritage Dictionary's main stress on the second syllable (it gives kär-vā′dĭ-lôl′ first, -vĕd′ĭ- second)"
+   }
+  ],
+  "notes": "Today says kar-VED-uh-lul: main stress on the second syllable and the last syllable reduced. MedlinePlus, Merriam-Webster and Wiktionary GA all put the main stress on 'kar' with a secondary on 'dil' and a full final 'ol'. The American Heritage Dictionary (fetched) stresses the second syllable instead; three authoritative sources against one, so high, with AHD's form as the alternative. GB: British vowels and the RP -ol (ɒl) of the sister -olol drugs."
+ },
+ {
+  "rank": 52,
+  "word": "tartrate",
+  "kind": "salt",
+  "spelling": "tartrate",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "American Heritage Dictionary",
+    "says": "tär′trāt′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=tartrate"
+   },
+   {
+    "source": "Dictionary.com",
+    "says": "US /ˈtɑr treɪt/ [tahr-trayt]; British /ˈtɑːtreɪt/",
+    "url": "https://www.dictionary.com/browse/tartrate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Dictionary word (chemistry); today's TAR-trate (gold) matches the American Heritage Dictionary and Dictionary.com, US and British. Nothing to ship."
+ },
+ {
+  "rank": 53,
+  "word": "ethinyl",
+  "kind": "generic",
+  "spelling": "ethinyl",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "eth′ i nil es″ tra dye′ ol (Ethinyl Estradiol and Levonorgestrel monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a625049.html"
+   },
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "eth′ i nil es″ tra dye′ ol (Ethinyl Estradiol and Desogestrel monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a625046.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's ETH-ih-nul has MedlinePlus's main stress on 'eth' and its consonants; only the unstressed last vowel differs (ə for 'nil'). MedlinePlus prints these respellings with prime marks (′ ″), which is why the harvest didn't align them. No dictionary pronunciation found (Wiktionary's page has none; AHD has no entry)."
+ },
+ {
+  "rank": 54,
+  "word": "ondansetron",
+  "kind": "generic",
+  "spelling": "ondansetron",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "on dan' se tron",
+    "url": "https://medlineplus.gov/druginfo/meds/a601209.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /ɒnˈdæn.sə.tɹɒn/; GA /ɑnˈdæn.səˌtɹɑn/, /ɑnˈdɑn.səˌtɹɑn/, /oʊnˈdɑn.səˌtɹɑn/",
+    "url": "https://en.wiktionary.org/wiki/ondansetron"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "ŏn-dăn′sĭ-trŏn′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=ondansetron"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's on-DAN-suh-tron matches MedlinePlus, Wiktionary and AHD (only the secondary stress on 'tron' is absent). GB matches Wiktionary RP exactly."
+ },
+ {
+  "rank": 55,
+  "word": "tramadol",
+  "kind": "generic",
+  "spelling": "tramadol",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "tɹˈæmədˌɔl",
+  "gb": "tɹˈamədɒl",
+  "respelling": "TRAM-uh-dol",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "tra' ma dole",
+    "url": "https://medlineplus.gov/druginfo/meds/a695011.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˈtɹæm.əˌdɔl/",
+    "url": "https://en.wiktionary.org/wiki/tramadol"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ˈtra-mə-ˌdȯl (dictionary); ˈtram-ə-ˌdȯl (medical) (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/tramadol"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "trăm′ə-dôl′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=tramadol"
+   },
+   {
+    "source": "Dictionary.com",
+    "says": "US /ˈtræm əˌdɔl, -ˌdɒl/ [tram-uh-dawl, -dol]; no British form",
+    "url": "https://www.dictionary.com/browse/tramadol"
+   },
+   {
+    "source": "Wikipedia",
+    "says": "/ˈtræməˌdɒl/ (infobox)",
+    "url": "https://en.wikipedia.org/wiki/Tramadol"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "tɹˈæmədˌOl",
+    "gb": "tɹˈamədQl",
+    "context": "final 'dole': MedlinePlus 'tra' ma dole'"
+   }
+  ],
+  "notes": "GB-only fix. Today's US TRAM-uh-dawl matches Wiktionary GA, Merriam-Webster and AHD and is kept unchanged. Today's GB ends in a long 'dawl' (ɔː); no British dictionary could be read, but Wikipedia's IPA and Dictionary.com's second form have the LOT vowel (-dol), and British -ol drug names have ɒl (Wiktionary RP atenolol, propranolol, metoprolol; British paracetamol). Medium: the GB vowel rests on secondary sources and the family, not a British dictionary entry for this word."
+ },
+ {
+  "rank": 56,
+  "word": "hydroxyzine",
+  "kind": "generic",
+  "spelling": "hydroxyzine",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "hIdɹˈɑksəzˌin",
+  "gb": "hIdɹˈɒksɪzˌiːn",
+  "respelling": "hy-DROX-uh-zeen",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "hye drox' i zeen",
+    "url": "https://medlineplus.gov/druginfo/meds/a682866.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /haɪˈdɹɑk.səˌziːn/",
+    "url": "https://en.wiktionary.org/wiki/hydroxyzine"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "hī-drŏk′sĭ-zēn′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=hydroxyzine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says hy-DRAWK-see-zeen: the stressed vowel is 'aw' (ɔ) where every source has the LOT vowel (ɑ, British ɒ), and the unstressed 'i' is a full 'ee'. Today's GB has a long ɔː in the stressed syllable, wrong for British too."
+ },
+ {
+  "rank": 57,
+  "word": "buspirone",
+  "kind": "generic",
+  "spelling": "buspirone",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "bjuspˈIɹˌOn",
+  "gb": "bjuːspˈIɹˌQn",
+  "respelling": "byoo-SPY-rohn",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "byoo spye' rone",
+    "url": "https://medlineplus.gov/druginfo/meds/a688005.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /bjuˈspaɪˌɹoʊn/",
+    "url": "https://en.wiktionary.org/wiki/buspirone"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "byo͞o-spī′rōn′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=buspirone"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says boo-spih-ROH-nee: a spurious fourth syllable, the stress on 'roh', no y in 'byoo' and 'spih' for 'spy'. Every source has byoo-SPY-rohn (AHD's o͞o glyph was lost in the fetch; its y survives)."
+ },
+ {
+  "rank": 58,
+  "word": "clopidogrel",
+  "kind": "generic",
+  "spelling": "clopidogrel",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "klOpˈɪdəɡɹˌɛl",
+  "gb": "klQpˈɪdəɡɹɛl",
+  "respelling": "kloh-PID-uh-grel",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "kloh pid' oh grel",
+    "url": "https://medlineplus.gov/druginfo/meds/a601040.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /klə(ʊ)ˈpɪd.əɡ.ɹɛl/; GA /kloʊˈpɪd.əˌɡɹɛl/",
+    "url": "https://en.wiktionary.org/wiki/clopidogrel"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "klō-pĭd′ə-grĕl′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=clopidogrel"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says KLOP-ih-daw-grul: main stress on the first syllable. Every source stresses 'pid'. Post-tonic 'oh' reduced as in Wiktionary and AHD."
+ },
+ {
+  "rank": 59,
+  "word": "propionate",
+  "kind": "salt",
+  "spelling": "propionate",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "American Heritage Dictionary",
+    "says": "prō′pē-ə-nāt′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=propionate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Dictionary word (chemistry); today's PROH-pee-uh-nate (gold) matches the American Heritage Dictionary. Wiktionary has no pronunciation. Nothing to ship."
+ },
+ {
+  "rank": 60,
+  "word": "alprazolam",
+  "kind": "generic",
+  "spelling": "alprazolam",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "al pray' zoe lam",
+    "url": "https://medlineplus.gov/druginfo/meds/a684001.html"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "ăl-prā′zə-lăm′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=alprazolam"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /alˈpɹeɪ.zəʊ.lam/, /alˈpɹeɪ.zə.lam/; GA /ælˈpɹæz.əˌlæm/",
+    "url": "https://en.wiktionary.org/wiki/alprazolam"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "al-ˈpra-zə-ˌlam (dictionary); al-ˈpraz-ə-ˌlam (medical) (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/alprazolam"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "ælpɹˈæzəlˌæm",
+    "gb": "alpɹˈazəlam",
+    "context": "al-PRAZ-uh-lam: Merriam-Webster and Wiktionary GA"
+   }
+  ],
+  "notes": "Today's al-PRAY-zuh-lam (gold) matches MedlinePlus and the American Heritage Dictionary (and Wiktionary RP). Merriam-Webster and Wiktionary GA have 'praz' instead. The dictionaries don't agree on another reading, so MedlinePlus's stands (the guide's rule) and today's is kept. Medium because the US sources split evenly on the stressed vowel; both are widely heard."
+ },
+ {
+  "rank": 61,
+  "word": "cetirizine",
+  "kind": "generic",
+  "spelling": "cetirizine",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "sətˈɪɹəzˌin",
+  "gb": "sətˈɪɹɪzˌiːn",
+  "respelling": "suh-TIR-uh-zeen",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "se ti' ra zeen (Cetirizine Ophthalmic monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a621035.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /sɛˈtɪɹ.ɪˌzin/",
+    "url": "https://en.wiktionary.org/wiki/cetirizine"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "sə-tîr′ə-zēn′",
+    "url": "https://ahdictionary.com/word/search.html?q=cetirizine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says SET-er-eye-zeen: main stress on the first syllable and 'eye' for the third. MedlinePlus, Wiktionary and AHD stress 'tir' (as in 'tier'/'mirror'), with a full secondary 'zeen'."
+ },
+ {
+  "rank": 62,
+  "word": "azithromycin",
+  "kind": "generic",
+  "spelling": "azithromycin",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "az ith roe mye' sin (Azithromycin ophthalmic monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a624056.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /əˌzɪθ.ɹoʊˈmaɪ.sn̩/",
+    "url": "https://en.wiktionary.org/wiki/azithromycin"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "ə-zĭth′rə-mī′sĭn (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=azithromycin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "əzˌɪθɹOmˈIsᵊn",
+    "gb": "əzˌɪθɹQmˈIsᵊn",
+    "context": "full 'roh' before the main stress: MedlinePlus and Wiktionary"
+   }
+  ],
+  "notes": "Today's uh-zith-ruh-MY-sin matches the American Heritage Dictionary exactly; MedlinePlus and Wiktionary keep a full 'roh' in the unstressed third syllable, an unstressed-vowel difference only."
+ },
+ {
+  "rank": 63,
+  "word": "valsartan",
+  "kind": "generic",
+  "spelling": "valsartan",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "vælsˈɑɹtˌæn",
+  "gb": "valsˈɑːtˌan",
+  "respelling": "val-SAR-tan",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "val sar' tan",
+    "url": "https://medlineplus.gov/druginfo/meds/a697015.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /vælˈsɑɹˌtæn/, /vælˈsɑɹ.tən/",
+    "url": "https://en.wiktionary.org/wiki/valsartan"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says vawl-SAR-tun: 'vawl' (ɔ) for 'val' (æ) and the last syllable reduced. MedlinePlus and Wiktionary's first form give 'val' and a full, secondary-stressed 'tan', the -sartan pattern (as losartan in d0001)."
+ },
+ {
+  "rank": 65,
+  "word": "cyclobenzaprine",
+  "kind": "generic",
+  "spelling": "cyclobenzaprine",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "sye kloe ben' za preen (Cyclobenzaprine Sublingual monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a625112.html"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "sī′klō-bĕn′zə-prēn′, sĭk′lō- (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=cyclobenzaprine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "sˌIklObˈɛnzəpɹˌin",
+    "gb": "sˌIklQbˈɛnzəpɹˌiːn",
+    "context": "full 'kloh' as written by MedlinePlus and AHD"
+   }
+  ],
+  "notes": "Today's sy-kluh-BEN-zuh-preen has the sources' stresses, stressed vowels and consonants; the only difference is the unstressed second syllable reduced (kluh for kloh). Not churned. No Wiktionary pronunciation."
+ },
+ {
+  "rank": 66,
+  "word": "venlafaxine",
+  "kind": "generic",
+  "spelling": "venlafaxine",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "ven' la fax een",
+    "url": "https://medlineplus.gov/druginfo/meds/a694020.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˌvɛn.ləˈfækˌsiːn/",
+    "url": "https://en.wiktionary.org/wiki/venlafaxine"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "vĕn′lə-făk′sēn, -sĭn (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=venlafaxine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "vˈɛnləfˌæksin",
+    "gb": "vˈɛnləfˌaksiːn",
+    "context": "MedlinePlus: main stress on 'ven', secondary on 'fax'"
+   }
+  ],
+  "notes": "Today's ven-luh-FAX-een matches Wiktionary and AHD (main stress on 'fax', secondary on 'ven'). MedlinePlus puts the main stress on 'ven'; the dictionaries agree, so they win."
+ },
+ {
+  "rank": 67,
+  "word": "allopurinol",
+  "kind": "generic",
+  "spelling": "allopurinol",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ˌælOpjˈʊɹənˌɔl",
+  "gb": "ˌalQpjˈʊəɹɪnɒl",
+  "respelling": "al-oh-PYOOR-uh-nol",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "al oh pure' i nole (Allopurinol Injection monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a622045.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /ˌæl.ə(ʊ)ˈpjʊə.ɹɪn.ɒl/; GA /ˌæl.oʊˈpjʊɹ.əˌnɔl/",
+    "url": "https://en.wiktionary.org/wiki/allopurinol"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "ăl′ō-pyo͝or′ə-nôl′, -nōl′, -nŏl′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=allopurinol"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "ˌælOpjˈʊɹənˌOl",
+    "gb": "ˌalQpjˈʊəɹɪnQl",
+    "context": "final 'nole': MedlinePlus, AHD's second form"
+   }
+  ],
+  "notes": "US-only fix. Today's US (gold) says al-oh-PYOOR-ee-nahl: a full 'ee' in the unstressed fourth syllable, which no source has (all reduce it: ɪ/ə). The new US follows Wiktionary GA and AHD's first form. Today's GB matches Wiktionary RP exactly and is kept. Borderline: the stresses were already right; a reviewer may prefer already-correct."
+ },
+ {
+  "rank": 68,
+  "word": "fumarate",
+  "kind": "salt",
+  "spelling": "fumarate",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "fjˈuməɹˌAt",
+  "gb": "fjˈuːməɹAt",
+  "respelling": "FYOO-muh-rate",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "fue' ma rate (Tenofovir disoproxil fumarate monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a625081.html"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "fyo͞o′mə-rāt′ (the o͞o glyph was also lost in the fetched text; the y survives) (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=fumarate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "US-only fix. Today's US (gold) says FOO-muh-rate with no y; MedlinePlus ('fue') and AHD have FYOO. Today's GB already has it and is kept. A dictionary word (chemistry, Zipf 2.0), but its everyday reading is this same one, so a general entry changes nothing else."
+ },
+ {
+  "rank": 69,
+  "word": "methylphenidate",
+  "kind": "generic",
+  "spelling": "methylphenidate",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "meth'' il fen' i date (Methylphenidate Transdermal Patch monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a606014.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "/ˌmɛθ əlˈfɛn ɪˌdeɪt/, /ˌmɛθ əlˈfi nɪˌdeɪt/, /ˌmɛθ əlˈfɪ nəˌdɪt/",
+    "url": "https://en.wiktionary.org/wiki/methylphenidate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's meth-ul-FEN-uh-date (gold) matches MedlinePlus and Wiktionary's first form. Today's GB (MEE-thyle-FEN-ih-date) uses the British 'methyl' and is left alone."
+ },
+ {
+  "rank": 70,
+  "word": "spironolactone",
+  "kind": "generic",
+  "spelling": "spironolactone",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "spir on'' oh lak' tone (Spironolactone and Hydrochlorothiazide monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a601111.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /ˌspʌɪ.ɹən.ə(ʊ)ˈlæk.təʊn/; GA /ˌspaɪ.ɹən.oʊˈlækˌtoʊn/, /spɪˌɹoʊ.nəˈlækˌtoʊn/, /ˌspɪɚ.ə.nəˈlæk.toʊn/",
+    "url": "https://en.wiktionary.org/wiki/spironolactone"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "spɪɹˌOnəlˈæktˌOn",
+    "gb": "spɪɹˌQnəlˈaktQn",
+    "context": "spih-ROH-nuh-LAK-tone: Wiktionary's second GA form"
+   }
+  ],
+  "notes": "Today's spy-ruh-noh-LAK-tone (gold) matches Wiktionary's first GA form and RP; main stress on 'lak' in every source. MedlinePlus's 'spir on''' is another accepted opening."
+ },
+ {
+  "rank": 71,
+  "word": "tirzepatide",
+  "kind": "generic",
+  "spelling": "tirzepatide",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "təɹzˈɛpətˌId",
+  "gb": "təzˈɛpətˌId",
+  "respelling": "tur-ZEP-uh-tide",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "tir zep' a tide (Tirzepatide injection monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a622044.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "/tɚˈzɛpəˌtaɪd/, /təˈzɛpəˌtaɪd/",
+    "url": "https://en.wiktionary.org/wiki/tirzepatide"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says TER-zep-uh-tide: main stress on the first syllable. MedlinePlus and Wiktionary stress 'zep'."
+ },
+ {
+  "rank": 72,
+  "word": "clonazepam",
+  "kind": "generic",
+  "spelling": "clonazepam",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "klOnˈæzəpˌæm",
+  "gb": "klQnˈAzɪpam",
+  "respelling": "kloh-NAZ-uh-pam",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "kloe na' ze pam",
+    "url": "https://medlineplus.gov/druginfo/meds/a682279.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /ˌkləʊˈneɪ.zɪ.pam/, /ˌkləʊˈnaz.ɪ.pam/; GA /kləˈnæz.əˌpæm/, /kloʊˈnæz.əˌpæm/",
+    "url": "https://en.wiktionary.org/wiki/clonazepam"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "klō-năz′ə-păm′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=clonazepam"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "klOnˈæzəpˌæm",
+    "gb": "klQnˈazɪpam",
+    "context": "GB with 'naz' (Wiktionary's second RP form), the US vowel"
+   }
+  ],
+  "notes": "Today says KLOH-nuz-pam: three syllables and the stress on the first. Every source has four syllables with the main stress on 'naz'. GB takes Wiktionary's first RP form (kloh-NAY-zih-pam), the same pattern as today's gold GB lorazepam (lor-AY-zih-pam); the 'naz' form is the alternative."
+ },
+ {
+  "rank": 73,
+  "word": "quetiapine",
+  "kind": "generic",
+  "spelling": "quetiapine",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "kwətˈIəpˌin",
+  "gb": "kwɪtˈIəpˌiːn",
+  "respelling": "kwuh-TY-uh-peen",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "kwe tye' a peen",
+    "url": "https://medlineplus.gov/druginfo/meds/a698019.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /kwɪˈtaɪ.əˌpin/",
+    "url": "https://en.wiktionary.org/wiki/quetiapine"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "kwə-tī′ə-pēn′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=quetiapine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says KWEE-shuh-pine: three syllables, stress on the first, 'sh' for 't' and -pine for -peen. Every source has kwuh-TY-uh-peen."
+ },
+ {
+  "rank": 74,
+  "word": "ergocalciferol",
+  "kind": "generic",
+  "spelling": "ergocalciferol",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "er'' goe kal sif' er ol",
+    "url": "https://medlineplus.gov/druginfo/meds/a616042.html"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "ûr′gō-kăl-sĭf′ə-rôl′, -rōl′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=ergocalciferol"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "ˌɜɹɡOkælsˈɪfəɹˌɔl",
+    "gb": "ˌɜːɡQkalsˈɪfəɹɒl",
+    "context": "final 'awl' (ɔ) as in AHD and Merriam-Webster-style -ol"
+   }
+  ],
+  "notes": "Today's er-guh-kal-SIF-er-ol (gold) has the sources' main stress on 'sif'. The unstressed 'goe' is reduced (allowed). The last syllable is ɑ ('doll'), which is how MedlinePlus writes it ('ol', not 'ole' or 'awl'); AHD's first form has ɔ ('awl'), the cot-caught pair most US speakers merge. Not churned. GB matches the British pattern."
+ },
+ {
+  "rank": 75,
+  "word": "clavulanate",
+  "kind": "generic",
+  "spelling": "clavulanate",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˈklæv.jəl.əˌneɪt/",
+    "url": "https://en.wiktionary.org/wiki/clavulanate"
+   },
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "(a mox i sil' in) (klav' yoo lan ic) — clavulanic acid (Amoxicillin and Clavulanic Acid monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a685024.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's KLAV-yuh-luh-nate matches Wiktionary GA exactly. MedlinePlus has no respelling for 'clavulanate' itself; its 'clavulanic' (klav' yoo lan ic) also stresses 'klav'."
+ },
+ {
+  "rank": 76,
+  "word": "glipizide",
+  "kind": "generic",
+  "spelling": "glipizide",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "glip' i zide",
+    "url": "https://medlineplus.gov/druginfo/meds/a684060.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˈɡlɪp.ɪˌzaɪd/",
+    "url": "https://en.wiktionary.org/wiki/glipizide"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's GLIP-ih-zide matches MedlinePlus and Wiktionary exactly."
+ },
+ {
+  "rank": 77,
+  "word": "latanoprost",
+  "kind": "generic",
+  "spelling": "latanoprost",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "lətˈænOpɹˌɑst",
+  "gb": "lətˈanQpɹɒst",
+  "respelling": "luh-TAN-oh-prost",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "la ta' noe prost (Latanoprost Ophthalmic monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a697003.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "respelling only: la-TA-noe-prost (no IPA)",
+    "url": "https://en.wiktionary.org/wiki/latanoprost"
+   },
+   {
+    "source": "HealthLinkBC (Healthwise)",
+    "says": "lay-TAN-oh-prost (via search result)",
+    "url": "https://healthlinkbc.ca/healthwise/latanoprost-ophthalmic-solution"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says lah-tah-NOH-prohst: main stress on the third syllable and 'oh' for the o in 'prost'. MedlinePlus stresses 'ta' (its open 'a'' is the 'a' of 'tan', as in 'ga' ba pen tin' for gabapentin); HealthLinkBC confirms TAN. The post-tonic 'noe' keeps its 'oh' because no source reduces it. No dictionary entry found (AHD none; Merriam-Webster couldn't be searched)."
+ },
+ {
+  "rank": 78,
+  "word": "zolpidem",
+  "kind": "generic",
+  "spelling": "zolpidem",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "zˈOlpɪdˌɛm",
+  "gb": "zˈQlpɪdˌɛm",
+  "respelling": "ZOHL-pih-dem",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "zol' pi dem",
+    "url": "https://medlineplus.gov/druginfo/meds/a693025.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˈzoʊl.pɪˌdɛm/",
+    "url": "https://en.wiktionary.org/wiki/zolpidem"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ˈzōl-pə-ˌdem (entry with zolpidem tartrate) (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/dictionary/zolpidem%20tartrate"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "zōl′pə-dĕm′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=zolpidem"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(zole-PIH-dem)",
+    "url": "https://webapis.cancer.gov/glossary/v1/Terms/Cancer.gov/Patient/en/zolpidem"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "zOlpˈɪdəm",
+    "gb": "zQlpˈɪdəm",
+    "context": "zole-PIH-dem: NCI Dictionary of Cancer Terms (main stress on the second syllable)"
+   }
+  ],
+  "notes": "Today says ZOHL-pih-dum: the stress is right but the last syllable is reduced. MedlinePlus, Wiktionary, Merriam-Webster and AHD all give a full, secondary-stressed 'dem' (as montelukast and meloxicam in d0001). NCI alone stresses 'pih'; four sources against one, so high. Borderline: a reviewer may prefer already-correct."
+ },
+ {
+  "rank": 79,
+  "word": "diclofenac",
+  "kind": "generic",
+  "spelling": "diclofenac",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "dIklˈOfənˌæk",
+  "gb": "dIklˈQfənˌak",
+  "respelling": "dy-KLOH-fuh-nak",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "dye kloe' fen ak (Diclofenac Ophthalmic monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a606003.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "/daɪˈkloʊ.fəˌnæk/",
+    "url": "https://en.wiktionary.org/wiki/diclofenac"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says dy-KLOF-uh-nak: 'klof' (ɑ) for 'kloh' (O) in the stressed syllable. MedlinePlus and Wiktionary agree on dy-KLOH-fuh-nak with a full final 'nak'. The American Heritage Dictionary (dī′klō-fĕn′ăk as fetched) seems to put the main stress on 'fen' instead, but its bold main-stress mark didn't survive the fetch, so it isn't relied on."
+ },
+ {
+  "rank": 80,
+  "word": "vilanterol",
+  "kind": "generic",
+  "spelling": "vilanterol",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "vIlˈæntəɹˌɔl",
+  "gb": "vIlˈantəɹɒl",
+  "respelling": "vy-LAN-ter-ol",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "vye lan' ter ol (Fluticasone and Vilanterol Oral Inhalation monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a613037.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says vee-LAN-ter-awl: 'vee' for 'vye' in the first syllable (a full vowel, not a reduction). MedlinePlus is the only source found (no Wiktionary or AHD pronunciation; no label respelling harvested); nothing contradicts it. The final 'ol' keeps today's ɔ."
+ },
+ {
+  "rank": 81,
+  "word": "doxycycline",
+  "kind": "generic",
+  "spelling": "doxycycline",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "dox i sye' kleen (Doxycycline Injection monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a601141.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /ˌdɒk.sɪˈsʌɪ.kliːn/; GA /ˌdak.siˈsaɪːklin/",
+    "url": "https://en.wiktionary.org/wiki/doxycycline"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's dok-see-SY-kleen (gold) matches MedlinePlus and Wiktionary; GB matches RP."
+ },
+ {
+  "rank": 82,
+  "word": "pregabalin",
+  "kind": "generic",
+  "spelling": "pregabalin",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "pɹiɡˈæbəlɪn",
+  "gb": "pɹiɡˈabəlɪn",
+  "respelling": "pree-GAB-uh-lin",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "pre gab' a lin",
+    "url": "https://medlineplus.gov/druginfo/meds/a605045.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "/priˈɡæbəlɪn/",
+    "url": "https://en.wiktionary.org/wiki/pregabalin"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(pree-GA-buh-lin)",
+    "url": "https://webapis.cancer.gov/glossary/v1/Terms/Cancer.gov/Patient/en/pregabalin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says PREG-uh-buh-lin: main stress on the first syllable. MedlinePlus, Wiktionary and NCI stress 'gab'; Wiktionary and NCI have 'pree' for the unstressed first syllable."
+ },
+ {
+  "rank": 83,
+  "word": "lamotrigine",
+  "kind": "generic",
+  "spelling": "lamotrigine",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ləmˈOtɹəʤˌin",
+  "gb": "ləmˈQtɹɪʤˌiːn",
+  "respelling": "luh-MOH-truh-jeen",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "la moe' tri jeen",
+    "url": "https://medlineplus.gov/druginfo/meds/a695007.html"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "lə-mō′trĭ-jēn′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=lamotrigine"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(luh-MOH-trih-jeen)",
+    "url": "https://webapis.cancer.gov/glossary/v1/Terms/Cancer.gov/Patient/en/lamotrigine"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ləˈmɑ.tɹɪˌd͡ʒin/",
+    "url": "https://en.wiktionary.org/wiki/lamotrigine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "ləmˈɑtɹəʤˌin",
+    "gb": "ləmˈɒtɹɪʤˌiːn",
+    "context": "luh-MOT-ruh-jeen: Wiktionary GA (today's reading)"
+   }
+  ],
+  "notes": "Today says luh-MOT-ruh-jeen. MedlinePlus, AHD and NCI all have 'moh' in the stressed syllable; only Wiktionary GA has 'mot'. Three authoritative sources against one, so high, with today's as the alternative."
+ },
+ {
+  "rank": 84,
+  "word": "budesonide",
+  "kind": "generic",
+  "spelling": "budesonide",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "bjudˈɛsOnˌId",
+  "gb": "bjuːdˈɛsQnˌId",
+  "respelling": "byoo-DES-oh-nide",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "byoo des' oh nide (Budesonide Nasal Spray monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a601030.html"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ˌbyü-ˈdes-ō-ˌnīd (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/budesonide"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says BUD-ih-suh-nide: main stress on the first syllable and 'bud' for 'byoo'. MedlinePlus and Merriam-Webster stress 'des'; both keep the post-tonic 'oh' full, so it isn't reduced."
+ },
+ {
+  "rank": 85,
+  "word": "pravastatin",
+  "kind": "generic",
+  "spelling": "pravastatin",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "pɹˈævəstˌætᵊn",
+  "gb": "pɹˌavəstˈatɪn",
+  "respelling": "PRAV-uh-stat-in",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "pra' va stat in",
+    "url": "https://medlineplus.gov/druginfo/meds/a692025.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /ˌpɹav.əˈstat.ɪn/; GA /ˈpɹæv.əˌstæt.n̩/",
+    "url": "https://en.wiktionary.org/wiki/pravastatin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says PRAH-vuh-stay-tin ('prah' for 'prav', 'stay' for 'stat'). US follows MedlinePlus and Wiktionary GA (main stress on 'prav'); GB keeps Wiktionary RP's main stress on 'stat', as atorvastatin in d0001."
+ },
+ {
+  "rank": 86,
+  "word": "citalopram",
+  "kind": "generic",
+  "spelling": "citalopram",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "sItˈæləpɹˌæm",
+  "gb": "sItˈaləpɹˌam",
+  "respelling": "sy-TAL-uh-pram",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "sye tal' oh pram",
+    "url": "https://medlineplus.gov/druginfo/meds/a699001.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /saɪˈtæl.əˌpɹæm/, /sɪˈtæl.əˌpɹæm/",
+    "url": "https://en.wiktionary.org/wiki/citalopram"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "sɪtˈæləpɹˌæm",
+    "gb": "sɪtˈaləpɹˌam",
+    "context": "sih-TAL-uh-pram: Wiktionary's second GA form"
+   }
+  ],
+  "notes": "Today says SIT-uh-loh-pram: main stress on the first syllable. MedlinePlus and Wiktionary stress 'tal'."
+ },
+ {
+  "rank": 87,
+  "word": "ezetimibe",
+  "kind": "generic",
+  "spelling": "ezetimibe",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "e zet' i mibe",
+    "url": "https://medlineplus.gov/druginfo/meds/a603015.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "/ɛˈzɛt.ɪ.mɪb/, /ɛˈzɛt.ɪ.maɪb/",
+    "url": "https://en.wiktionary.org/wiki/ezetimibe"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "ē′zĕt′ə-mĭb (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=ezetimibe"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "ɪzˈɛtəmɪb",
+    "gb": "ɪzˈɛtəmɪb",
+    "context": "final 'mib': AHD and Wiktionary's first form"
+   }
+  ],
+  "notes": "Today's ih-ZET-uh-mibe matches MedlinePlus (main stress on 'zet', final 'mibe'); Wiktionary lists both 'mib' and 'mibe'. The unstressed first vowel differs only in reduction."
+ },
+ {
+  "rank": 88,
+  "word": "triamcinolone",
+  "kind": "generic",
+  "spelling": "triamcinolone",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "tɹˌIæmsˈɪnəlˌOn",
+  "gb": "tɹˌIamsˈɪnəlˌQn",
+  "respelling": "try-am-SIN-uh-lohn",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "trye am sin' oh lone",
+    "url": "https://medlineplus.gov/druginfo/meds/a601122.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˌtɹaɪˌæmˈsɪn.əˌloʊn/",
+    "url": "https://en.wiktionary.org/wiki/triamcinolone"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says try-am-suh-NAH-lohn: main stress on the fourth syllable. MedlinePlus and Wiktionary stress 'sin' (the third)."
+ },
+ {
+  "rank": 89,
+  "word": "cephalexin",
+  "kind": "generic",
+  "spelling": "cephalexin",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "sef a lex' in",
+    "url": "https://medlineplus.gov/druginfo/meds/a682733.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's sef-uh-LEX-in matches MedlinePlus exactly. No dictionary pronunciation found."
+ },
+ {
+  "rank": 90,
+  "word": "oxalate",
+  "kind": "salt",
+  "spelling": "oxalate",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "Wiktionary",
+    "says": "/ˈɒksəleɪt/",
+    "url": "https://en.wiktionary.org/wiki/oxalate"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "ŏk′sə-lāt′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=oxalate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Dictionary word (chemistry); today's OK-suh-late (gold) matches AHD and Wiktionary. Nothing to ship."
+ },
+ {
+  "rank": 91,
+  "word": "lorazepam",
+  "kind": "generic",
+  "spelling": "lorazepam",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "lor a' ze pam",
+    "url": "https://medlineplus.gov/druginfo/meds/a682053.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /lɔːˈɹeɪ.zɪ.pam/, /lɔːˈɹaz.ɪ.pam/; GA /lɔɹˈæz.əˌpæm/, /lɚˈæz.əˌpæm/",
+    "url": "https://en.wiktionary.org/wiki/lorazepam"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "lôr-ăz′ə-păm′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=lorazepam"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's lor-AZ-uh-pam (gold) matches MedlinePlus, Wiktionary GA and AHD (only the secondary stress on 'pam' is absent). Today's GB matches Wiktionary's first RP form."
+ },
+ {
+  "rank": 92,
+  "word": "norethindrone",
+  "kind": "generic",
+  "spelling": "norethindrone",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "nɔɹˈɛθɪndɹˌOn",
+  "gb": "nɔːɹˈɛθɪndɹˌQn",
+  "respelling": "nor-ETH-in-drone",
+  "evidence": [
+   {
+    "source": "Wiktionary",
+    "says": "GA /nɔɹˈɛθ.ɪnˌdɹoʊn/",
+    "url": "https://en.wiktionary.org/wiki/norethindrone"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "nôr-ĕth′ĭn-drōn′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=norethindrone"
+   },
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "nor eth′ in drone (Ethinyl Estradiol and Norethindrone monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a601050.html"
+   },
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "nor eth in' drone (Norethindrone monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a604034.html"
+   },
+   {
+    "source": "HealthLinkBC (Healthwise)",
+    "says": "nor-ETH-in-drone (via search result)",
+    "url": "https://healthlinkbc.ca/node/3116"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "nˌɔɹɛθˈɪndɹˌOn",
+    "gb": "nˌɔːɹɛθˈɪndɹˌQn",
+    "context": "nor-eth-IN-drone: MedlinePlus's Norethindrone monograph"
+   }
+  ],
+  "notes": "Today says NOR-ih-thin-drone: main stress on the first syllable. Wiktionary, AHD, MedlinePlus's combined-pill monograph and HealthLinkBC stress 'eth'; MedlinePlus's own Norethindrone monograph stresses 'in' (the checker's WARN), so MedlinePlus disagrees with itself. Three authoritative sources agree on 'eth', so high; a reviewer may want to weigh the MedlinePlus split."
+ },
+ {
+  "rank": 93,
+  "word": "aspirin",
+  "kind": "generic",
+  "spelling": "aspirin",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "as' pir in (Aspirin Rectal monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a621021.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /ˈæs.p(ɪ.)ɹɪn/; GA /ˈæs.pɹɪn/",
+    "url": "https://en.wiktionary.org/wiki/aspirin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Ordinary word (Zipf 3.34); today's AS-per-in (gold; GB AS-prin) is the everyday and the drug reading, matching MedlinePlus's three syllables and Wiktionary's RP. Nothing to ship."
+ },
+ {
+  "rank": 94,
+  "word": "clonidine",
+  "kind": "generic",
+  "spelling": "clonidine",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "Wiktionary",
+    "says": "RP /ˈklɒn.ɪd.iːn/; GA /ˈklɑn.əˌdiːn/",
+    "url": "https://en.wiktionary.org/wiki/clonidine"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "klŏn′ĭ-dēn′, klō′nĭ- (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=clonidine"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ˈklä-nə-ˌdēn, ˈklō- (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/clonidine"
+   },
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "kloe' ni deen (Clonidine Transdermal Patch monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a608049.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "klˈOnɪdˌin",
+    "gb": "klˈQnɪdˌiːn",
+    "context": "KLOH-nih-deen: MedlinePlus, and the second form in AHD and Merriam-Webster"
+   }
+  ],
+  "notes": "Today's KLON-ih-deen (CMUdict) is the first form in Merriam-Webster, AHD and Wiktionary. MedlinePlus has KLOH-nih-deen; the dictionaries agree on KLON, so they win (the guide's rule)."
+ },
+ {
+  "rank": 95,
+  "word": "formoterol",
+  "kind": "generic",
+  "spelling": "formoterol",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "fɔɹmˈOtəɹˌɔl",
+  "gb": "fɔːmˈQtəɹɒl",
+  "respelling": "for-MOH-ter-ol",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "for moh' te rol (Formoterol Oral Inhalation monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a602023.html"
+   },
+   {
+    "source": "Drugs.com",
+    "says": "bue-DES-oh-nide-and-for-MOE-te-rol (via search result)",
+    "url": "https://www.drugs.com/budesonide-and-formoterol-inhalation.html"
+   },
+   {
+    "source": "Kaiser Permanente drug encyclopedia",
+    "says": "(bue-DES-oh-nide/for-MOE-ter-ol) (via search result)",
+    "url": "https://healthy.kaiserpermanente.org/health-wellness/drug-encyclopedia/drug.budesonide-formoterol-hfa-80-mcg-4-5-mcg-actuation-aerosol-inhaler.551028"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "fȯr-ˈmät-ə-ˌrȯl (entry 'formoterol fumarate') (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/dictionary/formoterol%20fumarate"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "fɔɹmˈɑtəɹˌɔl",
+    "gb": "fɔːmˈɒtəɹɒl",
+    "context": "for-MOT-er-ol: Merriam-Webster (today's reading)"
+   }
+  ],
+  "notes": "Today says for-MOT-er-awl, which is Merriam-Webster's form. MedlinePlus has 'moh' in the stressed syllable, as do Drugs.com and Kaiser's drug encyclopedia. The guide's rule (MedlinePlus unless dictionaries agree on something else; only one dictionary here) gives 'moh'. Medium because the two authoritative sources split on the stressed vowel. Wiktionary and AHD have no pronunciation."
+ },
+ {
+  "rank": 96,
+  "word": "alendronate",
+  "kind": "generic",
+  "spelling": "alendronate",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "a len' droe nate",
+    "url": "https://medlineplus.gov/druginfo/meds/a601011.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /əˈlɛn.dɹəˌneɪt/",
+    "url": "https://en.wiktionary.org/wiki/alendronate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's uh-LEN-druh-nate matches Wiktionary GA exactly; MedlinePlus differs only in an unstressed vowel."
+ },
+ {
+  "rank": 97,
+  "word": "atenolol",
+  "kind": "generic",
+  "spelling": "atenolol",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "a ten' oh lole",
+    "url": "https://medlineplus.gov/druginfo/meds/a684031.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /əˈtɛn.ə.lɒl/; GA /əˈtɛn.əˌlɔl/",
+    "url": "https://en.wiktionary.org/wiki/atenolol"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "ə-tĕn′ə-lôl′, -lōl′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=atenolol"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "ətˈɛnəlˌɔl",
+    "gb": "ətˈɛnəlɒl",
+    "context": "final 'lawl' (ɔ): Wiktionary GA, AHD's first form"
+   }
+  ],
+  "notes": "Today's uh-TEN-uh-lahl (gold) has every source's stress and consonants. The last syllable is ɑ ('lahl') where Wiktionary GA and AHD write ɔ ('lawl'): the cot-caught pair, merged for most US speakers (and RP has the matching LOT vowel). Not churned. Today's GB matches RP exactly."
+ },
+ {
+  "rank": 98,
+  "word": "aripiprazole",
+  "kind": "generic",
+  "spelling": "aripiprazole",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ˌAɹəpˈɪpɹəzˌOl",
+  "gb": "ˌAɹəpˈɪpɹəzˌQl",
+  "respelling": "ay-ruh-PIP-ruh-zole",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "ay ri pip' ray zole",
+    "url": "https://medlineplus.gov/druginfo/meds/a603012.html"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "ā′rə-pĭp′rə-zōl′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=aripiprazole"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˌæɹ.ɪˈpɪp.ɹəˌzoʊl/",
+    "url": "https://en.wiktionary.org/wiki/aripiprazole"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ˌa-rə-ˈpi-prə-ˌzōl, -ˌzȯl (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/aripiprazole"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "ˌæɹəpˈɪpɹəzˌOl",
+    "gb": "ˌaɹəpˈɪpɹəzˌQl",
+    "context": "air-uh-PIP-ruh-zole: Merriam-Webster and Wiktionary"
+   }
+  ],
+  "notes": "Today says uh-RIP-ih-pruh-zole: main stress on 'rip'. Every source stresses 'pip' (the -prazole pattern). First syllable: MedlinePlus and AHD 'ay', Merriam-Webster and Wiktionary 'a' (as in 'arrow'); the dictionaries split, so MedlinePlus's 'ay' stands and 'air' is the alternative. MedlinePlus's 'ray' in the unstressed fourth syllable is reduced, since all three dictionaries reduce it (as omeprazole in d0001)."
+ },
+ {
+  "rank": 99,
+  "word": "tizanidine",
+  "kind": "generic",
+  "spelling": "tizanidine",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "tIzˈænɪdˌin",
+  "gb": "tIzˈanɪdˌiːn",
+  "respelling": "ty-ZAN-ih-deen",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "tye zan' i deen",
+    "url": "https://medlineplus.gov/druginfo/meds/a601121.html"
+   },
+   {
+    "source": "Wikipedia",
+    "says": "/taɪˈzænɪdiːn/ (via search result)",
+    "url": "https://en.wikipedia.org/wiki/Tizanidine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says tih-ZAN-uh-deen: 'tih' for 'ty' in the first syllable (a full vowel, not a reduction). MedlinePlus, with Wikipedia agreeing; no dictionary entry found (Wiktionary has no pronunciation, AHD no entry)."
+ },
+ {
+  "rank": 100,
+  "word": "propranolol",
+  "kind": "generic",
+  "spelling": "propranolol",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "proe pran' oh lole (Propranolol (Infantile Hemangioma) monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a615024.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /pɹəʊˈpɹan.ə.lɒl/; GA /pɹoʊˈpɹæn.əˌlɔl/",
+    "url": "https://en.wiktionary.org/wiki/propranolol"
+   },
+   {
+    "source": "American Heritage Dictionary",
+    "says": "prō-prăn′ə-lôl′, -lōl′, -lŏl′ (American Heritage Dictionary; its bold main-stress mark is lost in the fetched text, read from the gap it leaves)",
+    "url": "https://ahdictionary.com/word/search.html?q=propranolol"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "pɹOpɹˈænəlˌɔl",
+    "gb": "pɹQpɹˈanəlɒl",
+    "context": "final 'lawl' (ɔ): Wiktionary GA, AHD's first form"
+   }
+  ],
+  "notes": "Today's proh-PRAN-uh-lahl (gold) has every source's stresses and consonants; its final ɑ is AHD's third form (-lŏl′), the cot-caught partner of Wiktionary GA's ɔ. Today's GB matches RP exactly."
+ },
+ {
+  "rank": 101,
+  "word": "phosphate",
+  "kind": "generic",
+  "spelling": "phosphate",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "fos' fate (Sodium Phosphate monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a609019.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "UK /ˈfɒsfeɪt/; GA /ˈfɑsfeɪt/",
+    "url": "https://en.wiktionary.org/wiki/phosphate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Ordinary word (Zipf 3.42); today's FOS-fate is the everyday and the drug reading. Nothing to ship."
+ }
+]

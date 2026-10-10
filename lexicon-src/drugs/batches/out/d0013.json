@@ -1,0 +1,399 @@
+[
+ {
+  "rank": 1141,
+  "word": "teprotumumab",
+  "kind": "generic",
+  "spelling": "teprotumumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "tˌɛpɹOtˈumjumˌæb",
+  "gb": "tˌɛpɹQtˈuːmjuːmˌab",
+  "respelling": "tep-roh-TOOM-yoo-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "tep roe toom' ue mab (Teprotumumab-trbw Injection)",
+    "url": "https://medlineplus.gov/druginfo/meds/a620025.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says tep-roh-TOO-mub: four syllables, the 'yoo' syllable lost and 'mab' reduced. MedlinePlus gives five, main stress on 'toom'. ASHP's 'ue' is the 'yoo' sound: NCI writes the same syllables 'yoo'/'myoo' (ravulizumab RAV-yoo-LIZ-yoo-mab, ipilimumab ih-pih-LIH-myoo-mab), and ASHP uses it for fumarate 'fue' ma rate' and lamivudine 'la miv' ue deen'. Unstressed 'yoo' kept full (`ju`) as the guide keeps 'oo' and as NCI writes it. -mab keeps a full, secondary-stressed 'mab': the guide's -mab family, and Wiktionary's US IPA for the -mab names in the harvest (nivolumab, rituximab, adalimumab, golimumab: ˌmæb). No NCI entry (not a cancer drug); the Tepezza site prints no respelling. GB keeps the US consonants (no British source; a British 'tyoo' for 'tu' is possible).",
+  "review": "ok: MedlinePlus 'tep roe toom' ue mab' re-checked on the page; no NCI entry, no maker respelling (Tepezza site checked)"
+ },
+ {
+  "rank": 1143,
+  "word": "luspatercept",
+  "kind": "generic",
+  "spelling": "luspatercept",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "lus pat' er sept (Luspatercept-aamt Injection)",
+    "url": "https://medlineplus.gov/druginfo/meds/a620043.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms (cancer.gov; read through its glossary API, which the JS-rendered page draws on)",
+    "says": "(lus-PA-ter-cept)",
+    "url": "https://webapis.cancer.gov/glossary/v1/Terms/Cancer.gov/Patient/en/luspatercept"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's ləspˈætəɹsˌɛpt (lus-PAT-er-sept, GB without the r) matches MedlinePlus and NCI: same stressed syllable and vowel, same consonants, full secondary 'sept'; only the unstressed 'lus' is reduced.",
+  "review": "ok: MedlinePlus 'lus pat' er sept' and NCI lus-PA-ter-cept re-checked; today's reading differs only in the reduced unstressed 'lus'"
+ },
+ {
+  "rank": 1145,
+  "word": "inclisiran",
+  "kind": "generic",
+  "spelling": "inclisiran",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ˌɪnklɪsˈɪɹən",
+  "gb": "ˌɪnklɪsˈɪəɹən",
+  "respelling": "in-klih-SEER-un",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "in' kli sir' an (Inclisiran injection; two single apostrophes as printed)",
+    "url": "https://medlineplus.gov/druginfo/meds/a622009.html"
+   },
+   {
+    "source": "MedlinePlus (ASHP), same -siran family",
+    "says": "vutrisiran: vue\" tri sir' an (secondary on the first syllable, main on 'sir')",
+    "url": "https://medlineplus.gov/druginfo/meds/a622061.html"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "ˈɪnklɪsˌɪɹən",
+    "gb": "ˈɪnklɪsˌɪəɹən",
+    "context": "IN-klih-seer-un: if MedlinePlus's first apostrophe is the main stress"
+   }
+  ],
+  "notes": "Today's guess says in-KLIZ-ih-run (stress on 'kli', z for s). MedlinePlus marks both 'in' and 'sir' with a single (main-stress) apostrophe, which can't both be primary; read as secondary on 'in' and main on 'sir', the pattern MedlinePlus prints for vutrisiran, the only other -siran it lists. The checker's WARN (MedlinePlus stresses syllable 1) comes from taking the first apostrophe; intended. Medium because the stress had to be interpreted. ASHP 'ir' is the 'eer' sound (its 'mir' in mirvetuximab is NCI's 'MEER'), so US ɪɹ, GB NEAR ɪə before the r (no British source). No NCI entry; the Leqvio site and label print no respelling.",
+  "review": "ok: MedlinePlus page re-checked, it really prints two single apostrophes 'in' kli sir' an'; secondary 'in' + main 'sir' (vutrisiran's pattern) and medium are right; no NCI, Wiktionary or Leqvio/LeqvioHCP respelling"
+ },
+ {
+  "rank": 1147,
+  "word": "ravulizumab",
+  "kind": "generic",
+  "spelling": "ravulizumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ɹˌævjulˈɪzjumˌæb",
+  "gb": "ɹˌavjuːlˈɪzjuːmˌab",
+  "respelling": "rav-yoo-LIZ-yoo-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "rav\" ue liz' ue mab (Ravulizumab-cwvz Injection)",
+    "url": "https://medlineplus.gov/druginfo/meds/a619014.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms (cancer.gov; read through its glossary API, which the JS-rendered page draws on)",
+    "says": "(RAV-yoo-LIZ-yoo-mab)",
+    "url": "https://webapis.cancer.gov/glossary/v1/Terms/Cancer.gov/Patient/en/ravulizumab"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says rav-yuh-lih-ZOO-mub (main stress on 'zu', 'mab' reduced). MedlinePlus and NCI agree exactly: secondary 'rav', main 'liz', both 'yoo' full. -mab keeps a full, secondary-stressed 'mab': the guide's -mab family, and Wiktionary's US IPA for the -mab names in the harvest (nivolumab, rituximab, adalimumab, golimumab: ˌmæb).",
+  "review": "ok: MedlinePlus and NCI (RAV-yoo-LIZ-yoo-mab) re-checked; they agree"
+ },
+ {
+  "rank": 1149,
+  "word": "enfortumab",
+  "kind": "generic",
+  "spelling": "enfortumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ɛnfˈɔɹtjumˌæb",
+  "gb": "ɛnfˈɔːtjuːmˌab",
+  "respelling": "en-FORT-yoo-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "en fort' ue mab ve doe' tin (Enfortumab vedotin-ejfv Injection)",
+    "url": "https://medlineplus.gov/druginfo/meds/a620005.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms (cancer.gov; read through its glossary API, which the JS-rendered page draws on)",
+    "says": "(en-FOR-too-mab veh-DOH-tin), entry 'enfortumab vedotin'",
+    "url": "https://webapis.cancer.gov/glossary/v1/Terms/Cancer.gov/Patient/en/enfortumab-vedotin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "ɛnfˈɔɹtumˌæb",
+    "gb": "ɛnfˈɔːtuːmˌab",
+    "context": "en-FOR-too-mab: NCI Dictionary of Cancer Terms"
+   }
+  ],
+  "notes": "Today's guess says en-FOR-choo-mub: the stressed syllable is right, but 'mab' is reduced, which the guide corrects (a full-vowel secondary read reduced). -mab keeps a full, secondary-stressed 'mab': the guide's -mab family, and Wiktionary's US IPA for the -mab names in the harvest (nivolumab, rituximab, adalimumab, golimumab: ˌmæb). Both sources stress 'for'. They differ only in the unstressed middle syllable: MedlinePlus 'ue' (yoo) against NCI 'too'; MedlinePlus wins for a generic per the guide, NCI's form is the alternative.",
+  "review": "ok: MedlinePlus 'en fort' ue mab' and NCI en-FOR-too-mab re-checked; MedlinePlus wins for a generic, NCI's 'too' kept as the alternative"
+ },
+ {
+  "rank": 1151,
+  "word": "ipilimumab",
+  "kind": "generic",
+  "spelling": "ipilimumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ˌɪpɪlˈɪmjumˌæb",
+  "gb": "ˌɪpɪlˈɪmjuːmˌab",
+  "respelling": "ip-ih-LIM-yoo-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "ip'' i lim' ue mab (Ipilimumab Injection)",
+    "url": "https://medlineplus.gov/druginfo/meds/a611023.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms (cancer.gov; read through its glossary API, which the JS-rendered page draws on)",
+    "says": "(ih-pih-LIH-myoo-mab)",
+    "url": "https://webapis.cancer.gov/glossary/v1/Terms/Cancer.gov/Patient/en/ipilimumab"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says ip-IL-uh-myoo-mub (main stress on syllable 2, 'mab' reduced). MedlinePlus and NCI both stress 'lim' (syllable 3) with a full 'myoo'; MedlinePlus adds a secondary on 'ip'. -mab keeps a full, secondary-stressed 'mab': the guide's -mab family, and Wiktionary's US IPA for the -mab names in the harvest (nivolumab, rituximab, adalimumab, golimumab: ˌmæb). Zipf 1.67 is the drug itself in text; no other sense.",
+  "review": "ok: MedlinePlus 'ip'' i lim' ue mab' and NCI ih-pih-LIH-myoo-mab re-checked; no Wiktionary IPA, no Dictionary.com entry"
+ },
+ {
+  "rank": 1153,
+  "word": "cemiplimab",
+  "kind": "generic",
+  "spelling": "cemiplimab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "səmˈɪplɪmˌæb",
+  "gb": "səmˈɪplɪmˌab",
+  "respelling": "suh-MIP-lih-mab",
+  "evidence": [
+   {
+    "source": "NCI Dictionary of Cancer Terms (cancer.gov; read through its glossary API, which the JS-rendered page draws on)",
+    "says": "(seh-MIP-lih-mab)",
+    "url": "https://webapis.cancer.gov/glossary/v1/Terms/Cancer.gov/Patient/en/cemiplimab"
+   },
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "sem' ip li\" mab (Cemiplimab-rwlc Injection): main stress on 'sem', secondary on 'li'",
+    "url": "https://medlineplus.gov/druginfo/meds/a618054.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms (cancer.gov; read through its glossary API, which the JS-rendered page draws on), -limab neighbours",
+    "says": "relatlimab reh-LAT-lih-mab; MedlinePlus relatlimab 'rel at' li mab' (stress on the syllable before -li-mab)",
+    "url": "https://webapis.cancer.gov/glossary/v1/Terms/Cancer.gov/Patient/en/nivolumab-and-relatlimab"
+   },
+   {
+    "source": "MedlinePlus (ASHP) and NCI Dictionary of Cancer Terms, -limab neighbour dostarlimab",
+    "says": "MedlinePlus 'dos tar' li mab' (Dostarlimab-gxly Injection); NCI (dos-TAR-lih-mab): stress on the syllable before -li-mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a621030.html"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "sˈɛmɪplˌɪmæb",
+    "gb": "sˈɛmɪplˌɪmab",
+    "context": "SEM-ip-lih-mab: MedlinePlus (ASHP) 'sem' ip li\" mab'"
+   }
+  ],
+  "notes": "Today's guess says sem-ee-PLY-mab: wrong under either source. The two authoritative sources disagree about which syllable is stressed: NCI seh-MIP-lih-mab, MedlinePlus SEM-ip-lih-mab. Chose NCI because it matches the -limab family, in ASHP's own respellings too (relatlimab 'rel at' li mab', dostarlimab 'dos tar' li mab'; NCI reh-LAT-lih-mab, dos-TAR-lih-mab: stress on the syllable before 'li'), so ASHP's cemiplimab line is the outlier; the guide's even-split rule (MedlinePlus for US) is written for two sources sharing the same stressed syllables, which these don't. Medium for the disagreement; MedlinePlus's form is the alternative. No Wiktionary IPA; the Libtayo label respells only the brand (Lib-TIE-oh).",
+  "review": "evidence and notes only: added ASHP's own dostarlimab 'dos tar' li mab' (NCI dos-TAR-lih-mab), which shows ASHP's 'sem' ip li\" mab' is an outlier in its -limab family; NCI reading and medium (even split for this word) kept"
+ },
+ {
+  "rank": 1157,
+  "word": "tildrakizumab",
+  "kind": "generic",
+  "spelling": "tildrakizumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "tˌɪldɹəkˈɪzjumˌæb",
+  "gb": "tˌɪldɹəkˈɪzjuːmˌab",
+  "respelling": "til-druh-KIZ-yoo-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "til\" dra kiz' ue mab (Tildrakizumab-asmn injection)",
+    "url": "https://medlineplus.gov/druginfo/meds/a618026.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says TIL-druh-kye-zoo-mab (main stress on 'til', 'kye' for 'kiz'). MedlinePlus: secondary 'til', main 'kiz'. ASHP's 'ue' is the 'yoo' sound: NCI writes the same syllables 'yoo'/'myoo' (ravulizumab RAV-yoo-LIZ-yoo-mab, ipilimumab ih-pih-LIH-myoo-mab), and ASHP uses it for fumarate 'fue' ma rate' and lamivudine 'la miv' ue deen'. Unstressed 'yoo' kept full (`ju`) as the guide keeps 'oo' and as NCI writes it. -mab keeps a full, secondary-stressed 'mab': the guide's -mab family, and Wiktionary's US IPA for the -mab names in the harvest (nivolumab, rituximab, adalimumab, golimumab: ˌmæb). No NCI entry (psoriasis drug); the Ilumya site prints no respelling.",
+  "review": "ok: MedlinePlus 'til\" dra kiz' ue mab' re-checked; no NCI entry, no Ilumya respelling"
+ },
+ {
+  "rank": 1160,
+  "word": "polatuzumab",
+  "kind": "generic",
+  "spelling": "polatuzumab",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "pol\" a tooz' ue mab ve doe' tin (Polatuzumab vedotin-piiq Injection)",
+    "url": "https://medlineplus.gov/druginfo/meds/a619039.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms (cancer.gov; read through its glossary API, which the JS-rendered page draws on)",
+    "says": "(POH-lah-TOO-zoo-mab veh-DOH-tin), entry 'polatuzumab vedotin'",
+    "url": "https://webapis.cancer.gov/glossary/v1/Terms/Cancer.gov/Patient/en/polatuzumab-vedotin"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "pˌɑlətˈuzjumˌæb",
+    "gb": "pˌɒlətˈuːzjuːmˌab",
+    "context": "pol-uh-TOOZ-yoo-mab: MedlinePlus (ASHP) exactly"
+   },
+   {
+    "us": "pˌOlətˈuzumˌæb",
+    "gb": "pˌQlətˈuːzuːmˌab",
+    "context": "POH-luh-TOO-zoo-mab: NCI Dictionary of Cancer Terms"
+   }
+  ],
+  "notes": "Today's pˌɑlətˈuzumˌæb (pol-uh-TOO-zoo-mab) has the main stress on 'tu' with 'oo' and a full secondary 'mab', as both sources do. Its two details each follow one source: 'pol' as MedlinePlus (NCI has 'POH'), and 'TOO-zoo' as NCI (MedlinePlus has 'tooz' ue', a 'y' glide in the unstressed syllable; ASHP itself writes trastuzumab 'tras too' zoo mab'). Not churned: no correction would be better attested than today's. Medium because the sources disagree on the secondary-stressed vowel. Each disputed detail is backed by one authority against the other (the way acetaminophen's MedlinePlus/dictionary split was left already-correct).",
+  "review": "notes only: MedlinePlus 'pol\" a tooz' ue mab' and NCI POH-lah-TOO-zoo-mab re-checked; kept already-correct medium and replaced the reviewer hedge with the reason (an even split on both details; ASHP trastuzumab 'tras too' zoo mab' verified)"
+ },
+ {
+  "rank": 1163,
+  "word": "vutrisiran",
+  "kind": "generic",
+  "spelling": "vutrisiran",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "vjˌutɹɪsˈɪɹən",
+  "gb": "vjˌuːtɹɪsˈɪəɹən",
+  "respelling": "vyoo-trih-SEER-un",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "vue\" tri sir' an (Vutrisiran Injection)",
+    "url": "https://medlineplus.gov/druginfo/meds/a622061.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says voo-TRIZH-er-un (stress on 'tri', zh for s). MedlinePlus: secondary 'vue', main 'sir'. ASHP's 'vue' is 'vyoo' (its 'ue' is 'yoo': fumarate 'fue' ma rate', and NCI's 'yoo' for the same syllables in ravulizumab); 'ir' is the 'eer' sound (ASHP 'mir' = NCI 'MEER' in mirvetuximab), US ɪɹ, GB NEAR ɪə (no British source). No NCI entry; the Amvuttra site and label print no respelling of the generic.",
+  "review": "ok: MedlinePlus 'vue\" tri sir' an' re-checked; no NCI entry, no Amvuttra respelling"
+ },
+ {
+  "rank": 1164,
+  "word": "teclistamab",
+  "kind": "generic",
+  "spelling": "teclistamab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "tɛklˈɪstəmˌæb",
+  "gb": "tɛklˈɪstəmˌab",
+  "respelling": "tek-LIS-tuh-mab",
+  "evidence": [
+   {
+    "source": "NCI Dictionary of Cancer Terms (cancer.gov; read through its glossary API, which the JS-rendered page draws on)",
+    "says": "(tek-LIS-tuh-mab)",
+    "url": "https://webapis.cancer.gov/glossary/v1/Terms/Cancer.gov/Patient/en/teclistamab"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says TEK-lis-tam-ub (main stress on 'tek', full 'tam', reduced 'mab'). NCI stresses 'lis' with a reduced 'tuh' and a full 'mab'. MedlinePlus's Teclistamab-cqyv page (https://medlineplus.gov/druginfo/meds/a622076.html) prints no pronunciation; the Tecvayli site none either. -mab keeps a full, secondary-stressed 'mab': the guide's -mab family, and Wiktionary's US IPA for the -mab names in the harvest (nivolumab, rituximab, adalimumab, golimumab: ˌmæb).",
+  "review": "ok: NCI tek-LIS-tuh-mab re-checked; MedlinePlus page confirmed to print no pronunciation; Tecvayli site none"
+ },
+ {
+  "rank": 1167,
+  "word": "relatlimab",
+  "kind": "generic",
+  "spelling": "relatlimab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ɹəlˈætlɪmˌæb",
+  "gb": "ɹəlˈatlɪmˌab",
+  "respelling": "ruh-LAT-lih-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "rel at' li mab (Nivolumab and relatlimab-rmbw monograph: 'nye vol' ue mab and rel at' li mab')",
+    "url": "https://medlineplus.gov/druginfo/meds/a622037.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms (cancer.gov; read through its glossary API, which the JS-rendered page draws on)",
+    "says": "(nih-VOL-yoo-mab … reh-LAT-lih-mab), entry 'nivolumab and relatlimab'",
+    "url": "https://webapis.cancer.gov/glossary/v1/Terms/Cancer.gov/Patient/en/nivolumab-and-relatlimab"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's ɹilˈætlɪmˌæb (ree-LAT-lih-mab) has the right stressed syllable, vowel and consonants; the only difference is the first vowel, a full 'ee' where MedlinePlus ('rel') and NCI ('reh') write a short e, which the guide reduces to ə when unstressed. Today's 'ee' is a different full vowel from the sources' short e (whose unstressed form is ə), not a difference in reduction (the guide's ə/ɪ allowance), so it is corrected.",
+  "review": "notes only: MedlinePlus 'rel at' li mab' and NCI reh-LAT-lih-mab re-checked; removed the 'may prefer already-correct' hedge: ree- vs reh-/ruh- is a vowel-quality difference, not reduction"
+ },
+ {
+  "rank": 1170,
+  "word": "mirvetuximab",
+  "kind": "generic",
+  "spelling": "mirvetuximab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "mˌɪɹvətˈʌksɪmˌæb",
+  "gb": "mˌɪəvətˈʌksɪmˌab",
+  "respelling": "meer-vuh-TUK-sih-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "mir\" ve tux' i mab (Mirvetuximab soravtansine-gynx Injection; soravtansine not respelled)",
+    "url": "https://medlineplus.gov/druginfo/meds/a622075.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms (cancer.gov; read through its glossary API, which the JS-rendered page draws on)",
+    "says": "(MEER-veh-TUK-sih-mab SOH-rav-TAN-seen), entry 'mirvetuximab soravtansine'",
+    "url": "https://webapis.cancer.gov/glossary/v1/Terms/Cancer.gov/Patient/en/mirvetuximab-soravtansine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says MUR-vuh-tuk-sih-mub (main stress on 'mir' with the 'her' vowel, 'mab' reduced). MedlinePlus and NCI agree: secondary 'meer', main 'tux'. -mab keeps a full, secondary-stressed 'mab': the guide's -mab family, and Wiktionary's US IPA for the -mab names in the harvest (nivolumab, rituximab, adalimumab, golimumab: ˌmæb).",
+  "review": "ok: MedlinePlus 'mir\" ve tux' i mab' and NCI MEER-veh-TUK-sih-mab re-checked; they agree"
+ },
+ {
+  "rank": 1171,
+  "word": "soravtansine",
+  "kind": "generic",
+  "spelling": "soravtansine",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "sˌOɹævtˈænsin",
+  "gb": "sˌQɹavtˈansiːn",
+  "respelling": "soh-rav-TAN-seen",
+  "evidence": [
+   {
+    "source": "NCI Dictionary of Cancer Terms (cancer.gov; read through its glossary API, which the JS-rendered page draws on)",
+    "says": "(MEER-veh-TUK-sih-mab SOH-rav-TAN-seen), entry 'mirvetuximab soravtansine'",
+    "url": "https://webapis.cancer.gov/glossary/v1/Terms/Cancer.gov/Patient/en/mirvetuximab-soravtansine"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms (cancer.gov; read through its glossary API, which the JS-rendered page draws on), -tansine family",
+    "says": "ado-trastuzumab emtansine (A-doh-tras-TOO-zoo-mab em-TAN-seen); lorvotuzumab mertansine (LOR-voh-TOO-zoo-mab mer-TAN-seen)",
+    "url": "https://webapis.cancer.gov/glossary/v1/Terms/search/Cancer.gov/Patient/en/tansine?matchType=Contains&size=20"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says sor-AV-tun-seen (main stress on 'av'). NCI capitalises 'SOH' and 'TAN'; the main stress is 'TAN', as in every -tansine NCI lists (em-TAN-seen, mer-TAN-seen), with a secondary on 'soh'. 'rav' kept full as NCI writes it (NCI spells a reduced vowel 'uh', as in tek-LIS-tuh-mab). High: NCI marks both stressed syllables; which is main is the guide's two-stress case, which doesn't lower confidence. MedlinePlus respells only mirvetuximab on the Elahere monograph.",
+  "review": "notes only: NCI SOH-rav-TAN-seen re-checked (MedlinePlus respells only mirvetuximab; Elahere site has none); clarified the 'rav' remark and why high stands"
+ }
+]

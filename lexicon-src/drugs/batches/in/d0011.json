@@ -149,11 +149,11 @@
    "evidence": {
     "medlineplus": [
      {
-      "aligned": "sye\" kloe sil' i kate",
+      "aligned": "sye'' kloe sil' i kate",
       "pronounced": [
        "soe' dee um",
        "zir koe' nee um",
-       "sye\" kloe sil' i kate"
+       "sye'' kloe sil' i kate"
       ],
       "title": "Sodium Zirconium Cyclosilicate",
       "url": "https://medlineplus.gov/druginfo/meds/a618035.html"
@@ -185,7 +185,7 @@
       "pronounced": [
        "soe' dee um",
        "zir koe' nee um",
-       "sye\" kloe sil' i kate"
+       "sye'' kloe sil' i kate"
       ],
       "title": "Sodium Zirconium Cyclosilicate",
       "url": "https://medlineplus.gov/druginfo/meds/a618035.html"
@@ -562,9 +562,9 @@
    "evidence": {
     "medlineplus": [
      {
-      "aligned": "loo\" ma te' per one",
+      "aligned": "loo'' ma te' per one",
       "pronounced": [
-       "loo\" ma te' per one"
+       "loo'' ma te' per one"
       ],
       "title": "Lumateperone",
       "url": "https://medlineplus.gov/druginfo/meds/a620014.html"
@@ -1233,7 +1233,7 @@
      {
       "aligned": null,
       "pronounced": [
-       "la tan\" oh pros' teen bue' nod"
+       "la tan'' oh pros' teen bue' nod"
       ],
       "title": "Latanoprostene Bunod Ophthalmic",
       "url": "https://medlineplus.gov/druginfo/meds/a618001.html"
@@ -1263,7 +1263,7 @@
      {
       "aligned": null,
       "pronounced": [
-       "la tan\" oh pros' teen bue' nod"
+       "la tan'' oh pros' teen bue' nod"
       ],
       "title": "Latanoprostene Bunod Ophthalmic",
       "url": "https://medlineplus.gov/druginfo/meds/a618001.html"
@@ -1321,9 +1321,9 @@
    "evidence": {
     "medlineplus": [
      {
-      "aligned": "du\" tet ra ben' a zeen",
+      "aligned": "du'' tet ra ben' a zeen",
       "pronounced": [
-       "du\" tet ra ben' a zeen"
+       "du'' tet ra ben' a zeen"
       ],
       "title": "Deutetrabenazine",
       "url": "https://medlineplus.gov/druginfo/meds/a617022.html"
@@ -1565,7 +1565,7 @@
       "aligned": null,
       "pronounced": [
        "em tri sit' uh bean",
-       "ten of′ oh vir dye″ soe prox′ il fue′ ma rate"
+       "ten of' oh vir dye'' soe prox' il fue' ma rate"
       ],
       "title": "Emtricitabine and Tenofovir disoproxil fumarate",
       "url": "https://medlineplus.gov/druginfo/meds/a612036.html"
@@ -1575,7 +1575,7 @@
       "pronounced": [
        "em tri sit' uh bean",
        "ril'' pi vir' een",
-       "ten of′ oh vir dye″ soe prox′ il fue′ ma rate"
+       "ten of' oh vir dye'' soe prox' il fue' ma rate"
       ],
       "title": "Emtricitabine, Rilpivirine, and Tenofovir disoproxil fumarate",
       "url": "https://medlineplus.gov/druginfo/meds/a616021.html"

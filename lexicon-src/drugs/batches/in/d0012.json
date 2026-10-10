@@ -149,9 +149,9 @@
    "evidence": {
     "medlineplus": [
      {
-      "aligned": "me\" poe liz' ue mab",
+      "aligned": "me'' poe liz' ue mab",
       "pronounced": [
-       "me\" poe liz' ue mab"
+       "me'' poe liz' ue mab"
       ],
       "title": "Mepolizumab Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a615058.html"
@@ -230,9 +230,9 @@
    "evidence": {
     "medlineplus": [
      {
-      "aligned": "ben\" ra liz' ue mab",
+      "aligned": "ben'' ra liz' ue mab",
       "pronounced": [
-       "ben\" ra liz' ue mab"
+       "ben'' ra liz' ue mab"
       ],
       "title": "Benralizumab Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a618002.html"
@@ -384,7 +384,7 @@
      {
       "aligned": null,
       "pronounced": [
-       "pen\" i sil' in g ben' za theen"
+       "pen'' i sil' in g ben' za theen"
       ],
       "title": "Penicillin G Benzathine Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a615051.html"
@@ -392,7 +392,7 @@
      {
       "aligned": null,
       "pronounced": [
-       "pen\" sil' in g ben' za theen and pen\" i sil' in g proe' kane"
+       "pen'' sil' in g ben' za theen and pen'' i sil' in g proe' kane"
       ],
       "title": "Penicillin G Benzathine and Penicillin G Procaine Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a615053.html"
@@ -427,7 +427,16 @@
    "generic_of": "",
    "why": "partb-top",
    "evidence": {
-    "medlineplus": [],
+    "medlineplus": [
+     {
+      "aligned": "far ik' i mab",
+      "pronounced": [
+       "far ik' i mab"
+      ],
+      "title": "Faricimab-svoa Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a624073.html"
+     }
+    ],
     "wiktionary": []
    }
   },
@@ -450,9 +459,9 @@
    "evidence": {
     "medlineplus": [
      {
-      "aligned": "tez\" e pel' ue mab",
+      "aligned": "tez'' e pel' ue mab",
       "pronounced": [
-       "tez\" e pel' ue mab"
+       "tez'' e pel' ue mab"
       ],
       "title": "Tezepelumab Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a622010.html"
@@ -745,8 +754,8 @@
      {
       "aligned": null,
       "pronounced": [
-       "eth′ i nil es″ tra dye′ ol",
-       "e thye″ noe dye′ ol dye as′ e tate"
+       "eth' i nil es'' tra dye' ol",
+       "e thye'' noe dye' ol dye as' e tate"
       ],
       "title": "Ethinyl Estradiol and Ethynodiol Diacetate (Oral Contraceptives)",
       "url": "https://medlineplus.gov/druginfo/meds/a625056.html"
@@ -776,10 +785,27 @@
      {
       "aligned": null,
       "pronounced": [
+       "tras tooz' ue mab hye'' al ure on' i dase"
+      ],
+      "title": "Trastuzumab and Hyaluronidase-oysk Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a619041.html"
+     },
+     {
+      "aligned": null,
+      "pronounced": [
        "ri tux' I mab"
       ],
       "title": "Rituximab and Hyaluronidase Human Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a619047.html"
+     },
+     {
+      "aligned": "hye'' al ure on' i dase",
+      "pronounced": [
+       "dar a toom' ue mab",
+       "hye'' al ure on' i dase"
+      ],
+      "title": "Daratumumab and Hyaluronidase-fihj Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a620040.html"
      }
     ],
     "wiktionary": []
@@ -903,9 +929,9 @@
    "evidence": {
     "medlineplus": [
      {
-      "aligned": "dar\" a toom' ue mab",
+      "aligned": "dar'' a toom' ue mab",
       "pronounced": [
-       "dar\" a toom' ue mab"
+       "dar'' a toom' ue mab"
       ],
       "title": "Daratumumab Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a616002.html"
@@ -952,7 +978,16 @@
    "generic_of": "",
    "why": "partb-top",
    "evidence": {
-    "medlineplus": [],
+    "medlineplus": [
+     {
+      "aligned": "em'' i siz' ue mab",
+      "pronounced": [
+       "em'' i siz' ue mab"
+      ],
+      "title": "Emicizumab-kxwh Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a622046.html"
+     }
+    ],
     "wiktionary": []
    }
   },
@@ -1089,9 +1124,9 @@
    "evidence": {
     "medlineplus": [
      {
-      "aligned": "ok\" re liz' ue mab",
+      "aligned": "ok'' re liz' ue mab",
       "pronounced": [
-       "ok\" re liz' ue mab"
+       "ok'' re liz' ue mab"
       ],
       "title": "Ocrelizumab Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a617026.html"
@@ -1147,7 +1182,22 @@
    "generic_of": "",
    "why": "partb-top",
    "evidence": {
-    "medlineplus": [],
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "fam tras tooz' ue mab der'' ux te' kan"
+      ],
+      "title": "Fam-trastuzumab deruxtecan-nxki Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a620006.html"
+     },
+     {
+      "aligned": null,
+      "pronounced": [],
+      "title": "Datopotamab deruxtecan-dlnk Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a625030.html"
+     }
+    ],
     "wiktionary": []
    }
   },
@@ -1266,6 +1316,30 @@
       ],
       "title": "Brentuximab Vedotin Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a611052.html"
+     },
+     {
+      "aligned": null,
+      "pronounced": [
+       "pol'' a tooz' ue mab ve doe' tin"
+      ],
+      "title": "Polatuzumab vedotin-piiq Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a619039.html"
+     },
+     {
+      "aligned": null,
+      "pronounced": [
+       "en fort' ue mab ve doe' tin"
+      ],
+      "title": "Enfortumab vedotin-ejfv Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a620005.html"
+     },
+     {
+      "aligned": null,
+      "pronounced": [
+       "tye sot' ue mab ve doe' tin"
+      ],
+      "title": "Tisotumab vedotin-tftv",
+      "url": "https://medlineplus.gov/druginfo/meds/a621054.html"
      }
     ],
     "wiktionary": []
@@ -1313,7 +1387,7 @@
      {
       "aligned": null,
       "pronounced": [
-       "ef\" gar tig' i mod"
+       "ef'' gar tig' i mod"
       ],
       "title": "Efgartigimod alfa-fcab Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a622057.html"
@@ -1321,8 +1395,8 @@
      {
       "aligned": null,
       "pronounced": [
-       "ef\" gar tig' i mod",
-       "hye\" al ure on' i dase"
+       "ef'' gar tig' i mod",
+       "hye'' al ure on' i dase"
       ],
       "title": "Efgartigimod alfa and Hyaluronidase-qvfc Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a624057.html"
@@ -1348,7 +1422,16 @@
    "generic_of": "",
    "why": "partb-top",
    "evidence": {
-    "medlineplus": [],
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "sak'' i tooz' ue mab goe'' vi tee' kan"
+      ],
+      "title": "Sacituzumab govitecan-hziy Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a620034.html"
+     }
+    ],
     "wiktionary": []
    }
   },
@@ -1373,7 +1456,7 @@
      {
       "aligned": null,
       "pronounced": [
-       "sak\" i tooz' ue mab goe\" vi tee' kan"
+       "sak'' i tooz' ue mab goe'' vi tee' kan"
       ],
       "title": "Sacituzumab govitecan-hziy Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a620034.html"
@@ -1401,9 +1484,9 @@
    "evidence": {
     "medlineplus": [
      {
-      "aligned": "peg set\" a koe' plan",
+      "aligned": "peg set'' a koe' plan",
       "pronounced": [
-       "peg set\" a koe' plan"
+       "peg set'' a koe' plan"
       ],
       "title": "Pegcetacoplan Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a621045.html"

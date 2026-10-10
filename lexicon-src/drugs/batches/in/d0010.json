@@ -150,7 +150,16 @@
    "generic_of": "",
    "why": "top-500-generic",
    "evidence": {
-    "medlineplus": [],
+    "medlineplus": [
+     {
+      "aligned": "gal'' ka nez' ue mab",
+      "pronounced": [
+       "gal'' ka nez' ue mab"
+      ],
+      "title": "Galcanezumab-gnlm Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a618063.html"
+     }
+    ],
     "wiktionary": []
    }
   },
@@ -563,7 +572,16 @@
    "generic_of": "",
    "why": "top-500-generic",
    "evidence": {
-    "medlineplus": [],
+    "medlineplus": [
+     {
+      "aligned": "e ren' ue mab",
+      "pronounced": [
+       "e ren' ue mab"
+      ],
+      "title": "Erenumab-aooe Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a618029.html"
+     }
+    ],
     "wiktionary": []
    }
   },
@@ -859,7 +877,7 @@
      {
       "aligned": null,
       "pronounced": [
-       "soe′ dee um bye kar′ bo nate"
+       "soe' dee um bye kar' bo nate"
       ],
       "title": "Sodium Bicarbonate Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a625025.html"
@@ -908,7 +926,7 @@
      {
       "aligned": null,
       "pronounced": [
-       "soe′ dee um bye kar′ bo nate"
+       "soe' dee um bye kar' bo nate"
       ],
       "title": "Sodium Bicarbonate Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a625025.html"
@@ -985,9 +1003,9 @@
    "evidence": {
     "medlineplus": [
      {
-      "aligned": "al\" i rok' ue mab",
+      "aligned": "al'' i rok' ue mab",
       "pronounced": [
-       "al\" i rok' ue mab"
+       "al'' i rok' ue mab"
       ],
       "title": "Alirocumab Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a615035.html"

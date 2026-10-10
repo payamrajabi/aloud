@@ -99,13 +99,17 @@ def mlp_monograph(cache, url):
     m = re.search(r"<h1[^>]*>(.*?)</h1>", t, re.S)
     title = html.unescape(re.sub(r"<[^>]+>", "", m.group(1))).strip() if m else ""
     m = re.search(r"pronounced as\s*((?:\([^)]*\)\s*)+)", re.sub(r"<[^>]+>", " ", t), re.I)
-    groups = [g.strip() for g in re.findall(r"\(([^)]*)\)", html.unescape(m.group(1)))] if m else []
+    # Some monographs write the stress marks as primes (′ main, ″ secondary) or a double quote.
+    marks = lambda g: re.sub(r"\s+", " ", g.replace("″", "''").replace('"', "''").replace("′", "'").replace("’", "'")).strip()
+    groups = [marks(g) for g in re.findall(r"\(([^)]*)\)", html.unescape(m.group(1)))] if m else []
     return {"title": title, "url": url, "pronounced": groups}
 
 
 def title_words(title):
+    """A monograph title's drug words; FDA's four-letter biologic suffixes go ("Galcanezumab-gnlm")."""
     t = re.sub(r"\(.*?\)", " ", title.lower())
-    return [w for w in re.split(r"[\s,]+", t) if w and w not in TITLE_NOISE]
+    words = [re.sub(r"-[a-z]{4}$", "", w) if len(w) > 9 else w for w in re.split(r"[\s,]+", t)]
+    return [w for w in words if w and w not in TITLE_NOISE]
 
 
 def align(title, groups, word):

@@ -1,0 +1,1294 @@
+[
+ {
+  "rank": 801,
+  "word": "infliximab",
+  "kind": "generic",
+  "spelling": "infliximab",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "in flix' I mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a604023.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ɪnˈflɪk.sɪˌmæb/",
+    "url": "https://en.wiktionary.org/wiki/infliximab"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(in-FLIK-sih-mab) (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/infliximab"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's in-FLIX-ih-mab matches Wiktionary GA exactly, and MedlinePlus and NCI stress 'flix' too."
+ },
+ {
+  "rank": 808,
+  "word": "tocilizumab",
+  "kind": "generic",
+  "spelling": "tocilizumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "tˌOsɪlˈɪzumˌæb",
+  "gb": "tˌQsɪlˈɪzumˌab",
+  "respelling": "toh-sih-LIZ-oo-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "toe'' si liz' oo mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a611004.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(toh-sih-LIH-zoo-mab) (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/tocilizumab"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says tah-suh-lih-ZOO-mub: main stress on 'zoo' instead of 'liz', 'tah' for 'toh' and a reduced 'mab'. MedlinePlus and NCI both stress 'liz'. The final 'mab' keeps its full vowel with secondary stress (the -mab family; MedlinePlus 'mab'). No British source; GB keeps the same stresses."
+ },
+ {
+  "rank": 830,
+  "word": "leuprolide",
+  "kind": "generic",
+  "spelling": "leuprolide",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˈlu.pɹəˌlaɪd/",
+    "url": "https://en.wiktionary.org/wiki/leuprolide"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(LOO-proh-lide A-seh-tayt) (entry 'leuprolide acetate') (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/leuprolide-acetate"
+   },
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "loo proe' lide",
+    "url": "https://medlineplus.gov/druginfo/meds/a685040.html"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "lupɹˈOlˌId",
+    "gb": "luːpɹˈQlˌId",
+    "context": "loo-PROH-lide: MedlinePlus 'loo proe' lide'"
+   }
+  ],
+  "notes": "Today's LOO-pruh-lide matches Wiktionary GA exactly. NCI also puts the main stress on 'loo'; MedlinePlus puts it on 'proe'. Two authoritative sources share 'loo', so today's reading stands (the guide's rule) and MedlinePlus's pattern is the alternative. Medium because the sources disagree about whether 'pro' is stressed at all; Merriam-Webster could not be read (it refuses fetches and the search budget was spent)."
+ },
+ {
+  "rank": 834,
+  "word": "trihydrate",
+  "kind": "salt",
+  "spelling": "trihydrate",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "tɹIhˈIdɹˌAt",
+  "gb": "tɹIhˈIdɹAt",
+  "respelling": "try-HY-drate",
+  "evidence": [
+   {
+    "source": "Dictionary.com (Random House Unabridged)",
+    "says": "US [trahy-hahy-drayt], /traɪˈhaɪ dreɪt/ (stress on 'hahy'); British /traɪˈhaɪdreɪt/",
+    "url": "https://www.dictionary.com/browse/trihydrate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says TRY-hy-drate (main stress on the prefix). Dictionary.com's American and British forms both stress 'hy', as in hydrate. A rare chemistry word (Zipf 1.59) whose everyday reading is this same one, so the entry changes nothing else in prose."
+ },
+ {
+  "rank": 848,
+  "word": "mepolizumab",
+  "kind": "generic",
+  "spelling": "mepolizumab",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "me\" poe liz' ue mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a615058.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "mˌɛpOlˈɪzumˌæb",
+    "gb": "mˌɛpQlˈɪzumˌab",
+    "context": "meh-poh-LIZ-oo-mab: MedlinePlus's full 'poe'"
+   }
+  ],
+  "notes": "Today's mep-uh-LIZ-oo-mab has MedlinePlus's syllables, stresses (secondary on 'mep', main on 'liz', full 'mab') and consonants; MedlinePlus keeps a full 'oh' in the unstressed second syllable, which today reduces, an unstressed-vowel difference. MedlinePlus's 'ue' after z is read 'oo' (American yod-dropping): MedlinePlus itself writes trastuzumab both 'too' zoo mab' (a699019) and 'tooz' ue mab' (a620006), and NCI writes 'zoo' where MedlinePlus has 'z ue' (pembrolizumab, eculizumab, sacituzumab, pertuzumab). MedlinePlus marks the secondary stress with a double quote (\")."
+ },
+ {
+  "rank": 851,
+  "word": "edisylate",
+  "kind": "salt",
+  "spelling": "edisylate",
+  "match": "case-insensitive",
+  "disposition": "unresolved",
+  "us": "ɪdˈɪsəlˌAt",
+  "gb": "ɪdˈɪsəlˌAt",
+  "respelling": "ih-DISS-uh-late",
+  "evidence": [
+   {
+    "source": "Wiktionary (besylate)",
+    "says": "/ˈbɛsɪleɪt/ (the -sylate salt family, for analogy only)",
+    "url": "https://en.wiktionary.org/wiki/besylate"
+   }
+  ],
+  "confidence": "",
+  "alternatives": [],
+  "notes": "No written pronunciation found: Wiktionary's edisylate entry has no pronunciation; Dictionary.com, Wordnik and the American Heritage lookup have no entry; MedlinePlus's prochlorperazine monograph respells only the drug ('proe klor per' a zeen'); Merriam-Webster refuses fetches and the search budget was spent. Today says ED-uh-suh-late (stress on the first syllable). The candidate above puts the stress before '-sylate' as in besylate (BESS-uh-late) and mesylate, but that is analogy only, so today's reading is left alone until someone finds a source (Merriam-Webster Medical or the USP Dictionary of USAN would settle it)."
+ },
+ {
+  "rank": 882,
+  "word": "pembrolizumab",
+  "kind": "generic",
+  "spelling": "pembrolizumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "pˌɛmbɹOlˈɪzumˌæb",
+  "gb": "pˌɛmbɹQlˈɪzumˌab",
+  "respelling": "pem-broh-LIZ-oo-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "pem'' broe liz' ue mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a614048.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(pem-broh-LIH-zoo-mab) (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pembrolizumab"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says pem-bruh-LYZE-oo-mab: 'lyze' for 'liz' and the secondary stress on 'oo' instead of 'mab'. MedlinePlus and NCI agree on pem-broh-LIZ-oo-mab. MedlinePlus's 'ue' after z is read 'oo' (American yod-dropping): MedlinePlus itself writes trastuzumab both 'too' zoo mab' (a699019) and 'tooz' ue mab' (a620006), and NCI writes 'zoo' where MedlinePlus has 'z ue' (pembrolizumab, eculizumab, sacituzumab, pertuzumab). The final 'mab' keeps its full vowel with secondary stress (the -mab family; MedlinePlus 'mab')."
+ },
+ {
+  "rank": 890,
+  "word": "benralizumab",
+  "kind": "generic",
+  "spelling": "benralizumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "bˌɛnɹəlˈɪzumˌæb",
+  "gb": "bˌɛnɹəlˈɪzumˌab",
+  "respelling": "ben-ruh-LIZ-oo-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "ben\" ra liz' ue mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a618002.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says ben-ruh-lih-ZOO-mub: main stress on 'zoo' instead of 'liz' and a reduced 'mab'. MedlinePlus's 'ue' after z is read 'oo' (American yod-dropping): MedlinePlus itself writes trastuzumab both 'too' zoo mab' (a699019) and 'tooz' ue mab' (a620006), and NCI writes 'zoo' where MedlinePlus has 'z ue' (pembrolizumab, eculizumab, sacituzumab, pertuzumab). The final 'mab' keeps its full vowel with secondary stress (the -mab family; MedlinePlus 'mab'). MedlinePlus marks the secondary stress with a double quote (\")."
+ },
+ {
+  "rank": 899,
+  "word": "paclitaxel",
+  "kind": "generic",
+  "spelling": "paclitaxel",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "pˌæklɪtˈæksəl",
+  "gb": "pˌaklɪtˈaksɛl",
+  "respelling": "pak-lih-TAK-sul",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "pak'' li tax' el",
+    "url": "https://medlineplus.gov/druginfo/meds/a607070.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /ˌpak.lɪˈtak.sɛl/; GA /ˌpæk.lɪˈtæk.sl̩/",
+    "url": "https://en.wiktionary.org/wiki/paclitaxel"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(PA-klih-TAK-sil) (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/paclitaxel"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says PAK-luh-tak-sul (main stress on 'pak'). MedlinePlus, Wiktionary and NCI all put the main stress on 'tax' with a secondary on 'pak'. GB keeps Wiktionary RP's full final 'sel'."
+ },
+ {
+  "rank": 917,
+  "word": "besilate",
+  "kind": "salt",
+  "spelling": "besilate",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "bˈɛsəlˌAt",
+  "gb": "bˈɛsəlˌAt",
+  "respelling": "BESS-uh-late",
+  "evidence": [
+   {
+    "source": "Wiktionary",
+    "says": "besilate: '(organic chemistry) Alternative spelling of besylate' (no pronunciation given)",
+    "url": "https://en.wiktionary.org/wiki/besilate"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "besylate: /ˈbɛsɪleɪt/",
+    "url": "https://en.wiktionary.org/wiki/besylate"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [],
+  "notes": "Today's guess says BEZ-uh-late (z). Besilate is the INN/British spelling of besylate (the same benzenesulfonate salt; Wiktionary lists it as an alternative spelling), and besylate is /ˈbɛsɪleɪt/ with s (Wiktionary; batch d0001 also cites Merriam-Webster ˈbes-ə-ˌlāt). Same reading as d0001's besylate entry. Medium: no source prints a pronunciation for this spelling itself."
+ },
+ {
+  "rank": 922,
+  "word": "certolizumab",
+  "kind": "generic",
+  "spelling": "certolizumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "sˌɜɹtOlˈɪzumˌæb",
+  "gb": "sˌɜːtQlˈɪzumˌab",
+  "respelling": "ser-toh-LIZ-oo-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "ser'' toe liz' oo mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a608041.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says SER-tuh-lyze-oo-mab: main stress on 'ser' and 'lyze' for 'liz'. MedlinePlus stresses 'liz', secondary on 'ser'. The final 'mab' keeps its full vowel with secondary stress (the -mab family; MedlinePlus 'mab')."
+ },
+ {
+  "rank": 926,
+  "word": "enanthate",
+  "kind": "salt",
+  "spelling": "enanthate",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "Wiktionary",
+    "says": "RP /iːˈnan.θeɪt/, /ɪˈnan.θeɪt/; GA /ɪˈnænˌθeɪt/",
+    "url": "https://en.wiktionary.org/wiki/enanthate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's US ih-NAN-thate matches Wiktionary GA exactly, and today's GB matches Wiktionary's second RP form."
+ },
+ {
+  "rank": 927,
+  "word": "benzathine",
+  "kind": "salt",
+  "spelling": "benzathine",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "ben' za theen (Penicillin G Benzathine monograph: 'pen\" i sil' in g ben' za theen')",
+    "url": "https://medlineplus.gov/druginfo/meds/a615051.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˈbɛn.zəˌθin/",
+    "url": "https://en.wiktionary.org/wiki/benzathine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's BEN-zuh-theen matches Wiktionary GA exactly and MedlinePlus."
+ },
+ {
+  "rank": 928,
+  "word": "faricimab",
+  "kind": "generic",
+  "spelling": "faricimab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "fɑɹˈɪkɪmˌæb",
+  "gb": "fɑːɹˈɪkɪmˌab",
+  "respelling": "far-IK-ih-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "far ik′ i mab (Faricimab-svoa Injection; found through the MedlinePlus drug index, the harvest missed it)",
+    "url": "https://medlineplus.gov/druginfo/meds/a624073.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says fuh-RISS-uh-mab: s for the c, which MedlinePlus reads as k (far-IK-ih-mab). Stress on 'ik' as today. MedlinePlus writes a full 'far', kept. The final 'mab' keeps its full vowel with secondary stress (the -mab family; MedlinePlus 'mab')."
+ },
+ {
+  "rank": 933,
+  "word": "tezepelumab",
+  "kind": "generic",
+  "spelling": "tezepelumab",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "tez\" e pel' ue mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a622010.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's tez-uh-PEL-yoo-mab matches MedlinePlus (its 'ue' after l is 'yoo', as NCI writes for nivolumab and durvalumab). MedlinePlus marks the secondary stress with a double quote (\")."
+ },
+ {
+  "rank": 935,
+  "word": "meglumine",
+  "kind": "salt",
+  "spelling": "meglumine",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "mˈɛɡlumˌin",
+  "gb": "mˈɛɡlumˌiːn",
+  "respelling": "MEG-loo-meen",
+  "evidence": [
+   {
+    "source": "Drug-name family (spelling only)",
+    "says": "-ine read 'een' in drug and salt names, e.g. MedlinePlus 'ben' za theen' (benzathine), 'proe klor per' a zeen' (prochlorperazine)",
+    "url": "https://medlineplus.gov/druginfo/meds/a615051.html"
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Low: no written pronunciation found (Wiktionary's entry has none; Dictionary.com, Wordnik and the American Heritage lookup have no entry; the gadoterate and tafamidis labels and MedlinePlus respell only the drug; Merriam-Webster refuses fetches and the search budget was spent). Today's guess says MEG-loo-mine; the reading rests on the -ine family (amine and salt names end 'een', as the guide's -pine/-peen rule says). Stress and the 'loo' are today's. A reviewer with Merriam-Webster Medical access should confirm."
+ },
+ {
+  "rank": 938,
+  "word": "proteinase",
+  "kind": "generic",
+  "spelling": "proteinase",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "Dictionary.com (Random House Unabridged)",
+    "says": "US [proh-tee-nays, -nayz], /ˈproʊ tiˌneɪs, -ˌneɪz/; British /ˈprəʊtɪˌneɪs, -ˌneɪz/",
+    "url": "https://www.dictionary.com/browse/proteinase"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Dictionary word (from Alpha-1-Proteinase Inhibitor). Today's PROH-tee-nayz (gold dictionary) has Dictionary.com's sounds with its -nayz variant and its stress. Nothing to ship."
+ },
+ {
+  "rank": 949,
+  "word": "ethylsuccinate",
+  "kind": "salt",
+  "spelling": "ethylsuccinate",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ˌɛθəlsˈʌksənˌAt",
+  "gb": "ˌɛθɪlsˈʌksɪnˌAt",
+  "respelling": "eth-ul-SUK-suh-nate",
+  "evidence": [
+   {
+    "source": "Dictionary.com (Random House Unabridged)",
+    "says": "ethyl: US [eth-uh-l] /ˈɛθ əl/; British /ˈɛθɪl, ˈiːθaɪl/",
+    "url": "https://www.dictionary.com/browse/ethyl"
+   },
+   {
+    "source": "Dictionary.com (Random House Unabridged)",
+    "says": "succinate: US [suhk-suh-nayt] /ˈsʌk səˌneɪt/; British /ˈsʌksɪˌneɪt/",
+    "url": "https://www.dictionary.com/browse/succinate"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "ethyl: UK /ˈɛθaɪl/, /ˈɛθɪl/, /ˈiːθaɪl/, /ˈiːθɪl/; US /ˈɛθəl/",
+    "url": "https://en.wiktionary.org/wiki/ethyl"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [],
+  "notes": "Today's guess says ee-thil-SOO-chuh-nate: 'soo' and 'ch' for succinate's 'suk-s' (cc read k-s, as in the dictionaries and batch d0001's succinate entry), and 'ee' for ethyl's US 'eth'. Built from the two dictionary words (Erythromycin Ethylsuccinate); written as one word, the main stress goes on 'suk' with a secondary on 'eth'. Medium: no source prints the compound. GB uses Dictionary.com's first British form of ethyl (/ˈɛθɪl/)."
+ },
+ {
+  "rank": 957,
+  "word": "golimumab",
+  "kind": "generic",
+  "spelling": "golimumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ɡOlˈɪmjəmˌæb",
+  "gb": "ɡQlˈɪmjəmˌab",
+  "respelling": "goh-LIM-yuh-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "goe lim' ue mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a610010.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ɡoʊˈlɪm.jəˌmæb/",
+    "url": "https://en.wiktionary.org/wiki/golimumab"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says gah-luh-MYOO-mub: main stress on 'myoo' instead of 'lim', 'gah' for 'goh' and a reduced 'mab'. MedlinePlus and Wiktionary agree on goh-LIM-yuh-mab."
+ },
+ {
+  "rank": 967,
+  "word": "trastuzumab",
+  "kind": "generic",
+  "spelling": "trastuzumab",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "tras too' zoo mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a699019.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(tras-TOO-zoo-mab) (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/trastuzumab"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's tras-TOO-zoo-mab matches MedlinePlus and NCI: same syllables, main stress on 'too', full 'mab' (today leaves the secondary stress on 'mab' unmarked and adds one on 'tras', which doesn't count)."
+ },
+ {
+  "rank": 969,
+  "word": "sulfonate",
+  "kind": "salt",
+  "spelling": "sulfonate",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "Dictionary.com (Random House Unabridged)",
+    "says": "US [suhl-fuh-nayt] /ˈsʌl fəˌneɪt/",
+    "url": "https://www.dictionary.com/browse/sulfonate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Dictionary word; today's SUL-fuh-nate (gold dictionary) matches Dictionary.com exactly. Nothing to ship."
+ },
+ {
+  "rank": 990,
+  "word": "vedolizumab",
+  "kind": "generic",
+  "spelling": "vedolizumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "vˌɛdOlˈɪzumˌæb",
+  "gb": "vˌɛdQlˈɪzumˌab",
+  "respelling": "veh-doh-LIZ-oo-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "ve'' doe liz' ue mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a614034.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says ved-oh-lee-ZOO-mub: main stress on 'zoo' instead of 'liz' and a reduced 'mab'. MedlinePlus's 'ue' after z is read 'oo' (American yod-dropping): MedlinePlus itself writes trastuzumab both 'too' zoo mab' (a699019) and 'tooz' ue mab' (a620006), and NCI writes 'zoo' where MedlinePlus has 'z ue' (pembrolizumab, eculizumab, sacituzumab, pertuzumab). The final 'mab' keeps its full vowel with secondary stress (the -mab family; MedlinePlus 'mab'). The open 've''' is read 'veh' as today (MedlinePlus's open stressed e is 'eh' in eculizumab, where NCI writes 'ek')."
+ },
+ {
+  "rank": 1011,
+  "word": "bitartrate",
+  "kind": "salt",
+  "spelling": "bitartrate",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "bItˈɑɹtɹˌAt",
+  "gb": "bItˈɑːtɹˌAt",
+  "respelling": "by-TAR-trate",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "bye tar' trate (Potassium Bitartrate monograph: 'poe tas' ee um bye tar' trate')",
+    "url": "https://medlineplus.gov/druginfo/meds/a620047.html"
+   },
+   {
+    "source": "Dictionary.com (Random House Unabridged)",
+    "says": "US [bahy-tahr-trayt] /baɪˈtɑr treɪt/; British /baɪˈtɑːˌtreɪt/",
+    "url": "https://www.dictionary.com/browse/bitartrate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "GB-only fix. Today's US by-TAR-trate (gold dictionary) matches MedlinePlus and Dictionary.com and is kept. Today's GB says BIT-uh-trate (main stress on 'bit', no 'eye'); Dictionary.com's British form is /baɪˈtɑːˌtreɪt/."
+ },
+ {
+  "rank": 1017,
+  "word": "rituximab",
+  "kind": "generic",
+  "spelling": "rituximab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ɹɪtˈʌksɪmˌæb",
+  "gb": "ɹɪtˈʌksɪmˌab",
+  "respelling": "rih-TUK-sih-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "ri tux' i mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a607038.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ɹɪˈtʌk.sɪˌmæb/",
+    "url": "https://en.wiktionary.org/wiki/rituximab"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(rih-TUK-sih-mab) (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/rituximab"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's rih-TUK-sih-mub has the right stress but reduces the last syllable; MedlinePlus ('mab'), Wiktionary (/ˌmæb/) and NCI ('mab') all give it a full vowel, with secondary stress in Wiktionary, so this isn't only an unstressed-vowel difference (the guide's losartan case)."
+ },
+ {
+  "rank": 1033,
+  "word": "diacetate",
+  "kind": "salt",
+  "spelling": "diacetate",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "dye as′ e tate (Ethinyl Estradiol and Ethynodiol Diacetate monograph: 'e thye″ noe dye′ ol dye as′ e tate')",
+    "url": "https://medlineplus.gov/druginfo/meds/a625056.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's dy-ASS-uh-tate matches MedlinePlus. Dictionary word (Zipf 1.62); same reading in chemistry."
+ },
+ {
+  "rank": 1036,
+  "word": "hyaluronidase",
+  "kind": "generic",
+  "spelling": "hyaluronidase",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "hˌIæljʊɹˈɑnɪdˌAs",
+  "gb": "hˌIaljʊɹˈɒnɪdˌAs",
+  "respelling": "hy-al-yoo-RON-ih-dase",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "hye\" al ure on' i dase (Efgartigimod alfa and Hyaluronidase-qvfc monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a624057.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(HY-al-yoo-RAH-nih-days) (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/hyaluronidase"
+   },
+   {
+    "source": "Dictionary.com (Random House Unabridged)",
+    "says": "US [hahy-uh-loo-ron-i-days, -dayz], /ˌhaɪ ə lʊˈrɒn ɪˌdeɪs, -ˌdeɪz/; British /ˌhaɪəlʊˈrɒnɪˌdeɪs, -ˌdeɪz/",
+    "url": "https://www.dictionary.com/browse/hyaluronidase"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "hˌIəlʊɹˈɑnɪdˌAs",
+    "gb": "hˌIəlʊɹˈɒnɪdˌAs",
+    "context": "hy-uh-loo-RON-ih-dase: Dictionary.com's American and British form"
+   }
+  ],
+  "notes": "Today's guess says hy-AL-yuh-ron-uh-dase (main stress on 'al'). MedlinePlus, NCI and Dictionary.com all put the main stress on 'ron' (syllable 4). The second and third syllables follow MedlinePlus and NCI, which agree on 'al-yoo'; Dictionary.com's 'uh-loo' is the alternative. A rare dictionary word (Zipf 1.82) whose scientific reading is this one, so the entry is safe."
+ },
+ {
+  "rank": 1039,
+  "word": "octreotide",
+  "kind": "generic",
+  "spelling": "octreotide",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "ok tree' oh tide",
+    "url": "https://medlineplus.gov/druginfo/meds/a620051.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(ok-TREE-oh-tide) (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/octreotide"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's ok-TREE-uh-tide has MedlinePlus's and NCI's syllables and stress; both write a full 'oh' after the main stress, which today reduces: an unstressed-vowel difference."
+ },
+ {
+  "rank": 1059,
+  "word": "ranibizumab",
+  "kind": "generic",
+  "spelling": "ranibizumab",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "ra'' ni biz' oo mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a607044.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's ran-ih-BIZ-oo-mab matches MedlinePlus: same syllables, main stress on 'biz', full 'mab' (today leaves its secondary stress unmarked, which doesn't count)."
+ },
+ {
+  "rank": 1074,
+  "word": "nivolumab",
+  "kind": "generic",
+  "spelling": "nivolumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "nɪvˈɑljumˌæb",
+  "gb": "nɪvˈɒljumˌab",
+  "respelling": "nih-VOL-yoo-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "nye vol' ue mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a614056.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "/nɪˈvɒljʊˌmæb/",
+    "url": "https://en.wiktionary.org/wiki/nivolumab"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(nih-VOL-yoo-mab) (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/nivolumab"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "nIvˈɑljumˌæb",
+    "gb": "nIvˈɒljumˌab",
+    "context": "nye-VOL-yoo-mab: MedlinePlus 'nye vol' ue mab'"
+   }
+  ],
+  "notes": "Today's guess says NY-voh-loo-mab: main stress on the first syllable, 'voh' for 'vol', no y. Every source stresses 'vol' with 'yoo' after it. The unstressed first vowel follows Wiktionary and NCI ('nih'); MedlinePlus's 'nye' is the alternative."
+ },
+ {
+  "rank": 1076,
+  "word": "daratumumab",
+  "kind": "generic",
+  "spelling": "daratumumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "dˌɛɹətˈumjumˌæb",
+  "gb": "dˌaɹətˈuːmjumˌab",
+  "respelling": "dair-uh-TOOM-yoo-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "dar\" a toom' ue mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a616002.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(DAYR-uh-TOOM-yoo-mab) (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/daratumumab"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "dˌɑɹətˈumjumˌæb",
+    "gb": "dˌɑːɹətˈuːmjumˌab",
+    "context": "dar-uh-TOOM-yoo-mab: 'dar' as in car"
+   }
+  ],
+  "notes": "Today's guess says DAIR-uh-too-mub: four syllables (no 'yoo') and the main stress on the first. MedlinePlus and NCI agree on five syllables with the main stress on 'toom'. First vowel: NCI writes 'DAYR'; MedlinePlus writes 'dar', which before a vowel most Americans say the same way (marry/merry), so US follows NCI; GB uses the British 'marry' vowel. Medium because the secondary-stressed first vowel could also be read 'dar' as in car (the alternative)."
+ },
+ {
+  "rank": 1094,
+  "word": "hemifumarate",
+  "kind": "salt",
+  "spelling": "hemifumarate",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "Dictionary.com (Random House Unabridged)",
+    "says": "fumarate: US [fyoo-muh-rayt], /ˈfju məˌreɪt/",
+    "url": "https://www.dictionary.com/browse/fumarate"
+   },
+   {
+    "source": "Dictionary.com (Random House Unabridged)",
+    "says": "hemihydrate (the same hemi- compound pattern): US /ˌhɛm ɪˈhaɪ dreɪt/; British /ˌhɛmɪˈhaɪdreɪt/",
+    "url": "https://www.dictionary.com/browse/hemihydrate"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [],
+  "notes": "Today's hem-uh-FYOO-muh-rate is hemi- plus fumarate with fumarate's stress, the pattern Dictionary.com gives for hemihydrate; today reduces hemi's unstressed 'i', an unstressed-vowel difference. Medium: no source prints the compound (Aliskiren Hemifumarate)."
+ },
+ {
+  "rank": 1096,
+  "word": "emicizumab",
+  "kind": "generic",
+  "spelling": "emicizumab",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "em\" i siz' ue mab (Emicizumab-kxwh Injection; found through the MedlinePlus drug index, the harvest missed it)",
+    "url": "https://medlineplus.gov/druginfo/meds/a622046.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's em-uh-SIZ-oo-mab matches MedlinePlus: same syllables and stresses, the unstressed 'i' only reduced. MedlinePlus's 'ue' after z is read 'oo' (American yod-dropping): MedlinePlus itself writes trastuzumab both 'too' zoo mab' (a699019) and 'tooz' ue mab' (a620006), and NCI writes 'zoo' where MedlinePlus has 'z ue' (pembrolizumab, eculizumab, sacituzumab, pertuzumab)."
+ },
+ {
+  "rank": 1098,
+  "word": "pertuzumab",
+  "kind": "generic",
+  "spelling": "pertuzumab",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "per tooz' ue mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a612027.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(per-TOO-zoo-mab) (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/pertuzumab"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's per-TOO-zoo-mab matches NCI exactly and MedlinePlus (its 'z ue' is NCI's 'zoo')."
+ },
+ {
+  "rank": 1100,
+  "word": "romiplostim",
+  "kind": "generic",
+  "spelling": "romiplostim",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ɹˌOmɪplˈOstɪm",
+  "gb": "ɹˌQmɪplˈQstɪm",
+  "respelling": "roh-mih-PLOH-stim",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "roe mi ploe' stim",
+    "url": "https://medlineplus.gov/druginfo/meds/a609008.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(ROH-mih-PLOH-stim) (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/romiplostim"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says rah-mih-PLAHS-tum: 'ah' for both 'oh' vowels, including the stressed one. MedlinePlus and NCI agree on roh-mih-PLOH-stim."
+ },
+ {
+  "rank": 1103,
+  "word": "erbumine",
+  "kind": "salt",
+  "spelling": "erbumine",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "əɹbjˈumˌin",
+  "gb": "əbjˈuːmˌiːn",
+  "respelling": "er-BYOO-meen",
+  "evidence": [
+   {
+    "source": "Drug-name family (spelling only)",
+    "says": "-ine read 'een' in drug and salt names, e.g. MedlinePlus 'ben' za theen' (benzathine)",
+    "url": "https://medlineplus.gov/druginfo/meds/a615051.html"
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Low: no written pronunciation found (no Wiktionary page; MedlinePlus's perindopril monograph respells only 'per in' doe pril'; Merriam-Webster refuses fetches and the search budget was spent). Today's guess says er-BYOO-mun; the reading keeps its stress and changes only the ending to the -ine family's 'een' (erbumine is tert-butylamine, an amine name). A reviewer should confirm before shipping."
+ },
+ {
+  "rank": 1104,
+  "word": "bound",
+  "kind": "generic",
+  "spelling": "bound",
+  "match": "case-insensitive",
+  "disposition": "not-a-drug",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [],
+  "confidence": "",
+  "alternatives": [],
+  "notes": "Descriptor from 'Paclitaxel Protein-Bound' and 'Sirolimus Protein-Bound', not a drug. An everyday word (Zipf 4.46) that today reads normally (gold dictionary). Nothing to ship."
+ },
+ {
+  "rank": 1107,
+  "word": "ocrelizumab",
+  "kind": "generic",
+  "spelling": "ocrelizumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ˌɑkɹəlˈɪzumˌæb",
+  "gb": "ˌɒkɹəlˈɪzumˌab",
+  "respelling": "ok-ruh-LIZ-oo-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "ok\" re liz' ue mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a617026.html"
+   },
+   {
+    "source": "OCREVUS label (Genentech), DailyMed",
+    "says": "OCREVUS (oak-rev-us): the brand only",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9da42362-3bb5-4b83-b4bb-b59fd4e55f0d"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "ˌOkɹəlˈɪzumˌæb",
+    "gb": "ˌQkɹəlˈɪzumˌab",
+    "context": "oh-kruh-LIZ-oo-mab: first syllable as in the maker's brand Ocrevus (oak-rev-us)"
+   }
+  ],
+  "notes": "Today's guess says oh-kree-LIZ-oo-mab: a full, stressed 'kree' and 'oh' where MedlinePlus has 'ok' and a reduced 're'. Main stress on 'liz' in both. MedlinePlus's 'ue' after z is read 'oo' (American yod-dropping): MedlinePlus itself writes trastuzumab both 'too' zoo mab' (a699019) and 'tooz' ue mab' (a620006), and NCI writes 'zoo' where MedlinePlus has 'z ue' (pembrolizumab, eculizumab, sacituzumab, pertuzumab). The final 'mab' keeps its full vowel with secondary stress (the -mab family; MedlinePlus 'mab'). Medium: the maker's brand Ocrevus is 'oak-rev-us', so the maker may say 'oak-' for the generic too (the alternative); its label prints no respelling for ocrelizumab."
+ },
+ {
+  "rank": 1109,
+  "word": "durvalumab",
+  "kind": "generic",
+  "spelling": "durvalumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "dəɹvˈæljumˌæb",
+  "gb": "dəvˈaljumˌab",
+  "respelling": "der-VAL-yoo-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "dur val' ue mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a617030.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(dur-VAL-yoo-mab) (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/durvalumab"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says DUR-vuh-loo-mab: main stress on 'dur' and no y. MedlinePlus and NCI agree on dur-VAL-yoo-mab. The final 'mab' keeps its full vowel with secondary stress (the -mab family; MedlinePlus 'mab')."
+ },
+ {
+  "rank": 1111,
+  "word": "deruxtecan",
+  "kind": "generic",
+  "spelling": "deruxtecan",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "dˌɛɹəkstˈikˌæn",
+  "gb": "dˌɛɹəkstˈiːkˌan",
+  "respelling": "deh-ruks-TEE-kan",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "der\" ux te' kan (Fam-trastuzumab deruxtecan-nxki Injection: 'fam tras tooz' ue mab der\" ux te' kan'; found through the MedlinePlus drug index, the harvest missed it)",
+    "url": "https://medlineplus.gov/druginfo/meds/a620006.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(tras-TOO-zoo-mab DEH-rux-TEE-kan) (entry 'trastuzumab deruxtecan') (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/trastuzumab-deruxtecan"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says duh-RUK-stuh-kun: main stress on 'rux' and a reduced 'kan'. MedlinePlus and NCI agree on four syllables with the main stress on the third and a secondary on 'der'; NCI's 'TEE' settles MedlinePlus's open 'te'' as 'tee', the -tecan family (irinotecan, and govitecan 'tee' kan' in this batch)."
+ },
+ {
+  "rank": 1116,
+  "word": "atezolizumab",
+  "kind": "generic",
+  "spelling": "atezolizumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ˌætəzOlˈɪzjumˌæb",
+  "gb": "ˌatəzQlˈɪzjumˌab",
+  "respelling": "at-uh-zoh-LIZ-yoo-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "a'' te zoe liz' ue mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a616035.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(A-teh-zoh-LIZ-yoo-mab) (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/atezolizumab"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "ˌætəzOlˈɪzumˌæb",
+    "gb": "ˌatəzQlˈɪzumˌab",
+    "context": "at-uh-zoh-LIZ-oo-mab: 'oo' after z, as most -lizumab names"
+   }
+  ],
+  "notes": "Today's guess says uh-tez-uh-LYZE-oo-mab: 'lyze' for 'liz', a reduced 'zoh' and the secondary stress on 'tez' instead of 'a'. MedlinePlus and NCI agree on the stresses (secondary 'a', main 'liz'). Here NCI writes 'yoo' after z, so the reading keeps the y; LIZ-oo-mab, the usual -lizumab form, is the alternative. The final 'mab' keeps its full vowel with secondary stress (the -mab family; MedlinePlus 'mab')."
+ },
+ {
+  "rank": 1118,
+  "word": "carfilzomib",
+  "kind": "generic",
+  "spelling": "carfilzomib",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "kar filz' oh mib",
+    "url": "https://medlineplus.gov/druginfo/meds/a612031.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(kar-FIL-zoh-mib) (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/carfilzomib"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's kar-FIL-zuh-mib has MedlinePlus's and NCI's syllables and stress; both write a full 'oh' after the main stress, which today reduces: an unstressed-vowel difference."
+ },
+ {
+  "rank": 1120,
+  "word": "lanreotide",
+  "kind": "generic",
+  "spelling": "lanreotide",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "lænɹˈiOtˌId",
+  "gb": "lanɹˈiːQtˌId",
+  "respelling": "lan-REE-oh-tide",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "lan ree' oh tide",
+    "url": "https://medlineplus.gov/druginfo/meds/a615007.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(lan-REE-oh-tide A-seh-tayt) (entry 'lanreotide acetate') (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/lanreotide-acetate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says LAN-ree-uh-tide (main stress on 'lan'). MedlinePlus and NCI stress 'ree', like octreotide."
+ },
+ {
+  "rank": 1122,
+  "word": "vedotin",
+  "kind": "generic",
+  "spelling": "vedotin",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "vədˈOtɪn",
+  "gb": "vədˈQtɪn",
+  "respelling": "veh-DOH-tin",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "ve doe' tin (Brentuximab Vedotin monograph: 'bren tux' i mab ve doe' tin')",
+    "url": "https://medlineplus.gov/druginfo/meds/a611052.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(bren-TUK-sih-mab veh-DOH-tin) (entry 'brentuximab vedotin') (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/brentuximab-vedotin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says vay-DOH-tin: a full 'ay' in the unstressed first syllable where MedlinePlus and NCI write 've'/'veh'. Stress on 'doh' as today. Used in Brentuximab, Enfortumab and Polatuzumab Vedotin."
+ },
+ {
+  "rank": 1123,
+  "word": "undecanoate",
+  "kind": "salt",
+  "spelling": "undecanoate",
+  "match": "case-insensitive",
+  "disposition": "unresolved",
+  "us": "",
+  "gb": "",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "Dictionary.com (Random House Unabridged)",
+    "says": "decanoic acid: US [dek-uh-noh-ik] /ˌdɛk əˈnoʊ ɪk/; British /ˌdɛkəˈnəʊɪk/",
+    "url": "https://www.dictionary.com/browse/decanoic-acid"
+   },
+   {
+    "source": "Dictionary.com (Random House Unabridged)",
+    "says": "benzoate: US [ben-zoh-ayt] /ˈbɛn zoʊˌeɪt/ (the -oate salt pattern, for comparison)",
+    "url": "https://www.dictionary.com/browse/benzoate"
+   }
+  ],
+  "confidence": "",
+  "alternatives": [],
+  "notes": "No written pronunciation found for undecanoate or decanoate (Wiktionary entries have none; Dictionary.com has no entry; the Aveed, Jatenzo and Kyzatrex labels respell only the brand; MedlinePlus respells only 'tes tos' ter one'; Merriam-Webster refuses fetches and the search budget was spent). The family points two ways: from the acid (decanoic, dek-uh-NOH-ik) it would be un-dek-uh-NOH-ate (ʌndˌɛkənˈOˌAt); by the usual -oate salt stress (BEN-zoh-ate) it is un-deh-KAN-oh-ate, which is today's ˌʌndɪkˈænOˌAt. Both are heard for testosterone undecanoate and haloperidol decanoate. Left as today's until a source settles it."
+ },
+ {
+  "rank": 1127,
+  "word": "efgartigimod",
+  "kind": "generic",
+  "spelling": "efgartigimod",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ˌɛfɡɑɹtˈɪɡɪmˌɑd",
+  "gb": "ˌɛfɡɑːtˈɪɡɪmˌɒd",
+  "respelling": "ef-gar-TIG-ih-mod",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "ef\" gar tig' i mod (Efgartigimod alfa-fcab Injection)",
+    "url": "https://medlineplus.gov/druginfo/meds/a622057.html"
+   },
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "ef\" gar tig' i mod (Efgartigimod alfa and Hyaluronidase-qvfc Injection)",
+    "url": "https://medlineplus.gov/druginfo/meds/a624057.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says ef-GAR-tuh-juh-mud: main stress on 'gar', j for the hard g, and a reduced 'mod'. MedlinePlus (two monographs) stresses 'tig', hard g, with a full 'mod'; the final full vowel takes a secondary stress (the guide's rule)."
+ },
+ {
+  "rank": 1131,
+  "word": "govitecan",
+  "kind": "generic",
+  "spelling": "govitecan",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ɡˌOvɪtˈikˌæn",
+  "gb": "ɡˌQvɪtˈiːkˌan",
+  "respelling": "goh-vih-TEE-kan",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "goe\" vi tee' kan (Sacituzumab govitecan-hziy monograph: 'sak\" i tooz' ue mab goe\" vi tee' kan')",
+    "url": "https://medlineplus.gov/druginfo/meds/a620034.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(SAK-ih-TOO-zoo-mab GOH-vih-TEE-kan) (entry 'sacituzumab govitecan') (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/sacituzumab-govitecan"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says goh-VYTE-kan: three syllables, 'vyte' for 'vih-tee'. MedlinePlus and NCI agree on goh-vih-TEE-kan, the -tecan family."
+ },
+ {
+  "rank": 1132,
+  "word": "sacituzumab",
+  "kind": "generic",
+  "spelling": "sacituzumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "sˌækɪtˈuzumˌæb",
+  "gb": "sˌakɪtˈuːzumˌab",
+  "respelling": "sak-ih-TOO-zoo-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "sak\" i tooz' ue mab (Sacituzumab govitecan-hziy monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a620034.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(SAK-ih-TOO-zoo-mab GOH-vih-TEE-kan) (entry 'sacituzumab govitecan') (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/sacituzumab-govitecan"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says SASS-ih-too-zoo-mab: main stress on the first syllable and s for the c. MedlinePlus and NCI agree on sak-ih-TOO-zoo-mab. MedlinePlus's 'ue' after z is read 'oo' (American yod-dropping): MedlinePlus itself writes trastuzumab both 'too' zoo mab' (a699019) and 'tooz' ue mab' (a620006), and NCI writes 'zoo' where MedlinePlus has 'z ue' (pembrolizumab, eculizumab, sacituzumab, pertuzumab)."
+ },
+ {
+  "rank": 1135,
+  "word": "pegcetacoplan",
+  "kind": "generic",
+  "spelling": "pegcetacoplan",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "pɛɡsˌɛtəkˈOplˌæn",
+  "gb": "pɛɡsˌɛtəkˈQplˌan",
+  "respelling": "peg-set-uh-KOH-plan",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "peg set\" a koe' plan",
+    "url": "https://medlineplus.gov/druginfo/meds/a621045.html"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says peg-suh-TAK-uh-plun: main stress on 'tak' and a reduced 'plan'. MedlinePlus stresses 'koe' with a secondary on 'set' and a full 'plan' (secondary stress on the full final vowel, as in the -mab names)."
+ },
+ {
+  "rank": 1136,
+  "word": "eculizumab",
+  "kind": "generic",
+  "spelling": "eculizumab",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ˌɛkjulˈɪzumˌæb",
+  "gb": "ˌɛkjulˈɪzumˌab",
+  "respelling": "ek-yoo-LIZ-oo-mab",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "e'' kue liz' ue mab",
+    "url": "https://medlineplus.gov/druginfo/meds/a612024.html"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms",
+    "says": "(ek-yoo-LIH-zoo-mab) (read through the NCI glossary API)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/eculizumab"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says ih-kyoo-lih-ZOO-mub: main stress on 'zoo' instead of 'liz' and a reduced 'mab'. MedlinePlus and NCI agree on ek-yoo-LIZ-oo-mab. MedlinePlus's 'ue' after z is read 'oo' (American yod-dropping): MedlinePlus itself writes trastuzumab both 'too' zoo mab' (a699019) and 'tooz' ue mab' (a620006), and NCI writes 'zoo' where MedlinePlus has 'z ue' (pembrolizumab, eculizumab, sacituzumab, pertuzumab)."
+ },
+ {
+  "rank": 1139,
+  "word": "pegloticase",
+  "kind": "generic",
+  "spelling": "pegloticase",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "pɛɡlˈOtɪkˌAs",
+  "gb": "pɛɡlˈQtɪkˌAs",
+  "respelling": "peg-LOH-tih-kase",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "peg loe' ti kase",
+    "url": "https://medlineplus.gov/druginfo/meds/a611015.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /pəˈɡlɑt.əˌkeɪs/",
+    "url": "https://en.wiktionary.org/wiki/pegloticase"
+   },
+   {
+    "source": "KRYSTEXXA label (Horizon), DailyMed",
+    "says": "KRYSTEXXA (kris-TEX-a); no respelling for pegloticase",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6e566303-d93a-4130-b764-25749829aa95"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "pɛɡlˈɑtɪkˌAs",
+    "gb": "pɛɡlˈɒtɪkˌAs",
+    "context": "peg-LOT-ih-kase: Wiktionary GA's 'glɑt' (today's reading)"
+   }
+  ],
+  "notes": "REVIEW. MedlinePlus says peg-LOH-tih-kase; Wiktionary GA says puh-GLOT-uh-kase, which today's peg-LOT-ih-kase matches in its stressed vowel. Same stressed syllable, different stressed vowel. The guide follows MedlinePlus for a generic unless dictionaries agree on something else, and only one dictionary disagrees, so MedlinePlus wins; Wiktionary's form is the alternative. Medium because of that stressed-vowel disagreement; the maker's label respells only the brand."
+ }
+]

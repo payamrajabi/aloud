@@ -61,8 +61,14 @@ everyone; there is no separate lay reading.
   keep both stresses (`ˈ` and `ˌ`); take the main one that two or more authoritative sources
   share, and when they split evenly, MedlinePlus's for `us` and the British source's for `gb`.
   Note it and put the other order in `alternatives`. This kind of disagreement doesn't lower
-  confidence; disagreement about which syllables are stressed at all, or about a stressed vowel,
-  makes it `medium`.
+  confidence. When sources disagree about which syllables are stressed at all, or about a
+  stressed vowel: two or more authoritative sources against one may stay `high` (record the
+  dissent in `alternatives`); an even split is `medium`.
+- **When MedlinePlus monographs disagree with each other** (a drug's own monograph and a
+  combination product's), the single-ingredient monograph wins, unless dictionaries side with
+  the other; note it.
+- **The CMU Pronouncing Dictionary is not independent evidence** when it is where today's
+  reading comes from (`today_source: cmudict`); it can't confirm itself.
 - **Stem families read alike** (-statin stat-in, -pril pril, -sartan SAR-tan, -olol oh-lol,
   -azole uh-zole, -prazole: main stress on the syllable before "pra", which reduces (oh-MEP-ruh-
   zole, pan-TOH-pruh-zole), -mab mab, -gliflozin gli-FLOH-zin, -gliptin GLIP-tin, -glutide
@@ -73,9 +79,27 @@ everyone; there is no separate lay reading.
   unstressed vowels differ in reduction (ə, ɪ), or a secondary stress is present in one and not
   the other. Don't churn readings for that. A full vowel with secondary stress that today's
   reading reduces ("losartan" -tan read -tun) is a real difference: correct it.
+- **A full vowel the respelling writes out in a final syllable** ("bak' loe fen", "all mi sar' tan")
+  counts as a full vowel with secondary stress when a second source agrees, so today's reduced
+  "-fun", "-tun" is a real difference. "oh" just before the main stress likewise: today's reduced
+  `ə` there is a difference only when every source writes "oh" (otherwise leave it).
+- **`ɑ` and `ɔ` in an "-ol" ending** (-olol, -terol, -ol: "lahl" vs "lawl") are one sound for
+  most American speakers: not a difference worth correcting. When you correct the word for
+  another reason, keep whichever today's reading has, or `ɔ` if it has neither. British: `ɒ`.
 - **US-only and British-only fixes** are `corrected` too (today's US reading right and the
   British wrong, or the reverse). British readings keep the US stresses unless a British source
   says otherwise; a US-only brand (Farxiga; Forxiga in the UK) gets British vowels on the US name.
+  British keeps the "y" glide RP has after t, d and n before a vowel spelled "u" (not "oo") in a
+  stressed or full syllable: duloxetine GB `djuːlˈɒksɪtiːn`, Januvia GB `ʤənjˈuːviə`, NuvaRing GB
+  `njˈuːvəɹɪŋ`; American has none. Not after l, s, r or j.
+- **Which unstressed differences count** (pack-wide ruling): a full vowel against `ə`/`ɪ` in an
+  unstressed syllable is only reduction (already-correct), except (a) a final syllable that two
+  sources write full ("losartan" -tan), (b) a brand whose maker writes the full vowel ("VRAY-lar"),
+  (c) "oh" before the main stress when every source writes "oh". Two *different* full vowels
+  (today "ah", sources "oh"; today "ee", maker "uh") are a real difference: correct it when the
+  sources agree.
+- **`unresolved` rows** carry no confidence; put your best candidate in `us` and say what's
+  missing in `notes`.
 
 ## Converting a respelling to misaki
 MedlinePlus (ASHP) style: syllables separated by spaces, an apostrophe after the syllable with
@@ -91,13 +115,18 @@ or mark no stress at all ("baz-a-glar": then the stress is yours to source or in
 | a, ah (stressed closed: "stat", "pak") | `æ` (GB `a`) | sta tin → `stˌætᵊn` |
 | ah, o (as in "lot": "rox", "pom") | `ɑ` (GB `ɒ`) | rox' een → `ɹˈɑksin` |
 | ay, ai | `A` | pray zole → `pɹˈAzOl` |
-| ee, e (open, stressed) | `i` (GB `iː`) | lee voe → `lˌivO` |
+| ee | `i` (GB `iː`) | lee voe → `lˌivO` |
+| a lone stressed "e" in MedlinePlus ("ra mi' pril", "ri me' je pant": MEH) | `ɛ` | |
+| MedlinePlus capital "I" standing alone (a syllable "ih") | `ɪ` | |
 | e, eh (closed or stressed: "met", "pen", ELL); unstressed "eh" is `ə` | `ɛ` | met for' min → `mɛtfˈɔɹmɪn` |
 | i (closed: "tin", "pril", "sil") | `ɪ` | |
 | eye, ye, ie, y ("lye", "thye", "mye") | `I` | lyse in' oh pril → `lIsˈɪnəpɹɪl` |
 | oh, oe, o (open: "voe", "toe", "loe") | `O` (GB `Q`) | |
 | oo, u (open: "soo") | `u` (GB `uː`) | |
-| yoo, yu, u ("byoo") | `ju` (GB `juː`) | |
+| yoo, yu, u ("byoo"); MedlinePlus "ue" ("fue' ma rate", "liz' ue mab") | `ju` (GB `juː`) | |
+| ir, eer ("mir", "sir" in -siran) | `ɪɹ` (GB `ɪə`) | |
+| a stressed "a" ending a syllable ("tra'", "pra'") | `æ` (GB `a`) unless a dictionary says "ay" | |
+| dictionary marks in label respellings: ā ē ī ō ū (long), ä (father), â (care), ô (law) | `A i I O u`, `ɑ`, `ɛɹ`, `ɔ` | "Klī-mâr-uh" → `klImˈɛɹə` |
 | aw, au, or ("tore", "for") | `ɔ`; "or" = `ɔɹ` (GB `ɔː`) | |
 | ow | `W`; oy | `Y` |
 | er, ur (unstressed) | `əɹ` (GB `ə`); stressed `ɜɹ` (GB `ɜː`) | |
@@ -119,9 +148,11 @@ or mark no stress at all ("baz-a-glar": then the stress is yours to source or in
   whenever British vowels differ (`iː uː ɑː ɔː ɜː`, LOT `ɒ`).
 
 Worked examples:
-- **atorvastatin** (generic; today `ˌAtəɹvˈæstAtɪn`, guesser). MedlinePlus "a tore' va sta tin";
-  Wiktionary US /əˈtɔːɹvəˌstætɪn/ and /əˌtɔːɹvəˈstætɪn/, UK /əˌtɔːvəˈstætɪn/. US `ətˈɔɹvəstˌætᵊn`,
-  GB `ətˌɔːvəstˈatᵊn`, "uh-TOR-vuh-stat-in". High.
+- **atorvastatin** (generic; today `ˌAtəɹvˈæstAtɪn`, guesser: AY-ter-VAS-tay-tin). MedlinePlus
+  "a tore' va sta tin"; Merriam-Webster ə-ˌtȯr-və-ˈsta-tᵊn; Dictionary.com main stress on "stat";
+  Wiktionary US /əˈtɔːɹvəˌstætɪn/ and /əˌtɔːɹvəˈstætɪn/, UK /əˌtɔːvəˈstætɪn/. Both "tor" and
+  "stat" are stressed; most sources make "stat" the main one: US `ətˌɔɹvəstˈætᵊn`, GB
+  `ətˌɔːvəstˈatᵊn`, "uh-TOR-vuh-STAT-in"; MedlinePlus's order in `alternatives`. High.
 - **metformin** (today `mˈɛtfˌɔɹmɪn`, guesser: MET-for-min). MedlinePlus "met for' min";
   Wiktionary GA /mɛtˈfɔɹ.mɪn/. US `mɛtfˈɔɹmɪn`, GB `mɛtfˈɔːmɪn`. High.
 - **levothyroxine** (today `lˌɛvəθˈIɹɑksin`: LEV-uh-THY-rox-een). MedlinePlus "lee voe thye
@@ -137,7 +168,11 @@ Worked examples:
    FDA's proprietary-name reviews on accessdata.fda.gov often record the maker's "intended
    pronunciation" of a brand; makers' professional sites (e.g. Novo Nordisk's NovoMedLink) too.
 2. **MedlinePlus** (ASHP) for a generic; **Merriam-Webster** (Medical) and other dictionaries;
-   **Wiktionary** IPA; USP/USAN pronunciation guides; the NCI Drug Dictionary (cancer.gov).
+   **Wiktionary** IPA; USP/USAN pronunciation guides; the NCI Drug Dictionary (cancer.gov: its
+   respellings come through `https://webapis.cancer.gov/glossary/v1/Terms/Cancer.gov/Patient/en/<term>`,
+   all stressed syllables in capitals); the American Heritage Dictionary (ahdictionary.com
+   fetches; its bold main-stress mark is lost in fetched text); Dictionary.com (Random House
+   for US, Collins for British forms).
 3. Pharmacy and nursing references that print a respelling (drug guides, pharmacology
    pronunciation lists, Drugs.com's "Pronunciation" line), a news story or ad transcript that
    says how the maker pronounces a brand.

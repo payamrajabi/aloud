@@ -1,0 +1,2037 @@
+[
+ {
+  "rank": 1,
+  "word": "atorvastatin",
+  "kind": "generic",
+  "spelling": "atorvastatin",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ətˌɔɹvəstˈætᵊn",
+  "gb": "ətˌɔːvəstˈatᵊn",
+  "respelling": "uh-TOR-vuh-STAT-in",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "a tore' va sta tin",
+    "url": "https://medlineplus.gov/druginfo/meds/a600045.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "UK /əˌtɔːvəˈstætɪn/; US /əˈtɔːɹvəˌstætɪn/, /əˌtɔːɹvəˈstætɪn/",
+    "url": "https://en.wiktionary.org/wiki/atorvastatin"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "US [uh-tawr-vuh-STAT-n] /əˌtɔr vəˈstæt n/",
+    "url": "https://www.dictionary.com/browse/atorvastatin"
+   },
+   {
+    "source": "Merriam-Webster (Medical)",
+    "says": "ə-ˌtȯr-və-ˈsta-tᵊn (via search result; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/atorvastatin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "ətˈɔɹvəstˌætᵊn",
+    "gb": "ətˈɔːvəstˌatᵊn",
+    "context": "main stress on 'tor': MedlinePlus, Wiktionary's first US form"
+   }
+  ],
+  "notes": "Today's guess says AY-ter-VAS-tay-tin. Both 'tor' and 'stat' carry stress in every source; Merriam-Webster, Dictionary.com, Wiktionary UK and Wiktionary's second US form make 'stat' the main one, MedlinePlus and Wiktionary's first US form 'tor'. By the guide's rule (the main stress most authoritative sources share) US and GB take 'stat'; MedlinePlus's order is the alternative. This is the pack's canary test.",
+  "review": "parent: main stress moved from 'tor' to 'stat' after the guide's tie-break rule was settled (MW, Dictionary.com, Wiktionary UK + second US form vs MedlinePlus, Wiktionary first US form)",
+  "today_us": "ˌAtəɹvˈæstAtɪn",
+  "today_gb": "ˌAtəvˈastAtɪn",
+  "today_source": "guesser",
+  "gb_effective": "ətˌɔːvəstˈatᵊn",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "5 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "6 phonemes off"
+ },
+ {
+  "rank": 2,
+  "word": "sodium",
+  "kind": "generic",
+  "spelling": "sodium",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "sˈOdiəm",
+  "gb": "sˈQdɪəm",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "soe' dee um (Sodium Oxybate monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a605032.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /ˈsəʊ.di.əm/; US /ˈsoʊ.di.əm/ (regional forms omitted)",
+    "url": "https://en.wiktionary.org/wiki/sodium"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Ordinary word (Zipf 3.87); the drug reading is the everyday one, which is today's. Nothing to ship.",
+  "review": "ok",
+  "today_us": "sˈOdiəm",
+  "today_gb": "sˈQdɪəm",
+  "today_source": "gold",
+  "gb_effective": "sˈQdɪəm",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 3,
+  "word": "levothyroxine",
+  "kind": "generic",
+  "spelling": "levothyroxine",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "lˌivOθIɹˈɑksin",
+  "gb": "lˌiːvQθIɹˈɒksiːn",
+  "respelling": "lee-voh-thy-ROX-een",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "lee voe thye rox' een",
+    "url": "https://medlineplus.gov/druginfo/meds/a682461.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˌli.voʊ.θaɪˈɹɑkˌsin/, /ˌli.voʊ.θaɪˈɹɑk.sɪn/",
+    "url": "https://en.wiktionary.org/wiki/levothyroxine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "The guide's worked example. Today says LEV-uh-THY-rox-een: wrong first vowel and main stress on 'thy' instead of 'rox'.",
+  "review": "ok",
+  "today_us": "lˌɛvəθˈIɹɑksin",
+  "today_gb": "lˌɛvəθˈIɹɒksin",
+  "today_source": "guesser",
+  "gb_effective": "lˌiːvQθIɹˈɒksiːn",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "4 phonemes off"
+ },
+ {
+  "rank": 4,
+  "word": "amlodipine",
+  "kind": "generic",
+  "spelling": "amlodipine",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "æmlˈOdəpˌin",
+  "gb": "amlˈQdɪpˌiːn",
+  "respelling": "am-LOH-dih-peen",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "am loe' di peen",
+    "url": "https://medlineplus.gov/druginfo/meds/a692044.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /æmˈləʊ.dɪ.piːn/; GA,CA /æmˈloʊ.dɪˌpin/",
+    "url": "https://en.wiktionary.org/wiki/amlodipine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says am-LOD-ih-pine: wrong stressed vowel (LOD for LOH) and -pine for -peen.",
+  "review": "ok",
+  "today_us": "æmlˈɑdəpˌIn",
+  "today_gb": "amlˈɒdəpˌIn",
+  "today_source": "guesser",
+  "gb_effective": "amlˈQdɪpˌiːn",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "4 phonemes off"
+ },
+ {
+  "rank": 5,
+  "word": "metformin",
+  "kind": "generic",
+  "spelling": "metformin",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "mɛtfˈɔɹmɪn",
+  "gb": "mɛtfˈɔːmɪn",
+  "respelling": "met-FOR-min",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "met for' min",
+    "url": "https://medlineplus.gov/druginfo/meds/a696005.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /mɛtˈfɔː.mɪn/; GA /mɛtˈfɔɹ.mɪn/",
+    "url": "https://en.wiktionary.org/wiki/metformin"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "met-ˈfȯr-mən (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/dictionary/metformin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "The guide's worked example. Today says MET-for-min (main stress on the first syllable); MedlinePlus, Merriam-Webster and Wiktionary all stress 'for'.",
+  "review": "ok",
+  "today_us": "mˈɛtfˌɔɹmɪn",
+  "today_gb": "mˈɛtfˌɔːmɪn",
+  "today_source": "guesser",
+  "gb_effective": "mɛtfˈɔːmɪn",
+  "verdict_us": "partial",
+  "verdict_us_detail": "right sounds, wrong stress",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "right sounds, wrong stress"
+ },
+ {
+  "rank": 6,
+  "word": "lisinopril",
+  "kind": "generic",
+  "spelling": "lisinopril",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "lIsˈɪnəpɹˌɪl",
+  "gb": "lIsˈɪnəpɹˌɪl",
+  "respelling": "ly-SIN-uh-pril",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "lyse in' oh pril",
+    "url": "https://medlineplus.gov/druginfo/meds/a692051.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /lɪˈsɪn.əˌpɹɪl/, /laɪˈsɪn.əˌpɹɪl/",
+    "url": "https://en.wiktionary.org/wiki/lisinopril"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "li-ˈsin-ə-ˌpril, lī- (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/lisinopril"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "lɪsˈɪnəpɹˌɪl",
+    "gb": "lɪsˈɪnəpɹˌɪl",
+    "context": "lih-SIN-uh-pril: the first form in Merriam-Webster and Wiktionary"
+   }
+  ],
+  "notes": "Today says LIZ-uh-nuh-pril (main stress on the first syllable, z for s). The main stress on 'sin' is common to every source; for the first vowel MedlinePlus has 'lyse', which Merriam-Webster and Wiktionary also list, so MedlinePlus's form is kept and lih- is the alternative. Post-tonic 'oh' reduced to ə as in Wiktionary and the guide's own example.",
+  "review": "ok",
+  "today_us": "lˈɪzənəpɹɪl",
+  "today_gb": "lˈɪzənəpɹɪl",
+  "today_source": "guesser",
+  "gb_effective": "lIsˈɪnəpɹˌɪl",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "3 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "3 phonemes off"
+ },
+ {
+  "rank": 7,
+  "word": "calcium",
+  "kind": "generic",
+  "spelling": "calcium",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "kˈælsiəm",
+  "gb": "kˈalsɪəm",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "kal' see um",
+    "url": "https://medlineplus.gov/druginfo/meds/a625036.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "US,UK /ˈkælsi.əm/ (regional forms omitted)",
+    "url": "https://en.wiktionary.org/wiki/calcium"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Ordinary word (Zipf 3.82); today's reading is the everyday and the drug reading. Nothing to ship.",
+  "review": "ok",
+  "today_us": "kˈælsiəm",
+  "today_gb": "kˈalsɪəm",
+  "today_source": "gold",
+  "gb_effective": "kˈalsɪəm",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 8,
+  "word": "losartan",
+  "kind": "generic",
+  "spelling": "losartan",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "lOsˈɑɹtˌæn",
+  "gb": "lQsˈɑːtˌan",
+  "respelling": "loh-SAR-tan",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "loe sar' tan",
+    "url": "https://medlineplus.gov/druginfo/meds/a695008.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /loʊˈsɑɹˌtæn/, /loʊˈsɑɹ.tən/",
+    "url": "https://en.wiktionary.org/wiki/losartan"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "lō-ˈsär-ˌtan (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/dictionary/losartan"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says luh-SAR-tun. The stressed syllable is right, but MedlinePlus ('loe ... tan'), Merriam-Webster (lō-...-ˌtan) and Wiktionary's first form all give a full 'loh' and a full, secondary-stressed 'tan', the -sartan family pattern (SAR-tan). The guide names losartan's -tan read -tun as a real difference to correct.",
+  "review": "notes only: removed the 'reviewer may prefer already-correct' hedge; the guide names losartan -tan vs -tun as a real difference",
+  "today_us": "ləsˈɑɹtən",
+  "today_gb": "ləsˈɑːtən",
+  "today_source": "guesser",
+  "gb_effective": "lQsˈɑːtˌan",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 9,
+  "word": "metoprolol",
+  "kind": "generic",
+  "spelling": "metoprolol",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "mətˈOpɹəlˌɔl",
+  "gb": "mɪtˈɒpɹəlɒl",
+  "respelling": "muh-TOH-pruh-lawl",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "me toe' proe lole",
+    "url": "https://medlineplus.gov/druginfo/meds/a682864.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /mɪˈtɒp.ɹə.lɒl/; GA /məˈtoʊ.pɹəˌlɔl/",
+    "url": "https://en.wiktionary.org/wiki/metoprolol"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "me-ˈtō-prə-ˌlȯl, -ˌlōl (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/dictionary/metoprolol"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "US [met-oh-PROH-lawl, -lol] /ˌmɛt oʊˈproʊ lɔl, -lɒl/",
+    "url": "https://www.dictionary.com/browse/metoprolol"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "mətˈOpɹəlˌOl",
+    "gb": "mɪtˈQpɹəlˌQl",
+    "context": "final 'lole': MedlinePlus ('proe lole') and Merriam-Webster's second form"
+   },
+   {
+    "us": "mˌɛtOpɹˈOlˌɔl",
+    "gb": "mˌɛtQpɹˈQlɒl",
+    "context": "met-oh-PROH-lawl: Dictionary.com, main stress on 'pro'"
+   }
+  ],
+  "notes": "US fix: today says muh-TOP-ruh-lol; every US source stresses 'toe' (MedlinePlus, Merriam-Webster, Wiktionary GA). Final syllable follows Wiktionary GA and Merriam-Webster's first form (-ˌlȯl). GB is today's GB unchanged: it matches Wiktionary's RP /mɪˈtɒp.ɹə.lɒl/ exactly (the only British source found), so British voices keep mi-TOP-ruh-lol. Medium: Dictionary.com stresses 'proh' (met-oh-PROH-lawl), so authoritative sources disagree about which syllables are stressed; MedlinePlus, Merriam-Webster and Wiktionary GA (three) agree on 'toe', which is kept.",
+  "review": "confidence high → medium: Dictionary.com gives met-oh-PROH-lawl (stress on 'pro'), a disagreement about which syllables are stressed; added as alternative",
+  "today_us": "mətˈɑpɹəlɑl",
+  "today_gb": "mɪtˈɒpɹəlɒl",
+  "today_source": "gold",
+  "gb_effective": "mɪtˈɒpɹəlɒl",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "right",
+  "verdict_gb_detail": "identical"
+ },
+ {
+  "rank": 10,
+  "word": "albuterol",
+  "kind": "generic",
+  "spelling": "albuterol",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "ælbjˈuTəɹˌɔl",
+  "gb": "albjˈuːtəɹɒl",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "al byoo' ter ole",
+    "url": "https://medlineplus.gov/druginfo/meds/a607004.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ælˈbju.təˌɹɔl/",
+    "url": "https://en.wiktionary.org/wiki/albuterol"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "al-ˈbyü-tə-ˌrȯl, -ˌrōl (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/dictionary/albuterol"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "ælbjˈutəɹˌOl",
+    "gb": "albjˈuːtəɹQl",
+    "context": "final 'ole': MedlinePlus and Merriam-Webster's second form"
+   }
+  ],
+  "notes": "Today's al-BYOO-ter-awl matches Wiktionary GA and Merriam-Webster's first form exactly.",
+  "review": "ok",
+  "today_us": "ælbjˈuTəɹˌɔl",
+  "today_gb": "albjˈuːtəɹɒl",
+  "today_source": "gold",
+  "gb_effective": "albjˈuːtəɹɒl",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 11,
+  "word": "hydrochlorothiazide",
+  "kind": "generic",
+  "spelling": "hydrochlorothiazide",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "hˌIdɹOklˌɔɹəθˈIəzˌId",
+  "gb": "hˌIdɹQklˌɔːɹəθˈIəzˌId",
+  "respelling": "hy-droh-klor-uh-THY-uh-zide",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "hye'' droe klor'' oh thye' a zide",
+    "url": "https://medlineplus.gov/druginfo/meds/a682571.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˌhaɪ.dɹəˌklɔɹ.əˈθaɪ.əˌzaɪd/",
+    "url": "https://en.wiktionary.org/wiki/hydrochlorothiazide"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "US [hahy-druh-klawr-uh-THAHY-uh-zahyd] /ˌhaɪ drəˌklɔr əˈθaɪ əˌzaɪd/",
+    "url": "https://www.dictionary.com/browse/hydrochlorothiazide"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says hy-droh-KLOR-uh-thee-uh-zide: main stress on 'klor' and 'thee' for 'thye'. MedlinePlus and Wiktionary both put the main stress on 'thye' (syllable 5) with secondaries on 'hye', 'klor' and 'zide'. (MedlinePlus writes a secondary stress with a double apostrophe '' and the main stress with a single one.)",
+  "review": "added Dictionary.com (main stress on 'thy'), which confirms; unchanged",
+  "today_us": "hˌIdɹOklˈɔɹəθiəzˌId",
+  "today_gb": "hˌIdɹQklˈɔːɹəθiəzˌId",
+  "today_source": "guesser",
+  "gb_effective": "hˌIdɹQklˌɔːɹəθˈIəzˌId",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 12,
+  "word": "gabapentin",
+  "kind": "generic",
+  "spelling": "gabapentin",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ɡˈæbəpˌɛntɪn",
+  "gb": "ɡˌabəpˈɛntɪn",
+  "respelling": "GAB-uh-pen-tin",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "ga' ba pen tin",
+    "url": "https://medlineplus.gov/druginfo/meds/a694007.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˈɡæb.əˌpɛn.tɪn/",
+    "url": "https://en.wiktionary.org/wiki/gabapentin"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ˈgab-ə-ˌpen-tin (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/gabapentin"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "British (Collins) /ˌɡæbəˈpɛntɪn/",
+    "url": "https://www.dictionary.com/browse/gabapentin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "ɡˌæbəpˈɛntɪn",
+    "gb": "ɡˌabəpˈɛntɪn",
+    "context": "gab-uh-PEN-tin: the British main stress (Collins)"
+   }
+  ],
+  "notes": "Today says gah-buh-PEN-tin (main stress on 'pen', 'ah' for the a in 'gab'). Every US source stresses 'gab'. GB follows Collins's British /ˌɡæbəˈpɛntɪn/ (main stress on 'pen', secondary on 'gab'); today's GB has the British stress but the wrong first vowel (gob-), so GB is corrected too.",
+  "review": "gb ɡˈabəpˌɛntɪn → ɡˌabəpˈɛntɪn: Collins gives British /ˌɡæbəˈpɛntɪn/ (main stress on 'pen'); guide says GB takes British stress where a source gives it",
+  "today_us": "ɡˌɑbəpˈɛntɪn",
+  "today_gb": "ɡˌɒbəpˈɛntɪn",
+  "today_source": "guesser",
+  "gb_effective": "ɡˌabəpˈɛntɪn",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 13,
+  "word": "potassium",
+  "kind": "generic",
+  "spelling": "potassium",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "pətˈæsiəm",
+  "gb": "pətˈasɪəm",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "poe tass' i um",
+    "url": "https://medlineplus.gov/druginfo/meds/a601099.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "/pəˈtæsiəm/",
+    "url": "https://en.wiktionary.org/wiki/potassium"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Ordinary word (Zipf 3.58); today's reading is the everyday and the drug reading (only the unstressed first vowel is reduced). Nothing to ship.",
+  "review": "ok",
+  "today_us": "pətˈæsiəm",
+  "today_gb": "pətˈasɪəm",
+  "today_source": "gold",
+  "gb_effective": "pətˈasɪəm",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 14,
+  "word": "omeprazole",
+  "kind": "generic",
+  "spelling": "omeprazole",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "OmˈɛpɹəzˌOl",
+  "gb": "QmˈɛpɹəzˌQl",
+  "respelling": "oh-MEP-ruh-zole",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "oh me' pray zol",
+    "url": "https://medlineplus.gov/druginfo/meds/a693050.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /əʊˈmɛp.ɹə.zəʊl/; GA /oʊˈmɛp.ɹəˌzoʊl/",
+    "url": "https://en.wiktionary.org/wiki/omeprazole"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ō-ˈme-prə-ˌzōl (medical: ō-ˈmep-rə-ˌzōl) (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/dictionary/omeprazole"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "US [oh-MEP-ruh-zohl] /oʊˈmɛp rəˌzoʊl/",
+    "url": "https://www.dictionary.com/browse/omeprazole"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "OmˈɛpɹAzˌOl",
+    "gb": "QmˈɛpɹAzˌQl",
+    "context": "MedlinePlus's 'pray' in the unstressed third syllable"
+   }
+  ],
+  "notes": "Today says OHM-pruh-zole: it drops a syllable and stresses the first. Main stress on 'mep' in every source. MedlinePlus writes 'pray' for the unstressed third syllable; Merriam-Webster, Wiktionary and Dictionary.com agree on a reduced 'ruh', so that is the reading (the guide's rule when dictionaries agree, and its -prazole family pattern oh-MEP-ruh-zole).",
+  "review": "notes only: replaced a remark about an outdated guide hint ('-prazole PRAY-zole') with the current family rule; added Dictionary.com",
+  "today_us": "ˈOmpɹəzˌOl",
+  "today_gb": "ˈQmpɹəzˌQl",
+  "today_source": "guesser",
+  "gb_effective": "QmˈɛpɹəzˌQl",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 15,
+  "word": "rosuvastatin",
+  "kind": "generic",
+  "spelling": "rosuvastatin",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ɹOsˈuvəstˌætᵊn",
+  "gb": "ɹQsˈuːvəstˌatᵊn",
+  "respelling": "roh-SOO-vuh-stat-in",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "roe soo'' va stat' in",
+    "url": "https://medlineplus.gov/druginfo/meds/a603033.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ɹoʊˈsu.vəˌstæt.n̩/",
+    "url": "https://en.wiktionary.org/wiki/rosuvastatin"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "rō-ˈsü-və-ˌsta-tᵊn (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/rosuvastatin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "ɹOsˌuvəstˈætᵊn",
+    "gb": "ɹQsˌuːvəstˈatᵊn",
+    "context": "MedlinePlus: main stress on 'stat', secondary on 'soo'"
+   }
+  ],
+  "notes": "Today says roh-suh-VAS-tay-tin (stress on 'vas', 'tay' for 'stat'). Both stresses kept. Merriam-Webster and Wiktionary agree on the main stress on 'soo'; MedlinePlus puts it on 'stat' (its '' on 'soo' is a secondary). The guide names this case: take the main stress two authoritative sources share, so 'soo'; the checker's stress warning against MedlinePlus is intended, and the MedlinePlus order is the alternative. No British source: GB keeps the same stresses.",
+  "review": "notes only: restated the stress choice under the current guide rule (two sources share 'soo'), answering the checker's WARN",
+  "today_us": "ɹˌOsəvˈæstAtɪn",
+  "today_gb": "ɹˌQsəvˈastAtɪn",
+  "today_source": "guesser",
+  "gb_effective": "ɹQsˈuːvəstˌatᵊn",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "4 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "5 phonemes off"
+ },
+ {
+  "rank": 16,
+  "word": "dextroamphetamine",
+  "kind": "generic",
+  "spelling": "dextroamphetamine",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "dˌɛkstɹOæmfˈɛtəmˌin",
+  "gb": "dˌɛkstɹQamfˈɛtəmˌiːn",
+  "respelling": "dex-troh-am-FET-uh-meen",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "dex troe am fet' a meen",
+    "url": "https://medlineplus.gov/druginfo/meds/a605027.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "UK /ˌdɛkstɹəʊæmˈfɛtəmiːn/",
+    "url": "https://en.wiktionary.org/wiki/dextroamphetamine"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "(medical) ˌdek-(ˌ)strō-am-ˈfet-ə-ˌmēn, -mən (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/dictionary/dextroamphetamine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says dex-TROHM-fuh-tuh-meen: it merges 'troe am' into one syllable and stresses it. Main stress on 'fet' in every source.",
+  "review": "ok",
+  "today_us": "dɛkstɹˈOmfətəmˌin",
+  "today_gb": "dɛkstɹˈQmfətəmˌiːn",
+  "today_source": "guesser",
+  "gb_effective": "dˌɛkstɹQamfˈɛtəmˌiːn",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 17,
+  "word": "acetaminophen",
+  "kind": "generic",
+  "spelling": "acetaminophen",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "əsˌiTəmˈɪnəfən",
+  "gb": "əsˌiːtəmˈɪnəfɛn",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "a set a mee' noe fen",
+    "url": "https://medlineplus.gov/druginfo/meds/a611019.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "/əˌsitəˈmɪnəfən/",
+    "url": "https://en.wiktionary.org/wiki/acetaminophen"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ə-ˌsēt-ə-ˈmin-ə-fən, ˌas-ət- (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/acetaminophen"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "US [uh-see-tuh-MIN-uh-fuhn] /əˌsi təˈmɪn ə fən/",
+    "url": "https://www.dictionary.com/browse/acetaminophen"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "əsˌɛtəmˈinOfɛn",
+    "gb": "əsˌɛtəmˈiːnQfɛn",
+    "context": "MedlinePlus (ASHP) respelling 'a set a mee' noe fen'"
+   }
+  ],
+  "notes": "Today's uh-see-tuh-MIN-uh-fun matches Merriam-Webster, Wiktionary and Dictionary.com exactly; MedlinePlus has uh-set-uh-MEE-noh-fen (same stressed syllable, different stressed vowel). The dictionaries agree, so per the guide they win and MedlinePlus is the alternative. Medium, not high: authoritative sources disagree about the stressed vowel (MIN vs MEE), which the guide says makes it medium. Nothing ships either way.",
+  "review": "confidence high → medium (MedlinePlus 'mee' vs dictionaries 'min' is a stressed-vowel disagreement); fixed a dead c.merriam-webster.com URL; added Dictionary.com",
+  "today_us": "əsˌiTəmˈɪnəfən",
+  "today_gb": "əsˌiːtəmˈɪnəfɛn",
+  "today_source": "gold",
+  "gb_effective": "əsˌiːtəmˈɪnəfɛn",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 18,
+  "word": "insulin",
+  "kind": "generic",
+  "spelling": "insulin",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "ˈɪnsələn",
+  "gb": "ˈɪnsjʊlɪn",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "in' su lin (Insulin Human Inhalation monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a615014.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "UK /ˈɪnsjʊlin/, /ˈɪnʃʊlɪn/; US /ˈɪnsəlɪn/; South Africa /ˈɪnsəlɪn/, /ˈɪnʃʊlɪn/",
+    "url": "https://en.wiktionary.org/wiki/insulin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Ordinary word (Zipf 3.81); today's reading is the everyday and the drug reading. Nothing to ship.",
+  "review": "ok",
+  "today_us": "ˈɪnsələn",
+  "today_gb": "ˈɪnsjʊlɪn",
+  "today_source": "gold",
+  "gb_effective": "ˈɪnsjʊlɪn",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 19,
+  "word": "amphetamine",
+  "kind": "generic",
+  "spelling": "amphetamine",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "æmfˈɛtəmˌin",
+  "gb": "amfˈɛtəmiːn",
+  "respelling": "am-FET-uh-meen",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "am fet' a meen",
+    "url": "https://medlineplus.gov/druginfo/meds/a616004.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "/æmˈfɛt.ə.miːn/, /æmˈfɛt.əm.ɪn/",
+    "url": "https://en.wiktionary.org/wiki/amphetamine"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "am-ˈfe-tə-ˌmēn, -mən (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/dictionary/amphetamine"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "US [am-FET-uh-meen, -min] /æmˈfɛt əˌmin, -mɪn/; British (Collins) /æmˈfɛtəˌmiːn, -mɪn/",
+    "url": "https://www.dictionary.com/browse/amphetamine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "US-only fix. Today's US (gold) has an extra p, amp-FET-uh-meen (æmpf); MedlinePlus, Merriam-Webster and Wiktionary have none. Today's GB already matches Wiktionary and is kept. The spelling is a dictionary word, but its everyday sense is this same drug with this same reading, so a general entry changes nothing else in prose.",
+  "review": "added Dictionary.com/Collins (no extra p; British matches today's GB); unchanged",
+  "today_us": "æmpfˈɛTəmˌin",
+  "today_gb": "amfˈɛtəmiːn",
+  "today_source": "gold",
+  "gb_effective": "amfˈɛtəmiːn",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "right",
+  "verdict_gb_detail": "identical"
+ },
+ {
+  "rank": 20,
+  "word": "amoxicillin",
+  "kind": "generic",
+  "spelling": "amoxicillin",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "əmˌɑksəsˈɪlɪn",
+  "gb": "əmˌɒksɪsˈɪlɪn",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "a mox I sil' in",
+    "url": "https://medlineplus.gov/druginfo/meds/a685001.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /əˌmɒk.sɪˈsɪl.ɪn/; GA /əˌmak.sɪˈsɪlːɪn/",
+    "url": "https://en.wiktionary.org/wiki/amoxicillin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's uh-mok-suh-SIL-in matches Wiktionary; MedlinePlus differs only in unstressed vowels.",
+  "review": "ok",
+  "today_us": "əmˌɑksəsˈɪlɪn",
+  "today_gb": "əmˌɒksɪsˈɪlɪn",
+  "today_source": "gold",
+  "gb_effective": "əmˌɒksɪsˈɪlɪn",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 21,
+  "word": "sertraline",
+  "kind": "generic",
+  "spelling": "sertraline",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "sˈɜɹtɹəlˌin",
+  "gb": "sˈɜːtɹəlˌiːn",
+  "respelling": "SER-truh-leen",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "ser' tra leen",
+    "url": "https://medlineplus.gov/druginfo/meds/a697048.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /ˈsɜː.tɹəˌliːn/; GA /ˈsɜɹ.tɹəˌlin/",
+    "url": "https://en.wiktionary.org/wiki/sertraline"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says SER-truh-line (-line for -leen).",
+  "review": "ok",
+  "today_us": "sˈɜɹtɹəlˌIn",
+  "today_gb": "sˈɜːtɹəlˌIn",
+  "today_source": "guesser",
+  "gb_effective": "sˈɜːtɹəlˌiːn",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 22,
+  "word": "fluticasone",
+  "kind": "generic",
+  "spelling": "fluticasone",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "flutˈɪkəsˌOn",
+  "gb": "fluːtˈɪkəsˌQn",
+  "respelling": "floo-TIK-uh-sone",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "floo tik' a sone",
+    "url": "https://medlineplus.gov/druginfo/meds/a601056.html"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "flü-ˈtik-ə-ˌsōn, -ˌzōn (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/fluticasone"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "flutˈɪkəzˌOn",
+    "gb": "fluːtˈɪkəzˌQn",
+    "context": "-zone ending: Merriam-Webster's second form"
+   }
+  ],
+  "notes": "Today says FLOO-tuh-kuh-sone (main stress on the first syllable). MedlinePlus and Merriam-Webster stress 'tik'.",
+  "review": "ok",
+  "today_us": "flˈutəkəsˌOn",
+  "today_gb": "flˈuːtəkəsˌQn",
+  "today_source": "guesser",
+  "gb_effective": "fluːtˈɪkəsˌQn",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 23,
+  "word": "pantoprazole",
+  "kind": "generic",
+  "spelling": "pantoprazole",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "pæntˈOpɹəzˌOl",
+  "gb": "pantˈQpɹəzˌQl",
+  "respelling": "pan-TOH-pruh-zole",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "pan toe' pra zole",
+    "url": "https://medlineplus.gov/druginfo/meds/a601246.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /pænˈtoʊ.pɹəˌzoʊl/",
+    "url": "https://en.wiktionary.org/wiki/pantoprazole"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says PAN-tuh-praz-ole (main stress on 'pan', a full 'praz'). MedlinePlus and Wiktionary stress 'toe' and reduce 'pra'.",
+  "review": "ok",
+  "today_us": "pˈæntəpɹˌæzˌOl",
+  "today_gb": "pˈantəpɹˌazˌQl",
+  "today_source": "guesser",
+  "gb_effective": "pantˈQpɹəzˌQl",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 24,
+  "word": "sulfate",
+  "kind": "generic",
+  "spelling": "sulfate",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "sˈʌlfˌAt",
+  "gb": "sˈʌlfAt",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "sul' fate (Magnesium Sulfate, Potassium Sulfate, and Sodium Sulfate monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a619013.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "/ˈsʌlfeɪt/",
+    "url": "https://en.wiktionary.org/wiki/sulfate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Chemistry word; today's SUL-fate is the everyday and the label reading. The same spelling appears as both a generic and a salt row; both already-correct.",
+  "review": "ok",
+  "today_us": "sˈʌlfˌAt",
+  "today_gb": "sˈʌlfAt",
+  "today_source": "gold",
+  "gb_effective": "sˈʌlfAt",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 25,
+  "word": "sulfate",
+  "kind": "salt",
+  "spelling": "sulfate",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "sˈʌlfˌAt",
+  "gb": "sˈʌlfAt",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "sul' fate (Magnesium Sulfate, Potassium Sulfate, and Sodium Sulfate monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a619013.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "/ˈsʌlfeɪt/",
+    "url": "https://en.wiktionary.org/wiki/sulfate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Chemistry word; today's SUL-fate is the everyday and the label reading. The same spelling appears as both a generic and a salt row; both already-correct.",
+  "review": "ok",
+  "today_us": "sˈʌlfˌAt",
+  "today_gb": "sˈʌlfAt",
+  "today_source": "gold",
+  "gb_effective": "sˈʌlfAt",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 26,
+  "word": "besylate",
+  "kind": "salt",
+  "spelling": "besylate",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "bˈɛsəlˌAt",
+  "gb": "bˈɛsəlˌAt",
+  "respelling": "BESS-uh-late",
+  "evidence": [
+   {
+    "source": "Wiktionary",
+    "says": "/ˈbɛsɪleɪt/",
+    "url": "https://en.wiktionary.org/wiki/besylate"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ˈbes-ə-ˌlāt (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/besylate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess says BEZ-uh-late; Merriam-Webster and Wiktionary both have s, not z.",
+  "review": "ok; Wiktionary /ˈbɛsɪleɪt/ verified; the Merriam-Webster item could not be re-checked (fetch refused, no search budget)",
+  "today_us": "bˈɛzəlˌAt",
+  "today_gb": "bˈɛzəlˌAt",
+  "today_source": "guesser",
+  "gb_effective": "bˈɛsəlˌAt",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 27,
+  "word": "escitalopram",
+  "kind": "generic",
+  "spelling": "escitalopram",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "ˌɛsətˈæləpɹˌæm",
+  "gb": "ˌɛsətˈaləpɹˌam",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "es sye tal' oh pram",
+    "url": "https://medlineplus.gov/druginfo/meds/a603005.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˌɛs.əˈtæl.əˌpɹæm/",
+    "url": "https://en.wiktionary.org/wiki/escitalopram"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ˌe-sə-ˈta-lə-ˌpram (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/escitalopram"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "ˌɛsItˈæləpɹˌæm",
+    "gb": "ˌɛsItˈaləpɹˌam",
+    "context": "MedlinePlus 'es sye tal' oh pram' (keeps citalopram's 'sye')"
+   }
+  ],
+  "notes": "Today's es-uh-TAL-uh-pram matches Merriam-Webster and Wiktionary exactly; MedlinePlus keeps a full 'sye' in the unstressed second syllable. Dictionaries agree, so they win; the difference is one unstressed vowel. Reviewer: many clinicians do say es-sye-TAL-oh-pram.",
+  "review": "ok; MedlinePlus's 'sye' is an unstressed full vowel, so already-correct under either source",
+  "today_us": "ˌɛsətˈæləpɹˌæm",
+  "today_gb": "ˌɛsətˈaləpɹˌam",
+  "today_source": "guesser",
+  "gb_effective": "ˌɛsətˈaləpɹˌam",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 28,
+  "word": "semaglutide",
+  "kind": "generic",
+  "spelling": "semaglutide",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "sˌɛməɡlˈutˌId",
+  "gb": "sˌɛməɡlˈuːtˌId",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "sem\" a gloo' tide",
+    "url": "https://medlineplus.gov/druginfo/meds/a618008.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "/ˌsɛməˈɡlutaɪd/; /ˌsɛməˈɡluːtaɪd/",
+    "url": "https://en.wiktionary.org/wiki/semaglutide"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's sem-uh-GLOO-tide matches MedlinePlus and Wiktionary.",
+  "review": "ok",
+  "today_us": "sˌɛməɡlˈutˌId",
+  "today_gb": "sˌɛməɡlˈuːtˌId",
+  "today_source": "guesser",
+  "gb_effective": "sˌɛməɡlˈuːtˌId",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 29,
+  "word": "estradiol",
+  "kind": "generic",
+  "spelling": "estradiol",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ˌɛstɹədˈIɔl",
+  "gb": "ˌɛstɹədˈIɒl",
+  "respelling": "ess-truh-DY-awl",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "es tra dye' ole",
+    "url": "https://medlineplus.gov/druginfo/meds/a605041.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˌɛs.tɹəˈdaɪˌɔl/",
+    "url": "https://en.wiktionary.org/wiki/estradiol"
+   },
+   {
+    "source": "Wiktionary (oestradiol)",
+    "says": "RP /ˌiː.stɹəˈdʌɪ.ɒl/, /ˌɛ.stɹəˈdʌɪ.ɒl/",
+    "url": "https://en.wiktionary.org/wiki/oestradiol"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "US [es-truh-DAHY-awl, -ol] /ˌɛs trəˈdaɪ ɔl, -ɒl/; British (Collins) /ˌɛstrəˈdaɪɒl, ˌiːstrə-/",
+    "url": "https://www.dictionary.com/browse/estradiol"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "GB-only fix. Today's US (gold) already matches Wiktionary GA /ˌɛs.tɹəˈdaɪˌɔl/ and is kept unchanged. Today's GB says ih-STRAY-dee-ul; Wiktionary's RP (under the British spelling oestradiol) stresses 'dye': GB uses its /ˌɛ.stɹəˈdʌɪ.ɒl/ form, which matches the e- spelling (the other RP form starts with 'ee'). The spelling is a dictionary word, but its everyday sense is this same hormone with this same reading, so the entry changes nothing else. Collins's British entry for estradiol gives the same /ˌɛstrəˈdaɪɒl/ first.",
+  "review": "added Collins's British /ˌɛstrəˈdaɪɒl/ (and Dictionary.com US), which confirms the GB fix; reading unchanged",
+  "today_us": "ˌɛstɹədˈIɔl",
+  "today_gb": "ɪstɹˈAdiəl",
+  "today_source": "gold",
+  "gb_effective": "ˌɛstɹədˈIɒl",
+  "verdict_us": "right",
+  "verdict_us_detail": "identical",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "4 phonemes off"
+ },
+ {
+  "rank": 30,
+  "word": "trazodone",
+  "kind": "generic",
+  "spelling": "trazodone",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "tɹˈæzədˌOn",
+  "gb": "tɹˈazədˌQn",
+  "respelling": "TRAZ-uh-dohn",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "traz' oh done",
+    "url": "https://medlineplus.gov/druginfo/meds/a681038.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˈtɹæz.əˌdoʊn/",
+    "url": "https://en.wiktionary.org/wiki/trazodone"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ˈtra-zə-ˌdōn (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/dictionary/trazodone"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "US [TRAY-zuh-dohn] /ˈtreɪ zəˌdoʊn/",
+    "url": "https://www.dictionary.com/browse/trazodone"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "tɹˈAzədˌOn",
+    "gb": "tɹˈAzədˌQn",
+    "context": "TRAY-zuh-dohn: Dictionary.com"
+   }
+  ],
+  "notes": "Today says trah-zoh-DOH-nee: a spurious fourth syllable and the stress on 'doh'. Medium: Dictionary.com has TRAY-zuh-dohn, a different stressed vowel; MedlinePlus, Merriam-Webster and Wiktionary agree on TRAZ, which is kept.",
+  "review": "confidence high → medium: Dictionary.com gives TRAY-zuh-dohn (stressed-vowel disagreement); added as alternative",
+  "today_us": "tɹɑzOdˈOni",
+  "today_gb": "tɹɒzQdˈQni",
+  "today_source": "guesser",
+  "gb_effective": "tɹˈazədˌQn",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "3 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "3 phonemes off"
+ },
+ {
+  "rank": 31,
+  "word": "bupropion",
+  "kind": "generic",
+  "spelling": "bupropion",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "bjupɹˈOpiˌɑn",
+  "gb": "bjuːpɹˈQpɪən",
+  "respelling": "byoo-PROH-pee-on",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "byoo proe' pee on",
+    "url": "https://medlineplus.gov/druginfo/meds/a695033.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /bjuːˈpɹəʊ.pi.ən/; GA /bjuːˈpɹoʊ.piˌɑn/",
+    "url": "https://en.wiktionary.org/wiki/bupropion"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "byü-ˈprō-pē-ˌän, -ən (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/bupropion"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "US [byoo-PROH-pee-on, -uhn] /bjuˈproʊ piˌɒn, -ən/",
+    "url": "https://www.dictionary.com/browse/bupropion"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "bjupɹˈOpiən",
+    "gb": "bjuːpɹˈQpɪən",
+    "context": "final reduced -un: Merriam-Webster's and Dictionary.com's second form (today's US reading)"
+   }
+  ],
+  "notes": "US-only fix. Today says byoo-PROH-pee-un. MedlinePlus ('pee on'), Merriam-Webster's first form (-ˌän), Wiktionary GA (/ˌɑn/) and Dictionary.com's first form all give the last syllable a full vowel with secondary stress; the guide treats a reduced full secondary vowel as a real difference (as losartan, montelukast here). GB is today's GB unchanged: it matches Wiktionary's RP /bjuːˈpɹəʊ.pi.ən/, the only British source.",
+  "review": "already-correct → corrected (US bjupɹˈOpiən → bjupɹˈOpiˌɑn): every US source's first form has a full secondary 'on', the guide's losartan rule; GB kept (matches RP)",
+  "today_us": "bjupɹˈOpiən",
+  "today_gb": "bjuːpɹˈQpɪən",
+  "today_source": "gold",
+  "gb_effective": "bjuːpɹˈQpɪən",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "right",
+  "verdict_gb_detail": "identical"
+ },
+ {
+  "rank": 32,
+  "word": "apixaban",
+  "kind": "generic",
+  "spelling": "apixaban",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "əpˈɪksəbˌæn",
+  "gb": "əpˈɪksəbˌan",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "a pix' a ban",
+    "url": "https://medlineplus.gov/druginfo/meds/a613032.html"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ə-ˈpik-sə-ˌban (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/apixaban"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's uh-PIX-uh-ban matches MedlinePlus and Merriam-Webster.",
+  "review": "ok",
+  "today_us": "əpˈɪksəbˌæn",
+  "today_gb": "əpˈɪksəbˌan",
+  "today_source": "guesser",
+  "gb_effective": "əpˈɪksəbˌan",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 33,
+  "word": "furosemide",
+  "kind": "generic",
+  "spelling": "furosemide",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "fjʊɹˈOsəmˌId",
+  "gb": "fjʊɹˈQsəmˌId",
+  "respelling": "fyoor-OH-suh-mide",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "fyoor oh' se mide",
+    "url": "https://medlineplus.gov/druginfo/meds/a616046.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /fjʊˈɹoʊ.səˌmaɪd/",
+    "url": "https://en.wiktionary.org/wiki/furosemide"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "(medical) fyu̇-ˈrō-sə-ˌmīd (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/furosemide"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "British (Collins, under the former BAN frusemide) /ˈfrʌsəˌmaɪd, ˈfjʊərˌəʊsəˌmaɪd/",
+    "url": "https://www.dictionary.com/browse/frusemide"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "fjˈʊɹˌOsəmˌId",
+    "gb": "fjˈʊəɹˌQsəmˌId",
+    "context": "FYOOR-oh-suh-mide: Collins's second British form (listed under frusemide)"
+   }
+  ],
+  "notes": "GB-only fix. Today's US (gold) matches MedlinePlus, Merriam-Webster and Wiktionary and is kept. Today's GB is FYOOR-ohs-mide: three syllables, stress on the first. GB here keeps the sourced US shape with British vowels (the guide's default). Medium: the only British source found, Collins (under the old British name frusemide), gives FRUSS-uh-mide and FYOOR-oh-suh-mide with the stress on the first syllable, so the British stress is uncertain; that form is the alternative.",
+  "review": "found a British source (Collins under 'frusemide': stress on syllable 1) and added it as evidence and alternative; reading and medium kept",
+  "today_us": "fjʊɹˈOsəmˌId",
+  "today_gb": "fjˈʊɹQsmˌId",
+  "today_source": "gold",
+  "gb_effective": "fjʊɹˈQsəmˌId",
+  "verdict_us": "right",
+  "verdict_us_detail": "identical",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 34,
+  "word": "tamsulosin",
+  "kind": "generic",
+  "spelling": "tamsulosin",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "tæmsˈuləsɪn",
+  "gb": "tamsˈuːləsɪn",
+  "respelling": "tam-SOO-luh-sin",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "tam soo' loe sin",
+    "url": "https://medlineplus.gov/druginfo/meds/a698012.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /tæmˈsuː.ləs.ɪn/",
+    "url": "https://en.wiktionary.org/wiki/tamsulosin"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "tam-ˈsü-lə-sən (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/tamsulosin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says TAM-suh-loh-sun (main stress on 'tam'). Every source stresses 'soo'; the post-tonic 'loe' is reduced as in Merriam-Webster and Wiktionary.",
+  "review": "ok",
+  "today_us": "tˈæmsəlˌOsən",
+  "today_gb": "tˈamsəlˌQsən",
+  "today_source": "guesser",
+  "gb_effective": "tamsˈuːləsɪn",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "3 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "4 phonemes off"
+ },
+ {
+  "rank": 35,
+  "word": "oxycodone",
+  "kind": "generic",
+  "spelling": "oxycodone",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "ˌɑksikˈOdˌOn",
+  "gb": "ˌɒksɪkˈQdQn",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "ox I koe' done",
+    "url": "https://medlineplus.gov/druginfo/meds/a682132.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /ˌɒk.siˈkəʊ.dəʊn/; GA /ˌɑk.siˈkoʊˌdoʊn/",
+    "url": "https://en.wiktionary.org/wiki/oxycodone"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's ok-see-KOH-dohn matches Wiktionary GA exactly.",
+  "review": "ok",
+  "today_us": "ˌɑksikˈOdˌOn",
+  "today_gb": "ˌɒksɪkˈQdQn",
+  "today_source": "gold",
+  "gb_effective": "ˌɒksɪkˈQdQn",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 36,
+  "word": "montelukast",
+  "kind": "generic",
+  "spelling": "montelukast",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "mˌɑntəlˈukˌæst",
+  "gb": "mˌɒntəlˈuːkˌast",
+  "respelling": "mon-tuh-LOO-kast",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "mon te loo' kast",
+    "url": "https://medlineplus.gov/druginfo/meds/a600014.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˌmɑn.təˈluːˌkæst/",
+    "url": "https://en.wiktionary.org/wiki/montelukast"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ˌmänt-ə-ˈlü-ˌkast (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/montelukast"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "US [mon-tl-OO-kast] /ˌmɒn tlˈu kæst/",
+    "url": "https://www.dictionary.com/browse/montelukast"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says mon-tih-LOO-kust. The stressed syllable is right, but MedlinePlus ('kast'), Merriam-Webster (-ˌkast), Wiktionary (/ˌkæst/) and Dictionary.com (/kæst/) all give the last syllable a full vowel, with secondary stress in the first three, so it is the guide's losartan case (a reduced full secondary vowel), not an unstressed-vowel difference.",
+  "review": "notes only: removed the hedge; Dictionary.com also has a full 'kast', the guide's losartan case",
+  "today_us": "mˌɑntɪlˈukəst",
+  "today_gb": "mˌɒntɪlˈuːkəst",
+  "today_source": "guesser",
+  "gb_effective": "mˌɒntəlˈuːkˌast",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 37,
+  "word": "hydrocodone",
+  "kind": "generic",
+  "spelling": "hydrocodone",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "hˌIdɹOkˈOdˌOn",
+  "gb": "hˌIdɹQkˈQdˌQn",
+  "respelling": "hy-droh-KOH-dohn",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "hye'' droe koe' done",
+    "url": "https://medlineplus.gov/druginfo/meds/a614045.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˌhaɪ.dɹoʊˈkoʊˌdoʊn/",
+    "url": "https://en.wiktionary.org/wiki/hydrocodone"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "US [hahy-druh-KOH-dohn] /ˌhaɪ drəˈkoʊ doʊn/; British (Collins) /ˌhaɪdrəˈkəʊdəʊn/",
+    "url": "https://www.dictionary.com/browse/hydrocodone"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says HY-droh-koh-doh-nee: a spurious fifth syllable and the stress on 'hy'. MedlinePlus and Wiktionary stress 'koe' (syllable 3), like oxycodone. (MedlinePlus writes a secondary stress with a double apostrophe '' and the main stress with a single one.)",
+  "review": "added Dictionary.com/Collins (stress on 'koh'), which confirms; unchanged",
+  "today_us": "hˈIdɹOkOdˌOni",
+  "today_gb": "hˈIdɹQkQdˌQni",
+  "today_source": "guesser",
+  "gb_effective": "hˌIdɹQkˈQdˌQn",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 38,
+  "word": "chloride",
+  "kind": "generic",
+  "spelling": "chloride",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "klˈɔɹˌId",
+  "gb": "klˈɔːɹId",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "poe tas′ ee um klor′ ide (Potassium Chloride Injection monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a625021.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "/ˈklɔːˌɹaɪd/; /ˈklɔɹˌaɪd/",
+    "url": "https://en.wiktionary.org/wiki/chloride"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Dictionary word; today's KLOR-ide is the everyday and the drug reading. Nothing to ship.",
+  "review": "ok",
+  "today_us": "klˈɔɹˌId",
+  "today_gb": "klˈɔːɹId",
+  "today_source": "gold",
+  "gb_effective": "klˈɔːɹId",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 39,
+  "word": "succinate",
+  "kind": "salt",
+  "spelling": "succinate",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "sˈʌksənˌAt",
+  "gb": "sˈʌksɪnAt",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "Merriam-Webster",
+    "says": "ˈsək-sə-ˌnāt (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/dictionary/succinate"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "US [SUHK-suh-nayt] /ˈsʌk səˌneɪt/; British (Collins) /ˈsʌksɪˌneɪt/",
+    "url": "https://www.dictionary.com/browse/succinate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Dictionary word (chemistry); today's SUK-suh-nate matches Merriam-Webster. No harvested evidence; Merriam-Webster added.",
+  "review": "added Dictionary.com/Collins (SUHK-suh-nayt), which confirms; unchanged",
+  "today_us": "sˈʌksənˌAt",
+  "today_gb": "sˈʌksɪnAt",
+  "today_source": "gold",
+  "gb_effective": "sˈʌksɪnAt",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 40,
+  "word": "fluoxetine",
+  "kind": "generic",
+  "spelling": "fluoxetine",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "fluˈɑksətˌin",
+  "gb": "fluːˈɒksɪtiːn",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "floo ox' e teen",
+    "url": "https://medlineplus.gov/druginfo/meds/a689006.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /fluːˈɒk.sə.tiːn/; GA /fluːˈaksətiːn/",
+    "url": "https://en.wiktionary.org/wiki/fluoxetine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's floo-OX-uh-teen matches MedlinePlus and Wiktionary.",
+  "review": "ok",
+  "today_us": "fluˈɑksətˌin",
+  "today_gb": "fluːˈɒksɪtiːn",
+  "today_source": "gold",
+  "gb_effective": "fluːˈɒksɪtiːn",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 41,
+  "word": "prednisone",
+  "kind": "generic",
+  "spelling": "prednisone",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "pɹˈɛdnəsˌOn",
+  "gb": "pɹˈɛdnɪsˌQn",
+  "respelling": "PRED-nuh-sone",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "pred' ni sone",
+    "url": "https://medlineplus.gov/druginfo/meds/a601102.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /ˈpɹɛd.nɪ.zəʊn/; GA /ˈpɹɛd.nɪˌsoʊn/",
+    "url": "https://en.wiktionary.org/wiki/prednisone"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ˈpred-nə-ˌsōn, also -ˌzōn (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/dictionary/prednisone"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "US [PRED-nuh-sohn, -zohn] /ˈprɛd nəˌsoʊn, -ˌzoʊn/; British (Collins) /ˈprɛdnɪˌsəʊn/",
+    "url": "https://www.dictionary.com/browse/prednisone"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "pɹˈɛdnəzˌOn",
+    "gb": "pɹˈɛdnɪzQn",
+    "context": "-zone: Merriam-Webster 'also', Dictionary.com's second form, Wiktionary RP (today's reading)"
+   }
+  ],
+  "notes": "Today says PRED-nuh-zone (z). MedlinePlus ('sone'), Merriam-Webster's first form, Wiktionary GA and Dictionary.com's first form all have s, and so does Collins's British /ˈprɛdnɪˌsəʊn/; a consonant difference is a real one under the guide, so corrected. GB follows Collins; Wiktionary RP has z. The z form, which clinicians also use, is the alternative.",
+  "review": "already-correct (medium) → corrected, high: us pɹˈɛdnəzˌOn → pɹˈɛdnəsˌOn, gb → pɹˈɛdnɪsˌQn; MedlinePlus, MW, Wiktionary GA, Dictionary.com and Collins all put s first, and a consonant difference is not 'already correct'",
+  "today_us": "pɹˈɛdnəzˌOn",
+  "today_gb": "pɹˈɛdnɪzQn",
+  "today_source": "gold",
+  "gb_effective": "pɹˈɛdnɪsˌQn",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 42,
+  "word": "ibuprofen",
+  "kind": "generic",
+  "spelling": "ibuprofen",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "ˌIbjupɹˈOfən",
+  "gb": "ˌIbjuːpɹˈQfᵊn",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "eye byoo' proe fen",
+    "url": "https://medlineplus.gov/druginfo/meds/a682159.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "RP /ˌʌɪ.bjuː.ˈpɹəʊ.fən/; GA /ˌaɪ.bju.ˈpɹoʊ.fən/, /ˌaɪ.bjə.ˈpɹoʊfən/",
+    "url": "https://en.wiktionary.org/wiki/ibuprofen"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ˌī-byu̇-ˈprō-fən, also ī-ˈbyü-prə-fən (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/dictionary/ibuprofen"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "US [ahy-byoo-PROH-fuhn, ahy-BYOO-proh-fen] /ˌaɪ bjuˈproʊ fən, aɪˈbju proʊˌfɛn/; British (Collins) /aɪˈbjuːprəʊfən/",
+    "url": "https://www.dictionary.com/browse/ibuprofen"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "IbjˈupɹOfən",
+    "gb": "IbjˈuːpɹQfən",
+    "context": "MedlinePlus 'eye byoo' proe fen' (Merriam-Webster's and Dictionary.com's second form; Collins's British form)"
+   }
+  ],
+  "notes": "Today's eye-byoo-PROH-fen matches the first form of Merriam-Webster and Dictionary.com, and Wiktionary (US and RP); MedlinePlus stresses 'byoo', as does Collins's British form. The dictionaries agree, so they win for US; today's GB matches Wiktionary RP and is kept. Medium, not high: authoritative sources disagree about which syllables are stressed. Nothing ships either way.",
+  "review": "confidence high → medium: MedlinePlus and Collins stress 'byoo', the dictionaries 'pro' (disagreement on which syllables are stressed); added Dictionary.com/Collins",
+  "today_us": "ˌIbjupɹˈOfən",
+  "today_gb": "ˌIbjuːpɹˈQfᵊn",
+  "today_source": "gold",
+  "gb_effective": "ˌIbjuːpɹˈQfᵊn",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 43,
+  "word": "simvastatin",
+  "kind": "generic",
+  "spelling": "simvastatin",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "sˈɪmvəstˌætᵊn",
+  "gb": "sˈɪmvəstˌatᵊn",
+  "respelling": "SIM-vuh-stat-in",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "sim' va stat in",
+    "url": "https://medlineplus.gov/druginfo/meds/a692030.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˈsɪm.vəˌstæt.n̩/, /ˌsɪm.vəˈstæt.n̩/",
+    "url": "https://en.wiktionary.org/wiki/simvastatin"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ˈsim-və-ˌsta-tᵊn, ˌsim-və-ˈsta- (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/dictionary/simvastatin"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "US [sim-vuh-STAT-n, SIM-vuh-stat-n] /ˌsɪm vəˈstæt n, ˈsɪm vəˌstæt n/",
+    "url": "https://www.dictionary.com/browse/simvastatin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "sˌɪmvəstˈætᵊn",
+    "gb": "sˌɪmvəstˈatᵊn",
+    "context": "main stress on 'stat': the second form of Merriam-Webster and Wiktionary, Dictionary.com's first"
+   }
+  ],
+  "notes": "Today says SIM-vuh-stay-tin ('stay' for 'stat'). Main stress on 'sim' as in MedlinePlus and the first forms of Merriam-Webster and Wiktionary. The other stress order (main on 'stat') is the alternative.",
+  "review": "added the other stress order as an alternative (Dictionary.com lists it first), as the guide asks; reading unchanged (MedlinePlus + MW/Wiktionary first forms)",
+  "today_us": "sˈɪmvəstˌAtɪn",
+  "today_gb": "sˈɪmvəstˌAtɪn",
+  "today_source": "guesser",
+  "gb_effective": "sˈɪmvəstˌatᵊn",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 44,
+  "word": "famotidine",
+  "kind": "generic",
+  "spelling": "famotidine",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "fəmˈOtɪdˌin",
+  "gb": "fəmˈQtɪdˌiːn",
+  "respelling": "fuh-MOH-tih-deen",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "fa moe' ti deen",
+    "url": "https://medlineplus.gov/druginfo/meds/a601142.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /fəˈmoʊ.tɪˌdin/",
+    "url": "https://en.wiktionary.org/wiki/famotidine"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "fə-ˈmōt-ə-ˌdīn, -ˌdēn (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/famotidine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "fəmˈOtɪdˌIn",
+    "gb": "fəmˈQtɪdˌIn",
+    "context": "-dine as 'dyne': Merriam-Webster's first form"
+   }
+  ],
+  "notes": "Today says fuh-MOT-uh-deen (stressed 'mot' for 'moe').",
+  "review": "ok",
+  "today_us": "fəmˈɑtədˌin",
+  "today_gb": "fəmˈɒtədˌiːn",
+  "today_source": "guesser",
+  "gb_effective": "fəmˈQtɪdˌiːn",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 45,
+  "word": "aspartate",
+  "kind": "salt",
+  "spelling": "aspartate",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "əspˈɑɹtˌAt",
+  "gb": "əspˈɑːtAt",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "Wiktionary",
+    "says": "/ˈæspə(ɹ)teɪt/, /əsˈpɑː(ɹ)teɪt/",
+    "url": "https://en.wiktionary.org/wiki/aspartate"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "ə-ˈspär-ˌtāt (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/dictionary/aspartate"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "US [uh-SPAHR-tayt] /əˈspɑr teɪt/",
+    "url": "https://www.dictionary.com/browse/aspartate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "ˈæspəɹtˌAt",
+    "gb": "ˈaspətˌAt",
+    "context": "Wiktionary's first form, AS-per-tate"
+   }
+  ],
+  "notes": "Dictionary word (chemistry); today's uh-SPAR-tate matches Merriam-Webster and Wiktionary's second form.",
+  "review": "added Dictionary.com (uh-SPAHR-tayt), which confirms; unchanged",
+  "today_us": "əspˈɑɹtˌAt",
+  "today_gb": "əspˈɑːtAt",
+  "today_source": "gold",
+  "gb_effective": "əspˈɑːtAt",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 46,
+  "word": "saccharate",
+  "kind": "generic",
+  "spelling": "saccharate",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "sˈækəɹˌAt",
+  "gb": "sˈakəɹˌAt",
+  "respelling": "",
+  "evidence": [
+   {
+    "source": "Merriam-Webster",
+    "says": "ˈsak-ə-ˌrāt, -rət (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/saccharate"
+   },
+   {
+    "source": "Dictionary.com (Random House; British from Collins)",
+    "says": "US [SAK-uh-rayt] /ˈsæk əˌreɪt/; British (Collins) /ˈsækəˌreɪt/",
+    "url": "https://www.dictionary.com/browse/saccharate"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "A salt, though ranked as a generic word (Dextroamphetamine Saccharate). Dictionary word (chemistry); today's SAK-uh-rate matches Merriam-Webster. No harvested evidence; Merriam-Webster added.",
+  "review": "added Dictionary.com/Collins (SAK-uh-rayt), which confirms; unchanged",
+  "today_us": "sˈækəɹˌAt",
+  "today_gb": "sˈakəɹˌAt",
+  "today_source": "guesser",
+  "gb_effective": "sˈakəɹˌAt",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 47,
+  "word": "empagliflozin",
+  "kind": "generic",
+  "spelling": "empagliflozin",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ˌɛmpəɡlɪflˈOzɪn",
+  "gb": "ˌɛmpəɡlɪflˈQzɪn",
+  "respelling": "em-puh-glih-FLOH-zin",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "em'' pa gli floe' zin",
+    "url": "https://medlineplus.gov/druginfo/meds/a614043.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /ˌɛm.pəɡ.ləˈfloʊ.zɪn/",
+    "url": "https://en.wiktionary.org/wiki/empagliflozin"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says em-PAG-luh-floh-zin (main stress on 'pag'). MedlinePlus and Wiktionary stress 'floe' (syllable 4), the -gliflozin family pattern. (MedlinePlus writes a secondary stress with a double apostrophe '' and the main stress with a single one.)",
+  "review": "ok",
+  "today_us": "ɛmpˈæɡləflˌOzɪn",
+  "today_gb": "ɛmpˈaɡləflˌQzɪn",
+  "today_source": "guesser",
+  "gb_effective": "ˌɛmpəɡlɪflˈQzɪn",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 48,
+  "word": "glargine",
+  "kind": "generic",
+  "spelling": "glargine",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ɡlˈɑɹʤˌin",
+  "gb": "ɡlˈɑːʤˌiːn",
+  "respelling": "GLAR-jeen",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "glar' geen (Insulin Glargine monograph)",
+    "url": "https://medlineplus.gov/druginfo/meds/a600027.html"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "(insulin glargine) -ˈglär-ˌjēn (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/insulin%20glargine"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "insulin glargine: GA /ˌɪn.səl.ɪn ˈɡlɑɹˌd͡ʒin/",
+    "url": "https://en.wiktionary.org/wiki/insulin_glargine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says GLAR-jin. MedlinePlus writes 'geen' without saying whether the g is hard; Merriam-Webster's -ˌjēn settles it as soft, with a full secondary-stressed 'jeen'.",
+  "review": "added Wiktionary's insulin glargine GA /ˈɡlɑɹˌd͡ʒin/, confirming the soft g and full 'jeen'; unchanged",
+  "today_us": "ɡlˈɑɹʤən",
+  "today_gb": "ɡlˈɑːʤən",
+  "today_source": "guesser",
+  "gb_effective": "ɡlˈɑːʤˌiːn",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 49,
+  "word": "duloxetine",
+  "kind": "generic",
+  "spelling": "duloxetine",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "dulˈɑksətˌin",
+  "gb": "djulˈɒksətˌiːn",
+  "respelling": "doo-LOX-uh-teen",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "doo lox' e teen",
+    "url": "https://medlineplus.gov/druginfo/meds/a604030.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /duːˈlɑk.səˌtiːn/",
+    "url": "https://en.wiktionary.org/wiki/duloxetine"
+   },
+   {
+    "source": "Merriam-Webster",
+    "says": "dü-ˈläk-sə-ˌtēn (read from Merriam-Webster's entry through a web search; the page refuses direct fetches)",
+    "url": "https://www.merriam-webster.com/medical/duloxetine"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "US fix: today says dyoo-LOX-uh-teen; MedlinePlus, Merriam-Webster and Wiktionary GA all have 'doo' with no y. GB is today's GB unchanged, keeping the y as British does after d (as in 'duty'); no British source found.",
+  "review": "ok",
+  "today_us": "djulˈɑksətˌin",
+  "today_gb": "djulˈɒksətˌiːn",
+  "today_source": "guesser",
+  "gb_effective": "djulˈɒksətˌiːn",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "right",
+  "verdict_gb_detail": "identical"
+ },
+ {
+  "rank": 50,
+  "word": "meloxicam",
+  "kind": "generic",
+  "spelling": "meloxicam",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "məlˈɑksɪkˌæm",
+  "gb": "məlˈɒksɪkˌam",
+  "respelling": "muh-LOX-ih-kam",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP)",
+    "says": "mel ox' i cam",
+    "url": "https://medlineplus.gov/druginfo/meds/a601242.html"
+   },
+   {
+    "source": "Wiktionary",
+    "says": "GA /məˈlɑk.səˌkæm/",
+    "url": "https://en.wiktionary.org/wiki/meloxicam"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today says muh-LOX-ih-kum. MedlinePlus ('cam') and Wiktionary (/ˌkæm/) give the last syllable a full vowel with secondary stress (a full final vowel after an unstressed syllable, per the guide), so this isn't an unstressed-vowel difference. Merriam-Webster has no pronunciation for it.",
+  "review": "ok",
+  "today_us": "məlˈɑksɪkəm",
+  "today_gb": "məlˈɒksɪkəm",
+  "today_source": "guesser",
+  "gb_effective": "məlˈɒksɪkˌam",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ }
+]

@@ -34,6 +34,7 @@ DRUGS = os.path.dirname(HERE)
 ROOT = os.path.dirname(os.path.dirname(DRUGS))
 sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(ROOT, "lexicon-src", "names", "tools"))
+sys.path.insert(0, os.path.join(ROOT, "lexicon-src", "tools"))
 from make_batches import phonemize, shipped_lists  # noqa: E402
 from audit import load_zipf  # noqa: E402
 from common import norm  # noqa: E402

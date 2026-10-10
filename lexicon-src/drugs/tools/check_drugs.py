@@ -56,11 +56,11 @@ def respelling_shape(resp, style):
     sylls = [t for t in re.split(r"[\s-]+", resp.strip()) if t]
     caps = [i for i, t in enumerate(sylls) if t.isupper() and len(t) >= 2]
     marked = [i for i, t in enumerate(sylls) if t.endswith("'")]   # "Re stay' sis"
-    if marked:
-        return len(sylls), marked[0]
     if len(caps) == len(sylls):   # an all-capitals section: no stress shown
-        return len(sylls), None
-    return len(sylls), (caps[0] if caps else None)
+        return len(sylls), (marked[0] if marked else None)
+    if caps:                      # capitals win over an apostrophe ("trin'-TELL-ix")
+        return len(sylls), caps[0]
+    return len(sylls), (marked[0] if marked else None)
 
 
 def harvested_respellings(row):

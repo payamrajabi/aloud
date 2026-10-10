@@ -18,7 +18,16 @@
    "generic_of": "",
    "why": "partb-top",
    "evidence": {
-    "medlineplus": [],
+    "medlineplus": [
+     {
+      "aligned": "tep roe toom' ue mab",
+      "pronounced": [
+       "tep roe toom' ue mab"
+      ],
+      "title": "Teprotumumab-trbw Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a620025.html"
+     }
+    ],
     "wiktionary": []
    }
   },
@@ -39,7 +48,16 @@
    "generic_of": "",
    "why": "partb-top",
    "evidence": {
-    "medlineplus": [],
+    "medlineplus": [
+     {
+      "aligned": "lus pat' er sept",
+      "pronounced": [
+       "lus pat' er sept"
+      ],
+      "title": "Luspatercept-aamt Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a620043.html"
+     }
+    ],
     "wiktionary": []
    }
   },
@@ -90,7 +108,16 @@
    "generic_of": "",
    "why": "partb-top",
    "evidence": {
-    "medlineplus": [],
+    "medlineplus": [
+     {
+      "aligned": "rav'' ue liz' ue mab",
+      "pronounced": [
+       "rav'' ue liz' ue mab"
+      ],
+      "title": "Ravulizumab-cwvz Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a619014.html"
+     }
+    ],
     "wiktionary": []
    }
   },
@@ -171,7 +198,16 @@
    "generic_of": "",
    "why": "partb-top",
    "evidence": {
-    "medlineplus": [],
+    "medlineplus": [
+     {
+      "aligned": "sem' ip li'' mab",
+      "pronounced": [
+       "sem' ip li'' mab"
+      ],
+      "title": "Cemiplimab-rwlc Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a618054.html"
+     }
+    ],
     "wiktionary": []
    }
   },
@@ -192,7 +228,16 @@
    "generic_of": "",
    "why": "partb-top",
    "evidence": {
-    "medlineplus": [],
+    "medlineplus": [
+     {
+      "aligned": "til'' dra kiz' ue mab",
+      "pronounced": [
+       "til'' dra kiz' ue mab"
+      ],
+      "title": "Tildrakizumab-asmn injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a618026.html"
+     }
+    ],
     "wiktionary": []
    }
   },
@@ -217,7 +262,7 @@
      {
       "aligned": null,
       "pronounced": [
-       "pol\" a tooz' ue mab ve doe' tin"
+       "pol'' a tooz' ue mab ve doe' tin"
       ],
       "title": "Polatuzumab vedotin-piiq Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a619039.html"
@@ -245,9 +290,9 @@
    "evidence": {
     "medlineplus": [
      {
-      "aligned": "vue\" tri sir' an",
+      "aligned": "vue'' tri sir' an",
       "pronounced": [
-       "vue\" tri sir' an"
+       "vue'' tri sir' an"
       ],
       "title": "Vutrisiran Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a622061.html"
@@ -273,7 +318,14 @@
    "generic_of": "",
    "why": "partb-top",
    "evidence": {
-    "medlineplus": [],
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [],
+      "title": "Teclistamab-cqyv Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a622076.html"
+     }
+    ],
     "wiktionary": []
    }
   },
@@ -294,7 +346,16 @@
    "generic_of": "",
    "why": "partb-top",
    "evidence": {
-    "medlineplus": [],
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "nye vol' ue mab and rel at' li mab"
+      ],
+      "title": "Nivolumab and relatlimab-rmbw",
+      "url": "https://medlineplus.gov/druginfo/meds/a622037.html"
+     }
+    ],
     "wiktionary": []
    }
   },
@@ -319,7 +380,7 @@
      {
       "aligned": null,
       "pronounced": [
-       "mir\" ve tux' i mab"
+       "mir'' ve tux' i mab"
       ],
       "title": "Mirvetuximab soravtansine-gynx Injection",
       "url": "https://medlineplus.gov/druginfo/meds/a622075.html"
@@ -345,7 +406,16 @@
    "generic_of": "",
    "why": "partb-top",
    "evidence": {
-    "medlineplus": [],
+    "medlineplus": [
+     {
+      "aligned": null,
+      "pronounced": [
+       "mir'' ve tux' i mab"
+      ],
+      "title": "Mirvetuximab soravtansine-gynx Injection",
+      "url": "https://medlineplus.gov/druginfo/meds/a622075.html"
+     }
+    ],
     "wiktionary": []
    }
   }

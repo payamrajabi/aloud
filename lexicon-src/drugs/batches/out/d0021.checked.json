@@ -1,0 +1,1548 @@
+[
+ {
+  "rank": 910,
+  "word": "nortrel",
+  "kind": "brand",
+  "spelling": "Nortrel",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "nˈɔɹtɹəl",
+  "gb": "nˈɔːtɹəl",
+  "evidence": [
+   {
+    "source": "DailyMed label (Teva), Nortrel 21 Day / 28 Day",
+    "says": "prints 'Nortrel® (norethindrone and ethinyl estradiol tablets USP)': no respelling of the brand",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=140c50d6-c931-423a-9aa0-526eae7ab93c"
+   },
+   {
+    "source": "spelling",
+    "says": "Nor- (norethindrone) + -trel, read as written; no written pronunciation found",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Today nˈɔɹtɹəl (NOR-trel). Low: no label, maker or reference respelling found; rests on the spelling. 'trel' vs 'trəl' would only be an unstressed-vowel difference.",
+  "today_us": "nˈɔɹtɹəl",
+  "today_gb": "nˈɔːtɹəl",
+  "today_source": "guesser",
+  "gb_effective": "nˈɔːtɹəl",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 911,
+  "word": "hectorol",
+  "kind": "brand",
+  "spelling": "Hectorol",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "hˈɛktəɹəl",
+  "gb": "hˈɛktəɹəl",
+  "evidence": [
+   {
+    "source": "MedlinePlus (ASHP), generic doxercalciferol (no brand respelling)",
+    "says": "dox'' er kaf sif' er ol",
+    "url": "https://medlineplus.gov/druginfo/meds/a616044.html"
+   },
+   {
+    "source": "spelling",
+    "says": "read as written, HEK-tuh-rol; DailyMed has no current Hectorol label (the lookup returns none) and no other written pronunciation was found",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [
+   {
+    "us": "hˈɛktəɹˌɔl",
+    "gb": "hˈɛktəɹˌɒl",
+    "context": "full final -ol (HEK-tuh-rawl), as dictionaries give the -ferol/-sterol ending; no source for the brand itself"
+   }
+  ],
+  "notes": "Today hˈɛktəɹəl (HEK-tuh-rul). Low: no written pronunciation of the brand found. The stress and consonants are the only plausible reading; whether the final -ol is full or reduced is unsourced (alternative).",
+  "today_us": "hˈɛktəɹəl",
+  "today_gb": "hˈɛktəɹəl",
+  "today_source": "guesser",
+  "gb_effective": "hˈɛktəɹəl",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 912,
+  "word": "airsupra",
+  "kind": "brand",
+  "spelling": "Airsupra",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ɛɹsˈupɹə",
+  "gb": "ɛːsˈuːpɹə",
+  "respelling": "air-SOO-pruh",
+  "evidence": [
+   {
+    "source": "DailyMed label (AstraZeneca), Patient Information",
+    "says": "AIRSUPRA® (ayr soo' prah)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e60aa9f9-5139-44df-b886-ebddc3c7eb13"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess ˈɛɹsˌʌpɹə (AIR-sup-ruh) stresses the first syllable and says 'sup'; the label stresses 'soo'. The final 'prah' is unstressed, read ə.",
+  "today_us": "ˈɛɹsˌʌpɹə",
+  "today_gb": "ˈɛːsˌʌpɹə",
+  "today_source": "guesser",
+  "gb_effective": "ɛːsˈuːpɹə",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 913,
+  "word": "proctozone-hc",
+  "kind": "brand",
+  "spelling": "Proctozone-HC",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "pɹˈɑktəzˌOn ˌAʧsˈi",
+  "gb": "pɹˈɒktəzˌQn ˌAʧsˈiː",
+  "respelling": "PROK-tuh-zohn aych-SEE",
+  "evidence": [
+   {
+    "source": "DailyMed label (Rising Pharmaceuticals; made by Lyne Laboratories)",
+    "says": "prints 'Proctozone-HC (Hydrocortisone Cream, USP 2.5%)': no respelling",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fb5746ff-3ff1-4874-a827-4694133641b9"
+   },
+   {
+    "source": "spelling",
+    "says": "procto- (as in proctoscope) + zone, then HC (hydrocortisone) said as the letters H C",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Low: no written pronunciation found; rests on the spelling. Today's guess pɹˌɑktəzˈOnihk runs 'HC' into the word ('-zoh-nee-hk'), which is plainly wrong. Written as two phonetic words (the hyphenated token is one spelling, but 'HC' is said as letters with the phrase stress on C).",
+  "today_us": "pɹˌɑktəzˈOnihk",
+  "today_gb": "pɹˌɒktəzˈQnihk",
+  "today_source": "guesser",
+  "gb_effective": "pɹˈɒktəzˌQn ˌAʧsˈiː",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "4 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "5 phonemes off"
+ },
+ {
+  "rank": 914,
+  "word": "genteal",
+  "kind": "brand",
+  "spelling": "GenTeal",
+  "match": "case-insensitive",
+  "disposition": "unresolved",
+  "us": "",
+  "gb": "",
+  "evidence": [
+   {
+    "source": "DailyMed labels (Alcon), GenTeal Tears",
+    "says": "the maker writes 'GenTeal Tears'; no respelling",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a2992597-3490-6a5c-be45-2b6fa15e1547"
+   }
+  ],
+  "confidence": "",
+  "alternatives": [],
+  "notes": "No written pronunciation found (label, maker; web search was unavailable for this batch). Today ʤɛntˈil (jen-TEEL) follows the maker's capital T (Gen + Teal), but the name may be meant to sound like 'gentle' (JEN-tl). Leave today's reading; needs a maker or ad source.",
+  "today_us": "ʤɛntˈil",
+  "today_gb": "ʤɛntˈiːl",
+  "today_source": "guesser"
+ },
+ {
+  "rank": 915,
+  "word": "dok",
+  "kind": "brand",
+  "spelling": "Dok",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "dˈɑk",
+  "gb": "dˈɒk",
+  "evidence": [
+   {
+    "source": "DailyMed label, DOK (docusate sodium) capsules",
+    "says": "brand printed as DOK; no respelling",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ae457a19-ad08-49e6-94f0-3e5799fbef7d"
+   },
+   {
+    "source": "spelling",
+    "says": "Dok (from docusate), read 'dock'",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Today dˈɑk (DOCK). Low: no written pronunciation; the one-syllable spelling admits no other reading. Not a dictionary word (zipf 2.33).",
+  "today_us": "dˈɑk",
+  "today_gb": "dˈɒk",
+  "today_source": "guesser",
+  "gb_effective": "dˈɒk",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 916,
+  "word": "cosentyx",
+  "kind": "brand",
+  "spelling": "Cosentyx",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "kOsˈɛntɪks",
+  "gb": "kQsˈɛntɪks",
+  "respelling": "koh-SEN-tiks",
+  "evidence": [
+   {
+    "source": "FDA proprietary name review, BLA 125504 (Novartis submissions of March and May 2013), intended pronunciation",
+    "says": "koe sen' tix",
+    "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2015/125504Orig1s000NameR.pdf"
+   },
+   {
+    "source": "DailyMed label (Novartis), Medication Guide",
+    "says": "COSENTYX® (koe-sen-tix) (no stress marked)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=77c4b13e-7df3-42d4-81db-3d0cddb7f67a"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today kˈOsəntˌɪks (KOH-sun-tiks) stresses the first syllable. The label's respelling marks no stress; the maker's intended pronunciation in its FDA name submission puts it on 'sen' (ASHP-style apostrophe).",
+  "today_us": "kˈOsəntˌɪks",
+  "today_gb": "kˈQsəntˌɪks",
+  "today_source": "guesser",
+  "gb_effective": "kQsˈɛntɪks",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 918,
+  "word": "norditropin",
+  "kind": "brand",
+  "spelling": "Norditropin",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "nˌɔɹditɹˈOpɪn",
+  "gb": "nˌɔːdiːtɹˈQpɪn",
+  "respelling": "nor-dee-TROH-pin",
+  "evidence": [
+   {
+    "source": "DailyMed label (Novo Nordisk), Patient Information",
+    "says": "NORDITROPIN® (nor-dee-tro-pin) (no stress marked)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1058e17c-9261-459c-a3e6-fae38d196c14"
+   },
+   {
+    "source": "MedlinePlus (ASHP), generic somatropin",
+    "says": "soe\" ma troe' pin",
+    "url": "https://medlineplus.gov/druginfo/meds/a622022.html"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [],
+  "notes": "Today's guess nˌɔɹdˈɪtɹəpɪn (nor-DIH-truh-pin) has the wrong vowels whatever the stress: the maker writes 'dee' and 'tro'. The label marks no stress, so the main stress on 'tro' is my inference from the generic somatropin (ASHP stresses 'troe') and the long open penult; medium for that.",
+  "today_us": "nˌɔɹdˈɪtɹəpɪn",
+  "today_gb": "nˌɔːdˈɪtɹəpɪn",
+  "today_source": "guesser",
+  "gb_effective": "nˌɔːdiːtɹˈQpɪn",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "3 phonemes off"
+ },
+ {
+  "rank": 919,
+  "word": "dayvigo",
+  "kind": "brand",
+  "spelling": "Dayvigo",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "dAvˈɪɡO",
+  "gb": "dAvˈɪɡQ",
+  "respelling": "day-VIH-goh",
+  "evidence": [
+   {
+    "source": "DailyMed label (Eisai), Patient Information",
+    "says": "DAYVIGO® (daye-vi'-goe)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7074cb65-77b3-45d2-8e8d-da8dc0f70bfd"
+   },
+   {
+    "source": "FDA proprietary name review, NDA 212028 (20 Mar 2019), intended pronunciation",
+    "says": "daye vi' goe",
+    "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2019/212028Orig1s000NameR.pdf"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today dˈAvɪɡˌO (DAY-vih-goh) stresses the first syllable; the maker stresses 'vi'. The respelling is ASHP style (daye, goe), where a bare 'i' is the short vowel (ih), so 'vi' is read vɪ, not 'vee'.",
+  "today_us": "dˈAvɪɡˌO",
+  "today_gb": "dˈAvɪɡˌQ",
+  "today_source": "guesser",
+  "gb_effective": "dAvˈɪɡQ",
+  "verdict_us": "partial",
+  "verdict_us_detail": "right sounds, wrong stress",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "right sounds, wrong stress"
+ },
+ {
+  "rank": 920,
+  "word": "hizentra",
+  "kind": "brand",
+  "spelling": "Hizentra",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "hɪzˈɛntɹə",
+  "gb": "hɪzˈɛntɹə",
+  "evidence": [
+   {
+    "source": "DailyMed label (CSL Behring), Patient Information and Instructions for Use",
+    "says": "HIZENTRA® (hi-ZEN-tra)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b58f5ff-0316-49a3-b585-1f6003ddb953"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "hIzˈɛntɹə",
+    "gb": "hIzˈɛntɹə",
+    "context": "'hi' read as the word hi (high-ZEN-truh), a full vowel; the respelling doesn't settle it"
+   }
+  ],
+  "notes": "Today hɪzˈɛntɹə (hih-ZEN-truh) has the label's stress and consonants. Medium because the unstressed 'hi' is ambiguous: labels write short i as a bare 'i' too (Lilly's TRU-li-si-tee), but it could mean 'high'. Not changed without a second source; reviewer may prefer the alternative.",
+  "today_us": "hɪzˈɛntɹə",
+  "today_gb": "hɪzˈɛntɹə",
+  "today_source": "guesser",
+  "gb_effective": "hɪzˈɛntɹə",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 921,
+  "word": "eluryng",
+  "kind": "brand",
+  "spelling": "EluRyng",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ˈɛljuɹˌɪŋ",
+  "gb": "ˈɛljuːɹˌɪŋ",
+  "respelling": "EL-yoo-ring",
+  "evidence": [
+   {
+    "source": "DailyMed label (Amneal), Patient Information and Instructions for Use",
+    "says": "EluRyng™ (el’ ue ring)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c6c8512d-b258-4be5-8c2f-0f1893f198b9"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess ɪlˈʊɹɪŋ (ih-LOOR-ing) stresses the second syllable. The label (ASHP style) stresses 'el'; ASHP 'ue' is 'yoo' (sek'' ue kin' ue mab = sek-yoo-KIN-yoo-mab). 'Ring' keeps its vowel with secondary stress, as in NuvaRing (NEW-vah-ring). The harvest missed it (curly apostrophe).",
+  "today_us": "ɪlˈʊɹɪŋ",
+  "today_gb": "ɪlˈʊɹɪŋ",
+  "today_source": "guesser",
+  "gb_effective": "ˈɛljuːɹˌɪŋ",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "3 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "4 phonemes off"
+ },
+ {
+  "rank": 923,
+  "word": "cimzia",
+  "kind": "brand",
+  "spelling": "Cimzia",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "sˈɪmziə",
+  "gb": "sˈɪmziə",
+  "evidence": [
+   {
+    "source": "DailyMed label (UCB), Medication Guide",
+    "says": "CIMZIA® (CIM-zee-uh)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b4c2c9dc-a0bb-4d64-a667-a67ebe88392d"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today sˈɪmziə matches the label.",
+  "today_us": "sˈɪmziə",
+  "today_gb": "sˈɪmziə",
+  "today_source": "guesser",
+  "gb_effective": "sˈɪmziə",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 924,
+  "word": "bicillin",
+  "kind": "brand",
+  "spelling": "Bicillin",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "bIsˈɪlɪn",
+  "gb": "bIsˈɪlɪn",
+  "evidence": [
+   {
+    "source": "DailyMed label (Pfizer), Bicillin L-A",
+    "says": "prints 'Bicillin® L-A (penicillin G benzathine injectable suspension)': no respelling",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=012d46f1-d0a0-4676-a879-cd320297ab16"
+   },
+   {
+    "source": "spelling",
+    "says": "bi- + -cillin, read like penicillin (-SIL-in)",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Today bIsˈɪlɪn (bye-SIL-in). Low: no written pronunciation found; rests on the spelling and the -cillin family stress. 'bye' vs 'bih' would only be an unstressed-vowel difference.",
+  "today_us": "bIsˈɪlɪn",
+  "today_gb": "bIsˈɪlɪn",
+  "today_source": "guesser",
+  "gb_effective": "bIsˈɪlɪn",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 925,
+  "word": "forteo",
+  "kind": "brand",
+  "spelling": "Forteo",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "fɔɹtˈAO",
+  "gb": "fɔːtˈAQ",
+  "respelling": "for-TAY-oh",
+  "evidence": [
+   {
+    "source": "DailyMed label (Eli Lilly), Medication Guide",
+    "says": "FORTEO® (for-TAY-o)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aae667c5-381f-4f92-93df-2ed6158d07b0"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess fˈɔɹtiO (FOR-tee-oh) stresses the first syllable and says 'tee'; the label says for-TAY-o. The harvest missed it (the brand candidate row had no DailyMed hit).",
+  "today_us": "fˈɔɹtiO",
+  "today_gb": "fˈɔːtiQ",
+  "today_source": "guesser",
+  "gb_effective": "fɔːtˈAQ",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 929,
+  "word": "vabysmo",
+  "kind": "brand",
+  "spelling": "Vabysmo",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "vəbˈIzmO",
+  "gb": "vəbˈIzmQ",
+  "respelling": "vuh-BYZE-moh",
+  "evidence": [
+   {
+    "source": "Wikipedia (Faricimab), lead sentence",
+    "says": "Vabysmo /vəˈbaɪzmoʊ/ və-BYEZ-mow (no reference attached)",
+    "url": "https://en.wikipedia.org/wiki/Faricimab"
+   },
+   {
+    "source": "DailyMed label (Genentech)",
+    "says": "no respelling (clinic-administered; no Medication Guide)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=04cc9ef7-c02a-4e92-a655-0062674e8487"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "vəbˈɪzmO",
+    "gb": "vəbˈɪzmQ",
+    "context": "short i (vuh-BIZ-moh), as the spelling suggests; no written source found"
+   }
+  ],
+  "notes": "REVIEW: one secondary written source only, and unreferenced. Today's guess vəbˈɪsmO (vuh-BISS-moh) has a short i and s; Wikipedia gives 'BYEZ' with a long i and z. Genentech's label, site and the FDA suffix review give no pronunciation (web search was unavailable for this batch). Worth checking against the maker's ads before shipping.",
+  "today_us": "vəbˈɪsmO",
+  "today_gb": "vəbˈɪsmQ",
+  "today_source": "guesser",
+  "gb_effective": "vəbˈIzmQ",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 930,
+  "word": "heather",
+  "kind": "brand",
+  "spelling": "Heather",
+  "match": "",
+  "disposition": "ordinary-word",
+  "us": "",
+  "gb": "",
+  "evidence": [
+   {
+    "source": "Wiktionary",
+    "says": "/ˈhɛðɚ/ GenAm, /ˈhɛðə/ RP",
+    "url": "https://en.wiktionary.org/wiki/Heather"
+   }
+  ],
+  "confidence": "",
+  "alternatives": [],
+  "notes": "The plant and a common given name (rank 1756, zipf 3.87). The norethindrone pill Heather is said the same way (today hˈɛðəɹ, gold dictionary), so nothing to ship.",
+  "today_us": "hˈɛðəɹ",
+  "today_gb": "hˈɛðə",
+  "today_source": "gold"
+ },
+ {
+  "rank": 931,
+  "word": "tremfya",
+  "kind": "brand",
+  "spelling": "Tremfya",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "tɹɛmfˈIə",
+  "gb": "",
+  "respelling": "trem-FYE-uh",
+  "evidence": [
+   {
+    "source": "DailyMed label (Janssen), Medication Guide",
+    "says": "TREMFYA® (trem fye' ah)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e6dc9ae-1c4c-42d9-87aa-c315ecc51b56"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess tɹˈɛmfjə (TREM-fyuh) has two syllables and the wrong stress; the label has three with the stress on 'fye'. British vowels don't differ here.",
+  "today_us": "tɹˈɛmfjə",
+  "today_gb": "tɹˈɛmfjə",
+  "today_source": "guesser",
+  "gb_effective": "tɹɛmfˈIə",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 932,
+  "word": "daily",
+  "kind": "brand",
+  "spelling": "",
+  "match": "",
+  "disposition": "ordinary-word",
+  "us": "",
+  "gb": "",
+  "evidence": [],
+  "confidence": "",
+  "alternatives": [],
+  "notes": "Descriptor from product names (Pataday Once Daily Relief, Lastacaft Once Daily Relief), not a brand; the everyday word (zipf 5.07, gold dictionary dˈAli) is the right reading.",
+  "today_us": "dˈAli",
+  "today_gb": "dˈAli",
+  "today_source": "gold"
+ },
+ {
+  "rank": 934,
+  "word": "tezspire",
+  "kind": "brand",
+  "spelling": "Tezspire",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "tˈɛzspˌIəɹ",
+  "gb": "tˈɛzspˌIə",
+  "respelling": "TEZ-spyre",
+  "evidence": [
+   {
+    "source": "DailyMed label (Amgen), Patient Information",
+    "says": "TEZSPIRE® (TEZ-SPY-ER) (all syllables in capitals: no stress shown)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=60f0aa03-ad25-4d48-80ce-7fcfa76f325f"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "tɛzspˈIəɹ",
+    "gb": "tɛzspˈIə",
+    "context": "main stress on 'spire' (tez-SPIRE, like inspire); the label doesn't show which syllable is stressed"
+   }
+  ],
+  "notes": "Today's guess tˈɛspˌIɹ ('TESS-pyre') drops the z the label writes (TEZ). Kept today's first-syllable stress because the label marks none (every syllable in capitals); medium for that. 'SPY-ER' is the 'spire' vowel, written Iəɹ as the dictionary writes fire/iron.",
+  "today_us": "tˈɛspˌIɹ",
+  "today_gb": "tˈɛspˌIə",
+  "today_source": "guesser",
+  "gb_effective": "tˈɛzspˌIə",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 936,
+  "word": "pataday",
+  "kind": "brand",
+  "spelling": "Pataday",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "pˈætədˌA",
+  "gb": "pˈatədˌA",
+  "evidence": [
+   {
+    "source": "DailyMed label (Alcon), Pataday Once Daily Relief",
+    "says": "no respelling",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1c7d2342-ba1c-4244-9814-d92a05725d4e"
+   },
+   {
+    "source": "spelling",
+    "says": "Pata- (olopatadine, Patanol) + day (once a day)",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Today pˈætədˌA (PAT-uh-day). Low: no written pronunciation found; rests on the spelling and the obvious 'day'.",
+  "today_us": "pˈætədˌA",
+  "today_gb": "pˈatədˌA",
+  "today_source": "guesser",
+  "gb_effective": "pˈatədˌA",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 937,
+  "word": "quviviq",
+  "kind": "brand",
+  "spelling": "Quviviq",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "kjuvˈɪvɪk",
+  "gb": "kjuːvˈɪvɪk",
+  "respelling": "kyoo-VIH-vik",
+  "evidence": [
+   {
+    "source": "DailyMed label (Idorsia), Medication Guide",
+    "says": "QUVIVIQ® (cue-VIH-vick)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3a2d1503-b816-40c9-9fac-7e03c5a3bcef"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess kwvˈɪvɪk says 'kw-' with no vowel; the label begins with 'cue' (kyoo), kept full before the stress.",
+  "today_us": "kwvˈɪvɪk",
+  "today_gb": "kwvˈɪvɪk",
+  "today_source": "guesser",
+  "gb_effective": "kjuːvˈɪvɪk",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "3 phonemes off"
+ },
+ {
+  "rank": 939,
+  "word": "isibloom",
+  "kind": "brand",
+  "spelling": "Isibloom",
+  "match": "case-insensitive",
+  "disposition": "unresolved",
+  "us": "",
+  "gb": "",
+  "evidence": [
+   {
+    "source": "DailyMed label (Xiromed)",
+    "says": "prints 'Isibloom® (Desogestrel and Ethinyl Estradiol Tablets, USP)': no respelling",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7dbc4cdf-4ce2-5c66-343f-df381f56692a"
+   }
+  ],
+  "confidence": "",
+  "alternatives": [],
+  "notes": "No written pronunciation found (generic-maker oral contraceptive; label prints none; web search was unavailable). The '-bloom' part is clear, but 'Isi' could be IZ-ee, ISS-ee or EYE-see, so any reading would be a guess. Leave today's ˈɪzəblˌum.",
+  "today_us": "ˈɪzəblˌum",
+  "today_gb": "ˈɪzəblˌuːm",
+  "today_source": "guesser"
+ },
+ {
+  "rank": 940,
+  "word": "kisqali",
+  "kind": "brand",
+  "spelling": "Kisqali",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "kɪskˈɑli",
+  "gb": "kɪskˈɑːli",
+  "respelling": "kis-KAH-lee",
+  "evidence": [
+   {
+    "source": "DailyMed label (Novartis), Patient Information",
+    "says": "KISQALI® (kis kah' lee)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aaeaef94-f3f5-4367-8ea2-b181d7be2da8"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms (cancer.gov glossary API)",
+    "says": "Kisqali (kis-KAH-lee)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/kisqali"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "GB-only fix. US kɪskˈɑli is today's reading and matches. Today's GB kɪskˈɒli says the 'lot' vowel; the maker's 'kah' is the 'ah' vowel, British ɑː.",
+  "today_us": "kɪskˈɑli",
+  "today_gb": "kɪskˈɒli",
+  "today_source": "guesser",
+  "gb_effective": "kɪskˈɑːli",
+  "verdict_us": "right",
+  "verdict_us_detail": "identical",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 941,
+  "word": "fanapt",
+  "kind": "brand",
+  "spelling": "Fanapt",
+  "match": "case-insensitive",
+  "disposition": "unresolved",
+  "us": "",
+  "gb": "",
+  "evidence": [
+   {
+    "source": "DailyMed label (Vanda)",
+    "says": "no respelling (FANAPT® (iloperidone))",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=33f60b40-3fca-11de-8f56-0002a5d5c51b"
+   },
+   {
+    "source": "Vanda's Fanapt site; Wikipedia (Iloperidone)",
+    "says": "no pronunciation given",
+    "url": "https://www.fanapt.com/"
+   }
+  ],
+  "confidence": "",
+  "alternatives": [],
+  "notes": "No written pronunciation found (label, maker site, Wikipedia; web search was unavailable). Today fˈænəpt (FAN-upt) is one plausible reading, but first- vs second-syllable stress (fuh-NAPT) and a full 'apt' are all open. Needs a maker source.",
+  "today_us": "fˈænəpt",
+  "today_gb": "fˈanəpt",
+  "today_source": "guesser"
+ },
+ {
+  "rank": 942,
+  "word": "dyanavel",
+  "kind": "brand",
+  "spelling": "Dyanavel",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "dIˈænəvˌɛl",
+  "gb": "dIˈanəvˌɛl",
+  "respelling": "dye-AN-uh-vel",
+  "evidence": [
+   {
+    "source": "DailyMed label (NextWave/Tris Pharma), Medication Guide",
+    "says": "DYANAVEL® XR (dī-an-uh-vel) (no stress marked)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ae304b29-0b40-40ec-ad0d-76b742d4a9b9"
+   },
+   {
+    "source": "FDA proprietary name review, NDA 208147 (Dec 2014 submission), intended pronunciation",
+    "says": "dya-na-vel",
+    "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2015/208147Orig1s000NameR.pdf"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [],
+  "notes": "Today dIˈænəvəl reduces the last syllable to 'vul'; the label writes 'vel' while writing the reduced vowel before it as 'uh', so the full ɛ is intended (secondary stress). Neither source marks stress: 'AN' is my inference (today's choice; light penult), so medium. The older FDA submission's 'dya-na-vel' compresses the first two syllables; the current label wins.",
+  "today_us": "dIˈænəvəl",
+  "today_gb": "dIˈanəvəl",
+  "today_source": "guesser",
+  "gb_effective": "dIˈanəvˌɛl",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 943,
+  "word": "plenvu",
+  "kind": "brand",
+  "spelling": "Plenvu",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "plˈɛnvu",
+  "gb": "plˈɛnvu",
+  "evidence": [
+   {
+    "source": "DailyMed label (Salix), Medication Guide",
+    "says": "PLENVU® (plen-vu) (no stress marked)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=79f930fa-5674-4f30-8ae8-9448d6243797"
+   },
+   {
+    "source": "FDA proprietary name review, NDA 209381 (20 Jul 2017)",
+    "says": "Intended Pronunciation: plen-vu; the applicant says the name is derived from 'plentiful view' (also 'plain view')",
+    "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2018/209381Orig1s000NameR.pdf"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "plˈɛnvjˌu",
+    "gb": "plˈɛnvjˌuː",
+    "context": "'vu' as 'view' (PLEN-vyoo), following the maker's stated derivation; the respelling writes only 'vu'"
+   }
+  ],
+  "notes": "Today plˈɛnvu (PLEN-voo) matches the maker's 'plen-vu' read literally. Medium: neither source marks stress, and the derivation 'plentiful view' suggests 'vu' may be meant as 'vyoo' (alternative). REVIEW the vowel.",
+  "today_us": "plˈɛnvu",
+  "today_gb": "plˈɛnvu",
+  "today_source": "guesser",
+  "gb_effective": "plˈɛnvu",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 944,
+  "word": "depo-provera",
+  "kind": "brand",
+  "spelling": "Depo-Provera",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "dˌɛpOpɹOvˈɛɹə",
+  "gb": "dˌɛpQpɹQvˈɛːɹə",
+  "respelling": "dep-oh-proh-VAIR-uh",
+  "evidence": [
+   {
+    "source": "DailyMed label (Pfizer / Pharmacia & Upjohn), Patient Information heading",
+    "says": "Depo-Provera® (DEP-po pro-VAIR-ah) CI",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=199cf13e-0859-4a73-9b45-e700d0cd1049"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "dˈɛpOpɹOvˌɛɹə",
+    "gb": "dˈɛpQpɹQvˌɛːɹə",
+    "context": "main stress on DEP; the label capitalises both DEP and VAIR"
+   }
+  ],
+  "notes": "Today's guess dˈipOpɹˌOvˌɛɹə says 'DEE-poh'; the maker writes DEP. The label stresses both halves (DEP, VAIR); one hyphenated word takes one primary, put on VAIR as the phrase stress of the compound, DEP secondary. 'po' and 'pro' keep the full 'oh' before the main stress. The harvest missed it (its label lookup stops at the hyphen).",
+  "today_us": "dˈipOpɹˌOvˌɛɹə",
+  "today_gb": "dˈiːpQpɹˌQvˌɛɹə",
+  "today_source": "guesser",
+  "gb_effective": "dˌɛpQpɹQvˈɛːɹə",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "3 phonemes off"
+ },
+ {
+  "rank": 945,
+  "word": "errin",
+  "kind": "brand",
+  "spelling": "Errin",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "ˈɛɹɪn",
+  "gb": "ˈɛɹɪn",
+  "evidence": [
+   {
+    "source": "DailyMed label (Dr. Reddy's)",
+    "says": "prints 'ERRIN® (NORETHINDRONE TABLETS USP, 0.35 MG)': no respelling",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=df29577b-c2f0-bea8-b048-7719972707aa"
+   },
+   {
+    "source": "spelling",
+    "says": "spelled like a variant of the given name Erin and read the same",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Today ˈɛɹɪn (ERR-in), as the name Erin. Low: no written pronunciation found; rests on the spelling.",
+  "today_us": "ˈɛɹɪn",
+  "today_gb": "ˈɛɹɪn",
+  "today_source": "guesser",
+  "gb_effective": "ˈɛɹɪn",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 946,
+  "word": "xdemvy",
+  "kind": "brand",
+  "spelling": "Xdemvy",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ɛksdˈɛmvi",
+  "gb": "ɛksdˈɛmvi",
+  "respelling": "eks-DEM-vee",
+  "evidence": [
+   {
+    "source": "FDA proprietary name review, NDA 217603 (Tarsus submission of 25 Aug 2022), intended pronunciation",
+    "says": "ex-DEM-vee",
+    "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2023/217603Orig1s000NameR.pdf"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess ˈɛksdˌɛmvi (EKS-dem-vee) stresses the X; the maker stresses DEM. The label prints no respelling; the review's page with it is an image (read from the page, section 1.2).",
+  "today_us": "ˈɛksdˌɛmvi",
+  "today_gb": "ˈɛksdˌɛmvi",
+  "today_source": "guesser",
+  "gb_effective": "ɛksdˈɛmvi",
+  "verdict_us": "partial",
+  "verdict_us_detail": "right sounds, wrong stress",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "right sounds, wrong stress"
+ },
+ {
+  "rank": 947,
+  "word": "edarbyclor",
+  "kind": "brand",
+  "spelling": "Edarbyclor",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ədˈɑɹbɪklˌɔɹ",
+  "gb": "ədˈɑːbɪklˌɔː",
+  "respelling": "uh-DAR-bih-klor",
+  "evidence": [
+   {
+    "source": "DailyMed label (Azurity), Patient Information",
+    "says": "EDARBYCLOR (eh-DAR-bih-clor)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e60f795b-fce3-4361-aa03-f143451689d1"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess ˈɛdəɹbikləɹ (ED-ur-bee-kler) stresses the first syllable and reduces 'clor'; the label stresses DAR. Unstressed 'eh' reduces to ə (guide table); 'clor' keeps its full vowel with secondary stress.",
+  "today_us": "ˈɛdəɹbikləɹ",
+  "today_gb": "ˈɛdəbiklə",
+  "today_source": "guesser",
+  "gb_effective": "ədˈɑːbɪklˌɔː",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "4 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "6 phonemes off"
+ },
+ {
+  "rank": 948,
+  "word": "vanacof",
+  "kind": "brand",
+  "spelling": "Vanacof",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "vˈænəkˌɔf",
+  "gb": "vˈanəkˌɒf",
+  "respelling": "VAN-uh-kof",
+  "evidence": [
+   {
+    "source": "DailyMed label, Vanacof liquid",
+    "says": "no respelling",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=cf3886ab-62b3-497a-a587-18cbfbaf3634"
+   },
+   {
+    "source": "spelling",
+    "says": "Vana- + cof (cough), a cough syrup",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "GB-only fix, low: no written pronunciation; rests on the spelling (-cof = cough). US vˈænəkˌɔf is today's reading. Today's GB 'kˌɔːf' says 'cawf'; British 'cough' is kɒf.",
+  "today_us": "vˈænəkˌɔf",
+  "today_gb": "vˈanəkˌɔːf",
+  "today_source": "guesser",
+  "gb_effective": "vˈanəkˌɒf",
+  "verdict_us": "right",
+  "verdict_us_detail": "identical",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 950,
+  "word": "oxtellar",
+  "kind": "brand",
+  "spelling": "Oxtellar",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ɑkstˈɛlˌɑɹ",
+  "gb": "ɒkstˈɛlˌɑː",
+  "respelling": "oks-TEL-ar",
+  "evidence": [
+   {
+    "source": "DailyMed label (Supernus), Medication Guide",
+    "says": "Oxtellar XR® (ahks-TEH-lahr eks ahr)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=aa610e56-1d1d-11e1-8bc2-0800200c9a66"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today ˌɑkstˈɛləɹ has the label's stress but says 'ler'; the maker writes 'lahr', a full vowel (as d0014 did for Vraylar), kept with secondary stress. A reviewer may judge this a reduction difference.",
+  "today_us": "ˌɑkstˈɛləɹ",
+  "today_gb": "ˌɒkstˈɛlə",
+  "today_source": "guesser",
+  "gb_effective": "ɒkstˈɛlˌɑː",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 951,
+  "word": "remicade",
+  "kind": "brand",
+  "spelling": "Remicade",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ɹˈɛməkˌAd",
+  "gb": "",
+  "respelling": "REM-uh-kayd",
+  "evidence": [
+   {
+    "source": "DailyMed label (Janssen), Medication Guide",
+    "says": "REMICADE® (Rem-eh-kaid) (no syllable in capitals)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=a0a046c1-056d-45a9-bfd9-13b47c24f257"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "ɹˌɛməkˈAd",
+    "gb": "ɹˌɛməkˈAd",
+    "context": "main stress on 'kade' (rem-uh-KADE): today's reading"
+   }
+  ],
+  "notes": "REVIEW: the label settles the sounds (rem, eh, kaid) but not which stressed syllable is main: Janssen's other labels capitalise the stressed syllable (SIM-po-nee, zah-REL-toe) and here none is. Today's guess puts the main stress on 'kade'; I put it on REM (light middle syllable, so the stress falls before it; 'kade' keeps secondary). Inference, so medium.",
+  "today_us": "ɹˌɛməkˈAd",
+  "today_gb": "ɹˌɛməkˈAd",
+  "today_source": "guesser",
+  "gb_effective": "ɹˈɛməkˌAd",
+  "verdict_us": "partial",
+  "verdict_us_detail": "right sounds, wrong stress",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "right sounds, wrong stress"
+ },
+ {
+  "rank": 952,
+  "word": "mapap",
+  "kind": "brand",
+  "spelling": "Mapap",
+  "match": "case-insensitive",
+  "disposition": "unresolved",
+  "us": "",
+  "gb": "",
+  "evidence": [
+   {
+    "source": "DailyMed label (Major Pharmaceuticals), Mapap Extra Strength",
+    "says": "prints 'Mapap®' with no respelling (OTC Drug Facts label)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=34a95450-3f04-4de4-9113-73e7bd5724a0"
+   }
+  ],
+  "confidence": "",
+  "alternatives": [],
+  "notes": "No written pronunciation found. Today mˈApˌæp (MAY-pap) fits 'Major + APAP' (APAP is said AY-pap), but MAP-ap and muh-PAP are equally possible from the spelling; any choice would be a guess. Leave today's reading.",
+  "today_us": "mˈApˌæp",
+  "today_gb": "mˈApˌap",
+  "today_source": "guesser"
+ },
+ {
+  "rank": 953,
+  "word": "privigen",
+  "kind": "brand",
+  "spelling": "Privigen",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "pɹˈɪvɪʤən",
+  "gb": "",
+  "respelling": "PRIV-ih-jen",
+  "evidence": [
+   {
+    "source": "DailyMed label (CSL Behring)",
+    "says": "no respelling",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7e5649da-75be-4a42-8eeb-4aeba562c401"
+   },
+   {
+    "source": "spelling",
+    "says": "English -gen is always soft (antigen, collagen, estrogen; brands Epogen, Neupogen)",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Low: no written pronunciation found (label, maker site); rests on the spelling. Today's guess pɹˈɪvɪɡən says a hard g ('-gun'), which no English -gen word does.",
+  "today_us": "pɹˈɪvɪɡən",
+  "today_gb": "pɹˈɪvɪɡən",
+  "today_source": "guesser",
+  "gb_effective": "pɹˈɪvɪʤən",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 954,
+  "word": "tri-estarylla",
+  "kind": "brand",
+  "spelling": "Tri-Estarylla",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "tɹˌIɛstəɹˈɪlə",
+  "gb": "tɹˌIɛstəɹˈɪlə",
+  "respelling": "try-es-tuh-RIL-uh",
+  "evidence": [
+   {
+    "source": "DailyMed label (Xiromed), including the patient package insert",
+    "says": "no respelling of the brand (the insert respells only the generics: nor-JES-ti-mate, ETH-i-nil es-tra-DYE-ol)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1ba8a8ab-eb09-0807-47d4-6b4055d10d91"
+   },
+   {
+    "source": "spelling",
+    "says": "Tri- (triphasic, as in Tri-Sprintec) + Estarylla (stress on -ryl-, as in Priscilla)",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Low: no written pronunciation found; rests on the spelling. Today's guess tɹˈIstˌɛɹˌɪlə ('TRY-stair-il-uh') drops the 'es' syllable. The app reads Estarylla alone (batch d0016) as ɛstɑɹˈɪlə, the same stress as here.",
+  "today_us": "tɹˈIstˌɛɹˌɪlə",
+  "today_gb": "tɹˈIstˌɛɹˌɪlə",
+  "today_source": "guesser",
+  "gb_effective": "tɹˌIɛstəɹˈɪlə",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 955,
+  "word": "smoflipid",
+  "kind": "brand",
+  "spelling": "SMOFlipid",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "smˌɑflˈɪpɪd",
+  "gb": "smˌɒflˈɪpɪd",
+  "respelling": "smof-LIP-id",
+  "evidence": [
+   {
+    "source": "FDA proprietary name review, NDA 207648 (Fresenius Kabi submission of 25 Sep 2014), intended pronunciation",
+    "says": "smɒf, ˈlɪ, pɪd; the name is SMOF (soybean, MCT, olive, fish oils) + LIPID",
+    "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2016/207648Orig1s000NameR.pdf"
+   },
+   {
+    "source": "DailyMed label (Fresenius Kabi)",
+    "says": "the maker writes it 'SMOFlipid®'",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=e0e9d917-ff6f-488e-a6a8-0ad59dd17d80"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess smˈɑfləpɪd (SMAH-fluh-pid) stresses SMOF and reduces 'lip'. The maker's IPA puts the main stress on 'li' (lipid kept whole); SMOF, a full syllable before it, gets secondary. US ɑ for the maker's ɒ.",
+  "today_us": "smˈɑfləpɪd",
+  "today_gb": "smˈɒfləpɪd",
+  "today_source": "guesser",
+  "gb_effective": "smˌɒflˈɪpɪd",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 956,
+  "word": "promacta",
+  "kind": "brand",
+  "spelling": "Promacta",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "pɹOmˈæktə",
+  "gb": "pɹQmˈaktə",
+  "evidence": [
+   {
+    "source": "DailyMed label (Novartis), Medication Guide",
+    "says": "PROMACTA® (pro-MAC-ta)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7714a0ed-34bb-46e6-a0a5-b363908b22c2"
+   },
+   {
+    "source": "NCI Dictionary of Cancer Terms (cancer.gov glossary API)",
+    "says": "Promacta (proh-MAK-tuh)",
+    "url": "https://www.cancer.gov/publications/dictionaries/cancer-terms/def/promacta"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today pɹOmˈæktə matches both.",
+  "today_us": "pɹOmˈæktə",
+  "today_gb": "pɹQmˈaktə",
+  "today_source": "guesser",
+  "gb_effective": "pɹQmˈaktə",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 958,
+  "word": "simponi",
+  "kind": "brand",
+  "spelling": "Simponi",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "sˈɪmpəni",
+  "gb": "sˈɪmpəni",
+  "respelling": "SIM-puh-nee",
+  "evidence": [
+   {
+    "source": "DailyMed label (Janssen), Medication Guide",
+    "says": "SIMPONI® (SIM-po-nee)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f86cb4a7-c358-4136-ae57-b32bda9bba00"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [
+   {
+    "us": "sˈɪmpOni",
+    "gb": "sˈɪmpQni",
+    "context": "full 'oh' in the unstressed middle syllable (SIM-poh-nee)"
+   }
+  ],
+  "notes": "Today's guess simpˈOni (seem-POH-nee) stresses the middle syllable and says 'see'; the label stresses SIM. The lower-case 'po' after the stress is read reduced (Janssen writes a full o as 'toe', zah-REL-toe); the full vowel is the alternative. GB is the same (a final unstressed -i stays i in British).",
+  "today_us": "simpˈOni",
+  "today_gb": "simpˈQni",
+  "today_source": "guesser",
+  "gb_effective": "sˈɪmpəni",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 959,
+  "word": "fetzima",
+  "kind": "brand",
+  "spelling": "Fetzima",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "fɛtzˈimə",
+  "gb": "fɛtzˈiːmə",
+  "respelling": "fet-ZEE-muh",
+  "evidence": [
+   {
+    "source": "DailyMed label (Allergan), Medication Guide",
+    "says": "FETZIMA® (fet-ZEE-muh)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f371258d-91b3-4b6a-ac99-434a1964c3af"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess fˈɛtzɪmə (FET-zih-muh) stresses the first syllable; the label stresses ZEE.",
+  "today_us": "fˈɛtzɪmə",
+  "today_gb": "fˈɛtzɪmə",
+  "today_source": "guesser",
+  "gb_effective": "fɛtzˈiːmə",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 960,
+  "word": "zoryve",
+  "kind": "brand",
+  "spelling": "Zoryve",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "zɔɹˈiv",
+  "gb": "zɔːɹˈiːv",
+  "respelling": "zor-EEV",
+  "evidence": [
+   {
+    "source": "DailyMed label (Arcutis), Patient Information",
+    "says": "ZORYVE® (zor-EEV)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=ec1bb0d1-f38a-4080-831a-68791d1d1fdb"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess zˈɔɹiv (ZOR-eev) stresses the first syllable; the label stresses EEV.",
+  "today_us": "zˈɔɹiv",
+  "today_gb": "zˈɔːɹiv",
+  "today_source": "guesser",
+  "gb_effective": "zɔːɹˈiːv",
+  "verdict_us": "partial",
+  "verdict_us_detail": "right sounds, wrong stress",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 961,
+  "word": "trileptal",
+  "kind": "brand",
+  "spelling": "Trileptal",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "tɹIlˈɛptəl",
+  "gb": "tɹIlˈɛptəl",
+  "evidence": [
+   {
+    "source": "DailyMed label (Novartis), Medication Guide",
+    "says": "TRILEPTAL (try-LĔP-tăl)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c5c86c8-ab7f-4fcf-bc1b-5a0b1fd0691b"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today tɹIlˈɛptəl (try-LEP-tul) matches; the unstressed final 'tăl' only differs in reduction. The harvest missed it (breve marks).",
+  "today_us": "tɹIlˈɛptəl",
+  "today_gb": "tɹIlˈɛptəl",
+  "today_source": "guesser",
+  "gb_effective": "tɹIlˈɛptəl",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 962,
+  "word": "mintox",
+  "kind": "brand",
+  "spelling": "Mintox",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "mˈɪntˌɑks",
+  "gb": "mˈɪntˌɒks",
+  "evidence": [
+   {
+    "source": "DailyMed label, Mintox antacid suspension",
+    "says": "no respelling",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=720c3d33-73b4-4b7c-b000-b54937c33148"
+   },
+   {
+    "source": "spelling",
+    "says": "mint + -ox (mint-flavoured antacid, after Maalox)",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Today mˈɪntˌɑks (MIN-toks). Low: no written pronunciation found; rests on the spelling.",
+  "today_us": "mˈɪntˌɑks",
+  "today_gb": "mˈɪntˌɒks",
+  "today_source": "guesser",
+  "gb_effective": "mˈɪntˌɒks",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 963,
+  "word": "protonix",
+  "kind": "brand",
+  "spelling": "Protonix",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "pɹOtˈɑnɪks",
+  "gb": "pɹQtˈɒnɪks",
+  "evidence": [
+   {
+    "source": "DailyMed label (Wyeth/Pfizer), Medication Guide",
+    "says": "PROTONIX (pro-TAH-nix)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=08098cb2-c048-4640-f387-6beec4a38936"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today pɹOtˈɑnɪks matches the label (GB pɹQtˈɒnɪks: 'TAH' is the 'lot' vowel of proton/tonic).",
+  "today_us": "pɹOtˈɑnɪks",
+  "today_gb": "pɹQtˈɒnɪks",
+  "today_source": "guesser",
+  "gb_effective": "pɹQtˈɒnɪks",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ },
+ {
+  "rank": 964,
+  "word": "mavyret",
+  "kind": "brand",
+  "spelling": "Mavyret",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "mˈævɪɹɛt",
+  "gb": "mˈavɪɹɛt",
+  "respelling": "MAV-ih-ret",
+  "evidence": [
+   {
+    "source": "DailyMed label (AbbVie), Patient Information",
+    "says": "MAVYRET® (MAV-ih-reht)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7bf99777-0401-9095-8645-16c6e907fcc0"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess mˈævIɹɪt says 'MAV-eye-rit'; the label writes 'ih' (short) and 'reht' (a full e in the closed last syllable).",
+  "today_us": "mˈævIɹɪt",
+  "today_gb": "mˈavIɹɪt",
+  "today_source": "guesser",
+  "gb_effective": "mˈavɪɹɛt",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "2 phonemes off"
+ },
+ {
+  "rank": 965,
+  "word": "adempas",
+  "kind": "brand",
+  "spelling": "Adempas",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ədˈɛmpɑs",
+  "gb": "ədˈɛmpɑːs",
+  "respelling": "uh-DEM-pahs",
+  "evidence": [
+   {
+    "source": "DailyMed label (Bayer), Medication Guide",
+    "says": "Adempas (a-dem-pahs) (no stress marked)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=7b57509a-3d5d-41d4-8fed-1471e26372a3"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "ədˈɛmpəs",
+    "gb": "ədˈɛmpəs",
+    "context": "reduced last vowel (uh-DEM-puhs), if the label's 'ah' is only the letter a"
+   }
+  ],
+  "notes": "Today's guess ədˈɛmpəz ends in z; the label writes 'pahs', an s and an 'ah' vowel (kept full, as the guide does for a maker's written full vowel). The label marks no stress; DEM (today's) is my inference, so medium. The 2013 FDA name review gives no pronunciation.",
+  "today_us": "ədˈɛmpəz",
+  "today_gb": "ədˈɛmpəz",
+  "today_source": "guesser",
+  "gb_effective": "ədˈɛmpɑːs",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "3 phonemes off"
+ },
+ {
+  "rank": 966,
+  "word": "xultophy",
+  "kind": "brand",
+  "spelling": "Xultophy",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "zˈʌltəfˌI",
+  "gb": "",
+  "respelling": "ZUL-tuh-fye",
+  "evidence": [
+   {
+    "source": "DailyMed label (Novo Nordisk), Medication Guide and Instructions for Use",
+    "says": "XULTOPHY® 100/3.6 (ZUL-to-fye)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=21335fe4-d395-4501-ac2a-2f20d7520da9"
+   },
+   {
+    "source": "FDA proprietary name review, NDA 208583 (Novo Nordisk submission of 14 Sep 2015), intended pronunciation",
+    "says": "ZUL-to-fye",
+    "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2016/208583Orig1s000NameR.pdf"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess zˈʌltəfi ends 'fee'; the maker ends 'fye' (full vowel, secondary stress). The harvest missed it (the strength '100/3.6' sits between the name and the respelling).",
+  "today_us": "zˈʌltəfi",
+  "today_gb": "zˈʌltəfi",
+  "today_source": "guesser",
+  "gb_effective": "zˈʌltəfˌI",
+  "verdict_us": "partial",
+  "verdict_us_detail": "1 phoneme off",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "1 phoneme off"
+ },
+ {
+  "rank": 968,
+  "word": "endocet",
+  "kind": "brand",
+  "spelling": "Endocet",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "ˈɛndOsˌɛt",
+  "gb": "ˈɛndQsˌɛt",
+  "respelling": "EN-doh-set",
+  "evidence": [
+   {
+    "source": "DailyMed label (Par/Endo), Medication Guide",
+    "says": "ENDOCET® (ˈEn-dō-ˌset)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=944d3e60-7eee-11de-a413-0002a5d5c51b"
+   }
+  ],
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Today's guess ˌɛndOsˈɛt puts the main stress on 'set'; the label marks EN primary and 'set' secondary (dictionary-style marks), with a full 'dō'. The harvest missed it (IPA stress marks).",
+  "today_us": "ˌɛndOsˈɛt",
+  "today_gb": "ˌɛndQsˈɛt",
+  "today_source": "guesser",
+  "gb_effective": "ˈɛndQsˌɛt",
+  "verdict_us": "partial",
+  "verdict_us_detail": "right sounds, wrong stress",
+  "verdict_gb": "partial",
+  "verdict_gb_detail": "right sounds, wrong stress"
+ },
+ {
+  "rank": 970,
+  "word": "diclegis",
+  "kind": "brand",
+  "spelling": "Diclegis",
+  "match": "case-insensitive",
+  "disposition": "corrected",
+  "us": "dIklˈiʤɪs",
+  "gb": "dIklˈiːʤɪs",
+  "respelling": "dye-KLEE-jis",
+  "evidence": [
+   {
+    "source": "DailyMed label (Duchesnay), Patient Information",
+    "says": "DICLEGIS (dye-CLEE-gis)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=8bde08f6-e8bd-4e90-baa7-82e01876a86a"
+   },
+   {
+    "source": "FDA proprietary name review, NDA 021876 (Duchesnay submission of 3 Aug 2012)",
+    "says": "Pronunciation: dye-CLEE-gis",
+    "url": "https://www.accessdata.fda.gov/drugsatfda_docs/nda/2013/021876Orig1s000NameR.pdf"
+   }
+  ],
+  "confidence": "medium",
+  "alternatives": [
+   {
+    "us": "dIklˈiɡɪs",
+    "gb": "dIklˈiːɡɪs",
+    "context": "hard g (dye-KLEE-giss), the respelling's letters taken literally"
+   }
+  ],
+  "notes": "Today's guess dˈIkləʤəs (DYE-kluh-jus) stresses the first syllable; both maker sources stress CLEE. Medium only for the g: the respelling copies the letter g ('gis'), and label respellings often do that for a soft g (Boehringer's 'TRAD gen ta' for Tradjenta, GSK's 'TREL-e-ge'); kept soft, as English reads gi and as today's reading has it. REVIEW the g.",
+  "today_us": "dˈIkləʤəs",
+  "today_gb": "dˈIkləʤəs",
+  "today_source": "guesser",
+  "gb_effective": "dIklˈiːʤɪs",
+  "verdict_us": "wrong",
+  "verdict_us_detail": "2 phonemes off",
+  "verdict_gb": "wrong",
+  "verdict_gb_detail": "3 phonemes off"
+ },
+ {
+  "rank": 971,
+  "word": "havrix",
+  "kind": "brand",
+  "spelling": "Havrix",
+  "match": "case-insensitive",
+  "disposition": "already-correct",
+  "us": "hˈævɹɪks",
+  "gb": "hˈavɹɪks",
+  "evidence": [
+   {
+    "source": "DailyMed label (GSK)",
+    "says": "no respelling (vaccine label, no patient leaflet)",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f9499a4d-1288-4bd3-9d59-1d72092c38cd"
+   },
+   {
+    "source": "spelling",
+    "says": "HAV (hepatitis A virus) + GSK's vaccine ending -rix (Engerix, Infanrix, Boostrix)",
+    "url": ""
+   }
+  ],
+  "confidence": "low",
+  "alternatives": [],
+  "notes": "Today hˈævɹɪks (HAV-riks). Low: no written pronunciation found; rests on the spelling.",
+  "today_us": "hˈævɹɪks",
+  "today_gb": "hˈavɹɪks",
+  "today_source": "guesser",
+  "gb_effective": "hˈavɹɪks",
+  "verdict_us": "right",
+  "verdict_gb": "right"
+ }
+]
