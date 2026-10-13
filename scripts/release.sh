@@ -78,7 +78,7 @@ LENGTH=$(echo "$SPARKLE_SIG" | sed -E 's/.*length="([0-9]+)".*/\1/')
 [[ -n "$ED_SIGNATURE" && "$LENGTH" == <-> ]] || { echo "sign_update failed: $SPARKLE_SIG"; exit 1; }
 
 SIZE=$(du -m "$DMG" | cut -f1)
-NOTES="Download **Aloud.dmg**, open it, and drag Aloud into Applications. Requires an Apple Silicon Mac with macOS 14 or later. (${SIZE} MB; the voice, about 330 MB, downloads the first time you open it.) If you already have Aloud 1.4 or later, it updates itself."
+NOTES="Download **Aloud.dmg**, open it, and drag Aloud into Applications. Requires an Apple Silicon Mac with macOS 14 or later. (${SIZE} MB; the voice, about 355 MB, downloads the first time you open it.) If you already have Aloud 1.4 or later, it updates itself."
 if [[ $NOTARIZED == 0 ]]; then
   NOTES="$NOTES
 
@@ -99,3 +99,6 @@ python3 scripts/update-appcast.py "$APPCAST" "$VERSION" "$BUILD" "$ED_SIGNATURE"
 echo "Released $TAG ($SIZE MB, build $BUILD, notarized: $NOTARIZED)"
 echo
 echo "Next: commit $APPCAST and push it to main. Installed copies only see the update once it's served at the feed URL."
+# The website and README quote the download size too (20 MB since llama.cpp came in with 1.6).
+grep -qF "· $SIZE MB<" docs/index.html && grep -qF "about $SIZE MB" README.md ||
+  echo "Also: docs/index.html and README.md give a different download size; change both to $SIZE MB."

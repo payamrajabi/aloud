@@ -1,0 +1,86 @@
+[
+ {
+  "rank": 3437,
+  "name": "Payam",
+  "language": "Persian",
+  "region": "Iran",
+  "disposition": "corrected",
+  "ipa": "pæˈjɒːm",
+  "us": "pæjˈɑm",
+  "gb": "pajˈɑːm",
+  "respelling": "pah-YAHM",
+  "source": "Wiktionary, Persian پیام (payâm): Iran formal [pʰæ.jɒ́ːm], Dari [pʰä.jɑ́ːm]; stress on the last syllable",
+  "url": "https://en.wiktionary.org/wiki/%D9%BE%DB%8C%D8%A7%D9%85",
+  "confidence": "high",
+  "alternatives": [],
+  "notes": "Persian â [ɒː] has no English match: English 'ah' (US ɑ, GB ɑː) is the usual approximation."
+ },
+ {
+  "rank": 866,
+  "name": "Mohammed",
+  "language": "Arabic (English spelling)",
+  "region": "UK, Nigeria, Morocco",
+  "disposition": "already-correct",
+  "ipa": "məˈhæməd",
+  "us": "",
+  "gb": "",
+  "respelling": "moh-HAM-id",
+  "source": "Wiktionary, English Mohammed: /məˈhæməd/ (also /mʊəˈhɑːməd/); today's reading differs only in unstressed vowels",
+  "url": "https://en.wiktionary.org/wiki/Mohammed",
+  "confidence": "high",
+  "alternatives": [
+   {"ipa": "mʊəˈhɑːməd", "us": "mʊhˈɑməd", "gb": "mʊhˈɑːməd", "context": "closer to Arabic Muḥammad; many Arabic-speaking bearers"}
+  ],
+  "notes": "Control: the app's CMUdict reading (mOhˈæmɪd) is an accepted English reading of this spelling."
+ },
+ {
+  "rank": 341,
+  "name": "Jesús",
+  "language": "Spanish",
+  "region": "Mexico, Peru, Venezuela, Spain",
+  "disposition": "corrected",
+  "ipa": "xeˈsus",
+  "us": "hAsˈus",
+  "gb": "hAsˈuːs",
+  "respelling": "hay-SOOS",
+  "source": "Wiktionary, Spanish Jesús: /xeˈsus/",
+  "url": "https://en.wiktionary.org/wiki/Jes%C3%BAs",
+  "confidence": "high",
+  "alternatives": [
+   {"ipa": "ˈdʒiːzəs", "us": "ʤˈizəs", "gb": "ʤˈiːzəs", "context": "the English name of Jesus of Nazareth; not how bearers of the Spanish name say it"}
+  ],
+  "notes": "Spanish j [x] becomes English h, as English speakers say it. The accented spelling is only the Spanish name."
+ },
+ {
+  "rank": 9965,
+  "name": "Søren",
+  "language": "Danish",
+  "region": "Denmark",
+  "disposition": "corrected",
+  "ipa": "ˈsɒrən",
+  "us": "sˈɔɹən",
+  "gb": "sˈɒɹən",
+  "respelling": "SORR-en",
+  "source": "Wikipedia, Søren Kierkegaard: English /ˈsɒrən/, Danish [ˈsɶːɐn]",
+  "url": "https://en.wikipedia.org/wiki/S%C3%B8ren_Kierkegaard",
+  "confidence": "medium",
+  "alternatives": [],
+  "notes": "Danish ø [ɶː] is a front rounded vowel English lacks; English sources give the 'sorr' approximation."
+ },
+ {
+  "rank": 4733,
+  "name": "Will",
+  "language": "English",
+  "region": "",
+  "disposition": "protect-word",
+  "ipa": "wɪl",
+  "us": "",
+  "gb": "",
+  "respelling": "WIL",
+  "source": "",
+  "url": "",
+  "confidence": "",
+  "alternatives": [],
+  "notes": "Ordinary word 'will'. The name sounds like the word, but in a sentence the app de-stresses it like the auxiliary verb (I met Will yesterday: wˌɪl)."
+ }
+]

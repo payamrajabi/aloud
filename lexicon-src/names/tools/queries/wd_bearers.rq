@@ -1,0 +1,11 @@
+# How many people (instances of human) have each given name (P735), by country of
+# citizenship (P27; empty when none is recorded). A person with two citizenships counts in
+# both. "Unknown value" names (blank nodes) are left out. CC0 data.
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?name ?country (COUNT(DISTINCT ?p) AS ?n) WHERE {
+  ?p wdt:P31 wd:Q5 ; wdt:P735 ?name .
+  FILTER(isIRI(?name))
+  OPTIONAL { ?p wdt:P27 ?country }
+}
+GROUP BY ?name ?country

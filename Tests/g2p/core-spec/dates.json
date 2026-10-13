@@ -1,0 +1,1001 @@
+{
+ "area": "Dates and timestamps",
+ "speech_cases": [
+  {
+   "text": "The meeting is on 3/4/2024.",
+   "says": "The meeting is on March fourth, twenty twenty-four.",
+   "says_gb": "The meeting is on the third of April, twenty twenty-four.",
+   "note": "both numbers 12 or under: the voice picks the order (US month first, GB day first)"
+  },
+  {
+   "text": "Signed 03/04/24 by both parties.",
+   "says": "Signed March fourth, twenty-four by both parties.",
+   "says_gb": "Signed the third of April, twenty-four by both parties.",
+   "note": "two-digit year, allowed because of the leading zeros; read as written, no century guessed"
+  },
+  {
+   "text": "Paid on 3/4/24.",
+   "says": "Paid on March fourth, twenty-four.",
+   "says_gb": "Paid on the third of April, twenty-four.",
+   "note": "two-digit year, allowed because a date word ('on') comes right before"
+  },
+  {
+   "text": "The office closes 3.4.2024 for repairs.",
+   "says": "The office closes March fourth, twenty twenty-four for repairs.",
+   "says_gb": "The office closes the third of April, twenty twenty-four for repairs.",
+   "note": "dotted form needs a year 1900-2099 and no version word before it"
+  },
+  {
+   "text": "Deadline: 3-4-2024.",
+   "says": "Deadline: March fourth, twenty twenty-four.",
+   "says_gb": "Deadline: the third of April, twenty twenty-four.",
+   "note": "hyphen form needs a four-digit year; today it reads 'three-four twenty twenty-four'"
+  },
+  {
+   "text": "Christmas falls on 25/12/2024.",
+   "says": "Christmas falls on December twenty-fifth, twenty twenty-four.",
+   "says_gb": "Christmas falls on the twenty-fifth of December, twenty twenty-four.",
+   "note": "25 can't be a month: the order is settled, the voice picks the wording"
+  },
+  {
+   "text": "Christmas falls on 12/25/2024.",
+   "says": "Christmas falls on December twenty-fifth, twenty twenty-four.",
+   "says_gb": "Christmas falls on the twenty-fifth of December, twenty twenty-four.",
+   "note": "25 can't be a month, so the British voice takes it month first too"
+  },
+  {
+   "text": "Invoice dated 1/2/2025, due in 30 days.",
+   "says": "Invoice dated January second, twenty twenty-five, due in thirty days.",
+   "says_gb": "Invoice dated the first of February, twenty twenty-five, due in thirty days.",
+   "note": "date before a comma"
+  },
+  {
+   "text": "Filed (07/04/2023) with the court.",
+   "says": "Filed (July fourth, twenty twenty-three) with the court.",
+   "says_gb": "Filed (the seventh of April, twenty twenty-three) with the court.",
+   "note": "leading zeros, inside parentheses"
+  },
+  {
+   "text": "Expires 12/31/99.",
+   "says": "Expires December thirty-first, ninety-nine.",
+   "says_gb": "Expires the thirty-first of December, ninety-nine.",
+   "note": "sentence-final; two-digit year allowed after 'Expires'"
+  },
+  {
+   "text": "Moved in on 03/04/05.",
+   "says": "Moved in on March fourth, oh five.",
+   "says_gb": "Moved in on the third of April, oh five.",
+   "note": "a two-digit year with a leading zero reads 'oh five'"
+  },
+  {
+   "text": "Valid until 03-04-2024.",
+   "says": "Valid until March fourth, twenty twenty-four.",
+   "says_gb": "Valid until the third of April, twenty twenty-four.",
+   "note": "the phone-number rule must not take it (today: 'zero three, zero four, two zero two four')"
+  },
+  {
+   "text": "Due 3/4/2024, not 5/4/2024.",
+   "says": "Due March fourth, twenty twenty-four, not May fourth, twenty twenty-four.",
+   "says_gb": "Due the third of April, twenty twenty-four, not the fifth of April, twenty twenty-four.",
+   "note": "two dates in one sentence"
+  },
+  {
+   "text": "Date of birth: 12/05/1987.",
+   "says": "Date of birth: December fifth, nineteen eighty-seven.",
+   "says_gb": "Date of birth: the twelfth of May, nineteen eighty-seven.",
+   "note": "a form field; the voice picks the order"
+  },
+  {
+   "text": "Date: 03/15/2024 14:32",
+   "says": "Date: March fifteenth, twenty twenty-four fourteen thirty-two",
+   "says_gb": "Date: the fifteenth of March, twenty twenty-four fourteen thirty-two",
+   "note": "a receipt line: date then a 24-hour time, no final punctuation"
+  },
+  {
+   "text": "Order placed 2024/03/04.",
+   "says": "Order placed March fourth, twenty twenty-four.",
+   "says_gb": "Order placed the fourth of March, twenty twenty-four.",
+   "note": "year first with slashes is always year-month-day"
+  },
+  {
+   "text": "The attacks of 9/11/2001 changed travel.",
+   "says": "The attacks of September eleventh, two thousand one changed travel.",
+   "voice": "us",
+   "note": "US only: by the voice rule the British voice reads 'the ninth of November', the accepted cost of letting the voice decide"
+  },
+  {
+   "text": "Released on 2024-03-15.",
+   "says": "Released on March fifteenth, twenty twenty-four.",
+   "says_gb": "Released on the fifteenth of March, twenty twenty-four.",
+   "note": "existing US reading; GB is new (open question)"
+  },
+  {
+   "text": "We met on Jan 5, 2024.",
+   "says": "We met on January fifth, twenty twenty-four.",
+   "says_gb": "We met on January the fifth, twenty twenty-four.",
+   "note": "existing US reading; GB adds 'the' (open question)"
+  },
+  {
+   "text": "March 1st, 2024 is a Friday.",
+   "says": "March first, twenty twenty-four is a Friday.",
+   "says_gb": "March the first, twenty twenty-four is a Friday.",
+   "note": "existing US reading; GB adds 'the' before a day written with 'st'"
+  },
+  {
+   "text": "The launch is March 5th.",
+   "says": "The launch is March fifth.",
+   "says_gb": "The launch is March the fifth.",
+   "note": "existing US reading; GB adds 'the' (open question)"
+  },
+  {
+   "text": "Sept. 12 is the cutoff.",
+   "says": "September twelfth is the cutoff.",
+   "says_gb": "September the twelfth is the cutoff.",
+   "note": "existing US reading; GB adds 'the' (open question)"
+  },
+  {
+   "text": "Meet the March 15 deadline.",
+   "says": "Meet the March fifteenth deadline.",
+   "note": "existing US reading; a date used before a noun after 'the' gets no British 'the' ('the March the fifteenth deadline' is wrong)"
+  },
+  {
+   "text": "In March 2 people left.",
+   "says": "In March two people left.",
+   "note": "existing false positive (today 'March second people'): after 'in', a month and a bare number is a month and a count"
+  },
+  {
+   "text": "They lost in May 3-1 to Spurs.",
+   "says": "They lost in May three to one to Spurs.",
+   "note": "existing false positive (today 'May third to one'): a score after a month isn't a day"
+  },
+  {
+   "text": "May 2 of us join?",
+   "says": "May two of us join?",
+   "note": "existing false positive (today 'May second of us'): the modal 'may' opening a question, then 'of us'"
+  },
+  {
+   "text": "We met on the 1st of May.",
+   "says": "We met on the first of May.",
+   "note": "existing"
+  },
+  {
+   "text": "Born 5th March 2024.",
+   "says": "Born the fifth of March, twenty twenty-four.",
+   "note": "day written first: 'the ... of' in both voices"
+  },
+  {
+   "text": "On 5 March the board met.",
+   "says": "On the fifth of March the board met.",
+   "note": "no year, before a lower-case function word"
+  },
+  {
+   "text": "The deadline is 1 Dec.",
+   "says": "The deadline is the first of December.",
+   "note": "abbreviated month, sentence-final; the period must stay a full stop (today 'Dec.' swallows it)"
+  },
+  {
+   "text": "Tickets go on sale 5 Mar 2024.",
+   "says": "Tickets go on sale the fifth of March, twenty twenty-four."
+  },
+  {
+   "text": "Effective 1 Jan 2025.",
+   "says": "Effective the first of January, twenty twenty-five.",
+   "note": "policy and contract notices"
+  },
+  {
+   "text": "The hearing is on Wednesday, 4 September 2024.",
+   "says": "The hearing is on Wednesday, the fourth of September, twenty twenty-four.",
+   "note": "British letter style: full weekday, comma, day first"
+  },
+  {
+   "text": "The festival runs 5–7 March.",
+   "says": "The festival runs the fifth to the seventh of March.",
+   "note": "day range before a month: must run before the range rule"
+  },
+  {
+   "text": "The festival runs March 5–7.",
+   "says": "The festival runs March fifth to seventh.",
+   "says_gb": "The festival runs March the fifth to the seventh.",
+   "note": "today the end of the range is read 'seven'"
+  },
+  {
+   "text": "The Sun, 5 March 2024, page 3.",
+   "says": "The Sun, the fifth of March, twenty twenty-four, page three.",
+   "note": "a newspaper called The Sun stays 'Sun'; the date still reads"
+  },
+  {
+   "text": "From the Toronto Sun, 9 March 2024.",
+   "says": "From the Toronto Sun, the ninth of March, twenty twenty-four.",
+   "note": "'Sun' after a capitalised word is a name, not Sunday"
+  },
+  {
+   "text": "Sales fell in Jan 2024.",
+   "says": "Sales fell in January twenty twenty-four.",
+   "note": "abbreviated month before a year (today 'jan')"
+  },
+  {
+   "text": "Sales rose Jan–Mar 2024.",
+   "says": "Sales rose January to March twenty twenty-four."
+  },
+  {
+   "text": "Peak season is May-June.",
+   "says": "Peak season is May to June."
+  },
+  {
+   "text": "Closed Dec–Feb.",
+   "says": "Closed December to February.",
+   "note": "sentence-final 'Feb.' keeps its full stop"
+  },
+  {
+   "text": "Published 12 Jan 2024, updated 3h ago.",
+   "says": "Published the twelfth of January, twenty twenty-four, updated three hours ago.",
+   "note": "a news byline"
+  },
+  {
+   "text": "On Mon, 4 Mar 2024 at 10:15, Jane Doe wrote:",
+   "says": "On Monday, the fourth of March, twenty twenty-four at ten fifteen, Jane Doe wrote:",
+   "note": "a quoted-email header (British style)"
+  },
+  {
+   "text": "On Mon, Mar 4, 2024, Jane wrote:",
+   "says": "On Monday, March fourth, twenty twenty-four, Jane wrote:",
+   "says_gb": "On Monday, March the fourth, twenty twenty-four, Jane wrote:",
+   "note": "a quoted-email header (US style)"
+  },
+  {
+   "text": "Open Mon–Fri 9-5.",
+   "says": "Open Monday to Friday nine to five."
+  },
+  {
+   "text": "Open Mon-Fri, 9–5.",
+   "says": "Open Monday to Friday, nine to five."
+  },
+  {
+   "text": "OPEN MON-FRI 9-5.",
+   "says": "Open Monday to Friday nine to five.",
+   "note": "a shouted sign; today it spells F-R-I"
+  },
+  {
+   "text": "Open Mon to Sat.",
+   "says": "Open Monday to Saturday.",
+   "note": "weekdays joined by 'to', both capitalised"
+  },
+  {
+   "text": "Hours: Mon – Thu, 8–6.",
+   "says": "Hours: Monday to Thursday, eight to six.",
+   "note": "spaced en dash"
+  },
+  {
+   "text": "Closed Sat–Sun.",
+   "says": "Closed Saturday to Sunday."
+  },
+  {
+   "text": "Open Tues–Sun.",
+   "says": "Open Tuesday to Sunday."
+  },
+  {
+   "text": "Open Mon–Sat, 10am–6pm.",
+   "says": "Open Monday to Saturday, ten ay em to six pee em.",
+   "note": "shop hours; 'ay em' and 'pee em' spell the letters as the seed file's 'pee em' does (see review notes on the harness)"
+  },
+  {
+   "text": "Lessons run Monday-Friday.",
+   "says": "Lessons run Monday to Friday.",
+   "note": "full names joined by a hyphen"
+  },
+  {
+   "text": "Classes meet Mon, Wed, Fri.",
+   "says": "Classes meet Monday, Wednesday, Friday.",
+   "note": "a list made only of weekday abbreviations"
+  },
+  {
+   "text": "See you Tues.",
+   "says": "See you Tuesday.",
+   "note": "Tues, Thurs and Fri aren't words: always weekdays"
+  },
+  {
+   "text": "See you thurs!",
+   "says": "See you Thursday!",
+   "note": "chat: lower-case tues and thurs aren't words either"
+  },
+  {
+   "text": "The game is Thurs, not Fri.",
+   "says": "The game is Thursday, not Friday."
+  },
+  {
+   "text": "Every Thurs at 7.",
+   "says": "Every Thursday at seven."
+  },
+  {
+   "text": "See you Fri 13th.",
+   "says": "See you Friday the thirteenth.",
+   "note": "weekday before an ordinal day takes 'the'"
+  },
+  {
+   "text": "Meet Tue 3/5 at noon.",
+   "says": "Meet Tuesday, March fifth at noon.",
+   "says_gb": "Meet Tuesday, the third of May at noon.",
+   "note": "a weekday makes a yearless 3/5 a date, when 'at' follows"
+  },
+  {
+   "text": "Due Fri 12 Jan 2024.",
+   "says": "Due Friday the twelfth of January, twenty twenty-four."
+  },
+  {
+   "text": "Posted Thu 14 Mar 2024.",
+   "says": "Posted Thursday the fourteenth of March, twenty twenty-four.",
+   "note": "forum and app stamps; Thu is a weekday when a date follows"
+  },
+  {
+   "text": "Term starts Mon 2 Sept.",
+   "says": "Term starts Monday the second of September.",
+   "note": "sentence-final 'Sept.'"
+  },
+  {
+   "text": "Sat, Mar 5 works for me.",
+   "says": "Saturday, March fifth works for me.",
+   "says_gb": "Saturday, March the fifth works for me.",
+   "note": "GB 'the' because a weekday comes before, though 'works' isn't a function word"
+  },
+  {
+   "text": "Standup is Mon 9:30.",
+   "says": "Standup is Monday nine thirty.",
+   "note": "weekday before a clock time"
+  },
+  {
+   "text": "Let's talk on Wed.",
+   "says": "Let's talk on Wednesday.",
+   "note": "Wed after 'on', before a full stop"
+  },
+  {
+   "text": "The shop is shut every Sun.",
+   "says": "The shop is shut every Sunday."
+  },
+  {
+   "text": "Can we move it to next Thu?",
+   "says": "Can we move it to next Thursday?"
+  },
+  {
+   "text": "Edited 5m ago.",
+   "says": "Edited five minutes ago."
+  },
+  {
+   "text": "Posted 2h ago.",
+   "says": "Posted two hours ago."
+  },
+  {
+   "text": "Shared 3d ago",
+   "says": "Shared three days ago",
+   "note": "no final punctuation"
+  },
+  {
+   "text": "Commented 1w ago.",
+   "says": "Commented one week ago.",
+   "note": "singular"
+  },
+  {
+   "text": "Joined 2mo ago.",
+   "says": "Joined two months ago."
+  },
+  {
+   "text": "Posted 1y ago.",
+   "says": "Posted one year ago."
+  },
+  {
+   "text": "Seen 10s ago.",
+   "says": "Seen ten seconds ago.",
+   "note": "without 'ago', 10s stays a plural ('in her 30s')"
+  },
+  {
+   "text": "Replied 2wk ago",
+   "says": "Replied two weeks ago"
+  },
+  {
+   "text": "Sent 5 mins ago.",
+   "says": "Sent five minutes ago.",
+   "note": "existing"
+  },
+  {
+   "text": "Last login: 1 hr ago.",
+   "says": "Last login: one hour ago.",
+   "note": "existing"
+  },
+  {
+   "text": "The flight takes 1h 30m.",
+   "says": "The flight takes one hour thirty minutes."
+  },
+  {
+   "text": "Cook for 2h30m.",
+   "says": "Cook for two hours thirty minutes."
+  },
+  {
+   "text": "Bake for 1h 5m.",
+   "says": "Bake for one hour five minutes.",
+   "note": "single-digit minutes"
+  },
+  {
+   "text": "Total time: 1h 30m 15s.",
+   "says": "Total time: one hour thirty minutes fifteen seconds."
+  },
+  {
+   "text": "Plank for 1m 30s.",
+   "says": "Plank for one minute thirty seconds."
+  },
+  {
+   "text": "Uptime 2d 4h.",
+   "says": "Uptime two days four hours."
+  },
+  {
+   "text": "Took 1hr 30min.",
+   "says": "Took one hour thirty minutes.",
+   "note": "existing"
+  },
+  {
+   "text": "The film runs 90 min.",
+   "says": "The film runs ninety minutes.",
+   "note": "existing"
+  },
+  {
+   "text": "The lease is 6 mos.",
+   "says": "The lease is six months.",
+   "note": "add mo, mos, mth, mths to the units table; today 'moes'"
+  },
+  {
+   "text": "Wait 3 wks for delivery.",
+   "says": "Wait three weeks for delivery.",
+   "note": "add wk, wks to the units table; today spelled out"
+  },
+  {
+   "text": "Her time was 2:03:59.",
+   "says": "Her time was two hours three minutes fifty-nine seconds."
+  },
+  {
+   "text": "Runtime: 1:45:00.",
+   "says": "Runtime: one hour forty-five minutes.",
+   "note": "zero seconds dropped"
+  },
+  {
+   "text": "Skip to 00:01:30 for the demo.",
+   "says": "Skip to one minute thirty seconds for the demo.",
+   "note": "zero hours dropped"
+  },
+  {
+   "text": "He finished in 1:00:00 flat.",
+   "says": "He finished in one hour flat.",
+   "note": "zero minutes and seconds dropped"
+  },
+  {
+   "text": "The alarm went off at 06:30:00.",
+   "says": "The alarm went off at six thirty.",
+   "note": "after 'at' it's a clock time; zero seconds dropped"
+  },
+  {
+   "text": "Logged at 14:32:07.",
+   "says": "Logged at fourteen thirty-two and seven seconds.",
+   "note": "clock time with seconds, the speaking-clock form (open question)"
+  },
+  {
+   "text": "An 18th c. chair.",
+   "says": "An eighteenth century chair."
+  },
+  {
+   "text": "Built in the 19th cent. by monks.",
+   "says": "Built in the nineteenth century by monks."
+  },
+  {
+   "text": "The house dates from the 17th C.",
+   "says": "The house dates from the seventeenth century.",
+   "note": "capital C only after 'the'; sentence-final, the period stays a full stop"
+  },
+  {
+   "text": "Class of '05.",
+   "says": "Class of oh five.",
+   "note": "existing (short-year rule from fix3/reading)"
+  },
+  {
+   "text": "Music from the '90s.",
+   "says": "Music from the nineties.",
+   "note": "existing"
+  },
+  {
+   "text": "In the 1990s it boomed.",
+   "says": "In the nineteen nineties it boomed.",
+   "note": "existing"
+  },
+  {
+   "text": "Built in the 1800s.",
+   "says": "Built in the eighteen hundreds.",
+   "note": "existing"
+  },
+  {
+   "text": "Results for Q3'24 are in.",
+   "says": "Results for queue three twenty-four are in.",
+   "note": "'queue' stands for the letter Q (same phonemes); today Q3 and '24 run together"
+  },
+  {
+   "text": "Revenue rose in Q4 '23.",
+   "says": "Revenue rose in queue four twenty-three.",
+   "note": "existing: spaced, it already reads"
+  },
+  {
+   "text": "Since 2005, sales have doubled.",
+   "says": "Since two thousand five, sales have doubled.",
+   "says_gb": "Since two thousand and five, sales have doubled.",
+   "note": "US existing; GB 'and' is new (open question, shared with the numbers area)"
+  },
+  {
+   "text": "The wall is 5m tall.",
+   "says": "The wall is five meters tall.",
+   "note": "units area owns this; here to guard the 'ago' rule (fails today: 'five em')"
+  },
+  {
+   "text": "The firm raised £5m.",
+   "says": "The firm raised five million pounds.",
+   "note": "money rule (fix3/reading) owns this; guards the 'ago' rule"
+  }
+ ],
+ "frozen_cases": [
+  {
+   "text": "Mix 3/4 cup flour.",
+   "note": "no year: a fraction"
+  },
+  {
+   "text": "It happened on 9/11.",
+   "note": "no year, no weekday: left alone"
+  },
+  {
+   "text": "Open 24/7."
+  },
+  {
+   "text": "We're open 24/7/365.",
+   "note": "three groups, but 365 isn't a year and 24 isn't a month or day"
+  },
+  {
+   "text": "A 50/50 chance."
+  },
+  {
+   "text": "The score was 3-2."
+  },
+  {
+   "text": "They played a 4-4-2.",
+   "note": "a formation: hyphen dates need a four-digit year"
+  },
+  {
+   "text": "Version v1.2.3 shipped."
+  },
+  {
+   "text": "Update to 1.2.24 now.",
+   "note": "dotted dates need a four-digit year"
+  },
+  {
+   "text": "IntelliJ 2024.3.1 is out.",
+   "note": "calendar versioning: no year-first dotted dates"
+  },
+  {
+   "text": "Section 3.4.12 explains it."
+  },
+  {
+   "text": "Ping 192.168.0.1 first."
+  },
+  {
+   "text": "Use a 2H pencil."
+  },
+  {
+   "text": "Sketch with 4H and 2B pencils.",
+   "note": "capital H: pencil grades, never hours"
+  },
+  {
+   "text": "We bought a 3D printer."
+  },
+  {
+   "text": "3d printing took off.",
+   "note": "no 'ago': 3d isn't days"
+  },
+  {
+   "text": "Use a 2d array here.",
+   "note": "no 'ago': 2d isn't days"
+  },
+  {
+   "text": "INT 21h is a DOS call.",
+   "note": "a hex number: a lone 21h isn't hours"
+  },
+  {
+   "text": "She is in her 30s."
+  },
+  {
+   "text": "He scored 10s across the board."
+  },
+  {
+   "text": "We met 5 years ago."
+  },
+  {
+   "text": "Sat down and wrote it all.",
+   "note": "Sat at the start of a sentence is the verb"
+  },
+  {
+   "text": "Sat 3 exams in May.",
+   "note": "Sat before a number that isn't a date"
+  },
+  {
+   "text": "Wed in June, they moved to Leeds."
+  },
+  {
+   "text": "Sun Microsystems was bought by Oracle."
+  },
+  {
+   "text": "The Sun-Times ran it."
+  },
+  {
+   "text": "Mon-Khmer languages are old.",
+   "note": "a weekday range needs a weekday on both sides"
+  },
+  {
+   "text": "Mon Dieu, she said."
+  },
+  {
+   "text": "Nguyen Thu Ha spoke first.",
+   "note": "Thu as a name"
+  },
+  {
+   "text": "After Thu spoke, Lan read the minutes.",
+   "note": "'after' is a time word, but a verb follows: Thu is a name"
+  },
+  {
+   "text": "We studied this Sun-like star.",
+   "note": "'this' is a time word, but Sun is joined to '-like'"
+  },
+  {
+   "text": "We bought servers from Sun.",
+   "note": "Sun after 'from' is the company"
+  },
+  {
+   "text": "The cat sat to sun itself on the wall.",
+   "note": "lower-case 'sat to sun' is not a weekday range"
+  },
+  {
+   "text": "He sat, sun on his face, and slept.",
+   "note": "lower-case 'sat, sun' is not a weekday list"
+  },
+  {
+   "text": "Early closing Wed 1/2 day.",
+   "note": "half-day closing: a fraction before 'day', not a yearless date (refreeze if Wed is ever read as Wednesday here)"
+  },
+  {
+   "text": "We hiked along the Thur.",
+   "note": "the river Thur: Thur is not in the never-a-word list"
+  },
+  {
+   "text": "The FRI score was high.",
+   "note": "an acronym: a lone ALL CAPS FRI stays letters"
+  },
+  {
+   "text": "Prince Weds Actress",
+   "note": "a headline in title case"
+  },
+  {
+   "text": "He weds Anna in May."
+  },
+  {
+   "text": "Top 5 May Releases",
+   "note": "title case: a capitalised word after the month"
+  },
+  {
+   "text": "The top 5 may change."
+  },
+  {
+   "text": "We ran 3 March events.",
+   "note": "a count before a month and a noun"
+  },
+  {
+   "text": "We have 3 April deadlines and 2 May ones.",
+   "note": "counts before month-named nouns"
+  },
+  {
+   "text": "Little Women follows the 4 March sisters.",
+   "note": "March as a family name"
+  },
+  {
+   "text": "Track 4 March to the Scaffold is loud.",
+   "note": "a track number, though 'to' follows the month"
+  },
+  {
+   "text": "They march 5 miles a day."
+  },
+  {
+   "text": "They had a May-December romance.",
+   "note": "an idiom, not a month range"
+  },
+  {
+   "text": "May 2024 was wet."
+  },
+  {
+   "text": "In March 2nd place went to Leeds.",
+   "note": "an ordinal before a noun: no British 'March the second'"
+  },
+  {
+   "text": "The Friday 2nd shift starts late.",
+   "note": "a weekday before an ordinal and a noun: no 'Friday the second'"
+  },
+  {
+   "text": "Mar-a-Lago staff left."
+  },
+  {
+   "text": "Jun-ho Lee spoke."
+  },
+  {
+   "text": "Jan-Erik left early."
+  },
+  {
+   "text": "May-Britt Moser won a Nobel.",
+   "note": "a month range needs a month on both sides"
+  },
+  {
+   "text": "The Q3 report is out."
+  },
+  {
+   "text": "Q3's results were strong.",
+   "note": "the Q'YY split needs two digits after the apostrophe"
+  },
+  {
+   "text": "FY24 results beat forecasts.",
+   "note": "insiders say F-Y; a finance pack decides anything more"
+  },
+  {
+   "text": "FY2024 guidance is up."
+  },
+  {
+   "text": "1H24 revenue rose.",
+   "note": "'first half' is a finance-pack reading"
+  },
+  {
+   "text": "H2 2024 looks strong."
+  },
+  {
+   "text": "The 2023/24 season starts in August.",
+   "note": "a season, not a year-first date: only two groups"
+  },
+  {
+   "text": "Available in sizes 8/10/12.",
+   "note": "clothing sizes: a two-digit-year date needs leading zeros or a date word before it"
+  },
+  {
+   "text": "Babies get jabs at 2/4/12 months.",
+   "note": "ages in months, not a date"
+  },
+  {
+   "text": "The 10/20/30 workout is brutal.",
+   "note": "a workout name, not a date"
+  },
+  {
+   "text": "Set the timer to 5/10/15 minutes.",
+   "note": "a list of options, not a date"
+  },
+  {
+   "text": "Firmware 2.1.1024 fixes the bug.",
+   "note": "a build number: dotted dates need a year 1900-2099 and no version word before"
+  },
+  {
+   "text": "John 3:16 is famous."
+  },
+  {
+   "text": "The ratio was 16:9."
+  },
+  {
+   "text": "Mix concrete 1:2:4.",
+   "note": "a ratio: H:MM:SS needs two-digit minutes and seconds"
+  },
+  {
+   "text": "Cut at 01:02:03:04 in the edit.",
+   "note": "a four-group timecode"
+  },
+  {
+   "text": "Latitude 51:30:26 N.",
+   "note": "coordinates: hours above 23 are never H:MM:SS (refreeze if a coordinates rule lands)"
+  },
+  {
+   "text": "Pages 3-4 cover it."
+  },
+  {
+   "text": "My son is in 5th C this year.",
+   "note": "a school class section, not a century"
+  },
+  {
+   "text": "The house was built c. 1850.",
+   "note": "circa belongs to the academic pack"
+  },
+  {
+   "text": "The 2000s were fun."
+  },
+  {
+   "text": "See example.com/2024/03/04/launch for details.",
+   "note": "a date inside a web path is left to the path rules"
+  }
+ ],
+ "rules": [
+  {
+   "name": "Voice reaches the normalizer",
+   "where": "Phonemizer.phonemize and TextNormalizer.normalize(_:skippingMarkedSpans:), normalize(_:), applyRules",
+   "trigger": "Infrastructure. TextNormalizer has no voice today, and several rules below read differently for US and GB. Add a british parameter to both normalize entry points, pass Phonemizer.british, and build two rule lists once (rulesUS and rulesGB from one makeRules(british:) function) instead of a shared mutable flag, because phonemizers run on different queues.",
+   "reads_as": "Nothing by itself.",
+   "risks": "None in prose. Every GB reading below depends on it, and SpeechTest already phonemizes each case per voice, so tests pin both."
+  },
+  {
+   "name": "Numeric dates with a year",
+   "where": "TextNormalizer rules: a new rule placed before the phone-number rule (fix3/reading), the file-path rule, the ISO rule, the range rule, the clock and ratio rules and the fraction rules",
+   "trigger": "A sep B sep YEAR: A and B are 1-2 digits, and sep is the same one of / . - both times. Not preceded by a letter, a digit, _ / . - – − : # @ or a currency sign. Not followed by a letter or digit, by / . - plus a digit, by : plus a digit, or by . plus a letter (a file name: 3-4-2024.pdf). YEAR is four digits 1000-2099 with / or -. With dots the year must be 1900-2099, and the date must not come right after a version word (version, ver, v, build, release, firmware, update, patch, rev, revision, kernel, driver; any case). A two-digit YEAR (01-99) is allowed only with /, and only when A or B has a leading zero (03/04/24) or the word right before is a date word (on, by, until, till, from, since, before, after, due, dated, date, born, died, expires, expiry, exp, expired, signed, issued, effective, valid, through, thru, starting, ending, paid, posted, updated, shipped, delivered). It is never a date when a count or unit word follows (days, weeks, months, years, hours, minutes, seconds, mins, hrs, sizes, mm, cm, inches, times, points). Year 00 leaves the whole thing alone. Order: A 13-31 with B 1-12 is day-month. B 13-31 with A 1-12 is month-day. When both are 1-12 the voice decides (US month-day, GB day-month). Anything else is left alone. Check the day against the month (30-day months, February up to 29).",
+   "reads_as": "US 'Month Nth, YEAR': 3/4/2024 becomes March 4th, 2024. GB 'the Nth of Month, YEAR': the 3rd of April, 2024, without our 'the' if the word before is already 'the'. Day and month lose leading zeros. A four-digit year stays as digits for the lexicon's year reader. A two-digit year 0N becomes 'oh N'; any other stays the bare number (24 reads twenty-four). Put a comma before the year.",
+   "risks": "It must run before the phone rule, which today reads 03-04-2024 as 'zero three, zero four, two zero two four'. The two-digit-year limits keep out sizes and option lists (8/10/12, 2/4/12 months, 10/20/30, 5/10/15 minutes, all frozen). The dotted limits keep out versions and builds (1.2.24, 3.4.12, Firmware 2.1.1024). Hyphens need a four-digit year, so 4-4-2 stays. The lookarounds keep out IP addresses, URL paths and file names. Two risks remain: part numbers shaped like dates (10-12-2024), and a dotted build number ending in 19xx or 20xx with no version word before it. Because the voice decides, the British voice reads a US-written 9/11/2001 as 'the ninth of November'."
+  },
+  {
+   "name": "Year-first dates with slashes",
+   "where": "TextNormalizer: extend the existing ISO-date rule; place it before the numeric-date rule's slash form",
+   "trigger": "YYYY/M/D or YYYY/MM/DD with a year 1000-2099, a month 1-12 and a valid day. The same lookarounds as the ISO rule, and no / directly before or after. Two groups (the 2023/24 season) are never a date. Dotted year-first forms (2024.3.1) are not accepted: that is calendar versioning (IntelliJ 2024.3.1).",
+   "reads_as": "Always year-month-day: US 'March 4th, 2024', GB 'the 4th of March, 2024'.",
+   "risks": "Blog URLs (example.com/2024/03/04/post) are kept out by the slash lookarounds. Frozen cases pin both that and the two-group season."
+  },
+  {
+   "name": "British wording for ISO and month-first dates",
+   "where": "TextNormalizer: the existing ISO rule and the existing 'Jan 5' rule",
+   "trigger": "The existing triggers. GB only: the ISO rule emits 'the Nth of Month, YEAR'. The 'Jan 5' rule emits 'Month the Nth'. For GB it also accepts a day already written with st/nd/rd/th (March 5th) so that it can insert 'the'. Insert 'the' only when one of these follows: a comma and a year; one of , ; : ! ? ) or a full stop; the end of the text; or a lower-case function word (the day-first rule's list). Also insert it when a weekday comes right before the month (Sat, Mar 5 works). Never insert it when 'the', 'a', 'an', 'this', 'that', 'its' or a possessive comes right before the month (Meet the March 15 deadline).",
+   "reads_as": "GB: 2024-03-15 reads the fifteenth of March, twenty twenty-four. Jan 5, 2024 reads January the fifth, twenty twenty-four. March 5th reads March the fifth. The March 15 deadline stays the March fifteenth deadline. US is unchanged.",
+   "risks": "Only the GB wording changes. The follower test leaves an ordinal before a noun alone (In March 2nd place went to Leeds, frozen), and the attributive test leaves 'the March 15 deadline' alone (speech case). Needs product sign-off (open question)."
+  },
+  {
+   "name": "Counts and scores after a month are not days (tighten the existing 'Jan 5' rule)",
+   "where": "TextNormalizer: the existing 'Jan 5' rule",
+   "trigger": "Leave the number as it is, with no ordinal, in three cases. First, the month comes right after 'in' or 'In' and no comma and year follows the number. Second, the number is followed by 'of us', 'of them' or 'of you'. Third, the number starts a score: the range rule has already turned 'N-M' into 'N to M', with M smaller than N.",
+   "reads_as": "In March 2 people left reads In March two people left (today 'March second people'). in May 3-1 reads in May three to one (today 'May third to one'). May 2 of us join? reads May two of us join? (today 'May second of us').",
+   "risks": "This changes existing readings, but only where they are wrong. Writers rarely put a date after 'in' (the idiom is 'on March 5'), and 'in Jan 5, 2024' still reads as a date because of its year. 'Jan' as a given name before a number (I owe Jan 5 dollars) stays a known false positive of the existing rule."
+  },
+  {
+   "name": "Day-first written dates",
+   "where": "TextNormalizer: a new rule placed before the range rule and before the existing 'Jan 5' and 'Feb.' rules",
+   "trigger": "A day 1-31, optionally with st/nd/rd/th and optionally a day range (D–D or D-D), then a space and a capitalised month name or abbreviation (Jan through Dec or Sept, optional period). Not preceded by a letter, a digit, . , : / or a currency sign. Not right after a numeral noun (Track, Chapter, Part, Section, Page, Room, Item, Step, Episode, Platform, Gate: the numeralNouns set, any case). It must be followed by one of: an optional comma and a four-digit year; one of , ; : ! ? ) or a full stop; the end of the text or line; a lower-case function word (the, at, in, on, to, until, till, from, and, or, through, when, with, for, by, but, as, is, was, will, we, it, this, that, he, she, they); or 'I'.",
+   "reads_as": "Both voices: 'the Nth of Month', plus ', YEAR' when there is one. A range reads 'the Nth to the Mth of Month'. Drop our 'the' if the word before is already 'the'. After a weekday: 'Tuesday the 5th of March'. Sometimes the month's abbreviation period is also the full stop: at the end of the text, or when the next word is capitalised and isn't a weekday, month or time word. Then keep a period after the month name: 1 Dec. reads the 1st of December. The existing 'Feb.' rule needs the same fix: today a sentence-final 'Dec.' loses its full stop and with it the sentence's final fall.",
+   "risks": "The follower list keeps out counts before month-named nouns: We ran 3 March events; 3 April deadlines and 2 May ones; the 4 March sisters; Top 5 May Releases (all frozen). The numeral-noun check keeps out Track 4 March to the Scaffold, where 'to' follows the month. The rule must run before the range rule, or 5–7 March becomes '5 to 7 March'. Misses (On 5 March Parliament voted) are accepted."
+  },
+  {
+   "name": "Month-first day ranges",
+   "where": "TextNormalizer: a new rule placed before the range rule",
+   "trigger": "A capitalised month name or abbreviation, a space, then D–D or D-D with both 1-31 and the second larger, followed by a non-digit. A smaller second number is a score and is left to the range rule and the tightened 'Jan 5' rule (May 3-1).",
+   "reads_as": "US 'March 5th to 7th'. GB 'March the 5th to the 7th'.",
+   "risks": "Today the range rule runs first, and the 'Jan 5' rule then adds 'th' to the first number only, so it reads 'March fifth to seven'. Low risk, because a month word is required."
+  },
+  {
+   "name": "Abbreviated month before a year",
+   "where": "TextNormalizer: next to the existing 'Feb.' rule",
+   "trigger": "A capitalised Jan, Feb, Mar, Apr, Jun, Jul, Aug, Sep, Sept, Oct, Nov or Dec (optional period), then a space and a four-digit year 1000-2099 not followed by a digit.",
+   "reads_as": "The full month name: Jan 2024 reads January twenty twenty-four (today 'jan').",
+   "risks": "Jan as a given name right before a four-digit number. Rare."
+  },
+  {
+   "name": "Month ranges",
+   "where": "TextNormalizer: a new rule",
+   "trigger": "Two capitalised month names or abbreviations (optional periods), each a whole word, joined by - – or — with optional spaces. Not when the pair is followed by romance, relationship, marriage, couple or affair (the May-December idiom).",
+   "reads_as": "Jan–Mar reads January to March; May-June reads May to June.",
+   "risks": "The second part must also be a month, so names and places with a month-like first part are left alone: Mar-a-Lago, Jun-ho, Jan-Erik and May-Britt (all frozen). A May-December romance is frozen."
+  },
+  {
+   "name": "Weekday ranges",
+   "where": "TextNormalizer: a new rule placed before the clock and meridiem rules",
+   "trigger": "Two weekday abbreviations (Mon, Tue, Tues, Wed, Weds, Thu, Thur, Thurs, Fri, Sat, Sun, optional period) joined by - – or — with optional spaces. With these dashes, each side may be in any case: both sides must be weekdays, and unshout may already have lower-cased a shouted MON. When joined by ' to ', ' through ' or ' thru ', both sides must be Title case or ALL CAPS: lower-case 'sat to sun' is a verb and a verb. Also two full weekday names joined by - or –.",
+   "reads_as": "Mon–Fri reads Monday to Friday in both voices; 'through' and 'thru' read through. Monday-Friday reads Monday to Friday.",
+   "risks": "Mon-Khmer and Sun-Times are left alone because the second part isn't a weekday. 'The cat sat to sun itself' is left alone because both words are lower case (frozen). Today Mon–Fri reads 'moan, free' and MON-FRI spells F-R-I."
+  },
+  {
+   "name": "Weekday lists",
+   "where": "TextNormalizer: next to the weekday-range rule",
+   "trigger": "Two or more Title-case or ALL CAPS weekday abbreviations separated only by ', ', ' & ', ' and ' or '/'. Never lower case.",
+   "reads_as": "Each one is expanded: Mon, Wed, Fri reads Monday, Wednesday, Friday; Tue/Thu reads Tuesday Thursday (the slash is already silent).",
+   "risks": "Every item must be a weekday abbreviation. 'He sat, sun on his face' is lower case and frozen."
+  },
+  {
+   "name": "Weekday before a date or time",
+   "where": "TextNormalizer: a new rule placed before the fraction rules, the clock rule and the meridiem rule",
+   "trigger": "A Title-case or ALL CAPS weekday abbreviation (optional period, optional comma), then a space and one of: a day number and a month (5 March, 12 Jan); a month and a day (Mar 5); a clock time (9:30, 9am, 9 a.m.); or a yearless D/D. The D/D needs both parts 1-31 and no third group, and must be followed by the end, punctuation, at, @, from, to, until, and, or, or a clock time. Sun is never taken right after 'the' or any capitalised word (The Sun, the Toronto Sun). Mon, Wed, Thu and Sat are not taken right after 'the' or a capitalised word in mid-sentence (Nguyen Thu). ALL CAPS SAT and SUN only count inside a range or list (SAT is also the exam).",
+   "reads_as": "The full weekday name. After a weekday, a yearless D/D becomes a date with the order logic of the numeric-date rule: US Tue 3/5 reads Tuesday, March 5th; GB reads Tuesday, the 3rd of May.",
+   "risks": "Sat 3 exams in May is left alone, since no month follows the number. Early closing Wed 1/2 day is left alone, since a noun follows the fraction (frozen). Everywhere else a yearless D/D stays a fraction or a number, as decided."
+  },
+  {
+   "name": "Weekday before an ordinal day",
+   "where": "TextNormalizer: next to the weekday-before-a-date rule",
+   "trigger": "A weekday name or abbreviation (as the rule above accepts it), a space, then an ordinal 1st-31st. It must be followed by the end, punctuation, a month name, 'at', or a lower-case function word from the day-first list.",
+   "reads_as": "Insert 'the': Fri 13th reads Friday the 13th; Monday 5th at noon reads Monday the 5th at noon.",
+   "risks": "An ordinal before a noun is left alone (The Friday 2nd shift starts late, frozen)."
+  },
+  {
+   "name": "Weekday abbreviations that are never words",
+   "where": "TextNormalizer: a new rule",
+   "trigger": "Tues, Thurs or Fri in Title case, or tues or thurs in lower case (chat), with an optional period, as a whole word, not followed by a letter, a digit or a hyphen and a letter. Not ALL CAPS on its own: FRI is also an acronym, and shouted signs are covered by the range and list rules. Thur is left out of this rule (the river Thur); it reads only through the range, list and after-a-time-word rules.",
+   "reads_as": "Tuesday, Thursday, Friday. If the abbreviation's period is also the full stop (the end of the text, or a capitalised next word that isn't a weekday, month or time word), keep a period after the word, as the 'St.' handling does.",
+   "risks": "Very low. Today Tues reads 'tooz' and Fri reads 'free'. Frozen: The FRI score was high; We hiked along the Thur."
+  },
+  {
+   "name": "Ambiguous weekday abbreviations after a time word",
+   "where": "TextNormalizer: a new rule",
+   "trigger": "Mon, Tue, Wed, Weds, Thu, Thur, Sat or Sun (Title case, optional period), right after one of: on, by, until, till, til, from, every, next, last, this, before, after, since, each. One space between them and no punctuation. Sun takes only on, every, next, last, this, until, till, each. What follows must be the end of the text, punctuation, or one of: at, morning, afternoon, evening, night, and, or, to, through, a number or a clock time. Never when a hyphen or a capitalised word follows.",
+   "reads_as": "on Wed reads on Wednesday; every Sun reads every Sunday; next Thu reads next Thursday.",
+   "risks": "Elsewhere these are words or names: Sat and Wed (verbs), Sun (the star, a newspaper, a company), Thu (a Vietnamese name), Mon (a people, Mon Dieu). The follower test keeps out a name before a verb (After Thu spoke, Lan read the minutes) and a compound (this Sun-like star), both frozen. Misses (on Wed we decided) are accepted."
+  },
+  {
+   "name": "Relative timestamps with 'ago'",
+   "where": "TextNormalizer: a new rule placed before the units rule (see risks about the lexicon)",
+   "trigger": "A whole number not preceded by a letter, a digit, . , or a currency sign, an optional space, then s, m, h, d, w, wk, wks, mo, mos or y (lower case only), then a space and 'ago'.",
+   "reads_as": "N second(s), minute(s), hour(s), day(s), week(s), month(s) or year(s) ago, singular for 1. 5m ago reads five minutes ago; 1w ago reads one week ago.",
+   "risks": "Without 'ago', nothing is touched: 5m means metres or millions, 3d is 3D, 2d an array, 2H a pencil grade, 21h hex and 10s a decade (all frozen or guarded). The money rule already takes '$5m ago'. If the units work makes 'm' a custom-lexicon unit entry (as mm is), the lexicon will mark 5m before this rule runs. Then either make this rule a pre-lexicon pass in Phonemizer, or skip unit entries followed by ' ago'. Feed stamps without 'ago' (· 5m) stay as they are."
+  },
+  {
+   "name": "Time units missing from the units table",
+   "where": "TextNormalizer.units",
+   "trigger": "Add wk/wks (week/weeks), mo/mos (month/months) and mth/mths (month/months) to the after-a-number units table. (yr and yrs already landed with fix3/reading.)",
+   "reads_as": "6 mos reads six months (today 'moes'); 3 wks reads three weeks (today spelled out).",
+   "risks": "The money per-unit rule already takes '/mo' after an amount, earlier in the list. Adjectival use (a 6 mo lease) gets the plural, the same known limitation as other units."
+  },
+  {
+   "name": "Compound durations",
+   "where": "TextNormalizer: a new rule placed before the units rule and the 'range with a unit on both numbers' rule",
+   "trigger": "Two or three number-and-unit parts with units from d, h (or hr/hrs), m (or min/mins) and s (or sec/secs), lower case only. They must be in strictly falling order (d, h, m, s), glued or one space apart, with at least one single-letter unit. Every part after the first is under 60 (hours under 24 after days). When the first part is m and s follows directly, the m part must also be under 60. Not preceded by a letter, a digit, . , or :, and not followed by a letter or digit.",
+   "reads_as": "1h 30m reads 1 hour 30 minutes; 2h30m reads 2 hours 30 minutes; 1h 30m 15s reads 1 hour 30 minutes 15 seconds; 2d 4h reads 2 days 4 hours. No 'and', as specified.",
+   "risks": "A lone 2h or 30m is never read here. Lower case keeps out pencil grades (4H and 2B, frozen). The under-60 rule for m keeps out a sprint written 100m 10s. The order and value limits keep out codes and coordinates."
+  },
+  {
+   "name": "Hours:minutes:seconds",
+   "where": "TextNormalizer: a new rule placed before the clock-time and ratio rules",
+   "trigger": "H:MM:SS with hours 0-23 (one or two digits) and minutes and seconds exactly two digits, 00-59. Not preceded by a digit, :, . or ,. Not followed by a digit, by :, by . or , plus a digit (subtitle files), or by a letter (40:26:46N).",
+   "reads_as": "It is a clock time when the word before is 'at' or '@', a date comes right before it, am/pm or a time-zone word follows, the hour is 13 or more, or it opens a line or sits in square brackets (a log stamp, [09:15:02]). A clock time reads HH:MM as the clock rule does, plus 'and N seconds' unless the seconds are 00: at 06:30:00 reads six thirty; at 14:32:07 reads fourteen thirty-two and seven seconds. Otherwise it is a duration: 'N hours N minutes N seconds', with zero parts dropped (1:00:00 reads one hour; 00:01:30 reads one minute thirty seconds) and plurals by value.",
+   "risks": "Ratios (1:2:4), four-group timecodes (01:02:03:04) and coordinates (51:30:26 N, hours over 23) are left alone (all frozen). A morning log stamp that is neither in brackets nor at the start of a line still reads as a duration."
+  },
+  {
+   "name": "Century abbreviations",
+   "where": "TextNormalizer: a new rule",
+   "trigger": "An ordinal 1st to 21st (digits plus st/nd/rd/th), an optional space or hyphen, then 'c.' or 'cent.' as a whole word. A capital 'C.' counts only with its period and only when 'the' comes right before the ordinal (the 17th C.).",
+   "reads_as": "18th c. reads 18th century; 18th-c. reads 18th-century. If the period is also the full stop (the end of the text, or a capitalised next word), keep one: 'century.'.",
+   "risks": "'5th C' is a school class section in Indian English (frozen: My son is in 5th C this year). 'c. 1850' (circa) is not touched (frozen); that belongs to the academic pack."
+  },
+  {
+   "name": "Quarter or half followed by an apostrophe year",
+   "where": "Phonemizer.phonemize: a pre-lexicon pass next to linkLabels and foldMicroSign, because the custom lexicon marks Q1-Q4, H1, H2 and FY before TextNormalizer runs",
+   "trigger": "Q1-Q4, H1, H2 or FY, not preceded by a letter or digit, followed directly by an apostrophe (straight or curly) and two digits, with no letter, digit or apostrophe after them.",
+   "reads_as": "Insert a space: Q3'24 becomes Q3 '24, which already reads Q three twenty-four (as Q4 '23 does today). A '05 then gets the short-year rule (oh five).",
+   "risks": "None. Today the marked Q3 and '24 run together as one word. A possessive (Q3's) is left alone (frozen)."
+  },
+  {
+   "name": "Time ranges with am/pm",
+   "where": "TextNormalizer: a new rule placed before the clock-time and '5pm' rules (this may belong to whoever owns clock times)",
+   "trigger": "H or H:MM with optional am/pm, then - or – (optional spaces), then H or H:MM with am/pm. Hours 1-12.",
+   "reads_as": "9am–5pm reads 9 AM to 5 PM; 10-4pm reads 10 to 4 PM. Today the dash is a pause and there is no 'to'.",
+   "risks": "Low. Its one speech case (Open Mon–Sat, 10am–6pm.) spells AM and PM as 'ay em' and 'pee em', as the seed file does. It only passes once the harness joins spelled letter names (see review notes)."
+  },
+  {
+   "name": "British 'and' in years 2001-2009",
+   "where": "Lexicon.getNumber: the four-digit year branch (NumberWords.year), British voice only",
+   "trigger": "A four-digit year 2001-2009 read by the GB voice.",
+   "reads_as": "two thousand and five (US stays two thousand five).",
+   "risks": "This overlaps the numbers area: GB cardinals have no 'and' at all today (205 reads two hundred five). Agree it with that area before landing (open question)."
+  }
+ ],
+ "open_questions": [
+  "British voice: should a date written month first (March 5, Jan 5, 2024) read 'March the fifth', and an ISO date read 'the fifteenth of March'? Recommend yes. Oxford Learner's Dictionaries labels 'March the fifth' and 'the fifth of March' as British and 'March fifth' as North American. The British expected readings assume yes. They also assume that a date used before a noun keeps no 'the' (the March fifteenth deadline).",
+  "Which signal decides the order of an ambiguous numeric date such as 3/4/2024? Recommend the voice: US reads month first, GB reads day first. It is simple, predictable and easy to test, and a per-user date-order setting could override it later. Know the cost first. The British voice will read a US-written 9/11/2001 as 'the ninth of November'. Dotted dates (3.4.2024) are a day-first convention everywhere they are used, yet the US voice will read them month first, as the brief specifies.",
+  "Two-digit years: read them as written (3/4/24 reads March fourth, twenty-four; 05 reads oh five)? Recommend yes, because picking a century is a guess. The review also narrowed when a two-digit year counts as a date: only with a leading zero (03/04/24) or a date word just before it (on, dated, expires…). Otherwise sizes 8/10/12, '2/4/12 months' and '10/20/30' would read as dates. Confirm that narrowing.",
+  "Hours:minutes:seconds such as 'Her time was 2:03:59': unit words ('two hours three minutes fifty-nine seconds') or clock style ('two oh three fifty-nine')? Recommend unit words with zero parts dropped. Use clock style after 'at', when the hour is 13 or more, and for bracketed log stamps. For a clock time with seconds ('at 14:32:07'), recommend 'fourteen thirty-two and seven seconds', the BT speaking-clock form.",
+  "'1h ago': 'one hour ago' or 'an hour ago'? Recommend 'one hour ago'. It follows the text and matches how every other number reads.",
+  "Feed and spec stamps without 'ago' ('Jane · 5m', 'Battery: 18h'): should they read as minutes and hours? Recommend leaving them alone, because 5m also means metres and millions, and 21h can be hex.",
+  "American voice: should 'Mon–Fri' read 'Monday to Friday' or 'Monday through Friday'? Recommend 'to' for both voices, as in the brief.",
+  "British years 2001-2009 with 'and' ('two thousand and five'), and British numbers with 'and' in general ('two hundred and five')? Recommend yes for years in this area, and ask the numbers owner to decide British cardinals as a whole.",
+  "The existing 'Jan 5' rule has false positives that this set now tests: 'In March 2 people left' (today 'March second people'), 'They lost in May 3-1' ('May third to one') and 'May 2 of us join?' ('May second of us'). Approve tightening an existing rule? Recommend yes; the tightening is narrow (after 'in', before 'of us', before a score).",
+  "Month-year forms with no day ('Expires 12/2025', a card's 'Exp 08/27'): 'December twenty twenty-five', or leave them as numbers? Recommend leaving them to a later pass. 'Twelve twenty twenty-five' is just as natural, and the two-part slash collides with fractions and scores."
+ ],
+ "review_notes": [
+  "Wrong expectation fixed: 'The attacks of 9/11/2001…' had says_gb 'the eleventh of September'. The stated rule (both numbers 12 or under, so the voice decides) gives the British voice 'the ninth of November'. The case is now US-only, and the cost is recorded in the order open question.",
+  "Wrong expectation fixed: 'Sat, Mar 5 works for me' expected British 'March the fifth', but the GB 'the' rule as written needed a function word to follow, and 'works' isn't one. The rule now also inserts 'the' after a weekday. It also gained an attributive guard, because as written it would have produced 'the March the fifteenth deadline'. A new speech case pins that guard: 'Meet the March 15 deadline.' reads 'March fifteenth' in both voices.",
+  "Tightened rules, each with new frozen near-misses (29 new frozen cases in total). Two-digit-year dates now need a leading zero or a date word, because sizes 8/10/12, ages '2/4/12 months', '10/20/30' and '5/10/15 minutes' would have become dates. Dotted dates now need a year from 1900 and no version word before them (Firmware 2.1.1024). Day-first dates now skip numeral nouns (Track 4 March to the Scaffold). Weekday ranges joined by 'to' and weekday lists no longer accept lower case ('sat to sun itself'; 'sat, sun on his face'). Weekday plus D/D now needs a time-like follower (Early closing Wed 1/2 day). Sun is skipped after a capitalised word (Toronto Sun). The never-a-word list dropped Thur (the river) and ALL CAPS on their own (FRI as an acronym). Weekdays after a time word now need a time-like follower and no hyphen (After Thu spoke…; this Sun-like star). Month ranges skip the May-December idiom. H:MM:SS now needs hours 0-23 and two-digit minutes and seconds (1:2:4; 51:30:26 N; four-group timecodes). Century 'C.' needs 'the' first (5th C as a school section). Compound durations are lower case only (4H and 2B pencils). The Q'YY split needs two digits (Q3's).",
+  "New findings in existing behaviour. The existing 'Jan 5' rule rewrites counts and scores: 'In March 2 people left' reads 'March second people', 'They lost in May 3-1' reads 'May third to one', and 'May 2 of us join?' reads 'May second of us'. I added these as speech cases with a narrow tightening rule. 'I owe Jan 5 dollars' (Jan as a name) is noted but not tested. The existing 'Feb.' rule swallows a sentence-final full stop ('…is 24 Dec.' has no final period in the output), so the sentence loses its final fall. The harness can't see this because loose() drops punctuation; it's written into the day-first rule.",
+  "New positive cases from realistic text: British and US quoted-email headers ('On Mon, 4 Mar 2024 at 10:15, Jane Doe wrote:'), a receipt line with a 24-hour time, a date-of-birth field, a British formal date with a full weekday, 'Effective 1 Jan 2025', a news byline mixing a day-first date with '3h ago', 'Posted Thu 14 Mar 2024', 'Term starts Mon 2 Sept.', 'Open Tues–Sun', shop hours with am/pm, chat 'See you thurs!', 'Every Thurs at 7', 'See you Fri 13th' (new small rule: weekday before an ordinal takes 'the'), 'Paid on 3/4/24', 'Runtime: 1:45:00', 'Bake for 1h 5m', 'From the Toronto Sun, 9 March 2024', plus regression guards that already pass ('March 1st, 2024', 'the 1st of May', '1800s', Q4 '23).",
+  "Removed frozen cases. 'Plan A starts at 9.' pins another area's reading of 'A' (a schwa today) and isn't a date near-miss. 'Monday was busy.', 'In 1999 we left.', 'Meet at 6:00.', 'At 10:05 we left.', 'COVID-19 cases rose.', 'Ages 18–25 apply.', 'They won 3-1 at home.' and 'About 1/3 of us came.' were duplicates or not near-misses for any rule here. A few kept frozen cases pin readings other areas might change later ('Latitude 51:30:26 N', 'Cut at 01:02:03:04', 'Early closing Wed 1/2 day'); their notes say to refreeze if those areas land.",
+  "Verification. Every says and says_gb line was phonemized in both voices: none came back unknown and none were misread ('queue' gives the same phonemes as Q; Thursday, Wednesday, eighteenth century, oh five and nineteen eighty-seven are fine). Frozen texts were phonemized as well. On a scratch copy with number hyphens turned into spaces, the harness passes 30 voice-checks for behaviour that exists today: US ISO, Jan 5, March 1st, March 5th, Sept. 12, the March 15 deadline, the 1st of May, 5 mins, 1 hr, 1hr 30min, 90 min, '05, '90s, 1990s, 1800s, Q4 '23, US 2005 and £5m. Every other check fails only because its rule doesn't exist yet. Scratch files: /private/tmp/claude-501/-Users-claremccormack-Sites-readaloud--claude-worktrees-app-monetization-payments-2fe731/d937b965-6e6d-417c-ba43-5dde5061f672/scratchpad/dates-review/set.json (as delivered) and spaced.json (hyphens as spaces). No repo files were edited.",
+  "Harness blocker, confirmed again. SpeechTest keeps word spaces, and a hyphenated number word in says is read as one word: 'twenty-four' gives twˈɛntifˌɔɹ while 24 gives twˈɛnti fˈɔɹ, and British 'ninety-nine' gives nˌIntɪnˈIn against nˈInti nˈIn. Any case with a tens-and-units word in says, including the seed's 'It costs four ninety-nine.', can't pass until this is fixed. Letter names have the same problem: 'ay em' and 'pee em' give two words, but AM gives one (ˌAˈɛm). That is why the seed's own 'I ate M&Ms at 5 pm.' fails. Suggested fix in Sources/ReadAloud/SpeechTest.swift, applied to says and says_gb before phonemizing: turn a hyphen between a tens word and a units or ordinal word into a space, and join a run of two or more spelled letter names (ay, bee, see, …, em, pee) into capital letters. The cases keep hyphens and spelled letters, as the format asks.",
+  "Size. There are 106 speech cases and 76 frozen cases, above the 40-80 and 30-60 targets. The extra cases are cheap regression guards and the new near-misses. If the parent needs to trim, drop the pure regression guards first (1800s, Q4 '23, '90s, the 1st of May).",
+  "Linear: no update needed from this subagent; the parent owns FIN-889 syncing."
+ ]
+}

@@ -1,0 +1,849 @@
+{
+ "area": "titles",
+ "speech_cases": [
+  {
+   "text": "Lt. Sarah Kim led the patrol.",
+   "says": "Lieutenant Sarah Kim led the patrol.",
+   "note": "Today read 'limit'. The British voice says 'lef-TEN-ant' from its own dictionary (checked with --gb), so no says_gb is needed."
+  },
+  {
+   "text": "The report (by Lt. Sarah Kim) was late.",
+   "says": "The report (by Lieutenant Sarah Kim) was late.",
+   "note": "Inside brackets."
+  },
+  {
+   "text": "Dear Lt. Col. Ramirez,",
+   "says": "Dear Lieutenant Colonel Ramirez,",
+   "note": "Email greeting with two titles in a row. 'Lt.' counts 'Col.' as a title after it. Replaces the Vindman case, because the stack misreads 'Vindman' (vIndmən)."
+  },
+  {
+   "text": "Lt. Cmdr. Data reported to the bridge.",
+   "says": "Lieutenant Commander Data reported to the bridge.",
+   "note": "Today 'Cmdr.' is spelled out letter by letter."
+  },
+  {
+   "text": "Lts. Kim and Park were decorated.",
+   "says": "Lieutenants Kim and Park were decorated.",
+   "note": "Plural title. Today the tech lexicon's case-insensitive LTS entry spells it 'L T S' (T0, T13). Apple's sentence splitter also breaks after 'Lts.' (T12)."
+  },
+  {
+   "text": "1st Lt. Jones led the platoon.",
+   "says": "First Lieutenant Jones led the platoon.",
+   "note": "An ordinal before the title. T1's number guard looks for a digit and a space, so '1st ' doesn't block it."
+  },
+  {
+   "text": "Lt. Olive Harper led the unit.",
+   "says": "Lieutenant Olive Harper led the unit.",
+   "note": "A near miss for the colour rule T9. 'Olive' is a first name here, because a surname follows it."
+  },
+  {
+   "text": "The Lt. Gov. cast the deciding vote.",
+   "says": "The Lieutenant Governor cast the deciding vote.",
+   "note": "The pair with no name after it (T8). Today 'limit guv'."
+  },
+  {
+   "text": "Sgt. Maria Lopez was promoted.",
+   "says": "Sergeant Maria Lopez was promoted.",
+   "note": "Today spelled 'S G T'."
+  },
+  {
+   "text": "Sgt. 1st Class Dana Reed retired.",
+   "says": "Sergeant First Class Dana Reed retired.",
+   "note": "AP style. An ordinal followed by 'Class' takes the place of the name."
+  },
+  {
+   "text": "Sgt. Maj. of the Army Michael Weimer spoke.",
+   "says": "Sergeant Major of the Army Michael Weimer spoke.",
+   "note": "AP style for the Army's top enlisted soldier. 'Maj.' is followed by 'of', not a name, so 'Sgt. Maj.' has to work as a pair (T8). Today 'S G T madge'."
+  },
+  {
+   "text": "Sgt. Pepper's Lonely Hearts Club Band is a classic.",
+   "says": "Sergeant Pepper's Lonely Hearts Club Band is a classic.",
+   "note": "A possessive name after the title."
+  },
+  {
+   "text": "Sgts. Lee and Ortiz were cited.",
+   "says": "Sergeants Lee and Ortiz were cited.",
+   "note": "Plural title, as AP writes it before two names. Apple's sentence splitter breaks after 'Sgts.' (T12)."
+  },
+  {
+   "text": "She was promoted to Sgt. last year.",
+   "says": "She was promoted to Sergeant last year.",
+   "note": "A rank with no name after it (T11). Depends on the open question about such ranks."
+  },
+  {
+   "text": "Capt. J. T. Kirk signed the log.",
+   "says": "Captain Jay Tee Kirk signed the log.",
+   "note": "Initials after a title count as a name. 'Jay Tee' gives the same phonemes as the letters J. T. (checked)."
+  },
+  {
+   "text": "“Capt. Holt,” she said, “sit down.”",
+   "says": "“Captain Holt,” she said, “sit down.”",
+   "note": "Curly quotes, with the name before a comma."
+  },
+  {
+   "text": "Ask the Capt. about it.",
+   "says": "Ask the Captain about it.",
+   "note": "A rank with no name after it (T11). Depends on the open question about such ranks."
+  },
+  {
+   "text": "Col. Ann Wright (Ret.) spoke at the rally.",
+   "says": "Colonel Ann Wright (retired) spoke at the rally.",
+   "note": "'(Ret.)' after a name means 'retired' (T10)."
+  },
+  {
+   "text": "Cpl. Jones checked the radio.",
+   "says": "Corporal Jones checked the radio.",
+   "note": "Today the tech lexicon's case-insensitive CPL entry marks 'Cpl' as 'C P L' before the normalizer runs."
+  },
+  {
+   "text": "Pfc. Tom Baker stood guard.",
+   "says": "Private First Class Tom Baker stood guard.",
+   "note": "How a newsreader reads AP copy. See the open question."
+  },
+  {
+   "text": "Maj. Margaret Houlihan objected.",
+   "says": "Major Margaret Houlihan objected."
+  },
+  {
+   "text": "Senate Maj. Leader John Thune spoke.",
+   "says": "Senate Majority Leader John Thune spoke.",
+   "note": "'Maj.' before 'Leader' or 'Whip' means Majority, not Major (T8). Name updated: Thune, not Schumer, has led the Senate majority since January 2025."
+  },
+  {
+   "text": "Brig. Gen. Chuck Yeager broke the sound barrier.",
+   "says": "Brigadier General Chuck Yeager broke the sound barrier."
+  },
+  {
+   "text": "Rear Adm. Grace Hopper wrote the first compiler.",
+   "says": "Rear Admiral Grace Hopper wrote the first compiler.",
+   "note": "Today spelled 'A D M'."
+  },
+  {
+   "text": "Ens. Harry Kim reported for duty.",
+   "says": "Ensign Harry Kim reported for duty.",
+   "note": "Today the tech lexicon's case-insensitive ENS entry spells it 'E N S'."
+  },
+  {
+   "text": "Det. Olivia Benson took the call.",
+   "says": "Detective Olivia Benson took the call.",
+   "note": "Today read 'dit'."
+  },
+  {
+   "text": "Det. Chief Insp. Tom Barnaby frowned.",
+   "says": "Detective Chief Inspector Tom Barnaby frowned.",
+   "note": "A three-part chain with a plain word in the middle. 'Det.' sees 'Chief' as the capitalised word after it."
+  },
+  {
+   "text": "Insp. Morse drank real ale.",
+   "says": "Inspector Morse drank real ale."
+  },
+  {
+   "text": "Supt. Ted Hastings frowned.",
+   "says": "Superintendent Ted Hastings frowned."
+  },
+  {
+   "text": "Ofc. Daniel Ortiz wrote the ticket.",
+   "says": "Officer Daniel Ortiz wrote the ticket.",
+   "note": "Today spelled 'O F C'."
+  },
+  {
+   "text": "Lt Col Simon Hart gave evidence.",
+   "says": "Lieutenant Colonel Simon Hart gave evidence.",
+   "note": "UK newsroom style uses no full stops. Today 'limit coll'."
+  },
+  {
+   "text": "Cpl Lee and Pte Shaw were injured.",
+   "says": "Corporal Lee and Private Shaw were injured.",
+   "note": "Pte is the British Army's Private. Today spelled 'C P L' and 'P T E'."
+  },
+  {
+   "text": "Col Tim Collins gave the speech.",
+   "says": "Colonel Tim Collins gave the speech.",
+   "note": "'Col' without a full stop expands only before a first name and a surname (T4c). A mountain pass is 'Col du …' or one word ('Col Agnel')."
+  },
+  {
+   "text": "Det Insp Jane Tennison arrived.",
+   "says": "Detective Inspector Jane Tennison arrived.",
+   "note": "UK police style, no full stops. BBC copy uses 'Det Insp' and 'Ch Supt'."
+  },
+  {
+   "text": "Ch Supt Rob Lane gave a statement.",
+   "says": "Chief Superintendent Rob Lane gave a statement.",
+   "note": "'Ch' means Chief only before a police rank."
+  },
+  {
+   "text": "Flt Lt Ana Cole flew the jet.",
+   "says": "Flight Lieutenant Ana Cole flew the jet.",
+   "note": "RAF rank, as a pair (T4b)."
+  },
+  {
+   "text": "Cllr Jane Smith voted against it.",
+   "says": "Councillor Jane Smith voted against it.",
+   "note": "UK local news. Today read 'klr' (US) or 'kl' (GB)."
+  },
+  {
+   "text": "The Revd Richard Coles preached.",
+   "says": "The Reverend Richard Coles preached.",
+   "note": "Church of England style."
+  },
+  {
+   "text": "The Rt Hon Rachel Reeves spoke in the Commons.",
+   "says": "The Right Honourable Rachel Reeves spoke in the Commons.",
+   "note": "Today the British voice reduces 'Rt' to a bare 't'."
+  },
+  {
+   "text": "Fr Michael Kelly said Mass.",
+   "says": "Father Michael Kelly said Mass.",
+   "note": "Today the British voice reads 'Fr' as a bare 'f'. See the calendar near miss in frozen_cases."
+  },
+  {
+   "text": "Prof Brian Cox explained it.",
+   "says": "Professor Brian Cox explained it.",
+   "note": "UK style. Today read 'prof'."
+  },
+  {
+   "text": "Fr. Brown solved the case.",
+   "says": "Father Brown solved the case."
+  },
+  {
+   "text": "Fr. Pádraig Kelly said Mass.",
+   "says": "Father Pádraig Kelly said Mass.",
+   "note": "The name is a lexicon term (irish-names), so the title rule must be able to see it (T0)."
+  },
+  {
+   "text": "Msgr. James Kelly gave the homily.",
+   "says": "Monsignor James Kelly gave the homily.",
+   "note": "Passes today, but only through the fallback model. Kept to catch regressions once an explicit rule replaces it."
+  },
+  {
+   "text": "Sr. Mary Joseph taught us Latin.",
+   "says": "Sister Mary Joseph taught us Latin.",
+   "note": "Sister, because a female given name follows (T5c)."
+  },
+  {
+   "text": "Sr. Siobhán Kelly runs the school.",
+   "says": "Sister Siobhán Kelly runs the school.",
+   "note": "The first name is a lexicon term (T0), and T5c's given-name list must include common Irish names."
+  },
+  {
+   "text": "Dear Sr. Helen, thank you for the flowers.",
+   "says": "Dear Sister Helen, thank you for the flowers.",
+   "note": "A letter to a nun. A single given name before a comma. T5c accepts it because 'Helen' is on the female given-name list."
+  },
+  {
+   "text": "Br. Thomas rang the bell.",
+   "says": "Brother Thomas rang the bell.",
+   "note": "Today read 'br' (US) or a bare 'b' (GB)."
+  },
+  {
+   "text": "The Rev. Jesse Jackson spoke.",
+   "says": "The Reverend Jesse Jackson spoke.",
+   "note": "Already works. Kept to catch regressions."
+  },
+  {
+   "text": "The Rt. Rev. Anne Hollis preached.",
+   "says": "The Right Reverend Anne Hollis preached.",
+   "note": "Anglican and Episcopal style for a bishop. The name is invented, because the stack misreads 'Budde' (bʌd, not BUD-ee). Today 'Rt.' reads 'rt' (US) or a bare 't' (GB). Apple's sentence splitter also breaks after 'Rt.' (T12)."
+  },
+  {
+   "text": "The Rev. Dr. Martin Luther King Jr. preached.",
+   "says": "The Reverend Doctor Martin Luther King Junior preached.",
+   "note": "The title before 'Dr.' must still expand under the tightened T1. Passes in the US voice. Fails in the British voice on 'Jr.' (ʤˈuːnjə, against the dictionary's 'Junior', ʤˈuːnɪə)."
+  },
+  {
+   "text": "Sen. Niamh Smyth spoke in the Seanad.",
+   "says": "Senator Niamh Smyth spoke in the Seanad.",
+   "note": "Existing title bug: today it stays 'sen', because the lexicon has already marked 'Niamh' and the title rule's lookahead can't see it (T0)."
+  },
+  {
+   "text": "Sens. Elizabeth Warren and Bernie Sanders objected.",
+   "says": "Senators Elizabeth Warren and Bernie Sanders objected.",
+   "note": "Plural of a title Core already has. Today read 'sens'."
+  },
+  {
+   "text": "Gov.-elect Abigail Spanberger named her cabinet.",
+   "says": "Governor-elect Abigail Spanberger named her cabinet.",
+   "note": "AP style for the winner before taking office. Today 'guv-elect' (T8)."
+  },
+  {
+   "text": "The Gov. Shutdown ended Friday.",
+   "says": "The Government Shutdown ended Friday.",
+   "note": "An existing false positive: today 'Governor Shutdown'. 'Gov.' before a noun from a short government-noun list reads Government (T14)."
+  },
+  {
+   "text": "The Hon. Jane Doe presided.",
+   "says": "The Honorable Jane Doe presided.",
+   "note": "'Honorable' and 'Honourable' have the same phonemes in both voices."
+  },
+  {
+   "text": "Hon. mention went to Lee.",
+   "says": "Honorable mention went to Lee.",
+   "note": "Moved from frozen_cases. A fixed phrase that every reader expands. Today read 'hun' (T14)."
+  },
+  {
+   "text": "She holds an Hon. Doctorate from Leeds.",
+   "says": "She holds an Honorary Doctorate from Leeds.",
+   "note": "Before an award or post, 'Hon.' means Honorary, not Honourable (T14). Under T2 as first written, this read 'Honorable Doctorate'."
+  },
+  {
+   "text": "Contact the Hon. Sec. for tickets.",
+   "says": "Contact the Honorary Secretary for tickets.",
+   "note": "A UK club officer. The pair expands even though no name follows (T8)."
+  },
+  {
+   "text": "Pres. Lincoln signed it.",
+   "says": "President Lincoln signed it."
+  },
+  {
+   "text": "Amb. Caroline Kennedy arrived in Canberra.",
+   "says": "Ambassador Caroline Kennedy arrived in Canberra."
+  },
+  {
+   "text": "Atty. Gen. Merrick Garland testified.",
+   "says": "Attorney General Merrick Garland testified."
+  },
+  {
+   "text": "She asked for atty. fees and costs.",
+   "says": "She asked for attorney fees and costs.",
+   "note": "'Atty.' has no other meaning, so it expands anywhere, even in lowercase (T14)."
+  },
+  {
+   "text": "Sec. Antony Blinken flew to Paris.",
+   "says": "Secretary Antony Blinken flew to Paris."
+  },
+  {
+   "text": "Treas. Sec. Janet Yellen spoke.",
+   "says": "Treasury Secretary Janet Yellen spoke.",
+   "note": "'Treas.' before 'Sec.' means Treasury (T8)."
+  },
+  {
+   "text": "Assoc. Prof. Laura Chen teaches physics.",
+   "says": "Associate Professor Laura Chen teaches physics.",
+   "note": "The name changed from 'Mei Lin', because the stack reads 'Mei' as 'my'."
+  },
+  {
+   "text": "Asst. Prof. Omar Haddad published it.",
+   "says": "Assistant Professor Omar Haddad published it."
+  },
+  {
+   "text": "Mx. Taylor replied first.",
+   "says": "Mix Taylor replied first.",
+   "note": "Today read 'mex'. 'Mix' comes first in Merriam-Webster and in surveys of people who use the title."
+  },
+  {
+   "text": "Mx Rivera chairs the panel.",
+   "says": "Mix Rivera chairs the panel.",
+   "note": "Without a full stop (T4a)."
+  },
+  {
+   "text": "Ms. Patel will see you now.",
+   "says": "Miz Patel will see you now.",
+   "note": "Already works. Kept to catch regressions."
+  },
+  {
+   "text": "Mme. Curie won two Nobel prizes.",
+   "says": "Madame Curie won two Nobel prizes.",
+   "note": "Today the vowel is wrong (mədˈæm), followed by a full-stop pause."
+  },
+  {
+   "text": "Mlle. Dupont sang beautifully.",
+   "says": "Mademoiselle Dupont sang beautifully.",
+   "note": "Today read 'muhl'."
+  },
+  {
+   "text": "Sammy Davis Jr was there.",
+   "says": "Sammy Davis Junior was there.",
+   "note": "Without a period. Passes in the US voice. Fails in the British voice: ʤˈuːnjə against the dictionary's 'Junior', ʤˈuːnɪə."
+  },
+  {
+   "text": "John Smith Sr. retired in May.",
+   "says": "John Smith Senior retired in May.",
+   "note": "Today spelled 'S R'."
+  },
+  {
+   "text": "Robert Downey Sr., a director, made the film.",
+   "says": "Robert Downey Senior, a director, made the film."
+  },
+  {
+   "text": "His father was Ken Griffey Sr.",
+   "says": "His father was Ken Griffey Senior.",
+   "note": "At the end of a sentence, the period stays as the full stop."
+  },
+  {
+   "text": "Jane Doe, Esq., signed the letter.",
+   "says": "Jane Doe, Esquire, signed the letter.",
+   "note": "Today read 'esk-you'."
+  },
+  {
+   "text": "Address it to John Roe Esq.",
+   "says": "Address it to John Roe Esquire."
+  },
+  {
+   "text": "John Smith Snr opened the shop.",
+   "says": "John Smith Senior opened the shop.",
+   "note": "UK suffix. Today the tech lexicon's case-insensitive SNR entry spells it 'S N R'."
+  },
+  {
+   "text": "Tom Hale Jnr took over.",
+   "says": "Tom Hale Junior took over.",
+   "note": "Passes in the US voice. In the British voice the dictionary's own 'Jnr' (ʤˈuːnjə) differs from 'Junior' (ʤˈuːnɪə)."
+  },
+  {
+   "text": "Sr. Vice President Ana Ruiz spoke.",
+   "says": "Senior Vice President Ana Ruiz spoke.",
+   "note": "The job word decides, even though a name follows later."
+  },
+  {
+   "text": "We're hiring a Sr. Business Analyst.",
+   "says": "We're hiring a Senior Business Analyst.",
+   "note": "A job ad. 'Business' isn't a job word, but 'Analyst' after it is (T5b looks up to three capitalised words ahead). Under T5c as first written, two capitalised words made this 'Sister Business Analyst'."
+  },
+  {
+   "text": "Our Sr. Living community opens soon.",
+   "says": "Our Senior Living community opens soon.",
+   "note": "Senior before a word from the 'senior' noun list (Living, Citizens, Center, High…)."
+  },
+  {
+   "text": "She is the Sr. Pastor at Grace Church.",
+   "says": "She is the Senior Pastor at Grace Church.",
+   "note": "A church job title. 'Pastor' is on the job-word list, so the church setting doesn't make it Sister."
+  },
+  {
+   "text": "She is a Snr Lecturer at Leeds.",
+   "says": "She is a Senior Lecturer at Leeds.",
+   "note": "UK academic title. Today 'S N R' from the tech lexicon (T13)."
+  },
+  {
+   "text": "He teaches at a Sr. Sec. School in Delhi.",
+   "says": "He teaches at a Senior Secondary School in Delhi.",
+   "note": "Indian school name. Under T2 as first written, 'Sec.' before 'School' became 'Secretary' (T8 pair)."
+  },
+  {
+   "text": "She joined Infosys Pvt. Ltd. last year.",
+   "says": "She joined Infosys Private Limited last year.",
+   "voice": "gb",
+   "note": "Indian company suffix. British voice only: the US voice reads the lexicon's 'Ltd' as lˈɪmɪtɪd but 'Limited' as lˈɪməTᵻd. 'Ltd' is a lexicon term, so the title rule must run first (T0)."
+  },
+  {
+   "text": "Pvt. Parking Only",
+   "says": "Private Parking Only",
+   "note": "A sign. 'Pvt.' always means private, so it needs no name (T14). Today 'P V T'."
+  },
+  {
+   "text": "Gen. Z shoppers buy less.",
+   "says": "Jen Zee shoppers buy less.",
+   "voice": "us",
+   "note": "Today read 'General Z'. US voice only: British usage is split between 'Gen Zed' and 'Gen Zee', and today the British dictionary reads the letter Z as 'zee'. See the open question."
+  },
+  {
+   "text": "Gen. Alpha kids love tablets.",
+   "says": "Jen Alpha kids love tablets.",
+   "note": "Passes today only because the tech lexicon has marked 'alpha', so the title rule can't see it. Once T0 runs titles first, it needs T3."
+  },
+  {
+   "text": "Our Next Gen. Platform ships soon.",
+   "says": "Our Next Jen Platform ships soon.",
+   "note": "An existing false positive: today 'Next General Platform'. 'Gen.' after Next, New, Last, Latest, Current, Previous or an ordinal is a generation (T3)."
+  },
+  {
+   "text": "I bought a 3rd Gen. Echo Dot.",
+   "says": "I bought a third Jen Echo Dot.",
+   "note": "Product listing. Passes today only because the tech lexicon has marked 'Echo Dot'. Without T3's ordinal guard, T0 would turn it into 'General Echo'."
+  },
+  {
+   "text": "Rev. B of the board ships in May.",
+   "says": "rev B of the board ships in May.",
+   "note": "Today read 'Reverend B'. A single capital letter after a title isn't a name. Lowercase 'rev' gives the same phonemes and no title rule can touch it."
+  },
+  {
+   "text": "Color: Lt. Blue",
+   "says": "Color: light Blue",
+   "note": "'Lt.' before a colour that isn't a common surname or given name means 'light' (T9). If this rule isn't adopted, the case must at least not read 'Lieutenant Blue'."
+  },
+  {
+   "text": "Lt. Duty Casters, set of four.",
+   "says": "light Duty Casters, set of four.",
+   "note": "A hardware listing. T9 also covers 'Lt.' before Duty, Wash and Roast. Under T2 as first written, this read 'Lieutenant Duty'."
+  }
+ ],
+ "frozen_cases": [
+  {
+   "text": "See Col. B for the totals.",
+   "note": "A column letter, not Colonel B: a single capital letter isn't a name."
+  },
+  {
+   "text": "Gen. 2 hardware ships soon.",
+   "note": "A generation number. Read 'jen two' today."
+  },
+  {
+   "text": "Gen X grew up with MTV.",
+   "note": "A generation. Read 'jen ex'."
+  },
+  {
+   "text": "Gen Alpha is next.",
+   "note": "A generation, not General Alpha. 'Gen' without a period never expands."
+  },
+  {
+   "text": "M. Poirot smiled.",
+   "note": "French Monsieur is left as the letter, because 'M.' is far more often an initial."
+  },
+  {
+   "text": "Lights On. Lights Off. Kids Asleep.",
+   "note": "'Off.' before a capitalised word must not become Officer."
+  },
+  {
+   "text": "Rev. 3 fixed it.",
+   "note": "A revision number. Read 'rev three'."
+  },
+  {
+   "text": "First Pres. Church holds a fair.",
+   "note": "Presbyterian. Members say 'First Pres'. Must not become 'President Church'."
+  },
+  {
+   "text": "See Br. J. Surg. for details.",
+   "note": "A journal citation (British Journal of Surgery), not Brother. Today's reading is poor ('br', or a bare 'b' in GB). Re-freeze if a letters rule improves it."
+  },
+  {
+   "text": "The Fr. version is shorter.",
+   "note": "French. A lowercase word follows, so no title rule applies. Today's reading is poor ('fr')."
+  },
+  {
+   "text": "Det. limits were low.",
+   "note": "A lowercase word follows."
+  },
+  {
+   "text": "The Pres. Day sale ends Monday.",
+   "note": "Presidents' Day, not 'President Day'."
+  },
+  {
+   "text": "Note the Insp. Date on the form.",
+   "note": "Inspection date, not 'Inspector Date'. Re-freeze if the open question on non-title meanings is adopted."
+  },
+  {
+   "text": "Side of Fr. Fries, please.",
+   "note": "French fries, not 'Father Fries'. Today's reading is poor ('fr fries'). Re-freeze if 'French' is adopted (open question)."
+  },
+  {
+   "text": "Mrs. Lee and Ms. Park agreed."
+  },
+  {
+   "text": "Mr Smith and Mrs Smith met Dr Jones.",
+   "note": "UK style without full stops already reads well."
+  },
+  {
+   "text": "Prof. Smith left early.",
+   "note": "A title Core already has."
+  },
+  {
+   "text": "Jane Doe, Ph.D., wrote it.",
+   "note": "Degree letters with periods."
+  },
+  {
+   "text": "John Smith, MD, agreed.",
+   "note": "Degree letters."
+  },
+  {
+   "text": "Our CPL fell this month.",
+   "note": "The tech term in capitals must still be spelled out after the CPL entry becomes case-sensitive."
+  },
+  {
+   "text": "ENS names are cheap.",
+   "note": "The tech term in capitals must still be spelled out after the ENS entry becomes case-sensitive."
+  },
+  {
+   "text": "The SNR was poor.",
+   "note": "The tech term in capitals must still be spelled out after the SNR entry becomes case-sensitive."
+  },
+  {
+   "text": "The SEC fined the bank.",
+   "note": "All capitals. This isn't the Sec. title."
+  },
+  {
+   "text": "I met Amartya Sen. He was kind.",
+   "note": "Existing behaviour: a surname that ends the sentence."
+  },
+  {
+   "text": "The Gov. Yesterday he resigned.",
+   "note": "Existing behaviour: a title before a usual sentence opener stays."
+  },
+  {
+   "text": "Ms. Pac-Man is a classic."
+  },
+  {
+   "text": "The Col du Galibier is steep.",
+   "note": "A mountain pass. 'Col' without a full stop stays."
+  },
+  {
+   "text": "The US Brig Niagara sailed into Erie.",
+   "note": "A brig is a ship. 'Brig' without a full stop is never expanded."
+  },
+  {
+   "text": "Hon Hai makes iPhones.",
+   "note": "A company name and a lexicon term. 'Hon' without a full stop is never expanded."
+  },
+  {
+   "text": "Messrs. Smith and Jones agreed.",
+   "note": "Read 'messers', as English speakers say it. Leave as is."
+  },
+  {
+   "text": "Major Tom, come in."
+  },
+  {
+   "text": "Sister Act is a film."
+  },
+  {
+   "text": "Rabbi Cohen and Imam Ali met for tea.",
+   "note": "Rabbi and Imam are already words."
+  },
+  {
+   "text": "PC Andy Smith attended.",
+   "note": "British speakers say a police constable's title as letters."
+  },
+  {
+   "text": "Mo Tu We Th Fr Sa Su",
+   "note": "A calendar header. T4a as first written read 'Father Sa Su'. 'Fr' is never Father before Sa, Sat, Su or Sun."
+  },
+  {
+   "text": "Semi-Det. House for sale.",
+   "note": "Estate-agent shorthand for semi-detached. T2's lookbehind didn't exclude a hyphen, so this read 'Semi-Detective House'."
+  },
+  {
+   "text": "Main Ofc. Closed Friday.",
+   "note": "Office. 'Closed' is capitalised and isn't a sentence starter, so T2 as first written read 'Officer Closed'."
+  },
+  {
+   "text": "Ofc. Mgr. Linda Park approved it.",
+   "note": "Office manager. A word ending in '.' after a title must itself be a title (tightened T1)."
+  },
+  {
+   "text": "X-ray of the Lt. Knee was normal.",
+   "note": "Medical 'Lt.' means left. Body parts are on Lt's skip list. A medical pack can read 'left'. Today's reading ('limit') is poor; re-freeze if it changes."
+  },
+  {
+   "text": "Fill in the Sr. No. column.",
+   "note": "Indian 'serial number' column header. Not Sister and not Senior."
+  },
+  {
+   "text": "Join the Rev Up Tour this summer.",
+   "note": "'the Rev' before a capitalised word (T4b). 'Up' is on Rev's skip list."
+  },
+  {
+   "text": "Mx Plan agreed with the patient.",
+   "note": "Clinical 'Mx' means management. T4a as first written read 'Mix Plan'."
+  },
+  {
+   "text": "Amb. Glass Jar with lid.",
+   "note": "Amber glass. T2 as first written read 'Ambassador Glass'."
+  },
+  {
+   "text": "Br. Manager Tina Ruiz signed off.",
+   "note": "Branch manager. T2 as first written read 'Brother Manager'."
+  },
+  {
+   "text": "Spacious 2 Br. Condo near the beach.",
+   "note": "Bedrooms after a number. T1's number guard keeps it."
+  },
+  {
+   "text": "Oil Pres. Sensor replaced.",
+   "note": "Pressure on a repair invoice, not President."
+  },
+  {
+   "text": "The Pres. Deck is in the shared folder.",
+   "note": "The presentation deck. Read 'prez deck' today, which is how people say it."
+  },
+  {
+   "text": "Sec. Deposit is due at signing.",
+   "note": "A security deposit in a rental listing, not 'Secretary Deposit'."
+  },
+  {
+   "text": "Check the Insp. results before you sign.",
+   "note": "Inspection. T11 as first written read 'Inspector results' after 'the'. Insp. is now off T11's list."
+  },
+  {
+   "text": "Get the Lt. version if you're short on space.",
+   "note": "'light' version. T11 as first written read 'Lieutenant version' after 'the'. Lt. is now on T11 only after 'to' or 'as'. Today 'limit'; re-freeze if a bare 'Lt.' gets the letters reading (open question)."
+  },
+  {
+   "text": "Maj Sjöwall wrote crime novels.",
+   "note": "A Swedish author's first name. 'Maj' without a full stop now needs a first name and a surname after it (T4c)."
+  },
+  {
+   "text": "The 2nd Brig. Combat Team deployed.",
+   "note": "Brigade, after an ordinal. Read 'brig' today."
+  },
+  {
+   "text": "Adm. Assistant needed, part time.",
+   "note": "Administrative assistant, not 'Admiral Assistant'."
+  },
+  {
+   "text": "Dental Assoc. Director Kim spoke.",
+   "note": "Association. T7 doesn't fire when the word before is capitalised."
+  },
+  {
+   "text": "JR Pass holders ride free.",
+   "note": "Japan Rail. The Jr rule is case-sensitive."
+  },
+  {
+   "text": "CPT codes are used for billing.",
+   "note": "All-caps US Army ranks (CPT, LTC, SGT) clash with common acronyms, so Core keeps the letters."
+  },
+  {
+   "text": "LTC insurance costs more each year.",
+   "note": "Long-term care, not Lieutenant Colonel."
+  },
+  {
+   "text": "DCI Barnaby solved it.",
+   "note": "British police initials stay as letters."
+  },
+  {
+   "text": "Gen. AI tools are everywhere.",
+   "note": "An all-caps word after a title isn't a name (T1). Read 'jen A I'."
+  },
+  {
+   "text": "Gen AI tools are everywhere.",
+   "note": "'Gen' without a period never expands."
+  }
+ ],
+ "rules": [
+  {
+   "name": "T0 Run titles before the custom lexicon",
+   "where": "Phonemizer.phonemize, plus a new TextNormalizer.titles(_:) that moves the existing titles rule into it. The St. rules can stay where they are.",
+   "trigger": "Every title and suffix rule below (T1–T14). Run them on the raw text, right after TextNormalizer.linkLabels and before custom.mark, and only when normalization is on.",
+   "reads_as": "No reading of its own. It fixes the order the rules run in.",
+   "risks": "There are two problems today. (1) normalize(_:skippingMarkedSpans:) normalizes each plain stretch between lexicon marks on its own, so a title's lookahead can't see a name the lexicon has already marked. That is why 'Sen. Niamh Smyth' stays 'sen'. (2) The tech lexicon's case-insensitive CPL, ENS, SNR and LTS entries mark 'Cpl', 'Ens', 'Snr' and 'Lts' as letters first. NEW HAZARD: lexicon marks also hide non-names from today's title rule, so some cases are right only by accident. The tech entries 'alpha', 'X' and 'Echo Dot' hide them in 'Gen. Alpha', 'Gen. X' and '3rd Gen. Echo Dot'. Once T0 lands, all three turn into 'General …' unless T3 ships in the same change. Lexicon keys that start with a title word are 'Gen Digital' and 'Hon Hai'. Both have no period, and T4d never expands a title without one, so they're safe."
+  },
+  {
+   "name": "T1 Name lookahead, shared by every title (tightened)",
+   "where": "TextNormalizer (replaces the current `name` lookahead used for Sen, Gov, Prof, Gen, Rep and Rev)",
+   "trigger": "Before the title: (?<![\\p{L}\\d.\\-/]) (hyphen and slash are added, so 'Semi-Det.' and '2-Br.' don't count), and not directly after a digit and a space (?<!\\d\\s). After the title, the next word must be one of these: (a) A capitalised name with a lowercase second letter or an apostrophe (Smith, O'Brien, McKay, Pepper's). It must not be a usual sentence starter, it must not be on that title's skip list (T2), and it must NOT end in '.' unless it is itself a title from the table (Col., Gen., Sgt., Maj., Cmdr., Insp., Supt., Sec., Gov., Prof., Rev., Hon., Dr., Mr., Mrs., Ms., or Ltd. after Pvt./Pte.). (b) One or more initials (\\p{Lu}\\.\\s?)+ followed by a name that doesn't end in '.' (J. T. Kirk). (c) For Sgt. only, an ordinal and 'Class'.",
+   "reads_as": "Not a reading; it gates T2–T4.",
+   "risks": "This is stricter than today's rule. A single capital letter (Col. B, Rev. B, Gen. Z), a digit (Gen. 2) and an all-caps word (Gen. AI) no longer count as names. The rule about a word ending in '.' fixes today's 'Phys. Rev. Lett.', which reads 'Reverend Lett.'. It also stops 'Ofc. Mgr.', 'Amb. Temp.', 'Br. Med. J.' and 'Br. J. Surg.' (initials followed by an abbreviation). The cost: 'Prof. Emer. Smith' won't expand unless 'Emer.' is added to the list. The number guard stops '30 Sec. Timer', '10 Reps.' and '2 Br. Condo', but not '1st Lt.', which is correct."
+  },
+  {
+   "name": "T2 Titles with a period, before a name",
+   "where": "TextNormalizer.titles (extend the `titles` table)",
+   "trigger": "Matched case-sensitively: ABBR\\. followed by T1's lookahead, after T3, T5, T7, T8, T9 and T14 have run. ABBR is one of: Lt, Capt, Col, Maj, Brig, Adm, Cmdr, Cdr, Ens, Sgt, Cpl, Pvt, Pte, Pfc, Spc, Det, Insp, Supt, Ofc, Fr, Msgr, Br, Hon, Pres, Amb, Atty, Sec, Mx, Mme, Mlle, plus the existing Sen, Gov, Prof, Gen, Rep and Rev. Plurals: Sens, Reps, Govs, Gens, Sgts, Lts, Capts, Cols, Pvts, Cpls, Dets, Profs, Revs, Drs. Skip lists (the next word stops the expansion): Lt before a body part (Arm, Leg, Knee, Hip, Hand, Foot, Eye, Ear, Shoulder, Ankle, Wrist, Elbow, Side, Lung, Kidney, Breast). Col before Total, Totals, Width, Header, Name or Springs. Brig directly after an ordinal ('2nd Brig.' is a brigade), or before Combat, Team or HQ. Adm before Fee, Fees, Free, Charge, Price, Ticket, Tickets, Assistant, Office, Staff, Building, Law, Code or Date. Amb before Temp, Temperature, Air, Noise, Light, Glass, Bottle, Jar, Service, Crew, Bay, Surgery or Care. Insp before Date, Due, Report, Cert, Certificate, Sticker, Fee, Type, Result, Results, Record, Form or Status. Det before Limit, Limits, House, Garage or Bungalow. Ofc before Hours, Supplies, Space, Phone, Use, Closed, Open, Manager, Address, Building, Number, Furniture, Equipment, Depot, Staff or Assistant. Fr before Fries, Toast, Onion, Bread, Dip, Vanilla, Roast, Press, Door, Doors, Polynesia, Guiana, Riviera, Quarter, Horn, Open, Revolution or Canadian. Br before Columbia, Honduras, Virgin, Manager, Office or Library. Pres before Church, Day, Sensor, Gauge, Switch, Valve, Deck, Slides or Notes. Sec before Deposit, Guard, Code or Level. Rev before Share, Growth, Limiter, Counter or Up. Rep directly after Czech, Dominican, Slovak or Dem. (Republic). Prof before Development, Services or Liability. Gov and Hon nouns go to T14 first.",
+   "reads_as": "Lieutenant, Captain, Colonel, Major, Brigadier, Admiral, Commander, Ensign, Sergeant, Corporal, Private (Pvt and Pte), Private First Class, Specialist, Detective, Inspector, Superintendent, Officer, Father, Monsignor, Brother, Honorable, President, Ambassador, Attorney, Secretary, Mix, Madame, Mademoiselle. Plurals: Senators, Representatives, Governors, Generals, Sergeants, Lieutenants, Captains, Colonels, Privates, Corporals, Detectives, Professors, Reverends, Doctors. Chains work without extra rules: Lt. Col., Brig. Gen., Lt. Cmdr., Det. Chief Insp., Rev. Dr., 1st Lt.",
+   "risks": "On skipped words the abbreviation is left exactly as today (a skip never invents another reading; T14 holds the few that do). Remaining false positives come from capitalised non-names that aren't on a skip list. They are most likely for Ofc. (office), Amb. (amber, ambulance), Pres. (pressure) and Sec. (security). Skip lists can't be complete, which is why the frozen cases test one word from each. Do not include 'Off.' ('Lights Off. Kids Asleep.') or 'M.' (an initial far more often than Monsieur). 'Cpl.', 'Ens.' and 'Lts.' need T0 or T13 to escape the tech lexicon."
+  },
+  {
+   "name": "T3 Gen as a generation",
+   "where": "TextNormalizer.titles, before T2. Must ship together with T0.",
+   "trigger": "(a) (?<![\\p{L}.])Gen\\.(?=\\s+(?:[XYZ]|Alpha|Beta)(?![\\p{L}\\d])). (b) Gen\\. directly after an ordinal (\\d+(st|nd|rd|th), First, Second, Third, Fourth, Fifth) or after Next, New, Last, Latest, Current, Previous, Prior, Older or Newer, with a space between.",
+   "reads_as": "'Gen', without the period (unless it ends the sentence), so it reads 'jen'. 'Gen Z' without a period already reads 'jen zee'.",
+   "risks": "Fixes today's 'Our Next Gen. Platform' → 'Next General Platform'. Without (b), T0 would expose 'a 3rd Gen. Echo Dot' and 'Apple Pencil (2nd Gen.)' to the General reading. 'Gen. Admission' still reads General through T2, which is correct by coincidence."
+  },
+  {
+   "name": "T4 UK titles without a period",
+   "where": "TextNormalizer.titles",
+   "trigger": "Case-sensitive whole words (?<![\\p{L}\\d.'’-])X(?=\\s), followed by T1's lookahead and the same skip lists as T2. (a) Expand before a name: Lt, Capt, Cpl, Pte, Sgt, Cdr, Cmdr, Insp, Supt, Pfc, Revd, Cllr, Cllrs, Mx, Mme, Mlle, Prof, Fr. Extra skips: Fr is never expanded before Sa, Sat, Su or Sun, or after Th or Thu (calendar headers). Mx is never expanded before Plan (clinical management). (b) Expand only as a pair: Lt Col, Lt Gen, Lt Cdr, Lt Gov, Maj Gen, Brig Gen, Flt Lt, Sqn Ldr, Wg Cdr, Gp Capt, Ch Supt, Ch Insp, Det Insp, Det Sgt, Det Supt, Det Ch Supt, Rt Hon, Rt Revd, Rt Rev, Pvt Ltd, Pte Ltd. Also 'the Rev' before a name, unless the next word is 'Up'. (c) Col and Maj only before two capitalised name words (\\s+\\p{Lu}\\p{Ll}+\\s+\\p{Lu}\\p{Ll}). (d) Never expand Gen, Brig, Hon, Sec, Pres, Det (alone), Br, Off, Sen, Gov, Rep, Amb or Adm without a period.",
+   "reads_as": "Same words as T2, plus Flight Lieutenant, Squadron Leader, Wing Commander, Group Captain, Chief Superintendent, Chief Inspector, Detective Inspector, Detective Sergeant, Right Honourable, Right Reverend, Reverend (Revd), Councillor or Councillors (Cllr), Professor (Prof), Private Limited (Pvt Ltd, Pte Ltd).",
+   "risks": "'Maj' moved from (a) to (c), because 'Maj Sjöwall' (a Swedish first name) read 'Major Sjöwall'. 'Maj Tim Peake' still expands. The calendar header 'Mo Tu We Th Fr Sa Su' read 'Father Sa Su' before the weekday skip. 'Brig Niagara' (a ship), 'Hon Hai' (a company), 'Gen Alpha', 'Gen Digital' and 'Col du Galibier' are protected by (c) and (d)."
+  },
+  {
+   "name": "T5 Sr, Jr, Snr, Jnr (rewritten)",
+   "where": "TextNormalizer.titles, before T2",
+   "trigger": "Jr., Jr and Jnr (case-sensitive, so not 'JR') read Junior wherever they stand as a whole word, because they have one meaning. For Sr., Sr and Snr: (a) After a name → Senior. The word before is capitalised and is not the sentence's first word or a usual sentence starter. 'Sr.' and 'Snr' may follow a comma ('Smith, Sr.'). Bare 'Sr' must follow the name after a single space, with no comma, and the word before must have at least 3 letters. That keeps element-symbol lists ('Ca, Sr, Ba', 'Rb Sr') out. (b) Before a job word or 'senior' noun anywhere in the next three capitalised words → Senior. The list: Engineer(s), Software, Product, Program, Project, Manager, Director, Vice, VP, Analyst, Developer, Designer, Consultant, Associate, Accountant, Architect, Scientist, Researcher, Editor, Writer, Counsel, Partner, Lecturer, Fellow, Specialist, Officer, Advisor, Adviser, Executive, Producer, Staff, Principal, Pastor, Minister, Chaplain, Nurse, Technician, Administrator, Coordinator, Recruiter, Attorney, Buyer, Planner, Strategist, Lead, Living, Center, Centre, Citizen(s), Discount, Housing, Care, High, Year, Class, Varsity, Team, Management. Lowercase 'sr.' before a lowercase word is also Senior. (c) 'Sr.' or 'Sr' (never 'Snr') before a female given name → Sister. Use a curated list that includes Mary, Marie, Maria, the initial 'M.', common English names (Helen, Anne, Catherine, Margaret, Teresa, Joan, Rose, Agnes, Bernadette, Clare, Frances, Elizabeth, Patricia, Kathleen, Dorothy, Monica, Cecilia, Josephine) and Irish names (Siobhán, Niamh, Bríd, Máire, Aoife). (b) wins if a job word follows. (d) Anything else: leave it alone ('Sr. No.' serial number, Spanish 'Sr. García').",
+   "reads_as": "(a) and (b): Senior. Jr forms: Junior. Keep a trailing period as the full stop when the abbreviation ends the sentence (the end of the text, or a usual sentence starter next), the same test the 'Street.' rule uses. A comma stays. (c): Sister.",
+   "risks": "As first written, (c) accepted any two capitalised words, so 'Sr. Business Analyst' (any job title with an unlisted first word) read 'Sister'. The given-name list fixes that and also keeps Spanish 'Sr. Juan Pérez' out. The cost: a nun with an unlisted name is left as 'S R'. Jr. reads 'junior' today only through the US fallback; the British voice gives ʤˈuːnjə, not the dictionary's ʤˈuːnɪə, so make it explicit. Bare 'Sr' already reads 'senior' everywhere from the dictionary (including 'Sr isotopes'); that is a science-pack issue, and T5 doesn't make it worse."
+  },
+  {
+   "name": "T6 Esq",
+   "where": "TextNormalizer.titles",
+   "trigger": "(?<=\\p{L},?\\s)Esq\\.?(?![\\p{L}])",
+   "reads_as": "Esquire. Keep the period when it ends the sentence. A comma after it stays.",
+   "risks": "None found. 'Esq' has no other common meaning, and 'ESQ' in capitals isn't matched."
+  },
+  {
+   "name": "T7 Assoc and Asst before a job",
+   "where": "TextNormalizer.titles, before T2",
+   "trigger": "(?<![\\p{L}.])(Assoc|Asst)\\.? before Prof., Prof, Professor, Dean, Director, Dir., Editor, Coach, Manager, Principal, Chief, Secretary, Sec. or Attorney. Don't fire when the word before is capitalised and isn't the sentence's first word.",
+   "reads_as": "Associate or Assistant. The 'Prof.' after it then expands under T2.",
+   "risks": "'Dental Assoc. Director Kim' (Association) is protected by the rule about the word before (frozen case). 'Asst. Colors' (assorted) and 'Assoc. Press' are never followed by a job word, so they stay."
+  },
+  {
+   "name": "T8 Pairs that don't need a name",
+   "where": "TextNormalizer.titles, before T2",
+   "trigger": "'Treas. Sec.' or 'Treas Sec'. 'Hon. Sec.', 'Hon Sec', 'Hon. Treas.'. 'Maj.' before Leader or Whip. 'Sgt. Maj.' always ('Sgt. Maj. of the Army'). 'Sgt. at Arms' or 'Sgt.-at-Arms'. Rank pairs expand even with no name after them: Lt. Gov., Lt. Col., Lt. Gen., Maj. Gen., Brig. Gen., Atty. Gen., Sec. Gen. or Sec.-Gen. 'Rt. Rev.' and 'Rt. Hon.' with periods. 'Lt. j.g.' or 'Lt. (j.g.)'. 'Sr. Sec.' or 'Sr Sec' before School, Schools or Education. A title joined to '-elect' before a name: Gov.-elect, Pres.-elect, Sen.-elect, Rep.-elect.",
+   "reads_as": "Treasury Secretary. Honorary Secretary. Honorary Treasurer. Majority. Sergeant Major. Sergeant at Arms. Lieutenant Governor, Lieutenant Colonel, Lieutenant General, Major General, Brigadier General, Attorney General, Secretary General. Right Reverend, Right Honourable. Lieutenant junior grade. Senior Secondary. Governor-elect, President-elect, Senator-elect, Representative-elect.",
+   "risks": "'Hon. Member' (Parliament) stays Honourable under T2, which is correct. 'Treas.' alone before a name isn't expanded; it's rare and ambiguous between Treasurer and Treasury. 'Sr. Sec.' needs this pair because T2 alone read 'Sec. School' as 'Secretary School'."
+  },
+  {
+   "name": "T9 Lt meaning light",
+   "where": "TextNormalizer.titles, before T2",
+   "trigger": "(?<![\\p{L}.])[Ll]t\\.?(?=\\s+(?i:blue|pink|purple|yellow|teal|aqua|beige|khaki|lavender|turquoise|peach|orange|lilac|mint|cream|taupe|duty|wash|roast)\\b). Also before olive, coral, rose, amber, ruby, jade, hazel or violet, but only when no capitalised word follows the colour ('Color: Lt. Olive' is light; 'Lt. Olive Harper' is Lieutenant).",
+   "reads_as": "light (so 'Lt. Blue' reads 'light Blue' and 'Lt. Duty Casters' reads 'light Duty Casters')",
+   "risks": "As first written, the list included 'olive' and 'coral' unconditionally, so 'Lt. Olive Harper' read 'light Olive Harper'. Colours that are also common surnames (Brown, Gray, Grey, Green, White, Black) are still left out, so 'Lt. Gray' stays Lieutenant. That reading is wrong on product pages ('Lt Grey Marl') but right in news. A later option is to read them 'light' after 'Color:' or 'Colour:'. Optional rule; see the open question."
+  },
+  {
+   "name": "T10 Ret after a name",
+   "where": "TextNormalizer.titles",
+   "trigger": "\\((?:Ret|ret)\\.?\\) anywhere, or ', Ret.' or ', ret.' after a capitalised word and before a comma, a closing bracket or the end of the clause.",
+   "reads_as": "(retired) or ', retired'",
+   "risks": "Very low. In brackets, 'Ret.' has no other common meaning. 'Ret. Policy' isn't in brackets and doesn't follow a comma, so it stays."
+  },
+  {
+   "name": "T11 A rank with no name after it (optional, narrowed)",
+   "where": "TextNormalizer.titles, after T2",
+   "trigger": "One of Sgt., Capt., Cpl., Pvt., Pfc., Spc., Cmdr. or Supt., directly after (?i:the|a|to|as|our|his|her|their|my|your|new|former|then) and a space, where T1 doesn't match. Lt. only after 'to' or 'as' ('promoted to Lt.', 'served as Lt.').",
+   "reads_as": "The rank word ('promoted to Sergeant', 'ask the Captain'). Keep the period when it ends the sentence.",
+   "risks": "As first written, Insp. and Lt. after 'the' were on the list. That gave 'the Inspector results' (inspection) and 'the Lieutenant version' (light version); both are now frozen cases. Col. (column), Maj. (majority), Gen., Det., Sec., Insp. and Pres. stay off the list. Depends on the open question about ranks with no name."
+  },
+  {
+   "name": "T12 Keep a title and its name in one sentence (app chunking)",
+   "where": "Tokenizer.titles, which also feeds runOnTitles and Tokenizer.split; TextPrep.chunks",
+   "trigger": "Add every T2 title with its period, the plurals (Lts., Sgts., Sens., Drs. …), Sr., Jr., Rt. and Msgr., and the T4 no-period titles that end a word ('Revd', 'Cllr') where splitting matters. I re-ran NLTokenizer myself: it splits after Det., Fr., Sr., Mx., Hon., Brig., Gen. (after Brig.), Msgr., Rt., Lts., Sgts. and Drs., even before a name. It doesn't split after Lt., Sgt., Capt., Jr., 'Pvt. Ltd.', Cllr or 'Gov.-elect'.",
+   "reads_as": "Not a reading. TextPrep joins the halves again through titleContinues, so the title reaches the phonemizer with its name and expands.",
+   "risks": "The --speech-test harness phonemizes whole lines, so it can't see this bug. Add TextPrep.chunks tests such as 'Det. Benson called.' and 'Rt. Rev. Hollis preached.', each giving one chunk. Suffixes are safe to add too: 'Sr.' before 'He' still ends the sentence, because 'He' is a usual sentence starter. Note that 'Drs.' isn't in runOnTitles today."
+  },
+  {
+   "name": "T13 Tech lexicon case clashes",
+   "where": "lexicon-src/decisions/case-clashes.json, then rebuild Lexicons/tech-lexicon.json",
+   "trigger": "The entries CPL, ENS, SNR and LTS are case-insensitive today.",
+   "reads_as": "Make them match exactly (all capitals only). Clashes: Cpl. is corporal, Ens. is ensign, Snr is senior (UK), Lts. is lieutenants. 'Our CPL fell', 'ENS names' and 'The SNR was poor' keep their letters (frozen cases).",
+   "risks": "Lowercase 'snr' in code or maths would no longer get the letters; it's usually inside an identifier anyway. Separately, the tech lexicon reads 'Ltd' as lˈɪmɪtɪd in the US voice, while the dictionary reads 'limited' as lˈɪməTᵻd. That's harmless, but it's why the 'Pvt. Ltd.' case is British-voice only."
+  },
+  {
+   "name": "T14 Readings that don't need a name (new)",
+   "where": "TextNormalizer.titles, before T2",
+   "trigger": "(a) Atty./Atty in any case, as a whole word. (b) Pvt./Pvt in any case, as a whole word ('Pvt. Parking', 'pvt. room'). (c) Hon. before Mention or Mentions. (d) Hon. before Doctorate, Degree, Fellow, Fellowship, Lecturer, Consul, Life, Citizen, Chair, Chairman, President, Director, Advisor, Secretary or Treasurer (the last two are covered by T8). (e) Gov. before Shutdown, Website, Site, Agency, Agencies, Contract, Contracts, Contractor, Contractors, Funding, Grant, Grants, Job, Jobs, Official, Officials, Employee, Employees, Worker, Workers, Data, Bond, Bonds, Debt, Spending, Program, Programs, Programme, Policy or ID.",
+   "reads_as": "(a) attorney, with the capital kept when written with one. (b) private. (c) Honorable. (d) Honorary. (e) Government.",
+   "risks": "Each word has only one meaning in these positions, so this isn't guessing. (e) fixes today's 'The Gov. Shutdown' → 'Governor Shutdown'. 'Gov. Office' and 'Gov. Building' are left out on purpose ('the Governor's office' is just as likely). 'Hon. Professor' is left out ('The Hon. Professor Smith' exists). Not adopted: Rev. as revenue ('Rev. Share' reads 'rev' after the skip), Rep. as Republic, Prof. as professional, Fr. as French, Sec. as security, Insp. as inspection and Det. as detached. Those are skipped only (T2); see the open question."
+  },
+  {
+   "name": "T15 All-caps military ranks stay letters (no rule)",
+   "where": "None (a decision, recorded so nobody adds the rule)",
+   "trigger": "US Army, Navy and Marines official forms: SGT, SSG, CPT, LTC, COL, MAJ, PFC, SPC, 1LT, CAPT, CDR, ADM, GEN.",
+   "reads_as": "Letters, as today.",
+   "risks": "They collide with common acronyms: CPT (billing codes), LTC (long-term care), COL (cost of living), SPC (process control) and PFC (perfluorocarbons). A military field pack can read them before a name. Frozen cases 'CPT codes', 'LTC insurance' and 'DCI Barnaby' guard it."
+  }
+ ],
+ "open_questions": [
+  "'Sr.' before a name: should it read 'Sister'? I recommend 'Sister' only before a female given name from a curated list (Mary, Helen, Siobhán … or 'M.'), and never when a job word follows within three words. Otherwise leave it as letters. 'Senior' always applies after a name or before a job word. The original 'any two capitalised words' test made 'Sr. Business Analyst' read 'Sister'.",
+  "A rank with no name after it ('She was promoted to Sgt.', 'Ask the Capt. about it'): expand it, or leave it? Today these read 'S G T' and 'capt'. I recommend expanding only Sgt., Capt., Cpl., Pvt., Pfc., Spc., Cmdr. and Supt. after 'the', 'a', 'to', 'as' or a possessive, and Lt. only after 'to' or 'as'. Insp. after 'the' is usually inspection, and Lt. after 'the' is often 'light'.",
+  "A bare 'Lt.' that is neither before a name nor a colour ('the Lt. version', 'Lt. Knee') reads 'limit' today, which is wrong in every sense. Should Core spell it 'L T' instead (soldiers also say 'the L T')? I recommend yes. Two frozen cases would then be re-frozen.",
+  "'Lt.' before a colour on product pages ('Color: Lt. Blue', 'Lt. Duty Casters'): read it 'light'? I recommend yes, for colours that aren't common surnames and for Duty, Wash and Roast. Leave 'Lt. Gray', 'Lt. Brown' and 'Lt. Green' as Lieutenant, unless they come right after 'Color:' or 'Colour:'.",
+  "Title abbreviations with a plain non-title meaning that the next word settles: 'Fr. Fries' (French), 'Sec. Deposit' (security), 'Insp. Date' (inspection), 'Semi-Det. House' (detached), 'Rev. Share' (revenue or 'rev'), 'Czech Rep.' (Republic), 'Prof. Development' (professional). Should Core read them, or only stop the wrong title (as specified now, frozen)? I recommend reading 'French', 'security' and 'inspection' in their pairs. Leave 'Rev. Share' as 'rev', since 'rev share' is common speech, and leave 'Lt. Knee' (left) to the medical pack. Only 'Gov. Shutdown' (Government) and 'Hon. Doctorate' (Honorary) are in the speech cases now.",
+  "British voice, 'Gen Z': 'Gen Zed' or 'Gen Zee'? Usage is split. The letter is 'zed' in the UK, but 'Gen Zee' is spreading among young British speakers, and the British dictionary reads Z as 'zee' today. I made the 'Gen. Z' case US-only. If the letters area settles on 'zed', add says_gb 'Jen Zed'.",
+  "'Mx': 'mix' or 'mux'? I recommend 'mix'. Merriam-Webster lists it first, and surveys of people who use the title put it first.",
+  "'Pfc.': 'Private First Class' or the letters 'P F C', as soldiers often say it? I recommend 'Private First Class', the way a newsreader reads AP copy.",
+  "'Col. A' or 'Col. B' in spreadsheets and tables: read 'column A'? I recommend leaving it as it is ('coll B') in Core, because a single letter isn't enough to be sure. A data or spreadsheet pack could read it 'column'.",
+  "Party and state after a lawmaker ('Sen. Elizabeth Warren (D-Mass.)'): today read 'D Mass'. This is outside my area. I recommend a follow-up rule that reads it 'Democrat of Massachusetts', using the state abbreviations the addresses area already has."
+ ],
+ "review_notes": [
+  "How it was checked: every speech case and all 60 frozen cases ran through --speech-test and --phonemize in both voices, using a scratch copy outside the repo (no repo file was edited). Today 13 of 188 speech checks pass. They pass in both voices for Msgr., Rev. Jesse Jackson, Ms. Patel, Gen. Alpha and 3rd Gen. Echo Dot, and in the US voice only for Rev. Dr. … King Jr., Sammy Davis Jr and Tom Hale Jnr. All 120 frozen readings stayed identical across a freeze and a second run.",
+  "I checked every new 'says' sentence with --phonemize. Three real names the stack misreads were swapped, because the instructions say to pick other wording: 'Vindman' (read like 'vined'; the case became the email greeting 'Dear Lt. Col. Ramirez,'), 'Mei' (read 'my'; now 'Laura Chen') and 'Budde' (read 'bud'; now an invented bishop, 'Anne Hollis'). Governor-elect, Honorary, Monsignor, Secondary, Mademoiselle, Lieutenants, Weimer, Thune, Spanberger and Barnaby all read correctly. The British voice gives 'Lieutenant' as lɛftˈɛnənt and reads 'Honorable' and 'Honourable' the same way.",
+  "Hard rules: no digits, symbols, Roman numerals or written abbreviations in any 'says'. 'Jen' and lowercase 'rev' stand for the clipped words people actually say ('Gen', 'rev'). They carry no period or capital, so no title rule can touch them.",
+  "Expectations changed: 'Gen. Z' is now US-only. British usage is split between 'Gen Zed' and 'Gen Zee', and the expected British reading depended on another area's open decision. 'Senate Maj. Leader' now names John Thune, the current majority leader, not Schumer. 'Hon. mention' moved from frozen to speech ('Honorable mention'), because every reader expands it and freezing would have locked in 'hun mention'. 'Color: Lt. Blue' now says 'light Blue' so that the rest of the line matches the text exactly.",
+  "Removed as redundant: Staff Sgt., Sgt. Maj. Tom Hale, Col. Mustard, Det. Sgt., Sqn Ldr, Sr. Engineer, Jr. Developer, and 'Martin Luther King Jr. spoke first.'. Each tests the same path as a case kept. 'Rev. Share' was drafted and dropped as ambiguous ('rev share' or 'revenue share'). Frozen cases dropped as weaker duplicates: Mr. Smith, PhD without periods, CPA, the brig, 'The major said no', Junior year, Chief Joseph, Field Marshal, Col. A, Adm. Free and Amb. Temp.",
+  "Rule attacks: 26 new frozen near misses. Each one would have been rewritten wrongly by a rule as first written: Semi-Det. (T2 hyphen), Main Ofc. Closed, Ofc. Mgr., Lt. Knee, Br. Manager, Amb. Glass, Oil Pres. Sensor, Pres. Deck, Sec. Deposit, Adm. Assistant, 2nd Brig. Combat Team (T2), the calendar 'Fr Sa Su', Mx Plan, Maj Sjöwall, the Rev Up Tour (T4), Insp. results and Lt. version (T11), and Sr. No. (T5). There are also case and caps guards (JR Pass, CPT, LTC, DCI), the T7 'Dental Assoc.' guard, 'Gen. AI' and 'Gen AI', and '2 Br. Condo'. Speech cases that the first-draft rules would have got wrong: 'Sr. Business Analyst' (Sister), 'Sr. Sec. School' (Secretary), 'Hon. Doctorate' (Honorable), 'Lt. Olive Harper' (light) and 'Lt. Duty' (Lieutenant). All the rules were tightened to match.",
+  "Existing false positives found beyond 'Gen. Z' and 'Rev. B': 'Next Gen. Platform' → General, 'Gov. Shutdown' → Governor, 'Phys. Rev. Lett.' → Reverend Lett., 'Rev. Share' → Reverend, 'Prof. Development Day' → Professor, and 'Dem. Rep. Congo' and 'Czech Rep. Team' → Representative. The first two are speech cases. The rest are covered by T1 (a word ending in '.' must be a title) and the T2 skip lists. They aren't speech cases because the right reading is ambiguous, or because it needs another area ('Phys.' itself is misread as 'fize').",
+  "T0 hazard: lexicon marks hide words from today's title rule. 'Gen. Alpha', 'Gen. X' and '3rd Gen. Echo Dot' are right today only because the tech entries 'alpha', 'X' and 'Echo Dot' mask them. Running titles first exposes them, so T3 (generation, now with the ordinal and 'Next' guard) has to land in the same change. The tech LTS entry also clashes with 'Lts.' (added to T13).",
+  "Positives added for real-world text: an email greeting (Dear Lt. Col. Ramirez), a letter to a nun (Dear Sr. Helen), a job ad (Sr. Business Analyst), a church bulletin (Sr. Pastor), an Indian school (Sr. Sec. School), a sign (Pvt. Parking Only), a legal brief (atty. fees), award results (Hon. mention, Hon. Doctorate), news (Gov.-elect, the Lt. Gov., Sgt. Maj. of the Army, Rt. Rev., Det. Chief Insp., Lts.), a product listing (3rd Gen. Echo Dot, Lt. Duty Casters) and a UK academic (Snr Lecturer). Regression guards kept or added: Rev. Jesse Jackson, Ms. Patel, Msgr. (passes only through the fallback model) and the Gen generation cases.",
+  "T12 re-measured with my own NLTokenizer run. It confirms splits after Det., Fr., Sr., Mx., Hon., Brig. and then Gen., Msgr., Rt., Lts., Sgts. and Drs., and no split after Lt., Sgt., Capt., Jr., Cllr or Gov.-elect.",
+  "Frozen cases that lock in a poor reading today ('Br.' read 'br' or a bare 'b', 'Fr.' read 'fr', 'Det.' read 'dit', 'Insp.' read 'insp', 'Lt.' read 'limit', 'Mx' read 'mex') are there to stop a wrong title expansion. If a later letters or field rule improves them on purpose, re-freeze them; their notes say so.",
+  "Bare 'Sr' (strontium) already reads 'senior' everywhere from the dictionary ('We measured Sr isotopes'). That's not a title issue, so no case was added. T5's stricter rule for bare 'Sr' (no comma, a word of 3+ letters before it) makes sure element lists don't get worse.",
+  "Sources: AP military-titles guidance (writingexplained.org/ap-style/ap-style-military-titles). UK police abbreviations, where BBC-attributed copy uses 'Det Insp', 'Ch Supt' and 'Det Ch Insp' (dictionary.com quotations), and the West Midlands Police A–Z style guide (identity.west-midlands.police.uk/a-to-z-style-guide). 'Zed' against 'zee' in the UK (languagehat.com 'only olds say zed'; jakubmarian.com). Mx and 'mix' (Merriam-Webster)."
+ ]
+}

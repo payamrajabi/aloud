@@ -1,0 +1,800 @@
+{
+ "area": "Heights, dimensions and multipliers: feet and inches (6'2\", 5′11″, 6 ft 2 in, 6ft2), inch and foot marks (27\" monitor, 6′ fence, 8' high), sizes written with x or × (2x4, 1920×1080, 10 x 12 ft, 9\" x 13\" x 2\"), and x as a multiplier (3x faster, 2x speed, 3x champion, Combo x2!)",
+ "speech_cases": [
+  {
+   "text": "He stood 6'2\".",
+   "says": "He stood six foot two.",
+   "note": "existing case; already right since the fix3/reading merge"
+  },
+  {
+   "text": "She is 5′11″.",
+   "says": "She is five foot eleven.",
+   "note": "prime and double prime; already right since the fix3/reading merge"
+  },
+  {
+   "text": "He's 6’2” and plays guard.",
+   "says": "He's six foot two and plays guard.",
+   "note": "smart quotes, as macOS autocorrect types them; already right since the fix3/reading merge"
+  },
+  {
+   "text": "She is 5' 11\" tall.",
+   "says": "She is five foot eleven tall.",
+   "note": "space after the feet mark; already right since the fix3/reading merge"
+  },
+  {
+   "text": "He is 6'2 and blonde.",
+   "says": "He is six foot two and blonde.",
+   "note": "no inch mark; already right since the fix3/reading merge"
+  },
+  {
+   "text": "The suspect is about 5'9\", with dark hair.",
+   "says": "The suspect is about five foot nine, with dark hair.",
+   "note": "before a comma; already right since the fix3/reading merge"
+  },
+  {
+   "text": "He's 6'0\" in socks.",
+   "says": "He's six foot in socks.",
+   "note": "zero inches is not read; today the merged height rule says 'six foot zero'"
+  },
+  {
+   "text": "The model (5'8\") is wearing a medium.",
+   "says": "The model (five foot eight) is wearing a medium.",
+   "note": "in parentheses; already right since the fix3/reading merge"
+  },
+  {
+   "text": "He's 6'2\", 200 lbs.",
+   "says": "He's six foot two, two hundred pounds.",
+   "note": "beside the existing pounds rule; already right since the fix3/reading merge"
+  },
+  {
+   "text": "She's 5'6\" in heels.",
+   "says": "She's five foot six in heels.",
+   "note": "'in' after an inch mark is a preposition; already right since the fix3/reading merge"
+  },
+  {
+   "text": "\"I'm 6'2\",\" he said.",
+   "says": "\"I'm six foot two,\" he said.",
+   "note": "a height inside a quotation: the inch mark comes before the closing quote; already right since the fix3/reading merge"
+  },
+  {
+   "text": "Looking for someone 5'10\" to 6'2\".",
+   "says": "Looking for someone five foot ten to six foot two.",
+   "note": "dating-profile range; already right since the fix3/reading merge"
+  },
+  {
+   "text": "He is 6 ft 2 in.",
+   "says": "He is six foot two.",
+   "note": "'in.' ending the sentence: its period is the full stop"
+  },
+  {
+   "text": "She's 5 ft. 4 in. and fast.",
+   "says": "She's five foot four and fast.",
+   "note": "abbreviations with periods"
+  },
+  {
+   "text": "The 6ft 2in striker scored twice.",
+   "says": "The six foot two striker scored twice.",
+   "note": "British press style; glued 'in' is always inches"
+  },
+  {
+   "text": "He's 6ft2.",
+   "says": "He's six foot two.",
+   "note": "British colloquial, glued; today 'ft' is read as letters"
+  },
+  {
+   "text": "He's 5ft 10, slim build.",
+   "says": "He's five foot ten, slim build.",
+   "note": "British police-description style, no 'in'"
+  },
+  {
+   "text": "She's 5 ft 6 in heels.",
+   "says": "She's five foot six in heels.",
+   "note": "'in' before an ordinary word is a preposition, not inches; the set's first rule read 'five foot six heels'"
+  },
+  {
+   "text": "The 6-foot-2 forward scored.",
+   "says": "The six foot two forward scored.",
+   "note": "AP style; already right"
+  },
+  {
+   "text": "The ceiling is 8' high.",
+   "says": "The ceiling is eight feet high.",
+   "note": "feet mark before a dimension adjective; today the feet are dropped"
+  },
+  {
+   "text": "Install a 6′ fence.",
+   "says": "Install a six foot fence.",
+   "note": "prime before a noun reads singular"
+  },
+  {
+   "text": "Build a 6' high fence.",
+   "says": "Build a six foot high fence.",
+   "note": "after 'a' the measure is a modifier even before 'high'; the set's first rule read 'six feet high fence'"
+  },
+  {
+   "text": "Grab a 10-ft pole.",
+   "says": "Grab a ten foot pole.",
+   "note": "hyphenated unit is a modifier; today 'ft' is garbled into letters"
+  },
+  {
+   "text": "The room is 12' x 14'.",
+   "says": "The room is twelve by fourteen feet.",
+   "note": "marks on both sides: the unit is read once, at the end, as the merged inch rule already does for 9\" x 13\""
+  },
+  {
+   "text": "Order a 10' x 12' shed.",
+   "says": "Order a ten by twelve foot shed.",
+   "note": "attributive dimension: one singular unit at the end"
+  },
+  {
+   "text": "Use a 9\" x 13\" pan.",
+   "says": "Use a nine by thirteen inch pan.",
+   "note": "already right since the fix3/reading merge"
+  },
+  {
+   "text": "Use a 9\" x 13\" x 2\" pan.",
+   "says": "Use a nine by thirteen by two inch pan.",
+   "note": "three sides; today the third side is 'ex two'"
+  },
+  {
+   "text": "Each tile is 12\" x 12\".",
+   "says": "Each tile is twelve by twelve inches.",
+   "note": "already right since the fix3/reading merge"
+  },
+  {
+   "text": "A 15.6\" laptop screen.",
+   "says": "A fifteen point six inch laptop screen.",
+   "note": "already right since the fix3/reading merge"
+  },
+  {
+   "text": "I bought a 27\" monitor.",
+   "says": "I bought a twenty-seven inch monitor.",
+   "note": "already right since the fix3/reading merge"
+  },
+  {
+   "text": "The 13.3” MacBook is light.",
+   "says": "The thirteen point three inch MacBook is light.",
+   "note": "a smart closing quote with no opening quote before it is an inch mark"
+  },
+  {
+   "text": "It measures 27\".",
+   "says": "It measures twenty-seven inches.",
+   "note": "sentence-final: plural; today a stray quote and no unit"
+  },
+  {
+   "text": "The screen is 6.1″ diagonally.",
+   "says": "The screen is six point one inches diagonally.",
+   "note": "already right since the fix3/reading merge"
+  },
+  {
+   "text": "The gap is 1\".",
+   "says": "The gap is one inch.",
+   "note": "singular"
+  },
+  {
+   "text": "Leave 2\" between rows.",
+   "says": "Leave two inches between rows."
+  },
+  {
+   "text": "Order a 12\" pizza and a 16\" one.",
+   "says": "Order a twelve inch pizza and a sixteen inch one.",
+   "note": "two straight inch marks on one line; replaces the ambiguous 'Sizes: 32\", 34\", and 36\".'; already right since the fix3/reading merge"
+  },
+  {
+   "text": "Trim 2\" off each end.",
+   "says": "Trim two inches off each end.",
+   "note": "'off' is not a noun: plural"
+  },
+  {
+   "text": "We got 4\" overnight.",
+   "says": "We got four inches overnight.",
+   "note": "an adverb after the mark: plural"
+  },
+  {
+   "text": "Expect 6-8\" of snow tonight.",
+   "says": "Expect six to eight inches of snow tonight.",
+   "note": "inch mark on a range; the range rule then reads 6-8"
+  },
+  {
+   "text": "The band released a 7\" single.",
+   "says": "The band released a seven inch single.",
+   "note": "vinyl record size; already right since the fix3/reading merge"
+  },
+  {
+   "text": "The iMac 24\" comes in seven colors.",
+   "says": "The iMac twenty-four inch comes in seven colors.",
+   "note": "a size right after a product name is part of the name: singular"
+  },
+  {
+   "text": "Hail 2\" in diameter was reported.",
+   "says": "Hail two inches in diameter was reported.",
+   "note": "news weather report"
+  },
+  {
+   "text": "Use a 12-in. skillet.",
+   "says": "Use a twelve inch skillet."
+  },
+  {
+   "text": "The shelf is 30 in. wide.",
+   "says": "The shelf is thirty inches wide.",
+   "note": "'in.' read only before a dimension adjective"
+  },
+  {
+   "text": "Buy a 2x4 at the store.",
+   "says": "Buy a two by four at the store."
+  },
+  {
+   "text": "We need ten 2x4s.",
+   "says": "We need ten two by fours."
+  },
+  {
+   "text": "Store the 2 x 4 in the garage.",
+   "says": "Store the two by four in the garage.",
+   "note": "'in' before 'the' is a preposition"
+  },
+  {
+   "text": "He drives a 4x4 truck.",
+   "says": "He drives a four by four truck."
+  },
+  {
+   "text": "Get a 4X4.",
+   "says": "Get a four by four.",
+   "note": "capital X"
+  },
+  {
+   "text": "Transpose the 3x3 matrix.",
+   "says": "Transpose the three by three matrix.",
+   "note": "replaces 'Invert', which the stack reads with noun stress"
+  },
+  {
+   "text": "Grab six 2x4x8 studs.",
+   "says": "Grab six two by four by eight studs.",
+   "note": "lumber with length, as a hardware store lists it"
+  },
+  {
+   "text": "The display is 1920×1080.",
+   "says": "The display is nineteen twenty by ten eighty.",
+   "note": "multiplication sign; today 'times'"
+  },
+  {
+   "text": "A 3840 x 2160 display.",
+   "says": "A thirty-eight forty by twenty-one sixty display."
+  },
+  {
+   "text": "The 1280x720 video.",
+   "says": "The twelve eighty by seven twenty video.",
+   "note": "a three-digit side of a pixel size is read in pairs"
+  },
+  {
+   "text": "A 640x480 image.",
+   "says": "A six forty by four eighty image."
+  },
+  {
+   "text": "A 300x250 banner ad.",
+   "says": "A three hundred by two fifty banner ad.",
+   "note": "round hundreds stay three hundred"
+  },
+  {
+   "text": "The screen is 2556 x 1179 pixels.",
+   "says": "The screen is twenty-five fifty-six by eleven seventy-nine pixels.",
+   "note": "phone spec sheet"
+  },
+  {
+   "text": "Each bedroom is 12x14.",
+   "says": "Each bedroom is twelve by fourteen.",
+   "note": "real-estate listing, sentence-final"
+  },
+  {
+   "text": "The room is 10 x 12 ft.",
+   "says": "The room is ten by twelve feet."
+  },
+  {
+   "text": "A 4 × 4 grid.",
+   "says": "A four by four grid.",
+   "note": "spaced sign before a noun: a size"
+  },
+  {
+   "text": "These 10x50 binoculars are sharp.",
+   "says": "These ten by fifty binoculars are sharp.",
+   "note": "binocular magnification by lens size"
+  },
+  {
+   "text": "Our team won the 4x100 relay.",
+   "says": "Our team won the four by one hundred relay."
+  },
+  {
+   "text": "The box is 35 cm x 48 cm.",
+   "says": "The box is thirty-five centimeters by forty-eight centimeters.",
+   "note": "a written unit on each side is read where written"
+  },
+  {
+   "text": "Dimensions: 60 x 45 x 90 cm.",
+   "says": "Dimensions: sixty by forty-five by ninety centimeters.",
+   "note": "furniture spec sheet"
+  },
+  {
+   "text": "The worktop is 1200 x 600mm.",
+   "says": "The worktop is twelve hundred by six hundred millimeters.",
+   "note": "British kitchen spec"
+  },
+  {
+   "text": "Line a 20 x 30cm tin.",
+   "says": "Line a twenty by thirty centimeter tin.",
+   "note": "British recipe; the size is a modifier, so the unit is singular (the units rule alone would say 'centimeters tin')"
+  },
+  {
+   "text": "Grease a 9 x 13-inch baking dish.",
+   "says": "Grease a nine by thirteen inch baking dish."
+  },
+  {
+   "text": "The photo is 4 x 6 in.",
+   "says": "The photo is four by six inches.",
+   "note": "'in.' ending the sentence"
+  },
+  {
+   "text": "Print on 8.5 x 11 paper.",
+   "says": "Print on eight and a half by eleven paper.",
+   "note": "depends on the halves question"
+  },
+  {
+   "text": "A 2x4 is 1.5 x 3.5 inches.",
+   "says": "A two by four is one and a half by three and a half inches.",
+   "note": "'is' and a number that isn't the product: still a size (the set's first rule read 'two times four'); depends on the halves question"
+  },
+  {
+   "text": "What is a 2x4?",
+   "says": "What is a two by four?",
+   "note": "'what is' must sit right before the number to mean arithmetic"
+  },
+  {
+   "text": "Calculate the area of a 10 x 12 room.",
+   "says": "Calculate the area of a ten by twelve room.",
+   "note": "'calculate' must sit right before the number to mean arithmetic"
+  },
+  {
+   "text": "Remember that 7 x 8 = 56.",
+   "says": "Remember that seven times eight equals fifty-six.",
+   "note": "an equals sign makes it arithmetic"
+  },
+  {
+   "text": "So 3x4=12.",
+   "says": "So three times four equals twelve."
+  },
+  {
+   "text": "What is 7 x 8?",
+   "says": "What is seven times eight?"
+  },
+  {
+   "text": "Calculate 12 x 12 in your head.",
+   "says": "Calculate twelve times twelve in your head.",
+   "note": "'in' before 'your' is not inches"
+  },
+  {
+   "text": "Remember 3 x 3 is 9.",
+   "says": "Remember three times three is nine.",
+   "note": "'is' and the product"
+  },
+  {
+   "text": "We know 2 × 3 = 6.",
+   "says": "We know two times three equals six.",
+   "note": "already right"
+  },
+  {
+   "text": "It's 3x faster.",
+   "says": "It's three times faster.",
+   "note": "existing case"
+  },
+  {
+   "text": "We need 10x more.",
+   "says": "We need ten times more.",
+   "note": "the tech lexicon's 10x must not win here"
+  },
+  {
+   "text": "Play it at 2x speed.",
+   "says": "Play it at two ex speed.",
+   "note": "existing case: playback speed stays ex; already right"
+  },
+  {
+   "text": "He is a 10x engineer.",
+   "says": "He is a ten-ex engineer.",
+   "note": "tech lexicon term; already right"
+  },
+  {
+   "text": "Play at 1.5x.",
+   "says": "Play at one point five ex.",
+   "note": "already right"
+  },
+  {
+   "text": "It is 1.5x faster.",
+   "says": "It is one point five times faster."
+  },
+  {
+   "text": "The new chip is 2-3x faster.",
+   "says": "The new chip is two to three times faster.",
+   "note": "range, then multiplier"
+  },
+  {
+   "text": "Expect 5–10x more traffic.",
+   "says": "Expect five to ten times more traffic.",
+   "note": "today the lexicon's 10x breaks the range"
+  },
+  {
+   "text": "It costs 3x as much.",
+   "says": "It costs three times as much."
+  },
+  {
+   "text": "That's 4X the price.",
+   "says": "That's four times the price."
+  },
+  {
+   "text": "It's 10× faster.",
+   "says": "It's ten times faster.",
+   "note": "already right"
+  },
+  {
+   "text": "It paid for itself 3x over.",
+   "says": "It paid for itself three times over."
+  },
+  {
+   "text": "I run 3x a week.",
+   "says": "I run three times a week.",
+   "note": "frequency"
+  },
+  {
+   "text": "Take it 2x daily.",
+   "says": "Take it two times daily."
+  },
+  {
+   "text": "She won 3x in a row.",
+   "says": "She won three times in a row."
+  },
+  {
+   "text": "She's a 3x champion.",
+   "says": "She's a three time champion."
+  },
+  {
+   "text": "The 4x Grammy winner sang.",
+   "says": "The four time Grammy winner sang."
+  },
+  {
+   "text": "Combo x2!",
+   "says": "Combo times two!",
+   "note": "game multiplier before an exclamation mark"
+  },
+  {
+   "text": "Points count ×3 this weekend.",
+   "says": "Points count times three this weekend.",
+   "note": "through the symbol table; already right"
+  }
+ ],
+ "frozen_cases": [
+  {
+   "text": "Solve 2x + 3 = 7.",
+   "note": "x is a variable"
+  },
+  {
+   "text": "If 3x = 12, then x = 4.",
+   "note": "x is a variable"
+  },
+  {
+   "text": "Factor 3x2 + 5x + 2.",
+   "note": "x squared typed without a superscript; the first rule set read 'three times two' (spaced + and a number follow); the algebra guard blocks it"
+  },
+  {
+   "text": "Let 0x1F be the mask.",
+   "note": "hex literal"
+  },
+  {
+   "text": "Set the flag to 0X1F.",
+   "note": "hex literal, capital X"
+  },
+  {
+   "text": "It runs on x86."
+  },
+  {
+   "text": "Mixtral 8x7B is good.",
+   "note": "tech lexicon term; a letter follows the second number"
+  },
+  {
+   "text": "We rented an 8x H100 node.",
+   "note": "a count before a model name stays ex"
+  },
+  {
+   "text": "It has 2x USB-C ports.",
+   "note": "a count before a noun stays ex"
+  },
+  {
+   "text": "Plot x1 against x2.",
+   "note": "variables, not multipliers"
+  },
+  {
+   "text": "Now solve for x2!",
+   "note": "a variable before '!': the word before isn't capitalised"
+  },
+  {
+   "text": "A PCIe x16 slot.",
+   "note": "lane width, not a multiplier"
+  },
+  {
+   "text": "The Snapdragon X2 Elite is fast."
+  },
+  {
+   "text": "Try 3x zoom.",
+   "note": "multiplier before a noun stays ex ('Use 3x zoom' replaced: the stack reads that 'Use' as a noun)"
+  },
+  {
+   "text": "Enable 4x MSAA for smoother edges.",
+   "note": "multiplier before an acronym stays ex"
+  },
+  {
+   "text": "A 40x objective lens."
+  },
+  {
+   "text": "Set it to 2x.",
+   "note": "a bare multiplier stays ex"
+  },
+  {
+   "text": "Set it to 3x as the default speed.",
+   "note": "'as the' is not a comparison"
+  },
+  {
+   "text": "Export the icons at 2x as PNG.",
+   "note": "'as' before a format is not a comparison"
+  },
+  {
+   "text": "I listen at 2x as well.",
+   "note": "'as well' is not a comparison"
+  },
+  {
+   "text": "I watch lectures at 2x the whole time.",
+   "note": "'the' before an ordinary noun is not a comparison"
+  },
+  {
+   "text": "I played it at 2x over the speakers.",
+   "note": "'over' before a noun is a preposition"
+  },
+  {
+   "text": "She wears a 2X in jackets.",
+   "note": "clothing size"
+  },
+  {
+   "text": "Order the shirt in 3XL.",
+   "note": "clothing size; a letter follows the x"
+  },
+  {
+   "text": "It works on Node 18.x and later.",
+   "note": "version wildcard"
+  },
+  {
+   "text": "Upgrade from 2.x to 3.x today.",
+   "note": "version wildcards"
+  },
+  {
+   "text": "Press X to jump."
+  },
+  {
+   "text": "The x-axis shows time."
+  },
+  {
+   "text": "The Tesla Model X is red."
+  },
+  {
+   "text": "See you at 8 x",
+   "note": "a British kiss sign-off, not a size"
+  },
+  {
+   "text": "Nurses work 3 x 12 hour shifts.",
+   "note": "a count of shifts, not a size"
+  },
+  {
+   "text": "Buy 2 x 4 packs of batteries.",
+   "note": "two four-packs: a count before a container word, not a size"
+  },
+  {
+   "text": "Brazil won 2 x 1 at home.",
+   "note": "a football score written the Brazilian way"
+  },
+  {
+   "text": "Grease 2 x 20cm round cake tins.",
+   "note": "British recipe count: two tins, not a size; re-freeze if the recipe-count question or attributive units land"
+  },
+  {
+   "text": "It takes 2 x 1.5V AA batteries.",
+   "note": "a letter follows the second number"
+  },
+  {
+   "text": "We saw a 3x speedup.",
+   "note": "multiplier before a noun stays ex"
+  },
+  {
+   "text": "It got a 10x return.",
+   "note": "tech lexicon reading stays"
+  },
+  {
+   "text": "I said '5' twice.",
+   "note": "quoted number, not feet"
+  },
+  {
+   "text": "He wrote 'chapter 5' on it.",
+   "note": "closing single quote after a number"
+  },
+  {
+   "text": "She called it 'Plan 9' long before anyone else.",
+   "note": "closing quote before 'long': not feet (the first rule set read 'nine feet long')"
+  },
+  {
+   "text": "She called it ‘Plan 9’ long before anyone else.",
+   "note": "smart quotes, same"
+  },
+  {
+   "text": "The '6' key is broken."
+  },
+  {
+   "text": "The '90s were fun."
+  },
+  {
+   "text": "She's class of '05."
+  },
+  {
+   "text": "The 80's were loud."
+  },
+  {
+   "text": "Live: Kane 9', Saka 41', Rice 88'.",
+   "note": "football minutes"
+  },
+  {
+   "text": "He shouted \"Give me 5\" and left.",
+   "note": "closing double quote after a number, not inches"
+  },
+  {
+   "text": "He said \"the answer is 42\" and left.",
+   "note": "closing double quote after a number, not inches"
+  },
+  {
+   "text": "The sign said \"Gate 12\".",
+   "note": "closing quote before the full stop"
+  },
+  {
+   "text": "Type \"10\" in the box.",
+   "note": "a closing quote and then 'in': neither is inches"
+  },
+  {
+   "text": "She said “Room 12” twice.",
+   "note": "smart closing quote after a number"
+  },
+  {
+   "text": "“Yes,” he said, “aisle 12” is right.",
+   "note": "second smart quotation on the line"
+  },
+  {
+   "text": "Set the shutter to 30\" and the ISO to 100.",
+   "note": "shutter speed in seconds, not inches"
+  },
+  {
+   "text": "Meet at 5 in the lobby.",
+   "note": "'in' after a number is a preposition"
+  },
+  {
+   "text": "It's 6 in the morning."
+  },
+  {
+   "text": "6 in 10 adults agree."
+  },
+  {
+   "text": "He wears a size 12 in men's shoes."
+  },
+  {
+   "text": "It's a 2-in-1 laptop."
+  },
+  {
+   "text": "Buy the 3 in 1 shampoo."
+  },
+  {
+   "text": "He's 6 foot 2.",
+   "note": "already words"
+  }
+ ],
+ "rules": [
+  {
+   "name": "Measures pre-pass (hook and order)",
+   "where": "Phonemizer.swift phonemize(): call a new TextNormalizer.measures(_:) right after `Self.foldMicroSign(TextNormalizer.linkLabels(t))` and before `custom.mark`, only when `normalizes` is true. In TextNormalizer.rules, delete the merged fix3/reading rules 'Heights: 5'11\"' and the three 'Inches' rules (about lines 496-513); this pass replaces them.",
+   "trigger": "This is the hook, not a reading rule. The sub-rules run in this order: abbreviated feet and inches, marked feet and inches, hyphenated unit, 'N in.' before an adjective, dimensions, single marks, title count, multiplier, game multiplier.",
+   "reads_as": "Plain text that keeps its digits and gains words ('6 foot 2', '1280 by 7 20', '3 times faster', '27 inch'). The custom lexicon, TextNormalizer.normalize and the number reader then read the rest as they do today.",
+   "risks": "It must run before the custom lexicon (its '10x', '1X' and exact 'X' entries), and before the units, range and fraction rules. Running first is not enough on its own: the merged height rule inside normalize still fires on text this pass deliberately leaves alone. Today it reads 'The song runs 3'45\"' as 'three foot forty-five', '40°26′46″N' as 'twenty six foot forty six inches N', 'Kane 9' 2-0 up' as 'nine foot two to zero', and '6'0\"' as 'six foot zero'. So that rule has to be removed, not just run after this pass. Skip this pass when normalize is false (the reference misaki pipeline)."
+  },
+  {
+   "name": "Feet and inches, abbreviated (6 ft 2 in, 6ft 2in, 6ft2, 5ft 10)",
+   "where": "TextNormalizer.measures, first.",
+   "trigger": "`(?<![\\p{L}\\d.,])(\\d{1,2})[ \\t]?ft\\.?[ \\t]?(\\d|1[01])(?!\\d)`, then an optional `[ \\t]?in\\.?` that no letter follows. Only lower-case 'ft' and 'in' count.\n\nWhen an 'in' follows the second number:\n- glued to the number ('2in'): always inches;\n- spaced, with a period ('4 in.'): inches;\n- spaced, without a period: inches only before the end of the text, one of , . ; : ! ? ), or one of and, or, but, tall, high, long, wide, deep, thick, square, across. Before any other word it is a preposition and stays ('5 ft 6 in heels').\n\nWhen no 'in' counts, the second number must be followed by the end of the text, one of , . ; : ! ? ), or a space and in, and, or, but, with, without, wearing or barefoot.",
+   "reads_as": "'F foot M' ('6 foot 2'), or 'F foot' when M is 0. When 'in.' ends a sentence (the end of the text, or a capital follows), its period stays as the full stop. A preposition 'in' is kept ('5 foot 6 in heels').",
+   "risks": "'6 ft 2 boards' and '8 ft, 2 of them' are left alone. All-caps 'FT' (the lexicon's Financial Times) and 'Ft.' (Fort) are never matched. 'Cut it 6 ft 2 in long' reads 'six foot two long', which is acceptable. The first version of this rule took any spaced 'in', so 'She's 5 ft 6 in heels' read 'five foot six heels'."
+  },
+  {
+   "name": "Feet and inches with marks (6'2\", 5′11″, 6’2”, 6'2)",
+   "where": "TextNormalizer.measures, after the abbreviated rule. It replaces the merged 'Heights' rule.",
+   "trigger": "A number F, then a feet mark (', ’ or ′), an optional space, then inches M: one digit, or 10 or 11, with no leading zero and optional decimals. Then an optional inch mark (\", ”, ″, '' or ’’).\n\nThe character before F must not be a letter, a digit, '.', ',', '°', ′, ', ’, ‘, \", “ or '#'. When there is an inch mark, no letter or digit may follow it.\n\nWhen there is no inch mark:\n- F must be a single digit from 1 to 9;\n- M must be glued to the feet mark, or spaced only when the end of the text or one of , . ; : ! ? ) follows;\n- M must not be followed by a letter, a digit, ' or ’;\n- M must not be followed by -, –, : or / plus a digit.",
+   "reads_as": "'F foot M'. Zero inches is dropped ('6'0\"' reads 'six foot'). Decimals are kept ('5'6.5\"' becomes '5 foot 6.5').",
+   "risks": "These are excluded:\n- coordinates (a ° comes before, and 46 is more than 11);\n- Swiss thousands such as 'CHF 1'250';\n- durations such as 3'45\" and 4'05\";\n- football minutes before a score ('Kane 9' 2-0');\n- 'Type 6' 2 times'.\n\nStill misread: a race split or an arc-minute under 12 written with marks ('4'10\"', '5′10″') reads as a height. That is rare in general text."
+  },
+  {
+   "name": "Hyphenated feet or inches before a word (10-ft pole, 12-in. skillet)",
+   "where": "TextNormalizer.measures.",
+   "trigger": "`(?<![\\p{L}\\d.,])(\\d+(?:\\.\\d+)?)-(ft\\.?|in\\.)(?=\\s+[\\p{L}\\d])`. 'in' counts only with its period, so '2-in-1' is untouched.",
+   "reads_as": "'N foot' or 'N inch', always singular, because the hyphen makes it a modifier ('a ten foot pole', 'a 2 inch or 3 inch pipe').",
+   "risks": "Low risk. Today '10-ft' is read 'ten' followed by letters."
+  },
+  {
+   "name": "'N in.' before a dimension adjective (30 in. wide)",
+   "where": "TextNormalizer.measures.",
+   "trigger": "`(?<![\\p{L}\\d.,])(\\d+(?:\\.\\d+)?)[ \\t]?in\\.(?=\\s+(?:tall|high|long|wide|deep|thick|square|across|in diameter)\\b)`",
+   "reads_as": "'N inches', or 'N inch' when N is 1, with the period dropped.",
+   "risks": "Without the period, or before any other word, 'in' stays a preposition ('It's 6 in the morning', '6 in 10 adults', 'a size 12 in men's shoes')."
+  },
+  {
+   "name": "Dimensions N x M (2x4, 1920×1080, 10 x 12 ft, 35 cm x 48 cm, 9\" x 13\" x 2\", 2x4x8)",
+   "where": "TextNormalizer.measures, after the feet-and-inches rules and before the single-mark rule.",
+   "trigger": "An operand, then one or more (separator, operand) pairs.\n\nOperand: a number `\\d+(?:,\\d{3})*(?:\\.\\d+)?`, optionally followed by a length unit. The unit is either a mark (', ’, ′, \", ”, ″, '', ’’) or, after an optional space, one of mm, cm, m, km, in., in, ft., ft, yd, px, µm or μm, with no letter after it. 'pt' is not a unit here: it can mean font points or pints.\n- A bare 'in' counts only before the end of the text, one of , ; : ! ? ), a period, or another spaced separator.\n- 'in.' always counts.\n- A straight \" counts only when it isn't closing an open quote (the same test as the single-mark rule).\n\nSeparator: x, X or ×, either glued on both sides or with one space on each side.\n\nBoundaries:\n- Before the first number there must not be a letter, digit, '.', ',', '_', '@', '#', '/', '-', '–', ', ‘, \" or “.\n- After the last operand there may be a plural 's'. After that, none of these may follow: a letter; '.' plus a letter or digit (file names); ':' plus a digit; '-' or '–' plus a digit; '^'; a superscript digit.\n- When the separator is a glued x or X, the first number must not be '0' (hex such as 0x1F or 0X1F).\n\nLeave the text as it is in any of these cases:\n- Weight or volume: a weight or volume unit follows any operand, glued or spaced (g, kg, mg, ml, mL, l, L, oz, lb, lbs, tbsp, tsp).\n- Time: a time word follows the last operand, after a space or a hyphen (hour(s), hr(s), minute(s), min(s), second(s), sec(s), day(s), night(s), week(s), month(s), year(s), shift(s), session(s)). Example: '3 x 12 hour shifts'.\n- A count: the separator is spaced, there is only one, the first operand is a whole number of 12 or less with no unit, and a plural container word comes within the next three words. Container words: tins, pans, trays, dishes, cans, jars, packs, ramekins, moulds, molds, bottles, bags, pots, boxes, cartons, tubs, tablets, capsules, sachets, pouches. Examples: '2 x 20cm round cake tins', '2 x 4 packs'.\n- A score: the separator is spaced, no operand has a unit, and the word right before is won, lost, beat, beats, drew, tied, lead, leads, led, trail, trails, trailed, score, scored, scores, ended, finished or final. Example: 'Brazil won 2 x 1'.\n- Algebra: the same line has an x next to an operator ('5x +', 'x =', '+ 2x'). Example: 'Factor 3x2 + 5x + 2'.",
+   "reads_as": "Each separator becomes ' by '.\n\nIt becomes ' times ' instead in any of these cases:\n- '=', '≈', '^' or a superscript digit follows the last operand;\n- '=' or a spaced + − - ÷ / comes right before the first operand;\n- a spaced + − - ÷ / and a number come right after;\n- 'equals' and a number follow;\n- 'is', 'makes' or 'gives' follows, and the number after it equals the product of the operands ('3 x 3 is 9'; but '2x4 is 1.5 x 3.5' stays 'by');\n- 'what is', 'what's', 'how much is', 'calculate' or 'compute' comes immediately before the first operand, with only spaces between. A match at the start of the clause is not enough: 'What is a 2x4?' and 'Calculate the area of a 10 x 12 room' are sizes. 'multiply' is dropped from this list, because 'multiply twelve by twelve' is natural English.\n\nInside a 'by' reading:\n(a) Pixel sizes, meaning there is no unit other than px and every operand is a whole number of 100 or more. A three-digit operand not ending in 00 is emitted as a pair: '7 20' for 720, '2 50' for 250, '1 oh 5' for 105. Four-digit operands are already read as pairs by the number reader.\n(b) An operand ending in exactly .5 with a whole part of 1 or more becomes 'N and a half' (pending the halves question).\n(c) Units:\n- When every unit is a mark of the same kind, the unit is read once, after the last number: '12' x 14'' becomes '12 by 14 feet', and '9\" x 13\" x 2\" pan' becomes '9 by 13 by 2 inch pan'. This matches the merged inch rule.\n- Written units are read where they are written: '35 cm x 48 cm' becomes '35 centimeters by 48 centimeters'.\n- This pass writes the unit word itself (foot or feet, inch or inches, centimeter(s), millimeter(s), meter(s), yard(s), pixel(s)) instead of leaving it to the units rule, which is always plural. Singular or plural comes from the attributive test in the single-mark rule, applied to the whole expression: '20 x 30cm tin' gives 'centimeter tin', and '10' x 12' shed' gives 'foot shed'.",
+   "risks": "A bare spaced times-table fact with no '=' ('Learn 7 x 8 by heart') reads 'by'. A score written without a score verb ('Flamengo 3 x 2 Vasco') reads 'by'. FIBA's '3x3 basketball' reads 'three by three'. These are accepted as rare.\n\nCounts written with x and a unit ('6 x 400m repeats') read 'by', which is how runners say them.\n\nThe guards and the frozen cases cover hex, model names (8x7B, 8x H100), file names, version wildcards, algebra, recipe and pack counts, shifts and scores."
+  },
+  {
+   "name": "Single inch or foot mark after a number (27\" monitor, 6′ fence, 8' high, 6-8\" of snow)",
+   "where": "TextNormalizer.measures, after the dimensions rule. It replaces the merged inch rules.",
+   "trigger": "A number followed directly by a mark, with no letter or digit right after the mark. The character before the number must not be a letter, a digit, '.', ',', '°', ′, '#', or an opening quote (', ‘, \" or “). A '-' or '–' before it is fine, so a range such as '6-8\"' works.\n\nWhich marks count:\n- ″: always.\n- A straight \": only when the nearest straight \" before it on the same line is not an opening quote. An opening quote is a \" at the start of the line, or after whitespace or one of ( [ { : — – - / =, with a non-space after it.\n- ”: only when every “ before it on the same line has been closed.\n- \" and ”: never when the line mentions shutter, exposure, ISO, or 'f/' plus a digit (30\" is a shutter speed in seconds).\n- ' or ’: only before an optional space and then tall, high, long, wide, deep, thick, square, across, away, apart, below or above. Never when 's' follows. Never when an opening single quote earlier on the line hasn't been closed. An opening single quote is a ' or ‘ after the start of the line, whitespace or '(', with a letter after it; '90s doesn't count, because a digit follows it.",
+   "reads_as": "The unit is singular ('27 inch monitor', '6 foot fence') when any of these holds:\n- N is 1;\n- a determiner comes directly before the number (a, an, the, this, that, each, every, one, our, my, your, his, her, their, its), so 'a 6' high fence' gives '6 foot high fence';\n- the word before the number is part of a product name: it contains a capital and isn't the first word of the sentence ('iMac 24\"', 'MacBook Pro 16\"');\n- the next word is a noun, an adjective or a number word (in Swift, NLTagger's lexical class).\n\nOtherwise it is plural: before punctuation or the end of the text, or before a function word ('27\".', '8' high', '2\" between', '2\" off', '4\" overnight', '6.1″ diagonally'). The fallback list of function words: prepositions, conjunctions, is/are/was/were, comparatives, -ly adverbs, and overnight, today, tonight, yesterday, tomorrow, ago, already, now, total, apart, away.",
+   "risks": "Straight quotes are the main hazard. The frozen cases cover numbers at the end of a quotation (\"Give me 5\", \"Gate 12\", \"the answer is 42\"), quoted titles before 'long' ('Plan 9' long), decades ('90s, 80's), class years ('05), football minutes and shutter speeds.\n\nAn inch mark inside a quotation ('\"Add 2\" of mulch,\" she said') is a miss, not a misreading.\n\nAn arc-second or a ditto mark written ″ reads as inches. That is rare."
+  },
+  {
+   "name": "Title count (3x champion, 4x Grammy winner)",
+   "where": "TextNormalizer.measures, before the multiplier rule.",
+   "trigger": "A number of one or two digits glued to x or X, with no letter, digit, '.', ',', '_', '@', '#' or '/' before it. Then up to two capitalised words or acronyms (Grammy, Super Bowl, Champions League, NBA). Then one of these words: champion, champions, champ, winner, winners, medalist, medallist, Olympian, All-Star, MVP, finalist, nominee, laureate.",
+   "reads_as": "'N time' plus the rest ('3 time champion').",
+   "risks": "The list of title words is closed, so nothing else changes. '3x player' keeps 'ex'."
+  },
+  {
+   "name": "Multiplier before a comparison or a frequency (3x faster, 10x more, 3x as much, 4X the price, 3x a week, 3x over)",
+   "where": "TextNormalizer.measures, before the custom lexicon and the range rule.",
+   "trigger": "A whole or decimal number glued to x, X or ×, with no letter or digit after the multiplier. The number may follow a range dash ('2-3x', '5–10x'), but not a letter, digit, '.', ',', '_', '@', '#' or '/'. Then whitespace and one of:\n- a comparative from a closed list: more, less, fewer, faster, slower, quicker, bigger, smaller, larger, cheaper, higher, lower, better, worse, longer, shorter, stronger, weaker, harder, easier, greater, lighter, heavier, wider, narrower, thinner, thicker, deeper, louder, quieter, brighter, safer, hotter, colder, warmer, cooler, denser, closer, further, farther, older, younger, richer, sooner, smarter, sharper, likelier, taller;\n- 'as' plus a word from a closed list: much, many, fast, slow, quick, quickly, big, large, small, long, high, low, likely, good, bad, often, strong, heavy, expensive, cheap, far, hard, easy, bright, loud, efficient, powerful, effective. This replaces 'as plus anything but a determiner', which took 'as PNG' and 'as well';\n- 'the' plus a quantity noun from a closed list: price, cost, size, amount, number, speed, rate, power, performance, value, capacity, memory, storage, weight, volume, damage, resolution, bandwidth, traffic, work, effort, money, time, length, distance, energy, output, revenue, risk. 'at 2x the whole time' stays;\n- 'over', only when the end of the text or one of , . ; : ! ? ) follows ('3x over.'). 'at 2x over the speakers' stays;\n- a frequency: 'a', 'an', 'per', 'each' or 'every' plus day, week, month, year, night, hour, session or game; or daily, weekly, monthly, yearly, annually, nightly or hourly; or 'in a row';\n- a glued '/day', '/week', '/month', '/year', '/hour' or '/night'. Only the '3x' is rewritten; the slash is left to the slash-per rule.",
+   "reads_as": "'N times' plus the rest ('3 times faster', '1.5 times faster', '2-3 times faster', which the range rule then reads as 'two to three times').",
+   "risks": "Algebra is safe, because a comparison is a word and never an operator. A multiplier before a noun or on its own keeps 'ex' (2x speed, 3x zoom, 3x speedup, 4x MSAA, 8x H100, 2x USB-C, 'Set it to 2x'). 'Revenue grew 3x' and 'I've told you 5x already' keep 'ex'; that is deliberate."
+  },
+  {
+   "name": "Game multiplier before an exclamation mark (Combo x2!)",
+   "where": "TextNormalizer.measures, last.",
+   "trigger": "A lower-case x plus one or two digits, immediately followed by '!'. It must come either at the start of a line, or after a space that follows a word starting with a capital letter (Combo, COMBO, Coins, Wow).",
+   "reads_as": "'times N' ('Combo times 2!').",
+   "risks": "Elsewhere 'x2' stays 'ex two': variables ('Plot x1 against x2.', 'Now solve for x2!', where the word before is lower-case), lane widths (x16), product names (a capital X is never matched). '×3' already reads 'times three' through Lexicon.symbols."
+  },
+  {
+   "name": "Left as they are",
+   "where": "No change. Lexicon.symbols, the tech lexicon and the number reader keep these.",
+   "trigger": "These cases:\n- a multiplier before a noun or on its own (2x speed, 3x zoom, 1.5x, 40x objective, 8x H100, 2x USB-C);\n- clothing sizes (2X, 3XL);\n- version wildcards (18.x, 2.x);\n- the lexicon's '10x engineer';\n- × glued to a number (10× faster, ×3);\n- measurements already written as words (6-foot-2, five foot eleven);\n- a British kiss sign-off ('See you at 8 x').",
+   "reads_as": "As today: 'two ex speed', 'one point five ex', 'ten-ex engineer', 'ten times faster', 'times three', 'six foot two'.",
+   "risks": "Speech and frozen cases guard these, so a broad rule can't change them by accident."
+  }
+ ],
+ "open_questions": [
+  "Halves in sizes: should '8.5 x 11 paper' and the lumber fact 'A 2x4 is 1.5 x 3.5 inches' read 'eight and a half by eleven' and 'one and a half by three and a half', the way people say them? I recommend yes, but only for a .5 inside a size written with x. '15.6\" screen' and '1.5x faster' keep 'point'. Two speech cases depend on this.",
+  "Sizes written with marks on both sides: should '12' x 14'' read 'twelve by fourteen feet' (the unit once, at the end) or 'twelve feet by fourteen feet'? I recommend once at the end. It is how people say room and pan sizes, and the merged inch rule already reads '9\" x 13\"' that way. Written units ('35 cm x 48 cm') are still read where written.",
+  "Zero inches: should '6'0\"' read 'six foot' (what I expect) or 'six foot zero' (what the merged rule says today)? I recommend 'six foot'.",
+  "Heights written with abbreviations: should '6 ft 2 in' read 'six foot two', the same as 6'2\"? I recommend yes; it works before a noun too ('the six foot two striker').",
+  "When x means 'times': I recommend 'times' only before a comparison from a closed list (faster, more, as much, the price, over at the end) or a frequency (a week, daily, in a row). Before a noun or on its own it stays 'ex' (2x speed, 3x zoom, 1.5x, 10x engineer), which matches your call on '2x speed'.",
+  "Should '3x champion' read 'three-time champion'? I recommend yes, limited to a closed list of title words.",
+  "Recipe and pack counts ('2 x 400g tins', '2 x 20cm round cake tins', '2 x 4 packs') stay as today ('two ex …') for now. When this is decided, I recommend a silent x ('two four hundred gram tins', 'two twenty centimeter round cake tins'), which is how British cooks read them, rather than 'times'.",
+  "Game multipliers: should 'x2' read 'times two' only right before '!' and after a capitalised word ('Combo x2!')? I recommend yes. A receipt line such as 'Latte x2' stays 'ex two', because 'x2' at the end of a sentence is just as often a maths variable.",
+  "Screen and ad sizes: should '1280x720' read 'twelve eighty by seven twenty', the way people say resolutions? I recommend yes, but only when every side is 100 or more and the only unit is px.",
+  "'24x7' was removed. People say both 'twenty-four seven' and 'twenty-four by seven', so I recommend leaving it as it is.",
+  "'3x/week' was removed. A reader says either 'three times a week' or 'three times per week'. The multiplier rule rewrites only the '3x'; the '/week' should read the way the slash-per area decides (today the slash is silent: 'three ex week')."
+ ],
+ "review_notes": [
+  "The repo moved during the review. HEAD is now b06b926 (fix3/reading merged), and its TextNormalizer.rules include a height rule and three inch rules. Because of that, 25 of the 97 speech cases already pass today in both voices, and their notes now say so. The merged height rule also has false positives this set can't freeze safely: '3'45\"' is read 'three foot forty-five', '40°26′46″N' 'twenty six foot forty six inches N', 'Kane 9' 2-0' 'nine foot two to zero', and '6'0\"' 'six foot zero'. Replace those merged rules with the measures pass before running --freeze. Otherwise any frozen case that touches them would lock in the bug. None of my 60 frozen cases is misread today; I checked each one's current phonemes.",
+  "Harness problem, still present in SpeechTest.loose: hyphenated number words in 'says' ('twenty-seven') come out as one word (twˈɛntisˌɛvən) and never equal the digit reading (twˈɛnti sˈɛvən). 8 of the 97 cases fail in each voice for this reason alone. Fix it on the says side: replace a hyphen between a tens word and a ones word with a space before phonemizing. The money cases ('four ninety-nine') need the same fix.",
+  "How I checked: I wrote a Python stand-in for the tightened rules, the rules exactly as written above. I ran every speech text through it and then through the current binary, and compared the result with the 'says' text, both voices, using loose comparison plus the hyphen fix: 97 of 97 pass in US and in GB. All 60 frozen cases come out of the stand-in unchanged. I also phonemized every 'says' sentence and read it for misread plain words. The files are proto.py, cases.py and check.py in /private/tmp/claude-501/-Users-claremccormack-Sites-readaloud--claude-worktrees-app-monetization-payments-2fe731/d937b965-6e6d-417c-ba43-5dde5061f672/scratchpad/dims-review/; the folder name is distinct from the author's dims-area.",
+  "Expectations corrected:\n- Sizes written with marks on both sides now read the unit once ('twelve by fourteen feet', 'ten by twelve foot shed'). This matches the merged inch rule and natural speech.\n- 'He's 6'0\" in socks' note: today it reads 'six foot zero'.\n- 'Sizes: 32\", 34\", and 36\".' removed as ambiguous ('inch' or 'inches' for sizes in a list); replaced by the pizza case.\n- 'Support is 24x7.' removed as ambiguous.\n- 'Lift 3x/week.' removed: it depends on the slash-per decision.\n- '65\" TV' removed, because 'TV' in 'says' is an abbreviation.\n- 'Use a 9x13 pan' removed: the stack reads 'Use' with a different vowel depending on the words after it.\n- 'Invert the 3x3 matrix' became 'Transpose …', because the stack gives 'Invert' noun stress.\n- 'Use 3x zoom' became 'Try 3x zoom' and 'Uses 2 x 1.5V' became 'It takes 2 x 1.5V', so the frozen cases don't lock in a heteronym error.",
+  "Rule bugs the stand-in found, each now guarded by a case:\n- abbreviated rule: 'She's 5 ft 6 in heels' read 'five foot six heels';\n- 'what is' / 'calculate' at the start of a clause: 'What is a 2x4?' and 'Calculate the area of a 10 x 12 room' read 'times';\n- 'is' plus a number: 'A 2x4 is 1.5 x 3.5 inches' read 'two times four';\n- 'a spaced + and a number follow': 'Factor 3x2 + 5x + 2' read 'three times two';\n- the attributive test: 'Build a 6' high fence' read 'six feet high fence', 'Trim 2\" off' and 'We got 4\" overnight' read 'inch', and 'The iMac 24\" comes' read 'inches';\n- 'as' plus a word: 'at 2x as PNG' and '2x as well' read 'times';\n- 'the': 'at 2x the whole time' read 'times';\n- 'over': 'at 2x over the speakers' read 'times';\n- dimensions read 'by' in '3 x 12 hour shifts', '2 x 20cm round cake tins', '2 x 4 packs of batteries' and 'Brazil won 2 x 1';\n- single ' foot mark: 'She called it 'Plan 9' long before' read 'nine feet long';\n- game rule: 'Now solve for x2!' read 'times two';\n- marked heights with no inch mark: a spaced form ('Type 6' 2 times') is now allowed only before punctuation.",
+  "Added real-world positives: dating profile and chat heights, British police and press styles (5ft 10, 6ft 2in), a 9\" x 13\" x 2\" pan, 2x4x8 studs, 10x50 binoculars, a 2556 x 1179 phone spec, a furniture spec (60 x 45 x 90 cm), a British '20 x 30cm tin', a US 9 x 13-inch baking dish, '4 x 6 in.', a snowfall range (6-8\"), a 7\" single, hail size, '3x over', 'in a row', and the product-check arithmetic.",
+  "For other areas:\n- An inch mark after a fraction is left to the fractions rule, which reads '1/2\" bolts' as 'one half inch bolts' and '3/4\" plywood' as 'three quarters inch plywood'. People say 'half-inch' and 'three-quarter-inch'.\n- 'He's 6-2, 220' reads 'six to two' (the ranges area).\n- The units rule is always plural ('a 5 km run'); the dimensions rule now writes its own singular unit words.\n- 'Track 2 ft. Drake' reads 'two feet Drake' today (the units area).\n- Coordinates (40°26′46″N) belong to the coordinates owner; my guards keep this area's rules off them.",
+  "Earlier in the review I wrote a probe file to the shared /tmp/x.txt by mistake. Another agent's text was read from it during that run. If a parallel agent reports a strange result from /tmp/x.txt at about 15:00, that is the cause; I used my own scratch folder after that.",
+  "Linear: no update from me. I'm a subagent, and the parent owns FIN-889 and FIN-888."
+ ]
+}

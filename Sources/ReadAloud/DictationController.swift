@@ -1,5 +1,6 @@
 import AppKit
 import AVFoundation
+import Phonemizer
 
 /// Dictation: record the microphone, transcribe with Parakeet on this Mac, tidy
 /// it with a small language model if that's downloaded, and type the text into
@@ -17,6 +18,9 @@ final class DictationController: ObservableObject {
     @Published private(set) var level: Float = 0
     @Published private(set) var startedAt = Date()
     private(set) var lastTranscript: String?
+    /// The last dictation as the engine heard it, before tech terms were fixed: the way
+    /// back when the fixer got a word wrong.
+    private(set) var lastHeard: String?
     /// 0…1 while the dictation model downloads, nil otherwise.
     @Published private(set) var modelProgress: Double?
     /// 0…1 while the clean-up model downloads, nil otherwise.
@@ -30,7 +34,7 @@ final class DictationController: ObservableObject {
     private var engine: ParakeetEngine?   // only touched on `queue`
     private var pushToTalk = false
     /// Started by a tap that may yet turn out to be the first of a double-tap (to read).
-    private var provisional = false
+    @Published private(set) var isProvisional = false
     /// A tap that couldn't record straight away (it has to ask or explain something first), waiting
     /// to find out whether it's a double-tap.
     private var startWhenConfirmed = false
@@ -51,6 +55,7 @@ final class DictationController: ObservableObject {
     init(player: PlayerModel) {
         self.player = player
         recorder.onLevel = { [weak self] in self?.level = $0 }
+        recorder.onFailure = { [weak self] in self?.microphoneLost() }
         shortcuts.onDictate = { [weak self] provisional in self?.startFromShortcut(provisional: provisional) }
         shortcuts.onConfirm = { [weak self] in self?.confirm() }
         shortcuts.onRetract = { [weak self] in self?.retract() }
@@ -71,12 +76,18 @@ final class DictationController: ObservableObject {
 
     func start() {
         shortcuts.start()
+        queue.async { _ = Self.corrector }
         // Get the clean-up model's GPU code compiled before the first dictation needs it.
         if TranscriptCleaner.isInstalled {
             DispatchQueue.main.asyncAfter(deadline: .now() + 10) { [cleaner] in cleaner.prepare() }
         }
         if ParakeetEngine.isInstalled {
             queue.async { _ = self.loadEngine() }
+            // Have the microphone ready before the first dictation (only when access is already granted:
+            // making it checks, and launch is no time to ask).
+            if AVCaptureDevice.authorizationStatus(for: .audio) == .authorized {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [recorder] in recorder.prepare() }
+            }
         } else {
             // Fetch the dictation model quietly soon after first launch so it's
             // ready by the time someone tries it (unless they removed it in Settings).
@@ -122,8 +133,9 @@ final class DictationController: ObservableObject {
         default: return
         }
         guard provisional else { return begin(pushToTalk: false) }
-        // Start listening at once, but leave anything that needs a word with the person until it's confirmed.
-        let ready = ParakeetEngine.isInstalled && SelectionReader.isTrusted
+        // Start listening at once, but leave anything that needs a word with the person until it's confirmed
+        // (an ended free week included: begin() explains it once the tap is confirmed).
+        let ready = Licensing.shared.isUnlocked && ParakeetEngine.isInstalled && SelectionReader.isTrusted
             && (Self.dryRun || AVCaptureDevice.authorizationStatus(for: .audio) == .authorized)
         if ready { startRecording(pushToTalk: false, provisional: true) } else { startWhenConfirmed = true }
     }
@@ -134,15 +146,15 @@ final class DictationController: ObservableObject {
             startWhenConfirmed = false
             begin(pushToTalk: false)
         }
-        guard provisional, state == .recording else { return }
-        provisional = false
+        guard isProvisional, state == .recording else { return }
+        isProvisional = false
         if Self.dryRun { print("   dictation: confirmed"); fflush(stdout) } else { NSSound(named: "Tink")?.play() }
     }
 
     /// It was a double-tap: drop the recording without a sound.
     private func retract() {
         startWhenConfirmed = false
-        guard provisional else { return }
+        guard isProvisional else { return }
         cancel(quietly: true)
     }
 
@@ -181,7 +193,10 @@ final class DictationController: ObservableObject {
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .audio) { granted in
                 DispatchQueue.main.async {
-                    if granted { self.show("Microphone ready. \(Self.dictateInstruction) to dictate.") }
+                    if granted {
+                        self.show("Microphone ready. \(Self.dictateInstruction) to dictate.")
+                        self.recorder.prepare()
+                    }
                     else { self.show("Aloud needs microphone access to dictate.") }
                 }
             }
@@ -197,7 +212,7 @@ final class DictationController: ObservableObject {
 
     /// `provisional`: the start sound waits until it's confirmed, so a double-tap to read stays silent.
     private func startRecording(pushToTalk: Bool, provisional: Bool = false) {
-        self.provisional = provisional
+        isProvisional = provisional
         if Self.dryRun {
             print("   dictation: start (\(pushToTalk ? "hold to talk" : provisional ? "provisional" : "tap to toggle"))"); fflush(stdout)
             self.pushToTalk = pushToTalk
@@ -234,7 +249,7 @@ final class DictationController: ObservableObject {
 
     func cancel(quietly: Bool = false) {
         guard state == .recording else { return }
-        provisional = false
+        isProvisional = false
         if Self.dryRun { print("   dictation: cancel"); fflush(stdout); state = .idle; return }
         pollTimer?.invalidate()
         _ = recorder.stop()
@@ -245,61 +260,107 @@ final class DictationController: ObservableObject {
         resumeReading()
     }
 
-    private func finish() {
-        provisional = false
+    /// The microphone stopped sending audio and couldn't be restarted: stop now, keeping what was
+    /// heard, rather than let you carry on talking into nothing.
+    private func microphoneLost() {
+        guard state == .recording else { return }
+        finish(micLost: true)
+    }
+
+    private func finish(micLost: Bool = false) {
+        isProvisional = false
         if Self.dryRun { print("   dictation: stop and transcribe"); fflush(stdout); state = .idle; return }
         pollTimer?.invalidate()
         let samples = recorder.stop()
+        if DebugScript.args.contains("--trace") {
+            print(String(format: "   dictation: %.2fs of audio from a %.1fs recording", Double(samples.count) / 16_000, Date().timeIntervalSince(startedAt)))
+        }
         cleaner.willFinish()
-        NSSound(named: "Pop")?.play()
-        guard samples.count > ParakeetEngine.sampleRate / 3 else {  // under ~0.3 s: nothing said
+        NSSound(named: micLost ? "Funk" : "Pop")?.play()
+        // Back to what was being read straight away; the text is typed when it's ready.
+        resumeReading()
+        guard samples.count > ParakeetEngine.sampleRate / 3 else {  // under ~0.3 s of audio
             streamer.reset()
             cleaner.cancel()
             state = .idle
-            resumeReading()
+            // A quick tap is nothing said; a longer recording without audio means the microphone failed, so say so.
+            if micLost || Date().timeIntervalSince(startedAt) > 1 { show(Self.noAudioMessage) }
             return
         }
+        afterTyping = micLost ? "The microphone stopped partway, so Aloud typed what it heard until then." : nil
         state = .transcribing
         let started = Date()
         let seconds = Double(samples.count) / 16_000
         // Most of the recording is already transcribed (and tidied); only the tail is left.
         streamer.finish(all: samples) { raw, _ in
             guard self.cleaner.isActive else {
-                self.deliver(raw, audioSeconds: seconds, took: Date().timeIntervalSince(started))
+                self.deliver(heard: raw, tidied: nil, audioSeconds: seconds, took: Date().timeIntervalSince(started))
                 return
             }
             var delivered = false
             self.cleaner.finish { tidied in
                 guard !delivered else { return }
                 delivered = true
-                self.deliver(tidied ?? raw, audioSeconds: seconds, took: Date().timeIntervalSince(started))
+                self.deliver(heard: raw, tidied: tidied, audioSeconds: seconds, took: Date().timeIntervalSince(started))
             }
             // Never keep you waiting long: if tidying stalls, paste what was heard.
             DispatchQueue.main.asyncAfter(deadline: .now() + Self.cleanupTimeout) {
                 guard !delivered else { return }
                 delivered = true
                 self.cleaner.cancel()
-                self.deliver(raw, audioSeconds: seconds, took: Date().timeIntervalSince(started))
+                self.deliver(heard: raw, tidied: nil, audioSeconds: seconds, took: Date().timeIntervalSince(started))
             }
         }
     }
 
     private static let cleanupTimeout: TimeInterval = 6
+    static let noAudioMessage = "Aloud didn't get any sound from the microphone, so nothing was typed. Try again."
+    /// A message to show once the text is typed.
+    private var afterTyping: String?
 
-    private func deliver(_ raw: String, audioSeconds: Double, took: Double) {
-        if DebugScript.args.contains("--trace") {
-            print(String(format: "   dictation: %.1fs recording, text ready %.2fs after stopping: %@", audioSeconds, took, raw))
+    /// `heard` is Parakeet's transcript; `tidied` the clean-up model's version, when it ran.
+    private func deliver(heard raw: String, tidied: String?, audioSeconds: Double, took: Double) {
+        let trace = DebugScript.args.contains("--trace")
+        if trace {
+            print(String(format: "   dictation: %.1fs recording, text ready %.2fs after stopping: %@", audioSeconds, took, tidied ?? raw))
         }
-        let text = raw.trimmingCharacters(in: .whitespacesAndNewlines)
         state = .idle
-        resumeReading()
-        guard !text.isEmpty else {
-            show("Didn't catch that.")
+        let note = afterTyping
+        afterTyping = nil
+        guard let result = Self.result(heard: raw, tidied: tidied, fixTerms: Self.fixesTechTerms) else {
+            show(note == nil ? "Didn't catch that." : "The microphone stopped before Aloud caught anything.")
             return
         }
-        lastTranscript = text
-        insert(text)
+        if trace, result.typed != (tidied ?? raw).trimmingCharacters(in: .whitespacesAndNewlines) {
+            print("   dictation: tech terms fixed: \(result.typed)")
+        }
+        lastTranscript = result.typed
+        lastHeard = result.heard
+        insert(result.typed)
+        if let note { show(note) }
     }
+
+    /// What gets typed (the tidied text if the clean-up model ran, then tech terms fixed)
+    /// and what "Copy Last Dictation as Heard" keeps: Parakeet's own words, before either.
+    /// An empty tidied result falls back to what was heard rather than losing the dictation.
+    static func result(heard raw: String, tidied: String?, fixTerms: Bool) -> (typed: String, heard: String)? {
+        let heard = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+        let tidy = tidied?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let base = tidy.isEmpty ? heard : tidy
+        guard !base.isEmpty else { return nil }
+        return (fixTerms ? corrector.correct(base) : base, heard.isEmpty ? base : heard)
+    }
+
+    // MARK: - Tech terms
+
+    /// The Settings switch "Fix tech terms in dictation" (on unless it's been turned off).
+    static let fixTechTermsKey = "fixTechTermsInDictation"
+    static var fixesTechTerms: Bool { UserDefaults.standard.object(forKey: fixTechTermsKey) as? Bool ?? true }
+
+    /// The lexicons in reverse ("super base" → Supabase). Built once, on the dictation
+    /// queue at launch (a few tens of milliseconds for the full list), with the field packs
+    /// that are on then; a Settings control for packs will need to build it again.
+    static let corrector = DictationCorrector(LexiconFiles.shared, packs: LexiconFiles.packs)
 
     private func resumeReading() {
         if resumeReadingAfter { player.play() }
@@ -310,6 +371,7 @@ final class DictationController: ObservableObject {
 
     /// Pastes into the focused app, then puts your clipboard back.
     private func insert(_ text: String) {
+        if DebugScript.args.contains("--no-paste") { print("   dictation: would type: \(text)"); fflush(stdout); return }
         let pasteboard = NSPasteboard.general
         let saved = SelectionReader.snapshot(pasteboard)
         pasteboard.clearContents()
@@ -333,6 +395,15 @@ final class DictationController: ObservableObject {
         guard let lastTranscript else { return }
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(lastTranscript, forType: .string)
+    }
+
+    /// Whether clean-up or fixing tech terms changed the last dictation (so "as heard" is different).
+    var lastDictationWasFixed: Bool { lastHeard != nil && lastHeard != lastTranscript }
+
+    func copyLastHeard() {
+        guard let lastHeard else { return }
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(lastHeard, forType: .string)
     }
 
     // MARK: - Model
@@ -409,8 +480,9 @@ final class DictationController: ObservableObject {
     func downloadCleanupModel() {
         guard !cleanupDownloader.isRunning, !TranscriptCleaner.isInstalled else { return }
         cleanupProgress = 0
-        cleanupDownloader.download(TranscriptCleaner.downloadURL, into: TranscriptCleaner.modelDirectory,
-                                   saveAs: TranscriptCleaner.fileName) { [weak self] p in
+        let file = ModelDownloader.RemoteFile(name: TranscriptCleaner.fileName, url: TranscriptCleaner.downloadURL, size: 2_740_937_888,
+                                              sha256: "00fe7986ff5f6b463e62455821146049db6f9313603938a70800d1fb69ef11a4")
+        cleanupDownloader.download(files: [file], into: TranscriptCleaner.modelDirectory) { [weak self] p in
             self?.cleanupProgress = p
         } completion: { [weak self] error in
             guard let self else { return }
@@ -440,11 +512,15 @@ final class DictationController: ObservableObject {
 
     // MARK: - Debug
 
-    func debugSet(_ s: State) {
+    func debugSet(_ s: State, provisional: Bool = false) {
         state = s
+        isProvisional = provisional
         level = 0.75
         startedAt = Date().addingTimeInterval(-7)
     }
+
+    /// Stops the microphone's engine behind the recorder's back, the way macOS sometimes does.
+    func debugStopMicrophone() { recorder.debugStopEngine() }
 
     func debugTranscribe(_ samples: [Float]) -> String {
         loadEngine()?.transcribe(samples) ?? ""

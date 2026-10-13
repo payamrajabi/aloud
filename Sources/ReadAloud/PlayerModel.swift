@@ -7,6 +7,8 @@ import Foundation
 final class PlayerModel: ObservableObject {
     @Published private(set) var text = ""
     @Published private(set) var chunkRanges: [NSRange] = []
+    /// Headings, lists, quotes, code, struck and bold text in `text`, for the player to show.
+    @Published private(set) var displayStyles: [DisplayStyle] = []
     @Published private(set) var currentIndex = 0
     @Published private(set) var position: Double = 0
     @Published private(set) var duration: Double = 0
@@ -22,15 +24,19 @@ final class PlayerModel: ObservableObject {
 
     private(set) var sourceText = ""
     var hasSession: Bool { !chunks.isEmpty }
+    /// At the end: finished, or never started.
+    var isAtEnd: Bool { position >= duration - 0.05 }
 
     /// Called after play, pause, seek, speed and stop, so the system's
     /// Now Playing info (AirPods, media keys, Control Center) stays in sync.
     var onTransportChange: (() -> Void)?
     private var notifiedDuration: Double = 0
 
-    /// A short title for Control Center: the opening words of the text.
+    /// A short title for Control Center: the opening words of the text, as shown (the speech
+    /// can hold stress marks).
     var title: String {
-        guard let first = chunks.first?.speech else { return "Aloud" }
+        guard let range = chunkRanges.first else { return "Aloud" }
+        let first = (text as NSString).substring(with: range)
         return first.count > 70 ? String(first.prefix(70)).trimmingCharacters(in: .whitespaces) + "…" : first
     }
 
@@ -41,6 +47,7 @@ final class PlayerModel: ObservableObject {
 
     private var chunks: [Chunk] = []
     private var buffers: [Int: AVAudioPCMBuffer] = [:]
+    private var unspeakable = Set<Int>()         // chunks the voice had nothing to say for
     private var starts: [Double] = [0]           // start time of each chunk, plus total at the end
     private var secondsPerChar = 0.064           // refined as audio is generated
     private let audio = AudioOut()
@@ -74,8 +81,15 @@ final class PlayerModel: ObservableObject {
         audio.rate = rate
         synth.onReady = { [weak self] s, index, samples in self?.chunkReady(session: s, index: index, samples: samples) }
         synth.onError = { [weak self] message in
-            self?.message = message
-            self?.isBuffering = false
+            guard let self else { return }
+            // A damaged voice file was found (and removed) while loading: download the
+            // voice again; a waiting session starts reading once it's back.
+            if !KokoroEngine.isModelInstalled, KokoroEngine.isDownloadedVoiceDamaged {
+                self.downloadVoiceIfNeeded()
+                return
+            }
+            self.message = message
+            self.isBuffering = false
         }
         audio.onConfigurationChange = { [weak self] in self?.audioRouteChanged() }
         deviceObserver = AudioDevices.shared.routeChanged.sink { [weak self] deliberate in
@@ -114,9 +128,10 @@ final class PlayerModel: ObservableObject {
     /// A session waiting for it starts reading as soon as it's unpacked.
     func downloadVoiceIfNeeded() {
         guard !KokoroEngine.isModelInstalled, !voiceDownloader.isRunning else { return }
+        if KokoroEngine.isDownloadedVoiceDamaged { message = Self.damagedVoiceMessage }
         voiceDownloadProgress = 0
         log("downloading the voice")
-        voiceDownloader.download(KokoroEngine.downloadURL, into: ModelStore.root) { [weak self] p in
+        voiceDownloader.download(files: KokoroEngine.files, into: KokoroEngine.downloadedModelDirectory) { [weak self] p in
             self?.voiceDownloadProgress = p
         } completion: { [weak self] error in
             guard let self else { return }
@@ -135,6 +150,9 @@ final class PlayerModel: ObservableObject {
     /// Set when someone removes the voice in Settings: it's then fetched only when they next read.
     static let voiceRemovedKey = "voiceRemoved"
 
+    static let damagedVoiceMessage = "The voice on this Mac was damaged, so Aloud is downloading it again."
+    static let notEnglishMessage = "Aloud reads English text, and this selection isn't in English."
+
     /// Only a downloaded voice can be removed, not one bundled inside the app.
     var canRemoveVoice: Bool {
         KokoroEngine.isModelInstalled && KokoroEngine.modelDirectory == KokoroEngine.downloadedModelDirectory
@@ -150,32 +168,64 @@ final class PlayerModel: ObservableObject {
 
     private func voiceBecameReady() {
         UserDefaults.standard.removeObject(forKey: Self.voiceRemovedKey)
+        if message == Self.damagedVoiceMessage { message = nil }
         synth.preload(accent: voice.accent)
         guard hasSession else { return }
         // Generate from where the listener is waiting; chunkReady starts playback.
-        session = synth.begin(texts: chunks.map(\.speech), voice: voice, from: currentPoint().index)
+        session = synth.begin(chunks, voice: voice, from: currentPoint().index)
         updateWindow()
     }
 
     // MARK: - Session
 
-    func load(_ raw: String) {
+    /// Reads `raw`, with its structure from the app's `html` when there is some (else from
+    /// Markdown, else guessed from the plain text).
+    /// "heading 1 ×1, heading 2 ×3, paragraph ×12, list item ×6": what the reading found.
+    private static func summary(_ doc: NarrationDoc) -> String {
+        var counts: [String: Int] = [:]
+        for block in doc.blocks {
+            let name: String
+            switch block.kind {
+            case .heading(let level): name = "heading \(level)"
+            case .paragraph: name = block.quoteDepth > 0 ? "quote" : "paragraph"
+            case .listItem: name = "list item"
+            case .tableRow: name = "table row"
+            case .code: name = "code"
+            case .rule: name = "rule"
+            }
+            counts[name, default: 0] += 1
+        }
+        return counts.sorted { $0.key < $1.key }.map { "\($0.key) ×\($0.value)" }.joined(separator: ", ")
+    }
+
+    func load(_ raw: String, html: String? = nil) {
         stop()
-        let cleaned = TextPrep.clean(raw)
-        let newChunks = TextPrep.chunks(for: cleaned)
-        guard !newChunks.isEmpty else {
+        let doc = NarrationDoc.parse(raw, html: html)
+        let plan = NarrationPlanner.plan(doc)
+        let allChunks = plan.chunks
+        ReadingLog.logger.info("plan: \(Self.summary(doc), privacy: .public); \(allChunks.count) pieces")
+        guard !allChunks.isEmpty else {
             message = "There's nothing readable in that selection."
+            return
+        }
+        // The voices only speak English: skip the sentences mostly in other scripts, and if
+        // that's all of them, say so rather than play silence. Deciding it here, before a
+        // session starts, lets a shortcut read open the player to show the message.
+        let newChunks = NarrationPlanner.readable(allChunks)
+        guard !newChunks.isEmpty else {
+            message = Self.notEnglishMessage
             return
         }
         message = nil
         sourceText = raw
-        text = cleaned
+        text = plan.displayText
+        displayStyles = plan.styles
         chunks = newChunks
         chunkRanges = newChunks.map(\.range)
         buffers = [:]
         recomputeTimeline()
         if KokoroEngine.isModelInstalled {
-            session = synth.begin(texts: newChunks.map(\.speech), voice: voice, from: 0)
+            session = synth.begin(newChunks, voice: voice, from: 0)
         } else {
             downloadVoiceIfNeeded()  // reading starts once it's ready
         }
@@ -193,7 +243,9 @@ final class PlayerModel: ObservableObject {
         timer = nil
         chunks = []
         chunkRanges = []
+        displayStyles = []
         buffers = [:]
+        unspeakable = []
         segments = []
         text = ""
         sourceText = ""
@@ -216,7 +268,7 @@ final class PlayerModel: ObservableObject {
 
     func play() {
         guard hasSession, !isPlaying else { return }
-        if position >= duration - 0.05 { resumePoint = (0, 0) }  // finished: start over
+        if isAtEnd { resumePoint = (0, 0) }  // finished: start over
         if !KokoroEngine.isModelInstalled {
             message = nil
             downloadVoiceIfNeeded()
@@ -302,7 +354,7 @@ final class PlayerModel: ObservableObject {
         buffers = [:]
         recomputeTimeline()
         if KokoroEngine.isModelInstalled {
-            session = synth.begin(texts: chunks.map(\.speech), voice: v, from: p.index)
+            session = synth.begin(chunks, voice: v, from: p.index)
         }
         if isPlaying {
             startPlayback(at: p.index, fraction: 0)
@@ -406,9 +458,17 @@ final class PlayerModel: ObservableObject {
         synth.setWindow(from...end)
     }
 
-    private func chunkReady(session s: Int, index: Int, samples: [Float]) {
+    private func chunkReady(session s: Int, index: Int, samples: [Float]?) {
         guard s == session, index < chunks.count else { return }
-        buffers[index] = audio.makeBuffer(samples, pauseAfter: chunks[index].pauseAfter)
+        if samples == nil { unspeakable.insert(index) }
+        if unspeakable.count == chunks.count {
+            // Not a word could be said (only symbols the phonemizer can't read, say):
+            // say so rather than play silence. Otherwise those sentences pass as a pause.
+            stop()
+            message = Self.notEnglishMessage
+            return
+        }
+        buffers[index] = audio.makeBuffer(samples ?? [], pauseAfter: chunks[index].pauseAfter)
         refineEstimate()
         recomputeTimeline()
         if abs(duration - notifiedDuration) > 2 { notify() }
@@ -491,14 +551,15 @@ final class PlayerModel: ObservableObject {
 
     private func chunkDuration(_ i: Int) -> Double {
         if let b = buffers[i] { return Double(b.frameLength) / sampleRate }
-        return Double(chunks[i].speech.count) * secondsPerChar + chunks[i].pauseAfter
+        return Double(chunks[i].speech.count) * secondsPerChar / Double(chunks[i].speed) + chunks[i].pauseAfter
     }
 
+    /// Seconds per character at the voice's normal speed, from the chunks generated so far.
     private func refineEstimate() {
         var seconds = 0.0
         var chars = 0
         for (i, b) in buffers {
-            seconds += Double(b.frameLength) / sampleRate - chunks[i].pauseAfter
+            seconds += (Double(b.frameLength) / sampleRate - chunks[i].pauseAfter) * Double(chunks[i].speed)
             chars += chunks[i].speech.count
         }
         if chars > 40 { secondsPerChar = seconds / Double(chars) }

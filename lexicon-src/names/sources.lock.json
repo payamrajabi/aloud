@@ -1,0 +1,1034 @@
+{
+ "anglophone_population": 480817057,
+ "births_from": 1925,
+ "candidates_scored": 273744,
+ "covered_population": 570720771,
+ "files": {
+  "ca_statcan/17100147-eng.zip": {
+   "bytes": 41740086,
+   "fetched": "2026-10-09T06:48:25Z",
+   "sha256": "c2c4a0b9c40c1116bf4229b97ae0680af4ffdd3721834533c31d4145ed56f420",
+   "url": "https://www150.statcan.gc.ca/n1/tbl/csv/17100147-eng.zip"
+  },
+  "es_ine/nombres_por_edad_media.xlsx": {
+   "bytes": 2503760,
+   "fetched": "2026-10-09T06:49:37Z",
+   "sha256": "1edb4e05f9ba539efb19205c94d5c1c0d97124f4e99fa5a30163d7b67bab7305",
+   "url": "https://www.ine.es/daco/daco42/nombyapel/nombres_por_edad_media.xlsx"
+  },
+  "fr_insee/prenoms-2025-nat_csv.zip": {
+   "bytes": 4348158,
+   "fetched": "2026-10-09T06:49:15Z",
+   "sha256": "4c3662bbc75a021a2203b9bed0beff7e85c7928779b88602814ed407cfee512e",
+   "url": "https://www.insee.fr/fr/statistiques/fichier/8595130/prenoms-2025-nat_csv.zip"
+  },
+  "gb_ew_ons/babynames1996to2025.xlsx": {
+   "bytes": 11972259,
+   "fetched": "2026-10-09T06:47:20Z",
+   "sha256": "bf7b10486ab20d0b32e4bc87385112f4555210f61e34eaac3574a0d8a658c0d4",
+   "url": "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths/datasets/babynamesinenglandandwalesfrom1996/1996to2025/babynames1996to2025.xlsx"
+  },
+  "gb_sct_nrs/full-list-1974-2024.zip": {
+   "bytes": 380223,
+   "fetched": "2026-10-09T06:47:22Z",
+   "sha256": "458761e293b27429faa2816988ed086f7476121524945f46ef464f23265b05d7",
+   "url": "https://www.nrscotland.gov.uk/media/hlmdqoat/full-list-1974-2024.zip"
+  },
+  "ie_cso/VSA50.json": {
+   "bytes": 1846186,
+   "fetched": "2026-10-09T06:47:33Z",
+   "sha256": "d477b760440fb1e1c693cb37bc20d78cd078e7fbfd03f5433472fb9ec668e579",
+   "url": "https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/VSA50/JSON-stat/2.0/en"
+  },
+  "ie_cso/VSA60.json": {
+   "bytes": 2440110,
+   "fetched": "2026-10-09T06:47:43Z",
+   "sha256": "fefce5673518ac5beaaf01ab565ad867c27117309c897b0c7521642bde49d031",
+   "url": "https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/VSA60/JSON-stat/2.0/en"
+  },
+  "no_ssb/10501.json": {
+   "bytes": 83191,
+   "fetched": "2026-10-09T06:49:39Z",
+   "sha256": "7aac532ca71fc569fbc89c8d35dc879a8cea322b0630157dc923dabe8dc1d0ce",
+   "url": "https://data.ssb.no/api/v0/en/table/10501"
+  },
+  "us_ssa/mirror/yob1880.txt": {
+   "bytes": 24933,
+   "fetched": "2026-10-09T06:47:15Z",
+   "sha256": "634796b02999cfb42e77cc1d5fccd9613b114531f8df642c32d826524e9d667b",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1880.txt"
+  },
+  "us_ssa/mirror/yob1881.txt": {
+   "bytes": 24052,
+   "fetched": "2026-10-09T06:47:17Z",
+   "sha256": "cd502c7ee5a3b84f6cbf5f7389ecdc94c371b1e5a278596d588d210affff107c",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1881.txt"
+  },
+  "us_ssa/mirror/yob1882.txt": {
+   "bytes": 26559,
+   "fetched": "2026-10-09T06:47:18Z",
+   "sha256": "b6c972eed453e114ee1748eac3d315b13a295a89a3b0c91d53ec52fda23e1a96",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1882.txt"
+  },
+  "us_ssa/mirror/yob1883.txt": {
+   "bytes": 26002,
+   "fetched": "2026-10-09T06:47:19Z",
+   "sha256": "d9b8fda0026f55c02d12fe0068f88ad98cf18478758284777f48169955ee2e94",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1883.txt"
+  },
+  "us_ssa/mirror/yob1884.txt": {
+   "bytes": 28670,
+   "fetched": "2026-10-09T06:47:21Z",
+   "sha256": "01ca5dd2b1141e2a72c36f93b4f9d3d6570dac7b1484bf03b7df1d7c6040126d",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1884.txt"
+  },
+  "us_ssa/mirror/yob1885.txt": {
+   "bytes": 28625,
+   "fetched": "2026-10-09T06:47:22Z",
+   "sha256": "c96ff943e2f9a84269958dbb41a20331ee8dbcb694c26c627d3857a7d4c8a037",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1885.txt"
+  },
+  "us_ssa/mirror/yob1886.txt": {
+   "bytes": 29822,
+   "fetched": "2026-10-09T06:47:24Z",
+   "sha256": "0fd19c9341505c36bf4f0ab25bd53a1436544a959de1ef5cdaf7b2bb28e91a72",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1886.txt"
+  },
+  "us_ssa/mirror/yob1887.txt": {
+   "bytes": 29531,
+   "fetched": "2026-10-09T06:47:27Z",
+   "sha256": "158a0177a4f8199562eda001e748932deb6045b486a1eb754934fbe7f7f49713",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1887.txt"
+  },
+  "us_ssa/mirror/yob1888.txt": {
+   "bytes": 33064,
+   "fetched": "2026-10-09T06:47:29Z",
+   "sha256": "b0c747f8a7d4ce5513fe80ab068df958f94abab9fbf29716308308a4f8bbdb50",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1888.txt"
+  },
+  "us_ssa/mirror/yob1889.txt": {
+   "bytes": 32297,
+   "fetched": "2026-10-09T06:47:32Z",
+   "sha256": "60a8832091bc6b6de0aedf88eeaf979fe9b29db5e4123875176854ccbff661d4",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1889.txt"
+  },
+  "us_ssa/mirror/yob1890.txt": {
+   "bytes": 33621,
+   "fetched": "2026-10-09T06:47:32Z",
+   "sha256": "12cc248006f06d72b89a1a090bbcb3ebfc628f7986294ffef108ecc1ffc3be7e",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1890.txt"
+  },
+  "us_ssa/mirror/yob1891.txt": {
+   "bytes": 33186,
+   "fetched": "2026-10-09T06:47:33Z",
+   "sha256": "54cd7d4075a5d373e77c30a17d1f332c95ecec0d0d2ff45444d0476b6ece733a",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1891.txt"
+  },
+  "us_ssa/mirror/yob1892.txt": {
+   "bytes": 36542,
+   "fetched": "2026-10-09T06:47:33Z",
+   "sha256": "511b11e7bfec81d74eb3a82d57070fee4cf00d41cd6c42f35cf4ad60a3243012",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1892.txt"
+  },
+  "us_ssa/mirror/yob1893.txt": {
+   "bytes": 35433,
+   "fetched": "2026-10-09T06:47:34Z",
+   "sha256": "90d7726af57191104f7e77396673f9f4237043a5372f72538049396b476dcd7a",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1893.txt"
+  },
+  "us_ssa/mirror/yob1894.txt": {
+   "bytes": 36817,
+   "fetched": "2026-10-09T06:47:34Z",
+   "sha256": "f200555910dca0a9ced8908be77b70ad852b1c12055bf196331c3594faa3c17a",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1894.txt"
+  },
+  "us_ssa/mirror/yob1895.txt": {
+   "bytes": 38231,
+   "fetched": "2026-10-09T06:47:35Z",
+   "sha256": "b6cbe0a5e5af60aaf36eebb858b830997f5cb65c5b20b05aec8ee3d7ed1b9b36",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1895.txt"
+  },
+  "us_ssa/mirror/yob1896.txt": {
+   "bytes": 38747,
+   "fetched": "2026-10-09T06:47:35Z",
+   "sha256": "8896885079db6cdf4c02112898e7ee4c25bf95e8b32c38aed862feb613f52d9b",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1896.txt"
+  },
+  "us_ssa/mirror/yob1897.txt": {
+   "bytes": 37936,
+   "fetched": "2026-10-09T06:47:36Z",
+   "sha256": "639a364d834ade673eaffea7d45fb0f4780ee630b9db7774f7cbf6d3bbce9c36",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1897.txt"
+  },
+  "us_ssa/mirror/yob1898.txt": {
+   "bytes": 40924,
+   "fetched": "2026-10-09T06:47:37Z",
+   "sha256": "24e78100ada2f3fa53cf52225af0ffc54be363b4e3b376c61b39844fdc3ceb7d",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1898.txt"
+  },
+  "us_ssa/mirror/yob1899.txt": {
+   "bytes": 38141,
+   "fetched": "2026-10-09T06:47:38Z",
+   "sha256": "cc634df0d2e7f32ff05271cf3c1626f92e196fd6ea550d775509cb10949adbc6",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1899.txt"
+  },
+  "us_ssa/mirror/yob1900.txt": {
+   "bytes": 46847,
+   "fetched": "2026-10-09T06:47:38Z",
+   "sha256": "5eff3d9e6733b8cc4d4582a4f58ef336d6ef524ead1a0b6be59e1ab2ae30046d",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1900.txt"
+  },
+  "us_ssa/mirror/yob1901.txt": {
+   "bytes": 39584,
+   "fetched": "2026-10-09T06:47:39Z",
+   "sha256": "22ceb87e2ca409669fd3b35d44f50eca706877a15227eda3ec63a4d958f1d482",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1901.txt"
+  },
+  "us_ssa/mirror/yob1902.txt": {
+   "bytes": 42284,
+   "fetched": "2026-10-09T06:47:39Z",
+   "sha256": "ec96ba95d1b4c41a78fbb7389a0850d1951b387112a63e1bf8a72f4c4ae19796",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1902.txt"
+  },
+  "us_ssa/mirror/yob1903.txt": {
+   "bytes": 42679,
+   "fetched": "2026-10-09T06:47:40Z",
+   "sha256": "43521d9e57a601ab7f4a5ebcce5d29cb7203ba3c8582dd8994f99795dc37760d",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1903.txt"
+  },
+  "us_ssa/mirror/yob1904.txt": {
+   "bytes": 44808,
+   "fetched": "2026-10-09T06:47:41Z",
+   "sha256": "c6b84d555f00ec09a20d6a02ac32854116b68b06468c846f77329aa879ef161f",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1904.txt"
+  },
+  "us_ssa/mirror/yob1905.txt": {
+   "bytes": 46003,
+   "fetched": "2026-10-09T06:47:41Z",
+   "sha256": "83e8d96aea999bacda148ec0dfb135dd9a2ea3fe5f24fd2f9fb66c8f15c51f60",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1905.txt"
+  },
+  "us_ssa/mirror/yob1906.txt": {
+   "bytes": 45845,
+   "fetched": "2026-10-09T06:47:42Z",
+   "sha256": "138ddcae08f69d3ba57ac68bea0c58cce31a8653586745d8422db636a3d95507",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1906.txt"
+  },
+  "us_ssa/mirror/yob1907.txt": {
+   "bytes": 49829,
+   "fetched": "2026-10-09T06:47:42Z",
+   "sha256": "56696218491b1f81145aa32e7d577871e8777adba1041dd0f0c7b94f6d0c508c",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1907.txt"
+  },
+  "us_ssa/mirror/yob1908.txt": {
+   "bytes": 50841,
+   "fetched": "2026-10-09T06:47:43Z",
+   "sha256": "ce062d8e5d0b62eb87dbb1d1ed7a9c55599f4e5df03d835853a88efb54f5e59b",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1908.txt"
+  },
+  "us_ssa/mirror/yob1909.txt": {
+   "bytes": 53501,
+   "fetched": "2026-10-09T06:47:44Z",
+   "sha256": "65c7b5a66c6bed874195746a6559a378341f3da5d3972529c39ca0e8d4c29d3c",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1909.txt"
+  },
+  "us_ssa/mirror/yob1910.txt": {
+   "bytes": 58710,
+   "fetched": "2026-10-09T06:47:44Z",
+   "sha256": "de4c15aa906d1f56ee4d9abea66311961098bfbb97126fee6b75d6b6660167e7",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1910.txt"
+  },
+  "us_ssa/mirror/yob1911.txt": {
+   "bytes": 61761,
+   "fetched": "2026-10-09T06:47:45Z",
+   "sha256": "05df40364cac365cb177a6e08fa169e63b049538f443d80b6b821b8431317d05",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1911.txt"
+  },
+  "us_ssa/mirror/yob1912.txt": {
+   "bytes": 80717,
+   "fetched": "2026-10-09T06:47:45Z",
+   "sha256": "4dba355e74d1e8b589245ee39fc59af5041df672406b07eb09772cd41ed96149",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1912.txt"
+  },
+  "us_ssa/mirror/yob1913.txt": {
+   "bytes": 88705,
+   "fetched": "2026-10-09T06:47:46Z",
+   "sha256": "c04cfc7c621096a1235ae2850099704b7e257ac7ddbba08552250c1605de4888",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1913.txt"
+  },
+  "us_ssa/mirror/yob1914.txt": {
+   "bytes": 101543,
+   "fetched": "2026-10-09T06:47:47Z",
+   "sha256": "e80bd678590abeb20576474384c11d88cc61c5e6d36c24ef7245e93d0a59a826",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1914.txt"
+  },
+  "us_ssa/mirror/yob1915.txt": {
+   "bytes": 119431,
+   "fetched": "2026-10-09T06:47:47Z",
+   "sha256": "76ba17c9b4c6d1f81a1829735bdbfcd7359b672d83296c21933792566fb36790",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1915.txt"
+  },
+  "us_ssa/mirror/yob1916.txt": {
+   "bytes": 123873,
+   "fetched": "2026-10-09T06:47:49Z",
+   "sha256": "05f4d07247570cacef624b7cda37a54c69ff78e3424dac39620429504474d65a",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1916.txt"
+  },
+  "us_ssa/mirror/yob1917.txt": {
+   "bytes": 126761,
+   "fetched": "2026-10-09T06:47:51Z",
+   "sha256": "5f3fdeca1190782274dfda7fea5616093f32cd7fefcf90dd6a30fe83a76a12fc",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1917.txt"
+  },
+  "us_ssa/mirror/yob1918.txt": {
+   "bytes": 133055,
+   "fetched": "2026-10-09T06:47:52Z",
+   "sha256": "63eed9fb11456ea46cc10f87d795e562e04ba857eb9b8027ac6e91cce46b4cbe",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1918.txt"
+  },
+  "us_ssa/mirror/yob1919.txt": {
+   "bytes": 132728,
+   "fetched": "2026-10-09T06:47:53Z",
+   "sha256": "191cb41c8d528e6455302f17507ed0472aa896c3c28408f77a7dbf100f035105",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1919.txt"
+  },
+  "us_ssa/mirror/yob1920.txt": {
+   "bytes": 137760,
+   "fetched": "2026-10-09T06:47:53Z",
+   "sha256": "e4764783211c91b51d8d63e984dfe476d9a819ac7d29d16b6bd599f12da3bad4",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1920.txt"
+  },
+  "us_ssa/mirror/yob1921.txt": {
+   "bytes": 139178,
+   "fetched": "2026-10-09T06:47:55Z",
+   "sha256": "9fb2bdb32911580231d6c54de5e4351e8bc4187c18275f437c4eff3c9b53cb0d",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1921.txt"
+  },
+  "us_ssa/mirror/yob1922.txt": {
+   "bytes": 138156,
+   "fetched": "2026-10-09T06:47:56Z",
+   "sha256": "4c2a7aea4f8e5e3109315840fb3dbd001da179d834677367d0346120118452b4",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1922.txt"
+  },
+  "us_ssa/mirror/yob1923.txt": {
+   "bytes": 136667,
+   "fetched": "2026-10-09T06:47:57Z",
+   "sha256": "c86be5805ee399a8cf0570f9e7ef9e2b7068d3f438934e297c91011af54eca99",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1923.txt"
+  },
+  "us_ssa/mirror/yob1924.txt": {
+   "bytes": 139622,
+   "fetched": "2026-10-09T06:47:58Z",
+   "sha256": "c145485ace481f2bf10441037d64a71122c736f00499f81bdd8d19cf599f27ab",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1924.txt"
+  },
+  "us_ssa/mirror/yob1925.txt": {
+   "bytes": 136778,
+   "fetched": "2026-10-09T06:48:00Z",
+   "sha256": "33520027b2dac6388630ce3d6525e9aeebdc9452c2e8c9da79837e96c4867404",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1925.txt"
+  },
+  "us_ssa/mirror/yob1926.txt": {
+   "bytes": 134313,
+   "fetched": "2026-10-09T06:48:02Z",
+   "sha256": "2916ac8b3f57e7f6f4a9bf1abda7bd3a519bf88cdfb7cbe006088a4ad9994d84",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1926.txt"
+  },
+  "us_ssa/mirror/yob1927.txt": {
+   "bytes": 133860,
+   "fetched": "2026-10-09T06:48:03Z",
+   "sha256": "7155ee62892d7857b412aa941fc0c447b47ad1f4c58986f54601933dd5e0f341",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1927.txt"
+  },
+  "us_ssa/mirror/yob1928.txt": {
+   "bytes": 130754,
+   "fetched": "2026-10-09T06:48:03Z",
+   "sha256": "4c644b5c07581926b5f1e52c8f2c22ccafa84b9a8107b64cf1eef2b5c283f31f",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1928.txt"
+  },
+  "us_ssa/mirror/yob1929.txt": {
+   "bytes": 126467,
+   "fetched": "2026-10-09T06:48:04Z",
+   "sha256": "1040129bdbf8aefb0f1ad3aa13c31e9f495d945de3ed6e74bb73b39532872d3c",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1929.txt"
+  },
+  "us_ssa/mirror/yob1930.txt": {
+   "bytes": 125935,
+   "fetched": "2026-10-09T06:48:05Z",
+   "sha256": "5db5734ad508c165e851caa6f397606fe580637c1fcf9b67c08bc7ba94066173",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1930.txt"
+  },
+  "us_ssa/mirror/yob1931.txt": {
+   "bytes": 119628,
+   "fetched": "2026-10-09T06:48:06Z",
+   "sha256": "673f3bd27bcb81498cc1ed59d3a6f1e426bb5b8fc30ade5f37740ac9ca45692a",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1931.txt"
+  },
+  "us_ssa/mirror/yob1932.txt": {
+   "bytes": 120767,
+   "fetched": "2026-10-09T06:48:07Z",
+   "sha256": "f36767223df8dd98e0c8e726b2f405cad80064698e14fba5ab908a11a1891dd3",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1932.txt"
+  },
+  "us_ssa/mirror/yob1933.txt": {
+   "bytes": 115908,
+   "fetched": "2026-10-09T06:48:08Z",
+   "sha256": "56b7496083454c4288bd7f12da53b24c76aab3eeccae33da3c7e1afd87e876c0",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1933.txt"
+  },
+  "us_ssa/mirror/yob1934.txt": {
+   "bytes": 118039,
+   "fetched": "2026-10-09T06:48:09Z",
+   "sha256": "bea23e5cebb8f37645818212b1aa3eadca4098db8b9eda03236f71fc36dd986d",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1934.txt"
+  },
+  "us_ssa/mirror/yob1935.txt": {
+   "bytes": 116313,
+   "fetched": "2026-10-09T06:48:09Z",
+   "sha256": "ec1525437cf7884a6cb4eabd64d7179843528b5fa6b827371edde86bcc35f603",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1935.txt"
+  },
+  "us_ssa/mirror/yob1936.txt": {
+   "bytes": 114333,
+   "fetched": "2026-10-09T06:48:12Z",
+   "sha256": "1aae50971a73cfd1c03f1f884a853e118a1a6500531429fb1b264766453654b9",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1936.txt"
+  },
+  "us_ssa/mirror/yob1937.txt": {
+   "bytes": 115385,
+   "fetched": "2026-10-09T06:48:13Z",
+   "sha256": "d5c055c1e6aa5f7b6d1b260c01131479cf8a629e1b4aca78a4e553e6750ec2f6",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1937.txt"
+  },
+  "us_ssa/mirror/yob1938.txt": {
+   "bytes": 116335,
+   "fetched": "2026-10-09T06:48:14Z",
+   "sha256": "695e94e043f002afe4196bd52d30b6f0e9ed7d57bdb0db9cc62f7fefa2ec70b8",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1938.txt"
+  },
+  "us_ssa/mirror/yob1939.txt": {
+   "bytes": 114795,
+   "fetched": "2026-10-09T06:48:15Z",
+   "sha256": "2faddaacd413c6096ca018420919bca682e32fa11e74fda81f7d02de48e1bbc9",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1939.txt"
+  },
+  "us_ssa/mirror/yob1940.txt": {
+   "bytes": 115690,
+   "fetched": "2026-10-09T06:48:16Z",
+   "sha256": "359b6f2d40086e20db68f9abf7c1c1c27378b8a12f4e8a556ec3c0b81605c41f",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1940.txt"
+  },
+  "us_ssa/mirror/yob1941.txt": {
+   "bytes": 117247,
+   "fetched": "2026-10-09T06:48:16Z",
+   "sha256": "ba258849a02f13097035fa4a09799ea3c68a185615e7c5caa04aca47cc6783d2",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1941.txt"
+  },
+  "us_ssa/mirror/yob1942.txt": {
+   "bytes": 121609,
+   "fetched": "2026-10-09T06:48:18Z",
+   "sha256": "29d9c7aef0e1cb647892e083e9cf2769f807f527a75e988a6f747f89faf25ee6",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1942.txt"
+  },
+  "us_ssa/mirror/yob1943.txt": {
+   "bytes": 121518,
+   "fetched": "2026-10-09T06:48:19Z",
+   "sha256": "10e3cc09725332be9cc9c8a47d8ddb033c143bae13e033e454b82ff117f246f2",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1943.txt"
+  },
+  "us_ssa/mirror/yob1944.txt": {
+   "bytes": 118110,
+   "fetched": "2026-10-09T06:48:20Z",
+   "sha256": "fef016def9caa038757ce7fbe9df91f849a96cbfd7a72ddb7e26b6289c52f1e8",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1944.txt"
+  },
+  "us_ssa/mirror/yob1945.txt": {
+   "bytes": 116534,
+   "fetched": "2026-10-09T06:48:21Z",
+   "sha256": "322dd30ccd61615092f72c6e1c81352c6cbcf3c8f32143d05e6fe245a90118ba",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1945.txt"
+  },
+  "us_ssa/mirror/yob1946.txt": {
+   "bytes": 125458,
+   "fetched": "2026-10-09T06:48:22Z",
+   "sha256": "fbfe7ccd1e9c9f28d3dad7ada78f20549966be9e84c8b73ce2a125ace8f832e4",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1946.txt"
+  },
+  "us_ssa/mirror/yob1947.txt": {
+   "bytes": 134068,
+   "fetched": "2026-10-09T06:48:23Z",
+   "sha256": "10b007f568a7e319d3f4e6c8e95c79c19cae5f764e44d579a1c9552d3381b5af",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1947.txt"
+  },
+  "us_ssa/mirror/yob1948.txt": {
+   "bytes": 132415,
+   "fetched": "2026-10-09T06:48:25Z",
+   "sha256": "47a6b683633546dd95d4af03f690208ddd9dd98d69bfe8299b100c2d85892297",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1948.txt"
+  },
+  "us_ssa/mirror/yob1949.txt": {
+   "bytes": 132885,
+   "fetched": "2026-10-09T06:48:27Z",
+   "sha256": "68e56f5f7452d291c3be398b2b5d1553d9ca03f42eceec7554746b7ac1014820",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1949.txt"
+  },
+  "us_ssa/mirror/yob1950.txt": {
+   "bytes": 133255,
+   "fetched": "2026-10-09T06:48:28Z",
+   "sha256": "d43b813ac7d95ae977de47610f7ca7230d7ee4c5fc766fbe8a7feff6298d8edf",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1950.txt"
+  },
+  "us_ssa/mirror/yob1951.txt": {
+   "bytes": 135538,
+   "fetched": "2026-10-09T06:48:30Z",
+   "sha256": "036a1a10bbe3d6d46f08ad611bc7c7726c5f5ec04e20ec6255edf99460814bf4",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1951.txt"
+  },
+  "us_ssa/mirror/yob1952.txt": {
+   "bytes": 137658,
+   "fetched": "2026-10-09T06:48:33Z",
+   "sha256": "c6eff67a615db904954522c21e19bf46b1c857f7ad8d9f7c7ecc329af4cccecc",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1952.txt"
+  },
+  "us_ssa/mirror/yob1953.txt": {
+   "bytes": 140159,
+   "fetched": "2026-10-09T06:48:34Z",
+   "sha256": "54b861726230cd5948d2095c22a1c98987b677fa236f4d10a4f809851bd833f8",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1953.txt"
+  },
+  "us_ssa/mirror/yob1954.txt": {
+   "bytes": 141887,
+   "fetched": "2026-10-09T06:48:35Z",
+   "sha256": "77a33f72f391fb2d64f9411353f57e5b83129dacfb2b8e0927702601fedd58df",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1954.txt"
+  },
+  "us_ssa/mirror/yob1955.txt": {
+   "bytes": 143857,
+   "fetched": "2026-10-09T06:48:36Z",
+   "sha256": "2a2864b5b2ec920af0c006e75c00d5529927ae2aa261f72cc5aeeedbc6b82b05",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1955.txt"
+  },
+  "us_ssa/mirror/yob1956.txt": {
+   "bytes": 146630,
+   "fetched": "2026-10-09T06:48:38Z",
+   "sha256": "92660e1f1c3109b85d66934b04cd62e25602e721e9e479e04bf33e22af023ab8",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1956.txt"
+  },
+  "us_ssa/mirror/yob1957.txt": {
+   "bytes": 149201,
+   "fetched": "2026-10-09T06:48:39Z",
+   "sha256": "2376e31bc8d5456de89dcef47b1f74e456677b421e6ec2b12b89b4118b3900b0",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1957.txt"
+  },
+  "us_ssa/mirror/yob1958.txt": {
+   "bytes": 148839,
+   "fetched": "2026-10-09T06:48:42Z",
+   "sha256": "b1b323be4d8d9f8ec4b1beb50bdb747ebf3141cb37a00ac9e3b438fecab6aaad",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1958.txt"
+  },
+  "us_ssa/mirror/yob1959.txt": {
+   "bytes": 152025,
+   "fetched": "2026-10-09T06:48:43Z",
+   "sha256": "8a87f16c1e5f003fb605bac934e91eb48b114402a8a009b4b39cdc73a4cfb906",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1959.txt"
+  },
+  "us_ssa/mirror/yob1960.txt": {
+   "bytes": 154102,
+   "fetched": "2026-10-09T06:48:44Z",
+   "sha256": "95ae706a789986627b8c487594565cb3ffd7e2ae1fb81f968a6d13918ca4ee2b",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1960.txt"
+  },
+  "us_ssa/mirror/yob1961.txt": {
+   "bytes": 157680,
+   "fetched": "2026-10-09T06:48:46Z",
+   "sha256": "9149b7ce729d991d3f93df5a0a0665dd39adf292567398155fddf2545caefe4c",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1961.txt"
+  },
+  "us_ssa/mirror/yob1962.txt": {
+   "bytes": 158066,
+   "fetched": "2026-10-09T06:48:48Z",
+   "sha256": "d65a22ff7048f75d8f0c3a35c5457b4b48e5e56f46e93bf1e5a6e266939207e2",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1962.txt"
+  },
+  "us_ssa/mirror/yob1963.txt": {
+   "bytes": 158906,
+   "fetched": "2026-10-09T06:48:49Z",
+   "sha256": "f661d864e03e10242a188b4fdc0b90c65a4396915a4caa104a943d4e22824114",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1963.txt"
+  },
+  "us_ssa/mirror/yob1964.txt": {
+   "bytes": 160636,
+   "fetched": "2026-10-09T06:48:51Z",
+   "sha256": "785b14abdd704f10f490e47b52506416c065ee12d9eea5c00f1b3abf3d9878c5",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1964.txt"
+  },
+  "us_ssa/mirror/yob1965.txt": {
+   "bytes": 155077,
+   "fetched": "2026-10-09T06:48:53Z",
+   "sha256": "8c8d44afcb0d143483e1355b947cc6a7c97373e273a5c501a0f760d7a038439b",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1965.txt"
+  },
+  "us_ssa/mirror/yob1966.txt": {
+   "bytes": 157590,
+   "fetched": "2026-10-09T06:48:54Z",
+   "sha256": "bf00f7571e17f886100bc9350b3576bb7b282e56276ade6b04bd1167cce5578b",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1966.txt"
+  },
+  "us_ssa/mirror/yob1967.txt": {
+   "bytes": 160674,
+   "fetched": "2026-10-09T06:48:56Z",
+   "sha256": "de8d296c079cc1d87ebf455192178d0e5a848e50704d693e5e48119027c34f98",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1967.txt"
+  },
+  "us_ssa/mirror/yob1968.txt": {
+   "bytes": 167546,
+   "fetched": "2026-10-09T06:48:57Z",
+   "sha256": "a7d867079ce4f727e3c076991f1ba77bd3d35a27894f1452dc431e4fcaf7ac5a",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1968.txt"
+  },
+  "us_ssa/mirror/yob1969.txt": {
+   "bytes": 178020,
+   "fetched": "2026-10-09T06:48:58Z",
+   "sha256": "b7fc5a104f69d29e93de99e0333e73092e30a722ffca7bb588971dda95440ae4",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1969.txt"
+  },
+  "us_ssa/mirror/yob1970.txt": {
+   "bytes": 191610,
+   "fetched": "2026-10-09T06:49:00Z",
+   "sha256": "a16d4e23e61985f3e5cf729ff3747178d56d547f8cf0535c9f1438e32b34c68e",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1970.txt"
+  },
+  "us_ssa/mirror/yob1971.txt": {
+   "bytes": 198268,
+   "fetched": "2026-10-09T06:49:01Z",
+   "sha256": "cee780b80765d0bae2605db9d12fce28c06e38537fa1fdfc671a0f19b56d1a89",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1971.txt"
+  },
+  "us_ssa/mirror/yob1972.txt": {
+   "bytes": 199532,
+   "fetched": "2026-10-09T06:49:02Z",
+   "sha256": "03dd4221da401e246f2a8cf5e226a0e012eb4fe2c1c127002079a0140e7a2319",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1972.txt"
+  },
+  "us_ssa/mirror/yob1973.txt": {
+   "bytes": 203104,
+   "fetched": "2026-10-09T06:49:04Z",
+   "sha256": "5b5901ce99f322a6b5bc491d3c060f3472bfce87147f07b7b232aa475ec75995",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1973.txt"
+  },
+  "us_ssa/mirror/yob1974.txt": {
+   "bytes": 210560,
+   "fetched": "2026-10-09T06:49:05Z",
+   "sha256": "413e1d22c5415c504a041d0a933af2ea05e71130ddd2719ab79f10d961079d80",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1974.txt"
+  },
+  "us_ssa/mirror/yob1975.txt": {
+   "bytes": 219312,
+   "fetched": "2026-10-09T06:49:07Z",
+   "sha256": "1352a7844d5dae1a55ab7e54ce173c3fa171f1456afcce83a9d24a39ba866a8b",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1975.txt"
+  },
+  "us_ssa/mirror/yob1976.txt": {
+   "bytes": 225096,
+   "fetched": "2026-10-09T06:49:08Z",
+   "sha256": "b4c6cf361fc9484e1137bba294594feb71ffc43110a03aac622950a9ab5e6b4d",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1976.txt"
+  },
+  "us_ssa/mirror/yob1977.txt": {
+   "bytes": 235214,
+   "fetched": "2026-10-09T06:49:09Z",
+   "sha256": "1aa3c4e7bfeb808353d02638b1ca1a38ca7170e0f887842983ef2ede6c322e7f",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1977.txt"
+  },
+  "us_ssa/mirror/yob1978.txt": {
+   "bytes": 236025,
+   "fetched": "2026-10-09T06:49:12Z",
+   "sha256": "3171d91d0f813ebd8a3707de0e41589bb68b77a0ed40e976f111890639787d9b",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1978.txt"
+  },
+  "us_ssa/mirror/yob1979.txt": {
+   "bytes": 246551,
+   "fetched": "2026-10-09T06:49:13Z",
+   "sha256": "66589fd5bfbc9acbeebbbf89eb8fb8ed690468d77307b22553e878057fa6898d",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1979.txt"
+  },
+  "us_ssa/mirror/yob1980.txt": {
+   "bytes": 251500,
+   "fetched": "2026-10-09T06:49:15Z",
+   "sha256": "121226e11fb1d34e7dd3b5a460654403db25780c4b0b81cd5928aa6f783347b5",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1980.txt"
+  },
+  "us_ssa/mirror/yob1981.txt": {
+   "bytes": 252003,
+   "fetched": "2026-10-09T06:49:16Z",
+   "sha256": "cdb417665714b3cbbf937c39176fd67952cd08e046b9ee81d49b4d27bfc4238b",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1981.txt"
+  },
+  "us_ssa/mirror/yob1982.txt": {
+   "bytes": 254957,
+   "fetched": "2026-10-09T06:49:17Z",
+   "sha256": "0c5454ff3f5773ab9b26303f50bbbc989735a275c472901eead0e3d52c876601",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1982.txt"
+  },
+  "us_ssa/mirror/yob1983.txt": {
+   "bytes": 251089,
+   "fetched": "2026-10-09T06:49:18Z",
+   "sha256": "3c0bdf74d82b718ff003bd00ab69f642b784a4e595971aebde3dfa356c43343e",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1983.txt"
+  },
+  "us_ssa/mirror/yob1984.txt": {
+   "bytes": 252901,
+   "fetched": "2026-10-09T06:49:20Z",
+   "sha256": "4aec6bac3775715e95c06d3fb28a5db40a896f1f489f7cb186f388d32c1557d8",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1984.txt"
+  },
+  "us_ssa/mirror/yob1985.txt": {
+   "bytes": 260423,
+   "fetched": "2026-10-09T06:49:22Z",
+   "sha256": "43b35ae8d06e0359bfc332674743e8330ebaa317bf66fcbf7b8c5d00d0145c28",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1985.txt"
+  },
+  "us_ssa/mirror/yob1986.txt": {
+   "bytes": 268212,
+   "fetched": "2026-10-09T06:49:24Z",
+   "sha256": "964c5fb42bc2297d1bd8fdaae6bc9601cc1ed5e920cda3226f23713e038e0111",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1986.txt"
+  },
+  "us_ssa/mirror/yob1987.txt": {
+   "bytes": 278532,
+   "fetched": "2026-10-09T06:49:26Z",
+   "sha256": "09a9a31bc81fb84b80cb29cf14ce5cef614aad0f89bf39286b0e0c0e061dd17d",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1987.txt"
+  },
+  "us_ssa/mirror/yob1988.txt": {
+   "bytes": 291182,
+   "fetched": "2026-10-09T06:49:28Z",
+   "sha256": "7d2f380b060c113028e1aff757b1441026dba89283539b8d876dfafb39faea4f",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1988.txt"
+  },
+  "us_ssa/mirror/yob1989.txt": {
+   "bytes": 309625,
+   "fetched": "2026-10-09T06:49:30Z",
+   "sha256": "639a226ad2a3c9f234086332378ca5431a8336f9ac5def8cf9e9a8c5acd899c0",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1989.txt"
+  },
+  "us_ssa/mirror/yob1990.txt": {
+   "bytes": 322129,
+   "fetched": "2026-10-09T06:49:32Z",
+   "sha256": "af3201a6196c4f4b6b8993c272f44a9a94f72dff82eef795e23271b9677ac7eb",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1990.txt"
+  },
+  "us_ssa/mirror/yob1991.txt": {
+   "bytes": 327272,
+   "fetched": "2026-10-09T06:49:34Z",
+   "sha256": "51edd14052362ce8da177b606afa073398944e91f8f09e47a93ca0f6daae3039",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1991.txt"
+  },
+  "us_ssa/mirror/yob1992.txt": {
+   "bytes": 331591,
+   "fetched": "2026-10-09T06:49:36Z",
+   "sha256": "bdf16465934a893c74fd24a54590a6d25964066e19399d447ee2a6d748d62455",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1992.txt"
+  },
+  "us_ssa/mirror/yob1993.txt": {
+   "bytes": 337968,
+   "fetched": "2026-10-09T06:49:38Z",
+   "sha256": "35d02b901217806e3729a8a61c3e1df52e22d761d52d158d1ad6e37c72d24cb4",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1993.txt"
+  },
+  "us_ssa/mirror/yob1994.txt": {
+   "bytes": 338285,
+   "fetched": "2026-10-09T06:49:41Z",
+   "sha256": "358cf93c4a414f84255a9a3483f1a6025209b8528f8953877ab04e1e159ad197",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1994.txt"
+  },
+  "us_ssa/mirror/yob1995.txt": {
+   "bytes": 339168,
+   "fetched": "2026-10-09T06:49:43Z",
+   "sha256": "bee794e3cb674ecd74962bc33d14b0ec774f3cfbffcbcc7c24dc718ae9079c91",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1995.txt"
+  },
+  "us_ssa/mirror/yob1996.txt": {
+   "bytes": 343115,
+   "fetched": "2026-10-09T06:49:45Z",
+   "sha256": "ef4271457a979da512ce8a076b380e156343c54b0781b6310d1a5e6c1b9b53c4",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1996.txt"
+  },
+  "us_ssa/mirror/yob1997.txt": {
+   "bytes": 350179,
+   "fetched": "2026-10-09T06:49:47Z",
+   "sha256": "d048398605699cd9eb0e4d0549e4c06c7775db6a81c3f78417c5f4120b36e8f9",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1997.txt"
+  },
+  "us_ssa/mirror/yob1998.txt": {
+   "bytes": 361750,
+   "fetched": "2026-10-09T06:49:50Z",
+   "sha256": "539f5edac32e53cc0a7facf2468dcd74d433d31891ce3b4d9f35a3e31b898f91",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1998.txt"
+  },
+  "us_ssa/mirror/yob1999.txt": {
+   "bytes": 369499,
+   "fetched": "2026-10-09T06:49:54Z",
+   "sha256": "e8c0c8f66f8b797b8d6a7c4e4fb903b1f6a674909ded00165eb27b5e26e76cda",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob1999.txt"
+  },
+  "us_ssa/mirror/yob2000.txt": {
+   "bytes": 385165,
+   "fetched": "2026-10-09T06:49:57Z",
+   "sha256": "3620173812f5a93c24de0acf64b09cbb4725fe7eba7203883495df5c7578b126",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2000.txt"
+  },
+  "us_ssa/mirror/yob2001.txt": {
+   "bytes": 391265,
+   "fetched": "2026-10-09T06:50:00Z",
+   "sha256": "b860d7e44525bad8493d6269ca3ea0cddbf15545929e4cea60f630bf127be5b4",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2001.txt"
+  },
+  "us_ssa/mirror/yob2002.txt": {
+   "bytes": 394939,
+   "fetched": "2026-10-09T06:50:02Z",
+   "sha256": "4d2cb43ed9cbabd25d07d4bde3b585aa408b8f8e49977c69431bc43d73bbcfea",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2002.txt"
+  },
+  "us_ssa/mirror/yob2003.txt": {
+   "bytes": 402786,
+   "fetched": "2026-10-09T06:50:04Z",
+   "sha256": "d373b8be6e23a6d6ff52fec997491b616473eae4ca2baa24e958332bdeed4054",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2003.txt"
+  },
+  "us_ssa/mirror/yob2004.txt": {
+   "bytes": 413659,
+   "fetched": "2026-10-09T06:50:06Z",
+   "sha256": "18c6191c5b63bb0ab815fafc0702c8c0f719fb9cf2f29296494f6ecea15cf212",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2004.txt"
+  },
+  "us_ssa/mirror/yob2005.txt": {
+   "bytes": 420433,
+   "fetched": "2026-10-09T06:50:07Z",
+   "sha256": "af7ad098e0c7de6381607888c1e86b928a183c15b1b8b8e0d5cfc6e68a8e91a3",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2005.txt"
+  },
+  "us_ssa/mirror/yob2006.txt": {
+   "bytes": 440597,
+   "fetched": "2026-10-09T06:50:09Z",
+   "sha256": "6e41e71dbb98d800a5a60cf981561b2e6d0356fabc41e14b2962204916dac7a9",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2006.txt"
+  },
+  "us_ssa/mirror/yob2007.txt": {
+   "bytes": 451594,
+   "fetched": "2026-10-09T06:50:11Z",
+   "sha256": "9aff63e1b6512b44163287f6414967c3ef35d90b01bc3b138b63c3fb7dfcc3f4",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2007.txt"
+  },
+  "us_ssa/mirror/yob2008.txt": {
+   "bytes": 453167,
+   "fetched": "2026-10-09T06:50:13Z",
+   "sha256": "5ec83325706b5b1a6b0598323f1ba5dd6349e4c08366ebdcd2b1a7ca5c16b226",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2008.txt"
+  },
+  "us_ssa/mirror/yob2009.txt": {
+   "bytes": 448383,
+   "fetched": "2026-10-09T06:50:16Z",
+   "sha256": "b7299d095b11c6fe425542e6169e45a76ad9f810dbd4821570175dff8eea38df",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2009.txt"
+  },
+  "us_ssa/mirror/yob2010.txt": {
+   "bytes": 440031,
+   "fetched": "2026-10-09T06:50:18Z",
+   "sha256": "d6fdc7db398e584f3a4d600cbb35956bae80a896ca7c3b4ae5e1b2f943d8a101",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2010.txt"
+  },
+  "us_ssa/mirror/yob2011.txt": {
+   "bytes": 437689,
+   "fetched": "2026-10-09T06:50:19Z",
+   "sha256": "ec7f898695302b855a82596bbbfbf8404093c58553584174334c7c6002251697",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2011.txt"
+  },
+  "us_ssa/mirror/yob2012.txt": {
+   "bytes": 435482,
+   "fetched": "2026-10-09T06:50:21Z",
+   "sha256": "d0453d52d63363ad0b368e2cde48bcf7333bd7143746fa12d5a0dae85e6d6b8f",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2012.txt"
+  },
+  "us_ssa/mirror/yob2013.txt": {
+   "bytes": 429536,
+   "fetched": "2026-10-09T06:50:23Z",
+   "sha256": "1ffa8bef765cb128127245766c4a29db1cd1a5fc920042ed27b1c8efbbe1f419",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2013.txt"
+  },
+  "us_ssa/mirror/yob2014.txt": {
+   "bytes": 428967,
+   "fetched": "2026-10-09T06:50:25Z",
+   "sha256": "44fa60c22a0f3cabd2700275de7a902db87fe8415a4eea8afa804d591c1d42b9",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2014.txt"
+  },
+  "us_ssa/mirror/yob2015.txt": {
+   "bytes": 426978,
+   "fetched": "2026-10-09T06:50:27Z",
+   "sha256": "512f9288b99e03db0364cf1a7f60d2fc4fc2488c1776ed55663829ae0d0283ed",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2015.txt"
+  },
+  "us_ssa/mirror/yob2016.txt": {
+   "bytes": 425404,
+   "fetched": "2026-10-09T06:50:29Z",
+   "sha256": "b597a2a25148759f17320f0952cb18d8c5a4167854125aca82c181b81c3cd2d5",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2016.txt"
+  },
+  "us_ssa/mirror/yob2017.txt": {
+   "bytes": 420001,
+   "fetched": "2026-10-09T06:50:31Z",
+   "sha256": "17aefc78d2b1e411f9a0cb22899e88719cace73e580e82f209e1d28c5cc249dc",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2017.txt"
+  },
+  "us_ssa/mirror/yob2018.txt": {
+   "bytes": 414083,
+   "fetched": "2026-10-09T06:50:33Z",
+   "sha256": "de5a04f0a7d72c9f33b1cad2e1361d5c3dc330bd1e676a5725ea7da36ae85768",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2018.txt"
+  },
+  "us_ssa/mirror/yob2019.txt": {
+   "bytes": 411962,
+   "fetched": "2026-10-09T06:50:34Z",
+   "sha256": "994ef31fdbb7205a4a69ef958222f60539a5ccedc2d2e1bff94676eeb77d3158",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2019.txt"
+  },
+  "us_ssa/mirror/yob2020.txt": {
+   "bytes": 403582,
+   "fetched": "2026-10-09T06:50:36Z",
+   "sha256": "614af5d8d718fb193c5c8eb7de461d8689b010032dd737df2398f203296c7f1d",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2020.txt"
+  },
+  "us_ssa/mirror/yob2021.txt": {
+   "bytes": 405883,
+   "fetched": "2026-10-09T06:50:38Z",
+   "sha256": "bbd791f9e91a9ef3ea3df63b483e918980a9b4b64db6f27fe11e3da5c6dd6033",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2021.txt"
+  },
+  "us_ssa/mirror/yob2022.txt": {
+   "bytes": 409591,
+   "fetched": "2026-10-09T06:50:40Z",
+   "sha256": "9753615f0e3d3f175537167ea6bd1feb3cbfaca56dcb58d2822bfe033f766c47",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2022.txt"
+  },
+  "us_ssa/mirror/yob2023.txt": {
+   "bytes": 374343,
+   "fetched": "2026-10-09T06:50:41Z",
+   "sha256": "5a5c38f704d7dff508a97dddb6106170d5aaf8f581734c332987b213848511e4",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2023.txt"
+  },
+  "us_ssa/mirror/yob2024.txt": {
+   "bytes": 375106,
+   "fetched": "2026-10-09T06:50:43Z",
+   "sha256": "13a7c1e1a7eacf326331387b96f6a673c335a960a0ed65271ab4061b0aa1c3aa",
+   "url": "https://media.githubusercontent.com/media/dcadata/name-finder/7991ac3634b18672cc2940526fd8f9363c99462d/data/names/yob2024.txt"
+  },
+  "wikidata/qlever-stats.json": {
+   "bytes": 759,
+   "fetched": "2026-10-09T06:52:47Z",
+   "sha256": "4d4c249c99e829752975186a90f865061dc97ce8086a3e2d5b95b22e92e17523",
+   "url": "https://qlever.dev/api/wikidata?cmd=stats"
+  },
+  "wikidata/wd_bearers.tsv": {
+   "bytes": 42105416,
+   "fetched": "2026-10-09T06:52:42Z",
+   "sha256": "140f1ca14a384d5403e9bd950105ab3d779ff4b775473c27afc664e001273721",
+   "url": "https://qlever.dev/api/wikidata (queries/wd_bearers.rq)"
+  },
+  "wikidata/wd_countries.tsv": {
+   "bytes": 425370,
+   "fetched": "2026-10-09T06:52:46Z",
+   "sha256": "f8152ec1f304a8539928f023909ceb8de91cafcb7505631b811d885f98bd454f",
+   "url": "https://qlever.dev/api/wikidata (queries/wd_countries.rq)"
+  },
+  "wikidata/wd_given_names.tsv": {
+   "bytes": 15868792,
+   "fetched": "2026-10-09T06:50:24Z",
+   "sha256": "a189facd458dcfdcd61ace41a4d1ca79e4cf437527ecb5313c36aecbdf886d1d",
+   "url": "https://qlever.dev/api/wikidata (queries/wd_given_names.rq)"
+  }
+ },
+ "manifest_rows": 100000,
+ "min_cell": 2,
+ "min_sample": 2000,
+ "sources": {
+  "ca_statcan": {
+   "names": 18994,
+   "people": 11213728,
+   "population": 36991981,
+   "years": [
+    1991,
+    2025
+   ]
+  },
+  "es_ine": {
+   "names": 62447,
+   "people": 44846659,
+   "population": 48592909,
+   "years": null
+  },
+  "fr_insee": {
+   "names": 48469,
+   "people": 75395570,
+   "population": 68605616,
+   "years": [
+    1925,
+    2025
+   ]
+  },
+  "gb_ew_ons": {
+   "names": 39383,
+   "people": 18058300,
+   "population": 60238038,
+   "years": [
+    1996,
+    2025
+   ]
+  },
+  "gb_sct_nrs": {
+   "names": 5816,
+   "people": 2770218,
+   "population": 5404700,
+   "years": [
+    1974,
+    2024
+   ]
+  },
+  "ie_cso": {
+   "names": 6347,
+   "people": 3608075,
+   "population": 5149139,
+   "years": [
+    1964,
+    2025
+   ]
+  },
+  "no_ssb": {
+   "names": 2079,
+   "people": 4756778,
+   "population": 5627400,
+   "years": [
+    2025,
+    2025
+   ]
+  },
+  "us_ssa": {
+   "names": 102769,
+   "people": 335501072,
+   "population": 340110988,
+   "years": [
+    1925,
+    2024
+   ]
+  }
+ },
+ "wikidata": {
+  "fallback_countries": 86,
+  "fallback_population": 7231513036,
+  "given_name_items": 125460,
+  "pool_bearers": 68138,
+  "pool_population": 1242812246,
+  "pooled_countries": 104,
+  "unweighted_bearers": 5007121
+ },
+ "world_population": 7803917638
+}

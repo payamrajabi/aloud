@@ -1,1 +1,1 @@
-#include "../../Vendor/sherpa-onnx/include/sherpa-onnx/c-api/c-api.h"
+#include "../../Vendor/sherpa-onnx-asr/include/sherpa-onnx/c-api/c-api.h"

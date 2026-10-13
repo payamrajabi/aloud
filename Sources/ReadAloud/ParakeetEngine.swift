@@ -42,7 +42,7 @@ final class ParakeetEngine {
         config.model_config.debug = ProcessInfo.processInfo.environment["SHERPA_DEBUG"] == nil ? 0 : 1
         config.decoding_method = c("greedy_search")
 
-        guard let recognizer = SherpaOnnxCreateOfflineRecognizer(&config) else { throw EngineError.loadFailed }
+        guard let recognizer = SherpaOnnxCreateOfflineRecognizer(&config) else { throw EngineError.loadFailed("The dictation model failed to load.") }
         self.recognizer = recognizer
     }
 

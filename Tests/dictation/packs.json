@@ -1,0 +1,40 @@
+{
+  "about": "Field packs in dictation (FIN-890): .build/release/ReadAloud --test-dictation Tests/dictation/packs.json. The fixture is ../g2p/pack-fixtures (the tech pack, finance and medicine with pack_only entries) with ../g2p/pack-fixtures/user as your own folder. Context is per pack: a gated term needs an evidence hit from its own pack within 12 words (con tango → contango next to EBITDA, not next to Kubernetes). A pack-only entry of a pack that's off takes no part; with its pack on it stands in for the general entry with its spelling (finance's bps for the tech list's). Your own entries count for every pack. Each case says which packs are on (none by default). must_change cases whose out equals in check that the fixture leaves them alone, where the app's real tech list would not.",
+  "lexicons": ["../g2p/pack-fixtures"],
+  "user_lexicon_dir": "../g2p/pack-fixtures/user",
+  "packs": [],
+  "must_change": [
+    {"in": "The curve is in con tango after the EBITDA miss.", "out": "The curve is in contango after the EBITDA miss."},
+    {"in": "After the e bit da miss the curve went into con tango.", "out": "After the EBITDA miss the curve went into contango."},
+    {"in": "The curve is in con tango, so deploy Kubernetes.", "out": "The curve is in con tango, so deploy Kubernetes."},
+    {"in": "Deploy cooper netties while the curve is in con tango.", "out": "Deploy Kubernetes while the curve is in con tango."},
+    {"in": "Send the jason payload to Kubernetes.", "out": "Send the JSON payload to Kubernetes."},
+    {"in": "Send the jason file with the EBITDA numbers.", "out": "Send the jason file with the EBITDA numbers."},
+
+    {"in": "Widen it by ten b p s, then deploy Kubernetes.", "out": "Widen it by ten bps, then deploy Kubernetes."},
+    {"in": "Widen it by ten b p s, then deploy Kubernetes.", "out": "Widen it by ten b p s, then deploy Kubernetes.", "packs": ["finance"]},
+    {"in": "Spreads widened ten b p s after the EBITDA miss.", "out": "Spreads widened ten bps after the EBITDA miss.", "packs": ["finance"]},
+    {"in": "Spreads widened ten b p s after the EBITDA miss.", "out": "Spreads widened ten b p s after the EBITDA miss."},
+
+    {"in": "SOFR rose and the curve is in con tango.", "out": "SOFR rose and the curve is in contango.", "packs": ["finance"]},
+    {"in": "SOFR rose and the curve is in con tango.", "out": "SOFR rose and the curve is in con tango."},
+    {"in": "The s o f r rate rose.", "out": "The SOFR rate rose.", "packs": ["finance"]},
+    {"in": "The s o f r rate rose.", "out": "The s o f r rate rose."},
+
+    {"in": "Take a tor va statin b i d.", "out": "Take atorvastatin BID.", "packs": ["medicine"]},
+    {"in": "Take a tor va statin b i d.", "out": "Take atorvastatin b i d."},
+    {"in": "After the EBITDA miss, take it b i d.", "out": "After the EBITDA miss, take it b i d.", "packs": ["finance", "medicine"]},
+
+    {"in": "Ask AcmeDB why the curve is in con tango.", "out": "Ask AcmeDB why the curve is in contango."},
+    {"in": "Ask acme d b for the jason.", "out": "Ask AcmeDB for the JSON."},
+    {"in": "The zork all report and the EBITDA miss.", "out": "The Zorkle report and the EBITDA miss."},
+    {"in": "The zork all report is late.", "out": "The zork all report is late."}
+  ],
+  "must_not_change": [
+    "The curve is in con tango.",
+    {"in": "The curve is in con tango.", "packs": ["finance"]},
+    {"in": "Take it b i d.", "packs": ["medicine"]},
+    "Take it b i d.",
+    {"in": "Place a bid by Friday.", "packs": ["medicine"]}
+  ]
+}

@@ -1,0 +1,6 @@
+[
+{"word":"BID","match":"case-sensitive","us":"bˈi ˈI dˈi","gb":"bˈiː ˈI dˈiː","pack_only":true,"dictation":"context","evidence":false,"spoken":["b i d"]},
+{"word":"PRN","match":"case-sensitive","us":"pˈi ɑɹ ˈɛn","gb":"pˈiː ɑː ˈɛn","pack_only":true,"dictation":"never"},
+{"word":"OD","match":"case-sensitive","us":"ˈO dˈi","gb":"ˈQ dˈiː","pack_only":true,"dictation":"never"},
+{"word":"atorvastatin","match":"case-insensitive","us":"ˈɑTəɹ vˈæst sˈætᵊn","gb":"ˈɒtə vˈɑːst sˈatɪn","dictation":"always","spoken":["a tor va statin"]}
+]

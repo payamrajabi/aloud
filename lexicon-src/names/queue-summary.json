@@ -1,0 +1,71 @@
+{
+ "size": 150,
+ "tranche1_ranks": [
+  1,
+  10000
+ ],
+ "ledger_sha256": "199afbc63faf93c8b83df59618dc6fe6e97695593c4f7aa0dbb9a31b43b50421",
+ "manifest_sha256": "5cb61fa4ac827d8c12b42dcc3c0ae5eb4a6a62cab70de19d05bb71df2ffecb38",
+ "totals": {
+  "names": 84543,
+  "by_tranche": {
+   "1": 9806,
+   "2": 74737
+  },
+  "by_tranche_bucket": {
+   "1": {
+    "guesser-reading": 5022,
+    "dictionary-reading-needs-check": 2676,
+    "lexicon-term-reading": 52,
+    "covered-by-lexicon": 38,
+    "collision-word": 459,
+    "dictionary-reading-likely-right": 980,
+    "unsupported-script": 579
+   },
+   "2": {
+    "guesser-reading": 61109,
+    "dictionary-reading-needs-check": 4130,
+    "lexicon-term-reading": 264,
+    "covered-by-lexicon": 95,
+    "collision-word": 1645,
+    "dictionary-reading-likely-right": 5463,
+    "unsupported-script": 2031
+   }
+  },
+  "by_kind": {
+   "research": 81933,
+   "transliteration": 2610
+  },
+  "excluded_multiword_covered_by_parts": {
+   "total": 15457,
+   "guesser-reading": 5321,
+   "dictionary-reading-needs-check": 9651,
+   "covered-by-lexicon": 1,
+   "dictionary-reading-likely-right": 484
+  },
+  "batches": 565,
+  "batch_ids": {
+   "tranche 1 research": {
+    "first": "n0001",
+    "last": "n0062",
+    "batches": 62
+   },
+   "tranche 2 research": {
+    "first": "n0063",
+    "last": "n0547",
+    "batches": 485
+   },
+   "tranche 1 transliteration": {
+    "first": "n0548",
+    "last": "n0551",
+    "batches": 4
+   },
+   "tranche 2 transliteration": {
+    "first": "n0552",
+    "last": "n0565",
+    "batches": 14
+   }
+  }
+ },
+ "research_folder": "~/Library/Caches/aloud-names/research (in/, out/, tools/, queue.json)"
+}

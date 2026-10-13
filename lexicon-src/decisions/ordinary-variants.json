@@ -1,0 +1,4466 @@
+{
+"drop": [
+{
+"variant": "an and",
+"term": "&&"
+},
+{
+"variant": "and and",
+"term": "&&"
+},
+{
+"variant": "see dot deb",
+"term": ".deb"
+},
+{
+"variant": "bin",
+"term": "/bin"
+},
+{
+"variant": "see dev null",
+"term": "/dev/null"
+},
+{
+"variant": "see temp",
+"term": "/tmp"
+},
+{
+"variant": "temp",
+"term": "/tmp"
+},
+{
+"variant": "user",
+"term": "/usr"
+},
+{
+"variant": "save var",
+"term": "/var"
+},
+{
+"variant": "var",
+"term": "/var"
+},
+{
+"variant": "oh day",
+"term": "0-day"
+},
+{
+"variant": "one one one one",
+"term": "1.1.1.1"
+},
+{
+"variant": "ten ninety nine",
+"term": "1099"
+},
+{
+"variant": "ten ninety-nine",
+"term": "1099"
+},
+{
+"variant": "one on one",
+"term": "1:1"
+},
+{
+"variant": "one-on-one",
+"term": "1:1"
+},
+{
+"variant": "one on ones",
+"term": "1:1s"
+},
+{
+"variant": "one-on-ones",
+"term": "1:1s"
+},
+{
+"variant": "one ex",
+"term": "1X"
+},
+{
+"variant": "two and twenty",
+"term": "2 and 20"
+},
+{
+"variant": "to pc",
+"term": "2PC"
+},
+{
+"variant": "for dx",
+"term": "4DX"
+},
+{
+"variant": "save for dx",
+"term": "4DX"
+},
+{
+"variant": "five hundred startups",
+"term": "500 Startups"
+},
+{
+"variant": "six cents",
+"term": "6sense"
+},
+{
+"variant": "sixth sense",
+"term": "6sense"
+},
+{
+"variant": "it 2x",
+"term": "@2x"
+},
+{
+"variant": "up binding",
+"term": "@Binding"
+},
+{
+"variant": "font face",
+"term": "@font-face"
+},
+{
+"variant": "it main actor",
+"term": "@MainActor"
+},
+{
+"variant": "ad observable",
+"term": "@Observable"
+},
+{
+"variant": "at state",
+"term": "@State"
+},
+{
+"variant": "at types",
+"term": "@types"
+},
+{
+"variant": "ab",
+"term": "A/B"
+},
+{
+"variant": "ally",
+"term": "a11y"
+},
+{
+"variant": "erin levy",
+"term": "Aaron Levie"
+},
+{
+"variant": "ave",
+"term": "Aave"
+},
+{
+"variant": "axel",
+"term": "Accel"
+},
+{
+"variant": "active campaign",
+"term": "ActiveCampaign"
+},
+{
+"variant": "our dear",
+"term": "ADIA"
+},
+{
+"variant": "advantage test",
+"term": "Advantest"
+},
+{
+"variant": "add words",
+"term": "AdWords"
+},
+{
+"variant": "aaron chair",
+"term": "Aeron chair"
+},
+{
+"variant": "erin chair",
+"term": "Aeron chair"
+},
+{
+"variant": "after pay day",
+"term": "Afterpay Day"
+},
+{
+"variant": "agent to agent",
+"term": "Agent2Agent"
+},
+{
+"variant": "air wallets",
+"term": "Airwallex"
+},
+{
+"variant": "ivan",
+"term": "Aiven"
+},
+{
+"variant": "aka",
+"term": "Akka"
+},
+{
+"variant": "awkward",
+"term": "Akka"
+},
+{
+"variant": "all birds",
+"term": "Allbirds"
+},
+{
+"variant": "i'll coin",
+"term": "altcoin"
+},
+{
+"variant": "a.m",
+"term": "AM"
+},
+{
+"variant": "on in tech",
+"term": "AnandTech"
+},
+{
+"variant": "anna plan",
+"term": "Anaplan"
+},
+{
+"variant": "and",
+"term": "andon"
+},
+{
+"variant": "anchor",
+"term": "Anker"
+},
+{
+"variant": "on key",
+"term": "Anki"
+},
+{
+"variant": "a'en and",
+"term": "ANN"
+},
+{
+"variant": "an over",
+"term": "ANOVA"
+},
+{
+"variant": "in' over",
+"term": "ANOVA"
+},
+{
+"variant": "an see",
+"term": "ANSI"
+},
+{
+"variant": "answers",
+"term": "Ansys"
+},
+{
+"variant": "any scale",
+"term": "Anyscale"
+},
+{
+"variant": "app any",
+"term": "App Annie"
+},
+{
+"variant": "app code",
+"term": "AppCode"
+},
+{
+"variant": "app use",
+"term": "Appcues"
+},
+{
+"variant": "app image",
+"term": "AppImage"
+},
+{
+"variant": "apple and cider",
+"term": "AppleInsider"
+},
+{
+"variant": "app right",
+"term": "Appwrite"
+},
+{
+"variant": "upright",
+"term": "Appwrite"
+},
+{
+"variant": "arena",
+"term": "Are.na"
+},
+{
+"variant": "area",
+"term": "ARIA"
+},
+{
+"variant": "arya",
+"term": "ARIA"
+},
+{
+"variant": "aerial",
+"term": "Arial"
+},
+{
+"variant": "ariel",
+"term": "Arial"
+},
+{
+"variant": "arise",
+"term": "Arize"
+},
+{
+"variant": "ark",
+"term": "ARKK"
+},
+{
+"variant": "arc type",
+"term": "ArkType"
+},
+{
+"variant": "aren't",
+"term": "ARN"
+},
+{
+"variant": "our people",
+"term": "ARPPU"
+},
+{
+"variant": "are",
+"term": "ARRI"
+},
+{
+"variant": "ari",
+"term": "ARRI"
+},
+{
+"variant": "archive",
+"term": "arXiv"
+},
+{
+"variant": "asia",
+"term": "ASIO"
+},
+{
+"variant": "ask nicely",
+"term": "AskNicely"
+},
+{
+"variant": "asd",
+"term": "AST"
+},
+{
+"variant": "add you",
+"term": "Attio"
+},
+{
+"variant": "authentication services",
+"term": "AuthenticationServices"
+},
+{
+"variant": "often",
+"term": "AuthN"
+},
+{
+"variant": "author",
+"term": "Authy"
+},
+{
+"variant": "off the",
+"term": "Authy"
+},
+{
+"variant": "auto gen",
+"term": "AutoGen"
+},
+{
+"variant": "automatic",
+"term": "Automattic"
+},
+{
+"variant": "auto merge",
+"term": "Automerge"
+},
+{
+"variant": "abc",
+"term": "AVC"
+},
+{
+"variant": "awards",
+"term": "Awwwards"
+},
+{
+"variant": "beast blind",
+"term": "B-spline"
+},
+{
+"variant": "be to see",
+"term": "B2C"
+},
+{
+"variant": "bass",
+"term": "BaaS"
+},
+{
+"variant": "background tasks",
+"term": "BackgroundTasks"
+},
+{
+"variant": "bye to",
+"term": "Baidu"
+},
+{
+"variant": "band camp",
+"term": "Bandcamp"
+},
+{
+"variant": "base ten",
+"term": "Baseten"
+},
+{
+"variant": "bastion",
+"term": "Baseten"
+},
+{
+"variant": "base us",
+"term": "Baseus"
+},
+{
+"variant": "basel",
+"term": "Bazel"
+},
+{
+"variant": "basil",
+"term": "Bazel"
+},
+{
+"variant": "bac",
+"term": "BEC"
+},
+{
+"variant": "bee hive",
+"term": "Beehiiv"
+},
+{
+"variant": "beware",
+"term": "BeeWare"
+},
+{
+"variant": "bam",
+"term": "BEM"
+},
+{
+"variant": "be real",
+"term": "BeReal"
+},
+{
+"variant": "bird",
+"term": "BERT"
+},
+{
+"variant": "burt",
+"term": "BERT"
+},
+{
+"variant": "better off",
+"term": "Better Auth"
+},
+{
+"variant": "big and",
+"term": "BigInt"
+},
+{
+"variant": "big in",
+"term": "BigInt"
+},
+{
+"variant": "bio and tech",
+"term": "BioNTech"
+},
+{
+"variant": "by us",
+"term": "BIOS"
+},
+{
+"variant": "bits and bytes",
+"term": "bitsandbytes"
+},
+{
+"variant": "bit stream",
+"term": "Bitstream"
+},
+{
+"variant": "blazer",
+"term": "Blazor"
+},
+{
+"variant": "blazers",
+"term": "Blazor"
+},
+{
+"variant": "blue",
+"term": "BLEU"
+},
+{
+"variant": "blue sky",
+"term": "Bluesky"
+},
+{
+"variant": "bluff",
+"term": "BLUF"
+},
+{
+"variant": "boca",
+"term": "Bokeh"
+},
+{
+"variant": "bouquet",
+"term": "Bokeh"
+},
+{
+"variant": "bomb",
+"term": "BOM"
+},
+{
+"variant": "boot strap",
+"term": "Bootstrap"
+},
+{
+"variant": "bas",
+"term": "Boz"
+},
+{
+"variant": "boss",
+"term": "Boz"
+},
+{
+"variant": "brain trust",
+"term": "Braintrust"
+},
+{
+"variant": "brown",
+"term": "Braun"
+},
+{
+"variant": "brooklyn and",
+"term": "Brooklinen"
+},
+{
+"variant": "bison",
+"term": "BSON"
+},
+{
+"variant": "buck to",
+"term": "Buck2"
+},
+{
+"variant": "buck two",
+"term": "Buck2"
+},
+{
+"variant": "builder",
+"term": "Buildah"
+},
+{
+"variant": "bunk",
+"term": "Bunq"
+},
+{
+"variant": "burn down",
+"term": "burndown"
+},
+{
+"variant": "by bit",
+"term": "Bybit"
+},
+{
+"variant": "see two",
+"term": "C2"
+},
+{
+"variant": "calibre",
+"term": "Calibri"
+},
+{
+"variant": "call back",
+"term": "callback"
+},
+{
+"variant": "can spam",
+"term": "CAN-SPAM"
+},
+{
+"variant": "can't spam",
+"term": "CAN-SPAM"
+},
+{
+"variant": "kareem",
+"term": "Careem"
+},
+{
+"variant": "carter",
+"term": "Carta"
+},
+{
+"variant": "cathy would",
+"term": "Cathie Wood"
+},
+{
+"variant": "co she",
+"term": "Cauchy"
+},
+{
+"variant": "cd project",
+"term": "CD Projekt"
+},
+{
+"variant": "self-shading",
+"term": "cel shading"
+},
+{
+"variant": "see groups",
+"term": "cgroups"
+},
+{
+"variant": "chang",
+"term": "Chang'e"
+},
+{
+"variant": "change",
+"term": "Chang'e"
+},
+{
+"variant": "change sets",
+"term": "Changesets"
+},
+{
+"variant": "chart point",
+"term": "ChargePoint"
+},
+{
+"variant": "check marks",
+"term": "Checkmarx"
+},
+{
+"variant": "check of",
+"term": "Checkov"
+},
+{
+"variant": "check off",
+"term": "Checkov"
+},
+{
+"variant": "checker",
+"term": "Checkr"
+},
+{
+"variant": "change group",
+"term": "chgrp"
+},
+{
+"variant": "to group",
+"term": "chgrp"
+},
+{
+"variant": "chip said",
+"term": "chipset"
+},
+{
+"variant": "change root",
+"term": "chroot"
+},
+{
+"variant": "see lab",
+"term": "CIELAB"
+},
+{
+"variant": "see so",
+"term": "CISO"
+},
+{
+"variant": "city",
+"term": "Citi"
+},
+{
+"variant": "claim format",
+"term": "clang-format"
+},
+{
+"variant": "class names",
+"term": "classnames"
+},
+{
+"variant": "cloud desktop",
+"term": "Claude Desktop"
+},
+{
+"variant": "clear bit",
+"term": "Clearbit"
+},
+{
+"variant": "clear but",
+"term": "Clearbit"
+},
+{
+"variant": "clear view",
+"term": "Clearview"
+},
+{
+"variant": "click up",
+"term": "ClickUp"
+},
+{
+"variant": "klein",
+"term": "Cline"
+},
+{
+"variant": "sea lion",
+"term": "CLion"
+},
+{
+"variant": "close your compiler",
+"term": "Closure Compiler"
+},
+{
+"variant": "cloud error",
+"term": "Cloudera"
+},
+{
+"variant": "sea moss",
+"term": "CMOS"
+},
+{
+"variant": "company limited",
+"term": "Co., Ltd."
+},
+{
+"variant": "cod",
+"term": "Codd"
+},
+{
+"variant": "colin wang",
+"term": "Colin Huang"
+},
+{
+"variant": "comp time",
+"term": "comptime"
+},
+{
+"variant": "condo",
+"term": "conda"
+},
+{
+"variant": "console as",
+"term": "Consolas"
+},
+{
+"variant": "console us",
+"term": "Consolas"
+},
+{
+"variant": "consoles",
+"term": "Consolas"
+},
+{
+"variant": "colors",
+"term": "Coolors"
+},
+{
+"variant": "cool colors",
+"term": "Coolors"
+},
+{
+"variant": "core utilities",
+"term": "coreutils"
+},
+{
+"variant": "coral",
+"term": "CoRL"
+},
+{
+"variant": "cords",
+"term": "CORS"
+},
+{
+"variant": "cores",
+"term": "CORS"
+},
+{
+"variant": "corps",
+"term": "CORS"
+},
+{
+"variant": "cooper",
+"term": "Coupa"
+},
+{
+"variant": "co variant",
+"term": "Covariant"
+},
+{
+"variant": "creatively",
+"term": "Creately"
+},
+{
+"variant": "cross and begin",
+"term": "cross-env"
+},
+{
+"variant": "sea surf",
+"term": "CSRF"
+},
+{
+"variant": "sea tor",
+"term": "ctor"
+},
+{
+"variant": "sea trip",
+"term": "Ctrip"
+},
+{
+"variant": "see trip",
+"term": "Ctrip"
+},
+{
+"variant": "coup de corps",
+"term": "CUDA cores"
+},
+{
+"variant": "cupid",
+"term": "CUPED"
+},
+{
+"variant": "see then",
+"term": "Cvent"
+},
+{
+"variant": "seven",
+"term": "Cvent"
+},
+{
+"variant": "cyprus",
+"term": "Cypress"
+},
+{
+"variant": "the matrix",
+"term": "d-Matrix"
+},
+{
+"variant": "dak",
+"term": "DAC"
+},
+{
+"variant": "demon said",
+"term": "DaemonSet"
+},
+{
+"variant": "dye",
+"term": "DAI"
+},
+{
+"variant": "dan olson",
+"term": "Dan Olsen"
+},
+{
+"variant": "daniel steinberg",
+"term": "Daniel Stenberg"
+},
+{
+"variant": "dow",
+"term": "DAO"
+},
+{
+"variant": "tao",
+"term": "DAO"
+},
+{
+"variant": "thou",
+"term": "DAO"
+},
+{
+"variant": "data classes",
+"term": "dataclasses"
+},
+{
+"variant": "dame",
+"term": "Daum"
+},
+{
+"variant": "dome",
+"term": "Daum"
+},
+{
+"variant": "da",
+"term": "DAW"
+},
+{
+"variant": "deal",
+"term": "Deel"
+},
+{
+"variant": "defy",
+"term": "DeFi"
+},
+{
+"variant": "delicious",
+"term": "del.icio.us"
+},
+{
+"variant": "dna",
+"term": "DeNA"
+},
+{
+"variant": "deck",
+"term": "deque"
+},
+{
+"variant": "decks",
+"term": "DEX"
+},
+{
+"variant": "dh",
+"term": "DHH"
+},
+{
+"variant": "dear",
+"term": "Dia"
+},
+{
+"variant": "dim",
+"term": "DIMM"
+},
+{
+"variant": "durham",
+"term": "direnv"
+},
+{
+"variant": "did",
+"term": "DiT"
+},
+{
+"variant": "door",
+"term": "DoRA"
+},
+{
+"variant": "das",
+"term": "DoS"
+},
+{
+"variant": "file",
+"term": "dotfile"
+},
+{
+"variant": "files",
+"term": "dotfiles"
+},
+{
+"variant": "doin",
+"term": "Douyin"
+},
+{
+"variant": "dream",
+"term": "Dreame"
+},
+{
+"variant": "dreamy",
+"term": "Dreame"
+},
+{
+"variant": "detour",
+"term": "dtor"
+},
+{
+"variant": "deviate",
+"term": "dvh"
+},
+{
+"variant": "yak",
+"term": "e/acc"
+},
+{
+"variant": "earth",
+"term": "eARC"
+},
+{
+"variant": "alicia",
+"term": "Elysia"
+},
+{
+"variant": "envy",
+"term": "env"
+},
+{
+"variant": "epsom",
+"term": "Epson"
+},
+{
+"variant": "iq",
+"term": "EQ"
+},
+{
+"variant": "erickson",
+"term": "Ericsson"
+},
+{
+"variant": "asthma",
+"term": "ESMA"
+},
+{
+"variant": "expressive",
+"term": "Espressif"
+},
+{
+"variant": "toro",
+"term": "eToro"
+},
+{
+"variant": "oilers",
+"term": "Euler's number"
+},
+{
+"variant": "euro",
+"term": "EUR"
+},
+{
+"variant": "evil",
+"term": "eval"
+},
+{
+"variant": "eye",
+"term": "EY"
+},
+{
+"variant": "why",
+"term": "EY"
+},
+{
+"variant": "fast",
+"term": "FaaS"
+},
+{
+"variant": "fabulous",
+"term": "fabless"
+},
+{
+"variant": "face",
+"term": "FAISS"
+},
+{
+"variant": "fire",
+"term": "FHIR"
+},
+{
+"variant": "flak",
+"term": "FLAC"
+},
+{
+"variant": "flicker",
+"term": "Flickr"
+},
+{
+"variant": "flipped",
+"term": "Flipt"
+},
+{
+"variant": "floss",
+"term": "Flos"
+},
+{
+"variant": "fu",
+"term": "foo"
+},
+{
+"variant": "fortnight",
+"term": "Fortnite"
+},
+{
+"variant": "frances",
+"term": "Fraunces"
+},
+{
+"variant": "francis",
+"term": "Fraunces"
+},
+{
+"variant": "free",
+"term": "freee"
+},
+{
+"variant": "fisk",
+"term": "fsck"
+},
+{
+"variant": "gap",
+"term": "GAAP"
+},
+{
+"variant": "gotcha",
+"term": "gacha"
+},
+{
+"variant": "data flow",
+"term": "Dataflow"
+},
+{
+"variant": "data store",
+"term": "Datastore"
+},
+{
+"variant": "data stacks",
+"term": "DataStax"
+},
+{
+"variant": "the beaver",
+"term": "DBeaver"
+},
+{
+"variant": "the style",
+"term": "De Stijl"
+},
+{
+"variant": "to style",
+"term": "De Stijl"
+},
+{
+"variant": "deep set",
+"term": "deepset"
+},
+{
+"variant": "definitely typed",
+"term": "DefinitelyTyped"
+},
+{
+"variant": "de scope",
+"term": "Descope"
+},
+{
+"variant": "the script",
+"term": "Descript"
+},
+{
+"variant": "to script",
+"term": "Descript"
+},
+{
+"variant": "dev to",
+"term": "Dev.to"
+},
+{
+"variant": "dial pad",
+"term": "Dialpad"
+},
+{
+"variant": "direct us",
+"term": "Directus"
+},
+{
+"variant": "drag along",
+"term": "drag-along"
+},
+{
+"variant": "he's in",
+"term": "ease-in"
+},
+{
+"variant": "he's out",
+"term": "ease-out"
+},
+{
+"variant": "easing out",
+"term": "ease-in-out"
+},
+{
+"variant": "easy to",
+"term": "EC2"
+},
+{
+"variant": "emma gray",
+"term": "Emigre"
+},
+{
+"variant": "emmy gray",
+"term": "Emigre"
+},
+{
+"variant": "in dash",
+"term": "en dash"
+},
+{
+"variant": "end phase",
+"term": "Enphase"
+},
+{
+"variant": "it all",
+"term": "et al."
+},
+{
+"variant": "euro style",
+"term": "Eurostile"
+},
+{
+"variant": "safe act",
+"term": "FAccT"
+},
+{
+"variant": "fact said",
+"term": "FactSet"
+},
+{
+"variant": "fair play",
+"term": "FairPlay"
+},
+{
+"variant": "pal ai",
+"term": "fal.ai"
+},
+{
+"variant": "far ai",
+"term": "FAR.AI"
+},
+{
+"variant": "fast ai",
+"term": "fastai"
+},
+{
+"variant": "fast lane",
+"term": "fastlane"
+},
+{
+"variant": "fig tree",
+"term": "Figtree"
+},
+{
+"variant": "fine my",
+"term": "Find My"
+},
+{
+"variant": "find her",
+"term": "Finder"
+},
+{
+"variant": "fix up",
+"term": "fixup"
+},
+{
+"variant": "fix-up",
+"term": "fixup"
+},
+{
+"variant": "safe link",
+"term": "Flink"
+},
+{
+"variant": "flip card",
+"term": "Flipkart"
+},
+{
+"variant": "safe loss",
+"term": "Flos"
+},
+{
+"variant": "focus right",
+"term": "Focusrite"
+},
+{
+"variant": "save void",
+"term": "FOIT"
+},
+{
+"variant": "save folder",
+"term": "Fotor"
+},
+{
+"variant": "foundation models",
+"term": "FoundationModels"
+},
+{
+"variant": "four year series",
+"term": "Fourier series"
+},
+{
+"variant": "safe out",
+"term": "FOUT"
+},
+{
+"variant": "from software",
+"term": "FromSoftware"
+},
+{
+"variant": "save from software",
+"term": "FromSoftware"
+},
+{
+"variant": "full story",
+"term": "FullStory"
+},
+{
+"variant": "games come",
+"term": "Gamescom"
+},
+{
+"variant": "jelly",
+"term": "GELU"
+},
+{
+"variant": "gen two",
+"term": "Gentoo"
+},
+{
+"variant": "jen too",
+"term": "Gentoo"
+},
+{
+"variant": "gift",
+"term": "GIF"
+},
+{
+"variant": "gill",
+"term": "GIL"
+},
+{
+"variant": "the gill",
+"term": "GIL"
+},
+{
+"variant": "get at",
+"term": "git add"
+},
+{
+"variant": "get out",
+"term": "git add"
+},
+{
+"variant": "get clean",
+"term": "git clean"
+},
+{
+"variant": "get in it",
+"term": "git init"
+},
+{
+"variant": "get pull",
+"term": "git pull"
+},
+{
+"variant": "get push",
+"term": "git push"
+},
+{
+"variant": "get remote",
+"term": "git remote"
+},
+{
+"variant": "get reset",
+"term": "git reset"
+},
+{
+"variant": "get status",
+"term": "git status"
+},
+{
+"variant": "get tea",
+"term": "Gitea"
+},
+{
+"variant": "glass box",
+"term": "Glassbox"
+},
+{
+"variant": "god oh",
+"term": "Godot"
+},
+{
+"variant": "good notes",
+"term": "GoodNotes"
+},
+{
+"variant": "good reads",
+"term": "Goodreads"
+},
+{
+"variant": "google adds",
+"term": "Google Ads"
+},
+{
+"variant": "google do",
+"term": "Google Duo"
+},
+{
+"variant": "go pro",
+"term": "GoPro"
+},
+{
+"variant": "gorgeous",
+"term": "Gorgias"
+},
+{
+"variant": "go to",
+"term": "GoTo"
+},
+{
+"variant": "gpu are",
+"term": "GPU-hour"
+},
+{
+"variant": "graphic",
+"term": "Graphik"
+},
+{
+"variant": "graphical",
+"term": "GraphiQL"
+},
+{
+"variant": "graph is",
+"term": "Graphviz"
+},
+{
+"variant": "grip",
+"term": "grep"
+},
+{
+"variant": "grinder",
+"term": "Grindr"
+},
+{
+"variant": "grow",
+"term": "Groww"
+},
+{
+"variant": "good",
+"term": "GUID"
+},
+{
+"variant": "jesus",
+"term": "gzip"
+},
+{
+"variant": "higher",
+"term": "Haier"
+},
+{
+"variant": "hire",
+"term": "Haier"
+},
+{
+"variant": "half life",
+"term": "Half-Life"
+},
+{
+"variant": "hanna",
+"term": "HANA"
+},
+{
+"variant": "hannah",
+"term": "HANA"
+},
+{
+"variant": "happy",
+"term": "Hapi"
+},
+{
+"variant": "havoc",
+"term": "Havok"
+},
+{
+"variant": "heath",
+"term": "HEIF"
+},
+{
+"variant": "heroic",
+"term": "Heroicons"
+},
+{
+"variant": "hey jen",
+"term": "HeyGen"
+},
+{
+"variant": "high touch",
+"term": "Hightouch"
+},
+{
+"variant": "high sense",
+"term": "Hisense"
+},
+{
+"variant": "hop in",
+"term": "Hopin"
+},
+{
+"variant": "hoodie",
+"term": "Hudi"
+},
+{
+"variant": "hydro",
+"term": "Hydrow"
+},
+{
+"variant": "ai writer",
+"term": "iA Writer"
+},
+{
+"variant": "is",
+"term": "IaaS"
+},
+{
+"variant": "anna",
+"term": "IANA"
+},
+{
+"variant": "iconic",
+"term": "ICONIQ"
+},
+{
+"variant": "if this then that",
+"term": "IFTTT"
+},
+{
+"variant": "imagine",
+"term": "Imagen"
+},
+{
+"variant": "imagine four",
+"term": "Imagen 4"
+},
+{
+"variant": "in design",
+"term": "InDesign"
+},
+{
+"variant": "into text",
+"term": "Inditex"
+},
+{
+"variant": "in physical",
+"term": "Infisical"
+},
+{
+"variant": "any",
+"term": "INI"
+},
+{
+"variant": "in it",
+"term": "init"
+},
+{
+"variant": "in just",
+"term": "Inngest"
+},
+{
+"variant": "int for",
+"term": "INT4"
+},
+{
+"variant": "it for",
+"term": "INT4"
+},
+{
+"variant": "in eight",
+"term": "INT8"
+},
+{
+"variant": "in to it",
+"term": "Intuit"
+},
+{
+"variant": "into it",
+"term": "Intuit"
+},
+{
+"variant": "in tune",
+"term": "Intune"
+},
+{
+"variant": "envision",
+"term": "InVision"
+},
+{
+"variant": "idle",
+"term": "ITIL"
+},
+{
+"variant": "isotope",
+"term": "iZotope"
+},
+{
+"variant": "jan like",
+"term": "Jan Leike"
+},
+{
+"variant": "jacks",
+"term": "JAX"
+},
+{
+"variant": "jackson",
+"term": "JAXA"
+},
+{
+"variant": "ginger",
+"term": "Jinja"
+},
+{
+"variant": "said you",
+"term": "Jio"
+},
+{
+"variant": "joy",
+"term": "Joi"
+},
+{
+"variant": "josé",
+"term": "JOSE"
+},
+{
+"variant": "juice",
+"term": "JUCE"
+},
+{
+"variant": "jewels",
+"term": "Jules"
+},
+{
+"variant": "just works",
+"term": "Justworks"
+},
+{
+"variant": "canons",
+"term": "k9s"
+},
+{
+"variant": "candy",
+"term": "Kandji"
+},
+{
+"variant": "kanji",
+"term": "Kandji"
+},
+{
+"variant": "carpenter",
+"term": "Karpenter"
+},
+{
+"variant": "cartel",
+"term": "Kartell"
+},
+{
+"variant": "cater",
+"term": "KEDA"
+},
+{
+"variant": "keep trucking",
+"term": "KeepTruckin"
+},
+{
+"variant": "kevin while",
+"term": "Kevin Weil"
+},
+{
+"variant": "kieran",
+"term": "Kirin"
+},
+{
+"variant": "cling",
+"term": "Kling"
+},
+{
+"variant": "connects",
+"term": "Knex"
+},
+{
+"variant": "no",
+"term": "Knoll"
+},
+{
+"variant": "know before",
+"term": "KnowBe4"
+},
+{
+"variant": "no before",
+"term": "KnowBe4"
+},
+{
+"variant": "co",
+"term": "Koa"
+},
+{
+"variant": "cody",
+"term": "Kodi"
+},
+{
+"variant": "contact",
+"term": "Kontakt"
+},
+{
+"variant": "cops",
+"term": "kops"
+},
+{
+"variant": "cosby",
+"term": "KOSPI"
+},
+{
+"variant": "code",
+"term": "Koto"
+},
+{
+"variant": "cold",
+"term": "Koto"
+},
+{
+"variant": "craft on",
+"term": "Krafton"
+},
+{
+"variant": "prayer",
+"term": "Krea"
+},
+{
+"variant": "curly",
+"term": "Kurly"
+},
+{
+"variant": "customize",
+"term": "kustomize"
+},
+{
+"variant": "kiev",
+"term": "Kyiv"
+},
+{
+"variant": "layer one",
+"term": "L1"
+},
+{
+"variant": "layer two",
+"term": "L2"
+},
+{
+"variant": "label box",
+"term": "Labelbox"
+},
+{
+"variant": "lie on",
+"term": "LAION"
+},
+{
+"variant": "lion",
+"term": "LAION"
+},
+{
+"variant": "lying",
+"term": "LAION"
+},
+{
+"variant": "ceylon",
+"term": "LAN"
+},
+{
+"variant": "land or",
+"term": "Landor"
+},
+{
+"variant": "lander",
+"term": "Landor"
+},
+{
+"variant": "larry think",
+"term": "Larry Fink"
+},
+{
+"variant": "lars back",
+"term": "Lars Bak"
+},
+{
+"variant": "laser tech",
+"term": "Lasertec"
+},
+{
+"variant": "last pass",
+"term": "LastPass"
+},
+{
+"variant": "lotto",
+"term": "Lato"
+},
+{
+"variant": "launch agent",
+"term": "LaunchAgent"
+},
+{
+"variant": "launch agents",
+"term": "LaunchAgent"
+},
+{
+"variant": "lizard",
+"term": "Lazard"
+},
+{
+"variant": "lazy get",
+"term": "lazygit"
+},
+{
+"variant": "lead",
+"term": "LEED"
+},
+{
+"variant": "left pad",
+"term": "left-pad"
+},
+{
+"variant": "late june",
+"term": "Lei Jun"
+},
+{
+"variant": "like her",
+"term": "Leica"
+},
+{
+"variant": "lean at",
+"term": "LeNet"
+},
+{
+"variant": "lerner",
+"term": "Lerna"
+},
+{
+"variant": "less wrong",
+"term": "LessWrong"
+},
+{
+"variant": "leto",
+"term": "Lido"
+},
+{
+"variant": "life oh",
+"term": "LIFO"
+},
+{
+"variant": "life or",
+"term": "LIFO"
+},
+{
+"variant": "light matter",
+"term": "Lightmatter"
+},
+{
+"variant": "light tricks",
+"term": "Lightricks"
+},
+{
+"variant": "light speed",
+"term": "Lightspeed"
+},
+{
+"variant": "like art",
+"term": "Likert"
+},
+{
+"variant": "liquor",
+"term": "Likert"
+},
+{
+"variant": "line to",
+"term": "Lineto"
+},
+{
+"variant": "line two",
+"term": "Lineto"
+},
+{
+"variant": "linked in",
+"term": "LinkedIn"
+},
+{
+"variant": "links is",
+"term": "Linksys"
+},
+{
+"variant": "link",
+"term": "LINQ"
+},
+{
+"variant": "little indian",
+"term": "little-endian"
+},
+{
+"variant": "live data",
+"term": "LiveData"
+},
+{
+"variant": "live view",
+"term": "LiveView"
+},
+{
+"variant": "live you",
+"term": "LiveView"
+},
+{
+"variant": "live or",
+"term": "Livewire"
+},
+{
+"variant": "live wire",
+"term": "Livewire"
+},
+{
+"variant": "lava",
+"term": "LLaVA"
+},
+{
+"variant": "lock bit",
+"term": "LockBit"
+},
+{
+"variant": "log back",
+"term": "Logback"
+},
+{
+"variant": "look back",
+"term": "Lookback"
+},
+{
+"variant": "long sun",
+"term": "Loongson"
+},
+{
+"variant": "laura",
+"term": "LoRA"
+},
+{
+"variant": "lows",
+"term": "Lowe's"
+},
+{
+"variant": "lure",
+"term": "Lua"
+},
+{
+"variant": "lucid",
+"term": "Lucide"
+},
+{
+"variant": "let",
+"term": "LUT"
+},
+{
+"variant": "like us",
+"term": "Lycos"
+},
+{
+"variant": "lift",
+"term": "Lyft"
+},
+{
+"variant": "listener",
+"term": "Lyssna"
+},
+{
+"variant": "mcintosh",
+"term": "Macintosh"
+},
+{
+"variant": "main stage",
+"term": "MainStage"
+},
+{
+"variant": "man us",
+"term": "Manus"
+},
+{
+"variant": "margin note",
+"term": "MarginNote"
+},
+{
+"variant": "mark off",
+"term": "Markov"
+},
+{
+"variant": "marvel",
+"term": "Marvell"
+},
+{
+"variant": "master class",
+"term": "MasterClass"
+},
+{
+"variant": "matte",
+"term": "MATE"
+},
+{
+"variant": "math works",
+"term": "MathWorks"
+},
+{
+"variant": "matter most",
+"term": "Mattermost"
+},
+{
+"variant": "max are",
+"term": "Maxar"
+},
+{
+"variant": "max diff",
+"term": "MaxDiff"
+},
+{
+"variant": "max on",
+"term": "Maxon"
+},
+{
+"variant": "mckenzie",
+"term": "McKinsey"
+},
+{
+"variant": "medic",
+"term": "MEDDIC"
+},
+{
+"variant": "media tech",
+"term": "MediaTek"
+},
+{
+"variant": "mega pack",
+"term": "Megapack"
+},
+{
+"variant": "may to",
+"term": "Meitu"
+},
+{
+"variant": "may two",
+"term": "Meitu"
+},
+{
+"variant": "me to",
+"term": "Meitu"
+},
+{
+"variant": "memory store",
+"term": "Memorystore"
+},
+{
+"variant": "merry weather",
+"term": "Merriweather"
+},
+{
+"variant": "meter",
+"term": "METR"
+},
+{
+"variant": "mika",
+"term": "MiCA"
+},
+{
+"variant": "mike cohen",
+"term": "Mike Cohn"
+},
+{
+"variant": "mike morris",
+"term": "Mike Moritz"
+},
+{
+"variant": "mini max",
+"term": "MiniMax"
+},
+{
+"variant": "minimalist",
+"term": "minimist"
+},
+{
+"variant": "mini test",
+"term": "Minitest"
+},
+{
+"variant": "miracle",
+"term": "Mirakl"
+},
+{
+"variant": "same extra",
+"term": "Mixtral"
+},
+{
+"variant": "make docs",
+"term": "MkDocs"
+},
+{
+"variant": "emily",
+"term": "MLE"
+},
+{
+"variant": "model three",
+"term": "Model 3"
+},
+{
+"variant": "model why",
+"term": "Model Y"
+},
+{
+"variant": "same wake",
+"term": "MOIC"
+},
+{
+"variant": "more",
+"term": "moiré"
+},
+{
+"variant": "month over month",
+"term": "MoM"
+},
+{
+"variant": "same month over month",
+"term": "MoM"
+},
+{
+"variant": "momentum",
+"term": "Momenta"
+},
+{
+"variant": "monica",
+"term": "Monokai"
+},
+{
+"variant": "more threads",
+"term": "Moore Threads"
+},
+{
+"variant": "morning star",
+"term": "Morningstar"
+},
+{
+"variant": "emotional",
+"term": "Motional"
+},
+{
+"variant": "move it",
+"term": "MOVEit"
+},
+{
+"variant": "mas",
+"term": "Moz"
+},
+{
+"variant": "malta",
+"term": "multer"
+},
+{
+"variant": "muscle",
+"term": "musl"
+},
+{
+"variant": "my fonts",
+"term": "MyFonts"
+},
+{
+"variant": "save my fonts",
+"term": "MyFonts"
+},
+{
+"variant": "same intro",
+"term": "Myntra"
+},
+{
+"variant": "my pi",
+"term": "mypy"
+},
+{
+"variant": "my pie",
+"term": "mypy"
+},
+{
+"variant": "my space",
+"term": "MySpace"
+},
+{
+"variant": "neighbor",
+"term": "Naver"
+},
+{
+"variant": "neighbour",
+"term": "Naver"
+},
+{
+"variant": "nickel",
+"term": "NCCL"
+},
+{
+"variant": "andy jason",
+"term": "NDJSON"
+},
+{
+"variant": "any are",
+"term": "NER"
+},
+{
+"variant": "nurturing",
+"term": "NERDTree"
+},
+{
+"variant": "neck gear",
+"term": "Netgear"
+},
+{
+"variant": "network manager",
+"term": "NetworkManager"
+},
+{
+"variant": "nor",
+"term": "Neue"
+},
+{
+"variant": "new montreal",
+"term": "Neue Montreal"
+},
+{
+"variant": "new shepherd",
+"term": "New Shepard"
+},
+{
+"variant": "next or",
+"term": "Nexa"
+},
+{
+"variant": "next door",
+"term": "Nextdoor"
+},
+{
+"variant": "nick",
+"term": "NIC"
+},
+{
+"variant": "neo",
+"term": "NIO"
+},
+{
+"variant": "new",
+"term": "NIO"
+},
+{
+"variant": "knock",
+"term": "NOC"
+},
+{
+"variant": "number",
+"term": "Numba"
+},
+{
+"variant": "nero",
+"term": "Nuro"
+},
+{
+"variant": "neuro",
+"term": "Nuro"
+},
+{
+"variant": "next",
+"term": "Nuxt"
+},
+{
+"variant": "og",
+"term": "Ogg"
+},
+{
+"variant": "okay",
+"term": "OKR"
+},
+{
+"variant": "1+",
+"term": "OnePlus"
+},
+{
+"variant": "um",
+"term": "OOM"
+},
+{
+"variant": "oprah",
+"term": "OPA"
+},
+{
+"variant": "orion",
+"term": "Oryon"
+},
+{
+"variant": "hotel",
+"term": "OTel"
+},
+{
+"variant": "p",
+"term": "P/E"
+},
+{
+"variant": "pas",
+"term": "PaaS"
+},
+{
+"variant": "pass",
+"term": "PaaS"
+},
+{
+"variant": "park",
+"term": "PARC"
+},
+{
+"variant": "part",
+"term": "Pardot"
+},
+{
+"variant": "fi",
+"term": "Phi"
+},
+{
+"variant": "phillips",
+"term": "Philips"
+},
+{
+"variant": "physics",
+"term": "PhysX"
+},
+{
+"variant": "picasso",
+"term": "Picasa"
+},
+{
+"variant": "pia",
+"term": "PIIA"
+},
+{
+"variant": "pico",
+"term": "Pika"
+},
+{
+"variant": "pill",
+"term": "PIL"
+},
+{
+"variant": "pierce",
+"term": "Pirsch"
+},
+{
+"variant": "pixie",
+"term": "PKCE"
+},
+{
+"variant": "plank",
+"term": "Planck"
+},
+{
+"variant": "process",
+"term": "Prosus"
+},
+{
+"variant": "quadrant",
+"term": "Qdrant"
+},
+{
+"variant": "chi",
+"term": "Qi"
+},
+{
+"variant": "crew",
+"term": "QwQ"
+},
+{
+"variant": "razor",
+"term": "Razer"
+},
+{
+"variant": "reinvent",
+"term": "re:Invent"
+},
+{
+"variant": "reactor",
+"term": "Reaktor"
+},
+{
+"variant": "recapture",
+"term": "reCAPTCHA"
+},
+{
+"variant": "reader",
+"term": "Reeder"
+},
+{
+"variant": "next era",
+"term": "Nextra"
+},
+{
+"variant": "next train",
+"term": "Nextra"
+},
+{
+"variant": "miss to",
+"term": "NIS2"
+},
+{
+"variant": "and i'll be",
+"term": "NLB"
+},
+{
+"variant": "no i'm brown",
+"term": "Noam Brown"
+},
+{
+"variant": "not to",
+"term": "Noctua"
+},
+{
+"variant": "no js",
+"term": "Node.js"
+},
+{
+"variant": "no to",
+"term": "Noto"
+},
+{
+"variant": "not peter",
+"term": "NotPetya"
+},
+{
+"variant": "news research",
+"term": "Nous Research"
+},
+{
+"variant": "new bank",
+"term": "Nubank"
+},
+{
+"variant": "new get",
+"term": "NuGet"
+},
+{
+"variant": "new shell",
+"term": "Nushell"
+},
+{
+"variant": "oak cliff",
+"term": "oclif"
+},
+{
+"variant": "always see",
+"term": "OEC"
+},
+{
+"variant": "ok low",
+"term": "Oklo"
+},
+{
+"variant": "one note",
+"term": "OneNote"
+},
+{
+"variant": "out of office",
+"term": "OOO"
+},
+{
+"variant": "open eye",
+"term": "OpenAI"
+},
+{
+"variant": "open door",
+"term": "Opendoor"
+},
+{
+"variant": "open fast",
+"term": "OpenFaaS"
+},
+{
+"variant": "open hands",
+"term": "OpenHands"
+},
+{
+"variant": "open table",
+"term": "OpenTable"
+},
+{
+"variant": "or tools",
+"term": "OR-Tools"
+},
+{
+"variant": "or jason",
+"term": "orjson"
+},
+{
+"variant": "or cut",
+"term": "Orkut"
+},
+{
+"variant": "price to book",
+"term": "P/B"
+},
+{
+"variant": "pay checks",
+"term": "Paychex"
+},
+{
+"variant": "phillip johnson",
+"term": "Philip Johnson"
+},
+{
+"variant": "safe fishing",
+"term": "phishing"
+},
+{
+"variant": "pipe dream",
+"term": "Pipedream"
+},
+{
+"variant": "point seventy two",
+"term": "Point72"
+},
+{
+"variant": "point seventy-two",
+"term": "Point72"
+},
+{
+"variant": "polka dot",
+"term": "Polkadot"
+},
+{
+"variant": "post-rescue",
+"term": "PostgreSQL"
+},
+{
+"variant": "post script",
+"term": "PostScript"
+},
+{
+"variant": "power buy",
+"term": "Power BI"
+},
+{
+"variant": "product plan",
+"term": "ProductPlan"
+},
+{
+"variant": "project trouble",
+"term": "Project Treble"
+},
+{
+"variant": "proof point",
+"term": "Proofpoint"
+},
+{
+"variant": "kiss it",
+"term": "Qiskit"
+},
+{
+"variant": "quarter over quarter",
+"term": "QoQ"
+},
+{
+"variant": "cube it",
+"term": "qubit"
+},
+{
+"variant": "quick side",
+"term": "QuickSight"
+},
+{
+"variant": "quick time",
+"term": "QuickTime"
+},
+{
+"variant": "our two",
+"term": "R2"
+},
+{
+"variant": "rail way",
+"term": "Raleway"
+},
+{
+"variant": "rapid us",
+"term": "Rapidus"
+},
+{
+"variant": "our back",
+"term": "RBAC"
+},
+{
+"variant": "real me",
+"term": "Realme"
+},
+{
+"variant": "re code",
+"term": "Recode"
+},
+{
+"variant": "read it",
+"term": "Reddit"
+},
+{
+"variant": "red is",
+"term": "Redis"
+},
+{
+"variant": "read",
+"term": "REIT"
+},
+{
+"variant": "reno",
+"term": "Renault"
+},
+{
+"variant": "renaissance",
+"term": "Renesas"
+},
+{
+"variant": "repel",
+"term": "REPL"
+},
+{
+"variant": "request",
+"term": "Reqwest"
+},
+{
+"variant": "rescue",
+"term": "Resque"
+},
+{
+"variant": "rel",
+"term": "RHEL"
+},
+{
+"variant": "rico",
+"term": "Ricoh"
+},
+{
+"variant": "riff",
+"term": "RIF"
+},
+{
+"variant": "risk",
+"term": "RISC"
+},
+{
+"variant": "rock",
+"term": "ROC"
+},
+{
+"variant": "rosie",
+"term": "ROCE"
+},
+{
+"variant": "raffle",
+"term": "ROFL"
+},
+{
+"variant": "rogue",
+"term": "ROG"
+},
+{
+"variant": "roam",
+"term": "ROHM"
+},
+{
+"variant": "rome",
+"term": "ROHM"
+},
+{
+"variant": "reuben",
+"term": "Rubin"
+},
+{
+"variant": "ruben",
+"term": "Rubin"
+},
+{
+"variant": "rough",
+"term": "Ruff"
+},
+{
+"variant": "risen",
+"term": "Ryzen"
+},
+{
+"variant": "road",
+"term": "Røde"
+},
+{
+"variant": "rode",
+"term": "Røde"
+},
+{
+"variant": "wrote",
+"term": "Røde"
+},
+{
+"variant": "s1",
+"term": "S-1"
+},
+{
+"variant": "s3",
+"term": "S-3"
+},
+{
+"variant": "saban",
+"term": "Sabon"
+},
+{
+"variant": "samuel",
+"term": "SAML"
+},
+{
+"variant": "sassy",
+"term": "SASE"
+},
+{
+"variant": "scholar",
+"term": "Scala"
+},
+{
+"variant": "skim",
+"term": "SCIM"
+},
+{
+"variant": "scrappy",
+"term": "Scrapy"
+},
+{
+"variant": "script",
+"term": "scrypt"
+},
+{
+"variant": "said",
+"term": "sed"
+},
+{
+"variant": "saga",
+"term": "Sega"
+},
+{
+"variant": "sense",
+"term": "Sensex"
+},
+{
+"variant": "shah",
+"term": "SHA"
+},
+{
+"variant": "shaw",
+"term": "SHA"
+},
+{
+"variant": "sheehan",
+"term": "Shein"
+},
+{
+"variant": "sheen",
+"term": "Shein"
+},
+{
+"variant": "sure",
+"term": "Shure"
+},
+{
+"variant": "sidekick",
+"term": "Sidekiq"
+},
+{
+"variant": "side kick",
+"term": "Sidekiq"
+},
+{
+"variant": "scaffold",
+"term": "Skaffold"
+},
+{
+"variant": "skier",
+"term": "Skia"
+},
+{
+"variant": "skew",
+"term": "SKU"
+},
+{
+"variant": "salsa",
+"term": "SLSA"
+},
+{
+"variant": "sneak",
+"term": "Snyk"
+},
+{
+"variant": "sneaky",
+"term": "Snyk"
+},
+{
+"variant": "sore",
+"term": "SOAR"
+},
+{
+"variant": "sock",
+"term": "SOC"
+},
+{
+"variant": "sophie",
+"term": "SoFi"
+},
+{
+"variant": "softer",
+"term": "Softr"
+},
+{
+"variant": "sole",
+"term": "SOL"
+},
+{
+"variant": "soul",
+"term": "SOL"
+},
+{
+"variant": "solar",
+"term": "Solr"
+},
+{
+"variant": "psalm",
+"term": "SOM"
+},
+{
+"variant": "some",
+"term": "SOM"
+},
+{
+"variant": "sonar",
+"term": "Sonner"
+},
+{
+"variant": "soda",
+"term": "SOTA"
+},
+{
+"variant": "socks",
+"term": "SOX"
+},
+{
+"variant": "specter",
+"term": "Spectre"
+},
+{
+"variant": "spider",
+"term": "Spyder"
+},
+{
+"variant": "stocks",
+"term": "StockX"
+},
+{
+"variant": "styling",
+"term": "Stylelint"
+},
+{
+"variant": "stitch",
+"term": "Stytch"
+},
+{
+"variant": "pseudo",
+"term": "sudo"
+},
+{
+"variant": "susie",
+"term": "SUSE"
+},
+{
+"variant": "swat",
+"term": "SWOT"
+},
+{
+"variant": "semantic",
+"term": "Symantec"
+},
+{
+"variant": "symphony",
+"term": "Symfony"
+},
+{
+"variant": "simply",
+"term": "SymPy"
+},
+{
+"variant": "synopsis",
+"term": "Synopsys"
+},
+{
+"variant": "ta",
+"term": "TAA"
+},
+{
+"variant": "taliban",
+"term": "Talabat"
+},
+{
+"variant": "tory",
+"term": "Tauri"
+},
+{
+"variant": "tickle",
+"term": "Tcl"
+},
+{
+"variant": "techno",
+"term": "Tecno"
+},
+{
+"variant": "rev it",
+"term": "Revit"
+},
+{
+"variant": "richard taylor",
+"term": "Richard Thaler"
+},
+{
+"variant": "right move",
+"term": "Rightmove"
+},
+{
+"variant": "row as",
+"term": "ROAS"
+},
+{
+"variant": "roll down",
+"term": "Rolldown"
+},
+{
+"variant": "our studio",
+"term": "RStudio"
+},
+{
+"variant": "rise in",
+"term": "Ryzen"
+},
+{
+"variant": "safety culture",
+"term": "SafetyCulture"
+},
+{
+"variant": "safety net",
+"term": "SafetyNet"
+},
+{
+"variant": "same site",
+"term": "SameSite"
+},
+{
+"variant": "scale way",
+"term": "Scaleway"
+},
+{
+"variant": "see limited",
+"term": "Sea Limited"
+},
+{
+"variant": "since time",
+"term": "SenseTime"
+},
+{
+"variant": "set up tools",
+"term": "setuptools"
+},
+{
+"variant": "she in",
+"term": "Shein"
+},
+{
+"variant": "show dan",
+"term": "Shodan"
+},
+{
+"variant": "shot her",
+"term": "Shottr"
+},
+{
+"variant": "single store",
+"term": "SingleStore"
+},
+{
+"variant": "slash dot",
+"term": "Slashdot"
+},
+{
+"variant": "skilled ai",
+"term": "Skild AI"
+},
+{
+"variant": "solid start",
+"term": "SolidStart"
+},
+{
+"variant": "so to",
+"term": "SOTA"
+},
+{
+"variant": "sound device",
+"term": "sounddevice"
+},
+{
+"variant": "source tree",
+"term": "SourceTree"
+},
+{
+"variant": "start page",
+"term": "Startpage"
+},
+{
+"variant": "status page",
+"term": "Statuspage"
+},
+{
+"variant": "standard error",
+"term": "stderr"
+},
+{
+"variant": "standard in",
+"term": "stdin"
+},
+{
+"variant": "stumble upon",
+"term": "StumbleUpon"
+},
+{
+"variant": "style in",
+"term": "Stylelint"
+},
+{
+"variant": "success factors",
+"term": "SuccessFactors"
+},
+{
+"variant": "sum up",
+"term": "SumUp"
+},
+{
+"variant": "switch two",
+"term": "Switch 2"
+},
+{
+"variant": "sync thing",
+"term": "Syncthing"
+},
+{
+"variant": "table icons",
+"term": "Tabler Icons"
+},
+{
+"variant": "to homer",
+"term": "Tahoma"
+},
+{
+"variant": "tell us",
+"term": "Telus"
+},
+{
+"variant": "terry go",
+"term": "Terry Gou"
+},
+{
+"variant": "tech",
+"term": "TeX"
+},
+{
+"variant": "then able",
+"term": "thenable"
+},
+{
+"variant": "thinking machines",
+"term": "Thinking Machines Lab"
+},
+{
+"variant": "the sarah",
+"term": "thiserror"
+},
+{
+"variant": "this error",
+"term": "thiserror"
+},
+{
+"variant": "thomas wolfe",
+"term": "Thomas Wolf"
+},
+{
+"variant": "tie",
+"term": "Ti"
+},
+{
+"variant": "time scale",
+"term": "Timescale"
+},
+{
+"variant": "tip-top",
+"term": "Tiptap"
+},
+{
+"variant": "team all",
+"term": "Tmall"
+},
+{
+"variant": "tim all",
+"term": "Tmall"
+},
+{
+"variant": "toggle",
+"term": "Toggl"
+},
+{
+"variant": "tokyo",
+"term": "Tokio"
+},
+{
+"variant": "tamil",
+"term": "TOML"
+},
+{
+"variant": "to tango",
+"term": "Totango"
+},
+{
+"variant": "talks",
+"term": "tox"
+},
+{
+"variant": "traffic",
+"term": "Traefik"
+},
+{
+"variant": "tree no",
+"term": "Trino"
+},
+{
+"variant": "tee us up",
+"term": "tsup"
+},
+{
+"variant": "touring",
+"term": "Turing"
+},
+{
+"variant": "type together",
+"term": "TypeTogether"
+},
+{
+"variant": "you net",
+"term": "U-Net"
+},
+{
+"variant": "you too",
+"term": "U2"
+},
+{
+"variant": "you two",
+"term": "U2"
+},
+{
+"variant": "you be",
+"term": "UB"
+},
+{
+"variant": "you to me",
+"term": "Udemy"
+},
+{
+"variant": "you'd ever gain",
+"term": "udev"
+},
+{
+"variant": "you like it",
+"term": "UIKit"
+},
+{
+"variant": "you are you see",
+"term": "UIUC"
+},
+{
+"variant": "wizard",
+"term": "Uizard"
+},
+{
+"variant": "you map",
+"term": "UMAP"
+},
+{
+"variant": "unify",
+"term": "UniFi"
+},
+{
+"variant": "universe",
+"term": "Univers"
+},
+{
+"variant": "up stage",
+"term": "Upstage"
+},
+{
+"variant": "up work",
+"term": "Upwork"
+},
+{
+"variant": "user testing",
+"term": "UserTesting"
+},
+{
+"variant": "user voice",
+"term": "UserVoice"
+},
+{
+"variant": "you stayed",
+"term": "useState"
+},
+{
+"variant": "save or sell",
+"term": "Vercel"
+},
+{
+"variant": "vito",
+"term": "Vidu"
+},
+{
+"variant": "vintage",
+"term": "Vinted"
+},
+{
+"variant": "save it",
+"term": "ViT"
+},
+{
+"variant": "vid",
+"term": "Vite"
+},
+{
+"variant": "save you",
+"term": "Vue"
+},
+{
+"variant": "view",
+"term": "Vue"
+},
+{
+"variant": "save you three",
+"term": "Vue 3"
+},
+{
+"variant": "vulcan",
+"term": "Vulkan"
+},
+{
+"variant": "vulture",
+"term": "Vultr"
+},
+{
+"variant": "whack",
+"term": "WACC"
+},
+{
+"variant": "way are you",
+"term": "WAI-ARIA"
+},
+{
+"variant": "way area",
+"term": "WAI-ARIA"
+},
+{
+"variant": "wall",
+"term": "WAL"
+},
+{
+"variant": "walk me",
+"term": "WalkMe"
+},
+{
+"variant": "juan",
+"term": "Wan"
+},
+{
+"variant": "one",
+"term": "Wan"
+},
+{
+"variant": "wanna cry",
+"term": "WannaCry"
+},
+{
+"variant": "w",
+"term": "WAU"
+},
+{
+"variant": "wave file",
+"term": "WAV"
+},
+{
+"variant": "ways",
+"term": "Waze"
+},
+{
+"variant": "web dev",
+"term": "WebDAV"
+},
+{
+"variant": "we chat",
+"term": "WeChat"
+},
+{
+"variant": "we come",
+"term": "WeCom"
+},
+{
+"variant": "weights and biases",
+"term": "Weights & Biases"
+},
+{
+"variant": "waitin",
+"term": "Weixin"
+},
+{
+"variant": "we ride",
+"term": "WeRide"
+},
+{
+"variant": "we right",
+"term": "WeRide"
+},
+{
+"variant": "we work",
+"term": "WeWork"
+},
+{
+"variant": "what fix",
+"term": "Whatfix"
+},
+{
+"variant": "who is",
+"term": "whois"
+},
+{
+"variant": "wicker",
+"term": "Wickr"
+},
+{
+"variant": "we",
+"term": "Wii"
+},
+{
+"variant": "wee",
+"term": "Wii"
+},
+{
+"variant": "we you",
+"term": "Wii U"
+},
+{
+"variant": "wild berries",
+"term": "Wildberries"
+},
+{
+"variant": "william lee",
+"term": "William Li"
+},
+{
+"variant": "whip",
+"term": "WIP"
+},
+{
+"variant": "wolf",
+"term": "WOFF"
+},
+{
+"variant": "work day",
+"term": "Workday"
+},
+{
+"variant": "week over week",
+"term": "WoW"
+},
+{
+"variant": "reich",
+"term": "Wrike"
+},
+{
+"variant": "right",
+"term": "Wrike"
+},
+{
+"variant": "wright",
+"term": "Wrike"
+},
+{
+"variant": "whiskey",
+"term": "WSGI"
+},
+{
+"variant": "whisky",
+"term": "WSGI"
+},
+{
+"variant": "excite",
+"term": "x-height"
+},
+{
+"variant": "zion",
+"term": "Xeon"
+},
+{
+"variant": "show me",
+"term": "Xiaomi"
+},
+{
+"variant": "exp",
+"term": "XP"
+},
+{
+"variant": "why see",
+"term": "YC"
+},
+{
+"variant": "ye",
+"term": "Yii"
+},
+{
+"variant": "yee",
+"term": "Yii"
+},
+{
+"variant": "you track",
+"term": "YouTrack"
+},
+{
+"variant": "year on year",
+"term": "YoY"
+},
+{
+"variant": "year over year",
+"term": "YoY"
+},
+{
+"variant": "cesar",
+"term": "Zarr"
+},
+{
+"variant": "czar",
+"term": "Zarr"
+},
+{
+"variant": "zeppelin",
+"term": "Zeplin"
+},
+{
+"variant": "zero height",
+"term": "Zeroheight"
+},
+{
+"variant": "zero-height",
+"term": "Zeroheight"
+},
+{
+"variant": "zip line",
+"term": "Zipline"
+},
+{
+"variant": "zipper",
+"term": "zypper"
+}
+],
+"context_only": [
+{
+"variant": "plus one",
+"term": "+1"
+},
+{
+"variant": "dot net",
+"term": ".NET"
+},
+{
+"variant": "one password",
+"term": "1Password"
+},
+{
+"variant": "two hundred ok",
+"term": "200 OK"
+},
+{
+"variant": "two hundred okay",
+"term": "200 OK"
+},
+{
+"variant": "two pc",
+"term": "2PC"
+},
+{
+"variant": "three oh one",
+"term": "301"
+},
+{
+"variant": "three zero one",
+"term": "301"
+},
+{
+"variant": "four oh one",
+"term": "401"
+},
+{
+"variant": "four zero one",
+"term": "401"
+},
+{
+"variant": "four oh three",
+"term": "403"
+},
+{
+"variant": "four zero three",
+"term": "403"
+},
+{
+"variant": "four oh four",
+"term": "404"
+},
+{
+"variant": "four zero four",
+"term": "404"
+},
+{
+"variant": "four twenty nine",
+"term": "429"
+},
+{
+"variant": "four two nine",
+"term": "429"
+},
+{
+"variant": "five oh two",
+"term": "502"
+},
+{
+"variant": "five zero two",
+"term": "502"
+},
+{
+"variant": "five oh three",
+"term": "503"
+},
+{
+"variant": "five zero three",
+"term": "503"
+},
+{
+"variant": "six four four",
+"term": "644"
+},
+{
+"variant": "seven five five",
+"term": "755"
+},
+{
+"variant": "at channel",
+"term": "@channel"
+},
+{
+"variant": "at here",
+"term": "@here"
+},
+{
+"variant": "at media",
+"term": "@media"
+},
+{
+"variant": "aaron levy",
+"term": "Aaron Levie"
+},
+{
+"variant": "aaron schwartz",
+"term": "Aaron Swartz"
+},
+{
+"variant": "adam newman",
+"term": "Adam Neumann"
+},
+{
+"variant": "after pay",
+"term": "Afterpay"
+},
+{
+"variant": "air drop",
+"term": "AirDrop"
+},
+{
+"variant": "alert manager",
+"term": "Alertmanager"
+},
+{
+"variant": "alexander wang",
+"term": "Alexandr Wang"
+},
+{
+"variant": "alexander wong",
+"term": "Alexandr Wang"
+},
+{
+"variant": "ali baba",
+"term": "Alibaba"
+},
+{
+"variant": "amanda haskell",
+"term": "Amanda Askell"
+},
+{
+"variant": "amazon queue",
+"term": "Amazon Q"
+},
+{
+"variant": "app get",
+"term": "apt-get"
+},
+{
+"variant": "atlas five",
+"term": "Atlas V"
+},
+{
+"variant": "authorized keys",
+"term": "authorized_keys"
+},
+{
+"variant": "asher files",
+"term": "Azure Files"
+},
+{
+"variant": "back end",
+"term": "backend"
+},
+{
+"variant": "back-end",
+"term": "backend"
+},
+{
+"variant": "back pressure",
+"term": "backpressure"
+},
+{
+"variant": "base camp",
+"term": "Basecamp"
+},
+{
+"variant": "base name",
+"term": "basename"
+},
+{
+"variant": "beautiful ai",
+"term": "Beautiful.ai"
+},
+{
+"variant": "big indian",
+"term": "big-endian"
+},
+{
+"variant": "big table",
+"term": "Bigtable"
+},
+{
+"variant": "black berry",
+"term": "BlackBerry"
+},
+{
+"variant": "black letter",
+"term": "Blackletter"
+},
+{
+"variant": "black rock",
+"term": "BlackRock"
+},
+{
+"variant": "black stone",
+"term": "Blackstone"
+},
+{
+"variant": "blood borne",
+"term": "Bloodborne"
+},
+{
+"variant": "bottle rocket",
+"term": "Bottlerocket"
+},
+{
+"variant": "browser list",
+"term": "Browserslist"
+},
+{
+"variant": "chain analysis",
+"term": "Chainalysis"
+},
+{
+"variant": "chain link",
+"term": "Chainlink"
+},
+{
+"variant": "character ai",
+"term": "Character.AI"
+},
+{
+"variant": "churn zero",
+"term": "ChurnZero"
+},
+{
+"variant": "cider",
+"term": "CIDR"
+},
+{
+"variant": "city group",
+"term": "Citigroup"
+},
+{
+"variant": "class list",
+"term": "classList"
+},
+{
+"variant": "cloud code",
+"term": "Claude Code"
+},
+{
+"variant": "cloud era",
+"term": "Cloudera"
+},
+{
+"variant": "see name",
+"term": "CNAME"
+},
+{
+"variant": "see net",
+"term": "CNET"
+},
+{
+"variant": "code magic",
+"term": "Codemagic"
+},
+{
+"variant": "code owners",
+"term": "CODEOWNERS"
+},
+{
+"variant": "code sign",
+"term": "codesign"
+},
+{
+"variant": "code spaces",
+"term": "Codespaces"
+},
+{
+"variant": "co pilot",
+"term": "Copilot"
+},
+{
+"variant": "co-pilot",
+"term": "Copilot"
+},
+{
+"variant": "counter strike",
+"term": "Counter-Strike"
+},
+{
+"variant": "demon",
+"term": "daemon"
+},
+{
+"variant": "dolly",
+"term": "DALL-E"
+},
+{
+"variant": "dribble",
+"term": "Dribbble"
+},
+{
+"variant": "fang",
+"term": "FAANG"
+},
+{
+"variant": "data hub",
+"term": "DataHub"
+},
+{
+"variant": "deep note",
+"term": "Deepnote"
+},
+{
+"variant": "demand base",
+"term": "Demandbase"
+},
+{
+"variant": "dialogue flow",
+"term": "Dialogflow"
+},
+{
+"variant": "dog food",
+"term": "dogfood"
+},
+{
+"variant": "douglas crawford",
+"term": "Douglas Crockford"
+},
+{
+"variant": "dove tail",
+"term": "Dovetail"
+},
+{
+"variant": "ease in",
+"term": "ease-in"
+},
+{
+"variant": "ease in and out",
+"term": "ease-in-out"
+},
+{
+"variant": "ease out",
+"term": "ease-out"
+},
+{
+"variant": "eddie woo",
+"term": "Eddie Wu"
+},
+{
+"variant": "eric reece",
+"term": "Eric Ries"
+},
+{
+"variant": "eric rees",
+"term": "Eric Ries"
+},
+{
+"variant": "eric reese",
+"term": "Eric Ries"
+},
+{
+"variant": "erica hall",
+"term": "Erika Hall"
+},
+{
+"variant": "ethan malik",
+"term": "Ethan Mollick"
+},
+{
+"variant": "fan out",
+"term": "fan-out"
+},
+{
+"variant": "fig jam",
+"term": "FigJam"
+},
+{
+"variant": "fire fly",
+"term": "Firefly"
+},
+{
+"variant": "flat pack",
+"term": "Flatpak"
+},
+{
+"variant": "frank gary",
+"term": "Frank Gehry"
+},
+{
+"variant": "frank gerry",
+"term": "Frank Gehry"
+},
+{
+"variant": "free type",
+"term": "FreeType"
+},
+{
+"variant": "game maker",
+"term": "GameMaker"
+},
+{
+"variant": "garage band",
+"term": "GarageBand"
+},
+{
+"variant": "gary tan",
+"term": "Garry Tan"
+},
+{
+"variant": "gardner",
+"term": "Gartner"
+},
+{
+"variant": "gee force",
+"term": "GeForce"
+},
+{
+"variant": "gen four",
+"term": "Gen-4"
+},
+{
+"variant": "jeffrey moore",
+"term": "Geoffrey Moore"
+},
+{
+"variant": "get your guide",
+"term": "GetYourGuide"
+},
+{
+"variant": "get blame",
+"term": "git blame"
+},
+{
+"variant": "get restore",
+"term": "git restore"
+},
+{
+"variant": "get revert",
+"term": "git revert"
+},
+{
+"variant": "get show",
+"term": "git show"
+},
+{
+"variant": "get switch",
+"term": "git switch"
+},
+{
+"variant": "get tag",
+"term": "git tag"
+},
+{
+"variant": "get flow",
+"term": "gitflow"
+},
+{
+"variant": "glass door",
+"term": "Glassdoor"
+},
+{
+"variant": "go dot",
+"term": "Godot"
+},
+{
+"variant": "go format",
+"term": "gofmt"
+},
+{
+"variant": "go land",
+"term": "GoLand"
+},
+{
+"variant": "go to meeting",
+"term": "GoTo Meeting"
+},
+{
+"variant": "growth book",
+"term": "GrowthBook"
+},
+{
+"variant": "groove box",
+"term": "Gruvbox"
+},
+{
+"variant": "guard duty",
+"term": "GuardDuty"
+},
+{
+"variant": "hand brake",
+"term": "HandBrake"
+},
+{
+"variant": "hard hat",
+"term": "Hardhat"
+},
+{
+"variant": "health kit",
+"term": "HealthKit"
+},
+{
+"variant": "higgs field",
+"term": "Higgsfield"
+},
+{
+"variant": "high spot",
+"term": "Highspot"
+},
+{
+"variant": "hi touch",
+"term": "Hightouch"
+},
+{
+"variant": "high silicon",
+"term": "HiSilicon"
+},
+{
+"variant": "home brew",
+"term": "Homebrew"
+},
+{
+"variant": "home kit",
+"term": "HomeKit"
+},
+{
+"variant": "hop scotch",
+"term": "Hoppscotch"
+},
+{
+"variant": "hot wire",
+"term": "Hotwire"
+},
+{
+"variant": "iconic growth",
+"term": "ICONIQ Growth"
+},
+{
+"variant": "in' it",
+"term": "init"
+},
+{
+"variant": "in vision",
+"term": "InVision"
+},
+{
+"variant": "ivan chow",
+"term": "Ivan Zhao"
+},
+{
+"variant": "ivan zhou",
+"term": "Ivan Zhao"
+},
+{
+"variant": "jacob nielsen",
+"term": "Jakob Nielsen"
+},
+{
+"variant": "jerry lew",
+"term": "Jerry Liu"
+},
+{
+"variant": "jerry lu",
+"term": "Jerry Liu"
+},
+{
+"variant": "jet pack",
+"term": "Jetpack"
+},
+{
+"variant": "jim simmons",
+"term": "Jim Simons"
+},
+{
+"variant": "jason",
+"term": "JSON"
+},
+{
+"variant": "julie zhou",
+"term": "Julie Zhuo"
+},
+{
+"variant": "jupiter",
+"term": "Jupyter"
+},
+{
+"variant": "key pass",
+"term": "KeePass"
+},
+{
+"variant": "keep truck in",
+"term": "KeepTruckin"
+},
+{
+"variant": "key shot",
+"term": "KeyShot"
+},
+{
+"variant": "coastal ventures",
+"term": "Khosla Ventures"
+},
+{
+"variant": "kick starter",
+"term": "Kickstarter"
+},
+{
+"variant": "lake house",
+"term": "lakehouse"
+},
+{
+"variant": "light room",
+"term": "Lightroom"
+},
+{
+"variant": "liquid base",
+"term": "Liquibase"
+},
+{
+"variant": "lama",
+"term": "Llama"
+},
+{
+"variant": "local storage",
+"term": "localStorage"
+},
+{
+"variant": "make file",
+"term": "Makefile"
+},
+{
+"variant": "mark down",
+"term": "Markdown"
+},
+{
+"variant": "micro strategy",
+"term": "MicroStrategy"
+},
+{
+"variant": "mid journey",
+"term": "Midjourney"
+},
+{
+"variant": "mid-journey",
+"term": "Midjourney"
+},
+{
+"variant": "mini condo",
+"term": "Miniconda"
+},
+{
+"variant": "mini cube",
+"term": "minikube"
+},
+{
+"variant": "mole skin",
+"term": "Moleskine"
+},
+{
+"variant": "my sequel",
+"term": "MySQL"
+},
+{
+"variant": "net gear",
+"term": "Netgear"
+},
+{
+"variant": "neural link",
+"term": "Neuralink"
+},
+{
+"variant": "oath",
+"term": "OAuth"
+},
+{
+"variant": "pearl",
+"term": "Perl"
+},
+{
+"variant": "fishing",
+"term": "phishing"
+},
+{
+"variant": "pokemon",
+"term": "Pokémon"
+},
+{
+"variant": "re/code",
+"term": "Recode"
+},
+{
+"variant": "nifty fifty",
+"term": "Nifty 50"
+},
+{
+"variant": "nil patel",
+"term": "Nilay Patel"
+},
+{
+"variant": "no sequel",
+"term": "NoSQL"
+},
+{
+"variant": "oh one",
+"term": "o1"
+},
+{
+"variant": "oh three",
+"term": "o3"
+},
+{
+"variant": "on chain",
+"term": "on-chain"
+},
+{
+"variant": "on premises",
+"term": "on-premises"
+},
+{
+"variant": "one drive",
+"term": "OneDrive"
+},
+{
+"variant": "one plus",
+"term": "OnePlus"
+},
+{
+"variant": "one signal",
+"term": "OneSignal"
+},
+{
+"variant": "one web",
+"term": "OneWeb"
+},
+{
+"variant": "open router",
+"term": "OpenRouter"
+},
+{
+"variant": "open sea",
+"term": "OpenSea"
+},
+{
+"variant": "open search",
+"term": "OpenSearch"
+},
+{
+"variant": "open shift",
+"term": "OpenShift"
+},
+{
+"variant": "pac man",
+"term": "pacman"
+},
+{
+"variant": "pac-man",
+"term": "pacman"
+},
+{
+"variant": "pack man",
+"term": "pacman"
+},
+{
+"variant": "phone pay",
+"term": "PhonePe"
+},
+{
+"variant": "pine cone",
+"term": "Pinecone"
+},
+{
+"variant": "pitch book",
+"term": "PitchBook"
+},
+{
+"variant": "pole star",
+"term": "Polestar"
+},
+{
+"variant": "port key",
+"term": "Portkey"
+},
+{
+"variant": "power wall",
+"term": "Powerwall"
+},
+{
+"variant": "private link",
+"term": "PrivateLink"
+},
+{
+"variant": "pie data",
+"term": "PyData"
+},
+{
+"variant": "raspberry pie",
+"term": "Raspberry Pi"
+},
+{
+"variant": "ray cast",
+"term": "Raycast"
+},
+{
+"variant": "read me",
+"term": "README"
+},
+{
+"variant": "red it",
+"term": "Reddit"
+},
+{
+"variant": "red note",
+"term": "RedNote"
+},
+{
+"variant": "red panda",
+"term": "Redpanda"
+},
+{
+"variant": "sequel",
+"term": "SQL"
+},
+{
+"variant": "re tool",
+"term": "Retool"
+},
+{
+"variant": "robin lee",
+"term": "Robin Li"
+},
+{
+"variant": "robin hood",
+"term": "Robinhood"
+},
+{
+"variant": "roll bar",
+"term": "Rollbar"
+},
+{
+"variant": "sales force",
+"term": "Salesforce"
+},
+{
+"variant": "sarah go",
+"term": "Sarah Guo"
+},
+{
+"variant": "secure frame",
+"term": "Secureframe"
+},
+{
+"variant": "service now",
+"term": "ServiceNow"
+},
+{
+"variant": "setup tools",
+"term": "setuptools"
+},
+{
+"variant": "simply safe",
+"term": "SimpliSafe"
+},
+{
+"variant": "smart screen",
+"term": "SmartScreen"
+},
+{
+"variant": "smart news",
+"term": "SmartNews"
+},
+{
+"variant": "snow pack",
+"term": "Snowpack"
+},
+{
+"variant": "snow park",
+"term": "Snowpark"
+},
+{
+"variant": "solar winds",
+"term": "SolarWinds"
+},
+{
+"variant": "solid works",
+"term": "SolidWorks"
+},
+{
+"variant": "source graph",
+"term": "Sourcegraph"
+},
+{
+"variant": "spear fishing",
+"term": "spear phishing"
+},
+{
+"variant": "spider monkey",
+"term": "SpiderMonkey"
+},
+{
+"variant": "star base",
+"term": "Starbase"
+},
+{
+"variant": "star gate",
+"term": "Stargate"
+},
+{
+"variant": "standard out",
+"term": "stdout"
+},
+{
+"variant": "steel case",
+"term": "Steelcase"
+},
+{
+"variant": "stone company",
+"term": "StoneCo"
+},
+{
+"variant": "swiss international",
+"term": "Suisse Int'l"
+},
+{
+"variant": "susan kerr",
+"term": "Susan Kare"
+},
+{
+"variant": "south by",
+"term": "SXSW"
+},
+{
+"variant": "system control",
+"term": "systemctl"
+},
+{
+"variant": "sketch up",
+"term": "SketchUp"
+},
+{
+"variant": "skill share",
+"term": "Skillshare"
+},
+{
+"variant": "tail wind",
+"term": "Tailwind"
+},
+{
+"variant": "ten cent",
+"term": "Tencent"
+},
+{
+"variant": "test flight",
+"term": "TestFlight"
+},
+{
+"variant": "tom cat",
+"term": "Tomcat"
+},
+{
+"variant": "tom tom",
+"term": "TomTom"
+},
+{
+"variant": "tom-tom",
+"term": "TomTom"
+},
+{
+"variant": "true type",
+"term": "TrueType"
+},
+{
+"variant": "text record",
+"term": "TXT record"
+},
+{
+"variant": "vanilla extract",
+"term": "vanilla-extract"
+},
+{
+"variant": "virtual box",
+"term": "VirtualBox"
+},
+{
+"variant": "voice over",
+"term": "VoiceOver"
+},
+{
+"variant": "view three",
+"term": "Vue 3"
+},
+{
+"variant": "webpage test",
+"term": "WebPageTest"
+},
+{
+"variant": "wind surf",
+"term": "Windsurf"
+},
+{
+"variant": "work box",
+"term": "Workbox"
+},
+{
+"variant": "zoo keeper",
+"term": "ZooKeeper"
+}
+]
+}

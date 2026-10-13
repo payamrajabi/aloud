@@ -23,7 +23,7 @@ final class SettingsWindow: NSObject, NSWindowDelegate {
     func show() {
         if window == nil {
             let view = SettingsView(player: player, dictation: dictation, monitor: dictation.shortcuts, recorder: recorder)
-            let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 500, height: 850),
+            let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 500, height: 930),
                                   styleMask: [.titled, .closable, .resizable, .fullSizeContentView], backing: .buffered, defer: false)
             window.title = "Aloud Settings"
             window.contentView = NSHostingView(rootView: view)
@@ -65,6 +65,7 @@ struct SettingsView: View {
     @ObservedObject private var devices = AudioDevices.shared
     @ObservedObject private var licensing = Licensing.shared
     @State private var shortcutsVersion = 0  // bumps when shortcuts change, to redraw the fields
+    @AppStorage(DictationController.fixTechTermsKey) private var fixTechTerms = true
 
     var body: some View {
         Form {
@@ -96,7 +97,18 @@ struct SettingsView: View {
             DeviceSection(direction: .input, devices: devices)
 
             Section {
-                ModelRow(title: "Voice", detail: "Reads text aloud · about 330 MB", symbol: "waveform",
+                Toggle("Fix tech terms in dictation", isOn: $fixTechTerms)
+            } header: {
+                Text("Dictation")
+            } footer: {
+                Text("Types names like GitHub, Supabase and kubectl the way they're spelled, even when they sound like ordinary words. Words such as “gooey” or “back end” are only changed when you're clearly talking tech.")
+                    .foregroundStyle(.secondary)
+                    .font(.caption)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
+            Section {
+                ModelRow(title: "Voice", detail: "Reads text aloud · about \(KokoroEngine.downloadSize)", symbol: "waveform",
                          installed: KokoroEngine.isModelInstalled, progress: player.voiceDownloadProgress,
                          canRemove: player.canRemoveVoice, busy: false,
                          download: { player.downloadVoiceIfNeeded() }, remove: { player.removeVoice() })
@@ -104,18 +116,18 @@ struct SettingsView: View {
                          installed: ParakeetEngine.isInstalled, progress: dictation.modelProgress,
                          canRemove: ParakeetEngine.isInstalled, busy: dictation.isBusy,
                          download: { dictation.downloadModelNow() }, remove: { dictation.removeModel() })
-                if TranscriptCleaner.isOffered || dictation.cleanupProgress != nil {
-                    ModelRow(title: "Clean-up", detail: "Tidies dictation as you speak · about \(TranscriptCleaner.downloadSize)", symbol: "text.badge.checkmark",
-                             installed: TranscriptCleaner.isInstalled, progress: dictation.cleanupProgress,
-                             canRemove: TranscriptCleaner.isInstalled, busy: dictation.isCleanupBusy,
-                             download: { dictation.downloadCleanupModel() }, remove: { dictation.removeCleanupModel() })
-                }
+                ModelRow(title: "Clean-up",
+                         detail: "Tidies dictation as you speak · about \(TranscriptCleaner.downloadSize)"
+                             + (TranscriptCleaner.hasRecommendedMemory ? "" : " · best with 16 GB of memory"),
+                         symbol: "text.badge.checkmark",
+                         installed: TranscriptCleaner.isInstalled, progress: dictation.cleanupProgress,
+                         canRemove: TranscriptCleaner.isInstalled, busy: dictation.isCleanupBusy,
+                         download: { dictation.downloadCleanupModel() }, remove: { dictation.removeCleanupModel() },
+                         afterRemoving: TranscriptCleaner.removeConfirmation)
             } header: {
                 Text("Downloads")
             } footer: {
-                Text(TranscriptCleaner.isOffered
-                     ? "All three run entirely on your Mac. Voice and dictation download automatically the first time Aloud opens; clean-up is optional. Remove one to free up space, and Aloud asks before downloading it again when you next use it."
-                     : "Both run entirely on your Mac and download automatically the first time Aloud opens. Remove one to free up space; Aloud asks before downloading it again when you next use it.")
+                Text("All three run entirely on your Mac. Voice and dictation download automatically the first time Aloud opens; Aloud asks before downloading them again if you remove one. Clean-up is optional and only downloads when you click Download: it fixes punctuation and drops ums, repeats and false starts while you talk. Remove it to go back to exactly what was heard.")
                     .foregroundStyle(.secondary)
                     .font(.caption)
                     .fixedSize(horizontal: false, vertical: true)
@@ -453,6 +465,8 @@ private struct ModelRow: View {
     let busy: Bool
     let download: () -> Void
     let remove: () -> Void
+    /// What the Remove confirmation says happens afterwards.
+    var afterRemoving = "Aloud will ask before downloading it again the next time you use it."
     @State private var confirmingRemove = false
 
     var body: some View {
@@ -497,7 +511,7 @@ private struct ModelRow: View {
         .confirmationDialog("Remove the \(title.lowercased()) model?", isPresented: $confirmingRemove) {
             Button("Remove", role: .destructive, action: remove)
         } message: {
-            Text("Aloud will ask before downloading it again the next time you use it.")
+            Text(afterRemoving)
         }
     }
 }

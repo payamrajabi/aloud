@@ -1,0 +1,22 @@
+# Every Wikidata given-name item (an instance of "given name" or one of its subclasses: male,
+# female, unisex, double, ...), with its labels, native label (and that label's language),
+# writing system, language and type. CC0 data.
+PREFIX wd: <http://www.wikidata.org/entity/>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?item (SAMPLE(?mul) AS ?mul_label) (SAMPLE(?en) AS ?en_label)
+  (GROUP_CONCAT(DISTINCT ?native_tagged; SEPARATOR="|") AS ?native)
+  (GROUP_CONCAT(DISTINCT ?ws_label; SEPARATOR="|") AS ?writing_system)
+  (GROUP_CONCAT(DISTINCT ?lang_label; SEPARATOR="|") AS ?language)
+  (GROUP_CONCAT(DISTINCT ?type_label; SEPARATOR="|") AS ?type)
+WHERE {
+  ?item wdt:P31 ?t .
+  ?t wdt:P279* wd:Q202444 .
+  OPTIONAL { ?t rdfs:label ?type_label FILTER(LANG(?type_label) = "en") }
+  OPTIONAL { ?item rdfs:label ?mul FILTER(LANG(?mul) = "mul") }
+  OPTIONAL { ?item rdfs:label ?en FILTER(LANG(?en) = "en") }
+  OPTIONAL { ?item wdt:P1705 ?n . BIND(CONCAT(STR(?n), "@", LANG(?n)) AS ?native_tagged) }
+  OPTIONAL { ?item wdt:P282 ?ws . ?ws rdfs:label ?ws_label FILTER(LANG(?ws_label) = "en") }
+  OPTIONAL { ?item wdt:P407 ?lang . ?lang rdfs:label ?lang_label FILTER(LANG(?lang_label) = "en") }
+}
+GROUP BY ?item

@@ -1,0 +1,1027 @@
+{
+ "area": "Units after numbers",
+ "speech_cases": [
+  {
+   "text": "The pool is 25 m long.",
+   "says": "The pool is twenty-five meters long.",
+   "note": "single-letter m, spaced"
+  },
+  {
+   "text": "The wall is 2.4 m high, with a gate.",
+   "says": "The wall is two point four meters high, with a gate.",
+   "note": "decimal, before a comma"
+  },
+  {
+   "text": "Walk 1 m to the left.",
+   "says": "Walk one meter to the left.",
+   "note": "singular"
+  },
+  {
+   "text": "The cliff is 30m high.",
+   "says": "The cliff is thirty meters high.",
+   "note": "glued m, only before a dimension word"
+  },
+  {
+   "text": "Please stay 2m apart.",
+   "says": "Please stay two meters apart.",
+   "note": "glued m before apart (UK distancing signs)"
+  },
+  {
+   "text": "She won the 400 m.",
+   "says": "She won the four hundred meters.",
+   "note": "spaced m at the end of a sentence"
+  },
+  {
+   "text": "Elevation gain: 900 m.",
+   "says": "Elevation gain: nine hundred meters.",
+   "note": "hiking app, after a colon"
+  },
+  {
+   "text": "Mt. Everest is 8,849 m tall.",
+   "says": "Mount Everest is eight thousand eight hundred forty-nine meters tall.",
+   "voice": "us",
+   "note": "US only: a British reader says 'and forty-nine', which belongs to the numbers area"
+  },
+  {
+   "text": "Add 200 g of flour.",
+   "says": "Add two hundred grams of flour."
+  },
+  {
+   "text": "Add 50g butter, softened.",
+   "says": "Add fifty grams butter, softened.",
+   "note": "glued g"
+  },
+  {
+   "text": "Use 5–10 g (about a teaspoon).",
+   "says": "Use five to ten grams (about a teaspoon).",
+   "note": "range with an en dash, then a parenthesis"
+  },
+  {
+   "text": "18 g in, 36 g out.",
+   "says": "eighteen grams in, thirty-six grams out.",
+   "note": "espresso ratio; 'in' without a period stays the word"
+  },
+  {
+   "text": "Pour in 1.5 L of water.",
+   "says": "Pour in one point five liters of water."
+  },
+  {
+   "text": "It holds 2L.",
+   "says": "It holds two liters.",
+   "note": "glued L, sentence-final"
+  },
+  {
+   "text": "The tank holds 50 l (about 13 gal).",
+   "says": "The tank holds fifty liters (about thirteen gallons).",
+   "note": "lower-case l; gal inside parentheses"
+  },
+  {
+   "text": "Grab a 2L bottle of soda.",
+   "says": "Grab a two liter bottle of soda.",
+   "note": "glued L after 'a', before a noun: singular (open question 1). Also guards the law-student rule: a container word follows"
+  },
+  {
+   "text": "A bottle of wine is 75 cl.",
+   "says": "A bottle of wine is seventy-five centiliters.",
+   "note": "UK wine label"
+  },
+  {
+   "text": "The fan runs on 12 V.",
+   "says": "The fan runs on twelve volts."
+  },
+  {
+   "text": "Charge it at 5V.",
+   "says": "Charge it at five volts.",
+   "note": "glued V"
+  },
+  {
+   "text": "The rail sits at -5 V.",
+   "says": "The rail sits at minus five volts.",
+   "note": "negative; engineers say 'minus five volts' for a supply rail"
+  },
+  {
+   "text": "The heater draws 2,000 W at full power.",
+   "says": "The heater draws two thousand watts at full power."
+  },
+  {
+   "text": "The charger supplies 5 V at 3 A.",
+   "says": "The charger supplies five volts at three amps.",
+   "note": "A is amps only with electrical context (here another unit, V)"
+  },
+  {
+   "text": "The fuse is rated at 13 A.",
+   "says": "The fuse is rated at thirteen amps.",
+   "note": "A with 'fuse' in the sentence ('rated' alone is not enough)"
+  },
+  {
+   "text": "Fit a 13 A fuse.",
+   "says": "Fit a thirteen amp fuse.",
+   "note": "UK plug fuse; after 'a', before a noun: singular (open question 1)"
+  },
+  {
+   "text": "It draws 500 mA from the port.",
+   "says": "It draws five hundred milliamps from the port."
+  },
+  {
+   "text": "Battery: 4,000 mAh. Charging: 25 W.",
+   "says": "Battery: four thousand milliamp hours. Charging: twenty-five watts.",
+   "note": "phone spec sheet"
+  },
+  {
+   "text": "The plant produces 500 MW.",
+   "says": "The plant produces five hundred megawatts."
+  },
+  {
+   "text": "Capacity reached 1 GW.",
+   "says": "Capacity reached one gigawatt.",
+   "note": "tech lexicon reads GW as plural; after a number the unit rule must win"
+  },
+  {
+   "text": "It used 2.3 MWh last year.",
+   "says": "It used two point three megawatt hours last year.",
+   "note": "tech lexicon reads MWh as singular"
+  },
+  {
+   "text": "The speakers are 8 Ω.",
+   "says": "The speakers are eight ohms.",
+   "note": "already right today (Ω joined the table); regression guard"
+  },
+  {
+   "text": "The capacitor is 100 µF.",
+   "says": "The capacitor is one hundred microfarads.",
+   "note": "micro sign U+00B5; already right today"
+  },
+  {
+   "text": "Charge for 2 h before first use.",
+   "says": "Charge for two hours before first use.",
+   "note": "manual wording"
+  },
+  {
+   "text": "Delivery within 24h.",
+   "says": "Delivery within twenty-four hours.",
+   "note": "glued h"
+  },
+  {
+   "text": "Latency rose to 1.5s.",
+   "says": "Latency rose to one point five seconds.",
+   "note": "glued s after a decimal"
+  },
+  {
+   "text": "Wait 1 s, then retry.",
+   "says": "Wait one second, then retry."
+  },
+  {
+   "text": "It hits 60 mph in 4.2 s.",
+   "says": "It hits sixty miles per hour in four point two seconds.",
+   "note": "car review; mph already works"
+  },
+  {
+   "text": "He is 5 yrs old.",
+   "says": "He is five years old.",
+   "note": "already right today; regression guard"
+  },
+  {
+   "text": "Our puppy is 6 mo old.",
+   "says": "Our puppy is six months old.",
+   "note": "mo after a number other than 1"
+  },
+  {
+   "text": "Ships in 2 wks.",
+   "says": "Ships in two weeks.",
+   "note": "wks; sentence-final"
+  },
+  {
+   "text": "Stir in 2 Tbsp butter.",
+   "says": "Stir in two tablespoons butter.",
+   "note": "already right today; regression guard"
+  },
+  {
+   "text": "Mix in 2 tbsp. of oil.",
+   "says": "Mix in two tablespoons of oil.",
+   "note": "unit written with a period before a lower-case word; already right today, regression guard"
+  },
+  {
+   "text": "Add ½ tsp of cinnamon.",
+   "says": "Add half a teaspoon of cinnamon.",
+   "note": "fraction below one + unit: 'half a', singular (open question 5)"
+  },
+  {
+   "text": "Add 1½ tsp baking soda.",
+   "says": "Add one and a half teaspoons baking soda.",
+   "note": "mixed fraction: plural. Today tsp is spelled out after a vulgar fraction"
+  },
+  {
+   "text": "Pour in 8 fl oz of milk.",
+   "says": "Pour in eight fluid ounces of milk."
+  },
+  {
+   "text": "Add 1 pt of cream.",
+   "says": "Add one pint of cream.",
+   "note": "pt is pint only before 'of' or a drink word"
+  },
+  {
+   "text": "Set the body text in 12 pt type.",
+   "says": "Set the body text in twelve point type.",
+   "note": "pt is point (never plural) before type and font words"
+  },
+  {
+   "text": "It holds 6 qt.",
+   "says": "It holds six quarts.",
+   "note": "already right today; regression guard"
+  },
+  {
+   "text": "Add 2 pkg cream cheese.",
+   "says": "Add two packages cream cheese.",
+   "note": "tech lexicon reads PKG as letters; after a number the unit rule must win"
+  },
+  {
+   "text": "Pressure fell to 980 hPa.",
+   "says": "Pressure fell to nine hundred eighty hectopascals.",
+   "voice": "us",
+   "note": "US only: a British reader says 'and eighty' (numbers area). Tech lexicon reads HPA as letters"
+  },
+  {
+   "text": "It fell by 20 mbar overnight.",
+   "says": "It fell by twenty millibars overnight."
+  },
+  {
+   "text": "The pipe is rated to 10 MPa.",
+   "says": "The pipe is rated to ten megapascals.",
+   "note": "tech lexicon reads MPA as letters"
+  },
+  {
+   "text": "Standard pressure is 1 atm.",
+   "says": "Standard pressure is one atmosphere.",
+   "note": "atm only with pressure words in the sentence (see rule)"
+  },
+  {
+   "text": "Inflate the cuff to 200 mmHg.",
+   "says": "Inflate the cuff to two hundred millimeters of mercury.",
+   "note": "open question 4"
+  },
+  {
+   "text": "Inflate the tires to 35 psi.",
+   "says": "Inflate the tires to thirty-five pee ess eye.",
+   "note": "psi as letters (open question 2); 'pee ess eye' gives the same phonemes as 'P S I', and no rule can touch it"
+  },
+  {
+   "text": "The car gets 35 mpg.",
+   "says": "The car gets thirty-five miles per gallon.",
+   "note": "open question 4"
+  },
+  {
+   "text": "It averages 6.5 L/100km.",
+   "says": "It averages six point five liters per hundred kilometers."
+  },
+  {
+   "text": "It gets 15 km/L.",
+   "says": "It gets fifteen kilometers per liter."
+  },
+  {
+   "text": "Winds of 25 kts are expected.",
+   "says": "Winds of twenty-five knots are expected."
+  },
+  {
+   "text": "The ship was 12 nmi offshore.",
+   "says": "The ship was twelve nautical miles offshore."
+  },
+  {
+   "text": "The ship was 12 nm offshore.",
+   "says": "The ship was twelve nautical miles offshore.",
+   "note": "nm is nautical miles when the sentence has sea or air words (new rule, open question 8), and nanometers otherwise. Today it reads 'nanometers offshore'"
+  },
+  {
+   "text": "The field is 100 yd long.",
+   "says": "The field is one hundred yards long."
+  },
+  {
+   "text": "Cut a board 12 in. wide.",
+   "says": "Cut a board twelve inches wide.",
+   "note": "in. with a period, before a lower-case word"
+  },
+  {
+   "text": "The beam is 3 ft. long.",
+   "says": "The beam is three feet long.",
+   "note": "ft. with a period before a lower-case word; already right today (the author's note that the period splits the sentence is out of date), regression guard"
+  },
+  {
+   "text": "The flat is 800 sq ft.",
+   "says": "The flat is eight hundred square feet."
+  },
+  {
+   "text": "The office has 2,000 sq. ft. of space.",
+   "says": "The office has two thousand square feet of space.",
+   "note": "dotted form. 2,000 because people say '1,200' as 'twelve hundred' as often as 'one thousand two hundred'"
+  },
+  {
+   "text": "The home offers 3,000 Sq Ft of living space.",
+   "says": "The home offers three thousand square feet of living space.",
+   "note": "US listings capitalise it"
+  },
+  {
+   "text": "The plot is 500 sq m.",
+   "says": "The plot is five hundred square meters."
+  },
+  {
+   "text": "The fridge has 20 cu ft of space.",
+   "says": "The fridge has twenty cubic feet of space."
+  },
+  {
+   "text": "The room is 20 m².",
+   "says": "The room is twenty square meters.",
+   "note": "already right today; regression guard"
+  },
+  {
+   "text": "The flat is 85 m2.",
+   "says": "The flat is eighty-five square meters.",
+   "note": "European listings write m2 without the superscript; lower-case m2 only (open question 10)"
+  },
+  {
+   "text": "The tank holds 3 m³ of water.",
+   "says": "The tank holds three cubic meters of water.",
+   "note": "already right today; regression guard"
+  },
+  {
+   "text": "The dose is 50 µg.",
+   "says": "The dose is fifty micrograms.",
+   "note": "already right today; regression guard"
+  },
+  {
+   "text": "Emissions hit 37 Gt last year.",
+   "says": "Emissions hit thirty-seven gigatons last year.",
+   "note": "'gigatons' sounds the same as 'gigatonnes'; the stack misreads the spelling 'gigatonnes'"
+  },
+  {
+   "text": "The engine makes 400 Nm of torque.",
+   "says": "The engine makes four hundred newton meters of torque."
+  },
+  {
+   "text": "It makes 300 hp.",
+   "says": "It makes three hundred horsepower."
+  },
+  {
+   "text": "She wore an 18kt gold ring.",
+   "says": "She wore an eighteen carat gold ring.",
+   "note": "carat and karat sound the same; today the number is lost"
+  },
+  {
+   "text": "The ring has a 1 ct diamond.",
+   "says": "The ring has a one carat diamond.",
+   "note": "ct only before a gem word; after 'a': singular. Today ct reads 'court'"
+  },
+  {
+   "text": "The mower is 95 dB.",
+   "says": "The mower is ninety-five decibels.",
+   "note": "tech lexicon reads dB as letters"
+  },
+  {
+   "text": "It was −40 dB.",
+   "says": "It was minus forty decibels.",
+   "note": "U+2212 minus"
+  },
+  {
+   "text": "The bulb gives 800 lm.",
+   "says": "The bulb gives eight hundred lumens."
+  },
+  {
+   "text": "The workout burns 300 kcal.",
+   "says": "The workout burns three hundred kilocalories.",
+   "note": "open question 3; today it reads 'kay-cal'"
+  },
+  {
+   "text": "Each bar has 100 cal per serving.",
+   "says": "Each bar has one hundred calories per serving.",
+   "note": "cal only before 'per', never for firearms"
+  },
+  {
+   "text": "Chlorine levels hit 4 ppm.",
+   "says": "Chlorine levels hit four parts per million.",
+   "note": "ppm stays letters near printer words (see rule)"
+  },
+  {
+   "text": "Give 5 mg/kg twice daily.",
+   "says": "Give five milligrams per kilogram twice daily."
+  },
+  {
+   "text": "Glucose was 5.5 mmol/L.",
+   "says": "Glucose was five point five millimoles per liter.",
+   "note": "today the /L is dropped"
+  },
+  {
+   "text": "Glucose was 90 mg/dL.",
+   "says": "Glucose was ninety milligrams per deciliter.",
+   "note": "US units"
+  },
+  {
+   "text": "Flow was 5 mL/min.",
+   "says": "Flow was five milliliters per minute."
+  },
+  {
+   "text": "It accelerates at 9.8 m/s².",
+   "says": "It accelerates at nine point eight meters per second squared.",
+   "note": "already right today; regression guard"
+  },
+  {
+   "text": "The fridge uses 300 kWh/yr.",
+   "says": "The fridge uses three hundred kilowatt hours per year.",
+   "note": "'per', to match how money reads '/month' (open question 9). Today it reads 'three hundred kwer'"
+  },
+  {
+   "text": "Its density is 7.8 g/cm³.",
+   "says": "Its density is seven point eight grams per cubic centimeter."
+  },
+  {
+   "text": "It moves 5 mm/s.",
+   "says": "It moves five millimeters per second.",
+   "note": "today mm loses its reading before a slash: 'five m S'"
+  },
+  {
+   "text": "It reads at 7GB/s.",
+   "says": "It reads at seven gigabytes per second.",
+   "note": "SSD spec, glued; today it reads 'G B S'. Spaced '7 GB/s' already works"
+  },
+  {
+   "text": "The wreck lies at 45°N.",
+   "says": "The wreck lies at forty-five degrees north."
+  },
+  {
+   "text": "Sydney lies at 34° S.",
+   "says": "Sydney lies at thirty-four degrees south.",
+   "note": "spaced"
+  },
+  {
+   "text": "The island sits at 45°30′N, 12°15′E.",
+   "says": "The island sits at forty-five degrees thirty minutes north, twelve degrees fifteen minutes east."
+  },
+  {
+   "text": "London is at 51.5° N, 0.1° W.",
+   "says": "London is at fifty-one point five degrees north, zero point one degrees west.",
+   "note": "W after a degree sign is west, never watts"
+  },
+  {
+   "text": "The marker is at 40°42'46\"N.",
+   "says": "The marker is at forty degrees forty-two minutes forty-six seconds north.",
+   "note": "ASCII prime and double prime. Today the new heights rule reads 42'46 as 'forty-two foot forty-six'"
+  },
+  {
+   "text": "It hit 45°C in Seville.",
+   "says": "It hit forty-five degrees Celsius in Seville.",
+   "note": "already right today (C is not a compass letter); regression guard"
+  },
+  {
+   "text": "She signed up for a 10-km run.",
+   "says": "She signed up for a ten kilometer run.",
+   "note": "hyphenated unit: singular; today the number is lost"
+  },
+  {
+   "text": "Grab a 5-lb bag of rice.",
+   "says": "Grab a five pound bag of rice.",
+   "note": "hyphenated; today the number is lost"
+  },
+  {
+   "text": "It's a 5-min walk.",
+   "says": "It's a five minute walk.",
+   "note": "blog and map wording. Replaced '2-min read', because 'read' is a heteronym"
+  },
+  {
+   "text": "She works a 12-hr shift.",
+   "says": "She works a twelve hour shift."
+  },
+  {
+   "text": "Start a 3-mo free trial.",
+   "says": "Start a three month free trial."
+  },
+  {
+   "text": "Our 3-yr-old loves it.",
+   "says": "Our three year old loves it.",
+   "note": "'N-yr-old' needs its own pattern, because the hyphen rule wants a space after the unit"
+  },
+  {
+   "text": "Buy a 60 W bulb.",
+   "says": "Buy a sixty watt bulb.",
+   "note": "after 'a', before a noun: singular (open question 1)"
+  },
+  {
+   "text": "He ran a 4 min mile.",
+   "says": "He ran a four minute mile.",
+   "note": "after 'a', before a noun: singular (open question 1); today 'four minutes mile'"
+  },
+  {
+   "text": "The chip uses a 3 nm process.",
+   "says": "The chip uses a three nanometer process.",
+   "note": "after 'a': singular; today the tech lexicon says 'nanometers'"
+  },
+  {
+   "text": "Wind speed hit 15 m/s.",
+   "says": "Wind speed hit fifteen meters per second.",
+   "note": "already right today"
+  },
+  {
+   "text": "Features are 5 nm wide.",
+   "says": "Features are five nanometers wide.",
+   "note": "US is right today; GB keeps the tech lexicon's vowel until nm joins the unit table"
+  },
+  {
+   "text": "Each layer is 1 nm thick.",
+   "says": "Each layer is one nanometer thick.",
+   "note": "singular; today the lexicon says 'nanometers'"
+  },
+  {
+   "text": "Lift 20-30 kg.",
+   "says": "Lift twenty to thirty kilograms.",
+   "note": "already right today"
+  },
+  {
+   "text": "Clocked at 3.2 GHz.",
+   "says": "Clocked at three point two gigahertz.",
+   "note": "already right today"
+  },
+  {
+   "text": "Add 200 ml of milk.",
+   "says": "Add two hundred milliliters of milk.",
+   "note": "already right today"
+  },
+  {
+   "text": "The speed limit is 30 mph.",
+   "says": "The speed limit is thirty miles per hour.",
+   "note": "already right today"
+  },
+  {
+   "text": "Each tablet contains 25 mcg.",
+   "says": "Each tablet contains twenty-five micrograms.",
+   "note": "already right today, apart from the hyphenated-number harness issue (review note 1)"
+  }
+ ],
+ "frozen_cases": [
+  {
+   "text": "We went with Plan A, then Plan B.",
+   "note": "capital letter after a word, no number"
+  },
+  {
+   "text": "He passed Grade 5 A last term.",
+   "note": "label word before the number; A without electrical context. Today A reads as the article (uh); refreeze if a letters rule changes that. The units requirement is only: never amps"
+  },
+  {
+   "text": "They live in Apartment 4 A on the third floor.",
+   "note": "label word. Today A reads as the article (uh); refreeze if a letters rule changes that. The units requirement is only: never amps"
+  },
+  {
+   "text": "Apartment 5 W faces the park.",
+   "note": "W after a label word is a unit name, not watts"
+  },
+  {
+   "text": "Take Vitamin B 12 every day.",
+   "note": "letter before the number"
+  },
+  {
+   "text": "Music from the 1990s still sells.",
+   "note": "glued s after an integer is a plural, never seconds"
+  },
+  {
+   "text": "She is in her 20s and lives in Leeds.",
+   "note": "glued s after an integer"
+  },
+  {
+   "text": "He won 5 in a row.",
+   "note": "'in' without a period is the word"
+  },
+  {
+   "text": "Put 2 in the oven, then wait.",
+   "note": "'in' without a period"
+  },
+  {
+   "text": "How many did you put in? I put 5 in.",
+   "note": "'in.' at the end of a sentence is the word plus a full stop"
+  },
+  {
+   "text": "The shop is at 500 W Madison St.",
+   "note": "house number + W + capitalised street name is West, never watts. If the addresses area later reads W as West, refreeze; the units requirement is only: never watts"
+  },
+  {
+   "text": "Take Route 9 W to the bridge.",
+   "note": "route number + direction after a label word, never watts (refreeze if the addresses area reads W as West)"
+  },
+  {
+   "text": "Shoe size 9 W fits best.",
+   "note": "W is a wide fitting after 'size'"
+  },
+  {
+   "text": "She filed 2 W-2 forms this year.",
+   "note": "W followed by a hyphen"
+  },
+  {
+   "text": "Sizes 8 M and 9 M are sold out.",
+   "note": "capital M after a number is a size, never meters (meters is lower-case m only)"
+  },
+  {
+   "text": "The pilot pulled 9 g's in the turn.",
+   "note": "g-force: g followed by an apostrophe"
+  },
+  {
+   "text": "The 5G network is fast.",
+   "note": "capital G is not grams"
+  },
+  {
+   "text": "Type 2 diabetes is common.",
+   "note": "no unit"
+  },
+  {
+   "text": "Studio 54 was a famous club.",
+   "note": "no unit"
+  },
+  {
+   "text": "Get your 5 A Day.",
+   "note": "A without electrical context; A before 'Day'"
+  },
+  {
+   "text": "She got 3 A-levels.",
+   "note": "A followed by a hyphen"
+  },
+  {
+   "text": "It has a 5.0 V8 engine.",
+   "note": "V followed by a digit"
+  },
+  {
+   "text": "Buy 4 AA batteries.",
+   "note": "AA is not A"
+  },
+  {
+   "text": "Seat 12A is by the window.",
+   "note": "glued A after a label word"
+  },
+  {
+   "text": "We ordered 4 T-shirts.",
+   "note": "T followed by a hyphen; t and T are deliberately not units"
+  },
+  {
+   "text": "Buy 2 L-shaped brackets.",
+   "note": "L followed by a hyphen"
+  },
+  {
+   "text": "Room 12 L is upstairs.",
+   "note": "label word before the number"
+  },
+  {
+   "text": "A 4-H club meets weekly.",
+   "note": "capital H after a hyphen is not hours"
+  },
+  {
+   "text": "Those 2 gals are my best friends.",
+   "note": "'gals' is the word, never gallons"
+  },
+  {
+   "text": "He has 3 bars of signal.",
+   "note": "'bars' is the word"
+  },
+  {
+   "text": "The tire is at 2.2 bar.",
+   "note": "bar already reads the way people say it; must not change"
+  },
+  {
+   "text": "The espresso machine has 15 bar of pressure.",
+   "note": "bar stays bar"
+  },
+  {
+   "text": "It has a 250 cc engine.",
+   "note": "cc stays the letters C C"
+  },
+  {
+   "text": "A 12,000 BTU air conditioner cools the room.",
+   "note": "BTU stays letters"
+  },
+  {
+   "text": "Spin it at 3,000 rpm.",
+   "note": "rpm stays letters"
+  },
+  {
+   "text": "The car makes 300 bhp.",
+   "note": "bhp stays letters"
+  },
+  {
+   "text": "We bought 2 HP laptops.",
+   "note": "capital HP after a number is the brand; only lower-case hp is horsepower"
+  },
+  {
+   "text": "We bought 2 Qt licences.",
+   "note": "Qt the framework (said 'cute'); only lower-case qt is quarts"
+  },
+  {
+   "text": "Our 3 ATMs are down.",
+   "note": "ATM is not atm"
+  },
+  {
+   "text": "He fired the 50 cal.",
+   "note": "calibre; cal is calories only before 'per'"
+  },
+  {
+   "text": "Learn the 5 W's of journalism.",
+   "note": "W followed by an apostrophe"
+  },
+  {
+   "text": "We sold 3 V-neck sweaters.",
+   "note": "V followed by a hyphen"
+  },
+  {
+   "text": "We have 2 L and 3 XL left in stock.",
+   "note": "clothing sizes: L is not liters when another size token is nearby"
+  },
+  {
+   "text": "My phone only gets 4g in the village.",
+   "note": "glued g next to phone or signal words is the network generation"
+  },
+  {
+   "text": "The film is rated 12A, so bring an adult.",
+   "note": "UK film certificate: 'rated' is not electrical context, and 12A is never twelve amps"
+  },
+  {
+   "text": "The current tally is 5 A, 3 B and 2 C.",
+   "note": "'current' as an adjective is not electrical context. Today A reads as the article (refreeze if the letters area changes that). Never amps"
+  },
+  {
+   "text": "After a battery of exams, she got 4 A grades.",
+   "note": "'battery of' is not electrical context, and A before 'grades' is a grade. Today A reads as the article (refreeze if letters change). Never amps"
+  },
+  {
+   "text": "I scored 5 A* grades.",
+   "note": "A followed by * is a grade"
+  },
+  {
+   "text": "The show drew 3 m viewers.",
+   "note": "spaced m before a count noun is million, not meters"
+  },
+  {
+   "text": "The app passed 2m downloads.",
+   "note": "glued m before a noun is million"
+  },
+  {
+   "text": "I'm 5m away, start without me.",
+   "note": "in chat, glued m before 'away' is minutes, so 'away' is not in the glued-m list"
+  },
+  {
+   "text": "He wears a 42L suit jacket.",
+   "note": "suit size: L is Long"
+  },
+  {
+   "text": "My jeans are 32W 34L.",
+   "note": "jeans waist and leg: never watts or liters"
+  },
+  {
+   "text": "They finished 3W 2L in the group.",
+   "note": "win-loss record: never watts or liters"
+  },
+  {
+   "text": "As a 1L, I barely slept.",
+   "note": "US first-year law student"
+  },
+  {
+   "text": "She's a 2L at Columbia.",
+   "note": "US second-year law student"
+  },
+  {
+   "text": "We need 2 L-plates.",
+   "note": "UK learner plates: L followed by a hyphen"
+  },
+  {
+   "text": "The car takes 5W-30 oil.",
+   "note": "oil viscosity: W followed by a hyphen"
+  },
+  {
+   "text": "Use 10W40 in summer.",
+   "note": "oil viscosity: W followed by a digit"
+  },
+  {
+   "text": "Sector 7 W is closed.",
+   "note": "label word 'sector' before the number"
+  },
+  {
+   "text": "The jet can pull 9 g in a tight turn.",
+   "note": "g-force: singular, no apostrophe"
+  },
+  {
+   "text": "The 5g rollout is slow.",
+   "note": "network generation: 'rollout' must join the phone and network words"
+  },
+  {
+   "text": "Sketch it with a 2H pencil.",
+   "note": "pencil grade: capital H is never hours"
+  },
+  {
+   "text": "The shop is open until 18h.",
+   "note": "European clock time, not a duration. Today it reads 'eighteen H' (refreeze if the times area reads it as a time). Never 'eighteen hours'"
+  },
+  {
+   "text": "Seeking 2 m/f roommates.",
+   "note": "m/f is male or female: f is not a unit, so no 'per' and no meters"
+  },
+  {
+   "text": "How many eggs go in? Put 2 in. Then stir.",
+   "note": "'in.' before a capitalised word is the word plus a full stop"
+  },
+  {
+   "text": "Buy a 3-in-1 printer.",
+   "note": "'in' without a period is never inches, even between hyphens"
+  },
+  {
+   "text": "Read the 10-K filing first.",
+   "note": "SEC filing: K after a hyphen is not a unit"
+  },
+  {
+   "text": "The potion heals 50 hp.",
+   "note": "game hit points: hp stays letters near game words"
+  },
+  {
+   "text": "We only have 2 atm, more next week.",
+   "note": "chat for 'at the moment': atm needs pressure words to be atmospheres"
+  },
+  {
+   "text": "Give me 1 mo, I'm on the phone.",
+   "note": "'one mo' is a moment: mo after 1 and before a comma stays the word"
+  },
+  {
+   "text": "The bomb dropped from the aircraft had a yield of 21 kt.",
+   "note": "kilotons: 'aircraft' is a knots word, so bomb and yield words must veto it"
+  },
+  {
+   "text": "He wore a $15K gold watch.",
+   "note": "currency before the number: K is thousand, never carat"
+  },
+  {
+   "text": "I own 3 MJ albums.",
+   "note": "MJ is Michael Jackson unless energy words are nearby"
+  },
+  {
+   "text": "I made 2 PB&J sandwiches.",
+   "note": "'&' after a symbol: not petabytes"
+  },
+  {
+   "text": "A coffee in Split cost 15 kn.",
+   "note": "Croatian kuna: kn is knots only with wind or boat words"
+  },
+  {
+   "text": "The printer does 20 ppm in color.",
+   "note": "pages per minute: ppm stays letters near printer words"
+  },
+  {
+   "text": "Tune to 909 MW for the cricket.",
+   "note": "UK medium-wave radio: never megawatts"
+  },
+  {
+   "text": "Saw 12 pt in clinic today.",
+   "note": "clinical shorthand for patients: pt is neither pint nor point here"
+  },
+  {
+   "text": "The board has 2 m2 slots.",
+   "note": "M.2 drive slots: lower-case m2 is square meters only before a flat, plot or room word, or at the end"
+  },
+  {
+   "text": "The M3 was closed near junction 4.",
+   "note": "UK motorway: capital M3 is never cubic meters"
+  }
+ ],
+ "rules": [
+  {
+   "name": "Order of the unit rules, and the unwrap fix",
+   "where": "TextNormalizer.rules and normalize(skippingMarkedSpans:)",
+   "trigger": "Insert the rules in this order. (1) Coordinates, before Temperatures and before the new Heights rule (5'11\"). (2) Slash compounds, before the existing m/s² and ²/³ area rules and before `units`. (3) Square and cubic word forms, next to the existing ²/³ area rule. (4) Hyphenated number-unit modifiers. (5) Fraction + unit, before the mixed-fraction, 'Fractions' and '½ cup' rules. (6) `units` and gluedUnits with the extended table, plus the per-symbol guards (nm, MW, ppm, hp, atm, kn, mo, MJ). (7) Conditional units: carat (before the money K rule), pt, cal, in., psi. (8) Single-letter units, with A last.",
+   "reads_as": "n/a (ordering)",
+   "risks": "Since the fix3/reading merge, Heights runs right after Temperatures. So '40°42'46\"N' reads 'forty degrees forty-two foot forty-six N' today, and coordinates must take the whole span first. Every context check (A's electrical words, W's allowlist, label words, size tokens, network words, sea words) must read the whole sentence with lexicon marks reduced to their text, as readArrow and readRomanNumerals do. The rules see only the plain chunk between marks, and USB-C, LED, EV, PSU, RMS, Qi, MagSafe, ATM and HP are tech-lexicon marks. For example, '65 W USB-C charger' reaches the rules as '65 W '. A bug to fix as well: normalize(skippingMarkedSpans:) turns a unit term back into plain text whenever a number precedes it, even when no rule then reads it. The `units` rule refuses a unit followed by '/', so today '300 kWh/yr' reads 'three hundred kwer', '5 mm/s' reads 'five m S' and '20 ms/frame' comes out garbled. Unwrap only when a rule will consume the term."
+  },
+  {
+   "name": "Coordinates: degrees with a compass letter",
+   "where": "TextNormalizer.rules: new rule before 'Temperatures' and 'Heights'",
+   "trigger": "A number, then °, then optional minutes with a prime, then optional seconds with a double prime, then one capital N, S, E or W that is not followed by a letter or digit. Sketch: (?<![\\p{L}\\d.])(\\d{1,3}(?:\\.\\d+)?)\\s?°\\s?(?:(\\d{1,2}(?:\\.\\d+)?)\\s?[′'’]\\s?(?:(\\d{1,2}(?:\\.\\d+)?)\\s?(?:″|\"|”|′′|'')\\s?)?)?([NSEW])(?![\\p{L}\\d]). Spaces are allowed between the parts ('51.5° N').",
+   "reads_as": "'<d> degree(s)[ <m> minute(s)][ <s> second(s)] north|south|east|west'. Each unit is singular only when its value is exactly 1. Numbers stay as digits. Examples: '45°30′N' → '45 degrees 30 minutes north'; '0.1° W' → '0.1 degrees west'; '34° S' → '34 degrees south'.",
+   "risks": "It requires °, so heights (5'10\") and a bare '45 N' are untouched. °C and °F never match, because C and F aren't compass letters ('45°C' is a regression case). Today Temperatures strands the letter: '45°N' reads 'forty-five N', and '0.1° W' reads 'degrees double-u'. The rule must also run before W as watts. The numbers area drops a trailing zero ('74.0060'), so the tests avoid trailing zeros."
+  },
+  {
+   "name": "Slash compounds read as 'per'",
+   "where": "TextNormalizer.rules: new rule before the area rules and `units`",
+   "trigger": "A number (lookbehind (?<![\\p{L}\\d.,/])), an optional space, a NUMERATOR, then one or more '/DENOMINATOR', then (?![\\p{L}\\d/]). The unit may be spaced or glued ('7GB/s', '5mm/s'). NUMERATOR is any symbol in `units` or gluedUnits, plus g, m, L, l, W, V, mmol, mol and µmol. Lexicon terms the unwrap returns (kWh, mm, ms, GB) count. DENOMINATOR maps to a singular word: s/sec → second; s² → second squared; min → minute; h/hr → hour; d/day → day; wk → week; mo → month; yr → year; g → gram; kg → kilogram; mg → milligram; L/l → liter; mL/ml → milliliter; dL/dl → deciliter; m → meter; km → kilometer; cm → centimeter; mi → mile; ft → foot; gal → gallon; m² → square meter; m³ → cubic meter; cm³ → cubic centimeter; kWh → kilowatt hour; serving. Fixed specials: 'L/100km', 'L/100 km' and 'l/100km' → 'liters per hundred kilometers'; 'km/L' and 'km/l' → 'kilometers per liter'. km/h, m/s, mph and kph keep their existing rules, and the money rule keeps '$5/mo'.",
+   "reads_as": "'<numerator: singular for 1, else plural> per <denominator>[ per <denominator>]'. Examples: '5 mg/kg' → '5 milligrams per kilogram'; '5.5 mmol/L' → '5.5 millimoles per liter'; '300 kWh/yr' → '300 kilowatt hours per year'; '5 mm/s' → '5 millimeters per second'; '7GB/s' → '7 gigabytes per second'; '7.8 g/cm³' → '7.8 grams per cubic centimeter'; 'mg/kg/day' → '... per kilogram per day'.",
+   "risks": "It fires only after a number, and only when both sides are in the table. So 'and/or', 'w/', '24/7', '1/2', 'm/f' (f is not a denominator, frozen) and money are untouched. '/day' and '/yr' read 'per', matching money's '/month' (open question 9). Today '5.5 mmol/L' drops '/L', 'mg/kg' reads as letters, '300 kWh/yr' reads 'kwer', '5 mm/s' reads 'm S' and '7GB/s' reads 'G B S'. Spaced '7 GB/s' already works through a tech-lexicon key."
+  },
+  {
+   "name": "Square and cubic word forms (the ²/³ symbols already work)",
+   "where": "TextNormalizer: extend the existing area rule ('50 km²') with a word-form table",
+   "trigger": "Already shipped: '²'/'³' after km, cm, mm, μm, m, ft, in, yd or mi, and m/s². Still to add, after a number with an optional space: 'sq ft', 'sq. ft.', 'sq.ft.', 'sqft', 'Sq Ft', 'Sq. Ft.', 'SQ FT', 'sq m', 'sqm', 'sq km', 'sq mi', 'sq in', 'sq yd'; 'cu ft', 'cu. ft.', 'cu in', 'cu yd', 'cu m'; the '^2'/'^3' forms; ft² and in² written with a dot. Also lower-case 'm2'/'m3', but only when followed by the end of the text, punctuation, or one of flat, apartment, house, home, office, room, plot, space, garden, of, per; and never when the sentence has slot(s), SSD, NVMe, drive(s), chip, Mac or MacBook. In the dotted forms, swallow the final '.' only before a lower-case word or a comma.",
+   "reads_as": "'square <unit>' or 'cubic <unit>': singular for 1 ('1 sq ft' → '1 square foot'), plural otherwise ('800 square feet', '85 square meters', '20 cubic feet').",
+   "risks": "Today 'sq ft' reads 'S Q ft' and 'cu ft' reads 'cue ft'. 'cc' after a number deliberately stays the letters C C (frozen). Capital M2/M3 (the motorway, the chip, M.2 slots) is never matched. Lower-case 'm2 slots' is guarded (frozen)."
+  },
+  {
+   "name": "More multi-letter symbols in the `units` table",
+   "where": "TextNormalizer.units (case-sensitive, after a number, spaced or glued), plus unitTerms",
+   "trigger": "Already shipped since the author wrote this: yr, yrs, tbsp, Tbsp, tbs, tsp, qt, gal, doz, μg, mcg, μL, μl, μF, μA, μV, μW, Ω, kΩ, MΩ, and the folding of the micro sign. Still to add:\n- Volume: cl, cL; dl, dL; fl oz, fl. oz., fl.oz.; qts; TBSP, tbsps, tblsp, tsps; pkg, pkgs.\n- Mass: ng; Gt (read 'gigatons').\n- Length and time: yd, yds, nmi; nm (see the nm rule); ns; wk, wks; mo, mos.\n- Pressure: hPa, kPa, MPa, GPa, Pa, mbar, atm, inHg, mmHg.\n- Energy and power: mAh, Ah, Wh, MWh, GWh, TWh, mW, MW, GW, kJ, kcal (MJ and GJ only after the lexicon fixes '-joules').\n- Electrical: mV, kV, mA, nF, pF.\n- Force and engines: Nm, N·m, lb-ft, lb ft, kN, hp.\n- Other: dB, lm, lx, mpg, MPG, kts, kn, m.p.h., ppm, ppb, PB.\nAdd '&' to the rule's negative lookahead.\nPer-symbol guards. Skip:\n- hp when the sentence has game words (heal, heals, damage, potion, boss, enemy, player, mana, XP, health);\n- atm unless the sentence has pressure words (pressure, psi, bar, Pa, gas, tank, dive, depth, vacuum, boiling, atmosphere);\n- kn unless it has wind or boat words (it is also the Croatian kuna);\n- MW when it has radio, AM, FM, kHz, station or tune;\n- ppm when it has print, printer, printing, pages or scan;\n- mo after 1 when a comma, '!' or the end follows;\n- MJ and GJ unless energy words are near;\n- PB before '&'.",
+   "reads_as": "'<number> <singular if 1 or -1, else plural>', as the existing table does. Examples: '1 atm' → '1 atmosphere'; '4,000 mAh' → '4,000 milliamp hours'; '300 hp' → '300 horsepower'; '6 mo' → '6 months'.",
+   "risks": "The tech lexicon marks dB, HPA and MPA (case-insensitive, so it catches hPa and MPa), PKG (case-insensitive), GW (plural), MWh/GWh/TWh, nm, ns, PB and KT. Putting them in `units` puts them in unitTerms, so after a number they read through this table, and elsewhere the lexicon stands ('the dB scale'). unitTerms also needs 'pkgs', or should strip a plural suffix. Only lower-case hp (HP is the brand), atm (ATM), qt (Qt, said 'cute') and mo. Leave bar, BTU, rpm, bhp and cc alone (frozen). An existing false positive: '5 min' as minimum ('Order 5 min, 10 max') already reads 'five minutes'."
+  },
+  {
+   "name": "nm: nautical miles near sea or air words",
+   "where": "TextNormalizer: context rule before `units`",
+   "trigger": "A number, an optional space, then nm, when the sentence has a sea or air word: offshore, ship, boat, vessel, yacht, ferry, sail(s/ed/ing), harbour, harbor, coast, coastline, nautical, knot(s), kts, aircraft, flight, flew, fly, plane, airport, runway, pilot.",
+   "reads_as": "'<number> nautical mile(s)': '12 nm offshore' → '12 nautical miles offshore'. Anywhere else it is nanometer(s), singular for 1 ('a 3 nm process', '1 nm thick').",
+   "risks": "Pilots and sailors write nm for nautical miles, and today 'twelve nanometers offshore' is absurd. Without those words the tech reading stands. A chip sentence has none of them."
+  },
+  {
+   "name": "Single-letter units: m, g, L/l, V, W, h, s",
+   "where": "TextNormalizer: new rule after the slash, area and `units` rules, before Ranges",
+   "trigger": "A number (lookbehind (?<![\\p{L}\\d.,/]); a leading minus or a range dash is fine, but not '<letter>-' as in 'W-2L'), an optional space, the letter, then (?![\\p{L}\\d'’&*+\\-/²³°]), and not '.' + a letter.\nShared guards. Skip when:\n- a currency symbol precedes the number;\n- the word before the number is a label word (the author's list plus sector, wing, level, pier, dock, hall, concourse, aisle, locker, slot) or any capitalised word that doesn't start the sentence;\n- the letter is W, L, H or D in a dimension group with x/× on either side;\n- the same sentence has a glued W-number and L-number pair ('32W 34L', '3W 2L').\nPer letter:\n- m (lower case). Spaced → meter(s), unless the next word is ago, left, late, later, early, remaining, or a count noun (people, users, viewers, customers, subscribers, followers, members, residents, voters, votes, visitors, downloads, views, streams, copies, units, jobs, homes, households, years, barrels, dollars, pounds, euros), or the sentence has money words (raised, revenue, funding, budget, sales, profit, valuation, worth, deal, invest*, debt, population). Glued → meters only before tall, high, long, deep, wide, thick, apart, across, below, above, underwater, or 'x <number>'. Removed 'away', 'ahead' and 'behind': 'I'm 5m away' means minutes in chat.\n- g (lower case): gram(s), spaced or glued. Skip a glued 2–6 when the sentence has phone, signal, network, coverage, mobile, data, LTE, SIM, carrier, reception, wifi, internet, connection, rollout, mast, tower, broadband, router or hotspot. Skip g when the sentence has g-force words (pull*, force(s), pilot, jet, fighter, aircraft, coaster, rollercoaster, crash, impact, acceleration, centrifuge, astronaut).\n- L and l: liter(s). Skip when the sentence has a clothing-size token (XS, S, M, XL, XXL) or size/sizes. Skip a glued L after 30–60 before suit, jacket, blazer or coat (L is Long). Skip a glued 1L–4L after a/as a/my/her/his/every, unless a container or liquid word follows (bottle, jug, carton, tank, flask, pot, pan, of, soda, water, juice, milk): 1L, 2L and 3L are law students.\n- V: volt(s). Skip before a digit ('V8').\n- W: watt(s). Skip before ' <digit or ordinal>', and before ' <Capitalised word>' unless that word is LED, LEDs, USB, USB-C, AC, DC, RMS, PSU, GaN, PD, Qi, MagSafe, CFL or PoE. A following hyphen ('5W-30') or digit ('10W40') is already excluded.\n- h (lower case): hour(s). Skip after at, until, till, from, by, before or after when the number is 24 or less (European clock time, '18h'), and before digits ('10h30').\n- s (lower case): second(s), only spaced ('30 s') or glued after a decimal ('1.5s'), never a glued integer.",
+   "reads_as": "'<number> <singular for 1 or -1, else plural>'. Examples: '25 m' → '25 meters'; '30m high' → '30 meters high'; '50g' → '50 grams'; '2L' → '2 liters'; '5V' → '5 volts'; '2,000 W' → '2,000 watts'; '24h' → '24 hours'; '1.5s' → '1.5 seconds'.",
+   "risks": "Every guard has a frozen near-miss: 3 m viewers, 2m downloads, 5m away, 9 g in a turn, 5g rollout, 4g on a phone, 42L suit, 32W 34L jeans, 3W 2L record, 1L/2L law students, L-plates, 5W-30, 10W40, Sector 7 W, until 18h, 2H pencil, plus the author's set (Room 12 L, Apartment 5 W, size 9 W, Route 9 W, 500 W Madison St., W-2, 5 W's, V8, V-neck, L-shaped, 2 L and 3 XL, 9 g's, 1990s, her 20s, Sizes 8 M). Capital M is never meters. Glued m before a noun ('the 100m final') stays 'M'."
+  },
+  {
+   "name": "A as amps only with electrical context",
+   "where": "Same single-letter rule, with an extra condition for A",
+   "trigger": "A capital A after a number. The shared guards apply. The A is not followed by '-', an apostrophe, '*', '+', '.' + a letter, ' grade(s)', ' level(s)', ' star(s)' or ' Day'. Read it as amps only when the same sentence has another electrical unit after a number (V, W, mA, mAh, Ah, kW, Wh, Ω, Hz) or one of these words: volt(s), voltage, watt(s), amp(s), ampere(s), amperage, fuse(s), breaker(s), circuit(s), charger(s), charging, socket(s), outlet(s), adapter, adaptor, inverter, PSU, USB, wiring, electric, electrical. Removed from the author's list: current, rated, rating, draw(s), drew, load, motor, EV, battery, batteries, plug(s), cable(s), wire(s). Each has a common sense outside electricity ('current tally', 'rated 12A', 'a battery of exams').",
+   "reads_as": "'<number> amp(s)'. Examples: '5 V at 3 A' → '5 volts at 3 amps'; 'The fuse is rated at 13 A' → '13 amps'; 'Fit a 13 A fuse' → 'a 13 amp fuse'.",
+   "risks": "Frozen guards: 'rated 12A' (UK film certificate), 'current tally is 5 A', 'battery of exams … 4 A grades', '5 A* grades', 'Get your 5 A Day', 'Grade 5 A', '3 A-levels', 'Seat 12A', '4 AA batteries'. Today a lone A after a number reads as the article 'uh'. That belongs to the letters area, not this rule."
+  },
+  {
+   "name": "Hyphenated number-unit modifiers",
+   "where": "TextNormalizer: new rule before Ranges and the unit rules. In normalize(skippingMarkedSpans:), widen the unwrap test from \\d\\s?$ to \\d[\\s-]?$.",
+   "trigger": "(?<![\\p{L}\\d.,/-])(\\d+(?:[.,]\\d+)?)-(UNIT)(?=\\s+\\p{Ll}), where UNIT is any table symbol, including km, kg, lb, ft, mi, yd, m, g, L, V, W, lower-case h, hr, min, mo and yr. Plus 'N-yr-old(s)' and 'N-mo-old(s)' → 'N year old(s)' and 'N month old(s)'.",
+   "reads_as": "'<number> <singular unit>', with the hyphen dropped. Examples: 'a 10-km run' → 'a 10 kilometer run'; 'a 5-lb bag' → 'a 5 pound bag'; 'a 12-hr shift' → 'a 12 hour shift'; 'Our 3-yr-old' → 'Our 3 year old'.",
+   "risks": "This fixes a real bug: today 'a 10-km run' and 'a 5-lb bag' lose their number. The rule needs a lower-case word after the unit. Compounds with the letter first are untouched (W-2, A-levels, T-shirts, L-shaped, V-neck, COVID-19), and so are '3-in-1' ('in' has no period) and '10-K'. Avoid heteronyms in tests ('a 2-min read')."
+  },
+  {
+   "name": "Fractions before a unit",
+   "where": "TextNormalizer: new rule before the mixed-fraction, 'Fractions' and '½ cup' rules",
+   "trigger": "Already handled today: slash fractions before a unit. '1/2 lb' reads 'one half pound' and '1 1/2 tsp' reads 'one and a half teaspoons'. Still to add: vulgar fractions before a table unit, either with no whole number ('½ tsp') or after one ('1½ tsp'). Today the `units` rule needs a digit right before the unit, so these spell the unit ('one and a half T S P'), and '1½ lb' reads 'one and a half pound'.",
+   "reads_as": "'½ tsp' → 'half a teaspoon' (open question 5); '1½ tsp' → '1 and a half teaspoons' (plural). Make the slash and vulgar forms read the same: today '1/2 lb' says 'one half pound'.",
+   "risks": "Only before a unit symbol, so '½ cup' and '1/2 the time' keep their fraction readings. ¼ is said 'a quarter teaspoon' in the US and 'a quarter of a teaspoon' in the UK, so it has no test."
+  },
+  {
+   "name": "Singular unit after 'a'/'an' (open question 1)",
+   "where": "Inside each unit rule's replacement, looking back from the number",
+   "trigger": "The number directly follows 'a' or 'an' (any case), and the unit is followed by a lower-case word other than of, per, each, or, and, to, in, a, an, the, for.",
+   "reads_as": "The singular unit name: 'a 60 W bulb' → 'a 60 watt bulb'; 'a 13 A fuse' → 'a 13 amp fuse'; 'a 4 min mile' → 'a 4 minute mile'; 'a 3 nm process' → 'a 3 nanometer process'; 'a 2L bottle' → 'a 2 liter bottle'; 'a 1 ct diamond' → 'a 1 carat diamond'.",
+   "risks": "Narrow by design: it does not fire after 'the', so 'the 65 W charger' still reads the plural (a known miss). Today 'a 4 min mile' reads 'four minutes mile'. Seven tests depend on this decision."
+  },
+  {
+   "name": "pt: pint or point, depending on the next word",
+   "where": "TextNormalizer: conditional unit rule",
+   "trigger": "A number, an optional space, then pt or pt. Read 'pint(s)' before ' of', or before milk, cream, water, beer, ale, lager, stout, cider, stock, broth or juice. Read 'point' (always singular) before type, typeface, font, text, size, lettering, leading, line(s), margin, stroke, border, gutter, serif, sans, bold, italic or regular; before a capitalised font name; or when 'font' or 'type' appears earlier in the sentence. Optional and safe: lead, deficit, scale, shot, turn and plan also read 'point' ('a 3 pt shot').",
+   "reads_as": "'1 pt of cream' → '1 pint of cream'; '12 pt type' → '12 point type'.",
+   "risks": "Anything else stays the letters P T. In clinical notes pt means patient ('Saw 12 pt in clinic', frozen). 'pts' is not handled."
+  },
+  {
+   "name": "Carat and knots: kt, ct, K",
+   "where": "TextNormalizer: before the single-letter rule and before the money K rule",
+   "trigger": "Carat. A number not preceded by a currency symbol, an optional space, then kt, Kt, KT, ct, K or k. Then optionally white, yellow, rose, solid or pure. Then gold, platinum, diamond(s), ruby, rubies, sapphire(s), emerald(s), gem(s), gemstone(s), stone(s), solitaire, ring(s), band, chain, necklace, bracelet, earrings or pendant. For kt/K/k (gold) the number must be 9, 10, 12, 14, 18, 22 or 24; for ct (gems) any number, decimals included. Knots: kts always (table), and kt alone when the sentence has wind(s), gust(s), gusting, breeze, headwind, tailwind, crosswind, airspeed, groundspeed, sea(s), boat, ship, vessel or aircraft, and none of bomb, nuclear, warhead, yield, blast, explosion or TNT.",
+   "reads_as": "'<number> carat', which never changes ('18kt gold ring' → '18 carat gold ring'; carat and karat sound the same). '1 ct diamond' → '1 carat diamond'. '15 kt winds' → '15 knot winds'.",
+   "risks": "Frozen guards: '$15K gold watch' (currency), 'yield of 21 kt' dropped from an aircraft (kilotons). Today '18kt' loses its number and '1 ct' reads 'one court'. Without these following words, kt (kiloton), ct (count) and K (thousand, kelvin) are left alone."
+  },
+  {
+   "name": "cal: calories only before 'per'",
+   "where": "TextNormalizer: conditional unit rule",
+   "trigger": "A number that doesn't start with '.', an optional space, then cal, followed by ' per', '/serving', '/day' or ' a day', and not followed by rifle, pistol, gun, round(s), ammo, bullet(s) or machine.",
+   "reads_as": "'100 cal per serving' → '100 calories per serving'. kcal goes through the main table.",
+   "risks": "cal is also calibre ('He fired the 50 cal.', frozen), so every other use stays 'cal'."
+  },
+  {
+   "name": "Unit abbreviations with a period: in. (ft., tbsp. already work)",
+   "where": "TextNormalizer: an 'in.' entry, and an optional trailing '.' on the other table units",
+   "trigger": "'in.' after a number means inches only when it is followed by a lower-case word, ' x '/'×', a digit, or one of , ; ). Today '3 ft. long' and '2 tbsp. of oil' already read correctly (both are regression cases). Extend the same handling to yd., lb., lbs., oz., gal., qt. and tsp., and to the hyphen and slash rules.",
+   "reads_as": "'12 in. wide' → '12 inches wide'.",
+   "risks": "'in' without a period is never a unit ('5 in a row', 'Put 2 in the oven', '3-in-1'). Before a capital, or at the end of the text, the period stays the full stop and 'in' stays the word ('Put 2 in. Then stir.', 'I put 5 in.', both frozen)."
+  },
+  {
+   "name": "psi read as letters (open question 2)",
+   "where": "TextNormalizer: entry after a number",
+   "trigger": "A number, an optional space, then psi or PSI, followed by a non-letter.",
+   "reads_as": "The letters P S I: '35 psi' → '35 P S I' (or a phoneme mark).",
+   "risks": "Today psi and PSI read as the Greek letter ('sigh')."
+  },
+  {
+   "name": "Left alone on purpose",
+   "where": "n/a",
+   "trigger": "Not handled: t/T (tonne, or teaspoon/tablespoon in US recipes); Mt (Mount, or megatonne); N (newton, or north); K alone (thousand, or kelvin); J alone; mb (millibar, or megabyte); ct without a gem word (carat, or count); pts; d (days, which belong to the timestamps area); glued m before a noun; capital M, HP and M2/M3; bar, BTU, rpm, bhp and cc; ppm near printer words; kn without boat words; 'the' + number + unit (attributive plural stays).",
+   "reads_as": "Unchanged from today.",
+   "risks": "These are deliberate misses, which are safer than false positives. Field packs can add the insider readings."
+  }
+ ],
+ "open_questions": [
+  "1. Should 'a 60 W bulb' be read 'a sixty watt bulb', which is how people say it? Recommended: yes, but only right after 'a'/'an' and in hyphenated forms ('a 10-km run'), never after 'the'. Seven speech cases depend on this answer (60 W bulb, 13 A fuse, 4 min mile, 3 nm process, 2L bottle, 1 ct diamond, and indirectly 'a 5-min walk').",
+  "2. Should psi be read as letters ('thirty-five P S I', what drivers say) or as 'pounds per square inch'? Recommended: letters. Today it reads 'sigh'.",
+  "3. Should kcal be read 'kilocalories', 'calories' (how most people talk about food) or 'kay-cal'? Today's build already says 'kay-cal', which people do say. Recommended: 'kilocalories', which is correct for a general listener and never wrong.",
+  "4. Should mpg, ppm and mmHg be expanded ('miles per gallon', 'parts per million', 'millimeters of mercury') or read as letters? Recommended: expand them, except ppm near printer words (pages per minute), which stays letters. Units people only ever say as letters (rpm, BTU, bhp, cc) stay letters.",
+  "5. Should '½ tsp' be read 'half a teaspoon' or 'one half teaspoon'? Recommended: 'half a teaspoon'. Whichever wins, make '1/2 lb' agree with it: today it reads 'one half pound'. ¼ has no test, because the US says 'a quarter teaspoon' and the UK 'a quarter of a teaspoon'.",
+  "6. Glued 'm' can mean meters, million or minutes. Core reads it as meters only before a size word ('30m high', '2m apart'). Is it OK that 'the 100m final', '2m downloads' and 'I'm 5m away' keep reading 'M'? Recommended: yes.",
+  "7. Core leaves these as letters: t/T, pts, ct without a gem word, K, N, mb. Is that OK? Recommended: yes.",
+  "8. New: should nm be read 'nautical miles' when the sentence has sea or air words ('12 nm offshore'), instead of today's 'nanometers offshore'? Recommended: yes.",
+  "9. New: should '/yr' and '/day' after a unit be read 'per year', which matches how money already reads '/month', or 'a year'? Recommended: 'per'.",
+  "10. New: should a lower-case 'm2'/'m3' after a number ('a 50 m2 flat', common in European listings) be read 'square meters'/'cubic meters', with the guards in the square/cubic rule? Recommended: yes, narrowly."
+ ],
+ "review_notes": [
+  "1. Harness blocker, which affects every area: a 'says' written with a hyphenated number word can never pass. The stack reads '25' as two words ('twˈɛnti fˈIv') but 'twenty-five' as one ('twˈɛntifˌIv'), and loose() keeps spaces. In GB the vowel differs too: 'ninety-nine' gives 'nˌIntɪnˈIn' and '99' gives 'nˈInti nˈIn'. Evidence: 'It hit 45°C in Seville.' and 'Each tablet contains 25 mcg.' read correctly today, yet both fail as written and pass once the hyphen is split. core-readings' '$4.99' → 'four ninety-nine' will fail for the same reason even after the money rule ships. Recommended fix: have the phonemizer read hyphenated number words ('twenty-five', 'ninety-nine') exactly like the digits, which also fixes ordinary prose. The fallback is to split them in SpeechTest before phonemizing. I kept the hyphens in 'says', as the format requires.",
+  "2. Baseline moved while I worked. fix3/reading merged (HEAD b06b926, binary 14:59) and added Ω, kΩ, µF, µg, mcg, tbsp, Tbsp, tsp, qt, gal, doz, yr, yrs, ²/³ areas, m/s², heights and fraction-before-unit readings. Of the author's set, Ω, µF, yrs, Tbsp, qt, m², m³, µg and m/s² now pass, plus 'tbsp. of' and 'ft. long'. The author's claims that these 'fail today' are out of date, and the notes now say 'already right today'. Current totals: 17/115 (US) and 16/113 (GB) as written; 19 and 18 with number hyphens split. Every remaining failure is the missing unit rule. I checked each 'want' line by hand: all plain words read correctly in both voices (kilohms, hectopascals, millimoles, newton meters, nautical miles, kilocalories, centiliters, carat = karat, 'pee ess eye' = 'P S I').",
+  "3. Changed expectations where a native speaker reads the number two ways, or where the British 'and' is needed (that belongs to the numbers area, so it doesn't belong in units tests):\n- 240 V → 12 V (US electricians say 'two-forty');\n- 220 Ω → 8 Ω ('two-twenty ohm');\n- 180 mmHg → 200 ('one-eighty');\n- 1,200 sq. ft. → 2,000 ('twelve hundred square feet');\n- 250 g → 200 g, 250g → 50g, 150 kWh/yr → 300, 250 kcal → 300;\n- -0.5 V → -5 V on a supply rail (US speakers split between 'negative point five' and 'minus zero point five');\n- Mt. Everest (8,849) and 980 hPa are now voice 'us'.\nTwo fragments became full sentences.",
+  "4. Replaced 'It's a 2-min read' with 'a 5-min walk': 'read' is a heteronym ('read' as in 'red' versus 'reed'), and the two sides took different readings.",
+  "5. Tightened rules after attacking them with near-misses:\n- A context: dropped current, rated, rating, battery, load, draw, motor, plug, cable and wire (each has a common non-electrical sense), and skip A before grade(s) or *. Cases: UK '12A' film rating, '5 A* grades'.\n- Spaced m: a count-noun or money veto ('3 m viewers'). Glued m: dropped away, ahead and behind ('I'm 5m away' means minutes).\n- L: suit sizes (42L), jeans and win-loss pairs (32W 34L, 3W 2L), US law students (1L/2L), and the 'W-2L' lookbehind.\n- g: g-force ('pull 9 g') and 'rollout'. h: European clock time ('until 18h').\n- Per symbol: hp in games, atm in chat, kn as kuna, MW on radio, ppm on printers, MJ as Michael Jackson, '1 mo,' as a moment, '&' after PB.\n- Carat: currency veto ('$15K gold'), gold numbers limited to 9–24, kiloton veto for kt.\n- Lower-case m2 slots.\nAdded 37 frozen near-misses for these.",
+  "6. New bugs found (the tests cover them):\n- The unwrap in normalize(skippingMarkedSpans:) drops a lexicon unit's reading before '/': '300 kWh/yr' reads 'kwer', '5 mm/s' reads 'five m S', '20 ms/frame' is garbled.\n- Glued '7GB/s' reads 'G B S'.\n- The new heights rule eats coordinates: 40°42'46\"N reads 'forty-two foot forty-six'.\n- 'nm' reads 'nanometers offshore'.\n- 'a 4 min mile' reads 'four minutes mile'.\n- '1½ tsp' spells out tsp.\n- 'Order 5 min, 10 max' reads 'five minutes', an existing false positive. Not frozen.",
+  "7. Added positives from real text:\n- spec sheets: '4,000 mAh / 25 W', '7GB/s';\n- UK: '2m apart', 'Fit a 13 A fuse', '75 cl';\n- espresso ratios, a car review '60 mph in 4.2 s', 'Sq Ft' listings, a European 'm2' listing;\n- hyphenated '12-hr shift', '3-mo trial', '3-yr-old', '5-min walk';\n- nm offshore, km/L, mg/dL, mL/min, mm/s, mbar, ppm, 1 ct diamond, 34° S, 6 mo old, 2 wks;\n- regression guards for mph, ml, mcg and 45°C.\nTotal: 115 speech cases. Above the 40–80 target, because the author's 80 lacked several common units.",
+  "8. Frozen: kept 44 of the author's 47. Dropped 'See Section 3 A' (a duplicate of core-readings' 'Section 5 A'), 'The kids are 5 and 6.' (no unit-like token) and 'Posted at 5 PM.' (the times area). Total: 81. I didn't freeze candidates whose current reading is wrong: '5 Vs' reads 'versus', '50 ct' reads 'court', 'iPhone 5s' reads 'fives', '3 pt shot' is letters. Five frozen cases deliberately lock imperfect readings, and their notes say when to refreeze: A as 'uh' (×4) and 'until 18h'.",
+  "9. Files: /private/tmp/claude-501/-Users-claremccormack-Sites-readaloud--claude-worktrees-app-monetization-payments-2fe731/d937b965-6e6d-417c-ba43-5dde5061f672/scratchpad/units_review/doc.json holds both lists in --speech-test shape. In the same folder: build.py and build_frozen.py (generators), cmp2.py (the comparison, with and without hyphen splitting), and frz_us.txt / frz_gb.txt (today's frozen phonemes). The repo was not edited.",
+  "Linear: no update needed. I'm a subagent; the parent owns FIN-889.",
+  "In plain English: I checked and fixed the reading tests for measurements (metres, grams, volts, square feet, map coordinates and so on). I swapped out numbers people say two ways, added about 35 everyday examples and 37 'trap' sentences that must not change (a film rated 12A, jeans sized 32W 34L, a law student called a 1L, '5W-30' oil), and tightened the rules so they don't misfire on those. One thing to fix first: the test checker currently fails any expected answer that contains a hyphenated number like 'twenty-five', even when the app reads it perfectly. That affects every area's tests, so it needs fixing before these results mean anything. Ten small wording decisions are listed as open questions, each with a recommendation. Nothing to test in the app yet."
+ ]
+}

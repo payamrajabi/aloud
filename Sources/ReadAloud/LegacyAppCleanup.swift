@@ -4,7 +4,7 @@ import AppKit
 /// had Read Aloud and then installed Aloud ended up with both. On launch, the installed
 /// copy quits and trashes older copies in the Applications folders. If an old copy
 /// carries the voice model and we don't have one yet, the model moves over first,
-/// which saves a 330 MB download.
+/// which saves a 355 MB download.
 enum LegacyAppCleanup {
     struct Outcome {
         var trashed: [URL] = []

@@ -1,0 +1,220 @@
+{
+ "conflicts": [
+  {
+   "areas": [
+    "money",
+    "units",
+    "heights",
+    "phones",
+    "roman",
+    "addresses",
+    "dates",
+    "titles",
+    "shorthand"
+   ],
+   "issue": "Hyphenated number words. The stack reads a hyphenated number as one compound word, with different stress from the same number in digits. Checked on this build: 'ninety-nine' reads nˈIndinˌIn in the US voice and nˌIntɪnˈIn in GB, while '99' and 'ninety nine' both read nˈIndi nˈIn. The same holds for 'forty-two' against '42', 'Twenty-third' against '23rd' and 'Forty-Second' against '42nd'. SpeechTest.loose drops only stress and punctuation and splits on spaces, so any hyphenated 'says' fails against a rule that emits digits (money's '4 99', shorthand). It passes only against a rule that also emits hyphenated words (Roman's 'fifty-eight', phones' 'twenty-three'), and then the rewritten number sounds different from the same number in digits. Addresses already promise unhyphenated output but write hyphenated 'says' ('forty-two Ocean Drive', 'one twenty-three'), so its own cases fail. Only shorthand writes its 'says' unhyphenated.",
+   "resolution": "(1) Every emitter writes number words without hyphens, or writes digits, so a rewritten number sounds like the number reader. Roman R0 drops 'hyphenate compound tens' and R6 joins '/' with a space ('Phase one two'). Phones' extension cardinal is unhyphenated. Money keeps digits. (2) Before phonemizing 'says' and 'says_gb', SpeechTest turns a hyphen between two number words (cardinal or ordinal vocabulary, any case) into a space. Authors can then keep writing 'ninety-nine', and all areas' cases stay as written. Hyphens next to non-number words stay ('four-E', 'three-A', 'post-World', 'Oregon-based', 'ten-ex', 'Governor-elect')."
+  },
+  {
+   "areas": [
+    "dates",
+    "addresses",
+    "roman",
+    "money"
+   ],
+   "issue": "British 'and' in numbers is decided in three different places. Dates adds 'and' for GB years 2001 to 2009 ('two thousand and five'). Today the GB voice reads '2005' as 'two thousand five' (checked). Under that rule the GB phonemes of the address frozen case 'In 2005 Ocean Drive was repaved.' change. The address speech case 'Born in 2005, she moved to 2005 Main St. in 2010.' has no says_gb, so it fails in GB. Dates' own 'The attacks of 9/11/2001 changed travel.' also has no says_gb. Separately, Roman's 'Read Moby-Dick, Chapter CXXXV.' expects GB 'one hundred and thirty-five', but Lexicon GB cardinals have no 'and', so 'Chapter 135' and 'Chapter CXXXV' would read differently in the GB voice.",
+   "resolution": "The numbers owner makes one decision, and every rule follows Lexicon's GB reading for numbers. If the years-only rule lands: (a) drop the address frozen case and replace it with a year outside 2001 to 2009 ('In 2015 Ocean Drive was repaved.', which the address guard still covers); (b) give the address 'Born in 2005…' case says_gb 'Born in two thousand and five, she moved to twenty oh five Main Street in twenty ten.'; (c) mark dates' 9/11/2001 case voice 'us' (see notes). Roman R4/R11 should emit GB 'and' only where Lexicon's GB cardinal does. Until British cardinals are decided as a whole, remove the CXXXV says_gb. If 'and' is later added to all GB cardinals, money's full-form cases ('$1,299.99', '$129.99', '£2,500.75') need says_gb.",
+   "drop_cases": [
+    "In 2005 Ocean Drive was repaved."
+   ]
+  },
+  {
+   "areas": [
+    "dates",
+    "phones"
+   ],
+   "issue": "Dates changes the GB wording of ISO dates ('the fifteenth of March, twenty twenty-four'). The phones frozen case 'On 2024-03-15 we met.' stores GB phonemes, which today read 'March fifteenth' (checked). That frozen case would fail as soon as the dates work lands.",
+   "resolution": "Drop it from phones. Its purpose (the phone pass leaves ISO dates alone) is still covered: dates' speech case 'Released on 2024-03-15.' asserts the date reading in both voices, so it fails if the phone pass ever takes the digits.",
+   "drop_cases": [
+    "On 2024-03-15 we met."
+   ]
+  },
+  {
+   "areas": [
+    "shorthand",
+    "dates"
+   ],
+   "issue": "Shorthand rule 9 reads lower-case 'c.' before a year as 'circa' ('A portrait (c. 1650) hangs here.' → 'circa sixteen fifty'). Dates froze 'The house was built c. 1850.' and leaves circa to an academic pack. Today it reads 'see eighteen fifty' (checked), and shorthand's rule rewrites it. The two areas contradict each other directly.",
+   "resolution": "Adopt circa in Core. Lower-case 'c.' or 'ca.' directly before a four-digit year from 1000 to 2099 has no other reading in prose, and shorthand's statute guard keeps 'Human Rights Act 1998 c. 42' unchanged. Dates' century rule needs an ordinal before 'c.', so the two don't overlap. Drop the dates frozen case. If the product owner rejects circa, drop shorthand's 'The barn was built ca. 1850.' and 'A portrait (c. 1650) hangs here.' instead.",
+   "drop_cases": [
+    "The house was built c. 1850."
+   ]
+  },
+  {
+   "areas": [
+    "units",
+    "heights"
+   ],
+   "issue": "Units' single-letter V rule reads '1.5V AA' as '1.5 volts AA'. The heights frozen case 'It takes 2 x 1.5V AA batteries.' today reads 'one point five vee' (checked), so units changes it. Heights' own rule correctly leaves the '2 x' alone.",
+   "resolution": "Drop the heights frozen case. Its purpose (a count written with x stays 'ex') is already guarded by 'Buy 2 x 4 packs of batteries.' and 'Grease 2 x 20cm round cake tins.'. The new reading, 'two ex one point five volts AA batteries', is acceptable.",
+   "drop_cases": [
+    "It takes 2 x 1.5V AA batteries."
+   ]
+  },
+  {
+   "areas": [
+    "addresses",
+    "units"
+   ],
+   "issue": "Address rule C (number, direction, name, abbreviated street type) rewrites the units frozen case 'The shop is at 500 W Madison St.'. Today it reads 'five hundred double-u Madison Street' (checked); address rule C makes it 'West'.",
+   "resolution": "The address reading is correct, and units' purpose (W is not watts) still holds. Drop the case from units' frozen list and add it to addresses as a speech case: 'The shop is at five hundred West Madison Street.'.",
+   "drop_cases": [
+    "The shop is at 500 W Madison St."
+   ]
+  },
+  {
+   "areas": [
+    "units",
+    "dates"
+   ],
+   "issue": "Units' glued 'h' rule reads 'INT 21h is a DOS call.' (a dates frozen case) as 'twenty-one hours'. INT starts the sentence, so the guard 'a capitalised word that doesn't start the sentence' doesn't apply, and INT isn't a label word. This also settles dates' open question 6 against dates for 'h': units reads glued '18h' and '24h' as hours everywhere else.",
+   "resolution": "Add an h-only guard to units: skip when the word just before the number is an all-caps token of two or more letters (INT, MOV, DB, DW…). No units speech case has one. Keep the frozen case. Record that Core reads glued 'Nh' as hours (units), while glued 'Nm' with no 'ago' stays as written (both areas agree)."
+  },
+  {
+   "areas": [
+    "dates",
+    "units"
+   ],
+   "issue": "Both areas add wk/wks/mo/mos to the units table, but only units has the guard 'mo after 1 when a comma, ! or the end follows'. Dates' unguarded entry would rewrite the units frozen case 'Give me 1 mo, I'm on the phone.'.",
+   "resolution": "Units owns these table entries, with its guard. Delete dates' 'Time units missing from the units table' rule. Units adds dates' mth/mths under the same guard. Dates' 'ago' and compound-duration rules are unaffected, because they run first."
+  },
+  {
+   "areas": [
+    "phones",
+    "shorthand"
+   ],
+   "issue": "Phones' keypad rule makes a standalone '#' after enter/press/dial read 'pound', so shorthand's speech case 'Enter # of guests below.' (expected 'Enter number of guests below.') would read 'Enter pound of guests'. The two areas also put the same rule in different places: phones in Phonemizer.phonemize, shorthand in TextNormalizer with a british flag.",
+   "resolution": "Shorthand rule 13 owns '#': '# of' → 'number' runs first, then the key reading ('pound' in US, 'hash' in GB) only when ' of' doesn't follow, then '#1' → 'number'. Phones' keypad rule keeps only '*' → 'star', or folds into the same rule. The voice comes from dates' makeRules(british:) plumbing. Both areas' cases stay."
+  },
+  {
+   "areas": [
+    "shorthand",
+    "phones"
+   ],
+   "issue": "Shorthand rule 0 changes TextPrep.speechText to keep some '#' and '~' but to keep stripping '*' everywhere. Phones needs a standalone '*' after a key verb to survive in the app ('Press * then 2.'). --speech-test calls phonemize directly, so it would pass while the app still drops the star. Today phonemize drops both '#' and '*' (checked).",
+   "resolution": "One TextPrep change. Rule 0 also exempts a standalone '*' or '#' after press/presses/pressed/pressing/hit/tap/enter/dial, and before 'key' or 'button'. Add chunk_cases 'Press * then 2.' and 'Press # to finish.' next to rule 0's cases."
+  },
+  {
+   "areas": [
+    "roman",
+    "titles"
+   ],
+   "issue": "Jr./Sr. are defined twice: Roman R3 and titles T5. They differ. R3 keeps the period before any capitalised word, but T5 keeps it only before a usual sentence starter. R3 never fires at the start of a sentence or after a greeting; T5 reads Jr/Jnr anywhere and Sr./Sr as Sister before a listed female name. Both passes run, titles first.",
+   "resolution": "Titles T5 owns Jr, Jr., Jnr, Sr, Sr., Snr, and moves R3's GB note into T5 (verified: GB 'Jr.' is ʤˈuːnjə and 'Junior' is ʤˈuːnɪə, so T5 must write 'Junior'). Delete R3 from the Roman pass. The two areas' cases agree, so none are dropped."
+  },
+  {
+   "areas": [
+    "addresses",
+    "shorthand"
+   ],
+   "issue": "'c/o' → 'care of' is defined in both address rule G and shorthand rule 4, with different left contexts. Both areas also list the identical speech case 'Send it c/o Jane Smith.'.",
+   "resolution": "The shorthand pass owns c/o, and address rule G drops its c/o clause. Keep one copy of the duplicated case when the files are merged. Both copies have the same text and expectation, so no drop is listed: dropping by text would remove both."
+  },
+  {
+   "areas": [
+    "money",
+    "shorthand"
+   ],
+   "issue": "'~' and '≈' before money are rewritten by both money rule 15 and shorthand rule 10. Both areas list the identical case 'It costs ~$5.'.",
+   "resolution": "The money pass owns '~' and '≈' before a money expression. It runs first, so shorthand rule 10 never sees '$'. Rule 10 handles bare numbers with the same word, 'about'. In the app, money's '~' cases depend on shorthand rule 0 keeping '~' before a currency sign. Keep one copy of the duplicate."
+  },
+  {
+   "areas": [
+    "heights",
+    "units"
+   ],
+   "issue": "Hyphenated feet and inches ('a 10-ft pole', 'a 12-in. skillet') and 'N in.' before an adjective ('30 in. wide') are handled by both the measures pass and units' hyphenated-modifier and 'in.' rules. The outputs agree, but whichever runs second has no effect.",
+   "resolution": "The measures pass owns ft, in. and the marks (it runs before the lexicon). Units' hyphenated-modifier rule and its 'in.' entry leave out ft and in., or accept being a no-op. No case changes."
+  },
+  {
+   "areas": [
+    "money",
+    "heights"
+   ],
+   "issue": "The money pass runs before the measures pass and turns '$5' into '5 dollars', which exposes amounts to the dimensions rule. 'Buy 2 x $5 tickets' becomes 'two by five dollars tickets', because the count guard only knows container words. In '$2 x 3 = $6', the first operand comes after '$', which isn't in measures' left-boundary list.",
+   "resolution": "The measures pass leaves an operand alone when a currency symbol, an X$ prefix or a currency code comes before it, or a currency word follows it (dollars, pounds, euros, cents, pence, yen, rupees …). With that guard, the order of the two passes doesn't matter, and money keeps the earlier slot."
+  },
+  {
+   "areas": [
+    "units",
+    "money"
+   ],
+   "issue": "Units' slash compounds read time denominators with 'per' ('300 kWh/yr' → 'per year'). The open question that justifies this says it 'matches money's /month', but that is fix3's old behaviour. Money now reads a single time unit with 'a' or 'an' ('$9.99/mo' → 'a month', '$90K/yr' → 'a year').",
+   "resolution": "No case contradicts the other, so keep both readings: money uses 'a'/'an' for a price per time unit, and units uses 'per' for rates (mg/kg/day, kWh/yr, mL/min). Correct units' stated reason, and ask the product owner to confirm '300 kilowatt hours per year' over 'a year'."
+  },
+  {
+   "areas": [
+    "units",
+    "heights"
+   ],
+   "issue": "Units says coordinates must run 'before the new Heights rule'. Heights deletes the merged Heights and Inches rules from TextNormalizer.rules and replaces them with the measures pass before the lexicon, which runs before every TextNormalizer rule. So coordinates can't come first.",
+   "resolution": "The measures pass's own guards keep coordinates whole: no feet number after '°', '′' or a quote mark, at most 11 inches, and no mark on a number that follows a quote mark ('40°42'46\"N', '45°30′N'). Coordinates then only need to run before Temperatures. Remove the merged Heights and Inches rules in the same change as the measures pass. Otherwise '40°42'46\"N' keeps reading 'forty degrees forty-two foot…' (units' note)."
+  },
+  {
+   "areas": [
+    "addresses",
+    "titles"
+   ],
+   "issue": "In the GB voice, address rule M expects 'zed' for a postcode's Z ('EH1 1YZ' → says_gb 'one Y zed'). Today the GB stack reads a spelled Z as 'zee' (checked), and titles kept 'Gen. Z' US-only, leaving the letter Z to the letters area.",
+   "resolution": "The address pass writes 'zed' itself inside a British postcode for the GB voice; the pass runs in Phonemizer.phonemize, where `british` is known. British postcodes are always read with 'zed'. The letters area still decides Z elsewhere, and 'Gen. Z' stays US-only. No drop."
+  },
+  {
+   "areas": [
+    "addresses",
+    "phones"
+   ],
+   "issue": "Address rule H ('Highway' plus three digits plus a lower-case word) fires on the phones frozen case 'Highway 401 was jammed.'.",
+   "resolution": "Checked on this build: the tech lexicon's '401' entry already reads 'four oh one'. 'Highway 401 was jammed.' and 'Highway four oh one was jammed.' give identical phonemes in both voices, so the frozen case holds as long as address H writes exactly 'four oh one'. Keep the case."
+  }
+ ],
+ "rule_order": [
+  "1. Phonemizer.phonemize, gated on `normalizes`: TextNormalizer.linkLabels, then foldMicroSign (existing). Links must lose their paths before any pass looks at slashes or digits.",
+  "2. Dates: the quarter/half apostrophe split (Q3'24 → Q3 '24), before the lexicon. Q1–Q4, H1, H2 and FY are lexicon keys, and the split must come before the measures pass looks at apostrophes.",
+  "3. The money pass, before the lexicon. It replaces fix3's per-unit, range and scale rules in TextNormalizer.rules, and takes over the signs ('-$' and '−' before any currency) plus '~' and '≈' before money. It must run before custom.mark: CAD, EUR, USD, the unit:true mm/ms/GB/MB entries and 'Max' are lexicon keys. It also comes before phones, so '$911' and '$555' are already money. It emits digits plus words.",
+  "4. The phone pass, before the lexicon. It replaces fix3's leading-0/'+' phone rule. It runs after money, and its start boundary already excludes '$'. It runs before the measures pass, so a phone number's 'x 214' or 'x23' becomes an extension and not a dimension or multiplier. It runs before custom.mark, because '+1', '401', '404' and other keys would split digit runs. It runs before the date rules, and its trunk-0 and NANP shapes already reject 4-2-2, 2-2-4 and 2-2-2 shapes. It emits words, so no later digit rule can touch its output.",
+  "5. The address pass, before the lexicon. It runs after phones; ZIP codes and ZIP+4 are single-group or 5-4 shapes that phones rejects. It runs before titles, so 'Ocean Dr. Suite 3' becomes Drive before any title logic sees 'Dr.'; today the lexicon, not TextNormalizer, reads Dr. as Doctor. It runs before custom.mark, because CA, GA, IL, MD, DR, Room, Box and SE are marks. Its 'St.' additions stay in readStreets (step 13). It emits words, and 'zed' in GB postcodes.",
+  "6. The titles pass, before the lexicon (T0). Within the pass: T3, T5, T7, T8, T9 and T14, then T2 and T4, then T6, T10 and T11. It runs before custom.mark (the CPL, ENS, SNR and LTS entries; names already marked by the lexicon). It owns Jr and Sr (Roman R3 is deleted). T3 ships in the same change as T0. Delete the existing titles rule from TextNormalizer.rules.",
+  "7. The shorthand pass, before the lexicon: the w/ family, b/c, c/o (the only owner; address G drops its copy), Attn, and min./max. It runs before custom.mark, because 'Max' is a case-sensitive key and the lexicon never matches right after '/'. It runs after money, so 'est.' and 'min.' still see digits in '2,000 pounds'.",
+  "8. The measures pass, before the lexicon. Order inside it: abbreviated feet and inches, marked feet and inches, hyphenated ft and in., 'N in.', dimensions, single marks, title count, multiplier, game multiplier. It runs after phones (extensions) and after money, with the currency guard on operands. It runs before custom.mark (the '10x', '1X' and 'X' keys). Delete the merged Heights and three Inches rules.",
+  "9. Dates' 'ago' rule moves before the lexicon only if units ever makes 'm' a unit:true lexicon entry. Otherwise it stays at step 17.",
+  "10. custom.mark.",
+  "11. The Roman pass (R0), after custom.mark and before unshout. Order: R11, R1, R5, R2, R4 with R6 and R7, R8a, R10, R8b, R9, R12. It reads marks as their labels. Delete the WW rule and readRomanNumerals from normalize.",
+  "12. unshout. Every pass in steps 3 to 8 must write its inserted words in the shouted sentence's case, using ShoutedSentences, because unshout runs after them.",
+  "13. normalize(skippingMarkedSpans:): readArrows, then readStreets (with address rule F's St. and Ste. additions), then applyRules. Unwrap a unit mark only when a rule will consume it (units' fix), and widen the check to \\d[\\s-]?$.",
+  "14. rules: the short year '05 (existing); then the sign rules, U+2212 and the en dash, kept for bare numbers. The '-$' rule is removed or extended, since money owns currency signs.",
+  "15. rules: wiki headings and symbol runs; § and ¶ (with ¶ narrowed); shorthand's ™, ® and © handling, ‰, №, N°, Nos.; '#' → number, '# of' → number, then the '#' key (US pound, GB hash). This needs dates' makeRules(british:). The '#' key rule runs after '# of'.",
+  "16. rules: keyboard shortcuts and Ctrl/Cmd; then dates' year-first slash dates, then numeric dates. These come before ports, file paths, web addresses, ISO, Ranges, clock, ratio and fractions; fix3's phone rule, which they used to have to beat, is now the phone pass. Then units' slash compounds, before file paths, the area rules and `units`. Then ports, file paths and web addresses.",
+  "17. rules: shorthand's 'a 45° angle'; units' coordinates; Temperatures. Coordinates and the adjectival degree must both come before Temperatures. The Heights and Inches rules are gone.",
+  "18. rules: m/s², units' square/cubic word forms, the ²/³ area rule, then powers.",
+  "19. rules: dates' H:MM:SS, before clock and ratio. Then dates' 'ago' and compound durations, before the unit-range rule and before units' h, m and s rules: otherwise '1h 30m' becomes '1 hour 30m'. Then shorthand's digit~digit range, then '~' as 'about', before Ranges and units.",
+  "20. rules: units' hyphenated number-unit modifiers (km, kg, lb, h, min…, not ft or in.), before Ranges and `units`. Then units' vulgar fraction + unit, before the mixed-fraction, Fractions and ½ rules. Then the existing range rule for a unit on both numbers.",
+  "21. rules: units' conditional rules (nm context, carat and knots, pt, cal, psi, in.). Units' 'carat before the money K rule' needs no special order: money's K needs a currency, so it never touches '18kt'. Then `units` and gluedUnits (extended, with the per-symbol guards, the a/an singular, and wk, wks, mo, mos, mth and mths with the '1 mo,' guard). Then the single-letter units, A last, with the new h guard after an all-caps word. All of these come before Ranges.",
+  "22. rules: ISO dates (GB wording). Then dates' day-first written dates and month-first day ranges, month ranges, weekday ranges and lists, a weekday before a date, time or ordinal, the weekday abbreviations that are never words, a weekday after a time word, time ranges with am/pm, century abbreviations, and an abbreviated month before a year. They come before Ranges ('5–7 March'), before clock and meridiem ('Mon–Fri', '9am–5pm'), and before fractions ('Tue 3/5').",
+  "23. rules: Ranges (existing); UK dot times; clock times; ratios; '5pm'; then 'Jan 5' (tightened, GB wording) and 'Feb.' (with the full-stop fix).",
+  "24. rules: mixed fractions, fractions, vulgar fractions, ¢; operators; the '(s)' plural.",
+  "25. rules: abbreviations (adding avg., excl., misc.), bare avg and approx, the est. forms, and ca./c. as circa. Circa sits here: years are read by the lexicon, and the century rule (step 22) needs an ordinal, so the two never overlap.",
+  "26. G2P. In the app only, around phonemize: the TextPrep.speechText change (shorthand rule 0, plus the '*' and '#' key exemptions) and one combined Tokenizer.runOnTitles/titleContinues change (address's Rd., Ave., Ste., Apt., Fl., Rm., Ore., N.Y.; titles' Det., Fr., Sr., Mx., Hon., Brig., Msgr., Rt., Lts., Sgts., Drs.; shorthand's Attn., ca., c. before a digit). Each gets chunk_cases, because --speech-test can't see sentence splitting."
+ ],
+ "notes": [
+  "I checked every claim marked 'checked' with `.build/release/ReadAloud --phonemize` (US and --gb) on the b06b926/f1919a1 build in /Users/claremccormack/Sites/readaloud/.claude/worktrees/app-monetization-payments-2fe731. SpeechTest stores frozen phonemes per voice and has no voice field for frozen cases (Sources/ReadAloud/SpeechTest.swift, FrozenCase has us and gb). So any GB-only change (dates' ISO wording and years 2001 to 2009) breaks frozen cases in other areas unless they are dropped or re-frozen.",
+  "The case drops listed under conflicts (5 in total): 'In 2005 Ocean Drive was repaved.' (addresses), 'On 2024-03-15 we met.' (phones), 'The house was built c. 1850.' (dates), 'It takes 2 x 1.5V AA batteries.' (heights), 'The shop is at 500 W Madison St.' (units). Suggested replacements: 'In 2015 Ocean Drive was repaved.' as an address frozen case, and 'The shop is at 500 W Madison St.' → 'The shop is at five hundred West Madison Street.' as an address speech case.",
+  "Exact duplicates to merge into one entry, not to drop by text (dropping by text would remove both): speech 'It costs ~$5.' (money and shorthand) and 'Send it c/o Jane Smith.' (addresses and shorthand); frozen 'Open 24/7.' and 'The score was 3-2.' (phones and dates).",
+  "Dates' 'The attacks of 9/11/2001 changed travel.' has no says_gb, but dates' own rule makes the GB voice read both-under-12 numeric dates day first ('the ninth of November, two thousand and one'). Mark it voice 'us'. Dates admits this cost, and writing it as a GB expectation would enshrine the wrong date.",
+  "Pairs that looked like conflicts but agree once the order above is used: '$5m' (money: million), '5m ago' and '5 m ago' (dates: minutes; units skips m before 'ago'), '5 m' and '30m high' (units: meters), '5m away' (left alone). 'Gen. Z', 'Gen. Alpha' and '3rd Gen. Echo Dot' (titles T3) against 'Gen V' and 'Generation X' (Roman frozen): T4(d) never expands 'Gen' without a period, and T1 rejects a single capital letter. ZIP codes against phones: a single 5-digit group and ZIP+4 '02134-5678' are both rejected by the phone pass. '×' with '=' (shorthand and Lexicon.symbols) against measures' 'times': same words.",
+  "Shared helpers several areas need, to build once: (a) shouted-sentence casing for words inserted by the passes that run before the lexicon (money, phones, addresses, titles, shorthand, measures), since unshout runs after them; (b) a sentence context view with lexicon marks reduced to their labels (units' A/W/size guards, Roman, arrows, readStreets); (c) one 'is this period also the full stop' test (titles' Sr./Jr., address 'Street.', money 'kr.', dates 'Dec.'/'Tues.', units 'in.', shorthand 'misc.'); (d) the british flag threaded into every pass and into TextNormalizer (dates' makeRules(british:)), used by dates, shorthand's '#' key, Roman's GB years, and the address 'zed'.",
+  "Policy differences to settle, though no current case contradicts another: whether a unit before a noun is singular. Money and heights also make it singular after 'the' ('the $20/month plan', 'the 13.3\" MacBook'). Units only after 'a'/'an', and 'the 65 W charger' stays plural. Shorthand only 'a 45° angle'. One shared rule would make 'the 27\" monitor' and 'the 65 W charger' consistent.",
+  "Two areas edit Lexicon.getNumber: money (price style in the '$' branch) and dates (GB years 2001 to 2009). Lexicon.symbols (shorthand's silent ™ and ®), Lexicon.currencies and currencyPlurals (money), and Lexicon.isShoutedWord (Roman R14) are each edited by one area. Land them in one change and re-freeze after.",
+  "Every pass before the lexicon must stay behind `normalizes` (the reference misaki pipeline runs with normalize=false). Measures and phones say so explicitly; money, addresses, titles and shorthand should too.",
+  "I edited no repository files. Linear isn't touched: the parent agent owns FIN-889."
+ ]
+}

@@ -118,7 +118,7 @@ final class AudioOut {
         return out
     }
 
-    private static func trimSilence(_ s: [Float]) -> [Float] {
+    static func trimSilence(_ s: [Float]) -> [Float] {
         let threshold: Float = 0.004
         guard let first = s.firstIndex(where: { abs($0) > threshold }),
               let last = s.lastIndex(where: { abs($0) > threshold })

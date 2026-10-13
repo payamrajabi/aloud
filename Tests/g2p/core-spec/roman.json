@@ -1,0 +1,1045 @@
+{
+ "area": "Roman numerals in safe contexts: monarchs, popes and family suffixes (ordinal, 'the Eighth'), world wars, events and sequels, document parts and classifications (cardinal, 'four'), Roman-numeral years, and Jr./Sr. A Roman reader already ships: it came in with FIN-877 (commit 52f33ff, NEW-R5) and is in the current b06b926 build. So these rules rework that reader rather than add a new one. Everything else stays spelled, and a lone 'I' stays a pronoun unless a narrow, keyword-specific gate passes.",
+ "speech_cases": [
+  {
+   "text": "Louis XIV built Versailles.",
+   "says": "Louis the Fourteenth built Versailles.",
+   "note": "R2-B. Passes today (FIN-877 reader); regression guard"
+  },
+  {
+   "text": "Queen Elizabeth II reigned for seventy years.",
+   "says": "Queen Elizabeth the Second reigned for seventy years.",
+   "note": "R2-A. Passes today"
+  },
+  {
+   "text": "Pope Leo XIV greeted the crowd.",
+   "says": "Pope Leo the Fourteenth greeted the crowd.",
+   "note": "R2-A. Passes today"
+  },
+  {
+   "text": "Pope John Paul II visited Poland.",
+   "says": "Pope John Paul the Second visited Poland.",
+   "note": "R2, two-word papal name. Passes today"
+  },
+  {
+   "text": "King Charles III was crowned at Westminster Abbey.",
+   "says": "King Charles the Third was crowned at Westminster Abbey.",
+   "note": "R2-A. Passes today"
+  },
+  {
+   "text": "Henry VIII's first wife was Catherine.",
+   "says": "Henry the Eighth's first wife was Catherine.",
+   "note": "R2: possessive kept. Passes today"
+  },
+  {
+   "text": "Louis XIV’s court was lavish.",
+   "says": "Louis the Fourteenth’s court was lavish.",
+   "note": "R2: curly possessive. Passes today"
+  },
+  {
+   "text": "Pope John XXIII opened the council.",
+   "says": "Pope John the Twenty-third opened the council.",
+   "note": "R2: compound ordinal. Passes today"
+  },
+  {
+   "text": "Henry V won at Agincourt.",
+   "says": "Henry the Fifth won at Agincourt.",
+   "note": "R2-B single V, lower-case word after it. Passes today"
+  },
+  {
+   "text": "Charles X fled to Britain.",
+   "says": "Charles the Tenth fled to Britain.",
+   "note": "R2-B single X. 'X' is an exact tech-lexicon mark, so the pass must unwrap it after a listed name. Fails today (reads 'ex')"
+  },
+  {
+   "text": "Ivan IV of Russia was feared.",
+   "says": "Ivan the Fourth of Russia was feared.",
+   "note": "R2-B. Passes today"
+  },
+  {
+   "text": "Henry the VIII had six wives.",
+   "says": "Henry the Eighth had six wives.",
+   "note": "R2: an existing 'the' is not doubled. Fails today"
+  },
+  {
+   "text": "Henry VI, Part 2 is rarely staged.",
+   "says": "Henry the Sixth, Part two is rarely staged.",
+   "note": "R2 wins over the keyword rules. Passes today"
+  },
+  {
+   "text": "Elizabeth I's reign was long.",
+   "says": "Elizabeth the First's reign was long.",
+   "note": "R2 + I-gate ('s). Fails today (reads 'eyes')"
+  },
+  {
+   "text": "Elizabeth I of England never married.",
+   "says": "Elizabeth the First of England never married.",
+   "note": "R2 + I-gate ('of'). Fails today"
+  },
+  {
+   "text": "The portrait shows Queen Elizabeth I. It hangs in the Tower.",
+   "says": "The portrait shows Queen Elizabeth the First. It hangs in the Tower.",
+   "note": "R2-A + I-gate: after a regnal title, '. ' + a capital ends the sentence; it isn't a middle initial. Passes today. The drafted R13, which blocks '. Capital' after any name, would regress it"
+  },
+  {
+   "text": "THE REIGN OF HENRY VIII",
+   "says": "THE REIGN OF HENRY THE EIGHTH",
+   "note": "Shouted heading. Fails today: unshout lower-cases HENRY before the reader runs, so the reader never sees a name. The pass must run before unshout (R0)"
+  },
+  {
+   "text": "Edward VIII abdicated to marry Wallis Simpson.",
+   "says": "Edward the Eighth abdicated to marry Wallis Simpson.",
+   "note": "R2-B. Passes today"
+  },
+  {
+   "text": "Carl XVI Gustaf is King of Sweden.",
+   "says": "Carl the Sixteenth Gustaf is King of Sweden.",
+   "note": "R2-B with a capitalised second name after a three-letter numeral. That's allowed: only single letters are blocked before a capitalised word. Passes today"
+  },
+  {
+   "text": "King Harald V of Norway opened the session.",
+   "says": "King Harald the Fifth of Norway opened the session.",
+   "note": "R2-A: single V after a title + name, before 'of'. Passes today"
+  },
+  {
+   "text": "Prince William will one day be William V.",
+   "says": "Prince William will one day be William the Fifth.",
+   "note": "R2-B: single V at the end of the text. Passes today"
+  },
+  {
+   "text": "St. John Paul II was canonised in 2014.",
+   "says": "Saint John Paul the Second was canonised in twenty fourteen.",
+   "note": "R2-A via 'St.'; the Saint rule still applies. Passes today"
+  },
+  {
+   "text": "Thurston Howell III laughed.",
+   "says": "Thurston Howell the Third laughed.",
+   "note": "R2-C. Today MISREAD as 'Howell three': the catch-all reads any capitalised word + numeral as a cardinal"
+  },
+  {
+   "text": "Martin Luther King III spoke at the march.",
+   "says": "Martin Luther King the Third spoke at the march.",
+   "note": "R2-C: King is a surname here. Today MISREAD as 'King three'"
+  },
+  {
+   "text": "John D. Rockefeller IV served in the Senate.",
+   "says": "John D. Rockefeller the Fourth served in the Senate.",
+   "note": "R2-C with a middle initial. Today MISREAD as 'Rockefeller four'. The initial 'D.' stays in says because the rest of the sentence must match the text"
+  },
+  {
+   "text": "Martin Luther King Jr. spoke.",
+   "says": "Martin Luther King Junior spoke.",
+   "note": "R3. US passes today; GB fails (gold 'Jr.' gives ʤˈuːnjə, 'Junior' gives ʤˈuːnɪə)"
+  },
+  {
+   "text": "Ken Griffey Sr. played first base.",
+   "says": "Ken Griffey Senior played first base.",
+   "note": "R3. Fails today: 'Sr.' reads 'S R' ('Sr' without the period already reads Senior)"
+  },
+  {
+   "text": "Cal Ripken Jr played shortstop.",
+   "says": "Cal Ripken Junior played shortstop.",
+   "note": "R3 without the period. US passes today; GB fails (gold 'Jr' gives ʤˈuːnjə)"
+  },
+  {
+   "text": "He fought in World War II.",
+   "says": "He fought in World War Two.",
+   "note": "R1. Passes today"
+  },
+  {
+   "text": "She studies WW2 history.",
+   "says": "She studies World War Two history.",
+   "note": "R1. Passes today"
+  },
+  {
+   "text": "After World War I, borders changed.",
+   "says": "After World War One, borders changed.",
+   "note": "R1. Passes today"
+  },
+  {
+   "text": "World War I was a disaster.",
+   "says": "World War One was a disaster.",
+   "note": "R1(b): title-case 'World War I' always converts. Fails today: 'was' is on the pronoun-follower list, so it reads 'World War eye was'"
+  },
+  {
+   "text": "The World War I centenary was moving.",
+   "says": "The World War One centenary was moving.",
+   "note": "R1: 'the World War I' + noun. Passes today. The drafted exception (after 'the World War', a lower-case word must pass the general I-gate noun list, which lacks 'centenary') would REGRESS it, so the exception needs its own follower list"
+  },
+  {
+   "text": "WWI ended in November.",
+   "says": "World War One ended in November.",
+   "note": "R1. Passes today"
+  },
+  {
+   "text": "Nobody wants World War III.",
+   "says": "Nobody wants World War Three.",
+   "note": "R1. Passes today"
+  },
+  {
+   "text": "Is this the start of WWIII?",
+   "says": "Is this the start of World War Three?",
+   "note": "R1(a). Fails today: the WW rule has no III, so the run is spelled 'W W I I I'"
+  },
+  {
+   "text": "The post-WWII boom lasted decades.",
+   "says": "The post-World War Two boom lasted decades.",
+   "note": "R1 after a hyphen. Passes today"
+  },
+  {
+   "text": "WWII's legacy is complex.",
+   "says": "World War Two's legacy is complex.",
+   "note": "R1 possessive. Passes today"
+  },
+  {
+   "text": "WW II veterans gathered.",
+   "says": "World War Two veterans gathered.",
+   "note": "R1(a): spaced Roman form only, never 'WW 2' (see frozen). Fails today"
+  },
+  {
+   "text": "He fought in World War 2.",
+   "says": "He fought in World War Two.",
+   "note": "Arabic numeral; regression guard. Passes today"
+  },
+  {
+   "text": "WORLD WAR II ENDED IN MAY.",
+   "says": "WORLD WAR TWO ENDED IN MAY.",
+   "note": "R1 shouted. Passes today"
+  },
+  {
+   "text": "Super Bowl LVIII was in Las Vegas.",
+   "says": "Super Bowl fifty-eight was in Las Vegas.",
+   "note": "R4 event keyword. Passes today"
+  },
+  {
+   "text": "Super Bowl XLVIII was a blowout.",
+   "says": "Super Bowl forty-eight was a blowout.",
+   "note": "R4. Passes today"
+  },
+  {
+   "text": "Super Bowl LX was in Santa Clara.",
+   "says": "Super Bowl sixty was in Santa Clara.",
+   "note": "R4: LX is blocked elsewhere as an ambiguous letter pair but allowed after Super Bowl. Passes today"
+  },
+  {
+   "text": "Rocky III is my favourite.",
+   "says": "Rocky three is my favourite.",
+   "note": "R8a. Passes today"
+  },
+  {
+   "text": "Final Fantasy VII came out in Japan first.",
+   "says": "Final Fantasy seven came out in Japan first.",
+   "note": "R8a. Passes today"
+  },
+  {
+   "text": "Frozen II was a huge hit.",
+   "says": "Frozen two was a huge hit.",
+   "note": "R8b general sequel rule. Passes today; an R8 that used only the curated list would REGRESS it"
+  },
+  {
+   "text": "Major League II flopped at the box office.",
+   "says": "Major League two flopped at the box office.",
+   "note": "R8b. Passes today. R2-C as drafted would REGRESS it to 'the Second': 'Major' is an SSA given name, followed by 'League' and II"
+  },
+  {
+   "text": "Duke Nukem II is a classic platformer.",
+   "says": "Duke Nukem two is a classic platformer.",
+   "note": "R2-A must not fire: after Duke/Prince/Princess/Saint the name must be on the given-name list. Today MISREAD as 'Duke Nukem the Second'"
+  },
+  {
+   "text": "WrestleMania XL sold out.",
+   "says": "WrestleMania forty sold out.",
+   "note": "R8a: the 2-to-39 cap misses WrestleMania XL (2024), so allow up to 89 for listed event franchises. Fails today (XL is blocked as a size)"
+  },
+  {
+   "text": "Saudi-backed LIV Golf signed him.",
+   "says": "Saudi-backed Liv Golf signed him.",
+   "note": "The brand is said 'liv'. Today MISREAD as 'fifty-four Golf' (the catch-all fires after a hyphenated capitalised word). The Roman rules only have to stop the number, which the 2-39 cap does. 'liv' itself needs a lexicon entry, so this case passes only once 'LIV Golf' is added"
+  },
+  {
+   "text": "Star Wars: Episode IV came first.",
+   "says": "Star Wars: Episode four came first.",
+   "note": "R4. Passes today"
+  },
+  {
+   "text": "Star Wars: Episode I – The Phantom Menace divided fans.",
+   "says": "Star Wars: Episode one – The Phantom Menace divided fans.",
+   "note": "R4 + I-gate (spaced dash). Passes today"
+  },
+  {
+   "text": "Apollo XI landed on the Moon.",
+   "says": "Apollo eleven landed on the Moon.",
+   "note": "R4. 'Apollo' is a lexicon mark, so the trigger is read through its label. Passes today"
+  },
+  {
+   "text": "Star Trek II: The Wrath of Khan",
+   "says": "Star Trek two: The Wrath of Khan",
+   "note": "R8a/R9. Passes today"
+  },
+  {
+   "text": "Vatican II changed the Mass.",
+   "says": "Vatican two changed the Mass.",
+   "note": "R4. Passes today"
+  },
+  {
+   "text": "The England XI took the field.",
+   "says": "The England eleven took the field.",
+   "note": "R10. Passes today"
+  },
+  {
+   "text": "The England XV beat Wales.",
+   "says": "The England fifteen beat Wales.",
+   "note": "R10 extended to XV after a rugby side from a short list. Passes today via the catch-all. Dropping XV from the general rule (because of Subaru XV) regresses this unless R10 covers it"
+  },
+  {
+   "text": "Who's in the starting XI tonight?",
+   "says": "Who's in the starting eleven tonight?",
+   "note": "R10 after 'starting'. Fails today"
+  },
+  {
+   "text": "He drove a Mk II Jaguar.",
+   "says": "He drove a Mark two Jaguar.",
+   "note": "R4: Mk expands to Mark before a numeral. Fails today (Mk reads 'mək')"
+  },
+  {
+   "text": "He restored a Toyota Supra MkIV.",
+   "says": "He restored a Toyota Supra Mark four.",
+   "note": "R4 with Mk glued to the numeral, as car forums write it. Fails today ('məkˈɪv')"
+  },
+  {
+   "text": "My dad drove a Lincoln Mark VII.",
+   "says": "My dad drove a Lincoln Mark seven.",
+   "note": "R4 must beat R2-C: 'Lincoln' is an SSA given name, but the token before the numeral is the keyword Mark. Passes today"
+  },
+  {
+   "text": "Read Chapter IV tonight.",
+   "says": "Read Chapter four tonight.",
+   "note": "R4. Passes today"
+  },
+  {
+   "text": "Part II begins here.",
+   "says": "Part two begins here.",
+   "note": "R4. Passes today"
+  },
+  {
+   "text": "Act II, Scene ii is the balcony scene.",
+   "says": "Act two, Scene two is the balcony scene.",
+   "note": "R5: lower-case scene number. Fails today"
+  },
+  {
+   "text": "We open at Act I, Scene i.",
+   "says": "We open at Act one, Scene one.",
+   "note": "R5. Fails today"
+  },
+  {
+   "text": "Volume XII is missing from the set.",
+   "says": "Volume twelve is missing from the set.",
+   "note": "R4. Passes today"
+  },
+  {
+   "text": "Book II of the Iliad describes the ships.",
+   "says": "Book two of the Iliad describes the ships.",
+   "note": "R4. Passes today"
+  },
+  {
+   "text": "Title IX protects students.",
+   "says": "Title nine protects students.",
+   "note": "R4. Passes today"
+  },
+  {
+   "text": "Title X funds family planning.",
+   "says": "Title ten funds family planning.",
+   "note": "R4: single X after Title; unwrap the X mark. Fails today"
+  },
+  {
+   "text": "Title IV-E funds foster care.",
+   "says": "Title four-E funds foster care.",
+   "note": "R4 + a lettered sub-part after a hyphen; the hyphen keeps E a letter name. Passes today"
+  },
+  {
+   "text": "Article III of the Constitution created the courts.",
+   "says": "Article three of the Constitution created the courts.",
+   "note": "R4. Passes today"
+  },
+  {
+   "text": "Article I, Section 8 lists the powers.",
+   "says": "Article one, Section eight lists the powers.",
+   "note": "R4 + I-gate (comma). Passes today"
+  },
+  {
+   "text": "Read chapters IV and V.",
+   "says": "Read chapters four and five.",
+   "note": "R4 + R6 list. Fails today (the second item reads 'vee')"
+  },
+  {
+   "text": "Read Chapters I–III before class.",
+   "says": "Read Chapters one to three before class.",
+   "note": "R6 range that starts with I (I-gate: dash + Roman numeral). Fails today"
+  },
+  {
+   "text": "We finished Chapter IV and I loved it.",
+   "says": "We finished Chapter four and I loved it.",
+   "note": "R6 must not continue to a pronoun I after 'and'. Passes today"
+  },
+  {
+   "text": "Parts II–IV cover the war.",
+   "says": "Parts two to four cover the war.",
+   "note": "R6: an en-dash range reads 'to', the stack's range convention. Fails today ('two—I V')"
+  },
+  {
+   "text": "Read Vol. II tonight.",
+   "says": "Read Volume two tonight.",
+   "note": "R4: the abbreviation expands only before a numeral. Fails today"
+  },
+  {
+   "text": "See Ch. IV for the proof.",
+   "says": "See Chapter four for the proof.",
+   "note": "R4. Fails today"
+  },
+  {
+   "text": "The preface runs to page xii.",
+   "says": "The preface runs to page twelve.",
+   "note": "R4: lower case after a document keyword. Fails today"
+  },
+  {
+   "text": "Psalm XXIII is often read at funerals.",
+   "says": "Psalm twenty-three is often read at funerals.",
+   "note": "R4. Passes today"
+  },
+  {
+   "text": "Read Moby-Dick, Chapter CXXXV.",
+   "says": "Read Moby-Dick, Chapter one hundred thirty-five.",
+   "says_gb": "Read Moby-Dick, Chapter one hundred and thirty-five.",
+   "note": "R4 with C (four or more letters). British keeps the 'and'. Fails today"
+  },
+  {
+   "text": "CHAPTER XVIII: THE RETURN",
+   "says": "CHAPTER EIGHTEEN: THE RETURN",
+   "note": "R4 shouted. Fails today: unshout lower-cases XVIII into 'ɛksvˈii'"
+  },
+  {
+   "text": "XIV.",
+   "says": "Fourteen.",
+   "note": "R12 heading line. Fails today. Depends on open question 6"
+  },
+  {
+   "text": "Table I shows the results.",
+   "says": "Table one shows the results.",
+   "note": "R4 + I-gate: a third-person verb ('shows') can't follow the pronoun. IEEE papers number tables in Roman. Passes today; R13 as drafted would REGRESS it"
+  },
+  {
+   "text": "Phase III trials began in May.",
+   "says": "Phase three trials began in May.",
+   "note": "R4. Passes today"
+  },
+  {
+   "text": "Type II diabetes is common.",
+   "says": "Type two diabetes is common.",
+   "note": "R4. Passes today"
+  },
+  {
+   "text": "It's a Class III medical device.",
+   "says": "It's a Class three medical device.",
+   "note": "R4. Passes today"
+  },
+  {
+   "text": "She has Stage IV cancer.",
+   "says": "She has Stage four cancer.",
+   "note": "R4. Passes today"
+  },
+  {
+   "text": "He earned Level II certification.",
+   "says": "He earned Level two certification.",
+   "note": "R4. Passes today"
+  },
+  {
+   "text": "It's a Grade II listed building.",
+   "says": "It's a Grade two listed building.",
+   "note": "R4, UK property listings. Passes today"
+  },
+  {
+   "text": "It's a Grade II* listed building.",
+   "says": "It's a Grade two star listed building.",
+   "note": "R4: '*' right after a Grade numeral reads 'star' (UK listed buildings). Fails today: the star is silent"
+  },
+  {
+   "text": "It was a Phase I/II trial.",
+   "says": "It was a Phase one-two trial.",
+   "note": "R6: a slash joins the numerals with a hyphen. Fails today"
+  },
+  {
+   "text": "Phase II/III results are due.",
+   "says": "Phase two-three results are due.",
+   "note": "R6. Fails today"
+  },
+  {
+   "text": "Type I diabetes is autoimmune.",
+   "says": "Type one diabetes is autoimmune.",
+   "note": "R4 + I-gate. Passes today"
+  },
+  {
+   "text": "Types I and II diabetes differ.",
+   "says": "Types one and two diabetes differ.",
+   "note": "R4 plural keyword + R6. Fails today"
+  },
+  {
+   "text": "Heroin is a Schedule I drug.",
+   "says": "Heroin is a Schedule one drug.",
+   "note": "The I-gate must allow 'drug' after Schedule. Passes today; R13's drafted noun list would REGRESS it"
+  },
+  {
+   "text": "She was treated at a Level I trauma center.",
+   "says": "She was treated at a Level one trauma center.",
+   "note": "The I-gate must allow 'trauma' after Level. Passes today; the drafted R13 would regress it"
+  },
+  {
+   "text": "Stage I breast cancer is very treatable.",
+   "says": "Stage one breast cancer is very treatable.",
+   "note": "The I-gate must allow organ and site words after Stage. Passes today; the drafted R13 would regress it"
+  },
+  {
+   "text": "The agency issued a Class I recall.",
+   "says": "The agency issued a Class one recall.",
+   "note": "The I-gate must allow 'recall' after Class. Passes today; the drafted R13 would regress it"
+  },
+  {
+   "text": "It's a Grade I listed building.",
+   "says": "It's a Grade one listed building.",
+   "note": "The I-gate allows 'listed' only after Grade. Passes today"
+  },
+  {
+   "text": "The rapids here are Class V.",
+   "says": "The rapids here are Class five.",
+   "note": "R4: single V after a title-case keyword. Passes today"
+  },
+  {
+   "text": "Tramadol is a Schedule IV drug.",
+   "says": "Tramadol is a Schedule four drug.",
+   "note": "R4. Passes today"
+  },
+  {
+   "text": "type ii diabetes runs in my family.",
+   "says": "type two diabetes runs in my family.",
+   "note": "R4: all lower case. Fails today"
+  },
+  {
+   "text": "He played Division I football.",
+   "says": "He played Division one football.",
+   "note": "R4 + I-gate. Passes today"
+  },
+  {
+   "text": "Stage IIIA cancer has spread to the lymph nodes.",
+   "says": "Stage three-A cancer has spread to the lymph nodes.",
+   "note": "R7. Fails today"
+  },
+  {
+   "text": "It is certified as a Class IIb medical device.",
+   "says": "It is certified as a Class two-B medical device.",
+   "note": "R7: lower-case sub-letter (EU device classes). Fails today"
+  },
+  {
+   "text": "Factor VIII deficiency causes bleeding.",
+   "says": "Factor eight deficiency causes bleeding.",
+   "note": "Factor (clotting factors) becomes a class keyword. Passes today via the catch-all"
+  },
+  {
+   "text": "Factor V Leiden is an inherited clotting disorder.",
+   "says": "Factor five Leiden is an inherited clotting disorder.",
+   "note": "R4: single V after Factor. Fails today"
+  },
+  {
+   "text": "Copyright MCMLXXXIV Universal Pictures.",
+   "says": "Copyright nineteen eighty-four Universal Pictures.",
+   "note": "R11. Fails today (spelled). Depends on open question 2"
+  },
+  {
+   "text": "The cornerstone reads MDCCLXXVI.",
+   "says": "The cornerstone reads seventeen seventy-six.",
+   "note": "R11. Fails today"
+  },
+  {
+   "text": "© MMXXIV Acme Films",
+   "says": "copyright twenty twenty-four Acme Films",
+   "note": "R11 after ©, which the stack already reads 'copyright'. Fails today"
+  },
+  {
+   "text": "© MMVI Acme Films",
+   "says": "copyright two thousand six Acme Films",
+   "says_gb": "copyright two thousand and six Acme Films",
+   "note": "R11, 2000-2009: US drops the 'and', which matches how the stack reads '2006'; British speech keeps it. Fails today"
+  },
+  {
+   "text": "The foundation stone reads MCMV.",
+   "says": "The foundation stone reads nineteen oh five.",
+   "note": "R11, 1901-1909: write 'oh five' as two words. num2words' 'oh-five' reads ˌOfˈIv and fails the spacing check. Fails today"
+  },
+  {
+   "text": "COPYRIGHT MCMLXXXIV",
+   "says": "COPYRIGHT NINETEEN EIGHTY-FOUR",
+   "note": "R11 shouted. Fails today ('məkmlksɪv')"
+  }
+ ],
+ "frozen_cases": [
+  {
+   "text": "I am here.",
+   "note": "a bare I"
+  },
+  {
+   "text": "I, Robot is a film.",
+   "note": "a bare I before a comma, with no trigger"
+  },
+  {
+   "text": "Henry and I went home.",
+   "note": "I near a monarch name but not next to it"
+  },
+  {
+   "text": "When I met Elizabeth I was nervous.",
+   "note": "pronoun right after a monarch name; a verb follows"
+  },
+  {
+   "text": "After meeting Queen Elizabeth I cried.",
+   "note": "pronoun after a titled monarch: the I-gate must apply after titles too. Today MISREAD 'the first cried'"
+  },
+  {
+   "text": "Like Prince Harry I moved to California.",
+   "note": "pronoun after a title + name. Today MISREAD 'the first moved'"
+  },
+  {
+   "text": "Thanks Henry I owe you one.",
+   "note": "name of the person addressed + pronoun, in chat with no comma"
+  },
+  {
+   "text": "Part I agree with, part I don't.",
+   "note": "pronoun after a capitalised keyword"
+  },
+  {
+   "text": "The Part I Played in History",
+   "note": "title case: pronoun after a keyword. Today MISREAD 'Part one Played'"
+  },
+  {
+   "text": "In Chapter 3 I explain why.",
+   "note": "pronoun after an Arabic chapter number"
+  },
+  {
+   "text": "At the Super Bowl I cried.",
+   "note": "pronoun after an event name. Today MISREAD 'Super Bowl one cried'"
+  },
+  {
+   "text": "In Terminal I typed the command.",
+   "note": "pronoun after the app name Terminal. Today MISREAD 'Terminal one typed'"
+  },
+  {
+   "text": "Mark I disagree with you.",
+   "note": "Mark is the person addressed + pronoun; 'disagree' isn't on today's follower list. Today MISREAD 'Mark one disagree'"
+  },
+  {
+   "text": "Mark I think you're right.",
+   "note": "Mark is the person addressed + pronoun"
+  },
+  {
+   "text": "Type I to insert text at the start of the line.",
+   "note": "imperative 'Type' + the key I (vim). Today MISREAD 'Type one to'"
+  },
+  {
+   "text": "A third world war I fear is coming.",
+   "note": "lower-case 'world war' + pronoun: R1(b) converts a single I without the gate only when 'World War' is capitalised"
+  },
+  {
+   "text": "During the World War I served in France.",
+   "note": "archaic 'the World War' + pronoun (the R1 exception). Today MISREAD 'one served'"
+  },
+  {
+   "text": "WHO AM I?",
+   "note": "shouted pronoun"
+  },
+  {
+   "text": "Series I savings bonds are popular again.",
+   "note": "US 'I bonds': Series is not a keyword. Today MISREAD 'Series one'"
+  },
+  {
+   "text": "Please bring your Form I-9 documents.",
+   "note": "immigration/HR form code. Today MISREAD 'Form one nine'"
+  },
+  {
+   "text": "Take I-95 north to Boston.",
+   "note": "Interstate: '-' + Arabic digits never opens the I-gate"
+  },
+  {
+   "text": "Vitamin C helps your immune system.",
+   "note": "a lone C"
+  },
+  {
+   "text": "Malcolm X spoke in Harlem.",
+   "note": "X after a listed name stays a letter"
+  },
+  {
+   "text": "Version X ships next year.",
+   "note": "Version is not a keyword"
+  },
+  {
+   "text": "Generation X grew up with cable TV.",
+   "note": "Generation is not a keyword"
+  },
+  {
+   "text": "Gen V is a spin-off of The Boys.",
+   "note": "the show is 'Gen vee'. Today MISREAD 'Gen five' ('gen' is on today's noun list)"
+  },
+  {
+   "text": "Professor X leads the team.",
+   "note": "Professor is not an R2 title"
+  },
+  {
+   "text": "Mark X on the map.",
+   "note": "Mark never takes a single X"
+  },
+  {
+   "text": "Tesla's Model X has falcon doors.",
+   "note": "tech-lexicon 'Model X'"
+  },
+  {
+   "text": "The Xbox Series X is out.",
+   "note": "tech-lexicon 'Xbox Series X'"
+  },
+  {
+   "text": "World War Z is a film.",
+   "note": "a letter after World War"
+  },
+  {
+   "text": "The letter V comes next."
+  },
+  {
+   "text": "Plan B is ready."
+  },
+  {
+   "text": "She has a Type A personality.",
+   "note": "a letter after Type"
+  },
+  {
+   "text": "Is it Type C or Type D?",
+   "note": "C and D alone are never numerals"
+  },
+  {
+   "text": "See Appendix B.",
+   "note": "appendix letter"
+  },
+  {
+   "text": "See Appendix C for the data.",
+   "note": "appendix letter C, not a hundred"
+  },
+  {
+   "text": "Park in Lot L near the arena.",
+   "note": "lot letter. Today MISREAD 'Lot fifty'"
+  },
+  {
+   "text": "Our seats are in Section L.",
+   "note": "seating letter after a document keyword. Today MISREAD 'Section fifty'"
+  },
+  {
+   "text": "In Java, class V extends Base.",
+   "note": "code: a single V after a lower-case keyword must not convert (in R4 a single V or X needs a title-case or ALL CAPS keyword)"
+  },
+  {
+   "text": "Henry V. Poor founded the firm.",
+   "note": "middle initial V. Today MISREAD 'Henry the fifth. Poor'"
+  },
+  {
+   "text": "John V. Lindsay was mayor of New York.",
+   "note": "middle initial V. Today MISREAD 'John the fifth.'"
+  },
+  {
+   "text": "Henry L. Stimson ran the War Department.",
+   "note": "middle initial L. Today MISREAD 'Henry the fiftieth.'"
+  },
+  {
+   "text": "John L Smith signed the form.",
+   "note": "middle initial with no period. Today MISREAD 'John the fiftieth Smith'"
+  },
+  {
+   "text": "Contact Mary V Jones for details.",
+   "note": "middle initial with no period. Today MISREAD 'Mary the fifth Jones'"
+  },
+  {
+   "text": "Charles M. Schulz drew Peanuts.",
+   "note": "middle initial M."
+  },
+  {
+   "text": "Roe v. Wade was overturned."
+  },
+  {
+   "text": "He works at DC Comics.",
+   "note": "DC with no trigger"
+  },
+  {
+   "text": "Washington DC is humid in July.",
+   "note": "DC after a capitalised name"
+  },
+  {
+   "text": "Put the CD in the CD player."
+  },
+  {
+   "text": "Do you have this in size XL?",
+   "note": "a size, not forty"
+  },
+  {
+   "text": "Wellbutrin XL is taken once a day.",
+   "note": "extended-release XL after a capitalised drug name"
+  },
+  {
+   "text": "Females have XX chromosomes."
+  },
+  {
+   "text": "Thanks so much! Love, Mary XX",
+   "note": "kisses after a listed name: R2 must never take XX or XXX after a name"
+  },
+  {
+   "text": "See you soon. Love, Mary X",
+   "note": "a single kiss after a listed name at the end of the text: in R2-B a single X needs a lower-case word after it"
+  },
+  {
+   "text": "Pt IV access was lost overnight.",
+   "note": "in clinical notes 'Pt' means patient, so drop Pt/Pt. from R4. Today MISREAD 'Pt four'. (Pt itself reads 'P T'; that's for a medical pack)"
+  },
+  {
+   "text": "Our office is in Charlotte Amalie, St. Thomas VI.",
+   "note": "VI is the US Virgin Islands postal code. Today MISREAD 'Saint Thomas the Sixth'"
+  },
+  {
+   "text": "Start an IV drip now.",
+   "note": "IV as intravenous"
+  },
+  {
+   "text": "Give Ceftriaxone IV daily.",
+   "note": "IV after a capitalised drug name. Today MISREAD 'Ceftriaxone four'"
+  },
+  {
+   "text": "The nurse gave Zofran IV for nausea.",
+   "note": "IV after a brand-name drug. Today MISREAD 'Zofran four for'"
+  },
+  {
+   "text": "Please give John IV fluids before noon.",
+   "note": "clinical IV after a bare listed name: R2-B must not take IV before a clinical noun. Today MISREAD 'John the fourth fluids'"
+  },
+  {
+   "text": "Route:\nIV",
+   "note": "R12 must not read a lone IV line (medication tables) as 'Four'"
+  },
+  {
+   "text": "See you soon!\nXX",
+   "note": "R12 must not read a sign-off of kisses as 'Twenty'"
+  },
+  {
+   "text": "The Subaru XV is a small crossover.",
+   "note": "car model. Today MISREAD 'Subaru fifteen'"
+  },
+  {
+   "text": "I joined WW 2 years ago and lost weight.",
+   "note": "WW (WeightWatchers) + a spaced Arabic number: R1(a) allows a space only before a Roman numeral"
+  },
+  {
+   "text": "Type vi to open the editor.",
+   "note": "the vi editor after 'Type'"
+  },
+  {
+   "text": "Use vi or Vim."
+  },
+  {
+   "text": "Mac OS X was a big change.",
+   "note": "the tech lexicon reads 'ten'"
+  },
+  {
+   "text": "We passed our SOC 2 Type II audit.",
+   "note": "a lexicon span keeps its own reading"
+  },
+  {
+   "text": "Grand Theft Auto VI comes out soon.",
+   "note": "lexicon span"
+  },
+  {
+   "text": "GTA V sold well.",
+   "note": "lexicon span"
+  },
+  {
+   "text": "MiFID II applies in the EU.",
+   "note": "lexicon span"
+  },
+  {
+   "text": "Basel III raised capital rules.",
+   "note": "lexicon span"
+  },
+  {
+   "text": "Jane Smith MD will see you now.",
+   "note": "a degree after a name, not 1500"
+  },
+  {
+   "text": "William Jones MC fought at Ypres.",
+   "note": "MC (Military Cross) after a name"
+  },
+  {
+   "text": "Louis CK did a late set.",
+   "note": "a monarch name followed by something that isn't a numeral"
+  },
+  {
+   "text": "Her MCL was torn.",
+   "note": "a capitalised word before a valid three-letter numeral (1150)"
+  },
+  {
+   "text": "The MCC changed the rules."
+  },
+  {
+   "text": "The DCCC raised more money this quarter.",
+   "note": "a valid four-letter numeral (800) outside R11's 1000-2099 window, and never a keyword numeral"
+  },
+  {
+   "text": "MCMC sampling is slow.",
+   "note": "four numeral letters but not canonical: R11 must use the strict pattern"
+  },
+  {
+   "text": "DCI Barnaby arrived.",
+   "note": "DCI (601)"
+  },
+  {
+   "text": "MIX IT UP!",
+   "note": "shouted MIX"
+  },
+  {
+   "text": "THE CIVIL WAR BEGAN.",
+   "note": "CIVIL is not a valid numeral"
+  },
+  {
+   "text": "Super Bowl Sunday is huge.",
+   "note": "an event keyword followed by a word, not a numeral"
+  },
+  {
+   "text": "Chapter One starts slowly.",
+   "note": "already in words"
+  }
+ ],
+ "rules": [
+  {
+   "name": "R0. Rework the FIN-877 reader rather than add a second pass",
+   "where": "TextNormalizer.readRomanNumerals and readRoman, added in 52f33ff (FIN-877 NEW-R5) and present in the b06b926 build. Move the call out of TextNormalizer.normalize, which runs after unshout, to Phonemizer.phonemize right after custom.mark and before unshout, only when normalizes is on. Replace readRoman's decision logic with R1-R14: the numeralNouns list, the pronounFollowers blocklist and the 'any capitalised word + numeral = cardinal' fallback.",
+   "trigger": "Shared mechanics. (1) A candidate is a canonical numeral `^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$`, non-empty, all one case, with no letter or digit on either side. A following hyphen, possessive or punctuation mark is fine. Today's romanCandidate sees only upper-case I, V, X and L; extend it to lower case (R4, R5) and to C, D and M (R4 with four or more letters, R11). (2) Work on the plain stretches between custom-lexicon marks. When looking back for a trigger, a mark counts as its label, as in readArrows. Unwrap and convert a mark only when its label is X (exact) or vi (case-sensitive) and a trigger comes right before it. Never rewrite any other mark. (3) Write words from NumberWords, never digits. Cardinals go in lower case; ordinals in title case ('the Eighth'). Hyphenate compound tens ('fifty-eight'). Write 'oh five' as two words. Hundreds take no 'and' in US and keep it in GB. Inside a shouted sentence, write every inserted word in capitals. (4) Keep the trigger as written, except that Ch., Vol. and Mk (including glued 'MkIV') expand to Chapter, Volume and Mark before a numeral. (5) Order: R11, R1, R5, R2 with R3, R4 with R6 and R7, R8a, R10, R8b, R9, R12.",
+   "reads_as": "Nothing by itself. It sets scope, order and output format.",
+   "risks": "The FIN-877 reader is live and misreads 24 of the 85 frozen sentences today: the pronoun I after Part, Super Bowl, Terminal, Mark, Type, Series, Form and titled names; single V and L after given names and after Gen, Lot and Section; IV after drug names and Pt; Subaru XV; St. Thomas VI. Keeping its catch-all next to the new rules keeps those errors. Digits as output would hit the fraction and range rules ('Phase 1/2' already reads 'one half') and fail the harness's spacing comparison. Running before custom.mark would break lexicon keys that contain numerals: SOC 2 Type II, MiFID II, Basel III, GTA V, Grand Theft Auto VI, Atlas V, Peak XV, RISC-V, Mac OS X, Model X, Xbox Series X."
+  },
+  {
+   "name": "R1. World wars",
+   "where": "TextNormalizer Roman pass (today: the WW rule in TextNormalizer.rules plus readRoman's 'world war' branch)",
+   "trigger": "(a) Glued and case-sensitive: `(?<![\\p{L}\\p{N}])WW(III|II|I|3|2|1)(?![\\p{L}\\p{N}])`. A space or hyphen is allowed only before II or III ('WW II', 'WW-II'). It is never allowed before an Arabic digit ('I joined WW 2 years ago' is WeightWatchers) or before a lone I ('WW I think'). (b) 'World War' in title case or ALL CAPS, one space, then I, II or III with no letter or digit after it. This always converts, with no pronoun check. Two exceptions apply to a single I. After lower-case 'world war', the I must pass the I-gate ('A third world war I fear'). After 'the World War', it converts only before punctuation or a word from a WWI list: memorial, era, centenary, centennial, armistice, generation, veteran(s), poet(s), poetry, trenches, years, soldier(s), museum, battlefield(s), cemetery, monument, history. That keeps 1920s prose ('During the World War I served in France') as the pronoun.",
+   "reads_as": "'World War One', 'World War Two', 'World War Three'. 'WWII's' becomes 'World War Two's'; 'post-WWII' becomes 'post-World War Two'.",
+   "risks": "Today 'World War I was a disaster' reads 'eye' because 'was' is on the pronoun-follower list, and WWIII is spelled out. The drafted 'the World War I' exception, which sent the next word through the general I-gate noun list, would have regressed 'The World War I centenary', which is right today. WWDC is a lexicon mark and never matches."
+  },
+  {
+   "name": "R2. People: monarchs, popes and family suffixes (ordinal)",
+   "where": "TextNormalizer Roman pass; name lists as static sets (today: regnalNames and regnalTitles)",
+   "trigger": "A, title. After King, Queen, Pope, Emperor, Empress, Tsar, Czar, Tsarina, Kaiser, Sultan, Pharaoh or Shah, any 1 to 3 capitalised name tokens, then the numeral. After Prince, Princess, Duke, Duchess, Grand Duke, Archduke, Saint or St., the name must be on the B list ('Duke Nukem II' is a game). B, bare listed name: the drafted list, with an optional 'the' in between ('Henry the VIII'). C, family suffix: a given name from a curated list, then 1 or 2 capitalised tokens or initials, then II, III or IV. Use the SSA top-1000 names minus those that are also ordinary English words (Major, King, Prince, Duke, Royal, Hunter, Chase, Mark, Will). C does not apply when the token before the numeral is an R4 keyword ('Lincoln Mark VII') or the phrase is on the R8a list. Numerals: upper case, value 2 to 39, two or more letters. Never XX or XXX after a name, because those are kisses ('Love, Mary XX'). Never IV before a clinical noun (fluids, antibiotics, access, line, drip, push, iron, contrast, dose: 'give John IV fluids'). Never VI after St. Thomas, St. John or St. Croix (the US Virgin Islands postal code). Single letters: V or X only when followed by a lower-case word, 'of', 's or ’s, a comma, or sentence-final punctuation. X is also never accepted at the end of the text or a line after a bare name ('Love, Mary X'), and never after Malcolm. A single letter followed by a capitalised word, with or without a period, is a middle initial ('Henry V. Poor', 'John L Smith', 'Mary V Jones'). The exception is after a regnal title, where '. ' + capital ends the sentence ('Queen Elizabeth I. It hangs…'). L, C, D and M are never numerals alone ('Henry L. Stimson'). A single I only through the I-gate (R13), and the gate applies after titles too.",
+   "reads_as": "'the' + NumberWords.ordinal in title case: 'Henry the Eighth', 'Pope John the Twenty-third', 'Thurston Howell the Third', 'Elizabeth the First's'. An existing 'the' is not doubled.",
+   "risks": "Fixes misreadings live today: middle initials read as ordinals (5 frozen cases); a pronoun I after a titled name read as 'the first' (2); 'Duke Nukem the Second'; 'Saint Thomas the Sixth'; 'John the fourth fluids'; family suffixes after unlisted given names read as cardinals ('Howell three', 'King three', 'Rockefeller four'). Accepted misses: 'Charles I was beheaded', 'Charles X Gustav', obscure monarchs who aren't on the list, 'Mary Poppins II'."
+  },
+  {
+   "name": "R3. Jr. and Sr. after a name",
+   "where": "TextNormalizer Roman pass, or the abbreviations section of TextNormalizer.rules",
+   "trigger": "As drafted. 'Jr.', 'Jr', 'Sr.' or 'Sr' right after a capitalised surname. The surname ends a name of two or more capitalised tokens, or is a single surname not followed by a capitalised word. Never at the start of a sentence, and never after a greeting or title word (Dear, Hi, Hello, Thanks, Sister, Mother).",
+   "reads_as": "'Junior' or 'Senior', for both 'Jr.' and 'Jr', so the British voice says ʤˈuːnɪə like 'Junior' does. Keep the period only at the end of the text or line, or before a capitalised word.",
+   "risks": "Today 'Sr.' reads 'S R', and the GB gold entries for both 'Jr.' and 'Jr' give ʤˈuːnjə, so the GB voice fails both Jr cases. 'Sr. Mary' (Sister) belongs to the titles area."
+  },
+  {
+   "name": "R4. Keywords before a numeral: document parts, classifications, events (cardinal)",
+   "where": "TextNormalizer Roman pass",
+   "trigger": "A keyword, then one space or no-break space, then a numeral. Mk can also be glued to it ('MkII', 'MkIV'). Document keywords: Chapter(s), Ch., Part(s), Book(s), Volume(s), Vol., Canto(s), Title(s), Article(s), Section(s), Schedule(s), Annex, Appendix (numerals of two or more letters only), Table(s), Plate, Psalm(s), Amendment, Episode(s), Act(s), Scene(s), page(s), Unit, Lesson, Module. Class keywords: Phase(s), Type(s), Stage(s), Class(es), Level(s), Grade(s), Tier(s), Category, Division, Factor. Event keywords: Super Bowl, Vatican, Apollo, Mark, Mk, Mk. Drop Pt./Pt, because in clinical notes it means patient ('Pt IV access'). Gen, Generation, Version, Model, Series, Form, Lot, Terminal, Step, Room, Gate, Track, Round, Group, Number, Year and the rest of today's extra numeralNouns are not keywords. Numerals: (1) Upper case with two or more letters: 2 to 89 if made only of I, V, X and L; a numeral containing C, D or M needs four or more letters. (2) A single V only after a title-case or ALL CAPS keyword, and not after Mark, Mk or Appendix ('class V extends Base' stays). (3) A single X only after a title-case or ALL CAPS Chapter, Part, Book, Volume, Title, Article, Canto, Psalm, Super Bowl or Apollo. (4) A single I only after a title-case or ALL CAPS keyword, and only if the I-gate passes. (5) C, D, L and M alone: never ('Section L', 'Lot L', 'Appendix C'). (6) Lower case as drafted. After document keywords: i, v and x numerals up to 39 with two or more letters, plus a single v. After class keywords: only ii, iii and iv. After event keywords: never. (7) Grade + numeral + '*' reads '… star'.",
+   "reads_as": "The keyword with abbreviations expanded, then the cardinal: 'Chapter four', 'Mark four', 'Factor eight', 'Factor five Leiden', 'Grade two star', 'Title four-E'. For 100 and up, US 'one hundred thirty-five' and GB 'one hundred and thirty-five'.",
+   "risks": "Fixes misreadings live today: 'Super Bowl one cried', 'Part one Played', 'Terminal one typed', 'Mark one disagree', 'Type one to', 'Series one', 'Form one nine', 'Gen five', 'Lot fifty', 'Section fifty', 'Pt four'. Accepted: 'Super Bowl I was played in 1967' stays 'eye', and 'Mark I tank' is missed."
+  },
+  {
+   "name": "R5. Act and Scene citations",
+   "where": "TextNormalizer Roman pass (before R4)",
+   "trigger": "As drafted: `(Act|ACT|act)\\s+N(,|\\.)?\\s+(Scene|SCENE|scene|Sc\\.|sc\\.)\\s+n`, where both numerals may be upper or lower case, including I and i.",
+   "reads_as": "'Act one, Scene one', 'Act two, Scene two'.",
+   "risks": "This is the only place a lone lower-case i becomes 'one'. The whole citation has to match."
+  },
+  {
+   "name": "R6. Lists and ranges after a converted numeral",
+   "where": "TextNormalizer Roman pass (part of R2, R4 and R8)",
+   "trigger": "After a numeral that was just converted, keep going while the separator is ', ', ' and ', ' or ', ', and ', ' & ', ' to ', ' through ', '–', '-' or '/' and a Roman numeral of the same case follows. An Arabic digit never continues the run ('Form I-9', 'I-95'). In a continuation, a single V or X counts, a single I must pass the I-gate, and C, D, L or M alone never counts. A pronoun after 'and' is not a continuation ('Chapter IV and I loved it').",
+   "reads_as": "'–' and '-' become ' to ' ('Parts two to four'); '/' joins with a hyphen ('Phase one-two'); word separators stay as written ('Types one and two').",
+   "risks": "Low. The output is words, so the fraction rule never sees 'I/II'."
+  },
+  {
+   "name": "R7. Sub-stage letters",
+   "where": "TextNormalizer Roman pass (part of R4)",
+   "trigger": "As drafted: after Stage, Phase, Type, Class or Grade, a numeral from I to IV with one letter a, b, c, A, B or C attached ('IIIA', 'IIb'). Also after a hyphen ('Title IV-E', 'Class I-A').",
+   "reads_as": "Cardinal, a hyphen, then the letter in capitals: 'Stage three-A', 'Class two-B', 'Title four-E'.",
+   "risks": "Low. A glued 'Ia' is never the pronoun."
+  },
+  {
+   "name": "R8. Sequels and titles: a curated list plus a narrow general rule (cardinal)",
+   "where": "TextNormalizer Roman pass (static list + rule)",
+   "trigger": "R8a, curated. Needed for IV, XI, XV, single V or X, and values over 39: Rocky, Rambo, Creed, Superman, Godfather, Star Trek, Final Fantasy, Dragon Quest, Kingdom Hearts, Street Fighter, Mortal Kombat, Diablo, Warcraft, StarCraft, Civilization, Age of Empires, Hearts of Iron, Europa Universalis, Crusader Kings, Dark Souls, Baldur's Gate, Elder Scrolls, Hades, Doom, Quake, Halloween, Psycho, Saturn (V only), WrestleMania (up to LXXXIX). R8b, general. A title-case word followed by an upper-case II, III, VI, VII, VIII, IX or XII to XXXIX. The word must not be a sentence starter, a hyphenated word, a listed given name or a keyword. Never IV, XI, XV, XX, XXX, XL, LI, LV, LX, LIV or a single letter.",
+   "reads_as": "'Rocky three', 'Frozen two', 'Major League two', 'Final Fantasy ten', 'WrestleMania forty'.",
+   "risks": "Today's catch-all reads any capitalised word + numeral as a number. That gets Frozen II, Major League II, Factor VIII and England XV right, but also gives 'Ceftriaxone four', 'Zofran four for', 'Subaru fifteen' and 'fifty-four Golf'. A curated-only R8, as drafted, would lose the good readings; R8b keeps them and drops the bad ones. Residual risk: an unlisted capitalised brand + II/III/VI-XXXIX that isn't a sequel. None common found."
+  },
+  {
+   "name": "R9. Numeral before a colon subtitle (cardinal)",
+   "where": "TextNormalizer Roman pass (after R2 and R8)",
+   "trigger": "As drafted (title-case word + I/V/X numeral of two or more letters from 2 to 39, excluding IV, or a single V, then ':'). Most of these cases are now covered by R8b, so R9 only adds the single V.",
+   "reads_as": "'Star Trek two: The Wrath of Khan', 'Elder Scrolls five: Skyrim'.",
+   "risks": "IV stays excluded ('Vancomycin IV: 1 g'). Lowest value here; it can ship later."
+  },
+  {
+   "name": "R10. Team XI and XV (cardinal)",
+   "where": "TextNormalizer Roman pass (after R2)",
+   "trigger": "XI as drafted: after a title-case word that isn't a monarch trigger, or after starting, first, second, third, playing, best or combined. Not before 'Jinping', and never after an ALL CAPS word. XV only after a rugby side from a short list (England, Scotland, Wales, Ireland, France, Italy, Lions, Barbarians) or after starting, unchanged or matchday.",
+   "reads_as": "'the England eleven', 'the starting eleven', 'the England fifteen'.",
+   "risks": "'Subaru XV' isn't a rugby side, so it stays spelled. 'England XV' is right today only through the catch-all, so without this extension it regresses."
+  },
+  {
+   "name": "R11. Years in Roman numerals",
+   "where": "TextNormalizer Roman pass (first)",
+   "trigger": "As drafted: a standalone upper-case canonical numeral of four or more letters with a value from 1000 to 2099. A '©' may come before it and punctuation after it. Use the strict canonical pattern ('MCMC' is not a numeral), and require the 1000-2099 window ('DCCC' is 800).",
+   "reads_as": "NumberWords.year with the spacing the stack uses: 'nineteen eighty-four', 'seventeen seventy-six', 'nineteen oh five' (two words, not num2words' 'oh-five'). 2000-2009: US 'two thousand six', GB 'two thousand and six'.",
+   "risks": "No canonical numeral of four or more letters is a word or a lexicon key. The output's spacing must match the says side, or the harness fails it."
+  },
+  {
+   "name": "R12. A heading line that is only a numeral",
+   "where": "TextNormalizer Roman pass (anchorsMatchLines)",
+   "trigger": "As drafted (`^[ \\t]*(N)[.:]?[ \\t]*$`, where N uses I, V and X only, two or more letters, value 2 to 39), excluding IV, XI, XX and XXX.",
+   "reads_as": "'XIV.' becomes 'Fourteen.'",
+   "risks": "A lone 'IV' line in a medication table ('Route:\\nIV') and 'XX' kisses on their own line would otherwise read 'Four' and 'Twenty'. A lone 'I.' line stays 'eye'."
+  },
+  {
+   "name": "R13. The I-gate (when a lone I can be a numeral)",
+   "where": "TextNormalizer helper used by R1, R2, R4 and R6",
+   "trigger": "A standalone upper-case I, already right after a trigger, is a numeral only if what follows it is one of these: (1) Punctuation or structure: end of text or line; , ; : ) ] ! ?; '.' (but after a bare name, '. ' + a capitalised word is a middle initial; after a regnal title it ends the sentence); 's or ’s; ' of '; ' ('; a spaced ' – ' or ' — '; '/', '-' or '–' + a Roman numeral (never an Arabic digit); ' and ', ' or ', ' & ', ' to ' or ' through ' + a Roman numeral. (2) A third-person verb, which the pronoun can't take: shows, lists, covers, describes, summarizes, summarises, presents, contains, includes, gives, explains, introduces, outlines, compares, reports, provides, establishes, begins, ends, deals, focuses, discusses, examines, defines. (3) A follower word for that keyword. Phase: trial(s), study, studies, clinical. Type: diabetes, diabetic, error(s), collagen, hypersensitivity, supernova(e). Stage: cancer, disease, tumor, tumour, breast, lung, colon, colorectal, prostate, ovarian, cervical, skin, melanoma, lymphoma, hypertension. Class: recall(s), device(s), obesity. Level: trauma, certification. Grade: listed. Schedule: drug(s), substance(s), narcotic(s). Title: funding, funds, school(s), program(s). Division: school(s), college(s), athlete(s), football, basketball, program(s), team(s). The keyword or name before the I must be in title case or ALL CAPS. With no trigger, I is never a numeral.",
+   "reads_as": "'one' after keywords; 'the First' after names.",
+   "risks": "The drafted gate used one noun list for every keyword and blocked '. Capital' after any name. That would have regressed six readings that are right today: Schedule I drug, Level I trauma center, Stage I breast cancer, Class I recall, Table I shows, and 'Queen Elizabeth I. It…'. Keyword-specific followers keep those without opening the pronoun cases ('In Table I listed…' stays a pronoun, because 'listed' is allowed only after Grade). Accepted misses: 'Charles I was beheaded', 'Part I begins', 'Super Bowl I was played'."
+  },
+  {
+   "name": "R14. Don't lower-case untriggered numerals in shouted text",
+   "where": "Lexicon.swift, isShoutedWord",
+   "trigger": "As drafted: return false for a canonical Roman numeral of two or more letters whose lower-case form isn't a gold word.",
+   "reads_as": "A numeral in a shouted sentence with no trigger is spelled letter by letter, as in mixed-case text. Today 'CHAPTER XVIII' reads ɛksvˈii and 'COPYRIGHT MCMLXXXIV' reads məkmlksɪv.",
+   "risks": "None found. MIX and DIV are gold words and still lower-case; CIVIL, LIVID, VIVID and DIM are not numerals."
+  }
+ ],
+ "open_questions": [
+  "1. A lone 'I' as a number. Recommend yes, gated, but with keyword-specific followers (R13) rather than one noun list. Today's reader already reads I as 'one' after any title-case keyword unless a verb from a short list follows. That gives correct readings ('Schedule I drug', 'Table I shows') and also the misreadings in the frozen set ('Super Bowl I cried', 'Mark I disagree', 'Terminal I typed', 'Form I-9', 'Series I bonds'). The gate here keeps the first group and drops the second.",
+  "2. Roman-numeral years with no context ('Copyright MCMLXXXIV', '© MMXXIV', a foundation stone reading 'MCMV'). Recommend yes, for four or more letters between 1000 and 2099. Decide the British form for 2000-2009: natural British speech says 'two thousand and six', but the stack reads the digits '2006' without the 'and' in both voices. The set expects the 'and' for GB; drop that says_gb if you want Roman and Arabic years to match.",
+  "3. Sequels (changed recommendation). The draft proposed a curated list only, which would REGRESS readings that are right today ('Frozen two', 'Major League two', 'Factor eight', 'England fifteen'). Recommend a curated list for the risky numerals (IV, XI, XV, single letters, values over 39) plus a narrow general rule for II, III, VI-IX and XII-XXXIX after a title-case word (R8b). That still blocks 'Ceftriaxone four', 'Subaru fifteen' and 'fifty-four Golf'.",
+  "4. Lower-case list markers '(i)', '(ii)' in legal text. Recommend: not in Core for now. Note that '(ii)' currently reads 'ee' (ˈii), which is wrong. I didn't freeze it, so a Law pack or a later Core rule can change it freely.",
+  "5. Team numbers. Recommend 'eleven' for XI as drafted, and 'fifteen' for XV only after a rugby side from a short list (England, Scotland, Wales, Ireland, France, Italy, Lions). Without that, 'The England XV', which is right today, regresses when XV leaves the general rule.",
+  "6. A line that is only a numeral ('XIV.'). Recommend yes for II to XXXIX, excluding IV, XI, XX and XXX: a lone 'IV' line appears in medication tables, and 'XX' on its own line is a sign-off of kisses.",
+  "7. New: 'the World War I' in 1920s prose ('During the World War I served in France') against modern 'the World War I centenary/generation/armistice'. Recommend converting after 'the World War' only before punctuation or a WWI noun list (R1), so old prose keeps the pronoun. Alternatively, always convert, and accept that the rare archaic sentence reads 'one'.",
+  "8. New: 'LIV Golf' needs a lexicon entry for 'liv'. The Roman rules can only stop it reading 'fifty-four'. Should the speech case stay (it fails until someone adds the entry), or move to the tech or sports lexicon's tests?"
+ ],
+ "review_notes": [
+  "The draft's premise is out of date. A Roman reader already ships: it came in with FIN-877 (commit 52f33ff, NEW-R5, merged into this branch) and is in the current build (.build/release rebuilt at b06b926, after the draft was captured on 1070ec4). On today's build, 69 of the 115 speech cases pass in both voices (140 of 230 voice runs). The new reader also misreads 4 of the draft's own frozen sentences: 'The Part I Played in History', 'At the Super Bowl I cried.', 'Give Ceftriaxone IV daily.' and 'Henry V. Poor founded the firm.'. I re-scoped R0 as a rework of readRoman/readRomanNumerals and added a status to every speech note ('Passes today', 'Fails today' or 'Today MISREAD').",
+  "Important when freezing: 24 frozen cases are misread by today's build (each is marked 'Today MISREAD'). A plain --freeze would lock those bugs in. Use the ready-made file /private/tmp/claude-501/-Users-claremccormack-Sites-readaloud--claude-worktrees-app-monetization-payments-2fe731/d937b965-6e6d-417c-ba43-5dde5061f672/scratchpad/roman-review/roman3-freeze.json, which stores their correct readings. For those 24 I took the reading with the reader blocked (a no-break space before the numeral); for the 4 captured earlier, that matches the pre-FIN-877 phonemes exactly, in both voices. On that file today: 48 of 170 frozen runs fail (those 24 × 2 voices, all expected), and 90 of 230 speech runs fail. The same set without phonemes is roman3.json, with notes in roman3.notes.json; build.py, freeze.py and check.py regenerate everything. All are in that folder.",
+  "Speech set: 80 → 115 cases. Kept the draft's correct cases. Removed 11 redundant ones I had drafted while reviewing. Added cases that real text hits: WWIII, 'World War I was…', 'the World War I centenary', Super Bowl LX, Frozen II, Major League II, Duke Nukem II, WrestleMania XL, LIV Golf, the England XV, the starting XI, Mk glued to the numeral (MkIV), Lincoln Mark VII, Title IV-E, Chapters I–III, a pronoun after 'Chapter IV and', Grade I/II/II* listed buildings, Class IIb devices, Factor VIII and Factor V Leiden, Schedule I drug, Level I trauma center, Stage I breast cancer, Class I recall, Table I shows, 'Queen Elizabeth I. It…', Harald V of Norway, William V at the end of the text, St. John Paul II, Carl XVI Gustaf, Cal Ripken Jr, and © MMVI and MCMV for the year forms. That's over the 40-80 target. About 20 of them pass today and guard readings that the draft's curated-list R8, the general I-gate noun list and R2-C would have broken.",
+  "Frozen set: 59 → 85 cases, 33 of them new near-misses. Pronoun I after Terminal, Mark, Type, a titled name, or lower-case 'world war'. Middle initials with and without a period (John L Smith, Mary V Jones, Henry L. Stimson, John V. Lindsay). Codes: Form I-9, I-95, Series I bonds. Letters: Gen V, Lot L, Section L, 'class V extends'. Clinical: Pt IV, Zofran IV, John IV fluids. Kisses: Mary XX, Mary X, XX on its own line. A lone IV line, Subaru XV, St. Thomas VI, 'WW 2 years' (WeightWatchers), DCCC, MCMC. Each one breaks at least one drafted rule as written, and 23 of them are also misread today.",
+  "Says checks: I ran every 'says' through --phonemize in both voices. None gave ❓. Edits: replaced 'Canon EOS R5' (a digit in says), 'The FDA issued…' (an abbreviation), 'Margrethe' (the stack reads mˈɑɹɡɹɪθ) and 'Cortina' (kɔɹtˈInə). Kept 'John D.' in the Rockefeller case, because the rest of the sentence must match the text and no rule touches a lone D. Removed years like 1936, 1993 and 1999 from texts: the stack reads Arabic years with a space ('thirty six'), while the hyphenated words in says join into one token, so the harness's spacing check fails on spacing alone. Years such as 2013, 2014 and 1917 have no compound tens and are fine.",
+  "Corrected expectations and rules: R1 'the World War I' exception, R2 middle initials and kisses, R2-A titles, R2-C regressions, R4's single V/X and Pt, R8 curated-only, R12, R13 (details in rules). 'Super Bowl LX is in Santa Clara' changed to 'was' (it was played in February 2026).",
+  "Dropped frozen cases that would lock in wrong readings: '(i) … (ii)' ('(ii)' reads 'ee') and 'Louis L'Amour' ('Amour' is misread). Moved 'LIV Golf' to a speech case, because its letter reading isn't how people say it. Also dropped the low-value 'My CV is attached.', 'The CI pipeline failed.', 'Gen X and Gen Z', 'Brand X', 'The X-Men', 'Class A drugs' and 'DIM THE LIGHTS'.",
+  "Stack misreadings found in passing, outside this area: 'hemophilia A' reads the article 'a'; 'Pt' reads 'P T'; '(ii)' reads 'ee'; 'Grade II*' drops the star; GB 'portrait' reads pˈɔːtɹAt. The draft's earlier finding still stands: 'marched' reads 'mar-kayd'.",
+  "Linear: I didn't touch it. The parent owns FIN-889."
+ ]
+}

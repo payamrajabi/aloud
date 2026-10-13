@@ -4,19 +4,38 @@ import CoreAudio
 import CSherpaOnnx
 
 /// Developer-only command-line modes used to test the app without the shortcut.
-///   --say "text" [--voice af_heart] [--out file.wav]   synthesize only, print speed
-///   --read "text" | --read-file path                    open the player and read
+///   --say "text" | --say-file path [--voice af_heart] [--out file.wav] [--show-phonemes]   synthesize what the player
+///         would say, with its pauses and speeds; print each chunk. "\n" in --say text is a line break.
+///         [--format markdown|html|plain] (default: .html/.htm files as HTML, else detected as the player does)
+///         [--flat] the 1.6.0 reading instead (every line a paragraph, no structure), for before/after listening
+///   --read "text" | --read-file path                    open the player and read (.html/.htm files as HTML)
 ///   --mute                                              silence output
 ///   --trace                                             print player state twice a second
 ///   --download-voice                                    download the voice model and exit
+///   --phonemize [--gb] [--raw] [--explain] < lines.txt   print each line's phonemes (--explain: and each word's source)
+///   --g2p-test Tests/g2p/regression.json [--verbose]    pronunciation regression suite
+///   --speech-test Tests/g2p/core-readings.json [--verbose] [--freeze]   reading tests written as plain words
+///   --test-narration Tests/narration/cases.json [--verbose]   what the player shows and says for Markdown, HTML, plain text
+///   --bench-lexicon [lexicon.json] [--article f.txt]    custom lexicon load and matching times (made-up 10,000 entries by default)
+///   --correct-dictation "text" [--lexicon f.json]       what dictation would type, and why (reads lines from stdin without text)
+///   --test-dictation Tests/dictation/regression.json    dictation corrector regression suite
+///   --test-tidy Tests/dictation/tidy.json               clean-up fallback (rule-based tidy-up) regression suite
+///   --packs finance,medicine                            switch field packs on for any of the above (and --say, --read)
+///   --render-phonemes "ðə kwˈɪk" [--voice v] [--out f.wav] [--raw]   synthesize exact phonemes
 ///   --clean "text" | --clean-file path [--piece-words 30]  tidy dictation text as if it arrived in pieces, print timing
 ///   --test-gestures                                     check modifier tap / double-tap / hold detection and exit
 ///   --check-license KEY                                 check a license or activation link and exit
 ///   ALOUD_TRIAL_START=2026-10-01                        pretend the free trial started then
+///   --slow-pill                                         play the on-screen pill's changes ten times slower
+///   --no-paste                                          print what dictation would type instead of typing it
+///   --dead-mic                                          drop all microphone audio (dictation should give up and say so)
+///   --slow-mic-setup                                    make the microphone's background setup take 15 s longer
 ///   READALOUD_MODELS_DIR=/some/folder                   use a different models folder (test fresh installs)
 ///   --script "2:seek=30;4:pause;5:play;8:open;9:snapshot=/tmp/p.png;10:quit"
 enum DebugScript {
     static let args = CommandLine.arguments
+    /// A regression suite: these read only the app's own lexicons, never the user's folder.
+    static let isTestRun = ["--g2p-test", "--speech-test", "--test-dictation", "--test-narration"].contains { args.contains($0) }
 
     static func value(_ flag: String) -> String? {
         guard let i = args.firstIndex(of: flag), i + 1 < args.count else { return nil }
@@ -24,7 +43,7 @@ enum DebugScript {
     }
 
     static var isActive: Bool {
-        ["--read", "--read-file", "--script", "--say"].contains { args.contains($0) }
+        ["--read", "--read-file", "--script", "--say", "--say-file"].contains { args.contains($0) }
     }
 
     /// Loads any audio file as 16 kHz mono floats.
@@ -97,6 +116,10 @@ enum DebugScript {
             if let last = pieces.last { cleaner.add(last) }
             cleaner.finish { result in
                 print(String(format: "STOP → clean text in %.2fs\n\n%@", Date().timeIntervalSince(t0), result ?? "(nil: model failed)"))
+                if args.contains("--typed"), let r = DictationController.result(heard: text, tidied: result, fixTerms: true) {
+                    // What dictation would paste, and what "Copy Last Dictation as Heard" would copy.
+                    print("\ntyped: \(r.typed)\nas heard: \(r.heard)")
+                }
                 cleaner.shutDown()
                 exit(0)
             }
@@ -188,39 +211,110 @@ enum DebugScript {
         if args.contains("--download-voice") {
             // Downloads the voice the way the app does. Point READALOUD_MODELS_DIR at a scratch folder to test a fresh install.
             let dir = KokoroEngine.downloadedModelDirectory
-            if FileManager.default.fileExists(atPath: dir.appendingPathComponent("model.onnx").path) {
+            if KokoroEngine.isComplete(dir) {
                 print("voice already at \(dir.path)")
                 exit(0)
             }
-            print("downloading \(KokoroEngine.downloadURL.absoluteString) into \(ModelStore.root.path)"); fflush(stdout)
+            print("downloading \(KokoroEngine.files.map(\.name).joined(separator: ", ")) into \(dir.path)"); fflush(stdout)
             let downloader = ModelDownloader()
             let t0 = Date()
             var shown = -1
-            downloader.download(KokoroEngine.downloadURL, into: ModelStore.root) { p in
+            downloader.download(files: KokoroEngine.files, into: dir) { p in
                 let step = Int(p * 10)
                 if step != shown { shown = step; print("  \(step * 10)%"); fflush(stdout) }
             } completion: { error in
-                let ok = FileManager.default.fileExists(atPath: dir.appendingPathComponent("model.onnx").path)
+                let ok = KokoroEngine.isComplete(dir)
                 print(String(format: "done in %.0fs, error: %@, installed: %@", Date().timeIntervalSince(t0), error?.localizedDescription ?? "none", ok ? "yes" : "no"))
                 exit(error == nil && ok ? 0 : 1)
             }
             RunLoop.main.run()
         }
-        guard let text = value("--say") else { return }
+        if args.contains("--tidy-voice") {
+            // What launch does to voices from older versions (use READALOUD_MODELS_DIR to try it safely).
+            KokoroEngine.removeUnusedFiles()
+            exit(0)
+        }
+        if args.contains("--phonemize") {
+            // Reads lines from stdin and prints "line<TAB>phonemes". --gb for British,
+            // --raw to skip text normalization and custom lexicons (the reference pipeline),
+            // --explain to add which source read each word.
+            exit(G2PTest.phonemizeLines(british: args.contains("--gb"), raw: args.contains("--raw"), explain: args.contains("--explain")))
+        }
+        if let path = value("--g2p-test") {
+            exit(G2PTest.run(path: path, verbose: args.contains("--verbose")))
+        }
+        if let path = value("--speech-test") {
+            exit(SpeechTest.run(path: path, verbose: args.contains("--verbose"), freeze: args.contains("--freeze")))
+        }
+        if let path = value("--test-narration") {
+            exit(NarrationTest.run(path: path, verbose: args.contains("--verbose")))
+        }
+        if args.contains("--correct-dictation") {
+            let text = value("--correct-dictation").flatMap { $0.hasPrefix("--") ? nil : $0 }
+            exit(DictationTest.correct(text, lexicon: value("--lexicon")))
+        }
+        if let path = value("--test-dictation") {
+            exit(DictationTest.run(path: path, lexicon: value("--lexicon"), verbose: args.contains("--verbose")))
+        }
+        if let path = value("--test-tidy") {
+            exit(DictationTest.runTidy(path: path, verbose: args.contains("--verbose")))
+        }
+        if args.contains("--bench-lexicon") {
+            let path = value("--bench-lexicon").flatMap { $0.hasPrefix("--") ? nil : $0 }
+            exit(LexiconBench.run(path: path, articlePath: value("--article")))
+        }
+        if let ps = value("--render-phonemes") {
+            // Synthesizes a phoneme string as is (for comparing audio with another implementation).
+            do {
+                let engine = try KokoroEngine()
+                let voice = Voice.with(key: value("--voice"))
+                let ids = engine.tokenIDs(ps)
+                let samples = engine.generate(phonemes: ps, voice: voice, scaleSilence: !args.contains("--raw"))
+                print("tokens: \(ids.count), samples: \(samples.count), seconds: \(String(format: "%.3f", Double(samples.count) / 24_000))")
+                if let out = value("--out") { SherpaOnnxWriteWave(samples, Int32(samples.count), Int32(KokoroEngine.sampleRate), out) }
+                exit(0)
+            } catch {
+                print("error: \(error.localizedDescription)")
+                exit(1)
+            }
+        }
+        guard var text = value("--say") ?? value("--say-file").flatMap({ try? String(contentsOfFile: $0, encoding: .utf8) }) else { return }
+        if value("--say") != nil { text = text.replacingOccurrences(of: "\\n", with: "\n") }
         let voice = Voice.with(key: value("--voice"))
+        let chunks: [Chunk]
+        if args.contains("--flat") {
+            print("format: 1.6.0 (flat)")
+            chunks = TextPrep.legacyChunks(for: TextPrep.clean(text))
+        } else {
+            let ext = value("--say-file").map { URL(fileURLWithPath: $0).pathExtension.lowercased() } ?? ""
+            let given = value("--format")
+            guard let format = given.map(NarrationFormat.init(rawValue:)) ?? (ext == "html" || ext == "htm" ? .html : .auto) else {
+                print("error: --format is markdown, html or plain")
+                exit(1)
+            }
+            print("format: \(format.rawValue)")
+            chunks = NarrationPlanner.plan(NarrationDoc.parse(text, format: format)).chunks
+        }
+        // Unlike the player, every chunk is generated, even text in another script: the
+        // runtime suite checks here that the voice gives no near-silent audio for it.
         do {
             print("model: \(KokoroEngine.modelDirectory.path)")
             var t0 = Date()
-            let engine = try KokoroEngine(accent: voice.accent)
+            let engine = try KokoroEngine()
+            engine.prepare(voice.accent)
             print(String(format: "model load: %.2fs", Date().timeIntervalSince(t0)))
             var all: [Float] = []
-            for chunk in TextPrep.chunks(for: TextPrep.clean(text)) {
+            for chunk in chunks {
                 t0 = Date()
-                let samples = engine.generate(chunk.speech, speaker: voice.id)
+                if args.contains("--show-phonemes") { print("   /\(engine.phonemes(chunk.speech, accent: voice.accent))/") }
+                // Trimmed and followed by its pause, as the player plays it.
+                let samples = AudioOut.trimSilence(engine.generate(chunk.speech, voice: voice, speed: chunk.speed))
                 let elapsed = Date().timeIntervalSince(t0)
                 let secs = Double(samples.count) / Double(KokoroEngine.sampleRate)
-                print(String(format: "%.2fs audio in %.2fs (%.1fx real time): %@", secs, elapsed, secs / elapsed, chunk.speech))
+                print(String(format: "%.2fs audio in %.2fs (%.1fx real time)  speed %.2f  pause %.2f: %@",
+                             secs, elapsed, secs / elapsed, chunk.speed, chunk.pauseAfter, chunk.speech))
                 all += samples
+                all += [Float](repeating: 0, count: Int(chunk.pauseAfter * Double(KokoroEngine.sampleRate)))
             }
             if let out = value("--out") {
                 SherpaOnnxWriteWave(all, Int32(all.count), Int32(KokoroEngine.sampleRate), out)
@@ -237,8 +331,12 @@ enum DebugScript {
         if args.contains("--mute") { model.isMuted = true }
         if args.contains("--dark") { NSApp.appearance = NSAppearance(named: .darkAqua) }
         var text = value("--read")
-        if let path = value("--read-file") { text = try? String(contentsOfFile: path, encoding: .utf8) }
-        if let text { model.load(text) }
+        var isHTML = false
+        if let path = value("--read-file") {
+            text = try? String(contentsOfFile: path, encoding: .utf8)
+            isHTML = ["html", "htm"].contains(URL(fileURLWithPath: path).pathExtension.lowercased())
+        }
+        if let text { model.load(text, html: isHTML ? text : nil) }
         if args.contains("--trace") {
             Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
                 print(String(format: "[%5.1f] ", Date().timeIntervalSince(start)) + model.debugDescription)
@@ -284,14 +382,27 @@ enum DebugScript {
             app.menuNeedsUpdate(menu)
             print(menu.items.map { $0.isSeparatorItem ? "—" : $0.title }.joined(separator: " | "))
         case "dictate": app.dictationController.toggle()
-        case "hud":
+        case "killmic": app.dictationController.debugStopMicrophone()
+        case "hud":  // hud=armed, recording, transcribing, downloading, message, longmessage, finding, reading, hint or idle
             let states: [String: DictationController.State] = [
-                "recording": .recording, "transcribing": .transcribing, "downloading": .downloading(0.42),
-                "message": .message("Dictation is ready. Press right ⌥ to start."),
+                "armed": .recording, "recording": .recording, "transcribing": .transcribing, "downloading": .downloading(0.42),
+                "message": .message("Dictation is ready. Tap right ⌥ to start."),
+                "longmessage": .message("Microphone access is off. Turn it on in System Settings → Privacy & Security → Microphone."),
             ]
-            app.dictationController.debugSet(states[arg] ?? .idle)
+            app.dictationController.debugSet(states[arg] ?? .idle, provisional: arg == "armed")
+            let phases: [String: ReaderPill.Phase] = [
+                "finding": .finding, "reading": .controls, "hint": .hint("Select some text to read aloud."),
+            ]
+            app.pill?.reader.show(phases[arg] ?? .hidden)
         case "hudshot":
-            if let view = app.dictationHUD?.panel.contentView { snapshot(view, to: arg) }
+            if let view = app.pill?.panel.contentView { snapshot(view, to: arg) }
+        case "hudscreen":  // the pill as it is on screen, mid-animation included (without blocking it)
+            if let number = app.pill?.panel.windowNumber {
+                let capture = Process()
+                capture.executableURL = URL(fileURLWithPath: "/usr/sbin/screencapture")
+                capture.arguments = ["-o", "-x", "-l", String(number), arg]
+                try? capture.run()
+            }
         case "settings": app.showSettings()
         case "license":  // license=KEY (or an activation link) stores it; license= removes it
             if arg.isEmpty { Licensing.shared.removeLicense() } else { Licensing.shared.activate(arg) }
@@ -350,8 +461,38 @@ enum DebugScript {
         case "devices":
             for d in AudioDevices.scan() { print("   \(d.hasInput ? "in " : "   ")\(d.hasOutput ? "out" : "   ")  \(d.name)  [\(d.uid)]") }
             print("   preferred output: \(AudioDevices.preferredDevice(.output)?.name ?? "none"), input: \(AudioDevices.preferredDevice(.input)?.name ?? "none")")
+        case "miccheck":  // miccheck=N: record 2 s N times, as dictation does; miccheck=N:kill also stops the engine mid-way
+            micCheckRecorder.prepare { micCheck(trials: Int(arg.split(separator: ":").first ?? "") ?? 10, action: arg, model: model) }
         case "quit": NSApp.terminate(nil)
         default: print("unknown action \(action)")
+        }
+    }
+
+    /// Starts the microphone the way dictation does (pausing reading first, resuming after) and
+    /// reports how much of each 2-second recording actually arrived.
+    private static let micCheckRecorder = Recorder()  // one for the whole run, like the app's
+    private static func micCheck(trials: Int, action: String, model: PlayerModel, done: Int = 0, failed: Int = 0) {
+        guard done < trials else {
+            print("   miccheck: \(failed) of \(trials) recordings lost the microphone"); fflush(stdout)
+            return
+        }
+        let resume = model.isPlaying
+        if resume { model.pause() }
+        let recorder = micCheckRecorder
+        do { try recorder.start() } catch { print("   miccheck \(done + 1): couldn't start: \(error)") }
+        // miccheck=N:kill also stops the engine behind the recorder's back halfway through.
+        if action.hasSuffix(":kill") {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { recorder.debugStopEngine() }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + (action.hasSuffix(":kill") ? 4 : 2)) {
+            let seconds = Double(recorder.stop().count) / Double(ParakeetEngine.sampleRate)
+            let lost = seconds < (action.hasSuffix(":kill") ? 2.0 : 1.5)
+            print(String(format: "   miccheck %d: %.2fs captured, %d restarts%@", done + 1, seconds, recorder.totalRestarts,
+                         lost ? "  << LOST" : "")); fflush(stdout)
+            if resume { model.play() }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                micCheck(trials: trials, action: action, model: model, done: done + 1, failed: failed + (lost ? 1 : 0))
+            }
         }
     }
 

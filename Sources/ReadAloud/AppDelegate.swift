@@ -13,7 +13,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
     private let settingsMenu = NSMenu()
     private var nowPlaying: NowPlaying?
     private lazy var dictation = DictationController(player: model)
-    private(set) var dictationHUD: DictationHUD?
+    private(set) var pill: OnScreenPill?
     private var observers: Set<AnyCancellable> = []
     private var updater: SPUStandardUpdaterController?
     /// A newer version Sparkle found on its daily check, until the person deals with it.
@@ -25,7 +25,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
         _ = Licensing.shared  // before "didWelcome" is set below, so it can tell new installs from early users
         setUpStatusItem()
         nowPlaying = NowPlaying(model: model)
-        dictationHUD = DictationHUD(controller: dictation)
+        pill = OnScreenPill(dictation: dictation, player: model)
         // A key combination pauses on a second press, like before; a modifier tap only starts or resumes.
         dictation.onRead = { [weak self] in self?.readSelection(pausing: ShortcutAction.read.binding?.modifierKey == nil) }
         dictation.start()
@@ -78,6 +78,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
         enableLoginItemOnFirstLaunch()
         moveLoginItemIfRenamed(force: !cleanup.trashed.isEmpty)
         if cleanup.migratedVoice { model.preload() }
+        // Clear out what interrupted downloads left in the models folder. (The old voice's
+        // eSpeak NG files stay: Aloud 1.5 needs them if someone goes back to it.)
+        ModelStore.removeAbandonedDownloads()
         // Fetch the voice soon after first launch so it's usually ready by the first read
         // (unless it was removed in Settings; then it downloads when someone next reads).
         guard !UserDefaults.standard.bool(forKey: PlayerModel.voiceRemovedKey) else { return }
@@ -161,22 +164,29 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
             SelectionReader.requestAccess()
             return
         }
-        // Reads in the background; the player only opens from the menu bar icon.
-        SelectionReader.read { [weak self] text in
+        let pill = self.pill?.reader
+        pill?.show(.finding)
+        // Reads in the background, with controls in the on-screen pill; the player only opens from the menu bar icon.
+        SelectionReader.read(current: model.sourceText) { [weak self] read in
             guard let self else { return }
-            let selection = text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            let selection = read?.text.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
             let current = self.model.sourceText.trimmingCharacters(in: .whitespacesAndNewlines)
             if !selection.isEmpty && !(selection == current && self.model.hasSession) {
-                // The voice was removed (or never finished downloading): ask before fetching 330 MB.
+                // The voice was removed (or never finished downloading): ask before fetching 355 MB.
                 if !KokoroEngine.isModelInstalled, !self.model.isDownloadingVoice,
-                   !DownloadPrompt.confirm(model: "the voice", size: "330 MB", feature: "Reading aloud") { return }
-                self.model.load(selection)
-                // Show what's happening when reading can't start right away.
-                if (self.model.message != nil && !self.model.hasSession) || self.model.isDownloadingVoice { self.showPlayer() }
-            } else if self.model.hasSession {
+                   !DownloadPrompt.confirm(model: "the voice", size: KokoroEngine.downloadSize, feature: "Reading aloud") {
+                    pill?.show(.hidden)
+                    return
+                }
+                self.model.load(selection, html: read?.html)
+                pill?.show(self.model.hasSession ? .controls : .hint(self.model.message ?? "There's nothing to read in that selection."))
+                // Show the voice's download progress when reading has to wait for it.
+                if self.model.isDownloadingVoice { self.showPlayer() }
+            } else if self.model.hasSession, !selection.isEmpty || !self.model.isAtEnd {
                 pausing ? self.model.togglePlay() : self.model.play()
+                pill?.show(.controls)
             } else {
-                NSSound.beep()
+                pill?.show(.hint("Select some text to read aloud."))
             }
         }
     }
@@ -317,6 +327,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
         let copyLast = NSMenuItem(title: "Copy Last Dictation", action: dictation.lastTranscript == nil ? nil : #selector(copyLastDictation), keyEquivalent: "")
         copyLast.target = self
         menu.addItem(copyLast)
+        // The words before tech terms were fixed, for when a fix was wrong ("phishing" for fishing).
+        let copyHeard = NSMenuItem(title: "Copy Last Dictation as Heard",
+                                   action: dictation.lastDictationWasFixed ? #selector(copyLastDictationAsHeard) : nil, keyEquivalent: "")
+        copyHeard.target = self
+        menu.addItem(copyHeard)
         menu.addItem(.separator())
 
         let settingsItem = NSMenuItem(title: "Settings…", action: #selector(showSettings), keyEquivalent: ",")
@@ -369,6 +384,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
     @objc private func enterLicense() { Licensing.shared.promptForLicense() }
 
     @objc private func copyLastDictation() { dictation.copyLastTranscript() }
+
+    @objc private func copyLastDictationAsHeard() { dictation.copyLastHeard() }
 
     var dictationController: DictationController { dictation }
 
