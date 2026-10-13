@@ -6,6 +6,15 @@
     <description>Updates for Aloud</description>
     <language>en</language>
     <item>
+      <title>Aloud 1.7.0</title>
+      <pubDate>Tue, 13 Oct 2026 21:12:24 GMT</pubDate>
+      <sparkle:version>211</sparkle:version>
+      <sparkle:shortVersionString>1.7.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[<p>Aloud now reads the shape of what you select: headings, paragraphs, lists and quotes each get their own pauses and pace, and no formatting symbols are read out, including from the Claude app and browsers. It also reads money, dates, units, addresses and over 2,800 first names more naturally, and dictation clean-up keeps your exact wording.</p>]]></description>
+      <enclosure url="https://aloudformac.com/releases/v1.7.0/Aloud.dmg" length="20682222" type="application/octet-stream" sparkle:edSignature="NmwaXie0OHbzGojCPq9KQPFH1q0Pw7t00iaBkR4T1ZHJFV4zqa3Mu2NuF5r7y8VytfBdCuGol3MLHFHWAPlDCA=="/>
+    </item>
+    <item>
       <title>Aloud 1.6.2</title>
       <pubDate>Fri, 09 Oct 2026 05:46:56 GMT</pubDate>
       <sparkle:version>111</sparkle:version>
