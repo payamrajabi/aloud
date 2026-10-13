@@ -133,8 +133,9 @@ final class DictationController: ObservableObject {
         default: return
         }
         guard provisional else { return begin(pushToTalk: false) }
-        // Start listening at once, but leave anything that needs a word with the person until it's confirmed.
-        let ready = ParakeetEngine.isInstalled && SelectionReader.isTrusted
+        // Start listening at once, but leave anything that needs a word with the person until it's confirmed
+        // (an ended free week included: begin() explains it once the tap is confirmed).
+        let ready = Licensing.shared.isUnlocked && ParakeetEngine.isInstalled && SelectionReader.isTrusted
             && (Self.dryRun || AVCaptureDevice.authorizationStatus(for: .audio) == .authorized)
         if ready { startRecording(pushToTalk: false, provisional: true) } else { startWhenConfirmed = true }
     }
@@ -172,6 +173,7 @@ final class DictationController: ObservableObject {
     // MARK: - Recording
 
     private func begin(pushToTalk: Bool) {
+        guard Licensing.shared.allowUse() else { return }
         guard ParakeetEngine.isInstalled else {
             // Already on its way (first launch): show progress. Otherwise ask before fetching 480 MB.
             if downloader.isRunning || DownloadPrompt.confirm(model: "dictation", size: "480 MB", feature: "Dictation") {
