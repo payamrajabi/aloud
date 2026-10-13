@@ -5,9 +5,9 @@ import Foundation
 ///
 ///     [ { "word": "Kubernetes", "match": "case-insensitive", "us": "kˌubəɹnˈɛTiz", "gb": "kˌuːbənˈɛtiːz" } ]
 ///
-/// `match` is "case-sensitive" (exact casing), "case-insensitive" (any casing), "exact"
-/// (exact casing, no suffixes) or "name" (exact casing, possessive endings only: "Payam's",
-/// never "Thi" + s for "This"). `gb` is optional; British voices use `us` when
+/// `match` is "case-sensitive" (exact casing), "case-insensitive" (any casing),
+/// "exact" (exact casing, no suffixes), or "name" (exact casing, possessives only).
+/// `gb` is optional; British voices use `us` when
 /// it's missing. `unit` and `caps_word` limit where a key applies (below); other fields
 /// are ignored here (`LexiconEntry` describes the dictation fields). Phonemes are in the
 /// final form Kokoro reads (misaki's symbols, US flaps written T).
@@ -47,7 +47,6 @@ public final class CustomLexicon {
         let folded: [UInt32]
         let caseSensitive: Bool
         let allowSuffix: Bool
-        /// Only possessive endings ('s, ’s, ', ’): a name's entry.
         let possessiveOnly: Bool
         let unit: Bool
         let capsWord: Bool

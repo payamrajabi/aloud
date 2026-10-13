@@ -35,7 +35,8 @@ public struct LexiconEntry {
     }
 
     public var word: String
-    /// "case-sensitive", "case-insensitive" or "exact" (case-sensitive, no plural/possessive endings).
+    /// "case-sensitive", "case-insensitive", "exact" (no suffixes), or "name"
+    /// (exact casing with possessive endings only).
     public var match: String
     public var us: String
     public var gb: String?
@@ -77,9 +78,6 @@ public struct LexiconEntry {
     /// anything else (including unknown values) matches any casing.
     public var isCaseSensitive: Bool { match == "case-sensitive" || match == "exact" || match == "name" }
     public var isExact: Bool { match == "exact" }
-    /// A person's name: its own casing, and a possessive ending ("Payam's") but never a plural
-    /// one. With the plural endings a short name took over other words: "Thi" read "This" as
-    /// "Thi" plus s, "Andrea" read "Andreas", "Venu" read "Venus".
     public var isName: Bool { match == "name" }
     public var isEvidence: Bool { evidence != false }
     public var isUnit: Bool { unit == true }

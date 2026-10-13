@@ -5,10 +5,10 @@ This folder holds the names pack's sources: a ranked list of about 100,000 given
 (`ledger.tsv`, `coverage.json`, `spotcheck.tsv`), and the researched readings
 (`names.source.json`) that `Lexicons/names.json` ships.
 
-**Phase 4 (assembly): 4,726 names researched, 2,854 corrections shipped.** The research batches n0001 to
+**Phase 4 (assembly): 4,726 names researched, 2,853 corrections shipped.** The research batches n0001 to
 n0031 (ranks 1 to 4,988) and p0001 (105 Persian names, which win over an n-batch for the same
 name) are assembled by `tools/assemble.py` into `Lexicons/names.json` (pack id `names`, always
-on, case-sensitive, pronunciation only: `dictation: never`): 2,854 corrected names. It holds back
+on, exact-case with possessive endings only, pronunciation only: `dictation: never`): 2,853 corrected names. It holds back
 the corrected names that would change ordinary text (Core abbreviations: Jun, Thu; ordinary words
 that start sentences: Fanny, Axel, Dino, Tamer, Lino, Ze, Bento, Dolma, Muni; the place Port St.
 Lucie) and logs why in `names.source.json` ("dropped"), with every researched name's evidence,
@@ -17,8 +17,13 @@ disposition, alternatives, batch and its reading before and after the pack. The 
 both when it runs again. Where a tech-list entry has a name's spelling, the name wins:
 pronunciation-only tech entries said "like the name" were removed (Hugo, Anton, Jules, Vera,
 Catalina, Ola, Sina; `names.source.json` "decisions"), acronyms split by casing (Pir/PIR,
-Gui/GUI: a case-sensitive key is tried first), and Sui keeps the tech reading for now
-(`../decisions/conflicts.json`). Tests: `Tests/g2p/regression.json` (names lexicon cases) and
+Gui/GUI: a case-sensitive key is tried first, `../decisions/conflicts.json`), and Sui is held
+back by the owner's decision: it reads as the blockchain, SWEE, from the tech list. Readings
+settled after research are in `assemble.py`'s `READING_DECISIONS`, with the research reading kept
+beside them in `names.source.json`: Payam is PAH-yuhm (pˈɑjˌʌm, GB pˈɑːjˌʌm), option E on the
+owner's listening page (2026-10-09), because the researched pæjˈɑm sounded like "PAY-yahm"
+(Kokoro pulls the 'cat' vowel towards "ay" before the y glide); Rayan's British reading takes
+the same open ɑː before the glide, as Shayan, Khashayar and Katayoun already do. Tests: `Tests/g2p/regression.json` (names lexicon cases) and
 `Tests/g2p/names-negatives.json` (ordinary sentences frozen before the pack).
 
 **Phase 3 (research) continues.** `NAMES-GUIDE.md` is the research brief;

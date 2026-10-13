@@ -2215,7 +2215,7 @@ rank	name	us	gb	us_sentence	gb_sentence	sentence_differs	source	source_sentence	
 2214	Yifei	jˈifˌA	jˈiːfˌA				guesser					latin	other		guesser-reading	corrected
 2215	Wenwen	wˈɛnwˌɛn	wˈɛnwˌɛn				guesser					latin	other		guesser-reading	corrected
 2216	Weiping	wˈipɪŋ	wˈiːpɪŋ				guesser					latin	other		guesser-reading	corrected
-2217	Sui	swˈi	swˈiː				lexicon		tech:term			latin	other		lexicon-term-reading	corrected
+2217	Sui	swˈi	swˈiː				lexicon		tech:term			latin	other		lexicon-term-reading	corrected-held-back
 2218	Shuyi	ʃˈuji	ʃˈuːji				guesser					latin	other		guesser-reading	corrected
 2219	Xueqin	zˈukɪn	zˈuːkɪn				guesser					latin	other		guesser-reading	corrected
 2220	Lizhu	lˈɪzu	lˈɪzu				guesser					latin	other		guesser-reading	corrected

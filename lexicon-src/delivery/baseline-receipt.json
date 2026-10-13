@@ -1,0 +1,77 @@
+{
+  "before": {
+    "Lexicons/names.json": "1f632909bf74adfec25f433a435e1e25c72d71107bf597969849d2173422cb8a",
+    "Lexicons/tech-lexicon.json": "aa49bdac55d07e26ea9777bd2e22263ac0a0ea7fe49fc2dcff782386fbb138d9"
+  },
+  "build_id": "869ac451b2d356a4609cdeda48578252f64b8d9cd2cd1ddc2d04f805227c9788",
+  "coverage": {
+    "names": {
+      "all_researched_dispositions": {
+        "already-correct": 1484,
+        "corrected-held": 13,
+        "corrected-shipped": 2853,
+        "not-a-name": 4,
+        "protect-word": 319,
+        "unresolved": 53
+      },
+      "existing_special_candidates_outside_ranks": 76,
+      "existing_special_corrections_outside_ranks": 72,
+      "listening": "No new listening exercise performed; recorded evidence preserved, not independently re-listened.",
+      "ranked_candidates_in_scope": 5000,
+      "ranked_candidates_with_research": 4650,
+      "ranked_candidates_without_research": 350,
+      "ranked_dispositions": {
+        "already-correct": 1480,
+        "corrected-held": 13,
+        "corrected-shipped": 2781,
+        "not-a-name": 4,
+        "protect-word": 319,
+        "unresolved": 53
+      }
+    }
+  },
+  "entry_counts": {
+    "names": 2853,
+    "tech": 9981
+  },
+  "inputs": {
+    "Lexicons/irish-names.json": "c9b1498f885ca339cf3aeac06fe81e341eb4c2c3318f3f7569a39b8ec5b1f1ef",
+    "lexicon-src/decisions/case-clashes.json": "dd0d7e4c00e151be4d902a8592a37f4bd583bc7bdff4a24130d9a02706f41044",
+    "lexicon-src/decisions/conflicts.json": "538c8caf92eb05f5cd5709e2b6153fe40627110fafdfbfae26cd7e1f4fe7e77d",
+    "lexicon-src/decisions/developer-tools.json": "ba79177288e6a6a67632a7787f3d26de8317d917c2ab2c1856473ef3663ecbc4",
+    "lexicon-src/decisions/disputed.json": "ab1dfd8aa7792440c63ab12375fc97e8fb02b9a4a57f86c13e2bdcb0bc948c6b",
+    "lexicon-src/decisions/merge-report.json": "aba9535e51bfefc2c033d0d5e36f1135492dfa4ba6230aba24a479929a6ed754",
+    "lexicon-src/decisions/ordinary-variants.json": "20ff7bac73e3f9fb14cfea2d3d6ed35c312fb91ec4f7b660b6b466a035c2d9aa",
+    "lexicon-src/decisions/overrides.json": "96904d564b4f9a4222c2071688560e8ac7a9531d960b342a56a1fd5820006c29",
+    "lexicon-src/decisions/strict-variant-review.json": "765f4e393e13ab23a57dd02bb314de28479b2242db3ef3723b2638d2bde6bffb",
+    "lexicon-src/delivery/names-runtime.decisions.json": "1839c111532e53f3ff4adf7f98ae44615ced2e7d19f095389a4a0da6fd8eba56",
+    "lexicon-src/delivery/registry.json": "f014ce210f681c0850cd98b616929dc50d1956c775d463792681d99fa23c0d16",
+    "lexicon-src/delivery/tech-runtime.decisions.json": "9110ee204e6c4831a7c42037ce57c24db166aeed79c204f49e312a79565a5d28",
+    "lexicon-src/names/coverage.json": "576c46b2f7f6f30e6c8463672de68f01a7a588fa28ea876c4fde667e31635a68",
+    "lexicon-src/names/ledger.tsv": "1d352b2bbd96b78f797d068c366baaa422517fe9cbb842e9e543615fcf7973e4",
+    "lexicon-src/names/manifest.tsv": "5cb61fa4ac827d8c12b42dcc3c0ae5eb4a6a62cab70de19d05bb71df2ffecb38",
+    "lexicon-src/names/names.source.json": "bf139d14730d1d845987a365bf929e0d74391f3249cbb0de5f449bee3f511e1d",
+    "lexicon-src/names/sources.lock.json": "69969bc28bb329e673e6725f2eca4e8bf47370601e1c5de7b43235a2e2502564",
+    "lexicon-src/names/tools/assemble.py": "d68bbcf58ab53c2ff24b1fbbe7771e9528b367bbb1c4a54eacc02b0428dffebd",
+    "lexicon-src/tech-lexicon-10k.source.json": "862e4f97dc803f4e07e435829c0233f7d59adba1fd56536f80ce85705e0363ef",
+    "lexicon-src/tools/build_runtime.py": "b47c21e623d987ff4eddb7af0e6730e134458e72f7cc3fe6a85a6719f3de3d50",
+    "lexicon-src/tools/check_packs.py": "d30ccaa13043248c33e966535baa3fb9acf3467b47773ed540666e1ede61140f",
+    "lexicon-src/tools/vocab.json": "e74a2222b3b2a5b33390071f418e4a88e335d67aa5028f5caa6ad7248be82621"
+  },
+  "outputs": {
+    "Lexicons/names.json": "1f632909bf74adfec25f433a435e1e25c72d71107bf597969849d2173422cb8a",
+    "Lexicons/tech-lexicon.json": "aa49bdac55d07e26ea9777bd2e22263ac0a0ea7fe49fc2dcff782386fbb138d9"
+  },
+  "preserved_peers": {
+    "Lexicons/irish-names.json": "c9b1498f885ca339cf3aeac06fe81e341eb4c2c3318f3f7569a39b8ec5b1f1ef"
+  },
+  "recovery": "recover --out THIS_STAGE restores the before snapshots; source evidence is never modified",
+  "schema": 1,
+  "status": "validated; not installed or publicly released",
+  "validation": [
+    "3 files (irish-names, names, tech), 12892 spellings, 2 clashes, 2 listed decisions",
+    "NOTE: GUI: listed; split by casing: names reads \"Gui\"; tech reads any other casing (names Gui [name] /ɡˈi/; tech GUI [case-insensitive] /ɡˈui/)",
+    "NOTE: PIR: listed; split by casing: names reads \"Pir\"; tech reads any other casing (names Pir [name] /pˈɪɹ/; tech PIR [case-insensitive] /pˌiˌIˈɑɹ/)",
+    "OK"
+  ]
+}

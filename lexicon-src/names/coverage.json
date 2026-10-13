@@ -868,11 +868,11 @@
   }
  },
  "by_disposition": {
-  "corrected": 2839,
+  "corrected": 2838,
   "already-correct": 1483,
   "unaudited": 95186,
   "protect-word": 319,
-  "corrected-held-back": 12,
+  "corrected-held-back": 13,
   "unresolved": 53,
   "not-a-name": 4,
   "covered": 104
@@ -999,7 +999,7 @@
   }
  },
  "research": {
-  "about": "Phase 4 (assembly): the researched names (n-batches for the top ranks, p0001 for Persian names) and what the pack does with them. 'Handled' means read as intended now (already correct, or corrected and shipped), or decided on purpose (protect-word, not-a-name). Names not yet researched and names in other scripts (unsupported) are not handled.",
+  "about": "Phase 4 (assembly): the researched names (n-batches for the top ranks, p0001 for Persian names) and what the pack does with them. 'Handled' means read as intended now (already correct, or corrected and shipped), or decided on purpose (protect-word, not-a-name, or held back by an owner decision such as Sui). Names not yet researched and names in other scripts (unsupported) are not handled.",
   "batches": [
    "n0001",
    "n0002",
@@ -1037,8 +1037,8 @@
   "totals": {
    "audited": 4726,
    "already correct": 1484,
-   "corrected and shipped": 2854,
-   "corrected, held back": 12,
+   "corrected and shipped": 2853,
+   "corrected, held back": 13,
    "unresolved": 53,
    "protect-word": 319,
    "not-a-name": 4,
@@ -1060,11 +1060,10 @@
   "held back, by reason": {
    "core-abbreviation": 2,
    "ordinary-word": 9,
+   "owner-decision": 1,
    "place-or-brand": 1
   },
-  "shipped but not read as written": [
-   "Sui"
-  ],
+  "shipped but not read as written": [],
   "by_rank_tier": {
    "1-1000": {
     "audited": 945,
@@ -1079,8 +1078,8 @@
    "1001-2500": {
     "audited": 1411,
     "already correct": 464,
-    "corrected and shipped": 820,
-    "corrected, held back": 6,
+    "corrected and shipped": 819,
+    "corrected, held back": 7,
     "unresolved": 14,
     "protect-word": 106,
     "not-a-name": 1,
@@ -1171,8 +1170,8 @@
    "Chinese/multiple languages": {
     "audited": 159,
     "already correct": 23,
-    "corrected and shipped": 123,
-    "corrected, held back": 1,
+    "corrected and shipped": 122,
+    "corrected, held back": 2,
     "unresolved": 0,
     "protect-word": 12,
     "not-a-name": 0,
@@ -1533,8 +1532,8 @@
    "Mandarin Chinese": {
     "audited": 556,
     "already correct": 49,
-    "corrected and shipped": 484,
-    "corrected, held back": 1,
+    "corrected and shipped": 483,
+    "corrected, held back": 2,
     "unresolved": 0,
     "protect-word": 22,
     "not-a-name": 0,

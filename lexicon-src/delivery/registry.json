@@ -1,0 +1,52 @@
+{
+  "conflicts": "lexicon-src/decisions/conflicts.json",
+  "packs": [
+    {
+      "decisions": "lexicon-src/delivery/tech-runtime.decisions.json",
+      "id": "tech",
+      "kind": "tech",
+      "runtime": "Lexicons/tech-lexicon.json",
+      "source": "lexicon-src/tech-lexicon-10k.source.json",
+      "tags": [
+        "tech",
+        "design",
+        "business"
+      ]
+    },
+    {
+      "decisions": "lexicon-src/delivery/names-runtime.decisions.json",
+      "evidence": [
+        "lexicon-src/names/manifest.tsv",
+        "lexicon-src/names/ledger.tsv",
+        "lexicon-src/names/coverage.json",
+        "lexicon-src/names/sources.lock.json",
+        "lexicon-src/names/tools/assemble.py"
+      ],
+      "id": "names",
+      "kind": "names",
+      "manifest": "lexicon-src/names/manifest.tsv",
+      "runtime": "Lexicons/names.json",
+      "source": "lexicon-src/names/names.source.json",
+      "tags": [
+        "names",
+        "region",
+        "culture"
+      ]
+    }
+  ],
+  "preserve": [
+    "Lexicons/irish-names.json"
+  ],
+  "safety_decisions": [
+    "lexicon-src/decisions/case-clashes.json",
+    "lexicon-src/decisions/conflicts.json",
+    "lexicon-src/decisions/developer-tools.json",
+    "lexicon-src/decisions/disputed.json",
+    "lexicon-src/decisions/merge-report.json",
+    "lexicon-src/decisions/ordinary-variants.json",
+    "lexicon-src/decisions/overrides.json",
+    "lexicon-src/decisions/strict-variant-review.json"
+  ],
+  "schema": 1,
+  "scope": "FIN-888: existing approved material only; no research, fetch, corpus expansion or publication"
+}

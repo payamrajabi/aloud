@@ -142,7 +142,7 @@ Nothing else: no `e o a x r g ɾ ɐ ʔ`, no tie bars, no tone marks.
 |---|---|---|
 | a (Spanish, Italian, Arabic) stressed | `ɑ` / GB `ɑː` | Ahmad |
 | a unstressed, final -a | `ə` | Maria |
-| æ (Persian a) | `æ` / GB `a` | Payam |
+| æ (Persian a) | `æ` / GB `a`; before a y glide `ɑ` / GB `ɑː` (Kokoro pulls `æj` and `aj` to "ay") | Babak; Payam, Shayan |
 | e, eː | `A` (open syllable), `ɛ` (closed) | Jesús `hAsˈus`, Fernando `fɛɹnˈɑndO` |
 | ɛ | `ɛ` | Michele (Italian) |
 | final unstressed -e (Italian) | `A` | Daniele `dænjˈɛlA` |
@@ -185,7 +185,10 @@ penultimate in English (Haruki `həɹˈuki`).
 - **Payam** (Persian; today pˈAəm, "PAY-um", guessed). Wiktionary پیام: Iranian [pʰæ.jɒ́ːm],
   final stress. æ stays (GB `a`); Persian â [ɒː] has no English match, English "ah" is the usual
   approximation; stress moves from before `j` to before the vowel: US `pæjˈɑm`, GB `pajˈɑːm`,
-  "pah-YAHM". `corrected`, high.
+  "pah-YAHM". `corrected`, high. **Listening result (2026-10-09):** Payam heard `pæjˈɑm` as
+  "PAY-yahm": before the y glide Kokoro turns æ (GB a) into "ay". He chose PAH-yuhm, US
+  `pˈɑjˌʌm`, GB `pˈɑːjˌʌm` (`tools/assemble.py` READING_DECISIONS). Write an open `ɑ` / GB `ɑː`
+  for an a before j (Shayan `ʃɑjˈɑn`); a real ey diphthong stays `A` (Keyvan `kAvˈɑn`).
 - **Mohammed** (English spelling of the Arabic name; usage english; today mOhˈæmɪd, CMUdict).
   Wiktionary gives /məˈhæməd/ and /mʊəˈhɑːməd/: today's reading differs only in unstressed vowels,
   so it is `already-correct` (leave `us` and `gb` empty; the checker fills in today's).
@@ -218,8 +221,10 @@ will". Where `word_freq` is `rare` and the word is archaic or technical while th
 `notes`.
 
 ## Matching
-- An entry matches its exact, case-sensitive spelling: the capitalised name only. "Rose" never
-  touches "rose", and "ROSE" in all caps is left alone.
+- An entry matches its exact, case-sensitive spelling and a possessive ending (`'s`, `’s`,
+  `'`, `’`) only. The capitalised name "Rose" never touches "rose", and "ROSE" in all caps
+  is left alone. A short name cannot take a plural suffix from an ordinary word: "Thi"
+  must not change "This", nor "Venu" change "Venus".
 - Diacritic and transliteration variants are separate names, each researched for its own bearers:
   Jesús and Jesus, Zoë and Zoe, Muhammad, Mohammed, Mohamed and Muḥammad. One entry per input
   row, spelled exactly as the row spells it.
