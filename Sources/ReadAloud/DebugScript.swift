@@ -8,6 +8,7 @@ import CSherpaOnnx
 ///         would say, with its pauses and speeds; print each chunk. "\n" in --say text is a line break.
 ///         [--format markdown|html|plain] (default: .html/.htm files as HTML, else detected as the player does)
 ///         [--flat] the 1.6.0 reading instead (every line a paragraph, no structure), for before/after listening
+///         [--rules-only] without the heteronym referee (it runs, as in the player, when the clean-up model is downloaded)
 ///   --read "text" | --read-file path                    open the player and read (.html/.htm files as HTML)
 ///   --mute                                              silence output
 ///   --trace                                             print player state twice a second
@@ -15,6 +16,8 @@ import CSherpaOnnx
 ///   --phonemize [--gb] [--raw] [--explain] < lines.txt   print each line's phonemes (--explain: and each word's source)
 ///   --g2p-test Tests/g2p/regression.json [--verbose]    pronunciation regression suite
 ///   --speech-test Tests/g2p/core-readings.json [--verbose] [--freeze]   reading tests written as plain words
+///   --heteronym-test Tests/heteronyms/heldout.json [--rules-only] [--gb] [--with-cleanup] [--out f.json] [--verbose]   how heteronyms
+///         are read, with the referee (the clean-up model) unless --rules-only; prints the score, misses and timings
 ///   --test-narration Tests/narration/cases.json [--verbose]   what the player shows and says for Markdown, HTML, plain text
 ///   --bench-lexicon [lexicon.json] [--article f.txt]    custom lexicon load and matching times (made-up 10,000 entries by default)
 ///   --correct-dictation "text" [--lexicon f.json]       what dictation would type, and why (reads lines from stdin without text)
@@ -33,7 +36,7 @@ import CSherpaOnnx
 enum DebugScript {
     static let args = CommandLine.arguments
     /// A regression suite: these read only the app's own lexicons, never the user's folder.
-    static let isTestRun = ["--g2p-test", "--speech-test", "--test-dictation", "--test-narration"].contains { args.contains($0) }
+    static let isTestRun = ["--g2p-test", "--speech-test", "--test-dictation", "--test-narration", "--heteronym-test"].contains { args.contains($0) }
 
     static func value(_ flag: String) -> String? {
         guard let i = args.firstIndex(of: flag), i + 1 < args.count else { return nil }
@@ -238,6 +241,10 @@ enum DebugScript {
         if let path = value("--speech-test") {
             exit(SpeechTest.run(path: path, verbose: args.contains("--verbose"), freeze: args.contains("--freeze")))
         }
+        if let path = value("--heteronym-test") {
+            exit(HeteronymTest.run(path: path, rulesOnly: args.contains("--rules-only"), british: args.contains("--gb"),
+                                   withCleanup: args.contains("--with-cleanup"), out: value("--out"), verbose: args.contains("--verbose")))
+        }
         if let path = value("--test-narration") {
             exit(NarrationTest.run(path: path, verbose: args.contains("--verbose")))
         }
@@ -296,11 +303,20 @@ enum DebugScript {
             engine.prepare(voice.accent)
             print(String(format: "model load: %.2fs", Date().timeIntervalSince(t0)))
             var all: [Float] = []
-            for chunk in chunks {
+            let referee = !args.contains("--rules-only") && HeteronymReferee.isAvailable
+            let queries = referee ? HeteronymReferee.queries(for: chunks.map(\.speech)) : []
+            if referee { print("heteronyms: rules + referee") }
+            for (i, chunk) in chunks.enumerated() {
                 t0 = Date()
-                if args.contains("--show-phonemes") { print("   /\(engine.phonemes(chunk.speech, accent: voice.accent))/") }
+                // As the player does (Synthesizer), with every answer waited for.
+                var speech = chunk.speech
+                if referee, HeteronymReferee.mentions(speech), let answers = HeteronymReferee.shared.answersNow(for: queries[i]) {
+                    speech = HeteronymReferee.pin(speech, answers: answers, explained: engine.explain(speech, accent: voice.accent),
+                                                  british: voice.accent == .british).text
+                }
+                if args.contains("--show-phonemes") { print("   /\(engine.phonemes(speech, accent: voice.accent))/") }
                 // Trimmed and followed by its pause, as the player plays it.
-                let samples = AudioOut.trimSilence(engine.generate(chunk.speech, voice: voice, speed: chunk.speed))
+                let samples = AudioOut.trimSilence(engine.generate(speech, voice: voice, speed: chunk.speed))
                 let elapsed = Date().timeIntervalSince(t0)
                 let secs = Double(samples.count) / Double(KokoroEngine.sampleRate)
                 print(String(format: "%.2fs audio in %.2fs (%.1fx real time)  speed %.2f  pause %.2f: %@",
@@ -312,6 +328,7 @@ enum DebugScript {
                 SherpaOnnxWriteWave(all, Int32(all.count), Int32(KokoroEngine.sampleRate), out)
                 print("wrote \(out)")
             }
+            if referee { HeteronymReferee.shared.shutDown() }
             exit(0)
         } catch {
             print("error: \(error.localizedDescription)")

@@ -226,6 +226,11 @@ final class KokoroEngine {
         phonemizer(accent).phonemize(text)
     }
 
+    /// Each word of `text` as read, with its phonemes (`Phonemizer.explain`).
+    func explain(_ text: String, accent: Accent) -> [(word: String, phonemes: String, source: String)] {
+        phonemizer(accent).explain(text)
+    }
+
     /// Whether phonemes have anything to say. The phonemizer drops what it can't read, so
     /// text in another script comes back empty or as bare punctuation, which the model
     /// would turn into a moment of near-silence.

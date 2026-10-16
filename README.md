@@ -13,6 +13,11 @@ A small Mac menu-bar app that reads and writes for you, entirely on your Mac.
   [llama.cpp](https://github.com/ggml-org/llama.cpp), tidies dictation while you talk:
   punctuation and paragraphs from what you said rather than where you paused, and no
   ums, stutters or false starts. It keeps your words and never answers what you dictate.
+  When Aloud reads, the same model also picks how heteronyms are said ("I read it
+  yesterday" vs "I read every night", bass the fish vs bass the guitar): Aloud's grammar
+  rules decide, and the model overrules them only when it's at least 70% sure. It runs
+  ahead of the voice and never holds up playback; a sentence it isn't ready for is read
+  with the rules. Settings → Downloads has a switch for it, on by default.
 
 The menu bar icon animates while it reads; click it
 for the player, with the text and a scrubbable timeline. Speech is generated
@@ -217,5 +222,6 @@ READALOUD_MODELS_DIR=/tmp/models .build/debug/ReadAloud --download-voice   # tes
 .build/debug/ReadAloud --test-gestures                                     # tap / double-tap / hold detection
 .build/debug/ReadAloud --clean-file ramble.txt --trace                     # tidy raw dictation text, time the wait after "stop"
 .build/debug/ReadAloud --test-tidy Tests/dictation/tidy.json               # clean-up's rule-based fallback (no model needed)
+.build/debug/ReadAloud --heteronym-test Tests/heteronyms/heldout.json [--rules-only]  # heteronym score, misses, referee timings
 .build/debug/ReadAloud --script "1:settings;3:settingsshot=/tmp/s.png;4:quit"  # screenshot the Settings window
 ```

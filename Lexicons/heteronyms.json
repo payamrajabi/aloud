@@ -1,0 +1,1175 @@
+{
+ "about": "Heteronyms: words spelled alike and said two ways (read, lead, bass). When the clean-up model is downloaded, Aloud asks it which reading a sentence needs and pins that reading if it's sure (FIN-940). us/gb: misaki phonemes for reading 1 and 2 (gb from misaki's gb_gold, by the tag that gives the US reading); say and means: how the question describes each reading. Not a lexicon: the lexicon loader skips this file.",
+ "words": {
+  "use": {
+   "us": [
+    "jˈus",
+    "jˈuz"
+   ],
+   "gb": [
+    "jˈuːs",
+    "jˈuːz"
+   ],
+   "say": [
+    "YOOS",
+    "YOOZ"
+   ],
+   "means": [
+    "noun: of no use",
+    "verb: use a pen"
+   ]
+  },
+  "used": {
+   "us": [
+    "jˈust",
+    "jˈuzd"
+   ],
+   "gb": [
+    "jˈuːst",
+    "jˈuːzd"
+   ],
+   "say": [
+    "YOOST",
+    "YOOZD"
+   ],
+   "means": [
+    "'used to' (a past habit; accustomed to)",
+    "was used by someone; second-hand (a used car)"
+   ]
+  },
+  "house": {
+   "us": [
+    "hˈWs",
+    "hˈWz"
+   ],
+   "gb": [
+    "hˈWs",
+    "hˈWz"
+   ],
+   "say": [
+    "HOWS",
+    "HOWZ"
+   ],
+   "means": [
+    "a building",
+    "to give shelter"
+   ]
+  },
+  "read": {
+   "us": [
+    "ɹˈid",
+    "ɹˈɛd"
+   ],
+   "gb": [
+    "ɹˈiːd",
+    "ɹˈɛd"
+   ],
+   "say": [
+    "REED",
+    "RED"
+   ],
+   "means": [
+    "present tense: I read every night",
+    "past tense: I read it yesterday"
+   ]
+  },
+  "live": {
+   "us": [
+    "lˈɪv",
+    "lˈIv"
+   ],
+   "gb": [
+    "lˈɪv",
+    "lˈIv"
+   ],
+   "say": [
+    "LIV",
+    "LYVE"
+   ],
+   "means": [
+    "to be alive / reside",
+    "happening now, not recorded"
+   ]
+  },
+  "lives": {
+   "us": [
+    "lˈɪvz",
+    "lˈIvz"
+   ],
+   "gb": [
+    "lˈɪvz",
+    "lˈIvz"
+   ],
+   "say": [
+    "LIVZ",
+    "LYVZ"
+   ],
+   "means": [
+    "she lives here",
+    "plural of life"
+   ]
+  },
+  "close": {
+   "us": [
+    "klˈOs",
+    "klˈOz"
+   ],
+   "gb": [
+    "klˈQs",
+    "klˈQz"
+   ],
+   "say": [
+    "KLOHS",
+    "KLOHZ"
+   ],
+   "means": [
+    "near",
+    "to shut"
+   ]
+  },
+  "closer": {
+   "us": [
+    "klˈOsəɹ",
+    "klˈOzəɹ"
+   ],
+   "gb": [
+    "klˈQsə",
+    "klˈQzə"
+   ],
+   "say": [
+    "KLOH-ser",
+    "KLOH-zer"
+   ],
+   "means": [
+    "nearer",
+    "someone who closes (a deal, a game)"
+   ]
+  },
+  "project": {
+   "us": [
+    "pɹˈɑʤˌɛkt",
+    "pɹəʤˈɛkt"
+   ],
+   "gb": [
+    "pɹˈɒʤɛkt",
+    "pɹəʤˈɛkt"
+   ],
+   "say": [
+    "PROJ-ekt",
+    "pro-JEKT"
+   ],
+   "means": [
+    "a piece of work",
+    "to throw forward; to show on a screen"
+   ]
+  },
+  "record": {
+   "us": [
+    "ɹˈɛkəɹd",
+    "ɹəkˈɔɹd"
+   ],
+   "gb": [
+    "ɹˈɛkɔːd",
+    "ɹɪkˈɔːd"
+   ],
+   "say": [
+    "REK-erd",
+    "ri-KORD"
+   ],
+   "means": [
+    "a disc, a best-ever result",
+    "to capture sound/video"
+   ]
+  },
+  "lead": {
+   "us": [
+    "lˈid",
+    "lˈɛd"
+   ],
+   "gb": [
+    "lˈiːd",
+    "lˈɛd"
+   ],
+   "say": [
+    "LEED",
+    "LED"
+   ],
+   "means": [
+    "to guide; first place",
+    "the metal"
+   ]
+  },
+  "perfect": {
+   "us": [
+    "pˈɜɹfəkt",
+    "pəɹfˈɛkt"
+   ],
+   "gb": [
+    "pˈɜːfɪkt",
+    "pəfˈɛkt"
+   ],
+   "say": [
+    "PER-fikt",
+    "per-FEKT"
+   ],
+   "means": [
+    "flawless",
+    "to make flawless"
+   ]
+  },
+  "present": {
+   "us": [
+    "pɹˈɛzᵊnt",
+    "pɹizˈɛnt"
+   ],
+   "gb": [
+    "pɹˈɛzᵊnt",
+    "pɹɪzˈɛnt"
+   ],
+   "say": [
+    "PREZ-ent",
+    "pri-ZENT"
+   ],
+   "means": [
+    "a gift; right now; in attendance",
+    "to show or give"
+   ]
+  },
+  "increase": {
+   "us": [
+    "ˈɪnkɹˌis",
+    "ɪnkɹˈis"
+   ],
+   "gb": [
+    "ˈɪnkɹiːs",
+    "ɪnkɹˈiːs"
+   ],
+   "say": [
+    "IN-krees",
+    "in-KREES"
+   ],
+   "means": [
+    "a rise",
+    "to grow"
+   ]
+  },
+  "content": {
+   "us": [
+    "kˈɑntɛnt",
+    "kəntˈɛnt"
+   ],
+   "gb": [
+    "kˈɒntɛnt",
+    "kəntˈɛnt"
+   ],
+   "say": [
+    "KON-tent",
+    "kon-TENT"
+   ],
+   "means": [
+    "what's inside",
+    "satisfied"
+   ]
+  },
+  "minute": {
+   "us": [
+    "mˈɪnət",
+    "mInˈut"
+   ],
+   "gb": [
+    "mˈɪnɪt",
+    "mInjˈuːt"
+   ],
+   "say": [
+    "MIN-it",
+    "my-NOOT"
+   ],
+   "means": [
+    "60 seconds",
+    "tiny"
+   ]
+  },
+  "subject": {
+   "us": [
+    "sˈʌbʤɛkt",
+    "səbʤˈɛkt"
+   ],
+   "gb": [
+    "sˈʌbʤɛkt",
+    "səbʤˈɛkt"
+   ],
+   "say": [
+    "SUB-jekt",
+    "sub-JEKT"
+   ],
+   "means": [
+    "a topic",
+    "to force something on"
+   ]
+  },
+  "contract": {
+   "us": [
+    "kˈɑntɹˌækt",
+    "kəntɹˈækt"
+   ],
+   "gb": [
+    "kˈɒntɹakt",
+    "kəntɹˈakt"
+   ],
+   "say": [
+    "KON-trakt",
+    "kon-TRAKT"
+   ],
+   "means": [
+    "an agreement",
+    "to shrink; to catch an illness"
+   ]
+  },
+  "learned": {
+   "us": [
+    "lˈɜɹnd",
+    "lˈɜɹnɪd"
+   ],
+   "gb": [
+    "lˈɜːnd",
+    "lˈɜːnɪd"
+   ],
+   "say": [
+    "LURND",
+    "LUR-nid"
+   ],
+   "means": [
+    "past of learn",
+    "scholarly"
+   ]
+  },
+  "wind": {
+   "us": [
+    "wˈɪnd",
+    "wˈInd"
+   ],
+   "gb": [
+    "wˈɪnd",
+    "wˈInd"
+   ],
+   "say": [
+    "WIND",
+    "WYND"
+   ],
+   "means": [
+    "moving air",
+    "to turn or coil"
+   ]
+  },
+  "separate": {
+   "us": [
+    "sˈɛpəɹət",
+    "sˈɛpəɹˌAt"
+   ],
+   "gb": [
+    "sˈɛpəɹət",
+    "sˈɛpəɹAt"
+   ],
+   "say": [
+    "SEP-rit",
+    "SEP-a-rayt"
+   ],
+   "means": [
+    "apart",
+    "to split up"
+   ]
+  },
+  "mouth": {
+   "us": [
+    "mˈWθ",
+    "mˈWð"
+   ],
+   "gb": [
+    "mˈWθ",
+    "mˈWð"
+   ],
+   "say": [
+    "MOWTH (soft th, as in 'thin')",
+    "MOWTH (buzzy th, as in 'this')"
+   ],
+   "means": [
+    "the body part",
+    "to form words silently"
+   ]
+  },
+  "progress": {
+   "us": [
+    "pɹˈɑɡɹəs",
+    "pɹəɡɹˈɛs"
+   ],
+   "gb": [
+    "pɹˈQɡɹɛs",
+    "pɹQɡɹˈɛs"
+   ],
+   "say": [
+    "PROG-res",
+    "pro-GRES"
+   ],
+   "means": [
+    "advancement",
+    "to move forward"
+   ]
+  },
+  "produce": {
+   "us": [
+    "pɹˈOdˌus",
+    "pɹədˈus"
+   ],
+   "gb": [
+    "pɹˈɒdjuːs",
+    "pɹədjˈuːs"
+   ],
+   "say": [
+    "PROH-doos",
+    "pro-DOOS"
+   ],
+   "means": [
+    "fruit and vegetables",
+    "to make"
+   ]
+  },
+  "survey": {
+   "us": [
+    "sˈɜɹvˌA",
+    "səɹvˈA"
+   ],
+   "gb": [
+    "sˈɜːvA",
+    "səvˈA"
+   ],
+   "say": [
+    "SER-vay",
+    "ser-VAY"
+   ],
+   "means": [
+    "a questionnaire",
+    "to look over"
+   ]
+  },
+  "appropriate": {
+   "us": [
+    "əpɹˈOpɹiət",
+    "əpɹˈOpɹiˌAt"
+   ],
+   "gb": [
+    "əpɹˈQpɹɪət",
+    "əpɹˈQpɹɪAt"
+   ],
+   "say": [
+    "a-PROH-pree-it",
+    "a-PROH-pree-ayt"
+   ],
+   "means": [
+    "suitable",
+    "to take for yourself"
+   ]
+  },
+  "abuse": {
+   "us": [
+    "əbjˈus",
+    "əbjˈuz"
+   ],
+   "gb": [
+    "əbjˈuːs",
+    "əbjˈuːz"
+   ],
+   "say": [
+    "a-BYOOS",
+    "a-BYOOZ"
+   ],
+   "means": [
+    "mistreatment",
+    "to mistreat"
+   ]
+  },
+  "conflict": {
+   "us": [
+    "kˈɑnflˌɪkt",
+    "kənflˈɪkt"
+   ],
+   "gb": [
+    "kˈɒnflɪkt",
+    "kənflˈɪkt"
+   ],
+   "say": [
+    "KON-flikt",
+    "kon-FLIKT"
+   ],
+   "means": [
+    "a fight",
+    "to clash"
+   ]
+  },
+  "upset": {
+   "us": [
+    "ˈʌpsˌɛt",
+    "ˌʌpsˈɛt"
+   ],
+   "gb": [
+    "ˈʌpsɛt",
+    "ˌʌpsˈɛt"
+   ],
+   "say": [
+    "UP-set",
+    "up-SET"
+   ],
+   "means": [
+    "a surprise defeat",
+    "to disturb"
+   ]
+  },
+  "row": {
+   "us": [
+    "ɹˈO",
+    "ɹˈW"
+   ],
+   "gb": [
+    "ɹˈQ",
+    "ɹˈW"
+   ],
+   "say": [
+    "ROH",
+    "ROW (rhymes with cow)"
+   ],
+   "means": [
+    "a line; to row a boat",
+    "a loud argument"
+   ]
+  },
+  "object": {
+   "us": [
+    "ˈɑbʤəkt",
+    "əbʤˈɛkt"
+   ],
+   "gb": [
+    "ˈɒbʤɛkt",
+    "əbʤˈɛkt"
+   ],
+   "say": [
+    "OB-jekt",
+    "ob-JEKT"
+   ],
+   "means": [
+    "a thing",
+    "to disagree"
+   ]
+  },
+  "excuse": {
+   "us": [
+    "ɪkskjˈus",
+    "ɪkskjˈuz"
+   ],
+   "gb": [
+    "ɪkskjˈuːs",
+    "ɪkskjˈuːz"
+   ],
+   "say": [
+    "ik-SKYOOS",
+    "ik-SKYOOZ"
+   ],
+   "means": [
+    "a reason",
+    "to forgive; 'excuse me'"
+   ]
+  },
+  "contest": {
+   "us": [
+    "kˈɑntˌɛst",
+    "kəntˈɛst"
+   ],
+   "gb": [
+    "kˈɒntɛst",
+    "kəntˈɛst"
+   ],
+   "say": [
+    "KON-test",
+    "kon-TEST"
+   ],
+   "means": [
+    "a competition",
+    "to dispute"
+   ]
+  },
+  "conduct": {
+   "us": [
+    "kˈɑndˌʌkt",
+    "kəndˈʌkt"
+   ],
+   "gb": [
+    "kˈɒndʌkt",
+    "kəndˈʌkt"
+   ],
+   "say": [
+    "KON-dukt",
+    "kon-DUKT"
+   ],
+   "means": [
+    "behaviour",
+    "to lead (an orchestra, electricity)"
+   ]
+  },
+  "suspect": {
+   "us": [
+    "sˈʌspˌɛkt",
+    "səspˈɛkt"
+   ],
+   "gb": [
+    "sˈʌspɛkt",
+    "səspˈɛkt"
+   ],
+   "say": [
+    "SUS-pekt",
+    "sus-PEKT"
+   ],
+   "means": [
+    "a possible culprit",
+    "to suspect"
+   ]
+  },
+  "graduate": {
+   "us": [
+    "ɡɹˈæʤəwət",
+    "ɡɹˈæʤʊˌAt"
+   ],
+   "gb": [
+    "ɡɹˈaʤʊət",
+    "ɡɹˈaʤʊAt"
+   ],
+   "say": [
+    "GRAJ-oo-it",
+    "GRAJ-oo-ayt"
+   ],
+   "means": [
+    "a person who graduated",
+    "to finish school"
+   ]
+  },
+  "aged": {
+   "us": [
+    "ˈAʤd",
+    "ˈAʤɪd"
+   ],
+   "gb": [
+    "ˈAʤd",
+    "ˈAʤɪd"
+   ],
+   "say": [
+    "AYJD",
+    "AY-jid"
+   ],
+   "means": [
+    "grew older; 'aged 5'",
+    "elderly"
+   ]
+  },
+  "desert": {
+   "us": [
+    "dˈɛzəɹt",
+    "dəzˈɜɹt"
+   ],
+   "gb": [
+    "dˈɛzət",
+    "dɪzˈɜːt"
+   ],
+   "say": [
+    "DEZ-ert",
+    "di-ZURT"
+   ],
+   "means": [
+    "sandy wasteland",
+    "to abandon"
+   ]
+  },
+  "refuse": {
+   "us": [
+    "ɹˈɛfjˌus",
+    "ɹəfjˈuz"
+   ],
+   "gb": [
+    "ɹˈɛfjuːs",
+    "ɹɪfjˈuːz"
+   ],
+   "say": [
+    "REF-yoos",
+    "ri-FYOOZ"
+   ],
+   "means": [
+    "garbage",
+    "to say no"
+   ]
+  },
+  "tear": {
+   "us": [
+    "tˈɪɹ",
+    "tˈɛɹ"
+   ],
+   "gb": [
+    "tˈɪə",
+    "tˈɛː"
+   ],
+   "say": [
+    "TEER",
+    "TAIR"
+   ],
+   "means": [
+    "from crying",
+    "to rip; damage (wear and tear)"
+   ]
+  },
+  "tears": {
+   "us": [
+    "tˈɪɹz",
+    "tˈɛɹz"
+   ],
+   "gb": [
+    "tˈɪəz",
+    "tˈɛːz"
+   ],
+   "say": [
+    "TEER",
+    "TAIR"
+   ],
+   "means": [
+    "from crying",
+    "to rip; damage (wear and tear)"
+   ]
+  },
+  "bow": {
+   "us": [
+    "bˈO",
+    "bˈW"
+   ],
+   "gb": [
+    "bˈQ",
+    "bˈW"
+   ],
+   "say": [
+    "BOH",
+    "BOW (rhymes with cow)"
+   ],
+   "means": [
+    "ribbon; archery; violin bow",
+    "to bend at the waist; front of a ship"
+   ]
+  },
+  "estimate": {
+   "us": [
+    "ˈɛstəmət",
+    "ˈɛstəmˌAt"
+   ],
+   "gb": [
+    "ˈɛstɪmət",
+    "ˈɛstɪmAt"
+   ],
+   "say": [
+    "ES-ti-mit",
+    "ES-ti-mayt"
+   ],
+   "means": [
+    "a rough guess",
+    "to guess"
+   ]
+  },
+  "bass": {
+   "us": [
+    "bˈAs",
+    "bˈæs"
+   ],
+   "gb": [
+    "bˈAs",
+    "bˈas"
+   ],
+   "say": [
+    "BAYS",
+    "BAS"
+   ],
+   "means": [
+    "low sound; the instrument",
+    "the fish"
+   ]
+  },
+  "wound": {
+   "us": [
+    "wˈund",
+    "wˈWnd"
+   ],
+   "gb": [
+    "wˈuːnd",
+    "wˈWnd"
+   ],
+   "say": [
+    "WOOND",
+    "WOWND"
+   ],
+   "means": [
+    "an injury",
+    "past of wind (wound the clock)"
+   ]
+  },
+  "permit": {
+   "us": [
+    "pˈɜɹmɪt",
+    "pəɹmˈɪt"
+   ],
+   "gb": [
+    "pˈɜːmɪt",
+    "pəmˈɪt"
+   ],
+   "say": [
+    "PER-mit",
+    "per-MIT"
+   ],
+   "means": [
+    "a licence",
+    "to allow"
+   ]
+  },
+  "polish": {
+   "us": [
+    "pˈɑlɪʃ",
+    "pˈOlɪʃ"
+   ],
+   "gb": [
+    "pˈɒlɪʃ",
+    "pˈQlɪʃ"
+   ],
+   "say": [
+    "POL-ish",
+    "POH-lish"
+   ],
+   "means": [
+    "to shine",
+    "from Poland (capital P)"
+   ]
+  },
+  "blessed": {
+   "us": [
+    "blˈɛst",
+    "blˈɛsɪd"
+   ],
+   "gb": [
+    "blˈɛst",
+    "blˈɛsɪd"
+   ],
+   "say": [
+    "BLEST",
+    "BLES-id"
+   ],
+   "means": [
+    "past of bless",
+    "holy"
+   ]
+  },
+  "resume": {
+   "us": [
+    "ɹəzˈum",
+    "ɹˈɛzəmˌA"
+   ],
+   "gb": [
+    "ɹɪzjˈuːm",
+    "ɹˈɛzjuːmA"
+   ],
+   "say": [
+    "ri-ZOOM",
+    "REZ-oo-may"
+   ],
+   "means": [
+    "to continue",
+    "a CV (résumé, written without accents)"
+   ]
+  },
+  "dove": {
+   "us": [
+    "dˈʌv",
+    "dˈOv"
+   ],
+   "gb": [
+    "dˈʌv",
+    "dˈQv"
+   ],
+   "say": [
+    "DUV",
+    "DOHV"
+   ],
+   "means": [
+    "the bird",
+    "past of dive"
+   ]
+  },
+  "sow": {
+   "us": [
+    "sˈO",
+    "sˈW"
+   ],
+   "gb": [
+    "sˈQ",
+    "sˈW"
+   ],
+   "say": [
+    "SOH",
+    "SOW (rhymes with cow)"
+   ],
+   "means": [
+    "to plant seeds",
+    "a female pig"
+   ]
+  },
+  "does": {
+   "us": [
+    "dˈʌz",
+    "dˈOz"
+   ],
+   "gb": [
+    "dˈʌz",
+    "dˈQz"
+   ],
+   "say": [
+    "DUZ",
+    "DOHZ"
+   ],
+   "means": [
+    "she does",
+    "female deer (plural)"
+   ]
+  },
+  "entrance": {
+   "us": [
+    "ˈɛntɹəns",
+    "ɪntɹˈæns"
+   ],
+   "gb": [
+    "ˈɛntɹəns",
+    "ɪntɹˈɑːns"
+   ],
+   "say": [
+    "EN-trens",
+    "en-TRANS"
+   ],
+   "means": [
+    "a way in",
+    "to enchant"
+   ]
+  },
+  "console": {
+   "us": [
+    "kˈɑnsˌOl",
+    "kənsˈOl"
+   ],
+   "gb": [
+    "kˈɒnsQl",
+    "kənsˈQl"
+   ],
+   "say": [
+    "KON-sohl",
+    "kon-SOHL"
+   ],
+   "means": [
+    "a control panel; game system",
+    "to comfort"
+   ]
+  },
+  "moderate": {
+   "us": [
+    "mˈɑdəɹət",
+    "mˈɑdəɹˌAt"
+   ],
+   "gb": [
+    "mˈɒdəɹət",
+    "mˈɒdəɹAt"
+   ],
+   "say": [
+    "MOD-er-it",
+    "MOD-er-ayt"
+   ],
+   "means": [
+    "medium",
+    "to run a discussion; to tone down"
+   ]
+  },
+  "deliberate": {
+   "us": [
+    "dəlˈɪbəɹət",
+    "dəlˈɪbəɹˌAt"
+   ],
+   "gb": [
+    "dɪlˈɪbəɹət",
+    "dɪlˈɪbəɹAt"
+   ],
+   "say": [
+    "di-LIB-er-it",
+    "di-LIB-er-ayt"
+   ],
+   "means": [
+    "on purpose",
+    "to think it over"
+   ]
+  },
+  "reject": {
+   "us": [
+    "ɹˈiʤˌɛkt",
+    "ɹəʤˈɛkt"
+   ],
+   "gb": [
+    "ɹˈiːʤɛkt",
+    "ɹɪʤˈɛkt"
+   ],
+   "say": [
+    "REE-jekt",
+    "ri-JEKT"
+   ],
+   "means": [
+    "a rejected item",
+    "to turn down"
+   ]
+  },
+  "insult": {
+   "us": [
+    "ˈɪnsˌʌlt",
+    "ɪnsˈʌlt"
+   ],
+   "gb": [
+    "ˈɪnsʌlt",
+    "ɪnsˈʌlt"
+   ],
+   "say": [
+    "IN-sult",
+    "in-SULT"
+   ],
+   "means": [
+    "a rude remark",
+    "to offend"
+   ]
+  },
+  "attribute": {
+   "us": [
+    "ˈætɹəbjˌut",
+    "ətɹˈɪbjˌut"
+   ],
+   "gb": [
+    "ˈatɹɪbjuːt",
+    "ətɹˈɪbjuːt"
+   ],
+   "say": [
+    "AT-ri-byoot",
+    "a-TRIB-yoot"
+   ],
+   "means": [
+    "a quality",
+    "to credit to"
+   ]
+  },
+  "rebel": {
+   "us": [
+    "ɹˈɛbᵊl",
+    "ɹəbˈɛl"
+   ],
+   "gb": [
+    "ɹˈɛbᵊl",
+    "ɹɪbˈɛl"
+   ],
+   "say": [
+    "REB-el",
+    "ri-BEL"
+   ],
+   "means": [
+    "a rebel",
+    "to rise up"
+   ]
+  },
+  "intimate": {
+   "us": [
+    "ˈɪntəmət",
+    "ˈɪntəmˌAt"
+   ],
+   "gb": [
+    "ˈɪntɪmət",
+    "ˈɪntɪmAt"
+   ],
+   "say": [
+    "IN-ti-mit",
+    "IN-ti-mayt"
+   ],
+   "means": [
+    "close, private",
+    "to hint"
+   ]
+  },
+  "records": {
+   "us": [
+    "ɹˈɛkəɹdz",
+    "ɹəkˈɔɹdz"
+   ],
+   "gb": [
+    "ɹˈɛkɔːdz",
+    "ɹɪkˈɔːdz"
+   ],
+   "say": [
+    "REK-erd",
+    "ri-KORD"
+   ],
+   "means": [
+    "a disc, a best-ever result",
+    "to capture sound/video"
+   ]
+  },
+  "advocate": {
+   "us": [
+    "ˈædvəkət",
+    "ˈædvəkˌAt"
+   ],
+   "gb": [
+    "ˈadvəkət",
+    "ˈadvəkAt"
+   ],
+   "say": [
+    "AD-vo-kit",
+    "AD-vo-kayt"
+   ],
+   "means": [
+    "a supporter",
+    "to argue for"
+   ]
+  },
+  "discount": {
+   "us": [
+    "dˈɪskˌWnt",
+    "dˌɪskˈWnt"
+   ],
+   "gb": [
+    "dˈɪskWnt",
+    "dɪskˈWnt"
+   ],
+   "say": [
+    "DIS-kownt",
+    "dis-KOWNT"
+   ],
+   "means": [
+    "a price cut",
+    "to dismiss as untrue"
+   ]
+  },
+  "compound": {
+   "us": [
+    "kˈɑmpˌWnd",
+    "kəmpˈWnd"
+   ],
+   "gb": [
+    "kˈɒmpWnd",
+    "kəmpˈWnd"
+   ],
+   "say": [
+    "KOM-pownd",
+    "kom-POWND"
+   ],
+   "means": [
+    "a mixture; fenced area",
+    "to make worse"
+   ]
+  }
+ }
+}

@@ -153,10 +153,13 @@ public struct LexiconSet {
         return stem.hasSuffix("-lexicon") && stem.count > 8 ? String(stem.dropLast(8)) : stem
     }
 
+    /// Files in the app's folder that aren't word lists: the heteronym referee's table.
+    public static let notLexicons: Set<String> = ["heteronyms.json"]
+
     /// Every *.json file in the folder, sorted by name; `pack` stands in for each file's own.
     public mutating func load(directory dir: URL, pack: String? = nil) {
         guard let names = try? FileManager.default.contentsOfDirectory(atPath: dir.path) else { return }
-        for name in names.sorted() where name.hasSuffix(".json") {
+        for name in names.sorted() where name.hasSuffix(".json") && !Self.notLexicons.contains(name) {
             load(dir.appendingPathComponent(name), pack: pack)
         }
     }

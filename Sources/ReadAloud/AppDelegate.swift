@@ -56,6 +56,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, SPUSta
     func applicationWillTerminate(_ notification: Notification) {
         // Metal aborts at exit if the language model's buffers are still alive.
         dictation.shutDown()
+        HeteronymReferee.shared.shutDown()
     }
 
     private func finishLaunching(after cleanup: LegacyAppCleanup.Outcome) {

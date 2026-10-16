@@ -3465,9 +3465,9 @@
   },
   {
    "area": "dates",
-   "gb": "jˈuːs ɐ tˈuː ˈAʧ pˈɛnsᵊl.",
+   "gb": "jˈuːz ɐ tˈuː ˈAʧ pˈɛnsᵊl.",
    "text": "Use a 2H pencil.",
-   "us": "jˈus ɐ tˈu ˈAʧ pˈɛnsᵊl."
+   "us": "jˈuz ɐ tˈu ˈAʧ pˈɛnsᵊl."
   },
   {
    "area": "dates",
@@ -12753,6 +12753,154 @@
    "area": "money",
    "text": "The €20 EUR charge was refunded.",
    "says": "The twenty euro charge was refunded."
+  },
+  {
+   "area": "heteronyms",
+   "says": "[Close](/klˈOz/) the door, please.",
+   "says_gb": "[Close](/klˈQz/) the door, please.",
+   "text": "Close the door, please."
+  },
+  {
+   "area": "heteronyms",
+   "says": "[Separate](/sˈɛpəɹˌAt/) the eggs before you start.",
+   "says_gb": "[Separate](/sˈɛpəɹAt/) the eggs before you start.",
+   "text": "Separate the eggs before you start."
+  },
+  {
+   "area": "heteronyms",
+   "says": "Metals [contract](/kəntɹˈækt/) as they cool.",
+   "says_gb": "Metals [contract](/kəntɹˈakt/) as they cool.",
+   "text": "Metals contract as they cool."
+  },
+  {
+   "area": "heteronyms",
+   "says": "Those dates [conflict](/kənflˈɪkt/) with my holiday.",
+   "says_gb": "Those dates [conflict](/kənflˈɪkt/) with my holiday.",
+   "text": "Those dates conflict with my holiday."
+  },
+  {
+   "area": "heteronyms",
+   "says": "Teenagers often [rebel](/ɹəbˈɛl/) against their parents.",
+   "says_gb": "Teenagers often [rebel](/ɹɪbˈɛl/) against their parents.",
+   "text": "Teenagers often rebel against their parents."
+  },
+  {
+   "area": "heteronyms",
+   "says": "As the talks [progress](/pɹəɡɹˈɛs/), we'll share more.",
+   "says_gb": "As the talks [progress](/pɹQɡɹˈɛs/), we'll share more.",
+   "text": "As the talks progress, we'll share more."
+  },
+  {
+   "area": "heteronyms",
+   "says": "She tried to [mouth](/mˈWð/) the words to me.",
+   "says_gb": "She tried to [mouth](/mˈWð/) the words to me.",
+   "text": "She tried to mouth the words to me."
+  },
+  {
+   "area": "heteronyms",
+   "says": "We can [progress](/pɹəɡɹˈɛs/) to the next step.",
+   "says_gb": "We can [progress](/pɹQɡɹˈɛs/) to the next step.",
+   "text": "We can progress to the next step."
+  },
+  {
+   "area": "heteronyms",
+   "says": "He seemed [content](/kəntˈɛnt/) with the outcome.",
+   "says_gb": "He seemed [content](/kəntˈɛnt/) with the outcome.",
+   "text": "He seemed content with the outcome."
+  },
+  {
+   "area": "heteronyms",
+   "says": "The market sells fresh [produce](/pɹˈOdˌus/) every Saturday.",
+   "says_gb": "The market sells fresh [produce](/pɹˈɒdjuːs/) every Saturday.",
+   "text": "The market sells fresh produce every Saturday."
+  },
+  {
+   "area": "heteronyms",
+   "says": "I'm not [used](/jˈust/) to working this late.",
+   "says_gb": "I'm not [used](/jˈuːst/) to working this late.",
+   "text": "I'm not used to working this late."
+  },
+  {
+   "area": "heteronyms",
+   "says": "You'll get [used](/jˈust/) to it.",
+   "says_gb": "You'll get [used](/jˈuːst/) to it.",
+   "text": "You'll get used to it."
+  },
+  {
+   "area": "heteronyms",
+   "says": "I [read](/ɹˈid/) the news every morning.",
+   "says_gb": "I [read](/ɹˈiːd/) the news every morning.",
+   "text": "I read the news every morning."
+  },
+  {
+   "area": "heteronyms",
+   "says": "They [read](/ɹˈid/) to their children every night.",
+   "says_gb": "They [read](/ɹˈiːd/) to their children every night.",
+   "text": "They read to their children every night."
+  },
+  {
+   "area": "heteronyms",
+   "says": "He bought a new games [console](/kˈɑnsˌOl/).",
+   "says_gb": "He bought a new games [console](/kˈɒnsQl/).",
+   "text": "He bought a new games console."
+  },
+  {
+   "area": "heteronyms",
+   "says": "The sales [record](/ɹˈɛkəɹd/) for May was broken.",
+   "says_gb": "The sales [record](/ɹˈɛkɔːd/) for May was broken.",
+   "text": "The sales record for May was broken."
+  },
+  {
+   "area": "heteronyms",
+   "says": "These funds will be [used](/jˈuzd/) to build a library.",
+   "says_gb": "These funds will be [used](/jˈuːzd/) to build a library.",
+   "text": "These funds will be used to build a library."
+  },
+  {
+   "area": "heteronyms",
+   "says": "I [read](/ɹˈɛd/) it yesterday.",
+   "says_gb": "I [read](/ɹˈɛd/) it yesterday.",
+   "text": "I read it yesterday."
+  },
+  {
+   "area": "heteronyms",
+   "says": "Last year I [read](/ɹˈɛd/) every book on the list.",
+   "says_gb": "Last year I [read](/ɹˈɛd/) every book on the list.",
+   "text": "Last year I read every book on the list."
+  },
+  {
+   "area": "heteronyms",
+   "says": "The key to [progress](/pɹˈɑɡɹəs/) is patience.",
+   "says_gb": "The key to [progress](/pɹˈQɡɹɛs/) is patience.",
+   "text": "The key to progress is patience."
+  },
+  {
+   "area": "heteronyms",
+   "says": "That was a [close](/klˈOs/) call.",
+   "says_gb": "That was a [close](/klˈQs/) call.",
+   "text": "That was a close call."
+  },
+  {
+   "area": "heteronyms",
+   "says": "The table of [content](/kˈɑntɛnt/) is short.",
+   "says_gb": "The table of [content](/kˈɒntɛnt/) is short.",
+   "text": "The table of content is short."
+  },
+  {
+   "area": "heteronyms",
+   "says": "They [produce](/pɹədˈus/) the goods in Ohio.",
+   "says_gb": "They [produce](/pɹədjˈuːs/) the goods in Ohio.",
+   "text": "They produce the goods in Ohio."
+  },
+  {
+   "area": "pins",
+   "text": "I [read](/ɹˈɛd/) it every day.",
+   "says": "I red it every day."
+  },
+  {
+   "area": "pins",
+   "text": "See [the docs](/docs/) and [Getting started](/guide/start/).",
+   "says": "See the docs and Getting started."
   }
  ]
 }

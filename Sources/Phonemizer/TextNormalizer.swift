@@ -608,7 +608,7 @@ enum TextNormalizer {
         return out + applyRules(plain, british: british, in: RuleContext(view, NSRange(location: start, length: (plain as NSString).length)))
     }
 
-    private static let link = try! NSRegularExpression(pattern: #"!?\[([^\]]*)\]\([^)]*\)"#)
+    private static let link = try! NSRegularExpression(pattern: #"!?\[([^\]]*)\]\((?!/[^/)]*[^\x{00}-\x{7F}][^/)]*/\))[^)]*\)"#)
 
     /// Markdown links in the text itself ("[Getting started](/guide/start/)") → their label.
     /// Runs before the custom lexicon marks its terms in the same syntax, so only those marks

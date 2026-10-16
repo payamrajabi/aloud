@@ -1,6 +1,46 @@
 import Foundation
 import llama
 
+/// A language model's weights, loaded once per file and shared by every engine using it:
+/// dictation clean-up and the heteronym referee each have their own context on the same
+/// 2.7 GB of weights. They're freed when the last engine using them goes.
+final class LlamaModel {
+    let pointer: OpaquePointer
+    let vocab: OpaquePointer
+
+    private init(pointer: OpaquePointer) {
+        self.pointer = pointer
+        vocab = llama_model_get_vocab(pointer)
+    }
+
+    deinit { llama_model_free(pointer) }
+
+    private struct Weak { weak var model: LlamaModel? }
+    private static let lock = NSLock()
+    private static var loaded: [String: Weak] = [:]
+
+    /// The weights in `path`, loading them only if no engine holds them already.
+    static func shared(path: String) throws -> LlamaModel {
+        lock.lock()
+        defer { lock.unlock() }
+        if let model = loaded[path]?.model { return model }
+        LlamaEngine.setUp()
+        var mparams = llama_model_default_params()
+        mparams.n_gpu_layers = 999
+        guard let pointer = llama_model_load_from_file(path, mparams) else { throw LlamaEngine.LoadError() }
+        let model = LlamaModel(pointer: pointer)
+        loaded[path] = Weak(model: model)
+        return model
+    }
+
+    /// Whether some engine holds the weights in `path` right now.
+    static func isLoaded(path: String) -> Bool {
+        lock.lock()
+        defer { lock.unlock() }
+        return loaded[path]?.model != nil
+    }
+}
+
 /// A small language model run by llama.cpp on the GPU, for short, deterministic text
 /// jobs. Fixed openings (instructions and examples) are processed once and remembered,
 /// so each request only pays for its own text.
@@ -10,9 +50,9 @@ final class LlamaEngine {
         var errorDescription: String? { "The clean-up model failed to load." }
     }
 
-    private let model: OpaquePointer
+    private let model: LlamaModel
     private let ctx: OpaquePointer
-    private let vocab: OpaquePointer
+    private var vocab: OpaquePointer { model.vocab }
     private let sampler: UnsafeMutablePointer<llama_sampler>
     private let batchSize: Int32 = 512
 
@@ -20,10 +60,7 @@ final class LlamaEngine {
     private var prefixes: [String: [UInt8]] = [:]
 
     init(path: String, contextLength: UInt32 = 8192) throws {
-        Self.setUp()
-        var mparams = llama_model_default_params()
-        mparams.n_gpu_layers = 999
-        guard let model = llama_model_load_from_file(path, mparams) else { throw LoadError() }
+        let model = try LlamaModel.shared(path: path)
         var cparams = llama_context_default_params()
         cparams.n_ctx = contextLength
         cparams.n_batch = UInt32(batchSize)
@@ -31,13 +68,9 @@ final class LlamaEngine {
         cparams.n_threads = 4
         cparams.n_threads_batch = 4
         cparams.no_perf = true
-        guard let ctx = llama_init_from_model(model, cparams) else {
-            llama_model_free(model)
-            throw LoadError()
-        }
+        guard let ctx = llama_init_from_model(model.pointer, cparams) else { throw LoadError() }
         self.model = model
         self.ctx = ctx
-        vocab = llama_model_get_vocab(model)
         sampler = llama_sampler_chain_init(llama_sampler_chain_default_params())
         llama_sampler_chain_add(sampler, llama_sampler_init_greedy())
     }
@@ -45,7 +78,6 @@ final class LlamaEngine {
     deinit {
         llama_sampler_free(sampler)
         llama_free(ctx)
-        llama_model_free(model)
     }
 
     private static let setUpOnce: Void = {
@@ -55,7 +87,7 @@ final class LlamaEngine {
         llama_backend_init()
     }()
 
-    private static func setUp() { _ = setUpOnce }
+    static func setUp() { _ = setUpOnce }
 
     /// Continues `prompt` greedily until the model ends its turn, `stop` says so, or
     /// `maxTokens` is reached. A prompt that starts with a remembered opening skips it.
@@ -72,6 +104,18 @@ final class LlamaEngine {
             guard llama_decode(ctx, llama_batch_get_one(&token, 1)) == 0 else { return nil }
         }
         return String(decoding: bytes, as: UTF8.self)
+    }
+
+    /// How likely the model is to answer `prompt` with each of `answers` (each one token, such
+    /// as "1" and "2"): a softmax over just those answers' scores, so the shares add up to 1.
+    func choose(prompt: String, among answers: [String]) -> [Double]? {
+        let ids = answers.map { tokenize($0, first: false) }
+        guard ids.allSatisfy({ $0.count == 1 }), prepare(prompt), let logits = llama_get_logits_ith(ctx, -1) else { return nil }
+        let scores = ids.map { Double(logits[Int($0[0])]) }
+        let top = scores.max() ?? 0
+        let e = scores.map { exp($0 - top) }
+        let sum = e.reduce(0, +)
+        return e.map { $0 / sum }
     }
 
     /// Restores the longest remembered opening the prompt starts with, if any, and feeds

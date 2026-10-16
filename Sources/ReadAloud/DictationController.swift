@@ -496,6 +496,7 @@ final class DictationController: ObservableObject {
     func removeCleanupModel() {
         guard TranscriptCleaner.isInstalled, !isCleanupBusy else { return }
         cleaner.unload()
+        HeteronymReferee.shared.unload()
         try? FileManager.default.removeItem(at: TranscriptCleaner.modelDirectory)
         objectWillChange.send()
     }

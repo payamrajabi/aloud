@@ -212,7 +212,7 @@ enum TextPrep {
         func sub(_ pattern: String, _ template: String) {
             t = t.replacingOccurrences(of: pattern, with: template, options: .regularExpression)
         }
-        sub("!?\\[([^\\]]*)\\]\\([^)]*\\)", "$1")  // markdown links and images: just the label
+        sub("!?\\[([^\\]]*)\\]\\((?!/[^/)]*[^\\x{00}-\\x{7F}][^/)]*/\\))[^)]*\\)", "$1")  // links and images: just the label (a pronunciation pin stays)
         sub("https?://\\S+", "link")
         sub("\\[\\d+(,\\s*\\d+)*\\]", "")      // citation markers like [12]
         // Formatting tags shown as text (a viewer that escapes Markdown's inline HTML) were read

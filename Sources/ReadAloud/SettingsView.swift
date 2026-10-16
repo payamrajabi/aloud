@@ -65,6 +65,7 @@ struct SettingsView: View {
     @ObservedObject private var devices = AudioDevices.shared
     @State private var shortcutsVersion = 0  // bumps when shortcuts change, to redraw the fields
     @AppStorage(DictationController.fixTechTermsKey) private var fixTechTerms = true
+    @AppStorage(HeteronymReferee.enabledKey) private var pickHeteronyms = true
 
     var body: some View {
         Form {
@@ -121,10 +122,13 @@ struct SettingsView: View {
                          canRemove: TranscriptCleaner.isInstalled, busy: dictation.isCleanupBusy,
                          download: { dictation.downloadCleanupModel() }, remove: { dictation.removeCleanupModel() },
                          afterRemoving: TranscriptCleaner.removeConfirmation)
+                Toggle("Use it to pick how words like read, lead and bass are said", isOn: $pickHeteronyms)
+                    .disabled(!TranscriptCleaner.isInstalled || !TranscriptCleaner.hasRecommendedMemory)
+                    .onChange(of: pickHeteronyms) { _, on in if !on { HeteronymReferee.shared.unload() } }
             } header: {
                 Text("Downloads")
             } footer: {
-                Text("All three run entirely on your Mac. Voice and dictation download automatically the first time Aloud opens; Aloud asks before downloading them again if you remove one. Clean-up is optional and only downloads when you click Download: it fixes punctuation and drops ums, repeats and false starts while you talk. Remove it to go back to exactly what was heard.")
+                Text("All three run entirely on your Mac. Voice and dictation download automatically the first time Aloud opens; Aloud asks before downloading them again if you remove one. Clean-up is optional and only downloads when you click Download: it fixes punctuation and drops ums, repeats and false starts while you talk, and when Aloud reads, it can tell “I read it yesterday” from “I read every night”. Remove it to go back to exactly what was heard.")
                     .foregroundStyle(.secondary)
                     .font(.caption)
                     .fixedSize(horizontal: false, vertical: true)

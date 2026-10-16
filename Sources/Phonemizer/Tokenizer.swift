@@ -476,6 +476,130 @@ public enum Tokenizer {
                 if isName || (capitalized && !isSentenceStart(i)) { tokens[i].tag = "NNP" } else { tokens[i].tag = "NN" }
             }
         }
+        let starts = tokens.indices.map(isSentenceStart)
+        refineHeteronyms(&tokens, lower: lower, coarse: coarse, sentenceStarts: starts)
+    }
+
+    /// Words whose verb is said differently from their noun or adjective ("close the door",
+    /// "a close call"; "they rebel", "a rebel").
+    static let verbReadings: Set<String> = [
+        "abuse", "advocate", "appropriate", "attribute", "bow", "close", "compound", "conduct", "conflict", "console",
+        "contest", "contract", "deliberate", "desert", "discount", "entrance", "estimate", "excuse", "graduate", "house",
+        "increase", "insult", "intimate", "live", "moderate", "mouth", "object", "permit", "present", "produce",
+        "progress", "project", "rebel", "record", "refuse", "reject", "row", "separate", "subject", "survey", "suspect",
+        "tear", "upset", "use",
+    ]
+    /// What a sentence-opening verb takes: "Close the door", "Separate them".
+    private static let objectStarts: Set<String> = determiners.union(["all", "both", "it", "them", "him", "me", "us", "everything", "everyone"])
+    /// Plural nouns that usually modify another noun ("the sales record", "arms contract").
+    private static let pluralModifiers: Set<String> = [
+        "sales", "sports", "arms", "customs", "savings", "earnings", "goods", "services", "systems", "operations",
+        "news", "series", "species", "means", "communications", "jobs", "parks", "records", "students",
+    ]
+    private static let linkingVerbs: Set<String> = beForms.union([
+        "seem", "seems", "seemed", "feel", "feels", "felt", "look", "looks", "looked", "appear", "appears", "appeared",
+        "remain", "remains", "remained", "stay", "stays", "stayed", "become", "becomes", "became", "'s",
+    ])
+    private static let degreeWords: Set<String> = skippable.union([
+        "very", "quite", "perfectly", "fairly", "more", "so", "less", "completely", "entirely", "reasonably", "pretty",
+        "rather", "most", "too", "happily", "mostly",
+    ])
+    /// Words that say an action is a habit ("I read every night"), so "read" is present.
+    private static let habitCues: Set<String> = [
+        "every", "usually", "often", "always", "sometimes", "generally", "regularly", "typically", "normally", "daily",
+        "nightly", "weekly", "each",
+    ]
+    private static let pastCues: Set<String> = [
+        "yesterday", "ago", "last", "was", "were", "had", "did", "used", "once", "earlier", "when", "then",
+    ]
+
+    /// Grammar NLTagger misses around heteronyms, which picks the wrong reading.
+    private static func refineHeteronyms(_ tokens: inout [TaggedToken], lower: [String], coarse: [NLTag?],
+                                         sentenceStarts: [Bool]) {
+        func isWord(_ k: Int) -> Bool { k >= 0 && k < tokens.count && ruleTag(tokens[k].text) == nil }
+        /// The nearest earlier word in the clause, skipping `skip`.
+        func back(_ i: Int, skipping skip: Set<String> = skippable) -> Int? {
+            var k = i - 1
+            while k >= 0 {
+                guard isWord(k) else { return nil }
+                if !skip.contains(lower[k]) { return k }
+                k -= 1
+            }
+            return nil
+        }
+        func isNominal(_ k: Int) -> Bool {
+            isWord(k) && !determiners.contains(lower[k]) && (coarse[k] == .noun || coarse[k] == .adjective || coarse[k] == .number)
+        }
+        func isVerbLike(_ k: Int) -> Bool {
+            isWord(k) && (coarse[k] == .verb || modals.contains(lower[k]) || beForms.contains(lower[k]))
+        }
+        /// The sentence around `i`, as lower-case words.
+        func sentence(_ i: Int) -> ArraySlice<String> {
+            var a = i, b = i
+            let ends: Set<String> = [".", "!", "?"]
+            while a > 0, !ends.contains(tokens[a - 1].text) { a -= 1 }
+            while b < tokens.count - 1, !ends.contains(tokens[b].text) { b += 1 }
+            return lower[a...b]
+        }
+        for i in tokens.indices where isWord(i) {
+            let w = lower[i]
+            let next = i + 1
+            if verbReadings.contains(w), coarse[i] != .verb, !tokens[i].tag.hasPrefix("VB") {
+                // "Close the door, please." / "Separate the eggs."
+                if sentenceStarts[i], isWord(next), objectStarts.contains(lower[next]) {
+                    tokens[i].tag = "VB"; continue
+                }
+                if let p = back(i) {
+                    // "She tried to mouth the words", "We can progress": not "the key to progress".
+                    let toVerb = lower[p] == "to" && !(back(p).map { coarse[$0] == .noun } ?? false)
+                    if (modals.contains(lower[p]) || toVerb), !isNominal(next) {
+                        tokens[i].tag = "VB"; continue
+                    }
+                    // "Metals contract as they cool", "Teenagers often rebel against", "Those dates
+                    // conflict with": a plural subject, and no noun or verb after (not "the sales record").
+                    // "a new games console": a plural after "a" is part of a longer noun.
+                    var d = p - 1
+                    while isWord(d), coarse[d] == .adjective || coarse[d] == .noun { d -= 1 }
+                    let singular = isWord(d) && ["a", "an", "this", "that", "another", "every", "each"].contains(lower[d])
+                    let plural = tokens[p].tag == "NNS" && !pluralModifiers.contains(lower[p]) && !singular
+                    if plural || ["they", "we"].contains(lower[p]), !isNominal(next), !isVerbLike(next) {
+                        tokens[i].tag = "VBP"; continue
+                    }
+                }
+            }
+            switch w {
+            case "content":
+                // "He seemed content with the outcome": the adjective.
+                if let p = back(i, skipping: degreeWords), linkingVerbs.contains(lower[p]), !isNominal(next) {
+                    tokens[i].tag = "JJ"
+                }
+            case "produce":
+                // "fresh produce", "the produce aisle", "the farm's produce": the noun.
+                if let p = back(i, skipping: []),
+                   ["the", "fresh", "local", "organic", "seasonal", "farm", "our", "your", "their", "some", "of", "'s"].contains(lower[p])
+                    || (tokens[p].tag == "JJ" && lower[p] != "only") {
+                    tokens[i].tag = "NN"
+                }
+            case "used":
+                // "I'm not used to working late", "get used to it": accustomed (YOOST). "It was used
+                // to build" stays the passive.
+                guard next + 1 < tokens.count, lower[next] == "to", let p = back(i, skipping: degreeWords),
+                      beForms.contains(lower[p]) else { break }
+                let after = next + 1
+                if lower[after].hasSuffix("ing") || coarse[after] != .verb || objectStarts.contains(lower[after]) {
+                    tokens[i].tag = "JJ"
+                }
+            case "read":
+                // "I read the news every morning": a habit is the present.
+                guard tokens[i].tag == "VBP" || tokens[i].tag == "VBD" else { break }
+                if let p = back(i), haveForms.contains(lower[p]) || beForms.contains(lower[p]) || modals.contains(lower[p]) { break }
+                let s = sentence(i)
+                if s.contains(where: habitCues.contains), !s.contains(where: pastCues.contains) {
+                    tokens[i].tag = "VB"
+                }
+            default: break
+            }
+        }
     }
 
     /// Penn verb tags from context, which NLTagger doesn't provide.

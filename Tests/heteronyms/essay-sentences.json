@@ -1,0 +1,443 @@
+[
+ {
+  "text": "The Woman Who Records the Wind",
+  "gold": [
+   [
+    "Records",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "Last spring I read an article about a woman who lives alone at the edge of the desert.",
+  "gold": [
+   [
+    "read",
+    2
+   ],
+   [
+    "lives",
+    1
+   ],
+   [
+    "desert",
+    1
+   ]
+  ]
+ },
+ {
+  "text": "She used to work in an office downtown, but she could not live that way any longer.",
+  "gold": [
+   [
+    "used",
+    1
+   ],
+   [
+    "live",
+    1
+   ]
+  ]
+ },
+ {
+  "text": "Now she gets up before dawn to record the wind.",
+  "gold": [
+   [
+    "record",
+    2
+   ],
+   [
+    "wind",
+    1
+   ]
+  ]
+ },
+ {
+  "text": "Her house is close to a dry riverbed, and the wind there can tear a door off its hinges.",
+  "gold": [
+   [
+    "house",
+    1
+   ],
+   [
+    "close",
+    1
+   ],
+   [
+    "wind",
+    1
+   ],
+   [
+    "tear",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "On the morning I visited, a single tear ran down her cheek as she watched a storm close in.",
+  "gold": [
+   [
+    "tear",
+    1
+   ],
+   [
+    "close",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "\"I wound the rope around the post,\" she said, holding up her hand, \"and then I noticed the wound.\"",
+  "gold": [
+   [
+    "wound",
+    2
+   ],
+   [
+    "wound",
+    1
+   ]
+  ]
+ },
+ {
+  "text": "Her neighbour plays bass in a country band, and on weekends the two of them fish for bass in the reservoir.",
+  "gold": [
+   [
+    "bass",
+    1
+   ],
+   [
+    "bass",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "Last year his band set a record for the longest live show in the county.",
+  "gold": [
+   [
+    "record",
+    1
+   ],
+   [
+    "live",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "He had to bow so many times that he joked about tying a bow around his neck and calling it a night.",
+  "gold": [
+   [
+    "bow",
+    2
+   ],
+   [
+    "bow",
+    1
+   ]
+  ]
+ },
+ {
+  "text": "Her project is simple.",
+  "gold": [
+   [
+    "project",
+    1
+   ]
+  ]
+ },
+ {
+  "text": "She wants to present the sounds of the place exactly as they are.",
+  "gold": [
+   [
+    "present",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "\"I object to the idea that silence is empty,\" she told me.",
+  "gold": [
+   [
+    "object",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "\"The content of one quiet minute is enormous.",
+  "gold": [
+   [
+    "content",
+    1
+   ],
+   [
+    "minute",
+    1
+   ]
+  ]
+ },
+ {
+  "text": "Even minute changes in the air tell you a story.\"",
+  "gold": [
+   [
+    "minute",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "She keeps her chairs in a row on the porch, although she and her brother once had a row about who would inherit them.",
+  "gold": [
+   [
+    "row",
+    1
+   ],
+   [
+    "row",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "Her grandmother was Polish, and the old silver still gets a polish every winter.",
+  "gold": [
+   [
+    "Polish",
+    2
+   ],
+   [
+    "polish",
+    1
+   ]
+  ]
+ },
+ {
+  "text": "The farm does produce a few vegetables, and she sells the produce at the market in town.",
+  "gold": [
+   [
+    "does",
+    1
+   ],
+   [
+    "produce",
+    2
+   ],
+   [
+    "produce",
+    1
+   ]
+  ]
+ },
+ {
+  "text": "She needed a permit to work in the national park, and the rangers would only permit it at night.",
+  "gold": [
+   [
+    "permit",
+    1
+   ],
+   [
+    "permit",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "She hopes to resume that work in the fall, and she showed me a resume that listed every park she has recorded in.",
+  "gold": [
+   [
+    "resume",
+    1
+   ],
+   [
+    "resume",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "She lives a modest life, and she is content.",
+  "gold": [
+   [
+    "lives",
+    1
+   ],
+   [
+    "content",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "Her refuse goes to a heap behind the barn, and she would refuse any offer to sell the land.",
+  "gold": [
+   [
+    "refuse",
+    1
+   ],
+   [
+    "refuse",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "Every few months she has to separate the good takes from the bad and keep them in a separate folder.",
+  "gold": [
+   [
+    "separate",
+    2
+   ],
+   [
+    "separate",
+    1
+   ]
+  ]
+ },
+ {
+  "text": "She guesses she has two thousand hours of tape, although she admits that this is a rough estimate.",
+  "gold": [
+   [
+    "estimate",
+    1
+   ]
+  ]
+ },
+ {
+  "text": "When I asked whether the work had changed her, she was quiet for a minute.",
+  "gold": [
+   [
+    "minute",
+    1
+   ]
+  ]
+ },
+ {
+  "text": "\"I learned to listen,\" she said.",
+  "gold": [
+   [
+    "learned",
+    1
+   ]
+  ]
+ },
+ {
+  "text": "\"Not like a learned professor.",
+  "gold": [
+   [
+    "learned",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "More like that dove on the roof.",
+  "gold": [
+   [
+    "dove",
+    1
+   ]
+  ]
+ },
+ {
+  "text": "Yesterday a hawk dove at it, and it didn't even flinch.\"",
+  "gold": [
+   [
+    "dove",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "Before I left, she asked me to read her guest book.",
+  "gold": [
+   [
+    "read",
+    1
+   ]
+  ]
+ },
+ {
+  "text": "I read it on the train home, and I have read it twice since.",
+  "gold": [
+   [
+    "read",
+    2
+   ],
+   [
+    "read",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "There is no use pretending I was not moved.",
+  "gold": [
+   [
+    "use",
+    1
+   ]
+  ]
+ },
+ {
+  "text": "I used the quiet carriage to write this, and I will use it again on the way back.",
+  "gold": [
+   [
+    "used",
+    2
+   ],
+   [
+    "use",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "The storms there have changed a lot of lives, but I don't think she would ever desert that place.",
+  "gold": [
+   [
+    "lives",
+    2
+   ],
+   [
+    "desert",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "Her old pipes were made of lead, so this summer she will lead a small crew to replace them.",
+  "gold": [
+   [
+    "lead",
+    2
+   ],
+   [
+    "lead",
+    1
+   ]
+  ]
+ },
+ {
+  "text": "In April she will sow beans, and the old sow next door will try to dig them up.",
+  "gold": [
+   [
+    "sow",
+    1
+   ],
+   [
+    "sow",
+    2
+   ]
+  ]
+ },
+ {
+  "text": "Nobody there seems upset about it.",
+  "gold": [
+   [
+    "upset",
+    2
+   ]
+  ]
+ }
+]
