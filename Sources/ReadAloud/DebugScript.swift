@@ -413,6 +413,11 @@ enum DebugScript {
                 try? capture.run()
             }
         case "settings": app.showSettings()
+        case "settingsend":  // scrolls Settings to the bottom (the Downloads section), for settingsshot
+            func scrollViews(_ v: NSView) -> [NSScrollView] { (v as? NSScrollView).map { [$0] } ?? v.subviews.flatMap(scrollViews) }
+            if let content = app.settings.contentView, let scroll = scrollViews(content).first, let doc = scroll.documentView {
+                doc.scroll(NSPoint(x: 0, y: doc.isFlipped ? doc.bounds.height : 0))
+            }
         case "cleanupdownload": app.dictationController.downloadCleanupModel()  // with --trace, prints when it's done
         case "settingsshot":
             // Forms don't draw into cached bitmaps, so capture the window from the screen.
