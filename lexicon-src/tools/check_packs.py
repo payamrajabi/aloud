@@ -72,7 +72,9 @@ def main():
     errors, warns, notes = [], [], []
 
     # Every file's entries, one per spelling (a later copy in the same file replaces an earlier one).
-    files = sorted(f for f in os.listdir(args.lexicons) if f.endswith(".json"))
+    # Files in Lexicons/ that aren't word lists; the app skips the same ones (LexiconSet.notLexicons).
+    not_lexicons = {"heteronyms.json"}
+    files = sorted(f for f in os.listdir(args.lexicons) if f.endswith(".json") and f not in not_lexicons)
     by_word = defaultdict(list)   # lower-cased word -> entries from every file
     order = {}                    # pack -> load position (later files win in the app)
     for i, name in enumerate(files):
